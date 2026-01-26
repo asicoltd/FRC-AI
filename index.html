@@ -227,6 +227,28 @@
             white-space: nowrap;
             font-weight: bold;
         }
+        
+        .note-number {
+            font-size: 0.8em;
+            color: var(--frc-secondary);
+            background-color: #e8f4fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .note-reference {
+            font-size: 0.75em;
+            color: #666;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        
+        .full-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -534,6 +556,11 @@
                                                     Ratio Analysis
                                                 </button>
                                             </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes">
+                                                    Notes
+                                                </button>
+                                            </li>
                                         </ul>
                                         
                                         <div class="tab-content">
@@ -543,6 +570,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Line Item</th>
+                                                                <th>Note</th>
                                                                 <th>2024</th>
                                                                 <th>2023</th>
                                                                 <th>2022</th>
@@ -562,6 +590,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Line Item</th>
+                                                                <th>Note</th>
                                                                 <th>2024</th>
                                                                 <th>2023</th>
                                                                 <th>2022</th>
@@ -581,6 +610,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Cash Flow Category</th>
+                                                                <th>Note</th>
                                                                 <th>2024</th>
                                                                 <th>2023</th>
                                                                 <th>2022</th>
@@ -634,6 +664,17 @@
                                                                 <!-- Data will be populated here -->
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-pane fade" id="notes">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h6 class="mb-0">Notes to Financial Statements</h6>
+                                                    </div>
+                                                    <div class="card-body" id="notesContent">
+                                                        <!-- Notes will be populated here -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -818,45 +859,59 @@
         let complianceChart = null;
         let riskChart = null;
 
-        // Format number with commas
+        // Format number with commas (FULL NUMBER FORMAT)
         function formatNumber(num) {
             if (num === null || num === undefined || num === '-') return '-';
-            const numStr = num.toString();
-            return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // Remove any existing commas
+            const numStr = num.toString().replace(/,/g, '');
+            
+            // Check if it's a valid number
+            if (!/^-?\d*\.?\d+$/.test(numStr)) return numStr;
+            
+            // Convert to number
+            const numFloat = parseFloat(numStr);
+            if (isNaN(numFloat)) return numStr;
+            
+            // Format with commas for thousands separators
+            return numFloat.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
         }
 
-        // Format currency
+        // Format currency (FULL NUMBERS ONLY - NO B/K/M)
         function formatCurrency(amount) {
             if (amount === null || amount === undefined || amount === '-') return '-';
-            const num = parseFloat(amount);
+            
+            // Remove any existing commas
+            const numStr = amount.toString().replace(/,/g, '');
+            
+            // Check if it's a valid number
+            if (!/^-?\d*\.?\d+$/.test(numStr)) return numStr;
+            
+            // Convert to number
+            const num = parseFloat(numStr);
             if (isNaN(num)) return amount;
             
-            if (Math.abs(num) >= 1000000000) {
-                return 'BDT ' + (num / 1000000000).toFixed(2) + 'B';
-            } else if (Math.abs(num) >= 1000000) {
-                return 'BDT ' + (num / 1000000).toFixed(2) + 'M';
-            } else if (Math.abs(num) >= 1000) {
-                return 'BDT ' + (num / 1000).toFixed(2) + 'K';
-            } else {
-                return 'BDT ' + num.toFixed(2);
-            }
+            // Always show full number with commas
+            return 'BDT ' + formatNumber(num);
         }
 
-        // Format number for display
+        // Format number for display (FULL NUMBER)
         function formatDisplayNumber(num) {
-            if (num === null || num === undefined || num === '-') return '-';
-            const numFloat = parseFloat(num);
-            if (isNaN(numFloat)) return num;
-            
-            if (Math.abs(numFloat) >= 1000000000) {
-                return (numFloat / 1000000000).toFixed(2) + 'B';
-            } else if (Math.abs(numFloat) >= 1000000) {
-                return (numFloat / 1000000).toFixed(2) + 'M';
-            } else if (Math.abs(numFloat) >= 1000) {
-                return (numFloat / 1000).toFixed(2) + 'K';
-            } else {
-                return numFloat.toFixed(2);
+            return formatNumber(num);
+        }
+
+        // Get note reference display
+        function formatNoteReference(note) {
+            if (!note) return '';
+            if (typeof note === 'string') return `<span class="note-number">${note}</span>`;
+            if (typeof note === 'object') {
+                // Handle object format like {"2022": "3.00", "2023": "3.00", "2024": "3.00"}
+                return Object.values(note).join(', ');
             }
+            return note.toString();
         }
 
         // Calculate percentage change
@@ -902,75 +957,73 @@
 
         // Load JSON data
         async function loadData() {
-    try {
-        // Try different approaches
-        
-        // Method 1: Try fetch first (works on server)
-        try {
-            const response = await fetch('company.json');
-            if (response.ok) {
+            try {
+                console.log('Loading company.json...');
+                const response = await fetch('company.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
                 const data = await response.json();
-                frcData = data.frc_analysis_report || data;
-                if (frcData && frcData.companies) {
-                    initializeDashboard();
-                    return;
+                console.log('Data loaded successfully');
+                
+                // Handle different JSON structures
+                if (data.frc_analysis_report) {
+                    frcData = data.frc_analysis_report;
+                } else if (data.companies) {
+                    frcData = data;
+                } else {
+                    frcData = {
+                        metadata: {
+                            report_id: "FRC-ANL-2024-001",
+                            generation_date: new Date().toISOString().split('T')[0],
+                            analyst_framework_version: "2.0"
+                        },
+                        companies: data
+                    };
+                }
+                
+                if (!frcData.companies) {
+                    throw new Error('Invalid data structure: companies not found');
+                }
+                
+                console.log('Companies found:', Object.keys(frcData.companies));
+                initializeDashboard();
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                // Try alternative loading methods for local file system
+                try {
+                    console.log('Trying alternative loading method...');
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'company.json', true);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200 || xhr.status === 0) {
+                                const data = JSON.parse(xhr.responseText);
+                                frcData = data.frc_analysis_report || data;
+                                initializeDashboard();
+                            } else {
+                                createSampleData();
+                            }
+                        }
+                    };
+                    xhr.send();
+                } catch (xhrError) {
+                    console.error('XHR also failed:', xhrError);
+                    createSampleData();
                 }
             }
-        } catch (fetchError) {
-            console.log('Fetch failed, trying other methods...');
         }
-        
-        // Method 2: Check if we're in file:// protocol
-        if (window.location.protocol === 'file:') {
-            console.log('Running in file:// protocol, using alternative loading...');
-            
-            // Try to load via XMLHttpRequest with local file
-            return new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', 'company.json', true);
-                xhr.onload = function() {
-                    if (this.status === 200 || this.status === 0) {
-                        try {
-                            const data = JSON.parse(this.responseText);
-                            frcData = data.frc_analysis_report || data;
-                            if (frcData && frcData.companies) {
-                                initializeDashboard();
-                                resolve();
-                            } else {
-                                reject(new Error('Invalid data structure'));
-                            }
-                        } catch (e) {
-                            reject(e);
-                        }
-                    } else {
-                        reject(new Error('Failed to load'));
-                    }
-                };
-                xhr.onerror = function() {
-                    // Try embedded data
-                    console.log('XHR failed, using embedded sample data');
-                    createSampleData();
-                    resolve();
-                };
-                xhr.send();
-            });
-        }
-        
-    } catch (error) {
-        console.error('Error loading data:', error);
-        // Fallback to sample data
-        createSampleData();
-    }
-}
-
-
 
         // Create sample data for testing
         function createSampleData() {
+            console.log('Creating sample data...');
             frcData = {
                 metadata: {
-                    report_id: "FRC-ANL-2024-001",
-                    generation_date: "2024-12-15",
+                    report_id: "FRC-ANL-2024-SAMPLE",
+                    generation_date: new Date().toISOString().split('T')[0],
                     analyst_framework_version: "2.0"
                 },
                 companies: {
@@ -984,25 +1037,66 @@
                         financial_statements_raw_data: {
                             statement_of_financial_position: [
                                 {
+                                    line_item: "Property, Plant & Equipment",
+                                    current_year_amount: "5947021530",
+                                    prior_year_1_amount: "5947021530",
+                                    prior_year_2_amount: "6126751417",
+                                    notes_reference: "3.00"
+                                },
+                                {
+                                    line_item: "Investments",
+                                    current_year_amount: "236727536",
+                                    prior_year_1_amount: "236727536",
+                                    prior_year_2_amount: "236727536",
+                                    notes_reference: "4.00"
+                                },
+                                {
                                     line_item: "Total Assets",
-                                    current_year_amount: "1000000000",
-                                    prior_year_1_amount: "900000000",
-                                    prior_year_2_amount: "800000000"
+                                    current_year_amount: "6750779608",
+                                    prior_year_1_amount: "6748753187",
+                                    prior_year_2_amount: "7013399398"
                                 }
                             ],
                             statement_of_profit_or_loss_and_oci: [
                                 {
                                     line_item: "Revenue",
-                                    current_year_amount: "500000000",
-                                    prior_year_1_amount: "450000000",
-                                    prior_year_2_amount: "400000000"
+                                    current_year_amount: "3491969249",
+                                    prior_year_1_amount: "3113743215",
+                                    prior_year_2_amount: "2342171667",
+                                    notes_reference: "16.00"
+                                },
+                                {
+                                    line_item: "Net Profit",
+                                    current_year_amount: "6997958",
+                                    prior_year_1_amount: "5801759",
+                                    prior_year_2_amount: "-851192528"
+                                }
+                            ],
+                            statement_of_cash_flows: [
+                                {
+                                    line_item: "Cash flows from operating activities",
+                                    current_year_amount: "2487666801",
+                                    prior_year_1_amount: "2734299740",
+                                    prior_year_2_amount: "1561791655"
                                 }
                             ]
+                        },
+                        phase_5_synthesis_and_findings: {
+                            overall_assessment: {
+                                critical_issues: [
+                                    {
+                                        issue: "Technical insolvency with negative equity",
+                                        priority: "High",
+                                        deadline_for_action: "Immediate"
+                                    }
+                                ]
+                            }
                         }
                     }
                 }
             };
             initializeDashboard();
+            alert('Using sample data. For full functionality, ensure company.json is in the same folder and run a local server.');
         }
 
         // Initialize dashboard
@@ -1014,6 +1108,7 @@
             
             populateCompanyList();
             setupEventListeners();
+            
             // Load first company by default
             const companyIds = Object.keys(frcData.companies);
             if (companyIds.length > 0) {
@@ -1177,6 +1272,7 @@
                 );
                 totalAssetsEl.textContent = 
                     totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
+                totalAssetsEl.className = 'full-number';
             }
             
             // Net Profit
@@ -1191,6 +1287,7 @@
                 );
                 netProfitEl.textContent = 
                     netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
+                netProfitEl.className = 'full-number';
             }
             
             // Current Ratio
@@ -1392,11 +1489,11 @@
                 html += `
                     <tr>
                         <td>${year}</td>
-                        <td>${revenueItem ? formatCurrency(revenueItem[yearKey]) : '-'}</td>
-                        <td>${profitItem ? formatCurrency(profitItem[yearKey]) : '-'}</td>
-                        <td>${assetItem ? formatCurrency(assetItem[yearKey]) : '-'}</td>
-                        <td>${liabilityItem ? formatCurrency(liabilityItem[yearKey]) : '-'}</td>
-                        <td>${equityItem ? formatCurrency(equityItem[yearKey]) : '-'}</td>
+                        <td class="full-number">${revenueItem ? formatCurrency(revenueItem[yearKey]) : '-'}</td>
+                        <td class="full-number">${profitItem ? formatCurrency(profitItem[yearKey]) : '-'}</td>
+                        <td class="full-number">${assetItem ? formatCurrency(assetItem[yearKey]) : '-'}</td>
+                        <td class="full-number">${liabilityItem ? formatCurrency(liabilityItem[yearKey]) : '-'}</td>
+                        <td class="full-number">${equityItem ? formatCurrency(equityItem[yearKey]) : '-'}</td>
                         <td>${currentRatio}</td>
                         <td>${roa}</td>
                     </tr>
@@ -1412,16 +1509,17 @@
             updateIncomeStatement();
             updateCashFlow();
             updateRatios();
+            updateNotes();
         }
 
-        // Update balance sheet table
+        // Update balance sheet table WITH NOTE NUMBERS
         function updateBalanceSheet() {
             const tbody = document.getElementById('balanceSheetBody');
             if (!tbody || !currentCompany) return;
             
             const balanceSheet = currentCompany.financial_statements_raw_data?.statement_of_financial_position;
             if (!balanceSheet) {
-                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No balance sheet data available</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No balance sheet data available</td></tr>';
                 return;
             }
             
@@ -1433,13 +1531,15 @@
                 const prev = parseFloat(item.prior_year_1_amount) || 0;
                 const prev2 = parseFloat(item.prior_year_2_amount) || 0;
                 const change = calculateChange(current, prev);
+                const noteRef = item.notes_reference;
                 
                 html += `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
-                        <td>${formatCurrency(current)}</td>
-                        <td>${formatCurrency(prev)}</td>
-                        <td>${formatCurrency(prev2)}</td>
+                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
+                        <td class="full-number">${formatCurrency(current)}</td>
+                        <td class="full-number">${formatCurrency(prev)}</td>
+                        <td class="full-number">${formatCurrency(prev2)}</td>
                         <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
                             ${change !== null ? change + '%' : '-'}
                         </td>
@@ -1450,14 +1550,14 @@
             tbody.innerHTML = html;
         }
 
-        // Update income statement table
+        // Update income statement table WITH NOTE NUMBERS
         function updateIncomeStatement() {
             const tbody = document.getElementById('incomeStatementBody');
             if (!tbody || !currentCompany) return;
             
             const incomeStatement = currentCompany.financial_statements_raw_data?.statement_of_profit_or_loss_and_oci;
             if (!incomeStatement) {
-                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No income statement data available</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No income statement data available</td></tr>';
                 return;
             }
             
@@ -1469,13 +1569,15 @@
                 const prev = parseFloat(item.prior_year_1_amount) || 0;
                 const prev2 = parseFloat(item.prior_year_2_amount) || 0;
                 const change = calculateChange(current, prev);
+                const noteRef = item.notes_reference;
                 
                 html += `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
-                        <td>${formatCurrency(current)}</td>
-                        <td>${formatCurrency(prev)}</td>
-                        <td>${formatCurrency(prev2)}</td>
+                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
+                        <td class="full-number">${formatCurrency(current)}</td>
+                        <td class="full-number">${formatCurrency(prev)}</td>
+                        <td class="full-number">${formatCurrency(prev2)}</td>
                         <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
                             ${change !== null ? change + '%' : '-'}
                         </td>
@@ -1486,14 +1588,14 @@
             tbody.innerHTML = html;
         }
 
-        // Update cash flow table
+        // Update cash flow table WITH NOTE NUMBERS
         function updateCashFlow() {
             const tbody = document.getElementById('cashFlowBody');
             if (!tbody || !currentCompany) return;
             
             const cashFlow = currentCompany.financial_statements_raw_data?.statement_of_cash_flows;
             if (!cashFlow || cashFlow.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="4" class="text-center">No cash flow data available</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No cash flow data available</td></tr>';
                 return;
             }
             
@@ -1501,12 +1603,15 @@
             cashFlow.forEach(item => {
                 if (!item) return;
                 
+                const noteRef = item.notes_reference;
+                
                 html += `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
-                        <td>${formatCurrency(item.current_year_amount)}</td>
-                        <td>${formatCurrency(item.prior_year_1_amount)}</td>
-                        <td>${formatCurrency(item.prior_year_2_amount)}</td>
+                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
+                        <td class="full-number">${formatCurrency(item.current_year_amount)}</td>
+                        <td class="full-number">${formatCurrency(item.prior_year_1_amount)}</td>
+                        <td class="full-number">${formatCurrency(item.prior_year_2_amount)}</td>
                     </tr>
                 `;
             });
@@ -1630,6 +1735,84 @@
                 }
                 efficiencyContainer.innerHTML = efficiencyHtml;
             }
+        }
+
+        // Update notes content
+        function updateNotes() {
+            const container = document.getElementById('notesContent');
+            if (!container || !currentCompany) return;
+            
+            // Collect all unique note references
+            const noteSet = new Set();
+            const fsData = currentCompany.financial_statements_raw_data;
+            
+            if (fsData) {
+                // Check balance sheet
+                if (fsData.statement_of_financial_position) {
+                    fsData.statement_of_financial_position.forEach(item => {
+                        if (item.notes_reference) {
+                            if (typeof item.notes_reference === 'string') {
+                                noteSet.add(item.notes_reference);
+                            } else if (typeof item.notes_reference === 'object') {
+                                Object.values(item.notes_reference).forEach(note => {
+                                    if (note) noteSet.add(note);
+                                });
+                            }
+                        }
+                    });
+                }
+                
+                // Check income statement
+                if (fsData.statement_of_profit_or_loss_and_oci) {
+                    fsData.statement_of_profit_or_loss_and_oci.forEach(item => {
+                        if (item.notes_reference) {
+                            if (typeof item.notes_reference === 'string') {
+                                noteSet.add(item.notes_reference);
+                            } else if (typeof item.notes_reference === 'object') {
+                                Object.values(item.notes_reference).forEach(note => {
+                                    if (note) noteSet.add(note);
+                                });
+                            }
+                        }
+                    });
+                }
+                
+                // Check cash flow
+                if (fsData.statement_of_cash_flows) {
+                    fsData.statement_of_cash_flows.forEach(item => {
+                        if (item.notes_reference) {
+                            if (typeof item.notes_reference === 'string') {
+                                noteSet.add(item.notes_reference);
+                            } else if (typeof item.notes_reference === 'object') {
+                                Object.values(item.notes_reference).forEach(note => {
+                                    if (note) noteSet.add(note);
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Convert to array and sort
+            const notes = Array.from(noteSet).sort();
+            
+            if (notes.length === 0) {
+                container.innerHTML = '<p class="text-muted">No note references found in financial statements.</p>';
+                return;
+            }
+            
+            let html = '<div class="row">';
+            notes.forEach(note => {
+                html += `
+                    <div class="col-md-3 col-sm-4 col-6 mb-2">
+                        <span class="note-number">${note}</span>
+                        <small class="text-muted">Note reference</small>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
         }
 
         // Update compliance tab
@@ -2018,7 +2201,6 @@
 
         // Apply filters
         function applyFilters() {
-            // This would filter the displayed data based on selected criteria
             alert('Filter functionality would be implemented here.');
         }
 
@@ -2100,7 +2282,7 @@
                 };
                 addPageNumber();
                 
-                // EXECUTIVE SUMMARY (Page 1)
+                // EXECUTIVE SUMMARY
                 doc.addPage();
                 doc.setFontSize(14);
                 doc.text('1. EXECUTIVE SUMMARY', 20, 20);
@@ -2121,22 +2303,6 @@
                 yPos += 7;
                 doc.text(`Transparency Rating: ${overallAssessment?.transparency_rating || 'N/A'}`, 20, yPos);
                 yPos += 10;
-                
-                // Key Strengths
-                if (overallAssessment?.key_strengths && overallAssessment.key_strengths.length > 0) {
-                    doc.text('Key Strengths:', 20, yPos);
-                    yPos += 7;
-                    overallAssessment.key_strengths.forEach(strength => {
-                        doc.text(`• ${strength}`, 25, yPos);
-                        yPos += 5;
-                        if (yPos > 270) {
-                            doc.addPage();
-                            yPos = 20;
-                            addPageNumber();
-                        }
-                    });
-                    yPos += 5;
-                }
                 
                 // Critical Issues
                 if (overallAssessment?.critical_issues && overallAssessment.critical_issues.length > 0) {
@@ -2165,7 +2331,7 @@
                 
                 addPageNumber();
                 
-                // FINANCIAL ANALYSIS (Page 2)
+                // FINANCIAL ANALYSIS
                 doc.addPage();
                 doc.setFontSize(14);
                 doc.text('2. FINANCIAL ANALYSIS', 20, 20);
@@ -2175,7 +2341,7 @@
                 if (fsData) {
                     yPos = 30;
                     doc.setFontSize(10);
-                    doc.text('Financial Highlights (BDT in Millions):', 20, yPos);
+                    doc.text('Financial Highlights (Full Numbers):', 20, yPos);
                     yPos += 10;
                     
                     // Create table data
@@ -2188,11 +2354,11 @@
                         item && item.line_item && item.line_item.toLowerCase().includes('revenue')
                     );
                     if (revenueItem) {
-                        const rev2024 = parseFloat(revenueItem.current_year_amount || 0) / 1000000;
-                        const rev2023 = parseFloat(revenueItem.prior_year_1_amount || 0) / 1000000;
-                        const rev2022 = parseFloat(revenueItem.prior_year_2_amount || 0) / 1000000;
+                        const rev2024 = revenueItem.current_year_amount || '0';
+                        const rev2023 = revenueItem.prior_year_1_amount || '0';
+                        const rev2022 = revenueItem.prior_year_2_amount || '0';
                         const change = calculateChange(rev2024, rev2023);
-                        tableData.push(['Revenue', rev2024.toFixed(2), rev2023.toFixed(2), rev2022.toFixed(2), change ? change + '%' : 'N/A']);
+                        tableData.push(['Revenue', formatNumber(rev2024), formatNumber(rev2023), formatNumber(rev2022), change ? change + '%' : 'N/A']);
                     }
                     
                     // Net Profit
@@ -2203,11 +2369,11 @@
                         )
                     );
                     if (profitItem) {
-                        const profit2024 = parseFloat(profitItem.current_year_amount || 0) / 1000000;
-                        const profit2023 = parseFloat(profitItem.prior_year_1_amount || 0) / 1000000;
-                        const profit2022 = parseFloat(profitItem.prior_year_2_amount || 0) / 1000000;
+                        const profit2024 = profitItem.current_year_amount || '0';
+                        const profit2023 = profitItem.prior_year_1_amount || '0';
+                        const profit2022 = profitItem.prior_year_2_amount || '0';
                         const change = calculateChange(profit2024, profit2023);
-                        tableData.push(['Net Profit', profit2024.toFixed(2), profit2023.toFixed(2), profit2022.toFixed(2), change ? change + '%' : 'N/A']);
+                        tableData.push(['Net Profit', formatNumber(profit2024), formatNumber(profit2023), formatNumber(profit2022), change ? change + '%' : 'N/A']);
                     }
                     
                     // Total Assets
@@ -2215,11 +2381,11 @@
                         item && item.line_item && item.line_item.toLowerCase().includes('total assets')
                     );
                     if (assetItem) {
-                        const asset2024 = parseFloat(assetItem.current_year_amount || 0) / 1000000;
-                        const asset2023 = parseFloat(assetItem.prior_year_1_amount || 0) / 1000000;
-                        const asset2022 = parseFloat(assetItem.prior_year_2_amount || 0) / 1000000;
+                        const asset2024 = assetItem.current_year_amount || '0';
+                        const asset2023 = assetItem.prior_year_1_amount || '0';
+                        const asset2022 = assetItem.prior_year_2_amount || '0';
                         const change = calculateChange(asset2024, asset2023);
-                        tableData.push(['Total Assets', asset2024.toFixed(2), asset2023.toFixed(2), asset2022.toFixed(2), change ? change + '%' : 'N/A']);
+                        tableData.push(['Total Assets', formatNumber(asset2024), formatNumber(asset2023), formatNumber(asset2022), change ? change + '%' : 'N/A']);
                     }
                     
                     // Add table to PDF
@@ -2235,101 +2401,15 @@
                 
                 addPageNumber();
                 
-                // RATIO ANALYSIS (Page 3)
+                // IFRS COMPLIANCE
                 doc.addPage();
                 doc.setFontSize(14);
-                doc.text('3. FINANCIAL RATIO ANALYSIS', 20, 20);
-                
-                const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-                if (ratioData) {
-                    yPos = 30;
-                    doc.setFontSize(10);
-                    
-                    // Liquidity Ratios
-                    doc.text('Liquidity Ratios:', 20, yPos);
-                    yPos += 7;
-                    
-                    if (ratioData.liquidity_ratios?.current_ratio) {
-                        const cr = ratioData.liquidity_ratios.current_ratio;
-                        doc.text(`Current Ratio: ${cr.calculation?.current_year?.ratio || 'N/A'} (Benchmark: ${cr.industry_benchmark || 'N/A'})`, 25, yPos);
-                        yPos += 5;
-                    }
-                    
-                    if (ratioData.liquidity_ratios?.quick_ratio) {
-                        const qr = ratioData.liquidity_ratios.quick_ratio;
-                        doc.text(`Quick Ratio: ${qr.calculation?.current_year?.ratio || 'N/A'} (Benchmark: ${qr.industry_benchmark || 'N/A'})`, 25, yPos);
-                        yPos += 7;
-                    }
-                    
-                    // Profitability Ratios
-                    doc.text('Profitability Ratios:', 20, yPos);
-                    yPos += 7;
-                    
-                    if (ratioData.profitability_ratios?.gross_profit_margin) {
-                        const gpm = ratioData.profitability_ratios.gross_profit_margin;
-                        doc.text(`Gross Margin: ${gpm.calculation?.current_year?.percentage || 'N/A'}% (Industry: ${gpm.industry_benchmark || 'N/A'})`, 25, yPos);
-                        yPos += 5;
-                    }
-                    
-                    if (ratioData.profitability_ratios?.return_on_assets) {
-                        const roa = ratioData.profitability_ratios.return_on_assets;
-                        doc.text(`Return on Assets: ${roa.calculation?.current_year?.percentage || 'N/A'}%`, 25, yPos);
-                        yPos += 5;
-                    }
-                    
-                    if (ratioData.profitability_ratios?.return_on_equity) {
-                        const roe = ratioData.profitability_ratios.return_on_equity;
-                        doc.text(`Return on Equity: ${roe.calculation?.current_year?.percentage || 'N/A'}%`, 25, yPos);
-                        yPos += 7;
-                    }
-                    
-                    // Solvency Ratios
-                    doc.text('Solvency Ratios:', 20, yPos);
-                    yPos += 7;
-                    
-                    if (ratioData.solvency_ratios?.debt_to_equity) {
-                        const dte = ratioData.solvency_ratios.debt_to_equity;
-                        doc.text(`Debt to Equity: ${dte.calculation?.current_year?.ratio || 'N/A'} (Trend: ${dte.trend_analysis || 'N/A'})`, 25, yPos);
-                        yPos += 5;
-                    }
-                    
-                    if (ratioData.solvency_ratios?.interest_coverage) {
-                        const icr = ratioData.solvency_ratios.interest_coverage;
-                        doc.text(`Interest Coverage: ${icr.calculation?.current_year?.ratio || 'N/A'} (Min Required: ${icr.minimum_requirement || 'N/A'})`, 25, yPos);
-                        yPos += 7;
-                    }
-                }
-                
-                addPageNumber();
-                
-                // IFRS COMPLIANCE (Page 4)
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('4. IFRS COMPLIANCE ASSESSMENT', 20, 20);
+                doc.text('3. IFRS COMPLIANCE ASSESSMENT', 20, 20);
                 
                 const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
                 if (complianceMatrix && complianceMatrix.length > 0) {
                     yPos = 30;
                     doc.setFontSize(10);
-                    
-                    // Summary statistics
-                    let compliant = 0, partial = 0, nonCompliant = 0;
-                    complianceMatrix.forEach(item => {
-                        if (!item || !item.compliance_status) return;
-                        const status = item.compliance_status.toLowerCase();
-                        if (status.includes('non')) nonCompliant++;
-                        else if (status.includes('partial')) partial++;
-                        else compliant++;
-                    });
-                    
-                    doc.text(`Compliance Status Summary:`, 20, yPos);
-                    yPos += 7;
-                    doc.text(`• Compliant: ${compliant} standards`, 25, yPos);
-                    yPos += 5;
-                    doc.text(`• Partially Compliant: ${partial} standards`, 25, yPos);
-                    yPos += 5;
-                    doc.text(`• Non-Compliant: ${nonCompliant} standards`, 25, yPos);
-                    yPos += 10;
                     
                     // Material Departures
                     const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
@@ -2346,9 +2426,7 @@
                             
                             doc.text(`${index + 1}. ${departure.issue_description || 'Unknown'}`, 25, yPos);
                             yPos += 5;
-                            doc.text(`   Standard: ${departure.relevant_standard || 'N/A'} | Impact: ${formatCurrency(departure.financial_impact) || 'N/A'}`, 30, yPos);
-                            yPos += 5;
-                            doc.text(`   Action Required: ${departure.recommended_action || 'N/A'}`, 30, yPos);
+                            doc.text(`   Standard: ${departure.relevant_standard || 'N/A'}`, 30, yPos);
                             yPos += 7;
                             
                             if (yPos > 270) {
@@ -2362,129 +2440,7 @@
                 
                 addPageNumber();
                 
-                // AUDIT & GOVERNANCE (Page 5)
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('5. AUDIT & GOVERNANCE ASSESSMENT', 20, 20);
-                
-                const auditData = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis;
-                if (auditData) {
-                    yPos = 30;
-                    doc.setFontSize(10);
-                    
-                    doc.text(`Auditor: ${auditData.auditor_information?.firm_name || 'N/A'}`, 20, yPos);
-                    yPos += 7;
-                    doc.text(`Audit Opinion: ${auditData.audit_opinion?.opinion_type || 'N/A'}`, 20, yPos);
-                    yPos += 7;
-                    doc.text(`Audit Tenure: ${auditData.auditor_information?.audit_tenure_years || 'N/A'} years`, 20, yPos);
-                    yPos += 10;
-                    
-                    // Key Audit Matters
-                    const kam = auditData.key_audit_matters;
-                    if (kam && kam.length > 0) {
-                        doc.setFont(undefined, 'bold');
-                        doc.text('KEY AUDIT MATTERS:', 20, yPos);
-                        doc.setFont(undefined, 'normal');
-                        yPos += 7;
-                        
-                        kam.forEach((matter, index) => {
-                            if (!matter) return;
-                            
-                            doc.text(`${index + 1}. ${matter.matter || 'Unknown'}`, 25, yPos);
-                            yPos += 5;
-                            doc.text(`   FRC Risk Assessment: ${matter.frc_risk_assessment || 'N/A'}`, 30, yPos);
-                            yPos += 7;
-                            
-                            if (yPos > 270) {
-                                doc.addPage();
-                                yPos = 20;
-                                addPageNumber();
-                            }
-                        });
-                    }
-                    
-                    // Going Concern
-                    const goingConcern = auditData.going_concern_assessment;
-                    if (goingConcern?.material_uncertainty_disclosed) {
-                        yPos += 5;
-                        doc.setFont(undefined, 'bold');
-                        doc.setTextColor(200, 0, 0);
-                        doc.text('GOING CONCERN UNCERTAINTY:', 20, yPos);
-                        doc.setTextColor(0, 0, 0);
-                        doc.setFont(undefined, 'normal');
-                        yPos += 7;
-                        doc.text(goingConcern.frc_assessment || goingConcern.auditor_conclusion || 'Material uncertainty exists', 25, yPos);
-                    }
-                }
-                
-                addPageNumber();
-                
-                // RISK ANALYSIS (Page 6)
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('6. RISK ANALYSIS & ENFORCEMENT RECOMMENDATIONS', 20, 20);
-                
-                const riskData = currentCompany.phase_5_synthesis_and_findings?.risk_factor_consolidation;
-                if (riskData) {
-                    yPos = 30;
-                    doc.setFontSize(10);
-                    
-                    // High Risk Factors
-                    if (riskData.high_risk_factors && riskData.high_risk_factors.length > 0) {
-                        doc.setFont(undefined, 'bold');
-                        doc.setTextColor(200, 0, 0);
-                        doc.text('HIGH RISK FACTORS:', 20, yPos);
-                        doc.setTextColor(0, 0, 0);
-                        doc.setFont(undefined, 'normal');
-                        yPos += 7;
-                        
-                        riskData.high_risk_factors.forEach((factor, index) => {
-                            if (!factor) return;
-                            
-                            doc.text(`${index + 1}. ${factor.risk_category || 'Unknown'}`, 25, yPos);
-                            yPos += 5;
-                            doc.text(`   ${factor.risk_description || 'No description'}`, 30, yPos);
-                            yPos += 7;
-                            
-                            if (yPos > 270) {
-                                doc.addPage();
-                                yPos = 20;
-                                addPageNumber();
-                            }
-                        });
-                    }
-                }
-                
-                // FRC Recommendations
-                const overallAssess = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
-                if (overallAssess?.frc_recommendations && overallAssess.frc_recommendations.length > 0) {
-                    yPos += 10;
-                    doc.setFont(undefined, 'bold');
-                    doc.setTextColor(0, 100, 0);
-                    doc.text('FRC RECOMMENDATIONS:', 20, yPos);
-                    doc.setTextColor(0, 0, 0);
-                    doc.setFont(undefined, 'normal');
-                    yPos += 7;
-                    
-                    overallAssess.frc_recommendations.forEach((rec, index) => {
-                        if (!rec) return;
-                        
-                        doc.text(`${index + 1}. ${rec.recommendation || 'Unknown'}`, 25, yPos);
-                        yPos += 5;
-                        doc.text(`   Addressed to: ${rec.addressed_to || 'N/A'} | Timeline: ${rec.timeline || 'N/A'}`, 30, yPos);
-                        yPos += 7;
-                        
-                        if (yPos > 270) {
-                            doc.addPage();
-                            yPos = 20;
-                            addPageNumber();
-                        }
-                    });
-                }
-                
-                addPageNumber();
-                
-                // FINAL PAGE - CONFIDENTIALITY NOTICE
+                // FINAL PAGE
                 doc.addPage();
                 doc.setFontSize(16);
                 doc.setTextColor(40, 40, 40);
