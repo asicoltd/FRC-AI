@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC Financial Statement Analysis Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --frc-primary: #2c3e50;
+            --frc-secondary: #3498db;
+            --frc-success: #27ae60;
+            --frc-warning: #f39c12;
+            --frc-danger: #e74c3c;
+            --frc-info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--frc-primary) 0%, #34495e 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background-color: white;
+            min-height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .sidebar .nav-link {
+            color: var(--frc-primary);
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: var(--frc-secondary);
+            color: white;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--frc-primary) 0%, #34495e 100%);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px 20px;
+        }
+        
+        .company-card {
+            border-left: 5px solid var(--frc-secondary);
+        }
+        
+        .risk-high {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--frc-danger);
+        }
+        
+        .risk-moderate {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--frc-warning);
+        }
+        
+        .risk-low {
+            background-color: rgba(39, 174, 96, 0.1);
+            border-left: 4px solid var(--frc-success);
+        }
+        
+        .ratio-badge {
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        
+        .financial-table {
+            font-size: 0.9em;
+        }
+        
+        .financial-table th {
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+        
+        .compliance-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .compliance-compliant {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .compliance-partial {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .compliance-non-compliant {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .tab-content {
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+        
+        .search-box {
+            max-width: 300px;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                min-height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                padding: 10px;
+            }
+        }
+        
+        .company-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--frc-secondary) 0%, #2980b9 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-critical {
+            background-color: var(--frc-danger);
+            animation: pulse 2s infinite;
+        }
+        
+        .status-warning {
+            background-color: var(--frc-warning);
+        }
+        
+        .status-ok {
+            background-color: var(--frc-success);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .export-btn {
+            background: linear-gradient(135deg, var(--frc-success) 0%, #229954 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-bar-chart-fill me-2"></i>
+                FRC Analysis Dashboard
+            </a>
+            <div class="d-flex">
+                <div class="input-group search-box">
+                    <input type="text" class="form-control" placeholder="Search companies..." id="searchInput">
+                    <button class="btn btn-outline-light" type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                <button class="btn btn-outline-light ms-2" id="exportBtn">
+                    <i class="bi bi-download me-1"></i> Export
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 sidebar d-none d-md-block">
+                <div class="p-3">
+                    <h5 class="mb-4">Companies</h5>
+                    <div class="list-group" id="companyList">
+                        <!-- Company list will be populated here -->
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <h6 class="mb-3">Analysis Filters</h6>
+                    <div class="mb-3">
+                        <label class="form-label small">Year Filter</label>
+                        <select class="form-select form-select-sm" id="yearFilter">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label small">Risk Level</label>
+                        <select class="form-select form-select-sm" id="riskFilter">
+                            <option value="all">All Risks</option>
+                            <option value="high">High Risk Only</option>
+                            <option value="moderate">Moderate Risk</option>
+                            <option value="low">Low Risk</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label small">Compliance Status</label>
+                        <select class="form-select form-select-sm" id="complianceFilter">
+                            <option value="all">All Status</option>
+                            <option value="compliant">Compliant</option>
+                            <option value="partial">Partially Compliant</option>
+                            <option value="non-compliant">Non-Compliant</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-sm btn-outline-primary w-100 mb-2" id="applyFilters">
+                        <i class="bi bi-funnel me-1"></i> Apply Filters
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary w-100" id="resetFilters">
+                        <i class="bi bi-arrow-clockwise me-1"></i> Reset
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Sidebar Toggle -->
+            <div class="d-md-none mb-3">
+                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSidebar">
+                    <i class="bi bi-list me-2"></i> Show Companies & Filters
+                </button>
+                <div class="collapse mt-2" id="mobileSidebar">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="mobileCompanyList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 main-content">
+                <!-- Dashboard Header -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 id="companyName">Select a Company</h3>
+                                        <p class="text-muted mb-0" id="companyDescription">Click on a company from the sidebar to view detailed analysis</p>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="status-indicator status-ok"></span>
+                                            <span class="small" id="complianceStatus">-</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <span class="status-indicator status-ok"></span>
+                                            <span class="small" id="auditStatus">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row mb-4" id="quickStats" style="display: none;">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-2">Total Assets</h6>
+                                        <h4 id="totalAssets">-</h4>
+                                    </div>
+                                    <div class="company-logo">
+                                        <i class="bi bi-building"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-2">Net Profit</h6>
+                                        <h4 id="netProfit">-</h4>
+                                    </div>
+                                    <div class="company-logo" style="background: linear-gradient(135deg, var(--frc-success) 0%, #27ae60 100%);">
+                                        <i class="bi bi-graph-up"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-2">Current Ratio</h6>
+                                        <h4 id="currentRatio">-</h4>
+                                    </div>
+                                    <div class="company-logo" style="background: linear-gradient(135deg, var(--frc-info) 0%, #2980b9 100%);">
+                                        <i class="bi bi-cash-stack"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-2">Risk Level</h6>
+                                        <h4 id="riskLevel">-</h4>
+                                    </div>
+                                    <div class="company-logo" style="background: linear-gradient(135deg, var(--frc-warning) 0%, #d68910 100%);">
+                                        <i class="bi bi-exclamation-triangle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Tabs -->
+                <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button">
+                            <i class="bi bi-house-door me-1"></i> Overview
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="financials-tab" data-bs-toggle="tab" data-bs-target="#financials" type="button">
+                            <i class="bi bi-cash-coin me-1"></i> Financial Analysis
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="compliance-tab" data-bs-toggle="tab" data-bs-target="#compliance" type="button">
+                            <i class="bi bi-clipboard-check me-1"></i> IFRS Compliance
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="audit-tab" data-bs-toggle="tab" data-bs-target="#audit" type="button">
+                            <i class="bi bi-file-earmark-text me-1"></i> Audit & Governance
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="risks-tab" data-bs-toggle="tab" data-bs-target="#risks" type="button">
+                            <i class="bi bi-exclamation-triangle me-1"></i> Risk Analysis
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="comparative-tab" data-bs-toggle="tab" data-bs-target="#comparative" type="button">
+                            <i class="bi bi-bar-chart me-1"></i> Comparative
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="mainTabContent">
+                    <!-- Overview Tab -->
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Financial Performance Trend</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="performanceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Key Findings</h5>
+                                    </div>
+                                    <div class="card-body" id="keyFindings">
+                                        <!-- Key findings will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Financial Statement Summary</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover financial-table" id="financialSummaryTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Year</th>
+                                                        <th>Revenue</th>
+                                                        <th>Net Profit</th>
+                                                        <th>Total Assets</th>
+                                                        <th>Total Liabilities</th>
+                                                        <th>Equity</th>
+                                                        <th>Current Ratio</th>
+                                                        <th>ROA</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="financialSummaryBody">
+                                                    <!-- Data will be populated here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Analysis Tab -->
+                    <div class="tab-pane fade" id="financials" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Financial Statements</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-tabs mb-3" id="financialTabs" role="tablist">
+                                            <li class="nav-item">
+                                                <button class="nav-link active" id="balance-sheet-tab" data-bs-toggle="tab" data-bs-target="#balance-sheet">
+                                                    Balance Sheet
+                                                </button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link" id="income-statement-tab" data-bs-toggle="tab" data-bs-target="#income-statement">
+                                                    Income Statement
+                                                </button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link" id="cashflow-tab" data-bs-toggle="tab" data-bs-target="#cashflow">
+                                                    Cash Flow
+                                                </button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link" id="ratios-tab" data-bs-toggle="tab" data-bs-target="#ratios">
+                                                    Ratio Analysis
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="balance-sheet">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover financial-table" id="balanceSheetTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Line Item</th>
+                                                                <th>2024</th>
+                                                                <th>2023</th>
+                                                                <th>2022</th>
+                                                                <th>Change (2023-2024)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="balanceSheetBody">
+                                                            <!-- Data will be populated here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-pane fade" id="income-statement">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover financial-table" id="incomeStatementTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Line Item</th>
+                                                                <th>2024</th>
+                                                                <th>2023</th>
+                                                                <th>2022</th>
+                                                                <th>Change (2023-2024)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="incomeStatementBody">
+                                                            <!-- Data will be populated here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-pane fade" id="cashflow">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover financial-table" id="cashFlowTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Cash Flow Category</th>
+                                                                <th>2024</th>
+                                                                <th>2023</th>
+                                                                <th>2022</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="cashFlowBody">
+                                                            <!-- Data will be populated here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-pane fade" id="ratios">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="card mb-3">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0">Liquidity Ratios</h6>
+                                                            </div>
+                                                            <div class="card-body" id="liquidityRatios">
+                                                                <!-- Data will be populated here -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="card mb-3">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0">Profitability Ratios</h6>
+                                                            </div>
+                                                            <div class="card-body" id="profitabilityRatios">
+                                                                <!-- Data will be populated here -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="card mb-3">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0">Solvency Ratios</h6>
+                                                            </div>
+                                                            <div class="card-body" id="solvencyRatios">
+                                                                <!-- Data will be populated here -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="card mb-3">
+                                                            <div class="card-header">
+                                                                <h6 class="mb-0">Efficiency Ratios</h6>
+                                                            </div>
+                                                            <div class="card-body" id="efficiencyRatios">
+                                                                <!-- Data will be populated here -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compliance Tab -->
+                    <div class="tab-pane fade" id="compliance" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">IFRS Compliance Matrix</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="complianceTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Standard</th>
+                                                        <th>Compliance Status</th>
+                                                        <th>Requirements Checked</th>
+                                                        <th>Issues Identified</th>
+                                                        <th>Risk Level</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="complianceBody">
+                                                    <!-- Data will be populated here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Compliance Summary</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="complianceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Material Departures</h5>
+                                    </div>
+                                    <div class="card-body" id="materialDepartures">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audit & Governance Tab -->
+                    <div class="tab-pane fade" id="audit" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Audit Report Analysis</h5>
+                                    </div>
+                                    <div class="card-body" id="auditAnalysis">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Corporate Governance</h5>
+                                    </div>
+                                    <div class="card-body" id="governanceAnalysis">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Key Audit Matters</h5>
+                                    </div>
+                                    <div class="card-body" id="keyAuditMatters">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Analysis Tab -->
+                    <div class="tab-pane fade" id="risks" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Risk Assessment Dashboard</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="riskChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Risk Indicators</h5>
+                                    </div>
+                                    <div class="card-body" id="riskIndicators">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Going Concern Assessment</h5>
+                                    </div>
+                                    <div class="card-body" id="goingConcern">
+                                        <!-- Data will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparative Analysis Tab -->
+                    <div class="tab-pane fade" id="comparative" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Company Comparison</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-4">
+                                            <div class="col-md-4">
+                                                <select class="form-select" id="company1Select">
+                                                    <option value="">Select Company 1</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="form-select" id="company2Select">
+                                                    <option value="">Select Company 2</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn btn-primary w-100" id="compareBtn">
+                                                    <i class="bi bi-arrow-left-right me-1"></i> Compare
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="chart-container">
+                                            <canvas id="comparisonChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Detailed View -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalTitle">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detailModalBody">
+                    <!-- Detailed content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // Global variables
+        let frcData = null;
+        let currentCompany = null;
+        let performanceChart = null;
+        let complianceChart = null;
+        let riskChart = null;
+        let comparisonChart = null;
+
+        // Format number with commas
+        function formatNumber(num) {
+            if (num === null || num === undefined || num === '-') return '-';
+            const numStr = num.toString();
+            return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Format currency
+        function formatCurrency(amount) {
+            if (amount === null || amount === undefined || amount === '-') return '-';
+            const num = parseFloat(amount);
+            if (isNaN(num)) return amount;
+            
+            if (Math.abs(num) >= 1000000000) {
+                return 'BDT ' + (num / 1000000000).toFixed(2) + 'B';
+            } else if (Math.abs(num) >= 1000000) {
+                return 'BDT ' + (num / 1000000).toFixed(2) + 'M';
+            } else if (Math.abs(num) >= 1000) {
+                return 'BDT ' + (num / 1000).toFixed(2) + 'K';
+            } else {
+                return 'BDT ' + num.toFixed(2);
+            }
+        }
+
+        // Calculate percentage change
+        function calculateChange(current, previous) {
+            if (!current || !previous || previous == 0) return null;
+            const change = ((parseFloat(current) - parseFloat(previous)) / Math.abs(parseFloat(previous))) * 100;
+            return change.toFixed(1);
+        }
+
+        // Get risk level class
+        function getRiskClass(risk) {
+            switch(risk.toLowerCase()) {
+                case 'high':
+                case 'critical':
+                    return 'risk-high';
+                case 'moderate':
+                case 'medium':
+                    return 'risk-moderate';
+                case 'low':
+                    return 'risk-low';
+                default:
+                    return '';
+            }
+        }
+
+        // Load JSON data
+        async function loadData() {
+            try {
+                // Replace this with your actual JSON file path
+                const response = await fetch('company.json');
+                console.log(response);
+                frcData = await response.json();
+                initializeDashboard();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Error loading data. Please check the console for details.');
+            }
+        }
+
+        // Initialize dashboard
+        function initializeDashboard() {
+            populateCompanyList();
+            setupEventListeners();
+            // Load first company by default
+            if (Object.keys(frcData.companies).length > 0) {
+                const firstCompanyId = Object.keys(frcData.companies)[0];
+                loadCompany(firstCompanyId);
+            }
+        }
+
+        // Populate company list in sidebar
+        function populateCompanyList() {
+            const companyList = document.getElementById('companyList');
+            const mobileCompanyList = document.getElementById('mobileCompanyList');
+            const company1Select = document.getElementById('company1Select');
+            const company2Select = document.getElementById('company2Select');
+            
+            companyList.innerHTML = '';
+            mobileCompanyList.innerHTML = '';
+            company1Select.innerHTML = '<option value="">Select Company 1</option>';
+            company2Select.innerHTML = '<option value="">Select Company 2</option>';
+            
+            Object.keys(frcData.companies).forEach(companyId => {
+                const company = frcData.companies[companyId];
+                const listItem = `
+                    <a href="#" class="list-group-item list-group-item-action" 
+                       data-company-id="${companyId}">
+                        <div class="d-flex align-items-center">
+                            <div class="company-logo">
+                                ${company.company_info.legal_name.charAt(0)}
+                            </div>
+                            <div>
+                                <h6 class="mb-0">${company.company_info.legal_name}</h6>
+                                <small class="text-muted">${company.company_info.industry_sector}</small>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                
+                companyList.innerHTML += listItem;
+                mobileCompanyList.innerHTML += listItem;
+                
+                // Add to comparison dropdowns
+                const option = `<option value="${companyId}">${company.company_info.legal_name}</option>`;
+                company1Select.innerHTML += option;
+                company2Select.innerHTML += option;
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Company selection
+            document.addEventListener('click', function(e) {
+                const companyLink = e.target.closest('[data-company-id]');
+                if (companyLink) {
+                    e.preventDefault();
+                    const companyId = companyLink.getAttribute('data-company-id');
+                    loadCompany(companyId);
+                    
+                    // Close mobile sidebar on selection
+                    const mobileSidebar = document.getElementById('mobileSidebar');
+                    if (mobileSidebar.classList.contains('show')) {
+                        new bootstrap.Collapse(mobileSidebar).hide();
+                    }
+                }
+            });
+
+            // Filter application
+            document.getElementById('applyFilters').addEventListener('click', applyFilters);
+            document.getElementById('resetFilters').addEventListener('click', resetFilters);
+            
+            // Export button
+            document.getElementById('exportBtn').addEventListener('click', exportData);
+            
+            // Comparison
+            document.getElementById('compareBtn').addEventListener('click', compareCompanies);
+            
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                searchCompanies(e.target.value);
+            });
+        }
+
+        // Load company data
+        function loadCompany(companyId) {
+            currentCompany = frcData.companies[companyId];
+            if (!currentCompany) return;
+            
+            updateCompanyHeader();
+            updateQuickStats();
+            updateOverviewTab();
+            updateFinancialsTab();
+            updateComplianceTab();
+            updateAuditTab();
+            updateRisksTab();
+            
+            // Show quick stats
+            document.getElementById('quickStats').style.display = 'flex';
+        }
+
+        // Update company header
+        function updateCompanyHeader() {
+            document.getElementById('companyName').textContent = currentCompany.company_info.legal_name;
+            document.getElementById('companyDescription').textContent = 
+                `${currentCompany.company_info.industry_sector} - FYE: ${currentCompany.company_info.financial_year_end}`;
+            
+            // Update compliance status
+            const compliance = currentCompany.phase_1_foundational_checks?.reporting_framework?.compliance_assessment || 'Not Assessed';
+            document.getElementById('complianceStatus').textContent = `Compliance: ${compliance}`;
+            
+            // Update audit status
+            const auditOpinion = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available';
+            document.getElementById('auditStatus').textContent = `Audit: ${auditOpinion}`;
+        }
+
+        // Update quick stats
+        function updateQuickStats() {
+            const fsData = currentCompany.financial_statements_raw_data;
+            
+            // Total Assets (get latest year)
+            const balanceSheet = fsData.statement_of_financial_position;
+            const totalAssetItem = balanceSheet.find(item => 
+                item.line_item.toLowerCase().includes('total assets') || 
+                item.line_item.toLowerCase().includes('total assets')
+            );
+            document.getElementById('totalAssets').textContent = 
+                totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
+            
+            // Net Profit
+            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
+            const netProfitItem = incomeStatement.find(item => 
+                item.line_item.toLowerCase().includes('profit') || 
+                item.line_item.toLowerCase().includes('net income')
+            );
+            document.getElementById('netProfit').textContent = 
+                netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
+            
+            // Current Ratio
+            const ratioAnalysis = currentCompany.phase_2_financial_analysis?.ratio_analysis;
+            const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio;
+            document.getElementById('currentRatio').textContent = currentRatio || '-';
+            
+            // Risk Level
+            const overallAssessment = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
+            const criticalIssues = overallAssessment?.critical_issues || [];
+            const riskLevel = criticalIssues.length > 0 ? 'High' : 'Low';
+            document.getElementById('riskLevel').textContent = riskLevel;
+        }
+
+        // Update overview tab
+        function updateOverviewTab() {
+            updatePerformanceChart();
+            updateKeyFindings();
+            updateFinancialSummary();
+        }
+
+        // Update performance chart
+        function updatePerformanceChart() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            
+            if (performanceChart) {
+                performanceChart.destroy();
+            }
+            
+            const fsData = currentCompany.financial_statements_raw_data;
+            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
+            
+            // Extract revenue and profit data
+            const revenueData = [];
+            const profitData = [];
+            const years = ['2022', '2023', '2024'];
+            
+            years.forEach(year => {
+                const revItem = incomeStatement.find(item => 
+                    item.line_item.toLowerCase().includes('revenue')
+                );
+                const profitItem = incomeStatement.find(item => 
+                    item.line_item.toLowerCase().includes('profit') ||
+                    item.line_item.toLowerCase().includes('net income')
+                );
+                
+                const revKey = `${year.toLowerCase()}_amount`;
+                const profitKey = `${year.toLowerCase()}_amount`;
+                
+                revenueData.push(revItem ? parseFloat(revItem[revKey] || 0) : 0);
+                profitData.push(profitItem ? parseFloat(profitItem[profitKey] || 0) : 0);
+            });
+            
+            performanceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: revenueData,
+                            borderColor: 'rgb(54, 162, 235)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Net Profit',
+                            data: profitData,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += formatCurrency(context.parsed.y);
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update key findings
+        function updateKeyFindings() {
+            const container = document.getElementById('keyFindings');
+            const findings = currentCompany.phase_5_synthesis_and_findings?.overall_assessment?.critical_issues || [];
+            
+            if (findings.length === 0) {
+                container.innerHTML = '<div class="alert alert-success">No critical issues identified.</div>';
+                return;
+            }
+            
+            let html = '';
+            findings.forEach((finding, index) => {
+                const riskClass = getRiskClass(finding.priority);
+                html += `
+                    <div class="alert ${riskClass} d-flex align-items-start mb-2">
+                        <i class="bi bi-exclamation-triangle-fill me-2 mt-1"></i>
+                        <div>
+                            <strong>${finding.issue}</strong><br>
+                            <small class="text-muted">Priority: ${finding.priority} | Action by: ${finding.deadline_for_action}</small>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Update financial summary table
+        function updateFinancialSummary() {
+            const tbody = document.getElementById('financialSummaryBody');
+            const fsData = currentCompany.financial_statements_raw_data;
+            
+            let html = '';
+            const years = ['2022', '2023', '2024'];
+            
+            years.forEach(year => {
+                const yearKey = `${year.toLowerCase()}_amount`;
+                
+                // Get data for each metric
+                const revenueItem = fsData.statement_of_profit_or_loss_and_oci.find(item => 
+                    item.line_item.toLowerCase().includes('revenue')
+                );
+                const profitItem = fsData.statement_of_profit_or_loss_and_oci.find(item => 
+                    item.line_item.toLowerCase().includes('profit') ||
+                    item.line_item.toLowerCase().includes('net income')
+                );
+                const assetItem = fsData.statement_of_financial_position.find(item => 
+                    item.line_item.toLowerCase().includes('total assets')
+                );
+                const liabilityItem = fsData.statement_of_financial_position.find(item => 
+                    item.line_item.toLowerCase().includes('total liabilities')
+                );
+                const equityItem = fsData.statement_of_financial_position.find(item => 
+                    item.line_item.toLowerCase().includes('equity')
+                );
+                
+                // Calculate ratios
+                const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
+                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[year.toLowerCase()]?.ratio || '-';
+                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[year.toLowerCase()]?.percentage || '-';
+                
+                html += `
+                    <tr>
+                        <td>${year}</td>
+                        <td>${revenueItem ? formatCurrency(revenueItem[yearKey]) : '-'}</td>
+                        <td>${profitItem ? formatCurrency(profitItem[yearKey]) : '-'}</td>
+                        <td>${assetItem ? formatCurrency(assetItem[yearKey]) : '-'}</td>
+                        <td>${liabilityItem ? formatCurrency(liabilityItem[yearKey]) : '-'}</td>
+                        <td>${equityItem ? formatCurrency(equityItem[yearKey]) : '-'}</td>
+                        <td>${currentRatio}</td>
+                        <td>${roa}</td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // Update financials tab
+        function updateFinancialsTab() {
+            updateBalanceSheet();
+            updateIncomeStatement();
+            updateCashFlow();
+            updateRatios();
+        }
+
+        // Update balance sheet table
+        function updateBalanceSheet() {
+            const tbody = document.getElementById('balanceSheetBody');
+            const balanceSheet = currentCompany.financial_statements_raw_data.statement_of_financial_position;
+            
+            let html = '';
+            balanceSheet.forEach(item => {
+                const current = parseFloat(item.current_year_amount) || 0;
+                const prev = parseFloat(item.prior_year_1_amount) || 0;
+                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
+                const change = calculateChange(current, prev);
+                
+                html += `
+                    <tr>
+                        <td>${item.line_item}</td>
+                        <td>${formatCurrency(current)}</td>
+                        <td>${formatCurrency(prev)}</td>
+                        <td>${formatCurrency(prev2)}</td>
+                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
+                            ${change !== null ? change + '%' : '-'}
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // Update income statement table
+        function updateIncomeStatement() {
+            const tbody = document.getElementById('incomeStatementBody');
+            const incomeStatement = currentCompany.financial_statements_raw_data.statement_of_profit_or_loss_and_oci;
+            
+            let html = '';
+            incomeStatement.forEach(item => {
+                const current = parseFloat(item.current_year_amount) || 0;
+                const prev = parseFloat(item.prior_year_1_amount) || 0;
+                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
+                const change = calculateChange(current, prev);
+                
+                html += `
+                    <tr>
+                        <td>${item.line_item}</td>
+                        <td>${formatCurrency(current)}</td>
+                        <td>${formatCurrency(prev)}</td>
+                        <td>${formatCurrency(prev2)}</td>
+                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
+                            ${change !== null ? change + '%' : '-'}
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // Update cash flow table
+        function updateCashFlow() {
+            const tbody = document.getElementById('cashFlowBody');
+            const cashFlow = currentCompany.financial_statements_raw_data.statement_of_cash_flows;
+            
+            if (!cashFlow || cashFlow.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center">No cash flow data available</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            cashFlow.forEach(item => {
+                html += `
+                    <tr>
+                        <td>${item.line_item}</td>
+                        <td>${formatCurrency(item.current_year_amount)}</td>
+                        <td>${formatCurrency(item.prior_year_1_amount)}</td>
+                        <td>${formatCurrency(item.prior_year_2_amount)}</td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // Update ratios display
+        function updateRatios() {
+            const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
+            if (!ratioData) return;
+            
+            // Liquidity ratios
+            const liquidityContainer = document.getElementById('liquidityRatios');
+            const currentRatio = ratioData.liquidity_ratios?.current_ratio;
+            const quickRatio = ratioData.liquidity_ratios?.quick_ratio;
+            
+            let liquidityHtml = '';
+            if (currentRatio) {
+                liquidityHtml += `
+                    <div class="mb-2">
+                        <strong>Current Ratio:</strong> ${currentRatio.calculation.current_year.ratio}
+                        <br><small class="text-muted">Benchmark: ${currentRatio.industry_benchmark || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            if (quickRatio) {
+                liquidityHtml += `
+                    <div>
+                        <strong>Quick Ratio:</strong> ${quickRatio.calculation.current_year.ratio}
+                        <br><small class="text-muted">Benchmark: ${quickRatio.industry_benchmark || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            liquidityContainer.innerHTML = liquidityHtml;
+            
+            // Profitability ratios
+            const profitabilityContainer = document.getElementById('profitabilityRatios');
+            const grossMargin = ratioData.profitability_ratios?.gross_profit_margin;
+            const roa = ratioData.profitability_ratios?.return_on_assets;
+            const roe = ratioData.profitability_ratios?.return_on_equity;
+            
+            let profitabilityHtml = '';
+            if (grossMargin) {
+                profitabilityHtml += `
+                    <div class="mb-2">
+                        <strong>Gross Margin:</strong> ${grossMargin.calculation.current_year.percentage}
+                        <br><small class="text-muted">Industry: ${grossMargin.industry_benchmark || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            if (roa) {
+                profitabilityHtml += `
+                    <div class="mb-2">
+                        <strong>Return on Assets:</strong> ${roa.calculation.current_year.percentage}
+                    </div>
+                `;
+            }
+            if (roe) {
+                profitabilityHtml += `
+                    <div>
+                        <strong>Return on Equity:</strong> ${roe.calculation.current_year.percentage}
+                    </div>
+                `;
+            }
+            profitabilityContainer.innerHTML = profitabilityHtml;
+            
+            // Solvency ratios
+            const solvencyContainer = document.getElementById('solvencyRatios');
+            const debtToEquity = ratioData.solvency_ratios?.debt_to_equity;
+            const interestCoverage = ratioData.solvency_ratios?.interest_coverage;
+            
+            let solvencyHtml = '';
+            if (debtToEquity) {
+                solvencyHtml += `
+                    <div class="mb-2">
+                        <strong>Debt to Equity:</strong> ${debtToEquity.calculation.current_year.ratio}
+                        <br><small class="text-muted">Trend: ${debtToEquity.trend_analysis || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            if (interestCoverage) {
+                solvencyHtml += `
+                    <div>
+                        <strong>Interest Coverage:</strong> ${interestCoverage.calculation.current_year.ratio}
+                        <br><small class="text-muted">Minimum Required: ${interestCoverage.minimum_requirement || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            solvencyContainer.innerHTML = solvencyHtml;
+            
+            // Efficiency ratios
+            const efficiencyContainer = document.getElementById('efficiencyRatios');
+            const inventoryTurnover = ratioData.efficiency_ratios?.inventory_turnover;
+            const assetTurnover = ratioData.efficiency_ratios?.asset_turnover;
+            
+            let efficiencyHtml = '';
+            if (inventoryTurnover) {
+                efficiencyHtml += `
+                    <div class="mb-2">
+                        <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation.current_year.ratio}
+                        <br><small class="text-muted">Days: ${inventoryTurnover.calculation.current_year.days}</small>
+                    </div>
+                `;
+            }
+            if (assetTurnover) {
+                efficiencyHtml += `
+                    <div>
+                        <strong>Asset Turnover:</strong> ${assetTurnover.calculation.current_year.ratio}
+                        <br><small class="text-muted">Trend: ${assetTurnover.trend_analysis || 'N/A'}</small>
+                    </div>
+                `;
+            }
+            efficiencyContainer.innerHTML = efficiencyHtml;
+        }
+
+        // Update compliance tab
+        function updateComplianceTab() {
+            updateComplianceTable();
+            updateComplianceChart();
+            updateMaterialDepartures();
+        }
+
+        // Update compliance table
+        function updateComplianceTable() {
+            const tbody = document.getElementById('complianceBody');
+            const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
+            
+            if (!complianceMatrix || complianceMatrix.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No compliance data available</td></tr>';
+                return;
+            }
+            
+            let html = '';
+            complianceMatrix.forEach(item => {
+                const complianceStatus = item.compliance_status.toLowerCase();
+                const complianceClass = complianceStatus.includes('non') ? 'compliance-non-compliant' : 
+                                       complianceStatus.includes('partial') ? 'compliance-partial' : 
+                                       'compliance-compliant';
+                
+                html += `
+                    <tr>
+                        <td>
+                            <strong>${item.standard_code}</strong><br>
+                            <small>${item.standard_name}</small>
+                        </td>
+                        <td>
+                            <span class="compliance-badge ${complianceClass}">
+                                ${item.compliance_status}
+                            </span>
+                        </td>
+                        <td>
+                            <ul class="mb-0" style="padding-left: 1rem; font-size: 0.9em;">
+                                ${item.specific_requirements_checked.map(req => 
+                                    `<li>${req.requirement}: ${req.compliance_status}</li>`
+                                ).join('')}
+                            </ul>
+                        </td>
+                        <td>
+                            <small>${item.material_departures.join(', ') || 'None'}</small>
+                        </td>
+                        <td>
+                            <span class="badge ${getRiskClass(item.specific_requirements_checked[0]?.concerns?.includes('Critical') ? 'High' : 'Low')}">
+                                ${item.specific_requirements_checked[0]?.concerns?.includes('Critical') ? 'High' : 'Low'}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tbody.innerHTML = html;
+        }
+
+        // Update compliance chart
+        function updateComplianceChart() {
+            const ctx = document.getElementById('complianceChart').getContext('2d');
+            
+            if (complianceChart) {
+                complianceChart.destroy();
+            }
+            
+            const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
+            if (!complianceMatrix) return;
+            
+            // Count compliance status
+            let compliant = 0, partial = 0, nonCompliant = 0;
+            complianceMatrix.forEach(item => {
+                const status = item.compliance_status.toLowerCase();
+                if (status.includes('non')) {
+                    nonCompliant++;
+                } else if (status.includes('partial')) {
+                    partial++;
+                } else {
+                    compliant++;
+                }
+            });
+            
+            complianceChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Compliant', 'Partially Compliant', 'Non-Compliant'],
+                    datasets: [{
+                        data: [compliant, partial, nonCompliant],
+                        backgroundColor: [
+                            'rgb(75, 192, 192)',
+                            'rgb(255, 205, 86)',
+                            'rgb(255, 99, 132)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = compliant + partial + nonCompliant;
+                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    return `${context.label}: ${context.raw} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update material departures
+        function updateMaterialDepartures() {
+            const container = document.getElementById('materialDepartures');
+            const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
+            
+            if (!departures || departures.length === 0) {
+                container.innerHTML = '<div class="alert alert-success">No material departures identified.</div>';
+                return;
+            }
+            
+            let html = '';
+            departures.forEach((departure, index) => {
+                html += `
+                    <div class="alert alert-danger mb-2">
+                        <strong>${departure.issue_description}</strong><br>
+                        <small class="text-muted">
+                            Standard: ${departure.relevant_standard} | 
+                            Impact: ${formatCurrency(departure.financial_impact)}<br>
+                            Action: ${departure.recommended_action}
+                        </small>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Update audit tab
+        function updateAuditTab() {
+            updateAuditAnalysis();
+            updateGovernanceAnalysis();
+            updateKeyAuditMatters();
+        }
+
+        // Update audit analysis
+        function updateAuditAnalysis() {
+            const container = document.getElementById('auditAnalysis');
+            const auditData = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis;
+            
+            if (!auditData) {
+                container.innerHTML = '<p class="text-muted">No audit data available.</p>';
+                return;
+            }
+            
+            const goingConcern = auditData.going_concern_assessment;
+            
+            let html = `
+                <p><strong>Auditor:</strong> ${auditData.auditor_information?.firm_name || 'N/A'}</p>
+                <p><strong>Opinion:</strong> ${auditData.audit_opinion?.opinion_type || 'N/A'}</p>
+                <p><strong>Audit Tenure:</strong> ${auditData.auditor_information?.audit_tenure_years || 'N/A'} years</p>
+            `;
+            
+            if (goingConcern?.material_uncertainty_disclosed) {
+                html += `
+                    <div class="alert alert-warning mt-3">
+                        <strong><i class="bi bi-exclamation-triangle-fill me-1"></i> Going Concern Uncertainty</strong><br>
+                        <small>${goingConcern.frc_assessment || goingConcern.auditor_conclusion}</small>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Update governance analysis
+        function updateGovernanceAnalysis() {
+            const container = document.getElementById('governanceAnalysis');
+            const governanceData = currentCompany.phase_4_audit_governance_verification?.corporate_governance_review;
+            
+            if (!governanceData) {
+                container.innerHTML = '<p class="text-muted">No governance data available.</p>';
+                return;
+            }
+            
+            let html = '';
+            if (governanceData.board_structure) {
+                const board = governanceData.board_structure;
+                html += `
+                    <p><strong>Board Size:</strong> ${board.board_size || 'Not Disclosed'}</p>
+                    <p><strong>Independent Directors:</strong> ${board.independent_directors || 'Not Disclosed'}</p>
+                    <p><strong>BSEC Compliance:</strong> ${board.bsec_compliance || 'N/A'}</p>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Update key audit matters
+        function updateKeyAuditMatters() {
+            const container = document.getElementById('keyAuditMatters');
+            const kam = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.key_audit_matters;
+            
+            if (!kam || kam.length === 0) {
+                container.innerHTML = '<p class="text-muted">No key audit matters reported.</p>';
+                return;
+            }
+            
+            let html = '';
+            kam.forEach((matter, index) => {
+                const riskClass = getRiskClass(matter.frc_risk_assessment);
+                html += `
+                    <div class="alert ${riskClass} mb-3">
+                        <strong>${matter.matter}</strong>
+                        <p class="mb-1"><small>Auditor Response: ${matter.auditor_response}</small></p>
+                        <p class="mb-0"><small>FRC Assessment: ${matter.frc_risk_assessment}</small></p>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Update risks tab
+        function updateRisksTab() {
+            updateRiskChart();
+            updateRiskIndicators();
+            updateGoingConcern();
+        }
+
+        // Update risk chart
+        function updateRiskChart() {
+            const ctx = document.getElementById('riskChart').getContext('2d');
+            
+            if (riskChart) {
+                riskChart.destroy();
+            }
+            
+            // Sample risk categories
+            const riskCategories = [
+                'Credit Risk', 
+                'Market Risk', 
+                'Operational Risk', 
+                'Liquidity Risk', 
+                'Compliance Risk'
+            ];
+            
+            // Sample risk scores (in real app, calculate from data)
+            const riskScores = [7, 5, 6, 8, 9];
+            
+            riskChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: riskCategories,
+                    datasets: [{
+                        label: 'Risk Assessment',
+                        data: riskScores,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        pointBackgroundColor: 'rgb(255, 99, 132)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(255, 99, 132)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update risk indicators
+        function updateRiskIndicators() {
+            const container = document.getElementById('riskIndicators');
+            const riskData = currentCompany.phase_5_synthesis_and_findings?.risk_factor_consolidation;
+            
+            if (!riskData) {
+                container.innerHTML = '<p class="text-muted">No risk indicators available.</p>';
+                return;
+            }
+            
+            let html = '';
+            ['high_risk_factors', 'medium_risk_factors', 'low_risk_factors'].forEach(riskLevel => {
+                const factors = riskData[riskLevel] || [];
+                if (factors.length > 0) {
+                    const levelName = riskLevel.split('_')[0].toUpperCase();
+                    html += `<h6 class="mt-3">${levelName} RISK</h6>`;
+                    
+                    factors.forEach(factor => {
+                        html += `
+                            <div class="alert ${getRiskClass(levelName.toLowerCase())} py-2 mb-2">
+                                <strong>${factor.risk_category}</strong><br>
+                                <small>${factor.risk_description}</small>
+                            </div>
+                        `;
+                    });
+                }
+            });
+            
+            container.innerHTML = html || '<p class="text-muted">No risk factors identified.</p>';
+        }
+
+        // Update going concern assessment
+        function updateGoingConcern() {
+            const container = document.getElementById('goingConcern');
+            const gcData = currentCompany.phase_2_financial_analysis?.going_concern_assessment || 
+                          currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.going_concern_assessment;
+            
+            if (!gcData) {
+                container.innerHTML = '<p class="text-muted">No going concern assessment available.</p>';
+                return;
+            }
+            
+            let html = '';
+            if (gcData.indicators) {
+                html += '<h6>Indicators:</h6><ul>';
+                gcData.indicators.forEach(indicator => {
+                    const severityClass = indicator.severity === 'Critical' ? 'text-danger' : 
+                                        indicator.severity === 'High' ? 'text-warning' : 'text-success';
+                    html += `<li><span class="${severityClass}">${indicator.indicator}:</span> ${indicator.status}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            if (gcData.overall_assessment) {
+                html += `
+                    <div class="alert ${gcData.overall_assessment.includes('uncertainty') ? 'alert-warning' : 'alert-success'} mt-3">
+                        <strong>Overall Assessment:</strong> ${gcData.overall_assessment}
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Apply filters
+        function applyFilters() {
+            // This would filter the displayed data based on selected criteria
+            alert('Filter functionality would be implemented here.');
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('yearFilter').value = 'all';
+            document.getElementById('riskFilter').value = 'all';
+            document.getElementById('complianceFilter').value = 'all';
+            alert('Filters reset.');
+        }
+
+        // Search companies
+        function searchCompanies(query) {
+            const companyLinks = document.querySelectorAll('[data-company-id]');
+            companyLinks.forEach(link => {
+                const companyName = link.textContent.toLowerCase();
+                if (companyName.includes(query.toLowerCase())) {
+                    link.style.display = 'flex';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+
+        // Compare companies
+        function compareCompanies() {
+            const company1Id = document.getElementById('company1Select').value;
+            const company2Id = document.getElementById('company2Select').value;
+            
+            if (!company1Id || !company2Id) {
+                alert('Please select two companies to compare.');
+                return;
+            }
+            
+            const company1 = frcData.companies[company1Id];
+            const company2 = frcData.companies[company2Id];
+            
+            updateComparisonChart(company1, company2);
+        }
+
+        // Update comparison chart
+        function updateComparisonChart(company1, company2) {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            
+            if (comparisonChart) {
+                comparisonChart.destroy();
+            }
+            
+            // Sample comparison metrics
+            const metrics = ['Revenue', 'Net Profit', 'Total Assets', 'Current Ratio', 'ROA'];
+            
+            // Extract data for comparison (simplified - in real app, extract actual data)
+            const company1Data = [100, 10, 500, 1.5, 2.0]; // Sample data
+            const company2Data = [150, 15, 600, 2.0, 2.5]; // Sample data
+            
+            comparisonChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: metrics,
+                    datasets: [
+                        {
+                            label: company1.company_info.legal_name,
+                            data: company1Data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                            borderColor: 'rgb(54, 162, 235)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: company2.company_info.legal_name,
+                            data: company2Data,
+                            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Export data
+        function exportData() {
+            // Create a PDF export
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            doc.text(`FRC Analysis Report - ${currentCompany.company_info.legal_name}`, 20, 20);
+            doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 30);
+            
+            // Add company info
+            let y = 40;
+            doc.text('Company Information:', 20, y);
+            y += 10;
+            doc.text(`Name: ${currentCompany.company_info.legal_name}`, 30, y);
+            y += 7;
+            doc.text(`Industry: ${currentCompany.company_info.industry_sector}`, 30, y);
+            y += 7;
+            doc.text(`Reporting Currency: ${currentCompany.company_info.reporting_currency}`, 30, y);
+            
+            y += 15;
+            doc.text('Financial Highlights:', 20, y);
+            
+            // Add a simple table with financial data
+            const fsData = currentCompany.financial_statements_raw_data;
+            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
+            const revenueItem = incomeStatement.find(item => 
+                item.line_item.toLowerCase().includes('revenue')
+            );
+            const profitItem = incomeStatement.find(item => 
+                item.line_item.toLowerCase().includes('profit') ||
+                item.line_item.toLowerCase().includes('net income')
+            );
+            
+            if (revenueItem && profitItem) {
+                y += 10;
+                doc.text(`Latest Revenue: ${formatCurrency(revenueItem.current_year_amount)}`, 30, y);
+                y += 7;
+                doc.text(`Latest Net Profit: ${formatCurrency(profitItem.current_year_amount)}`, 30, y);
+            }
+            
+            // Save the PDF
+            doc.save(`FRC_Analysis_${currentCompany.company_info.legal_name.replace(/\s+/g, '_')}.pdf`);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
