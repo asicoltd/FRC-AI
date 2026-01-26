@@ -8,6 +8,8 @@
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add jQuery BEFORE DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         :root {
             --frc-primary: #2c3e50;
@@ -212,9 +214,27 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+        
+        .confidential-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 50px;
+            color: rgba(231, 76, 60, 0.1);
+            z-index: 10000;
+            pointer-events: none;
+            white-space: nowrap;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <!-- Confidential Watermark -->
+    <div class="confidential-watermark d-none" id="confidentialWatermark">
+        FRC - CONFIDENTIAL
+    </div>
+    
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -229,8 +249,8 @@
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
-                <button class="btn btn-outline-light ms-2" id="exportBtn">
-                    <i class="bi bi-download me-1"></i> Export
+                <button class="btn export-btn ms-2" id="exportBtn">
+                    <i class="bi bi-download me-1"></i> Export Report
                 </button>
             </div>
         </div>
@@ -316,11 +336,11 @@
                                     </div>
                                     <div class="text-end">
                                         <div class="d-flex align-items-center mb-2">
-                                            <span class="status-indicator status-ok"></span>
+                                            <span class="status-indicator" id="complianceStatusIcon"></span>
                                             <span class="small" id="complianceStatus">-</span>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <span class="status-indicator status-ok"></span>
+                                            <span class="status-indicator" id="auditStatusIcon"></span>
                                             <span class="small" id="auditStatus">-</span>
                                         </div>
                                     </div>
@@ -419,11 +439,6 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="risks-tab" data-bs-toggle="tab" data-bs-target="#risks" type="button">
                             <i class="bi bi-exclamation-triangle me-1"></i> Risk Analysis
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="comparative-tab" data-bs-toggle="tab" data-bs-target="#comparative" type="button">
-                            <i class="bi bi-bar-chart me-1"></i> Comparative
                         </button>
                     </li>
                 </ul>
@@ -764,42 +779,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Comparative Analysis Tab -->
-                    <div class="tab-pane fade" id="comparative" role="tabpanel">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Company Comparison</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row mb-4">
-                                            <div class="col-md-4">
-                                                <select class="form-select" id="company1Select">
-                                                    <option value="">Select Company 1</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <select class="form-select" id="company2Select">
-                                                    <option value="">Select Company 2</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button class="btn btn-primary w-100" id="compareBtn">
-                                                    <i class="bi bi-arrow-left-right me-1"></i> Compare
-                                                </button>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="chart-container">
-                                            <canvas id="comparisonChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -821,11 +800,16 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Bootstrap JS (comes after jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables JS (comes after jQuery) -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <!-- PDF Export Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <script>
         // Global variables
         let frcData = null;
@@ -833,7 +817,6 @@
         let performanceChart = null;
         let complianceChart = null;
         let riskChart = null;
-        let comparisonChart = null;
 
         // Format number with commas
         function formatNumber(num) {
@@ -859,6 +842,23 @@
             }
         }
 
+        // Format number for display
+        function formatDisplayNumber(num) {
+            if (num === null || num === undefined || num === '-') return '-';
+            const numFloat = parseFloat(num);
+            if (isNaN(numFloat)) return num;
+            
+            if (Math.abs(numFloat) >= 1000000000) {
+                return (numFloat / 1000000000).toFixed(2) + 'B';
+            } else if (Math.abs(numFloat) >= 1000000) {
+                return (numFloat / 1000000).toFixed(2) + 'M';
+            } else if (Math.abs(numFloat) >= 1000) {
+                return (numFloat / 1000).toFixed(2) + 'K';
+            } else {
+                return numFloat.toFixed(2);
+            }
+        }
+
         // Calculate percentage change
         function calculateChange(current, previous) {
             if (!current || !previous || previous == 0) return null;
@@ -868,6 +868,7 @@
 
         // Get risk level class
         function getRiskClass(risk) {
+            if (!risk) return '';
             switch(risk.toLowerCase()) {
                 case 'high':
                 case 'critical':
@@ -882,28 +883,100 @@
             }
         }
 
+        // Get risk status indicator
+        function getRiskStatusIcon(risk) {
+            if (!risk) return 'status-ok';
+            switch(risk.toLowerCase()) {
+                case 'high':
+                case 'critical':
+                    return 'status-critical';
+                case 'moderate':
+                case 'medium':
+                    return 'status-warning';
+                case 'low':
+                    return 'status-ok';
+                default:
+                    return 'status-ok';
+            }
+        }
+
         // Load JSON data
         async function loadData() {
             try {
-                // Replace this with your actual JSON file path
+                // For GitHub Pages, use the relative path to your JSON file
                 const response = await fetch('company.json');
-                console.log(response);
-                frcData = await response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                frcData = data.frc_analysis_report || data;
+                
+                if (!frcData || !frcData.companies) {
+                    throw new Error('Invalid data structure: companies not found');
+                }
+                
                 initializeDashboard();
             } catch (error) {
                 console.error('Error loading data:', error);
-                alert('Error loading data. Please check the console for details.');
+                // Create sample data for testing if JSON fails
+                createSampleData();
+                alert('Using sample data. Please ensure company.json exists with proper structure.');
             }
+        }
+
+        // Create sample data for testing
+        function createSampleData() {
+            frcData = {
+                metadata: {
+                    report_id: "FRC-ANL-2024-001",
+                    generation_date: "2024-12-15",
+                    analyst_framework_version: "2.0"
+                },
+                companies: {
+                    "sample-company": {
+                        company_info: {
+                            legal_name: "Sample Company Ltd",
+                            industry_sector: "Manufacturing",
+                            reporting_currency: "BDT",
+                            financial_year_end: "December 31"
+                        },
+                        financial_statements_raw_data: {
+                            statement_of_financial_position: [
+                                {
+                                    line_item: "Total Assets",
+                                    current_year_amount: "1000000000",
+                                    prior_year_1_amount: "900000000",
+                                    prior_year_2_amount: "800000000"
+                                }
+                            ],
+                            statement_of_profit_or_loss_and_oci: [
+                                {
+                                    line_item: "Revenue",
+                                    current_year_amount: "500000000",
+                                    prior_year_1_amount: "450000000",
+                                    prior_year_2_amount: "400000000"
+                                }
+                            ]
+                        }
+                    }
+                }
+            };
+            initializeDashboard();
         }
 
         // Initialize dashboard
         function initializeDashboard() {
+            if (!frcData || !frcData.companies) {
+                console.error('No companies data available');
+                return;
+            }
+            
             populateCompanyList();
             setupEventListeners();
             // Load first company by default
-            if (Object.keys(frcData.companies).length > 0) {
-                const firstCompanyId = Object.keys(frcData.companies)[0];
-                loadCompany(firstCompanyId);
+            const companyIds = Object.keys(frcData.companies);
+            if (companyIds.length > 0) {
+                loadCompany(companyIds[0]);
             }
         }
 
@@ -911,26 +984,29 @@
         function populateCompanyList() {
             const companyList = document.getElementById('companyList');
             const mobileCompanyList = document.getElementById('mobileCompanyList');
-            const company1Select = document.getElementById('company1Select');
-            const company2Select = document.getElementById('company2Select');
+            
+            if (!companyList || !mobileCompanyList || !frcData.companies) {
+                console.error('Required elements not found');
+                return;
+            }
             
             companyList.innerHTML = '';
             mobileCompanyList.innerHTML = '';
-            company1Select.innerHTML = '<option value="">Select Company 1</option>';
-            company2Select.innerHTML = '<option value="">Select Company 2</option>';
             
             Object.keys(frcData.companies).forEach(companyId => {
                 const company = frcData.companies[companyId];
+                if (!company || !company.company_info) return;
+                
                 const listItem = `
                     <a href="#" class="list-group-item list-group-item-action" 
                        data-company-id="${companyId}">
                         <div class="d-flex align-items-center">
                             <div class="company-logo">
-                                ${company.company_info.legal_name.charAt(0)}
+                                ${company.company_info.legal_name ? company.company_info.legal_name.charAt(0) : 'C'}
                             </div>
                             <div>
-                                <h6 class="mb-0">${company.company_info.legal_name}</h6>
-                                <small class="text-muted">${company.company_info.industry_sector}</small>
+                                <h6 class="mb-0">${company.company_info.legal_name || 'Unknown Company'}</h6>
+                                <small class="text-muted">${company.company_info.industry_sector || 'N/A'}</small>
                             </div>
                         </div>
                     </a>
@@ -938,11 +1014,6 @@
                 
                 companyList.innerHTML += listItem;
                 mobileCompanyList.innerHTML += listItem;
-                
-                // Add to comparison dropdowns
-                const option = `<option value="${companyId}">${company.company_info.legal_name}</option>`;
-                company1Select.innerHTML += option;
-                company2Select.innerHTML += option;
             });
         }
 
@@ -958,32 +1029,37 @@
                     
                     // Close mobile sidebar on selection
                     const mobileSidebar = document.getElementById('mobileSidebar');
-                    if (mobileSidebar.classList.contains('show')) {
+                    if (mobileSidebar && mobileSidebar.classList.contains('show')) {
                         new bootstrap.Collapse(mobileSidebar).hide();
                     }
                 }
             });
 
             // Filter application
-            document.getElementById('applyFilters').addEventListener('click', applyFilters);
-            document.getElementById('resetFilters').addEventListener('click', resetFilters);
+            const applyFiltersBtn = document.getElementById('applyFilters');
+            const resetFiltersBtn = document.getElementById('resetFilters');
+            if (applyFiltersBtn) applyFiltersBtn.addEventListener('click', applyFilters);
+            if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetFilters);
             
             // Export button
-            document.getElementById('exportBtn').addEventListener('click', exportData);
-            
-            // Comparison
-            document.getElementById('compareBtn').addEventListener('click', compareCompanies);
+            const exportBtn = document.getElementById('exportBtn');
+            if (exportBtn) exportBtn.addEventListener('click', exportReport);
             
             // Search functionality
-            document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.addEventListener('input', function(e) {
                 searchCompanies(e.target.value);
             });
         }
 
         // Load company data
         function loadCompany(companyId) {
+            if (!frcData || !frcData.companies || !frcData.companies[companyId]) {
+                console.error('Company not found:', companyId);
+                return;
+            }
+            
             currentCompany = frcData.companies[companyId];
-            if (!currentCompany) return;
             
             updateCompanyHeader();
             updateQuickStats();
@@ -994,56 +1070,102 @@
             updateRisksTab();
             
             // Show quick stats
-            document.getElementById('quickStats').style.display = 'flex';
+            const quickStats = document.getElementById('quickStats');
+            if (quickStats) quickStats.style.display = 'flex';
         }
 
         // Update company header
         function updateCompanyHeader() {
-            document.getElementById('companyName').textContent = currentCompany.company_info.legal_name;
-            document.getElementById('companyDescription').textContent = 
-                `${currentCompany.company_info.industry_sector} - FYE: ${currentCompany.company_info.financial_year_end}`;
+            const companyName = document.getElementById('companyName');
+            const companyDescription = document.getElementById('companyDescription');
+            const complianceStatus = document.getElementById('complianceStatus');
+            const auditStatus = document.getElementById('auditStatus');
+            const complianceStatusIcon = document.getElementById('complianceStatusIcon');
+            const auditStatusIcon = document.getElementById('auditStatusIcon');
+            
+            if (!currentCompany || !currentCompany.company_info) return;
+            
+            if (companyName) {
+                companyName.textContent = currentCompany.company_info.legal_name || 'Unknown Company';
+            }
+            
+            if (companyDescription) {
+                const sector = currentCompany.company_info.industry_sector || 'N/A';
+                const fye = currentCompany.company_info.financial_year_end || 'N/A';
+                companyDescription.textContent = `${sector} - FYE: ${fye}`;
+            }
             
             // Update compliance status
             const compliance = currentCompany.phase_1_foundational_checks?.reporting_framework?.compliance_assessment || 'Not Assessed';
-            document.getElementById('complianceStatus').textContent = `Compliance: ${compliance}`;
+            if (complianceStatus) complianceStatus.textContent = `Compliance: ${compliance}`;
+            if (complianceStatusIcon) {
+                complianceStatusIcon.className = 'status-indicator ' + 
+                    (compliance.toLowerCase().includes('non') ? 'status-critical' : 
+                     compliance.toLowerCase().includes('partial') ? 'status-warning' : 'status-ok');
+            }
             
             // Update audit status
             const auditOpinion = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available';
-            document.getElementById('auditStatus').textContent = `Audit: ${auditOpinion}`;
+            if (auditStatus) auditStatus.textContent = `Audit: ${auditOpinion}`;
+            if (auditStatusIcon) {
+                auditStatusIcon.className = 'status-indicator ' + 
+                    (auditOpinion.toLowerCase().includes('qualified') ? 'status-warning' : 
+                     auditOpinion.toLowerCase().includes('adverse') ? 'status-critical' : 'status-ok');
+            }
         }
 
         // Update quick stats
         function updateQuickStats() {
+            const totalAssetsEl = document.getElementById('totalAssets');
+            const netProfitEl = document.getElementById('netProfit');
+            const currentRatioEl = document.getElementById('currentRatio');
+            const riskLevelEl = document.getElementById('riskLevel');
+            
+            if (!currentCompany) return;
+            
             const fsData = currentCompany.financial_statements_raw_data;
             
             // Total Assets (get latest year)
-            const balanceSheet = fsData.statement_of_financial_position;
-            const totalAssetItem = balanceSheet.find(item => 
-                item.line_item.toLowerCase().includes('total assets') || 
-                item.line_item.toLowerCase().includes('total assets')
-            );
-            document.getElementById('totalAssets').textContent = 
-                totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
+            if (totalAssetsEl && fsData && fsData.statement_of_financial_position) {
+                const balanceSheet = fsData.statement_of_financial_position;
+                const totalAssetItem = balanceSheet.find(item => 
+                    item && item.line_item && (
+                        item.line_item.toLowerCase().includes('total assets') || 
+                        item.line_item.toLowerCase().includes('total assets')
+                    )
+                );
+                totalAssetsEl.textContent = 
+                    totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
+            }
             
             // Net Profit
-            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
-            const netProfitItem = incomeStatement.find(item => 
-                item.line_item.toLowerCase().includes('profit') || 
-                item.line_item.toLowerCase().includes('net income')
-            );
-            document.getElementById('netProfit').textContent = 
-                netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
+            if (netProfitEl && fsData && fsData.statement_of_profit_or_loss_and_oci) {
+                const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
+                const netProfitItem = incomeStatement.find(item => 
+                    item && item.line_item && (
+                        item.line_item.toLowerCase().includes('profit') || 
+                        item.line_item.toLowerCase().includes('net income') ||
+                        item.line_item.toLowerCase().includes('profit after tax')
+                    )
+                );
+                netProfitEl.textContent = 
+                    netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
+            }
             
             // Current Ratio
-            const ratioAnalysis = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-            const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio;
-            document.getElementById('currentRatio').textContent = currentRatio || '-';
+            if (currentRatioEl && currentCompany.phase_2_financial_analysis) {
+                const ratioAnalysis = currentCompany.phase_2_financial_analysis.ratio_analysis;
+                const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio;
+                currentRatioEl.textContent = currentRatio || '-';
+            }
             
             // Risk Level
-            const overallAssessment = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
-            const criticalIssues = overallAssessment?.critical_issues || [];
-            const riskLevel = criticalIssues.length > 0 ? 'High' : 'Low';
-            document.getElementById('riskLevel').textContent = riskLevel;
+            if (riskLevelEl && currentCompany.phase_5_synthesis_and_findings) {
+                const overallAssessment = currentCompany.phase_5_synthesis_and_findings.overall_assessment;
+                const criticalIssues = overallAssessment?.critical_issues || [];
+                const riskLevel = criticalIssues.length > 0 ? 'High' : 'Low';
+                riskLevelEl.textContent = riskLevel;
+            }
         }
 
         // Update overview tab
@@ -1055,14 +1177,19 @@
 
         // Update performance chart
         function updatePerformanceChart() {
-            const ctx = document.getElementById('performanceChart').getContext('2d');
+            const ctx = document.getElementById('performanceChart');
+            if (!ctx) return;
             
             if (performanceChart) {
                 performanceChart.destroy();
             }
             
+            if (!currentCompany || !currentCompany.financial_statements_raw_data) return;
+            
             const fsData = currentCompany.financial_statements_raw_data;
             const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
+            
+            if (!incomeStatement) return;
             
             // Extract revenue and profit data
             const revenueData = [];
@@ -1071,21 +1198,26 @@
             
             years.forEach(year => {
                 const revItem = incomeStatement.find(item => 
-                    item.line_item.toLowerCase().includes('revenue')
+                    item && item.line_item && item.line_item.toLowerCase().includes('revenue')
                 );
                 const profitItem = incomeStatement.find(item => 
-                    item.line_item.toLowerCase().includes('profit') ||
-                    item.line_item.toLowerCase().includes('net income')
+                    item && item.line_item && (
+                        item.line_item.toLowerCase().includes('profit') ||
+                        item.line_item.toLowerCase().includes('net income')
+                    )
                 );
                 
                 const revKey = `${year.toLowerCase()}_amount`;
                 const profitKey = `${year.toLowerCase()}_amount`;
                 
-                revenueData.push(revItem ? parseFloat(revItem[revKey] || 0) : 0);
-                profitData.push(profitItem ? parseFloat(profitItem[profitKey] || 0) : 0);
+                const revValue = revItem ? parseFloat(revItem[revKey] || 0) : 0;
+                const profitValue = profitItem ? parseFloat(profitItem[profitKey] || 0) : 0;
+                
+                revenueData.push(revValue);
+                profitData.push(profitValue);
             });
             
-            performanceChart = new Chart(ctx, {
+            performanceChart = new Chart(ctx.getContext('2d'), {
                 type: 'line',
                 data: {
                     labels: years,
@@ -1133,7 +1265,7 @@
                             beginAtZero: true,
                             ticks: {
                                 callback: function(value) {
-                                    return formatCurrency(value);
+                                    return formatDisplayNumber(value);
                                 }
                             }
                         }
@@ -1145,7 +1277,9 @@
         // Update key findings
         function updateKeyFindings() {
             const container = document.getElementById('keyFindings');
-            const findings = currentCompany.phase_5_synthesis_and_findings?.overall_assessment?.critical_issues || [];
+            if (!container) return;
+            
+            const findings = currentCompany?.phase_5_synthesis_and_findings?.overall_assessment?.critical_issues || [];
             
             if (findings.length === 0) {
                 container.innerHTML = '<div class="alert alert-success">No critical issues identified.</div>';
@@ -1159,8 +1293,11 @@
                     <div class="alert ${riskClass} d-flex align-items-start mb-2">
                         <i class="bi bi-exclamation-triangle-fill me-2 mt-1"></i>
                         <div>
-                            <strong>${finding.issue}</strong><br>
-                            <small class="text-muted">Priority: ${finding.priority} | Action by: ${finding.deadline_for_action}</small>
+                            <strong>${finding.issue || 'Unknown Issue'}</strong><br>
+                            <small class="text-muted">
+                                Priority: ${finding.priority || 'N/A'} | 
+                                Action by: ${finding.deadline_for_action || 'N/A'}
+                            </small>
                         </div>
                     </div>
                 `;
@@ -1172,7 +1309,10 @@
         // Update financial summary table
         function updateFinancialSummary() {
             const tbody = document.getElementById('financialSummaryBody');
+            if (!tbody || !currentCompany) return;
+            
             const fsData = currentCompany.financial_statements_raw_data;
+            if (!fsData) return;
             
             let html = '';
             const years = ['2022', '2023', '2024'];
@@ -1181,21 +1321,26 @@
                 const yearKey = `${year.toLowerCase()}_amount`;
                 
                 // Get data for each metric
-                const revenueItem = fsData.statement_of_profit_or_loss_and_oci.find(item => 
-                    item.line_item.toLowerCase().includes('revenue')
+                const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item => 
+                    item && item.line_item && item.line_item.toLowerCase().includes('revenue')
                 );
-                const profitItem = fsData.statement_of_profit_or_loss_and_oci.find(item => 
-                    item.line_item.toLowerCase().includes('profit') ||
-                    item.line_item.toLowerCase().includes('net income')
+                const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item => 
+                    item && item.line_item && (
+                        item.line_item.toLowerCase().includes('profit') ||
+                        item.line_item.toLowerCase().includes('net income')
+                    )
                 );
-                const assetItem = fsData.statement_of_financial_position.find(item => 
-                    item.line_item.toLowerCase().includes('total assets')
+                const assetItem = fsData.statement_of_financial_position?.find(item => 
+                    item && item.line_item && item.line_item.toLowerCase().includes('total assets')
                 );
-                const liabilityItem = fsData.statement_of_financial_position.find(item => 
-                    item.line_item.toLowerCase().includes('total liabilities')
+                const liabilityItem = fsData.statement_of_financial_position?.find(item => 
+                    item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
                 );
-                const equityItem = fsData.statement_of_financial_position.find(item => 
-                    item.line_item.toLowerCase().includes('equity')
+                const equityItem = fsData.statement_of_financial_position?.find(item => 
+                    item && item.line_item && (
+                        item.line_item.toLowerCase().includes('equity') ||
+                        item.line_item.toLowerCase().includes('shareholders equity')
+                    )
                 );
                 
                 // Calculate ratios
@@ -1231,10 +1376,18 @@
         // Update balance sheet table
         function updateBalanceSheet() {
             const tbody = document.getElementById('balanceSheetBody');
-            const balanceSheet = currentCompany.financial_statements_raw_data.statement_of_financial_position;
+            if (!tbody || !currentCompany) return;
+            
+            const balanceSheet = currentCompany.financial_statements_raw_data?.statement_of_financial_position;
+            if (!balanceSheet) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No balance sheet data available</td></tr>';
+                return;
+            }
             
             let html = '';
             balanceSheet.forEach(item => {
+                if (!item) return;
+                
                 const current = parseFloat(item.current_year_amount) || 0;
                 const prev = parseFloat(item.prior_year_1_amount) || 0;
                 const prev2 = parseFloat(item.prior_year_2_amount) || 0;
@@ -1242,7 +1395,7 @@
                 
                 html += `
                     <tr>
-                        <td>${item.line_item}</td>
+                        <td>${item.line_item || 'Unknown'}</td>
                         <td>${formatCurrency(current)}</td>
                         <td>${formatCurrency(prev)}</td>
                         <td>${formatCurrency(prev2)}</td>
@@ -1259,10 +1412,18 @@
         // Update income statement table
         function updateIncomeStatement() {
             const tbody = document.getElementById('incomeStatementBody');
-            const incomeStatement = currentCompany.financial_statements_raw_data.statement_of_profit_or_loss_and_oci;
+            if (!tbody || !currentCompany) return;
+            
+            const incomeStatement = currentCompany.financial_statements_raw_data?.statement_of_profit_or_loss_and_oci;
+            if (!incomeStatement) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No income statement data available</td></tr>';
+                return;
+            }
             
             let html = '';
             incomeStatement.forEach(item => {
+                if (!item) return;
+                
                 const current = parseFloat(item.current_year_amount) || 0;
                 const prev = parseFloat(item.prior_year_1_amount) || 0;
                 const prev2 = parseFloat(item.prior_year_2_amount) || 0;
@@ -1270,7 +1431,7 @@
                 
                 html += `
                     <tr>
-                        <td>${item.line_item}</td>
+                        <td>${item.line_item || 'Unknown'}</td>
                         <td>${formatCurrency(current)}</td>
                         <td>${formatCurrency(prev)}</td>
                         <td>${formatCurrency(prev2)}</td>
@@ -1287,8 +1448,9 @@
         // Update cash flow table
         function updateCashFlow() {
             const tbody = document.getElementById('cashFlowBody');
-            const cashFlow = currentCompany.financial_statements_raw_data.statement_of_cash_flows;
+            if (!tbody || !currentCompany) return;
             
+            const cashFlow = currentCompany.financial_statements_raw_data?.statement_of_cash_flows;
             if (!cashFlow || cashFlow.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="4" class="text-center">No cash flow data available</td></tr>';
                 return;
@@ -1296,9 +1458,11 @@
             
             let html = '';
             cashFlow.forEach(item => {
+                if (!item) return;
+                
                 html += `
                     <tr>
-                        <td>${item.line_item}</td>
+                        <td>${item.line_item || 'Unknown'}</td>
                         <td>${formatCurrency(item.current_year_amount)}</td>
                         <td>${formatCurrency(item.prior_year_1_amount)}</td>
                         <td>${formatCurrency(item.prior_year_2_amount)}</td>
@@ -1311,111 +1475,120 @@
 
         // Update ratios display
         function updateRatios() {
-            const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-            if (!ratioData) return;
+            if (!currentCompany || !currentCompany.phase_2_financial_analysis) return;
+            
+            const ratioData = currentCompany.phase_2_financial_analysis.ratio_analysis;
             
             // Liquidity ratios
             const liquidityContainer = document.getElementById('liquidityRatios');
-            const currentRatio = ratioData.liquidity_ratios?.current_ratio;
-            const quickRatio = ratioData.liquidity_ratios?.quick_ratio;
-            
-            let liquidityHtml = '';
-            if (currentRatio) {
-                liquidityHtml += `
-                    <div class="mb-2">
-                        <strong>Current Ratio:</strong> ${currentRatio.calculation.current_year.ratio}
-                        <br><small class="text-muted">Benchmark: ${currentRatio.industry_benchmark || 'N/A'}</small>
-                    </div>
-                `;
+            if (liquidityContainer && ratioData && ratioData.liquidity_ratios) {
+                const currentRatio = ratioData.liquidity_ratios.current_ratio;
+                const quickRatio = ratioData.liquidity_ratios.quick_ratio;
+                
+                let liquidityHtml = '';
+                if (currentRatio) {
+                    liquidityHtml += `
+                        <div class="mb-2">
+                            <strong>Current Ratio:</strong> ${currentRatio.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Benchmark: ${currentRatio.industry_benchmark || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                if (quickRatio) {
+                    liquidityHtml += `
+                        <div>
+                            <strong>Quick Ratio:</strong> ${quickRatio.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Benchmark: ${quickRatio.industry_benchmark || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                liquidityContainer.innerHTML = liquidityHtml;
             }
-            if (quickRatio) {
-                liquidityHtml += `
-                    <div>
-                        <strong>Quick Ratio:</strong> ${quickRatio.calculation.current_year.ratio}
-                        <br><small class="text-muted">Benchmark: ${quickRatio.industry_benchmark || 'N/A'}</small>
-                    </div>
-                `;
-            }
-            liquidityContainer.innerHTML = liquidityHtml;
             
             // Profitability ratios
             const profitabilityContainer = document.getElementById('profitabilityRatios');
-            const grossMargin = ratioData.profitability_ratios?.gross_profit_margin;
-            const roa = ratioData.profitability_ratios?.return_on_assets;
-            const roe = ratioData.profitability_ratios?.return_on_equity;
-            
-            let profitabilityHtml = '';
-            if (grossMargin) {
-                profitabilityHtml += `
-                    <div class="mb-2">
-                        <strong>Gross Margin:</strong> ${grossMargin.calculation.current_year.percentage}
-                        <br><small class="text-muted">Industry: ${grossMargin.industry_benchmark || 'N/A'}</small>
-                    </div>
-                `;
+            if (profitabilityContainer && ratioData && ratioData.profitability_ratios) {
+                const grossMargin = ratioData.profitability_ratios.gross_profit_margin;
+                const roa = ratioData.profitability_ratios.return_on_assets;
+                const roe = ratioData.profitability_ratios.return_on_equity;
+                
+                let profitabilityHtml = '';
+                if (grossMargin) {
+                    profitabilityHtml += `
+                        <div class="mb-2">
+                            <strong>Gross Margin:</strong> ${grossMargin.calculation?.current_year?.percentage || 'N/A'}
+                            <br><small class="text-muted">Industry: ${grossMargin.industry_benchmark || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                if (roa) {
+                    profitabilityHtml += `
+                        <div class="mb-2">
+                            <strong>Return on Assets:</strong> ${roa.calculation?.current_year?.percentage || 'N/A'}
+                        </div>
+                    `;
+                }
+                if (roe) {
+                    profitabilityHtml += `
+                        <div>
+                            <strong>Return on Equity:</strong> ${roe.calculation?.current_year?.percentage || 'N/A'}
+                        </div>
+                    `;
+                }
+                profitabilityContainer.innerHTML = profitabilityHtml;
             }
-            if (roa) {
-                profitabilityHtml += `
-                    <div class="mb-2">
-                        <strong>Return on Assets:</strong> ${roa.calculation.current_year.percentage}
-                    </div>
-                `;
-            }
-            if (roe) {
-                profitabilityHtml += `
-                    <div>
-                        <strong>Return on Equity:</strong> ${roe.calculation.current_year.percentage}
-                    </div>
-                `;
-            }
-            profitabilityContainer.innerHTML = profitabilityHtml;
             
             // Solvency ratios
             const solvencyContainer = document.getElementById('solvencyRatios');
-            const debtToEquity = ratioData.solvency_ratios?.debt_to_equity;
-            const interestCoverage = ratioData.solvency_ratios?.interest_coverage;
-            
-            let solvencyHtml = '';
-            if (debtToEquity) {
-                solvencyHtml += `
-                    <div class="mb-2">
-                        <strong>Debt to Equity:</strong> ${debtToEquity.calculation.current_year.ratio}
-                        <br><small class="text-muted">Trend: ${debtToEquity.trend_analysis || 'N/A'}</small>
-                    </div>
-                `;
+            if (solvencyContainer && ratioData && ratioData.solvency_ratios) {
+                const debtToEquity = ratioData.solvency_ratios.debt_to_equity;
+                const interestCoverage = ratioData.solvency_ratios.interest_coverage;
+                
+                let solvencyHtml = '';
+                if (debtToEquity) {
+                    solvencyHtml += `
+                        <div class="mb-2">
+                            <strong>Debt to Equity:</strong> ${debtToEquity.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Trend: ${debtToEquity.trend_analysis || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                if (interestCoverage) {
+                    solvencyHtml += `
+                        <div>
+                            <strong>Interest Coverage:</strong> ${interestCoverage.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Minimum Required: ${interestCoverage.minimum_requirement || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                solvencyContainer.innerHTML = solvencyHtml;
             }
-            if (interestCoverage) {
-                solvencyHtml += `
-                    <div>
-                        <strong>Interest Coverage:</strong> ${interestCoverage.calculation.current_year.ratio}
-                        <br><small class="text-muted">Minimum Required: ${interestCoverage.minimum_requirement || 'N/A'}</small>
-                    </div>
-                `;
-            }
-            solvencyContainer.innerHTML = solvencyHtml;
             
             // Efficiency ratios
             const efficiencyContainer = document.getElementById('efficiencyRatios');
-            const inventoryTurnover = ratioData.efficiency_ratios?.inventory_turnover;
-            const assetTurnover = ratioData.efficiency_ratios?.asset_turnover;
-            
-            let efficiencyHtml = '';
-            if (inventoryTurnover) {
-                efficiencyHtml += `
-                    <div class="mb-2">
-                        <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation.current_year.ratio}
-                        <br><small class="text-muted">Days: ${inventoryTurnover.calculation.current_year.days}</small>
-                    </div>
-                `;
+            if (efficiencyContainer && ratioData && ratioData.efficiency_ratios) {
+                const inventoryTurnover = ratioData.efficiency_ratios.inventory_turnover;
+                const assetTurnover = ratioData.efficiency_ratios.asset_turnover;
+                
+                let efficiencyHtml = '';
+                if (inventoryTurnover) {
+                    efficiencyHtml += `
+                        <div class="mb-2">
+                            <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Days: ${inventoryTurnover.calculation?.current_year?.days || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                if (assetTurnover) {
+                    efficiencyHtml += `
+                        <div>
+                            <strong>Asset Turnover:</strong> ${assetTurnover.calculation?.current_year?.ratio || 'N/A'}
+                            <br><small class="text-muted">Trend: ${assetTurnover.trend_analysis || 'N/A'}</small>
+                        </div>
+                    `;
+                }
+                efficiencyContainer.innerHTML = efficiencyHtml;
             }
-            if (assetTurnover) {
-                efficiencyHtml += `
-                    <div>
-                        <strong>Asset Turnover:</strong> ${assetTurnover.calculation.current_year.ratio}
-                        <br><small class="text-muted">Trend: ${assetTurnover.trend_analysis || 'N/A'}</small>
-                    </div>
-                `;
-            }
-            efficiencyContainer.innerHTML = efficiencyHtml;
         }
 
         // Update compliance tab
@@ -1428,6 +1601,8 @@
         // Update compliance table
         function updateComplianceTable() {
             const tbody = document.getElementById('complianceBody');
+            if (!tbody || !currentCompany) return;
+            
             const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
             
             if (!complianceMatrix || complianceMatrix.length === 0) {
@@ -1437,7 +1612,9 @@
             
             let html = '';
             complianceMatrix.forEach(item => {
-                const complianceStatus = item.compliance_status.toLowerCase();
+                if (!item) return;
+                
+                const complianceStatus = item.compliance_status?.toLowerCase() || '';
                 const complianceClass = complianceStatus.includes('non') ? 'compliance-non-compliant' : 
                                        complianceStatus.includes('partial') ? 'compliance-partial' : 
                                        'compliance-compliant';
@@ -1445,27 +1622,27 @@
                 html += `
                     <tr>
                         <td>
-                            <strong>${item.standard_code}</strong><br>
-                            <small>${item.standard_name}</small>
+                            <strong>${item.standard_code || 'N/A'}</strong><br>
+                            <small>${item.standard_name || 'N/A'}</small>
                         </td>
                         <td>
                             <span class="compliance-badge ${complianceClass}">
-                                ${item.compliance_status}
+                                ${item.compliance_status || 'N/A'}
                             </span>
                         </td>
                         <td>
                             <ul class="mb-0" style="padding-left: 1rem; font-size: 0.9em;">
-                                ${item.specific_requirements_checked.map(req => 
-                                    `<li>${req.requirement}: ${req.compliance_status}</li>`
+                                ${(item.specific_requirements_checked || []).map(req => 
+                                    `<li>${req.requirement || 'N/A'}: ${req.compliance_status || 'N/A'}</li>`
                                 ).join('')}
                             </ul>
                         </td>
                         <td>
-                            <small>${item.material_departures.join(', ') || 'None'}</small>
+                            <small>${(item.material_departures || []).join(', ') || 'None'}</small>
                         </td>
                         <td>
-                            <span class="badge ${getRiskClass(item.specific_requirements_checked[0]?.concerns?.includes('Critical') ? 'High' : 'Low')}">
-                                ${item.specific_requirements_checked[0]?.concerns?.includes('Critical') ? 'High' : 'Low'}
+                            <span class="badge ${getRiskClass(item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low')}">
+                                ${item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low'}
                             </span>
                         </td>
                     </tr>
@@ -1477,18 +1654,21 @@
 
         // Update compliance chart
         function updateComplianceChart() {
-            const ctx = document.getElementById('complianceChart').getContext('2d');
+            const ctx = document.getElementById('complianceChart');
+            if (!ctx) return;
             
             if (complianceChart) {
                 complianceChart.destroy();
             }
             
-            const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
+            const complianceMatrix = currentCompany?.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
             if (!complianceMatrix) return;
             
             // Count compliance status
             let compliant = 0, partial = 0, nonCompliant = 0;
             complianceMatrix.forEach(item => {
+                if (!item || !item.compliance_status) return;
+                
                 const status = item.compliance_status.toLowerCase();
                 if (status.includes('non')) {
                     nonCompliant++;
@@ -1499,7 +1679,7 @@
                 }
             });
             
-            complianceChart = new Chart(ctx, {
+            complianceChart = new Chart(ctx.getContext('2d'), {
                 type: 'doughnut',
                 data: {
                     labels: ['Compliant', 'Partially Compliant', 'Non-Compliant'],
@@ -1524,7 +1704,7 @@
                             callbacks: {
                                 label: function(context) {
                                     const total = compliant + partial + nonCompliant;
-                                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                                    const percentage = total > 0 ? ((context.raw / total) * 100).toFixed(1) : 0;
                                     return `${context.label}: ${context.raw} (${percentage}%)`;
                                 }
                             }
@@ -1537,6 +1717,8 @@
         // Update material departures
         function updateMaterialDepartures() {
             const container = document.getElementById('materialDepartures');
+            if (!container || !currentCompany) return;
+            
             const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
             
             if (!departures || departures.length === 0) {
@@ -1546,13 +1728,15 @@
             
             let html = '';
             departures.forEach((departure, index) => {
+                if (!departure) return;
+                
                 html += `
                     <div class="alert alert-danger mb-2">
-                        <strong>${departure.issue_description}</strong><br>
+                        <strong>${departure.issue_description || 'Unknown Issue'}</strong><br>
                         <small class="text-muted">
-                            Standard: ${departure.relevant_standard} | 
-                            Impact: ${formatCurrency(departure.financial_impact)}<br>
-                            Action: ${departure.recommended_action}
+                            Standard: ${departure.relevant_standard || 'N/A'} | 
+                            Impact: ${formatCurrency(departure.financial_impact) || 'N/A'}<br>
+                            Action: ${departure.recommended_action || 'N/A'}
                         </small>
                     </div>
                 `;
@@ -1571,6 +1755,8 @@
         // Update audit analysis
         function updateAuditAnalysis() {
             const container = document.getElementById('auditAnalysis');
+            if (!container || !currentCompany) return;
+            
             const auditData = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis;
             
             if (!auditData) {
@@ -1590,7 +1776,7 @@
                 html += `
                     <div class="alert alert-warning mt-3">
                         <strong><i class="bi bi-exclamation-triangle-fill me-1"></i> Going Concern Uncertainty</strong><br>
-                        <small>${goingConcern.frc_assessment || goingConcern.auditor_conclusion}</small>
+                        <small>${goingConcern.frc_assessment || goingConcern.auditor_conclusion || 'Material uncertainty exists'}</small>
                     </div>
                 `;
             }
@@ -1601,6 +1787,8 @@
         // Update governance analysis
         function updateGovernanceAnalysis() {
             const container = document.getElementById('governanceAnalysis');
+            if (!container || !currentCompany) return;
+            
             const governanceData = currentCompany.phase_4_audit_governance_verification?.corporate_governance_review;
             
             if (!governanceData) {
@@ -1618,12 +1806,14 @@
                 `;
             }
             
-            container.innerHTML = html;
+            container.innerHTML = html || '<p class="text-muted">No governance information available.</p>';
         }
 
         // Update key audit matters
         function updateKeyAuditMatters() {
             const container = document.getElementById('keyAuditMatters');
+            if (!container || !currentCompany) return;
+            
             const kam = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.key_audit_matters;
             
             if (!kam || kam.length === 0) {
@@ -1633,12 +1823,14 @@
             
             let html = '';
             kam.forEach((matter, index) => {
+                if (!matter) return;
+                
                 const riskClass = getRiskClass(matter.frc_risk_assessment);
                 html += `
                     <div class="alert ${riskClass} mb-3">
-                        <strong>${matter.matter}</strong>
-                        <p class="mb-1"><small>Auditor Response: ${matter.auditor_response}</small></p>
-                        <p class="mb-0"><small>FRC Assessment: ${matter.frc_risk_assessment}</small></p>
+                        <strong>${matter.matter || 'Unknown Matter'}</strong>
+                        <p class="mb-1"><small>Auditor Response: ${matter.auditor_response || 'N/A'}</small></p>
+                        <p class="mb-0"><small>FRC Assessment: ${matter.frc_risk_assessment || 'N/A'}</small></p>
                     </div>
                 `;
             });
@@ -1655,7 +1847,8 @@
 
         // Update risk chart
         function updateRiskChart() {
-            const ctx = document.getElementById('riskChart').getContext('2d');
+            const ctx = document.getElementById('riskChart');
+            if (!ctx) return;
             
             if (riskChart) {
                 riskChart.destroy();
@@ -1673,7 +1866,7 @@
             // Sample risk scores (in real app, calculate from data)
             const riskScores = [7, 5, 6, 8, 9];
             
-            riskChart = new Chart(ctx, {
+            riskChart = new Chart(ctx.getContext('2d'), {
                 type: 'radar',
                 data: {
                     labels: riskCategories,
@@ -1712,6 +1905,8 @@
         // Update risk indicators
         function updateRiskIndicators() {
             const container = document.getElementById('riskIndicators');
+            if (!container || !currentCompany) return;
+            
             const riskData = currentCompany.phase_5_synthesis_and_findings?.risk_factor_consolidation;
             
             if (!riskData) {
@@ -1727,10 +1922,12 @@
                     html += `<h6 class="mt-3">${levelName} RISK</h6>`;
                     
                     factors.forEach(factor => {
+                        if (!factor) return;
+                        
                         html += `
                             <div class="alert ${getRiskClass(levelName.toLowerCase())} py-2 mb-2">
-                                <strong>${factor.risk_category}</strong><br>
-                                <small>${factor.risk_description}</small>
+                                <strong>${factor.risk_category || 'Unknown Category'}</strong><br>
+                                <small>${factor.risk_description || 'No description'}</small>
                             </div>
                         `;
                     });
@@ -1743,6 +1940,8 @@
         // Update going concern assessment
         function updateGoingConcern() {
             const container = document.getElementById('goingConcern');
+            if (!container || !currentCompany) return;
+            
             const gcData = currentCompany.phase_2_financial_analysis?.going_concern_assessment || 
                           currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.going_concern_assessment;
             
@@ -1755,22 +1954,25 @@
             if (gcData.indicators) {
                 html += '<h6>Indicators:</h6><ul>';
                 gcData.indicators.forEach(indicator => {
+                    if (!indicator) return;
+                    
                     const severityClass = indicator.severity === 'Critical' ? 'text-danger' : 
                                         indicator.severity === 'High' ? 'text-warning' : 'text-success';
-                    html += `<li><span class="${severityClass}">${indicator.indicator}:</span> ${indicator.status}</li>`;
+                    html += `<li><span class="${severityClass}">${indicator.indicator || 'Unknown'}:</span> ${indicator.status || 'N/A'}</li>`;
                 });
                 html += '</ul>';
             }
             
             if (gcData.overall_assessment) {
+                const alertClass = gcData.overall_assessment.toLowerCase().includes('uncertainty') ? 'alert-warning' : 'alert-success';
                 html += `
-                    <div class="alert ${gcData.overall_assessment.includes('uncertainty') ? 'alert-warning' : 'alert-success'} mt-3">
+                    <div class="alert ${alertClass} mt-3">
                         <strong>Overall Assessment:</strong> ${gcData.overall_assessment}
                     </div>
                 `;
             }
             
-            container.innerHTML = html;
+            container.innerHTML = html || '<p class="text-muted">No going concern assessment available.</p>';
         }
 
         // Apply filters
@@ -1781,9 +1983,14 @@
 
         // Reset filters
         function resetFilters() {
-            document.getElementById('yearFilter').value = 'all';
-            document.getElementById('riskFilter').value = 'all';
-            document.getElementById('complianceFilter').value = 'all';
+            const yearFilter = document.getElementById('yearFilter');
+            const riskFilter = document.getElementById('riskFilter');
+            const complianceFilter = document.getElementById('complianceFilter');
+            
+            if (yearFilter) yearFilter.value = 'all';
+            if (riskFilter) riskFilter.value = 'all';
+            if (complianceFilter) complianceFilter.value = 'all';
+            
             alert('Filters reset.');
         }
 
@@ -1800,117 +2007,478 @@
             });
         }
 
-        // Compare companies
-        function compareCompanies() {
-            const company1Id = document.getElementById('company1Select').value;
-            const company2Id = document.getElementById('company2Select').value;
-            
-            if (!company1Id || !company2Id) {
-                alert('Please select two companies to compare.');
+        // Export comprehensive FRC report
+        async function exportReport() {
+            if (!currentCompany) {
+                alert('Please select a company first.');
                 return;
             }
             
-            const company1 = frcData.companies[company1Id];
-            const company2 = frcData.companies[company2Id];
-            
-            updateComparisonChart(company1, company2);
-        }
-
-        // Update comparison chart
-        function updateComparisonChart(company1, company2) {
-            const ctx = document.getElementById('comparisonChart').getContext('2d');
-            
-            if (comparisonChart) {
-                comparisonChart.destroy();
-            }
-            
-            // Sample comparison metrics
-            const metrics = ['Revenue', 'Net Profit', 'Total Assets', 'Current Ratio', 'ROA'];
-            
-            // Extract data for comparison (simplified - in real app, extract actual data)
-            const company1Data = [100, 10, 500, 1.5, 2.0]; // Sample data
-            const company2Data = [150, 15, 600, 2.0, 2.5]; // Sample data
-            
-            comparisonChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: metrics,
-                    datasets: [
-                        {
-                            label: company1.company_info.legal_name,
-                            data: company1Data,
-                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                            borderColor: 'rgb(54, 162, 235)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: company2.company_info.legal_name,
-                            data: company2Data,
-                            backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            borderWidth: 1
+            try {
+                // Show watermark
+                const watermark = document.getElementById('confidentialWatermark');
+                if (watermark) watermark.classList.remove('d-none');
+                
+                // Create a comprehensive PDF report
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF('p', 'mm', 'a4');
+                
+                // Add FRC Confidential Header
+                doc.setFontSize(16);
+                doc.setTextColor(40, 40, 40);
+                doc.text('FINANCIAL REPORTING COUNCIL (FRC)', 105, 20, { align: 'center' });
+                doc.setFontSize(10);
+                doc.text('CONFIDENTIAL REGULATORY ANALYSIS REPORT', 105, 27, { align: 'center' });
+                
+                // Add line separator
+                doc.setDrawColor(200, 200, 200);
+                doc.line(20, 32, 190, 32);
+                
+                // Report Details
+                doc.setFontSize(9);
+                doc.text(`Report ID: ${frcData.metadata?.report_id || 'N/A'}`, 20, 40);
+                doc.text(`Generated: ${frcData.metadata?.generation_date || new Date().toISOString().split('T')[0]}`, 20, 45);
+                doc.text(`Analyst Framework: v${frcData.metadata?.analyst_framework_version || '1.0'}`, 20, 50);
+                
+                doc.text(`Company: ${currentCompany.company_info?.legal_name || 'N/A'}`, 130, 40);
+                doc.text(`Sector: ${currentCompany.company_info?.industry_sector || 'N/A'}`, 130, 45);
+                doc.text(`Year End: ${currentCompany.company_info?.financial_year_end || 'N/A'}`, 130, 50);
+                
+                // Add confidentiality warning
+                doc.setFontSize(8);
+                doc.setTextColor(150, 0, 0);
+                doc.text('CONFIDENTIAL - FOR INTERNAL FRC USE ONLY', 105, 58, { align: 'center' });
+                doc.setTextColor(0, 0, 0);
+                
+                // Add page number
+                let page = 1;
+                const addPageNumber = () => {
+                    doc.setFontSize(8);
+                    doc.text(`Page ${page}`, 190, 285, { align: 'right' });
+                    page++;
+                };
+                addPageNumber();
+                
+                // EXECUTIVE SUMMARY (Page 1)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('1. EXECUTIVE SUMMARY', 20, 20);
+                doc.setFontSize(10);
+                
+                const overallAssessment = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
+                const compliance = currentCompany.phase_1_foundational_checks?.reporting_framework?.compliance_assessment || 'Not Assessed';
+                const auditOpinion = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available';
+                
+                let yPos = 30;
+                doc.text(`Company Name: ${currentCompany.company_info?.legal_name || 'N/A'}`, 20, yPos);
+                yPos += 7;
+                doc.text(`Overall Compliance: ${compliance}`, 20, yPos);
+                yPos += 7;
+                doc.text(`Audit Opinion: ${auditOpinion}`, 20, yPos);
+                yPos += 7;
+                doc.text(`Reliability Score: ${overallAssessment?.reliability_score || 'N/A'}`, 20, yPos);
+                yPos += 7;
+                doc.text(`Transparency Rating: ${overallAssessment?.transparency_rating || 'N/A'}`, 20, yPos);
+                yPos += 10;
+                
+                // Key Strengths
+                if (overallAssessment?.key_strengths && overallAssessment.key_strengths.length > 0) {
+                    doc.text('Key Strengths:', 20, yPos);
+                    yPos += 7;
+                    overallAssessment.key_strengths.forEach(strength => {
+                        doc.text(`• ${strength}`, 25, yPos);
+                        yPos += 5;
+                        if (yPos > 270) {
+                            doc.addPage();
+                            yPos = 20;
+                            addPageNumber();
                         }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
+                    });
+                    yPos += 5;
+                }
+                
+                // Critical Issues
+                if (overallAssessment?.critical_issues && overallAssessment.critical_issues.length > 0) {
+                    doc.setFontSize(12);
+                    doc.setTextColor(200, 0, 0);
+                    doc.text('CRITICAL ISSUES REQUIRING ACTION:', 20, yPos);
+                    doc.setTextColor(0, 0, 0);
+                    doc.setFontSize(10);
+                    yPos += 10;
+                    
+                    overallAssessment.critical_issues.forEach((issue, index) => {
+                        doc.setFont(undefined, 'bold');
+                        doc.text(`${index + 1}. ${issue.issue || 'Unknown Issue'}`, 20, yPos);
+                        doc.setFont(undefined, 'normal');
+                        yPos += 5;
+                        doc.text(`   Priority: ${issue.priority || 'N/A'} | Deadline: ${issue.deadline_for_action || 'N/A'}`, 25, yPos);
+                        yPos += 7;
+                        
+                        if (yPos > 270) {
+                            doc.addPage();
+                            yPos = 20;
+                            addPageNumber();
                         }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+                    });
+                }
+                
+                addPageNumber();
+                
+                // FINANCIAL ANALYSIS (Page 2)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('2. FINANCIAL ANALYSIS', 20, 20);
+                
+                // Financial Summary Table
+                const fsData = currentCompany.financial_statements_raw_data;
+                if (fsData) {
+                    yPos = 30;
+                    doc.setFontSize(10);
+                    doc.text('Financial Highlights (BDT in Millions):', 20, yPos);
+                    yPos += 10;
+                    
+                    // Create table data
+                    const tableData = [
+                        ['Metric', '2024', '2023', '2022', 'YoY Change']
+                    ];
+                    
+                    // Revenue
+                    const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item => 
+                        item && item.line_item && item.line_item.toLowerCase().includes('revenue')
+                    );
+                    if (revenueItem) {
+                        const rev2024 = parseFloat(revenueItem.current_year_amount || 0) / 1000000;
+                        const rev2023 = parseFloat(revenueItem.prior_year_1_amount || 0) / 1000000;
+                        const rev2022 = parseFloat(revenueItem.prior_year_2_amount || 0) / 1000000;
+                        const change = calculateChange(rev2024, rev2023);
+                        tableData.push(['Revenue', rev2024.toFixed(2), rev2023.toFixed(2), rev2022.toFixed(2), change ? change + '%' : 'N/A']);
+                    }
+                    
+                    // Net Profit
+                    const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item => 
+                        item && item.line_item && (
+                            item.line_item.toLowerCase().includes('profit') ||
+                            item.line_item.toLowerCase().includes('net income')
+                        )
+                    );
+                    if (profitItem) {
+                        const profit2024 = parseFloat(profitItem.current_year_amount || 0) / 1000000;
+                        const profit2023 = parseFloat(profitItem.prior_year_1_amount || 0) / 1000000;
+                        const profit2022 = parseFloat(profitItem.prior_year_2_amount || 0) / 1000000;
+                        const change = calculateChange(profit2024, profit2023);
+                        tableData.push(['Net Profit', profit2024.toFixed(2), profit2023.toFixed(2), profit2022.toFixed(2), change ? change + '%' : 'N/A']);
+                    }
+                    
+                    // Total Assets
+                    const assetItem = fsData.statement_of_financial_position?.find(item => 
+                        item && item.line_item && item.line_item.toLowerCase().includes('total assets')
+                    );
+                    if (assetItem) {
+                        const asset2024 = parseFloat(assetItem.current_year_amount || 0) / 1000000;
+                        const asset2023 = parseFloat(assetItem.prior_year_1_amount || 0) / 1000000;
+                        const asset2022 = parseFloat(assetItem.prior_year_2_amount || 0) / 1000000;
+                        const change = calculateChange(asset2024, asset2023);
+                        tableData.push(['Total Assets', asset2024.toFixed(2), asset2023.toFixed(2), asset2022.toFixed(2), change ? change + '%' : 'N/A']);
+                    }
+                    
+                    // Add table to PDF
+                    doc.autoTable({
+                        startY: yPos,
+                        head: [tableData[0]],
+                        body: tableData.slice(1),
+                        theme: 'striped',
+                        headStyles: { fillColor: [44, 62, 80] },
+                        margin: { left: 20 }
+                    });
+                }
+                
+                addPageNumber();
+                
+                // RATIO ANALYSIS (Page 3)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('3. FINANCIAL RATIO ANALYSIS', 20, 20);
+                
+                const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
+                if (ratioData) {
+                    yPos = 30;
+                    doc.setFontSize(10);
+                    
+                    // Liquidity Ratios
+                    doc.text('Liquidity Ratios:', 20, yPos);
+                    yPos += 7;
+                    
+                    if (ratioData.liquidity_ratios?.current_ratio) {
+                        const cr = ratioData.liquidity_ratios.current_ratio;
+                        doc.text(`Current Ratio: ${cr.calculation?.current_year?.ratio || 'N/A'} (Benchmark: ${cr.industry_benchmark || 'N/A'})`, 25, yPos);
+                        yPos += 5;
+                    }
+                    
+                    if (ratioData.liquidity_ratios?.quick_ratio) {
+                        const qr = ratioData.liquidity_ratios.quick_ratio;
+                        doc.text(`Quick Ratio: ${qr.calculation?.current_year?.ratio || 'N/A'} (Benchmark: ${qr.industry_benchmark || 'N/A'})`, 25, yPos);
+                        yPos += 7;
+                    }
+                    
+                    // Profitability Ratios
+                    doc.text('Profitability Ratios:', 20, yPos);
+                    yPos += 7;
+                    
+                    if (ratioData.profitability_ratios?.gross_profit_margin) {
+                        const gpm = ratioData.profitability_ratios.gross_profit_margin;
+                        doc.text(`Gross Margin: ${gpm.calculation?.current_year?.percentage || 'N/A'}% (Industry: ${gpm.industry_benchmark || 'N/A'})`, 25, yPos);
+                        yPos += 5;
+                    }
+                    
+                    if (ratioData.profitability_ratios?.return_on_assets) {
+                        const roa = ratioData.profitability_ratios.return_on_assets;
+                        doc.text(`Return on Assets: ${roa.calculation?.current_year?.percentage || 'N/A'}%`, 25, yPos);
+                        yPos += 5;
+                    }
+                    
+                    if (ratioData.profitability_ratios?.return_on_equity) {
+                        const roe = ratioData.profitability_ratios.return_on_equity;
+                        doc.text(`Return on Equity: ${roe.calculation?.current_year?.percentage || 'N/A'}%`, 25, yPos);
+                        yPos += 7;
+                    }
+                    
+                    // Solvency Ratios
+                    doc.text('Solvency Ratios:', 20, yPos);
+                    yPos += 7;
+                    
+                    if (ratioData.solvency_ratios?.debt_to_equity) {
+                        const dte = ratioData.solvency_ratios.debt_to_equity;
+                        doc.text(`Debt to Equity: ${dte.calculation?.current_year?.ratio || 'N/A'} (Trend: ${dte.trend_analysis || 'N/A'})`, 25, yPos);
+                        yPos += 5;
+                    }
+                    
+                    if (ratioData.solvency_ratios?.interest_coverage) {
+                        const icr = ratioData.solvency_ratios.interest_coverage;
+                        doc.text(`Interest Coverage: ${icr.calculation?.current_year?.ratio || 'N/A'} (Min Required: ${icr.minimum_requirement || 'N/A'})`, 25, yPos);
+                        yPos += 7;
                     }
                 }
-            });
-        }
-
-        // Export data
-        function exportData() {
-            // Create a PDF export
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            doc.text(`FRC Analysis Report - ${currentCompany.company_info.legal_name}`, 20, 20);
-            doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 30);
-            
-            // Add company info
-            let y = 40;
-            doc.text('Company Information:', 20, y);
-            y += 10;
-            doc.text(`Name: ${currentCompany.company_info.legal_name}`, 30, y);
-            y += 7;
-            doc.text(`Industry: ${currentCompany.company_info.industry_sector}`, 30, y);
-            y += 7;
-            doc.text(`Reporting Currency: ${currentCompany.company_info.reporting_currency}`, 30, y);
-            
-            y += 15;
-            doc.text('Financial Highlights:', 20, y);
-            
-            // Add a simple table with financial data
-            const fsData = currentCompany.financial_statements_raw_data;
-            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
-            const revenueItem = incomeStatement.find(item => 
-                item.line_item.toLowerCase().includes('revenue')
-            );
-            const profitItem = incomeStatement.find(item => 
-                item.line_item.toLowerCase().includes('profit') ||
-                item.line_item.toLowerCase().includes('net income')
-            );
-            
-            if (revenueItem && profitItem) {
-                y += 10;
-                doc.text(`Latest Revenue: ${formatCurrency(revenueItem.current_year_amount)}`, 30, y);
-                y += 7;
-                doc.text(`Latest Net Profit: ${formatCurrency(profitItem.current_year_amount)}`, 30, y);
+                
+                addPageNumber();
+                
+                // IFRS COMPLIANCE (Page 4)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('4. IFRS COMPLIANCE ASSESSMENT', 20, 20);
+                
+                const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
+                if (complianceMatrix && complianceMatrix.length > 0) {
+                    yPos = 30;
+                    doc.setFontSize(10);
+                    
+                    // Summary statistics
+                    let compliant = 0, partial = 0, nonCompliant = 0;
+                    complianceMatrix.forEach(item => {
+                        if (!item || !item.compliance_status) return;
+                        const status = item.compliance_status.toLowerCase();
+                        if (status.includes('non')) nonCompliant++;
+                        else if (status.includes('partial')) partial++;
+                        else compliant++;
+                    });
+                    
+                    doc.text(`Compliance Status Summary:`, 20, yPos);
+                    yPos += 7;
+                    doc.text(`• Compliant: ${compliant} standards`, 25, yPos);
+                    yPos += 5;
+                    doc.text(`• Partially Compliant: ${partial} standards`, 25, yPos);
+                    yPos += 5;
+                    doc.text(`• Non-Compliant: ${nonCompliant} standards`, 25, yPos);
+                    yPos += 10;
+                    
+                    // Material Departures
+                    const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
+                    if (departures && departures.length > 0) {
+                        doc.setFont(undefined, 'bold');
+                        doc.setTextColor(200, 0, 0);
+                        doc.text('MATERIAL DEPARTURES IDENTIFIED:', 20, yPos);
+                        doc.setTextColor(0, 0, 0);
+                        doc.setFont(undefined, 'normal');
+                        yPos += 7;
+                        
+                        departures.forEach((departure, index) => {
+                            if (!departure) return;
+                            
+                            doc.text(`${index + 1}. ${departure.issue_description || 'Unknown'}`, 25, yPos);
+                            yPos += 5;
+                            doc.text(`   Standard: ${departure.relevant_standard || 'N/A'} | Impact: ${formatCurrency(departure.financial_impact) || 'N/A'}`, 30, yPos);
+                            yPos += 5;
+                            doc.text(`   Action Required: ${departure.recommended_action || 'N/A'}`, 30, yPos);
+                            yPos += 7;
+                            
+                            if (yPos > 270) {
+                                doc.addPage();
+                                yPos = 20;
+                                addPageNumber();
+                            }
+                        });
+                    }
+                }
+                
+                addPageNumber();
+                
+                // AUDIT & GOVERNANCE (Page 5)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('5. AUDIT & GOVERNANCE ASSESSMENT', 20, 20);
+                
+                const auditData = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis;
+                if (auditData) {
+                    yPos = 30;
+                    doc.setFontSize(10);
+                    
+                    doc.text(`Auditor: ${auditData.auditor_information?.firm_name || 'N/A'}`, 20, yPos);
+                    yPos += 7;
+                    doc.text(`Audit Opinion: ${auditData.audit_opinion?.opinion_type || 'N/A'}`, 20, yPos);
+                    yPos += 7;
+                    doc.text(`Audit Tenure: ${auditData.auditor_information?.audit_tenure_years || 'N/A'} years`, 20, yPos);
+                    yPos += 10;
+                    
+                    // Key Audit Matters
+                    const kam = auditData.key_audit_matters;
+                    if (kam && kam.length > 0) {
+                        doc.setFont(undefined, 'bold');
+                        doc.text('KEY AUDIT MATTERS:', 20, yPos);
+                        doc.setFont(undefined, 'normal');
+                        yPos += 7;
+                        
+                        kam.forEach((matter, index) => {
+                            if (!matter) return;
+                            
+                            doc.text(`${index + 1}. ${matter.matter || 'Unknown'}`, 25, yPos);
+                            yPos += 5;
+                            doc.text(`   FRC Risk Assessment: ${matter.frc_risk_assessment || 'N/A'}`, 30, yPos);
+                            yPos += 7;
+                            
+                            if (yPos > 270) {
+                                doc.addPage();
+                                yPos = 20;
+                                addPageNumber();
+                            }
+                        });
+                    }
+                    
+                    // Going Concern
+                    const goingConcern = auditData.going_concern_assessment;
+                    if (goingConcern?.material_uncertainty_disclosed) {
+                        yPos += 5;
+                        doc.setFont(undefined, 'bold');
+                        doc.setTextColor(200, 0, 0);
+                        doc.text('GOING CONCERN UNCERTAINTY:', 20, yPos);
+                        doc.setTextColor(0, 0, 0);
+                        doc.setFont(undefined, 'normal');
+                        yPos += 7;
+                        doc.text(goingConcern.frc_assessment || goingConcern.auditor_conclusion || 'Material uncertainty exists', 25, yPos);
+                    }
+                }
+                
+                addPageNumber();
+                
+                // RISK ANALYSIS (Page 6)
+                doc.addPage();
+                doc.setFontSize(14);
+                doc.text('6. RISK ANALYSIS & ENFORCEMENT RECOMMENDATIONS', 20, 20);
+                
+                const riskData = currentCompany.phase_5_synthesis_and_findings?.risk_factor_consolidation;
+                if (riskData) {
+                    yPos = 30;
+                    doc.setFontSize(10);
+                    
+                    // High Risk Factors
+                    if (riskData.high_risk_factors && riskData.high_risk_factors.length > 0) {
+                        doc.setFont(undefined, 'bold');
+                        doc.setTextColor(200, 0, 0);
+                        doc.text('HIGH RISK FACTORS:', 20, yPos);
+                        doc.setTextColor(0, 0, 0);
+                        doc.setFont(undefined, 'normal');
+                        yPos += 7;
+                        
+                        riskData.high_risk_factors.forEach((factor, index) => {
+                            if (!factor) return;
+                            
+                            doc.text(`${index + 1}. ${factor.risk_category || 'Unknown'}`, 25, yPos);
+                            yPos += 5;
+                            doc.text(`   ${factor.risk_description || 'No description'}`, 30, yPos);
+                            yPos += 7;
+                            
+                            if (yPos > 270) {
+                                doc.addPage();
+                                yPos = 20;
+                                addPageNumber();
+                            }
+                        });
+                    }
+                }
+                
+                // FRC Recommendations
+                const overallAssess = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
+                if (overallAssess?.frc_recommendations && overallAssess.frc_recommendations.length > 0) {
+                    yPos += 10;
+                    doc.setFont(undefined, 'bold');
+                    doc.setTextColor(0, 100, 0);
+                    doc.text('FRC RECOMMENDATIONS:', 20, yPos);
+                    doc.setTextColor(0, 0, 0);
+                    doc.setFont(undefined, 'normal');
+                    yPos += 7;
+                    
+                    overallAssess.frc_recommendations.forEach((rec, index) => {
+                        if (!rec) return;
+                        
+                        doc.text(`${index + 1}. ${rec.recommendation || 'Unknown'}`, 25, yPos);
+                        yPos += 5;
+                        doc.text(`   Addressed to: ${rec.addressed_to || 'N/A'} | Timeline: ${rec.timeline || 'N/A'}`, 30, yPos);
+                        yPos += 7;
+                        
+                        if (yPos > 270) {
+                            doc.addPage();
+                            yPos = 20;
+                            addPageNumber();
+                        }
+                    });
+                }
+                
+                addPageNumber();
+                
+                // FINAL PAGE - CONFIDENTIALITY NOTICE
+                doc.addPage();
+                doc.setFontSize(16);
+                doc.setTextColor(40, 40, 40);
+                doc.text('FRC CONFIDENTIAL ANALYSIS REPORT', 105, 100, { align: 'center' });
+                doc.setFontSize(12);
+                doc.text('--- END OF REPORT ---', 105, 120, { align: 'center' });
+                
+                doc.setFontSize(10);
+                doc.setTextColor(100, 100, 100);
+                doc.text('This report contains confidential regulatory analysis prepared for internal FRC use only.', 105, 150, { align: 'center' });
+                doc.text('Unauthorized distribution, reproduction, or disclosure is strictly prohibited.', 105, 160, { align: 'center' });
+                
+                doc.setFontSize(8);
+                doc.text(`Report Generated: ${new Date().toLocaleString()}`, 105, 180, { align: 'center' });
+                doc.text(`Analyst Framework: v${frcData.metadata?.analyst_framework_version || '1.0'}`, 105, 190, { align: 'center' });
+                
+                addPageNumber();
+                
+                // Save the PDF
+                const fileName = `FRC_Report_${currentCompany.company_info?.legal_name?.replace(/\s+/g, '_') || 'Company'}_${new Date().toISOString().split('T')[0]}.pdf`;
+                doc.save(fileName);
+                
+                // Hide watermark
+                if (watermark) watermark.classList.add('d-none');
+                
+                console.log('PDF generated successfully:', fileName);
+                
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF report. Please check console for details.');
+                
+                // Hide watermark if error occurs
+                const watermark = document.getElementById('confidentialWatermark');
+                if (watermark) watermark.classList.add('d-none');
             }
-            
-            // Save the PDF
-            doc.save(`FRC_Analysis_${currentCompany.company_info.legal_name.replace(/\s+/g, '_')}.pdf`);
         }
 
         // Initialize when page loads
