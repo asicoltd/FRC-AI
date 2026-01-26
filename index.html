@@ -295,6 +295,20 @@
             <div class="col-lg-2 col-md-3 sidebar d-none d-md-block">
                 <div class="p-3">
                     <h5 class="mb-4">Companies</h5>
+                    <div class="d-grid gap-2 mb-3">
+                        <a class="btn btn-outline-primary" data-company-id="anwer-khan-modern-hospital">
+                            Anwer Khan Modern Hospital
+                        </a>
+                        <a class="btn btn-outline-secondary" data-company-id="bank-asia-limited">
+                            Bank Asia PLC
+                        </a>
+                        <a class="btn btn-sm btn-dark" data-redirect-url="company.html?company=anwer-khan-modern-hospital" target="_blank">
+                            Open Anwer Khan Page
+                        </a>
+                        <a class="btn btn-sm btn-dark" data-redirect-url="company.html?company=bank-asia-limited" target="_blank">
+                            Open Bank Asia Page
+                        </a>
+                    </div>
                     <div class="list-group" id="companyList">
                         <!-- Company list will be populated here -->
                     </div>
@@ -496,6 +510,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Line Item</th>
+                                                                <th>Note</th>
                                                                 <th>2024</th>
                                                                 <th>2023</th>
                                                                 <th>2022</th>
@@ -1093,17 +1108,6 @@
                     const mobileSidebar = document.getElementById('mobileSidebar');
                     if (mobileSidebar && mobileSidebar.classList.contains('show')) {
                         new bootstrap.Collapse(mobileSidebar).hide();
-                    }
-                }
-            });
-
-            // External redirects
-            document.addEventListener('click', function (e) {
-                const redirectLink = e.target.closest('[data-redirect-url]');
-                if (redirectLink) {
-                    const url = redirectLink.getAttribute('data-redirect-url');
-                    if (url && url !== '#') {
-                        window.open(url, '_blank');
                     }
                 }
             });
