@@ -393,7 +393,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="mb-0">Financial Performance Trend</h5>
+                                        <h5 class="mb-0">Financial Performance Trend (BDT)</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="chart-container">
@@ -496,7 +496,6 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Line Item</th>
-                                                                <th>Note</th>
                                                                 <th>2024</th>
                                                                 <th>2023</th>
                                                                 <th>2022</th>
@@ -1098,6 +1097,17 @@
                 }
             });
 
+            // External redirects
+            document.addEventListener('click', function (e) {
+                const redirectLink = e.target.closest('[data-redirect-url]');
+                if (redirectLink) {
+                    const url = redirectLink.getAttribute('data-redirect-url');
+                    if (url && url !== '#') {
+                        window.open(url, '_blank');
+                    }
+                }
+            });
+
             // Filter application
             const applyFiltersBtn = document.getElementById('applyFilters');
             const resetFiltersBtn = document.getElementById('resetFilters');
@@ -1334,8 +1344,12 @@
                             beginAtZero: true,
                             ticks: {
                                 callback: function (value) {
-                                    return formatDisplayNumber(value);
+                                    return formatCurrency(value);
                                 }
+                            },
+                            title: {
+                                display: true,
+                                text: 'BDT'
                             }
                         }
                     }
