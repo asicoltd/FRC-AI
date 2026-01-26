@@ -1,0 +1,839 @@
+{
+  "frc_analysis_report": {
+    "metadata": {
+      "report_id": "",
+      "generation_date": "",
+      "analyst_framework_version": "2.0",
+      "source_documents": [],
+      "analysis_scope": "Comprehensive IFRS & Regulatory Compliance Analysis"
+    },
+    "companies": {
+      "company_id": {
+        "company_info": {
+          "legal_name": "",
+          "trade_name": "",
+          "registration_number": "",
+          "industry_sector": "",
+          "stock_exchange_symbol": "",
+          "reporting_currency": "BDT",
+          "financial_year_end": "",
+          "report_publication_date": ""
+        },
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
+            {
+              "line_item": "",
+              "classification": "Asset/Liability/Equity",
+              "sub_classification": "Current/Non-Current",
+              "current_year_amount": "",
+              "prior_year_1_amount": "",
+              "prior_year_2_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_profit_or_loss_and_oci": [
+            {
+              "line_item": "",
+              "classification": "Revenue/Expense/Other Comprehensive Income",
+              "current_year_amount": "",
+              "prior_year_1_amount": "",
+              "prior_year_2_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_cash_flows": [
+            {
+              "line_item": "",
+              "classification": "Operating/Investing/Financing",
+              "current_year_amount": "",
+              "prior_year_1_amount": "",
+              "prior_year_2_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_changes_in_equity": [
+            {
+              "component": "",
+              "opening_balance": "",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "",
+                  "amount": "",
+                  "description": ""
+                }
+              ],
+              "closing_balance": "",
+              "notes_reference": ""
+            }
+          ]
+        },
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "",
+            "disclosed_in_notes": "",
+            "actual_standards_applied": [],
+            "discrepancies_identified": [],
+            "compliance_assessment": ""
+          },
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "",
+                "jurisdiction": "",
+                "compliance_status": "",
+                "specific_disclosures_found": []
+              }
+            ],
+            "regulatory_filings_status": {
+              "sec_filed": true,
+              "sec_filing_date": "",
+              "tax_return_filed": true,
+              "tax_return_date": "",
+              "rjsccompliance": true,
+              "bb_compliance": true
+            },
+            "overall_regulatory_assessment": ""
+          }
+        },
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {
+            "liquidity_ratios": {
+              "current_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "current_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  },
+                  "prior_year_1": {
+                    "current_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  },
+                  "prior_year_2": {
+                    "current_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  }
+                },
+                "industry_benchmark": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "quick_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "quick_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  },
+                  "prior_year_1": {
+                    "quick_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  },
+                  "prior_year_2": {
+                    "quick_assets": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  }
+                },
+                "industry_benchmark": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "cash_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "cash_equivalents": "",
+                    "current_liabilities": "",
+                    "ratio": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              }
+            },
+            "solvency_ratios": {
+              "debt_to_equity": {
+                "calculation": {
+                  "current_year": {
+                    "total_debt": "",
+                    "total_equity": "",
+                    "ratio": ""
+                  },
+                  "prior_year_1": {
+                    "total_debt": "",
+                    "total_equity": "",
+                    "ratio": ""
+                  },
+                  "prior_year_2": {
+                    "total_debt": "",
+                    "total_equity": "",
+                    "ratio": ""
+                  }
+                },
+                "covenant_limits": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "debt_to_assets": {
+                "calculation": {
+                  "current_year": {
+                    "total_debt": "",
+                    "total_assets": "",
+                    "ratio": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              },
+              "interest_coverage": {
+                "calculation": {
+                  "current_year": {
+                    "ebit": "",
+                    "interest_expense": "",
+                    "ratio": ""
+                  },
+                  "prior_year_1": {
+                    "ebit": "",
+                    "interest_expense": "",
+                    "ratio": ""
+                  },
+                  "prior_year_2": {
+                    "ebit": "",
+                    "interest_expense": "",
+                    "ratio": ""
+                  }
+                },
+                "minimum_requirement": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              }
+            },
+            "efficiency_ratios": {
+              "inventory_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "cogs": "",
+                    "average_inventory": "",
+                    "ratio": "",
+                    "days": ""
+                  },
+                  "prior_year_1": {
+                    "cogs": "",
+                    "average_inventory": "",
+                    "ratio": "",
+                    "days": ""
+                  },
+                  "prior_year_2": {
+                    "cogs": "",
+                    "average_inventory": "",
+                    "ratio": "",
+                    "days": ""
+                  }
+                },
+                "industry_benchmark": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "receivables_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "credit_sales": "",
+                    "average_receivables": "",
+                    "ratio": "",
+                    "days": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              },
+              "asset_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "revenue": "",
+                    "average_total_assets": "",
+                    "ratio": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              },
+              "working_capital_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "revenue": "",
+                    "average_working_capital": "",
+                    "ratio": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              }
+            },
+            "profitability_ratios": {
+              "gross_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "gross_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  },
+                  "prior_year_1": {
+                    "gross_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  },
+                  "prior_year_2": {
+                    "gross_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  }
+                },
+                "industry_benchmark": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "operating_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "operating_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              },
+              "net_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  },
+                  "prior_year_1": {
+                    "net_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  },
+                  "prior_year_2": {
+                    "net_profit": "",
+                    "revenue": "",
+                    "percentage": ""
+                  }
+                },
+                "industry_benchmark": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              },
+              "return_on_assets": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "",
+                    "average_total_assets": "",
+                    "percentage": ""
+                  }
+                },
+                "trend_analysis": "",
+                "risk_assessment": ""
+              },
+              "return_on_equity": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "",
+                    "average_shareholders_equity": "",
+                    "percentage": ""
+                  },
+                  "prior_year_1": {
+                    "net_profit": "",
+                    "average_shareholders_equity": "",
+                    "percentage": ""
+                  },
+                  "prior_year_2": {
+                    "net_profit": "",
+                    "average_shareholders_equity": "",
+                    "percentage": ""
+                  }
+                },
+                "cost_of_equity": "",
+                "trend_analysis": "",
+                "risk_assessment": "",
+                "investigation_points": []
+              }
+            },
+            "market_ratios": {
+              "earnings_per_share": {
+                "calculation": {
+                  "current_year": {
+                    "basic": "",
+                    "diluted": ""
+                  }
+                },
+                "disclosed_in_fs": true
+              },
+              "price_to_earnings": {
+                "calculation": {
+                  "current_year": {
+                    "market_price": "",
+                    "eps": "",
+                    "ratio": ""
+                  }
+                }
+              },
+              "book_value_per_share": {
+                "calculation": {
+                  "current_year": {
+                    "shareholders_equity": "",
+                    "number_of_shares": "",
+                    "value": ""
+                  }
+                }
+              }
+            }
+          },
+          "earnings_quality_analysis": {
+            "accruals_analysis": {
+              "calculations": {
+                "current_year": {
+                  "net_income": "",
+                  "operating_cash_flow": "",
+                  "total_accruals": "",
+                  "accruals_to_net_income": ""
+                },
+                "prior_year_1": {
+                  "net_income": "",
+                  "operating_cash_flow": "",
+                  "total_accruals": "",
+                  "accruals_to_net_income": ""
+                },
+                "prior_year_2": {
+                  "net_income": "",
+                  "operating_cash_flow": "",
+                  "total_accruals": "",
+                  "accruals_to_net_income": ""
+                }
+              },
+              "trend_analysis": "",
+              "quality_assessment": "",
+              "red_flags": []
+            },
+            "cash_flow_pattern_analysis": {
+              "operating_cash_flow_trend": "",
+              "investing_cash_flow_pattern": "",
+              "financing_cash_flow_pattern": "",
+              "free_cash_flow_calculation": {
+                "current_year": "",
+                "prior_year_1": "",
+                "prior_year_2": ""
+              },
+              "sustainability_assessment": ""
+            }
+          },
+          "vertical_and_horizontal_analysis": {
+            "common_size_income_statement": [
+              {
+                "line_item": "",
+                "current_year_percentage": "",
+                "prior_year_1_percentage": "",
+                "prior_year_2_percentage": "",
+                "significant_variance": false,
+                "variance_explanation": ""
+              }
+            ],
+            "common_size_balance_sheet": [
+              {
+                "line_item": "",
+                "current_year_percentage": "",
+                "prior_year_1_percentage": "",
+                "prior_year_2_percentage": "",
+                "significant_variance": false,
+                "variance_explanation": ""
+              }
+            ],
+            "year_over_year_growth_rates": {
+              "revenue_growth": {
+                "yoy_1": "",
+                "yoy_2": "",
+                "cagr_3_year": ""
+              },
+              "profit_growth": {
+                "yoy_1": "",
+                "yoy_2": "",
+                "cagr_3_year": ""
+              },
+              "asset_growth": {
+                "yoy_1": "",
+                "yoy_2": "",
+                "cagr_3_year": ""
+              },
+              "equity_growth": {
+                "yoy_1": "",
+                "yoy_2": "",
+                "cagr_3_year": ""
+              }
+            }
+          }
+        },
+        "phase_3_ifrs_compliance_detailed": {
+          "accounting_policies_review": {
+            "significant_policies_disclosed": [
+              {
+                "policy_area": "",
+                "disclosed_policy": "",
+                "ifrs_standard": "",
+                "compliance_assessment": "",
+                "departures_identified": []
+              }
+            ],
+            "changes_in_accounting_policies": [
+              {
+                "policy_changed": "",
+                "reason_for_change": "",
+                "impact_disclosed": true,
+                "ias_8_compliance": ""
+              }
+            ],
+            "ias_8_hierarchy_compliance": ""
+          },
+          "key_standards_compliance_check": {
+            "ifrs_15_revenue_recognition": {
+              "applicable": true,
+              "revenue_streams_identified": [
+                {
+                  "stream": "",
+                  "timing_of_recognition": "",
+                  "performance_obligations": "",
+                  "transaction_price_allocation": "",
+                  "compliance_assessment": ""
+                }
+              ],
+              "contract_liabilities": {
+                "disclosed": true,
+                "amount": "",
+                "movement_analysis": "",
+                "concerns": []
+              },
+              "overall_compliance": ""
+            },
+            "ifrs_16_leases": {
+              "applicable": true,
+              "lessee_accounting": {
+                "right_of_use_assets": "",
+                "lease_liabilities": "",
+                "discount_rate_disclosed": true,
+                "lease_term_assumptions": "",
+                "compliance_assessment": ""
+              },
+              "lessor_accounting": {
+                "operating_leases": "",
+                "finance_leases": "",
+                "compliance_assessment": ""
+              },
+              "disclosure_completeness": ""
+            },
+            "ifrs_9_financial_instruments": {
+              "applicable": true,
+              "classification_and_measurement": {
+                "categories_used": [],
+                "fair_value_hierarchy_disclosures": "",
+                "impairment_model_applied": "",
+                "compliance_assessment": ""
+              },
+              "hedge_accounting": {
+                "applied": true,
+                "effectiveness_assessment": "",
+                "compliance_assessment": ""
+              },
+              "overall_compliance": ""
+            },
+            "ias_36_impairment": {
+              "applicable": true,
+              "impairment_tests_performed": [
+                {
+                  "asset_class": "",
+                  "carrying_amount": "",
+                  "recoverable_amount": "",
+                  "impairment_loss": "",
+                  "key_assumptions": "",
+                  "sensitivity_analysis": "",
+                  "concerns": []
+                }
+              ],
+              "goodwill_impairment_testing": {
+                "performed": true,
+                "cash_generating_units": "",
+                "key_assumptions": "",
+                "concerns": []
+              },
+              "overall_compliance": ""
+            },
+            "ias_37_provisions": {
+              "applicable": true,
+              "provisions_disclosed": [
+                {
+                  "type": "",
+                  "amount": "",
+                  "recognition_criteria_met": "",
+                  "measurement_basis": "",
+                  "concerns": []
+                }
+              ],
+              "contingent_liabilities": {
+                "disclosed": true,
+                "material_items": [],
+                "adequacy_of_disclosure": ""
+              },
+              "overall_compliance": ""
+            }
+          },
+          "detailed_ifrs_compliance_matrix": [
+            {
+              "standard_code": "",
+              "standard_name": "",
+              "applicability": "Yes/No/Partially",
+              "page_reference": "",
+              "compliance_status": "Compliant/Non-Compliant/Partially Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "",
+                  "compliance_status": "",
+                  "evidence_location": "",
+                  "concerns": ""
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": ""
+            }
+          ],
+          "tax_compliance_check": {
+            "ias_12_application": {
+              "current_tax": {
+                "calculation_basis": "",
+                "reconciliation_provided": true,
+                "compliance_assessment": ""
+              },
+              "deferred_tax": {
+                "assets_disclosed": "",
+                "liabilities_disclosed": "",
+                "temporary_differences_identified": "",
+                "tax_rate_disclosed": true,
+                "compliance_assessment": ""
+              },
+              "tax_contingencies": {
+                "disclosed": true,
+                "uncertain_tax_positions": "",
+                "ifric_23_compliance": ""
+              }
+            },
+            "bangladesh_income_tax_act_2023": {
+              "tax_holidays_availed": [],
+              "incentives_claimed": [],
+              "withholding_tax_compliance": "",
+              "advance_tax_payments": "",
+              "compliance_assessment": ""
+            }
+          }
+        },
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "",
+              "firm_registration_number": "",
+              "audit_tenure_years": "",
+              "rotation_compliance": ""
+            },
+            "audit_opinion": {
+              "opinion_type": "Unmodified/Modified/Adverse/Disclaimer",
+              "basis_for_opinion": "",
+              "modified_opinion_reasons": []
+            },
+            "key_audit_matters": [
+              {
+                "matter": "",
+                "auditor_response": "",
+                "frc_risk_assessment": "",
+                "follow_up_required": true
+              }
+            ],
+            "going_concern_assessment": {
+              "material_uncertainty_disclosed": true,
+              "period_assessed": "",
+              "management_plans_disclosed": [],
+              "auditor_conclusion": "",
+              "frc_assessment": ""
+            },
+            "emphasis_of_matter": {
+              "paragraphs_present": true,
+              "matters_emphasized": [],
+              "implications": ""
+            },
+            "other_matter": {
+              "paragraphs_present": true,
+              "matters_disclosed": [],
+              "implications": ""
+            },
+            "isa_compliance_check": {
+              "isa_700_compliance": "",
+              "isa_701_compliance": "",
+              "isa_570_compliance": "",
+              "identified_deficiencies": []
+            }
+          },
+          "corporate_governance_review": {
+            "board_structure": {
+              "board_size": "",
+              "independent_directors": "",
+              "female_directors": "",
+              "bsec_compliance": "",
+              "concerns": []
+            },
+            "committee_effectiveness": {
+              "audit_committee": {
+                "composition": "",
+                "meetings_held": "",
+                "key_activities": [],
+                "effectiveness_assessment": ""
+              },
+              "remuneration_committee": {
+                "composition": "",
+                "policies_disclosed": true,
+                "effectiveness_assessment": ""
+              },
+              "nominating_committee": {
+                "composition": "",
+                "activities": [],
+                "effectiveness_assessment": ""
+              }
+            },
+            "internal_controls": {
+              "management_assertion": "",
+              "auditor_opinion": "",
+              "weaknesses_identified": [],
+              "frc_assessment": ""
+            },
+            "risk_management": {
+              "framework_disclosed": true,
+              "key_risks_identified": [],
+              "mitigation_strategies": [],
+              "adequacy_assessment": ""
+            },
+            "related_party_transactions": {
+              "ias_24_disclosures": {
+                "completeness": "",
+                "arm_length_assessment": "",
+                "board_approval_process": "",
+                "concerns": []
+              },
+              "material_transactions": [
+                {
+                  "related_party": "",
+                  "nature": "",
+                  "amount": "",
+                  "terms": "",
+                  "arm_length_justification": "",
+                  "concern_level": ""
+                }
+              ]
+            },
+            "director_remuneration": {
+              "disclosure_completeness": "",
+              "performance_linkage": "",
+              "shareholder_approval": "",
+              "concerns": []
+            }
+          }
+        },
+        "phase_5_synthesis_and_findings": {
+          "material_departures_summary": [
+            {
+              "issue_id": "",
+              "issue_description": "",
+              "relevant_standard": "",
+              "page_reference": "",
+              "extract_from_fs": "",
+              "materiality_assessment": "Material/Immaterial",
+              "financial_impact": "",
+              "recommended_action": ""
+            }
+          ],
+          "risk_factor_consolidation": {
+            "high_risk_factors": [
+              {
+                "risk_category": "",
+                "risk_description": "",
+                "source": "",
+                "potential_impact": "",
+                "mitigation_status": ""
+              }
+            ],
+            "medium_risk_factors": [
+              {
+                "risk_category": "",
+                "risk_description": "",
+                "source": "",
+                "potential_impact": "",
+                "mitigation_status": ""
+              }
+            ],
+            "low_risk_factors": [
+              {
+                "risk_category": "",
+                "risk_description": "",
+                "source": "",
+                "potential_impact": "",
+                "mitigation_status": ""
+              }
+            ]
+          },
+          "going_concern_assessment": {
+            "frc_conclusion": "",
+            "supporting_factors": [],
+            "contradicting_factors": [],
+            "recommendation": ""
+          },
+          "overall_assessment": {
+            "fairness_of_view": "",
+            "compliance_level": "",
+            "reliability_score": "",
+            "transparency_rating": "",
+            "key_strengths": [],
+            "critical_issues": [
+              {
+                "issue": "",
+                "priority": "High/Medium/Low",
+                "regulatory_implication": "",
+                "deadline_for_action": ""
+              }
+            ],
+            "frc_recommendations": [
+              {
+                "recommendation": "",
+                "addressed_to": "Management/Auditor/Regulator",
+                "timeline": "",
+                "expected_outcome": ""
+              }
+            ]
+          }
+        }
+      }
+    },
+    "cross_company_comparative_analysis": {
+      "industry_benchmarking": {},
+      "regulatory_trends_identified": [],
+      "common_compliance_issues": [],
+      "sector_wide_recommendations": []
+    }
+  }
+}
