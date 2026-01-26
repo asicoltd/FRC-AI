@@ -295,20 +295,6 @@
             <div class="col-lg-2 col-md-3 sidebar d-none d-md-block">
                 <div class="p-3">
                     <h5 class="mb-4">Companies</h5>
-                    <div class="d-grid gap-2 mb-3">
-                        <a class="btn btn-outline-primary" data-company-id="anwer-khan-modern-hospital">
-                            Anwer Khan Modern Hospital
-                        </a>
-                        <a class="btn btn-outline-secondary" data-company-id="bank-asia-limited">
-                            Bank Asia PLC
-                        </a>
-                        <a class="btn btn-sm btn-dark" data-redirect-url="company.html?company=anwer-khan-modern-hospital" target="_blank">
-                            Open Anwer Khan Page
-                        </a>
-                        <a class="btn btn-sm btn-dark" data-redirect-url="company.html?company=bank-asia-limited" target="_blank">
-                            Open Bank Asia Page
-                        </a>
-                    </div>
                     <div class="list-group" id="companyList">
                         <!-- Company list will be populated here -->
                     </div>
@@ -407,7 +393,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="mb-0">Financial Performance Trend (BDT)</h5>
+                                        <h5 class="mb-0">Financial Performance Trend (BDT</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="chart-container">
@@ -1348,12 +1334,8 @@
                             beginAtZero: true,
                             ticks: {
                                 callback: function (value) {
-                                    return formatCurrency(value);
+                                    return formatDisplayNumber(value);
                                 }
-                            },
-                            title: {
-                                display: true,
-                                text: 'BDT'
                             }
                         }
                     }
