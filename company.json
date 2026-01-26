@@ -1141,26 +1141,265 @@
           }
         },
         "phase_3_ifrs_compliance_detailed": {
-          "detailed_ifrs_compliance_matrix": [
-            {
-              "standard_code": "IFRS 9",
-              "standard_name": "Financial Instruments",
-              "applicability": "Yes",
-              "page_reference": "Key Audit Matters",
-              "compliance_status": "Compliant",
-              "specific_requirements_checked": [
-                {
-                  "requirement": "Impairment assessment of loans",
-                  "compliance_status": "Compliant",
-                  "evidence_location": "Key Audit Matters 2024",
-                  "concerns": "None identified"
-                }
-              ],
-              "material_departures": [],
-              "ias_1_para_19_24_implication": "N/A"
-            }
-          ]
+  "detailed_ifrs_compliance_matrix": [
+    {
+      "standard_code": "IFRS 9",
+      "standard_name": "Financial Instruments",
+      "applicability": "Yes",
+      "page_reference": "Key Audit Matters, Notes to Financial Statements",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Impairment assessment of loans and advances",
+          "compliance_status": "Compliant",
+          "evidence_location": "Key Audit Matters 2024 - Measurement of provision for loans and advances",
+          "concerns": "Significant increase in provisions to Tk. 10,020,459,333 indicating rigorous impairment assessment"
         },
+        {
+          "requirement": "Classification and measurement of financial instruments",
+          "compliance_status": "Compliant",
+          "evidence_location": "Balance Sheet - Investments, Loans and advances",
+          "concerns": "Proper categorization as amortized cost, FVTPL, or FVOCI as per disclosures"
+        },
+        {
+          "requirement": "Expected credit loss model application",
+          "compliance_status": "Compliant",
+          "evidence_location": "Audit Report on IFRS Compliance",
+          "concerns": "ECL model consistently applied with Bangladesh Bank guidelines appropriately disclosed"
+        }
+      ],
+      "material_departures": [
+        {
+          "departure": "Differences between IFRS 9 and Bangladesh Bank provisioning requirements",
+          "nature": "Disclosed differences, not material departures",
+          "impact": "Appropriately disclosed in financial statements",
+          "page_reference": "Notes to Financial Statements"
+        }
+      ],
+      "ias_1_para_19_24_implication": "N/A - Full compliance with fair presentation requirements"
+    },
+    {
+      "standard_code": "IAS 1",
+      "standard_name": "Presentation of Financial Statements",
+      "applicability": "Yes",
+      "page_reference": "Entire Financial Statements",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Fair presentation and compliance with IFRS",
+          "compliance_status": "Compliant",
+          "evidence_location": "Auditor's Opinion",
+          "concerns": "Unmodified opinion confirms fair presentation"
+        },
+        {
+          "requirement": "Going concern assessment",
+          "compliance_status": "Compliant",
+          "evidence_location": "Notes to Financial Statements",
+          "concerns": "No material uncertainty regarding going concern identified"
+        },
+        {
+          "requirement": "Comparative information",
+          "compliance_status": "Compliant",
+          "evidence_location": "All financial statements with 4-year comparatives",
+          "concerns": "Comprehensive 4-year comparative information provided"
+        },
+        {
+          "requirement": "Material aggregation and classification",
+          "compliance_status": "Compliant",
+          "evidence_location": "Consolidated Balance Sheet and Income Statement",
+          "concerns": "Appropriate aggregation and classification maintained"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "Compliant - Financial statements present fairly the financial position, performance and cash flows"
+    },
+    {
+      "standard_code": "IAS 16",
+      "standard_name": "Property, Plant and Equipment",
+      "applicability": "Yes",
+      "page_reference": "Fixed Assets Note",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Recognition criteria",
+          "compliance_status": "Compliant",
+          "evidence_location": "Balance Sheet - Fixed assets including premises, furniture and fixtures",
+          "concerns": "Proper recognition of PPE at cost"
+        },
+        {
+          "requirement": "Depreciation method and rates",
+          "compliance_status": "Compliant",
+          "evidence_location": "Notes to Financial Statements",
+          "concerns": "Consistent application of depreciation policies"
+        },
+        {
+          "requirement": "Revaluation model application",
+          "compliance_status": "Compliant",
+          "evidence_location": "Revaluation Reserve in Equity",
+          "concerns": "Revaluation gains/losses properly accounted for in revaluation reserve"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - PPE appropriately presented and measured"
+    },
+    {
+      "standard_code": "IFRS 16",
+      "standard_name": "Leases",
+      "applicability": "Yes",
+      "page_reference": "Notes to Financial Statements",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Right-of-use assets recognition",
+          "compliance_status": "Compliant",
+          "evidence_location": "Notes on Leases",
+          "concerns": "Applied modified retrospective approach appropriately"
+        },
+        {
+          "requirement": "Lease liabilities measurement",
+          "compliance_status": "Compliant",
+          "evidence_location": "Notes on Leases",
+          "concerns": "Proper discount rate application and liability measurement"
+        },
+        {
+          "requirement": "Disclosure requirements",
+          "compliance_status": "Compliant",
+          "evidence_location": "Lease Disclosures",
+          "concerns": "Comprehensive lease disclosures provided"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - Lease accounting properly applied and disclosed"
+    },
+    {
+      "standard_code": "IAS 36",
+      "standard_name": "Impairment of Assets",
+      "applicability": "Yes",
+      "page_reference": "Key Audit Matters, Notes on Investments",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Impairment testing of non-financial assets",
+          "compliance_status": "Compliant",
+          "evidence_location": "Key Audit Matters - Carrying value of investments in subsidiaries",
+          "concerns": "Applied to investments in subsidiaries as noted in previous years"
+        },
+        {
+          "requirement": "Recoverable amount determination",
+          "compliance_status": "Compliant",
+          "evidence_location": "Notes on Investments",
+          "concerns": "Value in use or fair value less costs of disposal appropriately considered"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - Impairment assessments properly conducted"
+    },
+    {
+      "standard_code": "IAS 24",
+      "standard_name": "Related Party Disclosures",
+      "applicability": "Yes",
+      "page_reference": "Related Party Transactions Note",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Identification of related parties",
+          "compliance_status": "Compliant",
+          "evidence_location": "Related Party Disclosures",
+          "concerns": "Comprehensive identification of related parties"
+        },
+        {
+          "requirement": "Disclosure of related party transactions",
+          "compliance_status": "Compliant",
+          "evidence_location": "Related Party Transaction Details",
+          "concerns": "Detailed disclosures of nature and amounts of transactions"
+        },
+        {
+          "requirement": "Disclosure of outstanding balances",
+          "compliance_status": "Compliant",
+          "evidence_location": "Related Party Balances",
+          "concerns": "Outstanding balances with related parties properly disclosed"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - Related party disclosures adequate and transparent"
+    },
+    {
+      "standard_code": "IAS 10",
+      "standard_name": "Events After the Reporting Period",
+      "applicability": "Yes",
+      "page_reference": "Subsequent Events Note",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Adjusting events recognition",
+          "compliance_status": "Compliant",
+          "evidence_location": "Subsequent Events Disclosure",
+          "concerns": "Proper treatment of adjusting and non-adjusting events"
+        },
+        {
+          "requirement": "Disclosure of non-adjusting events",
+          "compliance_status": "Compliant",
+          "evidence_location": "Subsequent Events Disclosure",
+          "concerns": "Material non-adjusting events properly disclosed"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - Subsequent events properly accounted for and disclosed"
+    },
+    {
+      "standard_code": "IAS 12",
+      "standard_name": "Income Taxes",
+      "applicability": "Yes",
+      "page_reference": "Taxation Note, Key Audit Matters",
+      "compliance_status": "Compliant",
+      "specific_requirements_checked": [
+        {
+          "requirement": "Current tax recognition",
+          "compliance_status": "Compliant",
+          "evidence_location": "Income Statement - Provision for taxation",
+          "concerns": "Current tax properly calculated and recognized"
+        },
+        {
+          "requirement": "Deferred tax recognition",
+          "compliance_status": "Compliant",
+          "evidence_location": "Key Audit Matters - Measurement of Deferred Tax",
+          "concerns": "Deferred tax assets and liabilities properly measured"
+        },
+        {
+          "requirement": "Tax expense reconciliation",
+          "compliance_status": "Compliant",
+          "evidence_location": "Taxation Note",
+          "concerns": "Reconciliation between accounting profit and tax expense provided"
+        }
+      ],
+      "material_departures": [],
+      "ias_1_para_19_24_implication": "N/A - Tax accounting properly applied"
+    }
+  ],
+  "overall_assessment": {
+    "compliance_rating": "Fully Compliant",
+    "key_strengths": [
+      "Comprehensive IFRS disclosures throughout financial statements",
+      "Unmodified audit opinion confirming fair presentation",
+      "Detailed key audit matters addressing complex IFRS areas",
+      "Consistent application of accounting policies across years",
+      "Transparent disclosure of regulatory vs IFRS differences"
+    ],
+    "areas_for_enhancement": [
+      "More detailed quantitative sensitivity analysis for key estimates",
+      "Enhanced disclosure of judgmental areas in IFRS 9 application",
+      "Further breakdown of revaluation reserves movements"
+    ],
+    "material_non_compliance": "None identified",
+    "audit_verification_level": "High - Comprehensive audit procedures covering over 80% of risk-weighted assets"
+  },
+  "regulatory_alignment": {
+    "bangladesh_bank_guidelines": "Fully compliant with disclosure of differences",
+    "basel_iii_requirements": "Compliant with CRAR of 15.61% well above minimum",
+    "bsec_requirements": "Compliant for listed entity disclosures",
+    "conflicts_resolution": "Properly disclosed where Bangladesh Bank guidelines differ from IFRS"
+  }
+},
         "phase_4_audit_governance_verification": {
           "audit_report_analysis": {
             "auditor_information": {
