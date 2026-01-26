@@ -5,12 +5,12 @@
       "generation_date": "2024-12-15",
       "analyst_framework_version": "2.0",
       "source_documents": [
-        "Anwer Khan Modern Hospital Audited FSs-1.pdf (2022)",
-        "Anwer Khan Modern Hospital Audited FSs-2.pdf (2023)",
-        "Anwer Khan Modern Hospital Audited FSs-3.pdf (2024)",
-        "2024.pdf (Bank Asia)",
-        "2023_compressed.pdf (Bank Asia)",
-        "a855610a-c6bd-403d-a59e-f27088f136db.pdf (Bank Asia 2022)"
+        "https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-1_compressed.pdf",
+        "https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-2_compressed.pdf",
+        "https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-3_compressed.pdf",
+        "https://drive.google.com/file/d/1gHvTHnfqDZH1mj8V2iuEbuVxlM-QA-LA/view?usp=drive_link",
+        "https://drive.google.com/file/d/1M6Ygu-4x7wXnLvKnTI8AneAEZ_9yAUAM/view?usp=drive_link",
+        "https://drive.google.com/file/d/1GwiFI7vy2FDbYUmcIWXXbDE1pV8J6E8E/view?usp=drive_link"
       ],
       "analysis_scope": "Comprehensive IFRS & Regulatory Compliance Analysis for Multiple Entities"
     },
@@ -697,108 +697,390 @@
           "report_publication_date": "Not Provided in Data"
         },
         "financial_statements_raw_data": {
-          "statement_of_financial_position": [
-            {
-              "line_item": "Cash",
-              "classification": "Asset",
-              "sub_classification": "Current",
-              "current_year_amount": "23988516011",
-              "prior_year_1_amount": "21776999205",
-              "prior_year_2_amount": "25797237229",
-              "prior_year_3_amount": "33365082062",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Investments",
-              "classification": "Asset",
-              "sub_classification": "Current",
-              "current_year_amount": "177935396486",
-              "prior_year_1_amount": "115801404654",
-              "prior_year_2_amount": "103838255588",
-              "prior_year_3_amount": "77951433954",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Loans and advances/investments",
-              "classification": "Asset",
-              "sub_classification": "Current",
-              "current_year_amount": "296533717659",
-              "prior_year_1_amount": "294072425920",
-              "prior_year_2_amount": "280591467444",
-              "prior_year_3_amount": "264999483971",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Total Assets",
-              "classification": "Asset",
-              "sub_classification": "Total",
-              "current_year_amount": "498457630156",
-              "prior_year_1_amount": "431650829779",
-              "prior_year_2_amount": "404480160276",
-              "prior_year_3_amount": "376316003987",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Paid-up capital",
-              "classification": "Equity",
-              "sub_classification": "Capital",
-              "current_year_amount": "11659068600",
-              "prior_year_1_amount": "11659068600",
-              "prior_year_2_amount": "11659068600",
-              "prior_year_3_amount": "11659068600",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Deposits and other accounts",
-              "classification": "Liability",
-              "sub_classification": "Current",
-              "current_year_amount": "416727954479",
-              "prior_year_1_amount": "361719880870",
-              "prior_year_2_amount": "337853124886",
-              "prior_year_3_amount": "318424929865",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Total Liabilities",
-              "classification": "Liability",
-              "sub_classification": "Total",
-              "current_year_amount": "416727954479",
-              "prior_year_1_amount": "361719880870",
-              "prior_year_2_amount": "337853124886",
-              "prior_year_3_amount": "318424929865",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            }
-          ],
-          "statement_of_profit_or_loss_and_oci": [
-            {
-              "line_item": "Interest income",
-              "classification": "Revenue",
-              "current_year_amount": "30651886991",
-              "prior_year_1_amount": "23380598457",
-              "prior_year_2_amount": "20484449300",
-              "prior_year_3_amount": "18422217336",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            },
-            {
-              "line_item": "Net profit after tax",
-              "classification": "Profit/Loss",
-              "current_year_amount": "2867916432",
-              "prior_year_1_amount": "2478851655",
-              "prior_year_2_amount": "3052330481",
-              "prior_year_3_amount": "2728270279",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            }
-          ]
-        },
+  "statement_of_financial_position": [
+    {
+      "line_item": "Cash",
+      "classification": "Asset",
+      "sub_classification": "Current",
+      "current_year_amount": "23988516011",
+      "prior_year_1_amount": "21776999205",
+      "prior_year_2_amount": "25797237229",
+      "prior_year_3_amount": "33365082062",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Balance with other banks and financial institutions",
+      "classification": "Asset",
+      "sub_classification": "Current",
+      "current_year_amount": "16146171433",
+      "prior_year_1_amount": "24131298642",
+      "prior_year_2_amount": "39983468523",
+      "prior_year_3_amount": "41288613589",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Investments",
+      "classification": "Asset",
+      "sub_classification": "Non-Current",
+      "current_year_amount": "177935396486",
+      "prior_year_1_amount": "115801404654",
+      "prior_year_2_amount": "103838255588",
+      "prior_year_3_amount": "77951433954",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Loans and advances/investments",
+      "classification": "Asset",
+      "sub_classification": "Current",
+      "current_year_amount": "296533717659",
+      "prior_year_1_amount": "294072425920",
+      "prior_year_2_amount": "280591467444",
+      "prior_year_3_amount": "264999483971",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Fixed assets including premises, furniture and fixtures",
+      "classification": "Asset",
+      "sub_classification": "Non-Current",
+      "current_year_amount": "5289381960",
+      "prior_year_1_amount": "5957156399",
+      "prior_year_2_amount": "5704012877",
+      "prior_year_3_amount": "6145270470",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Other assets",
+      "classification": "Asset",
+      "sub_classification": "Current",
+      "current_year_amount": "15419013621",
+      "prior_year_1_amount": "14513247468",
+      "prior_year_2_amount": "11057689200",
+      "prior_year_3_amount": "10876307392",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Total assets",
+      "classification": "Asset",
+      "sub_classification": "Total",
+      "current_year_amount": "535312197170",
+      "prior_year_1_amount": "476552532288",
+      "prior_year_2_amount": "470722130861",
+      "prior_year_3_amount": "441026191438",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Borrowings from other banks, financial institutions and agents",
+      "classification": "Liability",
+      "sub_classification": "Non-Current",
+      "current_year_amount": "18114043540",
+      "prior_year_1_amount": "27071897305",
+      "prior_year_2_amount": "51024080743",
+      "prior_year_3_amount": "47836151368",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Subordinated non-convertible and perpetual bonds",
+      "classification": "Liability",
+      "sub_classification": "Non-Current",
+      "current_year_amount": "7680250000",
+      "prior_year_1_amount": "7680250000",
+      "prior_year_2_amount": "9340000000",
+      "prior_year_3_amount": "8600000000",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Deposits and other accounts",
+      "classification": "Liability",
+      "sub_classification": "Current",
+      "current_year_amount": "416727954479",
+      "prior_year_1_amount": "361719880870",
+      "prior_year_2_amount": "337853124886",
+      "prior_year_3_amount": "318424929865",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Other liabilities",
+      "classification": "Liability",
+      "sub_classification": "Current",
+      "current_year_amount": "60982059182",
+      "prior_year_1_amount": "50677766435",
+      "prior_year_2_amount": "44041087583",
+      "prior_year_3_amount": "38961364845",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Total liabilities",
+      "classification": "Liability",
+      "sub_classification": "Total",
+      "current_year_amount": "503504307201",
+      "prior_year_1_amount": "447149794610",
+      "prior_year_2_amount": "442258293212",
+      "prior_year_3_amount": "413822446078",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Paid-up capital",
+      "classification": "Equity",
+      "sub_classification": "Capital",
+      "current_year_amount": "11659068600",
+      "prior_year_1_amount": "11659068600",
+      "prior_year_2_amount": "11659068600",
+      "prior_year_3_amount": "11659068600",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Statutory reserve",
+      "classification": "Equity",
+      "sub_classification": "Reserve",
+      "current_year_amount": "11750000000",
+      "prior_year_1_amount": "11750000000",
+      "prior_year_2_amount": "11750000000",
+      "prior_year_3_amount": "10725443940",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Revaluation reserve",
+      "classification": "Equity",
+      "sub_classification": "Reserve",
+      "current_year_amount": "4300808341",
+      "prior_year_1_amount": "2685555009",
+      "prior_year_2_amount": "2117047124",
+      "prior_year_3_amount": "2159144877",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Retained earnings",
+      "classification": "Equity",
+      "sub_classification": "Retained Earnings",
+      "current_year_amount": "4150895777",
+      "prior_year_1_amount": "3350452926",
+      "prior_year_2_amount": "2957002831",
+      "prior_year_3_amount": "2650999337",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Total shareholders' equity",
+      "classification": "Equity",
+      "sub_classification": "Total",
+      "current_year_amount": "31807889969",
+      "prior_year_1_amount": "29402737678",
+      "prior_year_2_amount": "28463837649",
+      "prior_year_3_amount": "27203745360",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    }
+  ],
+  "statement_of_profit_or_loss_and_oci": [
+    {
+      "line_item": "Interest income",
+      "classification": "Revenue",
+      "current_year_amount": "30651886991",
+      "prior_year_1_amount": "23380598457",
+      "prior_year_2_amount": "20484449300",
+      "prior_year_3_amount": "18422217336",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Interest paid on deposits and borrowings, etc",
+      "classification": "Expense",
+      "current_year_amount": "24509147634",
+      "prior_year_1_amount": "17067340832",
+      "prior_year_2_amount": "14937341626",
+      "prior_year_3_amount": "12727962811",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Net interest income",
+      "classification": "Profit/Loss",
+      "current_year_amount": "6142739357",
+      "prior_year_1_amount": "6313257625",
+      "prior_year_2_amount": "5547107674",
+      "prior_year_3_amount": "5694254525",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Investment income",
+      "classification": "Revenue",
+      "current_year_amount": "14335176498",
+      "prior_year_1_amount": "8376526748",
+      "prior_year_2_amount": "6270764596",
+      "prior_year_3_amount": "6848834433",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Commission, exchange and brokerage",
+      "classification": "Revenue",
+      "current_year_amount": "5376452602",
+      "prior_year_1_amount": "5343451964",
+      "prior_year_2_amount": "7655343919",
+      "prior_year_3_amount": "3562596602",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Other operating income",
+      "classification": "Revenue",
+      "current_year_amount": "1603883706",
+      "prior_year_1_amount": "1434619446",
+      "prior_year_2_amount": "1217933416",
+      "prior_year_3_amount": "1185321692",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Total operating income",
+      "classification": "Revenue",
+      "current_year_amount": "27458252163",
+      "prior_year_1_amount": "21467855783",
+      "prior_year_2_amount": "20691149605",
+      "prior_year_3_amount": "17291007252",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Operating expenses",
+      "classification": "Expense",
+      "current_year_amount": "10160191693",
+      "prior_year_1_amount": "9748242928",
+      "prior_year_2_amount": "9821913177",
+      "prior_year_3_amount": "7738553580",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Profit before provision",
+      "classification": "Profit/Loss",
+      "current_year_amount": "17298060470",
+      "prior_year_1_amount": "11719612855",
+      "prior_year_2_amount": "10869236428",
+      "prior_year_3_amount": "9552453672",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Provision for loans and advances/investments",
+      "classification": "Expense",
+      "current_year_amount": "10020459333",
+      "prior_year_1_amount": "6554652511",
+      "prior_year_2_amount": "4293933239",
+      "prior_year_3_amount": "4343239734",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Total profit before tax",
+      "classification": "Profit/Loss",
+      "current_year_amount": "6452101137",
+      "prior_year_1_amount": "4829960344",
+      "prior_year_2_amount": "6620303189",
+      "prior_year_3_amount": "4523005715",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Provision for taxation",
+      "classification": "Expense",
+      "current_year_amount": "3584184705",
+      "prior_year_1_amount": "2351108689",
+      "prior_year_2_amount": "3567972708",
+      "prior_year_3_amount": "1794735436",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Net profit after tax",
+      "classification": "Profit/Loss",
+      "current_year_amount": "2867916432",
+      "prior_year_1_amount": "2478851655",
+      "prior_year_2_amount": "3052330481",
+      "prior_year_3_amount": "2728270279",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    }
+  ],
+  "statement_of_cash_flows": [
+    {
+      "line_item": "Cash flows from operating activities",
+      "classification": "Operating",
+      "current_year_amount": "58830444314",
+      "prior_year_1_amount": "-6637402302",
+      "prior_year_2_amount": "16114504873",
+      "prior_year_3_amount": "17753936573",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Cash flows from investing activities",
+      "classification": "Investing",
+      "current_year_amount": "-62314759844",
+      "prior_year_1_amount": "-12398173130",
+      "prior_year_2_amount": "-26193753470",
+      "prior_year_3_amount": "16480948408",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Cash flows from financing activities",
+      "classification": "Financing",
+      "current_year_amount": "-2587950573",
+      "prior_year_1_amount": "-4286384573",
+      "prior_year_2_amount": "-1444450402",
+      "prior_year_3_amount": "-3185449870",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Net increase/(decrease) in cash and cash equivalents",
+      "classification": "Net Change",
+      "current_year_amount": "-6072266103",
+      "prior_year_1_amount": "-23321960005",
+      "prior_year_2_amount": "-11523698999",
+      "prior_year_3_amount": "31049435111",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Cash and cash equivalents at the beginning of the year",
+      "classification": "Opening Balance",
+      "current_year_amount": "46211250847",
+      "prior_year_1_amount": "69533210852",
+      "prior_year_2_amount": "81056909851",
+      "prior_year_3_amount": "50007474740",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    },
+    {
+      "line_item": "Cash and cash equivalents at the end of the year",
+      "classification": "Closing Balance",
+      "current_year_amount": "40138984744",
+      "prior_year_1_amount": "46211250847",
+      "prior_year_2_amount": "69533210852",
+      "prior_year_3_amount": "81056909851",
+      "notes_reference": "",
+      "custom_additional_info": {}
+    }
+  ]
+},
         "phase_1_foundational_checks": {
           "reporting_framework": {
             "disclosed_framework": "IFRS as adopted in Bangladesh",
