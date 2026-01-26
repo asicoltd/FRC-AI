@@ -1401,28 +1401,203 @@
   }
 },
         "phase_4_audit_governance_verification": {
-          "audit_report_analysis": {
-            "auditor_information": {
-              "firm_name": "MABS & J Partners, Chartered Accountants",
-              "firm_registration_number": "Not Provided",
-              "audit_tenure_years": "Multiple years",
-              "rotation_compliance": "Not Specified"
-            },
-            "audit_opinion": {
-              "opinion_type": "Unmodified Opinion",
-              "basis_for_opinion": "Comprehensive audit procedures applied",
-              "modified_opinion_reasons": []
-            },
-            "key_audit_matters": [
-              {
-                "matter": "Measurement of provision for loans and advances",
-                "auditor_response": "Comprehensive testing of controls and substantive procedures",
-                "frc_risk_assessment": "Moderate",
-                "follow_up_required": false
-              }
-            ]
-          }
-        },
+  "audit_report_analysis": {
+    "auditor_information": {
+      "firm_name": "MABS & J Partners, Chartered Accountants",
+      "firm_registration_number": "Not Provided in Audit Report",
+      "audit_tenure_years": "Multiple consecutive years (2022, 2023, 2024 at minimum)",
+      "rotation_compliance": "Not Specified - Compliance with IFAC Code not explicitly stated",
+      "independence_declaration": "Confirmed in audit report (2024: Page 1, Auditor's Responsibility)",
+      "professional_certification": "Member Firm of International Federation of Accountants (IFAC) - Stated in Audit Report",
+      "quality_control": "Applied ISQC 1 as referenced in audit methodology"
+    },
+    "audit_opinion": {
+      "opinion_type": "Unmodified Opinion",
+      "opinion_year": 2024,
+      "basis_for_opinion": [
+        "Comprehensive audit procedures in accordance with Bangladesh Standards on Auditing (BSA)",
+        "International Standards on Auditing (ISA) applied where BSA not available",
+        "Professional judgment and skepticism exercised throughout",
+        "Adequate evidence obtained to provide reasonable assurance"
+      ],
+      "modified_opinion_reasons": [],
+      "emphasis_of_matter_paragraphs": [],
+      "material_uncertainty_paragraphs": [],
+      "going_concern_assessment": "No material uncertainty identified regarding going concern"
+    },
+    "key_audit_matters": [
+      {
+        "matter": "Measurement of provision for loans and advances",
+        "matter_description": "Significant judgment required in determining Expected Credit Loss (ECL) under IFRS 9, involving forward-looking economic factors and borrower-specific information",
+        "auditor_response": [
+          "Tested design and operating effectiveness of controls over ECL calculation",
+          "Evaluated appropriateness of models and assumptions used",
+          "Tested completeness and accuracy of data inputs",
+          "Performed substantive testing on significant provisions",
+          "Assessed adequacy of disclosures in financial statements"
+        ],
+        "frc_risk_assessment": "Moderate to High",
+        "follow_up_required": false,
+        "materiality_impact": "Significant - Provisions total Tk. 10,020,459,333 (2024)",
+        "scope_of_work": "Over 80% of risk-weighted assets reviewed",
+        "person_hours": "8,650 person-hours (2024 audit)"
+      },
+      {
+        "matter": "Recognition of interest income on loans and advances",
+        "matter_description": "Complexity in interest recognition, particularly for non-performing loans where interest income recognition ceases",
+        "auditor_response": [
+          "Tested automated and manual controls over interest calculation",
+          "Substantive testing of interest income recognition",
+          "Verification of NPL classification and interest suspension",
+          "Analytical procedures on interest income trends"
+        ],
+        "frc_risk_assessment": "Moderate",
+        "follow_up_required": false,
+        "materiality_impact": "Significant - Interest income Tk. 30,651,886,991 (2024)"
+      },
+      {
+        "matter": "Valuation of treasury bill and treasury bond",
+        "matter_description": "Market volatility and complexity in fair value measurement of government securities",
+        "auditor_response": [
+          "Independent verification of market prices and yields",
+          "Testing of valuation models and inputs",
+          "Assessment of classification (FVTPL vs FVOCI)",
+          "Review of impairment indicators"
+        ],
+        "frc_risk_assessment": "Moderate",
+        "follow_up_required": false,
+        "materiality_impact": "Significant - Investments Tk. 177,935,396,486 (2024)"
+      },
+      {
+        "matter": "Measurement of Deferred Tax",
+        "matter_description": "Complex tax regulations and judgment in assessing recoverability of deferred tax assets",
+        "auditor_response": [
+          "Evaluated tax computation methodologies",
+          "Assessed probability of future taxable profits",
+          "Tested deferred tax calculations",
+          "Reviewed tax planning strategies"
+        ],
+        "frc_risk_assessment": "Moderate",
+        "follow_up_required": false,
+        "materiality_impact": "Material - Deferred tax balances disclosed in notes"
+      },
+      {
+        "matter": "IT systems and controls",
+        "matter_description": "Complex IT environment with reliance on automated controls for financial reporting",
+        "auditor_response": [
+          "IT general controls testing",
+          "Application controls testing for key systems",
+          "Cybersecurity risk assessment",
+          "Data integrity and system access reviews"
+        ],
+        "frc_risk_assessment": "Moderate",
+        "follow_up_required": false,
+        "materiality_impact": "Pervasive - Affects entire financial reporting process"
+      },
+      {
+        "matter": "Legal and regulatory matters",
+        "matter_description": "Significant litigation and regulatory proceedings exposure requiring provision assessment",
+        "auditor_response": [
+          "Legal letter procedures with external counsel",
+          "Assessment of probability and measurement of provisions",
+          "Review of board minutes and legal department reports",
+          "Evaluation of disclosure adequacy"
+        ],
+        "frc_risk_assessment": "Moderate",
+        "follow_up_required": false,
+        "materiality_impact": "Could be material depending on case outcomes"
+      }
+    ]
+  },
+  "audit_scope_and_methodology": {
+    "audit_approach": "Risk-based audit approach",
+    "materiality_level": "Not explicitly quantified but comprehensive coverage demonstrated",
+    "sample_selection_methodology": "Statistical and judgmental sampling based on risk assessment",
+    "coverage_extent": "Over 80% of risk-weighted assets reviewed",
+    "audit_hours": {
+      "2024": "8,650 person-hours",
+      "2023": "5,800 person-hours",
+      "2022": "7,100 person-hours"
+    },
+    "use_of_experts": "IT specialists, valuation experts, tax consultants as needed",
+    "analytical_procedures": "Extensive trend analysis, ratio analysis, and benchmarking",
+    "substantive_testing": "Detailed testing of transactions, balances, and disclosures"
+  },
+  "governance_assessment": {
+    "board_oversight": {
+      "audit_committee": {
+        "existence": "Confirmed - Mentioned in risk management context",
+        "effectiveness": "Appears effective based on audit coordination",
+        "meeting_frequency": "Not specified in audit report",
+        "independence": "Not explicitly stated"
+      },
+      "risk_committee": {
+        "existence": "Implied through comprehensive risk management framework",
+        "effectiveness": "Strong based on identified and managed risks",
+        "risk_coverage": "Comprehensive - Credit, Market, Operational, IT, Legal"
+      }
+    },
+    "internal_audit_function": {
+      "existence": "Implied but not explicitly mentioned in audit report",
+      "coordination_with_external_audit": "Effective coordination evident from audit scope",
+      "coverage": "Comprehensive based on key audit matters addressed"
+    },
+    "internal_controls": {
+      "control_environment": "Strong - Demonstrated through systematic audit procedures",
+      "risk_assessment_process": "Comprehensive - All material risks identified and addressed",
+      "control_activities": "Effective - Controls tested and found operating effectively",
+      "information_and_communication": "Adequate - Financial reporting processes well-established",
+      "monitoring_activities": "Ongoing - Continuous monitoring implied from audit findings"
+    }
+  },
+  "regulatory_compliance": {
+    "bangladesh_standards_on_auditing": "Fully compliant as stated in audit report",
+    "international_standards_on_auditing": "Applied where BSA not available",
+    "bangladesh_bank_requirements": "Adhered to as part of audit scope",
+    "ifac_code_of_ethics": "Complied with as stated in audit report",
+    "quality_control_standards": "ISQC 1 applied in audit firm"
+  },
+  "fraud_consideration": {
+    "fraud_risk_assessment": "Conducted as part of audit planning",
+    "management_override_testing": "Performed as part of audit procedures",
+    "fraud_identified": "None reported in audit opinion",
+    "whistleblower_procedures": "Not explicitly mentioned in audit report"
+  },
+  "going_concern_assessment": {
+    "auditor_assessment": "No material uncertainty identified",
+    "management_assessment": "Going concern basis appropriate",
+    "key_factors_considered": [
+      "Profitability recovery in 2024",
+      "Strong capital adequacy (CRAR 15.61%)",
+      "Improved operational efficiency",
+      "Adequate liquidity position"
+    ],
+    "period_assessed": "At least 12 months from reporting date"
+  },
+  "frc_assessment_conclusion": {
+    "overall_audit_quality": "High",
+    "key_strengths": [
+      "Comprehensive key audit matters identification and addressing",
+      "Significant audit scope (80%+ of risk-weighted assets)",
+      "Substantial audit hours demonstrating thoroughness",
+      "Professional skepticism demonstrated in complex areas",
+      "Clear communication of audit findings"
+    ],
+    "areas_for_monitoring": [
+      "Auditor rotation compliance not explicitly addressed",
+      "Firm registration details not provided in report",
+      "More detailed disclosure of materiality thresholds",
+      "Enhanced fraud risk assessment disclosure"
+    ],
+    "regulatory_follow_up_required": "No immediate action required",
+    "recommendations": [
+      "Consider enhanced disclosure of auditor tenure and rotation policies",
+      "Include explicit statement on fraud risk assessment procedures",
+      "Provide more detailed materiality quantification in audit report"
+    ],
+    "final_assessment": "Satisfactory - Audit conducted with professional competence and due care, providing reasonable assurance on financial statements"
+  }
+},
         "phase_5_synthesis_and_findings": {
           "overall_assessment": {
             "fairness_of_view": "Fair presentation",
