@@ -69,6 +69,16 @@
               "custom_additional_info": {}
             },
             {
+              "line_item": "Total Assets",
+              "classification": "Asset",
+              "sub_classification": "Total",
+              "current_year_amount": "6374754021",
+              "prior_year_1_amount": "6383020189",
+              "prior_year_2_amount": "6544242768",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
               "line_item": "Share Capital - Paid up",
               "classification": "Equity",
               "sub_classification": "Capital",
@@ -116,6 +126,16 @@
               "prior_year_1_amount": "1325099047",
               "prior_year_2_amount": "1103724807",
               "notes_reference": "22.00",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Total",
+              "current_year_amount": "22467295113",
+              "prior_year_1_amount": "22394653878",
+              "prior_year_2_amount": "22668046350",
+              "notes_reference": "",
               "custom_additional_info": {}
             }
           ],
@@ -276,7 +296,9 @@
                 "regulator_name": "Registrar of Joint Stock Companies (RJSC)",
                 "jurisdiction": "Bangladesh",
                 "compliance_status": "Pending",
-                "specific_disclosures_found": ["AGM for 2024 pending with RJSC"]
+                "specific_disclosures_found": [
+                  "AGM for 2024 pending with RJSC"
+                ]
               },
               {
                 "regulator_name": "National Board of Revenue (NBR)",
@@ -550,7 +572,9 @@
                   "concerns": "Material uncertainty regarding going concern not properly assessed in 2022-2023"
                 }
               ],
-              "material_departures": ["Inadequate going concern disclosure"],
+              "material_departures": [
+                "Inadequate going concern disclosure"
+              ],
               "ias_1_para_19_24_implication": "Material departure requiring disclosure"
             },
             {
@@ -567,7 +591,9 @@
                   "concerns": "Inventory not physically verified across all three years"
                 }
               ],
-              "material_departures": ["Inventory valuation cannot be verified"],
+              "material_departures": [
+                "Inventory valuation cannot be verified"
+              ],
               "ias_1_para_19_24_implication": "Fundamental measurement uncertainty"
             }
           ]
@@ -608,7 +634,9 @@
             "going_concern_assessment": {
               "material_uncertainty_disclosed": true,
               "period_assessed": "1 year from reporting date",
-              "management_plans_disclosed": ["Not provided"],
+              "management_plans_disclosed": [
+                "Not provided"
+              ],
               "auditor_conclusion": "Material uncertainty exists",
               "frc_assessment": "Critical going concern risk"
             }
@@ -619,7 +647,9 @@
               "independent_directors": "Not Disclosed",
               "female_directors": "Not Disclosed",
               "bsec_compliance": "Not Applicable (Unlisted)",
-              "concerns": ["Complete lack of governance disclosures"]
+              "concerns": [
+                "Complete lack of governance disclosures"
+              ]
             }
           }
         },
@@ -641,7 +671,9 @@
             "compliance_level": "Severely Deficient",
             "reliability_score": "Low",
             "transparency_rating": "Poor",
-            "key_strengths": ["Revenue growth trend"],
+            "key_strengths": [
+              "Revenue growth trend"
+            ],
             "critical_issues": [
               {
                 "issue": "Technical insolvency with negative equity",
@@ -700,6 +732,17 @@
               "custom_additional_info": {}
             },
             {
+              "line_item": "Total Assets",
+              "classification": "Asset",
+              "sub_classification": "Total",
+              "current_year_amount": "498457630156",
+              "prior_year_1_amount": "431650829779",
+              "prior_year_2_amount": "404480160276",
+              "prior_year_3_amount": "376316003987",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
               "line_item": "Paid-up capital",
               "classification": "Equity",
               "sub_classification": "Capital",
@@ -714,6 +757,17 @@
               "line_item": "Deposits and other accounts",
               "classification": "Liability",
               "sub_classification": "Current",
+              "current_year_amount": "416727954479",
+              "prior_year_1_amount": "361719880870",
+              "prior_year_2_amount": "337853124886",
+              "prior_year_3_amount": "318424929865",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Total",
               "current_year_amount": "416727954479",
               "prior_year_1_amount": "361719880870",
               "prior_year_2_amount": "337853124886",
@@ -764,7 +818,10 @@
                 "regulator_name": "Bangladesh Bank",
                 "jurisdiction": "Bangladesh",
                 "compliance_status": "Compliant",
-                "specific_disclosures_found": ["Capital adequacy disclosures", "Provisioning requirements"]
+                "specific_disclosures_found": [
+                  "Capital adequacy disclosures",
+                  "Provisioning requirements"
+                ]
               },
               {
                 "regulator_name": "Financial Reporting Council (FRC)",
@@ -851,7 +908,10 @@
             "compliance_level": "High",
             "reliability_score": "High",
             "transparency_rating": "Good",
-            "key_strengths": ["Strong capital adequacy", "Transparent disclosures"],
+            "key_strengths": [
+              "Strong capital adequacy",
+              "Transparent disclosures"
+            ],
             "critical_issues": []
           }
         }
