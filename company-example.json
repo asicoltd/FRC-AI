@@ -1,0 +1,709 @@
+{
+  "frc_analysis_report": {
+    "metadata": {
+      "report_id": "FRC-ANL-2024-0125",
+      "generation_date": "2024-10-26",
+      "analyst_framework_version": "2.1",
+      "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+      "prepared_for": "Financial Reporting Council, Bangladesh",
+      "source_documents": [
+        "XYZ Pharmaceuticals Ltd. Annual Report 2023",
+        "BSEC Filing Documentation 2023",
+        "Auditor's Report - Rahman & Associates",
+        "Corporate Governance Report 2023",
+        "Previous Year Comparative FS 2022"
+      ]
+    },
+    "entity": {
+      "entity_id": "C-123456",
+      "entity_profile": {
+        "legal_name": "XYZ Pharmaceuticals Limited",
+        "trade_name": "XYZ Pharma",
+        "registration_number": "C-987654321",
+        "industry_sector": "Pharmaceuticals & Healthcare",
+        "listing_status": "Listed",
+        "stock_exchange_symbol": "XYZPHARMA",
+        "reporting_currency": "BDT",
+        "financial_year_end": "2023-12-31",
+        "report_publication_date": "2024-04-30"
+      },
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "Profit before tax",
+          "percentage_applied": "5%",
+          "overall_materiality_amount": "12500000",
+          "performance_materiality_amount": "9375000",
+          "clearly_trivial_threshold": "625000"
+        },
+        "qualitative_materiality_considerations": [
+          "Related party transactions with directors",
+          "Regulatory non-compliance in inventory valuation",
+          "Going concern indicators - high debt ratio",
+          "Management override risk in revenue recognition",
+          "Fraud risk indicators in cash transactions"
+        ],
+        "frc_materiality_conclusion": "Materiality threshold appropriately set but insufficient consideration given to qualitative factors affecting investor decisions."
+      },
+      "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+        "statement_of_financial_position": [
+          {
+            "year": "2023",
+            "row1": ["2850000000","13"],
+            "row2": ["1950000000","13"],
+            "row3": ["900000000","15"],
+            "row4": ["1200000000","18"],
+            "row5": ["1650000000","25"]
+          },
+          {
+            "year": "2022",
+            "row1": ["2500000000","13"],
+            "row2": ["1600000000","13"],
+            "row3": ["900000000","15"],
+            "row4": ["1000000000","18"],
+            "row5": ["1500000000","25"]
+          }
+        ],
+        "statement_of_profit_or_loss_and_oci": [
+          {
+            "year": "2023",
+            "row1": ["3200000000","5"],
+            "row2": ["2100000000","6"],
+            "row3": ["1100000000","7"],
+            "row4": ["850000000","8"],
+            "row5": ["250000000","9"],
+            "row6": ["62500000","10"]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "2023",
+            "row1": ["280000000","30"],
+            "row2": ["-150000000","30"],
+            "row3": ["-50000000","30"],
+            "row4": ["80000000","30"],
+            "row5": ["120000000","30"],
+            "row6": ["200000000","30"]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2023",
+            "row1": ["850000000","31"],
+            "row2": ["187500000","31"],
+            "row3": ["-100000000","31"],
+            "row4": ["62500000","31"],
+            "row5": ["900000000","31"]
+          }
+        ],
+        "notes_with_tables": [
+          {
+            "note_number": "1",
+            "title": "Basis of Preparation",
+            "content": "Financial statements prepared in accordance with IFRS...",
+            "tables": [
+              {
+                "table_title": "Summary of Significant Accounting Policies",
+                "columns": ["Policy Area", "Method Applied", "Note Reference"],
+                "rows": [
+                  ["Revenue Recognition", "Point in time recognition upon delivery", "Note 5"],
+                  ["Inventory Valuation", "Weighted Average Cost", "Note 8"],
+                  ["Property, Plant & Equipment", "Cost Model", "Note 12"],
+                  ["Intangible Assets", "Cost Model", "Note 13"]
+                ]
+              }
+            ]
+          },
+          {
+            "note_number": "8",
+            "title": "Inventories",
+            "content": "Inventories are valued at lower of cost and net realizable value...",
+            "tables": [
+              {
+                "table_title": "Inventory Composition",
+                "columns": ["Category", "2023 (BDT)", "2022 (BDT)"],
+                "rows": [
+                  ["Raw Materials", "150000000", "120000000"],
+                  ["Work in Progress", "80000000", "70000000"],
+                  ["Finished Goods", "220000000", "180000000"],
+                  ["Total", "450000000", "370000000"]
+                ]
+              }
+            ]
+          },
+          {
+            "note_number": "12",
+            "title": "Property, Plant and Equipment",
+            "content": "PPE is stated at cost less accumulated depreciation...",
+            "tables": [
+              {
+                "table_title": "Movement in PPE",
+                "columns": ["Category", "Opening Balance", "Additions", "Disposals", "Depreciation", "Closing Balance"],
+                "rows": [
+                  ["Land", "200000000", "0", "0", "0", "200000000"],
+                  ["Buildings", "350000000", "50000000", "0", "25000000", "375000000"],
+                  ["Machinery", "450000000", "100000000", "20000000", "60000000", "470000000"],
+                  ["Vehicles", "50000000", "15000000", "5000000", "10000000", "50000000"],
+                  ["Total", "1050000000", "165000000", "25000000", "95000000", "1095000000"]
+                ]
+              }
+            ]
+          }
+        ],
+        "notes_without_tables": [
+          {
+            "note_number": "6",
+            "title": "Cash and Cash Equivalents",
+            "content": "Cash and cash equivalents comprise cash on hand, demand deposits, and short-term, highly liquid investments that are readily convertible to known amounts of cash and which are subject to an insignificant risk of changes in value. For the purpose of the statement of cash flows, cash and cash equivalents consist of cash and short-term deposits, as defined above, net of outstanding bank overdrafts."
+          }
+        ]
+      },
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+          "notes_reference": "Note 1",
+          "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 16", "IAS 38", "IFRS 9", "IFRS 15", "IFRS 16"],
+          "discrepancies_identified": ["IFRS 9 impairment disclosures incomplete", "IAS 24 related party disclosures inadequate"],
+          "compliance_assessment": "Partially Compliant - Major deviations in key standards"
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "Financial Reporting Council (FRC)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Non-compliant - Late filing penalty applicable",
+              "specific_disclosures_found": ["FRC registration number missing"]
+            },
+            {
+              "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant",
+              "specific_disclosures_found": ["BSEC code disclosure present", "Corporate governance report attached"]
+            }
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": true,
+            "bsec_filing_date": "2024-04-30",
+            "income_tax_return_filed": true,
+            "income_tax_year": "2023-2024",
+            "rjsc_compliance": true,
+            "bb_compliance_if_applicable": "Not applicable"
+          },
+          "overall_regulatory_assessment": "Moderate compliance - Major issues with FRC specific requirements"
+        }
+      },
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": "1.2",
+          "debt_to_equity": "2.17",
+          "gross_profit_margin": "34.4%",
+          "net_profit_margin": "5.9%",
+          "roa": "6.6%",
+          "roe": "20.8%",
+          "interest_coverage": "3.5"
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": "0.25",
+          "cash_flow_to_earnings": "1.12",
+          "revenue_growth_quality": "Moderate - 28% growth but high receivables increase",
+          "expense_recognition_pattern": "Conservative - appropriate matching"
+        },
+        "vertical_and_horizontal_analysis": {
+          "vertical_2023": {
+            "assets_composition": "PPE: 42%, Inventory: 25%, Receivables: 18%",
+            "liabilities_composition": "Long-term debt: 45%, Trade payables: 30%"
+          },
+          "horizontal_growth": {
+            "revenue_growth": "28%",
+            "asset_growth": "14%",
+            "debt_growth": "22%"
+          }
+        }
+      },
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": ["Revenue recognition", "Inventory valuation", "Property, plant and equipment", "Intangible assets"],
+          "changes_in_accounting_policies": ["Adopted IFRS 16 using modified retrospective approach"],
+          "ias_8_hierarchy_compliance": "Partially compliant - Missing justification for policy choices"
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [
+            {
+              "area": "Revenue recognition - variable consideration",
+              "management_assumption": "90% probability of bonus payments",
+              "alternative_view": "Conservative estimate suggests 70% probability",
+              "frc_skeptical_assessment": "Overly optimistic - potential revenue overstatement of 15000000",
+              "impact_if_changed": "Revenue reduction by 2%, profit reduction by 8%"
+            }
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "Useful lives of manufacturing equipment",
+              "sensitivity_range": "±2 years from current 10-year estimate",
+              "disclosure_adequacy": "Inadequate - no sensitivity analysis provided",
+              "risk_level": "High"
+            }
+          ]
+        },
+        "key_standards_compliance_check": [
+          {
+            "standard_code": "IAS 1",
+            "standard_name": "Presentation of Financial Statements",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "1"
+          },
+          {
+            "standard_code": "IAS 2",
+            "standard_name": "Inventories",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "8"
+          },
+          {
+            "standard_code": "IAS 7",
+            "standard_name": "Statement of Cash Flows",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "30"
+          },
+          {
+            "standard_code": "IAS 8",
+            "standard_name": "Accounting Policies, Changes in Accounting Estimates and Errors",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "1"
+          },
+          {
+            "standard_code": "IAS 10",
+            "standard_name": "Events After the Reporting Period",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "32"
+          },
+          {
+            "standard_code": "IAS 12",
+            "standard_name": "Income Taxes",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "10"
+          },
+          {
+            "standard_code": "IAS 16",
+            "standard_name": "Property, Plant and Equipment",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "12"
+          },
+          {
+            "standard_code": "IAS 19",
+            "standard_name": "Employee Benefits",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "22"
+          },
+          {
+            "standard_code": "IAS 20",
+            "standard_name": "Accounting for Government Grants and Disclosure of Government Assistance",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 21",
+            "standard_name": "The Effects of Changes in Foreign Exchange Rates",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "4"
+          },
+          {
+            "standard_code": "IAS 23",
+            "standard_name": "Borrowing Costs",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "14"
+          },
+          {
+            "standard_code": "IAS 24",
+            "standard_name": "Related Party Disclosures",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "33"
+          },
+          {
+            "standard_code": "IAS 27",
+            "standard_name": "Separate Financial Statements",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 28",
+            "standard_name": "Investments in Associates and Joint Ventures",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 29",
+            "standard_name": "Financial Reporting in Hyperinflationary Economies",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 32",
+            "standard_name": "Financial Instruments: Presentation",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "16"
+          },
+          {
+            "standard_code": "IAS 33",
+            "standard_name": "Earnings Per Share",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "11"
+          },
+          {
+            "standard_code": "IAS 34",
+            "standard_name": "Interim Financial Reporting",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 36",
+            "standard_name": "Impairment of Assets",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "13"
+          },
+          {
+            "standard_code": "IAS 37",
+            "standard_name": "Provisions, Contingent Liabilities and Contingent Assets",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "23"
+          },
+          {
+            "standard_code": "IAS 38",
+            "standard_name": "Intangible Assets",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "13"
+          },
+          {
+            "standard_code": "IAS 40",
+            "standard_name": "Investment Property",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IAS 41",
+            "standard_name": "Agriculture",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 1",
+            "standard_name": "First-time Adoption of International Financial Reporting Standards",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 2",
+            "standard_name": "Share-based Payment",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "24"
+          },
+          {
+            "standard_code": "IFRS 3",
+            "standard_name": "Business Combinations",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 4",
+            "standard_name": "Insurance Contracts",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 5",
+            "standard_name": "Non-current Assets Held for Sale and Discontinued Operations",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 6",
+            "standard_name": "Exploration for and Evaluation of Mineral Resources",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 7",
+            "standard_name": "Financial Instruments: Disclosures",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "16"
+          },
+          {
+            "standard_code": "IFRS 8",
+            "standard_name": "Operating Segments",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "34"
+          },
+          {
+            "standard_code": "IFRS 9",
+            "standard_name": "Financial Instruments",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "16"
+          },
+          {
+            "standard_code": "IFRS 10",
+            "standard_name": "Consolidated Financial Statements",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "1"
+          },
+          {
+            "standard_code": "IFRS 11",
+            "standard_name": "Joint Arrangements",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 12",
+            "standard_name": "Disclosure of Interests in Other Entities",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "35"
+          },
+          {
+            "standard_code": "IFRS 13",
+            "standard_name": "Fair Value Measurement",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "17"
+          },
+          {
+            "standard_code": "IFRS 14",
+            "standard_name": "Regulatory Deferral Accounts",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          },
+          {
+            "standard_code": "IFRS 15",
+            "standard_name": "Revenue from Contracts with Customers",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "5"
+          },
+          {
+            "standard_code": "IFRS 16",
+            "standard_name": "Leases",
+            "applicable_for_this_company": "Yes",
+            "applied": "Yes",
+            "notes_reference": "20"
+          },
+          {
+            "standard_code": "IFRS 17",
+            "standard_name": "Insurance Contracts",
+            "applicable_for_this_company": "No",
+            "applied": "N/A",
+            "notes_reference": "N/A"
+          }
+        ],
+        "detailed_ifrs_compliance_matrix": [
+          {
+            "standard_code": "IAS 1",
+            "standard_name": "Presentation of Financial Statements",
+            "applicability": "Yes",
+            "page_reference": "Pages 1-5, Note 1",
+            "compliance_status": "Partially Compliant",
+            "material_departures": ["Going concern disclosure inadequate", "Classification errors in current/non-current"],
+            "ias_1_para_19_24_implication": "Material departure affects true and fair view"
+          },
+          {
+            "standard_code": "IFRS 15",
+            "standard_name": "Revenue from Contracts with Customers",
+            "applicability": "Yes",
+            "page_reference": "Note 5, Pages 15-17",
+            "compliance_status": "Non-Compliant",
+            "material_departures": ["Variable consideration overestimated", "Bundled contracts not properly allocated"],
+            "ias_1_para_19_24_implication": "Revenue potentially overstated by 25000000"
+          }
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "Partially Compliant",
+            "issues": ["Uncertain tax positions not disclosed", "Deferred tax on revaluation not recognized"]
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "Non-Compliant",
+            "issues": ["No disclosure of uncertain tax treatments"]
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "Compliant",
+            "advance_tax_status": "Up-to-date",
+            "tax_holidays_or_incentives": ["API manufacturing tax holiday claimed"],
+            "overall_tax_compliance_assessment": "Moderate - technical compliance but disclosure failures"
+          }
+        }
+      },
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [
+          "Pressure to meet earnings targets",
+          "Complex revenue arrangements",
+          "Related party transactions without proper approval"
+        ],
+        "revenue_manipulation_indicators": [
+          "Unusual growth in year-end revenue",
+          "Extended payment terms to distributors",
+          "Side agreements with customers not disclosed"
+        ],
+        "journal_entry_override_risk": "High - Weak controls over manual journal entries",
+        "override_of_internal_controls_risk": "Medium - Management discretion in revenue recognition",
+        "overall_fraud_risk_assessment": "Moderate to High - Significant risks in revenue recognition and related parties"
+      },
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "Rahman & Associates",
+            "firm_registration_number": "CAR-045",
+            "audit_tenure_years": "8",
+            "rotation_compliance": "Compliant - Partner rotated in 2022"
+          },
+          "audit_opinion": {
+            "opinion_type": "Modified - Qualified Opinion",
+            "basis_for_opinion": "Limitation of scope in inventory verification",
+            "modified_opinion_reasons": ["Inability to obtain sufficient evidence for inventory valuation", "Inadequate disclosure of related party transactions"]
+          },
+          "key_audit_matters": [
+            "Revenue recognition for complex contracts",
+            "Valuation of inventory",
+            "Going concern assessment"
+          ],
+          "going_concern_assessment": {
+            "auditor_conclusion": "Material uncertainty exists",
+            "period_assessed": "12 months from reporting date",
+            "mitigating_factors": ["Debt restructuring negotiations", "New equity injection planned"]
+          },
+          "isa_compliance_check": {
+            "compliance": "Partially Compliant",
+            "issues": ["Insufficient audit evidence for KAMs", "Going concern assessment documentation inadequate"]
+          }
+        },
+        "corporate_governance_review": {
+          "board_structure": {
+            "independence": "40% independent directors",
+            "expertise": "Adequate pharmaceutical industry experience",
+            "effectiveness": "Moderate - Audit committee not fully active"
+          },
+          "committee_effectiveness": {
+            "audit_committee": "Meets quarterly but minutes incomplete",
+            "risk_committee": "Not established",
+            "nomination_committee": "Functional"
+          },
+          "internal_controls": {
+            "effectiveness": "Significant deficiencies in inventory and revenue cycles",
+            "management_assessment": "Self-assessment inadequate",
+            "auditor_opinion": "Adverse opinion on ICFR"
+          }
+        }
+      },
+      "legal_and_enforcement_mapping": {
+        "financial_reporting_act_2015": {
+          "sections_triggered": ["Section 25(2)", "Section 28(1)", "Section 32(3)"],
+          "nature_of_breach": "Failure to provide true and fair view, Inadequate disclosures",
+          "severity_assessment": "High"
+        },
+        "companies_act_1994": {
+          "sections_implicated": ["Section 181", "Section 191"],
+          "director_liability_assessed": true,
+          "liability_nature": "Potential liability for misleading financial statements"
+        },
+        "bsec_rules_if_applicable": {
+          "rules_breached": ["BSEC Corporate Governance Code 2018 - Rule 12", "Listing Regulations - Disclosure requirements"],
+          "market_impact": "Moderate - May affect investor confidence"
+        }
+      },
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [
+          {
+            "issue_id": "MD-001",
+            "description": "Revenue recognition - Variable consideration overestimated in violation of IFRS 15",
+            "relevant_standard": "IFRS 15",
+            "page_reference": "Note 5, Pages 15-17",
+            "extract_from_fs": "Revenue recognized includes estimated bonuses of 45000000",
+            "materiality": "Material",
+            "financial_impact_estimate": "25000000 overstatement (10% of PBT)",
+            "recommended_action": "Restate revenue, enhance disclosures, strengthen controls"
+          },
+          {
+            "issue_id": "MD-002",
+            "description": "Inventory valuation - No impairment despite NRV below cost",
+            "relevant_standard": "IAS 2",
+            "page_reference": "Note 8",
+            "extract_from_fs": "Inventory carried at cost 450000000",
+            "materiality": "Material",
+            "financial_impact_estimate": "35000000 potential write-down required",
+            "recommended_action": "Perform NRV assessment, recognize impairment, disclose methodology"
+          }
+        ],
+        "risk_factor_consolidation": {
+          "high_risk": ["Revenue recognition practices", "Going concern uncertainty", "Internal control deficiencies"],
+          "medium_risk": ["Related party transaction disclosures", "Inventory management", "Tax compliance"],
+          "low_risk": ["Cash management", "Fixed asset recording", "Employee benefits"]
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "Significant doubt exists",
+          "supporting_factors": ["Positive cash from operations", "Bank support indications"],
+          "contradicting_factors": ["High debt burden", "Declining margins", "Market uncertainty"],
+          "recommendation": "Require enhanced going concern disclosures and mitigation plan"
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "Not achieved - Material misstatements in revenue and inventory",
+          "overall_ifrs_compliance_level": "45%",
+          "reliability_scoring_methodology": {
+            "components": {
+              "ifrs_compliance": "45/100",
+              "audit_quality": "60/100",
+              "governance_quality": "50/100",
+              "earnings_quality": "55/100",
+              "disclosure_transparency": "40/100"
+            },
+            "final_score": "50/100",
+            "interpretation": "Below acceptable threshold - Significant improvements required"
+          },
+          "key_strengths": ["Timely publication", "Basic structure compliant", "Tax compliance"],
+          "critical_issues": [
+            "Revenue recognition non-compliance",
+            "Inadequate going concern disclosures",
+            "Weak internal controls",
+            "Insufficient related party disclosures"
+          ],
+          "frc_recommendations": [
+            "Issue notice to restate financial statements",
+            "Require enhanced auditor involvement",
+            "Mandate internal control improvements",
+            "Consider regulatory action for non-compliance",
+            "Require quarterly compliance reporting"
+          ]
+        }
+      }
+    }
+  }
+}
