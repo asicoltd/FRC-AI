@@ -1,0 +1,19 @@
+{
+  "section_id": "2",
+  "frc_analysis_report": {
+    "entity": {
+      "entity_id": "C-XXXXXX",
+      "entity_profile": {
+        "legal_name": "",
+        "trade_name": "",
+        "registration_number": "",
+        "industry_sector": "",
+        "listing_status": "Listed/Unlisted",
+        "stock_exchange_symbol": "",
+        "reporting_currency": "BDT",
+        "financial_year_end": "YYYY-12-31",
+        "report_publication_date": "YYYY-MM-DD"
+      }
+    }
+  }
+}

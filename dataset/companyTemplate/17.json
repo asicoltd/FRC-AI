@@ -1,0 +1,36 @@
+{
+  "section_id": "17",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_earnings_quality_analysis": {
+          "total_accruals_calculation": {
+            "year_yyyy": {
+              "net_income": "",
+              "cash_flow_from_operations": "",
+              "total_accruals": "",
+              "accruals_to_net_income_ratio": "",
+              "analysis_comment": ""
+            },
+            "year_yyyy_1": {
+              "net_income": "",
+              "cash_flow_from_operations": "",
+              "total_accruals": "",
+              "accruals_to_net_income_ratio": "",
+              "analysis_comment": ""
+            },
+            "trend_assessment": "",
+            "red_flags_identified": [],
+            "areas_for_further_investigation": []
+          },
+          "revenue_quality_indicators": {
+            "revenue_growth_vs_cash_collection": "",
+            "accounting_policy_changes_impact": "",
+            "significant_judgments_areas": [],
+            "risk_assessment": ""
+          }
+        }
+      }
+    }
+  }
+}

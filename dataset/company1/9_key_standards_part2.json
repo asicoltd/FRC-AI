@@ -1,0 +1,134 @@
+{
+  "section_id": "9",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ias_36_impairment_of_assets": {
+            "impairment_indicators_assessed": "Not assessed despite accumulated losses",
+            "cash_generating_units_identified": "Not identified",
+            "recoverable_amount_determination": ["Not determined"],
+            "discount_rate_assumptions": "Not disclosed",
+            "growth_rate_assumptions": "Not disclosed",
+            "sensitivity_analysis_provided": "Not provided",
+            "goodwill_allocation": "No goodwill on balance sheet"
+          },
+          "ias_37_provisions_contingent_liabilities_assets": {
+            "provisions_recognition": "None recognized",
+            "measurement_best_estimate": "Not applicable",
+            "onerous_contracts_assessed": "Not assessed",
+            "restructuring_provisions": "None",
+            "contingent_liabilities_disclosed": "Not disclosed",
+            "contingent_assets_disclosed": "Not disclosed"
+          },
+          "ias_38_intangible_assets": {
+            "recognition_criteria_met": "Non-compliant (preliminary expenses not amortized)",
+            "measurement_model": "Cost",
+            "amortization_methods": "Not amortized (deviation from IAS 38)",
+            "useful_lives_assumptions": "Not disclosed",
+            "research_development_separation": "Not applicable",
+            "impairment_testing": "Not performed"
+          },
+          "ias_40_investment_property": {
+            "investment_property_identified": "None",
+            "measurement_model": "Not applicable",
+            "fair_value_determination": "Not applicable",
+            "transfers_to_from_inventory": "Not applicable",
+            "disposals_accounting": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ias_41_agriculture": {
+            "biological_assets_identified": "None",
+            "measurement_basis": "Not applicable",
+            "gain_loss_recognition": "Not applicable",
+            "government_grants": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifrs_1_first_time_adoption": {
+            "first_time_adopter": false,
+            "exemptions_applied": [],
+            "exceptions_mandatory": "Not applicable",
+            "comparatives_restated": "Not applicable",
+            "disclosures_complete": "Not applicable"
+          },
+          "ifrs_2_share_based_payment": {
+            "equity_settled_transactions": "None",
+            "cash_settled_transactions": "None",
+            "vesting_conditions": "Not applicable",
+            "fair_value_measurement": "Not applicable",
+            "modifications_cancellations": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifrs_3_business_combinations": {
+            "acquisitions_during_period": "None",
+            "purchase_price_allocation": "Not applicable",
+            "goodwill_calculation": "Not applicable",
+            "contingent_consideration": "Not applicable",
+            "bargain_purchases": "Not applicable",
+            "disclosures_complete": "Not applicable"
+          },
+          "ifrs_5_non_current_assets_held_for_sale": {
+            "assets_classified_held_for_sale": "None",
+            "measurement_basis": "Not applicable",
+            "discontinued_operations": "None",
+            "presentation_separate": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+            "exploration_evaluation_assets": "None",
+            "measurement_model": "Not applicable",
+            "impairment_testing": "Not applicable",
+            "reclassification_to_development": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifrs_7_financial_instruments_disclosures": {
+            "categories_financial_instruments": ["Loans and borrowings", "Cash and cash equivalents"],
+            "fair_value_hierarchy": ["Not disclosed"],
+            "credit_risk_disclosures": "Inadequate",
+            "liquidity_risk_disclosures": "Inadequate",
+            "market_risk_disclosures": "Not disclosed",
+            "collateral_disclosed": "Not disclosed"
+          },
+          "ifrs_8_operating_segments": {
+            "chief_operating_decision_maker_identified": "Not identified",
+            "reportable_segments_identified": ["Hospital", "Medical College", "Nursing College"],
+            "segment_results_disclosed": "Partially (revenue only)",
+            "segment_assets_liabilities": "Not disclosed",
+            "reconciliations_provided": "Not provided",
+            "entity_wide_disclosures": "Inadequate"
+          },
+          "ifrs_9_financial_instruments": {
+            "classification_categories": ["Amortized cost for loans", "FVTPL for investments"],
+            "impairment_expected_credit_losses": "Not calculated",
+            "business_model_assessment": "Not disclosed",
+            "contractual_cash_flow_characteristics": "Not assessed",
+            "hedge_accounting_applied": "Not applied",
+            "reclassification_events": "None"
+          },
+          "ifrs_10_consolidated_financial_statements": {
+            "control_assessment": "Not applicable (separate financial statements)",
+            "subsidiaries_consolidated": "Not applicable",
+            "non_controlling_interests": "Not applicable",
+            "loss_of_control": "Not applicable",
+            "investment_entities": "Not applicable",
+            "disclosures_complete": "Not applicable"
+          },
+          "ifrs_11_joint_arrangements": {
+            "joint_arrangements_classified": ["Not applicable"],
+            "accounting_method": ["Not applicable"],
+            "separate_financial_statements": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifrs_12_disclosure_of_interests_in_other_entities": {
+            "subsidiaries_disclosures": "Not applicable",
+            "joint_arrangements_disclosures": "Not applicable",
+            "associates_disclosures": "Not applicable",
+            "structured_entities": "Not applicable",
+            "significant_judgments": "Not applicable",
+            "interests_nature_risks": "Not applicable"
+          }
+        }
+      }
+    }
+  }
+}

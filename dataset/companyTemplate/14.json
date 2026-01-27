@@ -1,0 +1,49 @@
+{
+  "section_id": "14",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "",
+            "firm_registration_number": "",
+            "audit_tenure_years": "",
+            "rotation_compliance": ""
+          },
+          "audit_opinion": {
+            "opinion_type": "Unmodified/Modified/Adverse/Disclaimer",
+            "basis_for_opinion": "",
+            "modified_opinion_reasons": []
+          },
+          "key_audit_matters": [],
+          "going_concern_assessment": {
+            "auditor_conclusion": "",
+            "period_assessed": "",
+            "mitigating_factors": []
+          },
+          "isa_compliance_check": {
+            "compliance": "",
+            "issues": []
+          }
+        },
+        "corporate_governance_review": {
+          "board_structure": {
+            "independence": "",
+            "expertise": "",
+            "effectiveness": ""
+          },
+          "committee_effectiveness": {
+            "audit_committee": "",
+            "risk_committee": "",
+            "nomination_committee": ""
+          },
+          "internal_controls": {
+            "effectiveness": "",
+            "management_assessment": "",
+            "auditor_opinion": ""
+          }
+        }
+      }
+    }
+  }
+}

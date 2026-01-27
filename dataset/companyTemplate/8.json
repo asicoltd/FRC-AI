@@ -1,0 +1,149 @@
+{
+  "section_id": "8",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ias_1_presentation": {
+            "fair_presentation_compliance": "",
+            "going_concern_assumption_applied": "",
+            "materiality_threshold_applied": "",
+            "offsetting_compliance": "",
+            "classification_current_non_current": "",
+            "statement_of_comprehensive_income_format": ""
+          },
+          "ias_2_inventories": {
+            "applicable": true,
+            "measurement_basis": "Lower of cost and net realizable value",
+            "cost_formulas_used": ["FIFO", "Weighted Average"],
+            "net_realizable_value_assessment": "",
+            "write_down_reversals_compliance": "",
+            "disclosures_completeness": ""
+          },
+          "ias_7_statement_of_cash_flows": {
+            "operating_cash_flow_method": "Direct/Indirect",
+            "investing_activities_disclosed": "",
+            "financing_activities_disclosed": "",
+            "cash_equivalents_definition": "",
+            "non_cash_transactions_disclosed": "",
+            "restricted_cash_disclosed": ""
+          },
+          "ias_8_accounting_policies": {
+            "changes_in_accounting_policies": "",
+            "changes_in_accounting_estimates": "",
+            "errors_corrections": "",
+            "hierarchy_applied": "",
+            "retrospective_application": ""
+          },
+          "ias_10_events_after_reporting_period": {
+            "adjusting_events_identified": "",
+            "non_adjusting_events_disclosed": "",
+            "dividends_declared_after_reporting_date": "",
+            "going_concern_assessment_updates": "",
+            "authorization_date_disclosed": ""
+          },
+          "ias_12_income_taxes": {
+            "current_tax_calculation": "",
+            "deferred_tax_assets_liabilities": "",
+            "temporary_differences_identified": "",
+            "tax_rate_disclosures": "",
+            "tax_reconciliation_provided": "",
+            "uncertain_tax_treatments": ""
+          },
+          "ias_16_property_plant_equipment": {
+            "recognition_criteria_met": "",
+            "measurement_model": "Cost/Revaluation",
+            "depreciation_methods": "",
+            "useful_lives_assumptions": "",
+            "impairment_indications_assessed": "",
+            "derecognition_compliance": ""
+          },
+          "ias_19_employee_benefits": {
+            "short_term_benefits": "",
+            "post_employment_benefits": ["Defined contribution", "Defined benefit"],
+            "defined_benefit_obligation": "",
+            "actuarial_assumptions": "",
+            "past_service_costs": "",
+            "multi_employer_plans": ""
+          },
+          "ias_20_government_grants": {
+            "grants_received": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "presentation_method": "Gross/Net",
+            "repayment_conditions": "",
+            "disclosures_provided": ""
+          },
+          "ias_21_effects_of_changes_in_foreign_exchange_rates": {
+            "functional_currency_determination": "",
+            "foreign_currency_transactions": "",
+            "exchange_differences_treatment": "",
+            "foreign_operations_translation": "",
+            "hedge_accounting_applied": "",
+            "disclosure_of_rates": ""
+          },
+          "ias_23_borrowing_costs": {
+            "capitalization_criteria_met": "",
+            "capitalization_rate_calculation": "",
+            "qualifying_assets_identified": "",
+            "suspension_periods": "",
+            "cessation_of_capitalization": "",
+            "disclosures_complete": ""
+          },
+          "ias_24_related_party_disclosures": {
+            "related_parties_identified": "",
+            "transactions_disclosed": "",
+            "outstanding_balances": "",
+            "compensation_disclosed": "",
+            "arm_length_nature_justified": "",
+            "control_relationships": ""
+          },
+          "ias_27_separate_financial_statements": {
+            "investment_subsidiaries_measured": ["Cost", "Equity"],
+            "dividends_from_subsidiaries": "",
+            "impairment_assessment": "",
+            "disclosures_provided": ""
+          },
+          "ias_28_investments_in_associates_and_joint_ventures": {
+            "equity_method_applied": "",
+            "significant_influence_assessed": "",
+            "goodwill_calculation": "",
+            "impairment_testing": "",
+            "losses_recognition": "",
+            "disclosures_complete": ""
+          },
+          "ias_29_financial_reporting_in_hyperinflationary_economies": {
+            "hyperinflation_indications": "",
+            "restatement_applied": "",
+            "gain_loss_on_net_monetary_position": "",
+            "comparatives_restated": "",
+            "disclosures_provided": ""
+          },
+          "ias_32_financial_instruments_presentation": {
+            "classification_liability_equity": "",
+            "compound_instruments_split": "",
+            "interest_dividends_treatment": "",
+            "treasury_shares_treatment": "",
+            "offsetting_applied": "",
+            "disclosures_complete": ""
+          },
+          "ias_33_earnings_per_share": {
+            "basic_eps_calculated": "",
+            "diluted_eps_calculated": "",
+            "potential_ordinary_shares_identified": "",
+            "anti_dilutive_excluded": "",
+            "disclosures_provided": ""
+          },
+          "ias_34_interim_financial_reporting": {
+            "interim_reports_prepared": "",
+            "recognition_measurement_policies": "",
+            "seasonality_disclosed": "",
+            "significant_events_disclosed": "",
+            "year_end_estimates_changes": "",
+            "disclosures_complete": ""
+          }
+        }
+      }
+    }
+  }
+}

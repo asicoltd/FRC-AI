@@ -1,0 +1,51 @@
+{
+  "section_id": "5",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "International Financial Reporting Standards (IFRS), Companies Act 1994, Income Tax Ordinance 1984",
+          "notes_reference": "Note 1.0(d) and Note 2.0",
+          "actual_standards_applied": ["Historical cost convention", "Going concern basis", "Reducing balance depreciation"],
+          "discrepancies_identified": [
+            "IAS 38 not followed (preliminary expenses not amortized)",
+            "IAS 2 compliance uncertain (inventory not verified)",
+            "IAS 24 disclosure inadequate (related party transactions)"
+          ],
+          "compliance_assessment": "Partial compliance with significant deviations"
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "RJSC (Registrar of Joint Stock Companies)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Non-compliant",
+              "specific_disclosures_found": "Form XII and Schedule X not provided, AGM not held"
+            },
+            {
+              "regulator_name": "NBR (National Board of Revenue)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Partially compliant",
+              "specific_disclosures_found": "Advance income tax disclosed, turnover tax calculated"
+            },
+            {
+              "regulator_name": "Financial Reporting Council",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Review in progress",
+              "specific_disclosures_found": "Multiple audit qualifications identified"
+            }
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": false,
+            "bsec_filing_date": "N/A (unlisted company)",
+            "income_tax_return_filed": true,
+            "income_tax_year": "2022, 2023, 2024",
+            "rjsc_compliance": false,
+            "bb_compliance_if_applicable": "Not applicable (not a financial institution)"
+          },
+          "overall_regulatory_assessment": "Significant non-compliance with Companies Act 1994 regarding AGM and audit timelines"
+        }
+      }
+    }
+  }
+}
