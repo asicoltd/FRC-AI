@@ -1,839 +1,370 @@
 {
   "frc_analysis_report": {
     "metadata": {
-      "report_id": "",
-      "generation_date": "",
-      "analyst_framework_version": "2.0",
-      "source_documents": [],
-      "analysis_scope": "Comprehensive IFRS & Regulatory Compliance Analysis"
+      "report_id": "FRC-ANL-YYYY-XXXX", // Format: FRC-ANL-[Year]-[Serial]
+      "generation_date": "YYYY-MM-DD", // Date of report generation
+      "analyst_framework_version": "X.X", // Version of analysis framework
+      "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+      "prepared_for": "Financial Reporting Council, Bangladesh",
+      "source_documents": [
+        // List all source documents used for analysis
+        "Company Annual Report YYYY",
+        "BSEC Filing Documentation YYYY",
+        "Auditor's Report - Firm Name",
+        "Corporate Governance Report YYYY",
+        "Previous Year Comparative FS YYYY-1"
+      ]
     },
-    "companies": {
-      "company_id": {
-        "company_info": {
-          "legal_name": "",
-          "trade_name": "",
-          "registration_number": "",
-          "industry_sector": "",
-          "stock_exchange_symbol": "",
-          "reporting_currency": "BDT",
-          "financial_year_end": "",
-          "report_publication_date": ""
+    "entity": {
+      "entity_id": "C-XXXXXX", // FRC assigned entity ID
+      "entity_profile": {
+        "legal_name": "", // Registered legal name
+        "trade_name": "", // Trading name (if different)
+        "registration_number": "", // RJSC registration number
+        "industry_sector": "", // e.g., Pharmaceuticals, Banking, Manufacturing
+        "listing_status": "Listed/Unlisted", // Listed on stock exchange or not
+        "stock_exchange_symbol": "", // Trading symbol if listed
+        "reporting_currency": "BDT", // Currency of financial statements
+        "financial_year_end": "YYYY-12-31", // End date of financial year
+        "report_publication_date": "YYYY-MM-DD" // Date annual report published
+      },
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "Profit before tax/Revenue/Total Assets/Equity", // Materiality benchmark
+          "percentage_applied": "X%", // Percentage applied to benchmark
+          "overall_materiality_amount": "", // Calculated materiality amount (no commas)
+          "performance_materiality_amount": "", // Usually 50-75% of overall materiality
+          "clearly_trivial_threshold": "" // Threshold below which items are clearly trivial
         },
-        "financial_statements_raw_data": {
-          "statement_of_financial_position": [
-            {
-              "line_item": "",
-              "classification": "Asset/Liability/Equity",
-              "sub_classification": "Current/Non-Current",
-              "current_year_amount": "",
-              "prior_year_1_amount": "",
-              "prior_year_2_amount": "",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            }
-          ],
-          "statement_of_profit_or_loss_and_oci": [
-            {
-              "line_item": "",
-              "classification": "Revenue/Expense/Other Comprehensive Income",
-              "current_year_amount": "",
-              "prior_year_1_amount": "",
-              "prior_year_2_amount": "",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            }
-          ],
-          "statement_of_cash_flows": [
-            {
-              "line_item": "",
-              "classification": "Operating/Investing/Financing",
-              "current_year_amount": "",
-              "prior_year_1_amount": "",
-              "prior_year_2_amount": "",
-              "notes_reference": "",
-              "custom_additional_info": {}
-            }
-          ],
-          "statement_of_changes_in_equity": [
-            {
-              "component": "",
-              "opening_balance": "",
-              "transactions_during_year": [
-                {
-                  "transaction_type": "",
-                  "amount": "",
-                  "description": ""
-                }
-              ],
-              "closing_balance": "",
-              "notes_reference": ""
-            }
-          ]
-        },
-        "phase_1_foundational_checks": {
-          "reporting_framework": {
-            "disclosed_framework": "",
-            "disclosed_in_notes": "",
-            "actual_standards_applied": [],
-            "discrepancies_identified": [],
-            "compliance_assessment": ""
+        "qualitative_materiality_considerations": [
+          // List of qualitative factors affecting materiality
+          "Related party transactions",
+          "Regulatory non-compliance",
+          "Going concern indicators",
+          "Management override risk",
+          "Fraud risk indicators"
+        ],
+        "frc_materiality_conclusion": "" // Overall assessment of materiality framework
+      },
+      "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+        "statement_of_financial_position": [
+          {
+            "year": "YYYY",
+            // Each row: ["amount without commas", "note number"]
+            "row1": ["", ""], // e.g., Total Assets
+            "row2": ["", ""], // e.g., Total Liabilities
+            "row3": ["", ""], // e.g., Total Equity
+            "row4": ["", ""], // e.g., Current Assets
+            "row5": ["", ""]  // e.g., Non-current Assets
+            // Add additional rows as needed
           },
-          "regulatory_landscape": {
-            "applicable_regulators": [
-              {
-                "regulator_name": "",
-                "jurisdiction": "",
-                "compliance_status": "",
-                "specific_disclosures_found": []
-              }
-            ],
-            "regulatory_filings_status": {
-              "sec_filed": true,
-              "sec_filing_date": "",
-              "tax_return_filed": true,
-              "tax_return_date": "",
-              "rjsccompliance": true,
-              "bb_compliance": true
-            },
-            "overall_regulatory_assessment": ""
+          {
+            "year": "YYYY-1",
+            "row1": ["", ""],
+            "row2": ["", ""],
+            "row3": ["", ""],
+            "row4": ["", ""],
+            "row5": ["", ""]
           }
-        },
-        "phase_2_financial_analysis": {
-          "ratio_analysis": {
-            "liquidity_ratios": {
-              "current_ratio": {
-                "calculation": {
-                  "current_year": {
-                    "current_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  },
-                  "prior_year_1": {
-                    "current_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  },
-                  "prior_year_2": {
-                    "current_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  }
-                },
-                "industry_benchmark": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "quick_ratio": {
-                "calculation": {
-                  "current_year": {
-                    "quick_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  },
-                  "prior_year_1": {
-                    "quick_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  },
-                  "prior_year_2": {
-                    "quick_assets": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  }
-                },
-                "industry_benchmark": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "cash_ratio": {
-                "calculation": {
-                  "current_year": {
-                    "cash_equivalents": "",
-                    "current_liabilities": "",
-                    "ratio": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              }
-            },
-            "solvency_ratios": {
-              "debt_to_equity": {
-                "calculation": {
-                  "current_year": {
-                    "total_debt": "",
-                    "total_equity": "",
-                    "ratio": ""
-                  },
-                  "prior_year_1": {
-                    "total_debt": "",
-                    "total_equity": "",
-                    "ratio": ""
-                  },
-                  "prior_year_2": {
-                    "total_debt": "",
-                    "total_equity": "",
-                    "ratio": ""
-                  }
-                },
-                "covenant_limits": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "debt_to_assets": {
-                "calculation": {
-                  "current_year": {
-                    "total_debt": "",
-                    "total_assets": "",
-                    "ratio": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              },
-              "interest_coverage": {
-                "calculation": {
-                  "current_year": {
-                    "ebit": "",
-                    "interest_expense": "",
-                    "ratio": ""
-                  },
-                  "prior_year_1": {
-                    "ebit": "",
-                    "interest_expense": "",
-                    "ratio": ""
-                  },
-                  "prior_year_2": {
-                    "ebit": "",
-                    "interest_expense": "",
-                    "ratio": ""
-                  }
-                },
-                "minimum_requirement": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              }
-            },
-            "efficiency_ratios": {
-              "inventory_turnover": {
-                "calculation": {
-                  "current_year": {
-                    "cogs": "",
-                    "average_inventory": "",
-                    "ratio": "",
-                    "days": ""
-                  },
-                  "prior_year_1": {
-                    "cogs": "",
-                    "average_inventory": "",
-                    "ratio": "",
-                    "days": ""
-                  },
-                  "prior_year_2": {
-                    "cogs": "",
-                    "average_inventory": "",
-                    "ratio": "",
-                    "days": ""
-                  }
-                },
-                "industry_benchmark": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "receivables_turnover": {
-                "calculation": {
-                  "current_year": {
-                    "credit_sales": "",
-                    "average_receivables": "",
-                    "ratio": "",
-                    "days": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              },
-              "asset_turnover": {
-                "calculation": {
-                  "current_year": {
-                    "revenue": "",
-                    "average_total_assets": "",
-                    "ratio": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              },
-              "working_capital_turnover": {
-                "calculation": {
-                  "current_year": {
-                    "revenue": "",
-                    "average_working_capital": "",
-                    "ratio": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              }
-            },
-            "profitability_ratios": {
-              "gross_profit_margin": {
-                "calculation": {
-                  "current_year": {
-                    "gross_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  },
-                  "prior_year_1": {
-                    "gross_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  },
-                  "prior_year_2": {
-                    "gross_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  }
-                },
-                "industry_benchmark": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "operating_profit_margin": {
-                "calculation": {
-                  "current_year": {
-                    "operating_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              },
-              "net_profit_margin": {
-                "calculation": {
-                  "current_year": {
-                    "net_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  },
-                  "prior_year_1": {
-                    "net_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  },
-                  "prior_year_2": {
-                    "net_profit": "",
-                    "revenue": "",
-                    "percentage": ""
-                  }
-                },
-                "industry_benchmark": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              },
-              "return_on_assets": {
-                "calculation": {
-                  "current_year": {
-                    "net_profit": "",
-                    "average_total_assets": "",
-                    "percentage": ""
-                  }
-                },
-                "trend_analysis": "",
-                "risk_assessment": ""
-              },
-              "return_on_equity": {
-                "calculation": {
-                  "current_year": {
-                    "net_profit": "",
-                    "average_shareholders_equity": "",
-                    "percentage": ""
-                  },
-                  "prior_year_1": {
-                    "net_profit": "",
-                    "average_shareholders_equity": "",
-                    "percentage": ""
-                  },
-                  "prior_year_2": {
-                    "net_profit": "",
-                    "average_shareholders_equity": "",
-                    "percentage": ""
-                  }
-                },
-                "cost_of_equity": "",
-                "trend_analysis": "",
-                "risk_assessment": "",
-                "investigation_points": []
-              }
-            },
-            "market_ratios": {
-              "earnings_per_share": {
-                "calculation": {
-                  "current_year": {
-                    "basic": "",
-                    "diluted": ""
-                  }
-                },
-                "disclosed_in_fs": true
-              },
-              "price_to_earnings": {
-                "calculation": {
-                  "current_year": {
-                    "market_price": "",
-                    "eps": "",
-                    "ratio": ""
-                  }
-                }
-              },
-              "book_value_per_share": {
-                "calculation": {
-                  "current_year": {
-                    "shareholders_equity": "",
-                    "number_of_shares": "",
-                    "value": ""
-                  }
-                }
-              }
-            }
-          },
-          "earnings_quality_analysis": {
-            "accruals_analysis": {
-              "calculations": {
-                "current_year": {
-                  "net_income": "",
-                  "operating_cash_flow": "",
-                  "total_accruals": "",
-                  "accruals_to_net_income": ""
-                },
-                "prior_year_1": {
-                  "net_income": "",
-                  "operating_cash_flow": "",
-                  "total_accruals": "",
-                  "accruals_to_net_income": ""
-                },
-                "prior_year_2": {
-                  "net_income": "",
-                  "operating_cash_flow": "",
-                  "total_accruals": "",
-                  "accruals_to_net_income": ""
-                }
-              },
-              "trend_analysis": "",
-              "quality_assessment": "",
-              "red_flags": []
-            },
-            "cash_flow_pattern_analysis": {
-              "operating_cash_flow_trend": "",
-              "investing_cash_flow_pattern": "",
-              "financing_cash_flow_pattern": "",
-              "free_cash_flow_calculation": {
-                "current_year": "",
-                "prior_year_1": "",
-                "prior_year_2": ""
-              },
-              "sustainability_assessment": ""
-            }
-          },
-          "vertical_and_horizontal_analysis": {
-            "common_size_income_statement": [
-              {
-                "line_item": "",
-                "current_year_percentage": "",
-                "prior_year_1_percentage": "",
-                "prior_year_2_percentage": "",
-                "significant_variance": false,
-                "variance_explanation": ""
-              }
-            ],
-            "common_size_balance_sheet": [
-              {
-                "line_item": "",
-                "current_year_percentage": "",
-                "prior_year_1_percentage": "",
-                "prior_year_2_percentage": "",
-                "significant_variance": false,
-                "variance_explanation": ""
-              }
-            ],
-            "year_over_year_growth_rates": {
-              "revenue_growth": {
-                "yoy_1": "",
-                "yoy_2": "",
-                "cagr_3_year": ""
-              },
-              "profit_growth": {
-                "yoy_1": "",
-                "yoy_2": "",
-                "cagr_3_year": ""
-              },
-              "asset_growth": {
-                "yoy_1": "",
-                "yoy_2": "",
-                "cagr_3_year": ""
-              },
-              "equity_growth": {
-                "yoy_1": "",
-                "yoy_2": "",
-                "cagr_3_year": ""
-              }
-            }
+          // Add more years if available
+        ],
+        "statement_of_profit_or_loss_and_oci": [
+          {
+            "year": "YYYY",
+            "row1": ["", ""], // e.g., Revenue
+            "row2": ["", ""], // e.g., Cost of Sales
+            "row3": ["", ""], // e.g., Gross Profit
+            "row4": ["", ""], // e.g., Operating Expenses
+            "row5": ["", ""], // e.g., Profit Before Tax
+            "row6": ["", ""]  // e.g., Tax Expense
+            // Add additional rows as needed
           }
-        },
-        "phase_3_ifrs_compliance_detailed": {
-          "accounting_policies_review": {
-            "significant_policies_disclosed": [
-              {
-                "policy_area": "",
-                "disclosed_policy": "",
-                "ifrs_standard": "",
-                "compliance_assessment": "",
-                "departures_identified": []
-              }
-            ],
-            "changes_in_accounting_policies": [
-              {
-                "policy_changed": "",
-                "reason_for_change": "",
-                "impact_disclosed": true,
-                "ias_8_compliance": ""
-              }
-            ],
-            "ias_8_hierarchy_compliance": ""
-          },
-          "key_standards_compliance_check": {
-            "ifrs_15_revenue_recognition": {
-              "applicable": true,
-              "revenue_streams_identified": [
-                {
-                  "stream": "",
-                  "timing_of_recognition": "",
-                  "performance_obligations": "",
-                  "transaction_price_allocation": "",
-                  "compliance_assessment": ""
-                }
-              ],
-              "contract_liabilities": {
-                "disclosed": true,
-                "amount": "",
-                "movement_analysis": "",
-                "concerns": []
-              },
-              "overall_compliance": ""
-            },
-            "ifrs_16_leases": {
-              "applicable": true,
-              "lessee_accounting": {
-                "right_of_use_assets": "",
-                "lease_liabilities": "",
-                "discount_rate_disclosed": true,
-                "lease_term_assumptions": "",
-                "compliance_assessment": ""
-              },
-              "lessor_accounting": {
-                "operating_leases": "",
-                "finance_leases": "",
-                "compliance_assessment": ""
-              },
-              "disclosure_completeness": ""
-            },
-            "ifrs_9_financial_instruments": {
-              "applicable": true,
-              "classification_and_measurement": {
-                "categories_used": [],
-                "fair_value_hierarchy_disclosures": "",
-                "impairment_model_applied": "",
-                "compliance_assessment": ""
-              },
-              "hedge_accounting": {
-                "applied": true,
-                "effectiveness_assessment": "",
-                "compliance_assessment": ""
-              },
-              "overall_compliance": ""
-            },
-            "ias_36_impairment": {
-              "applicable": true,
-              "impairment_tests_performed": [
-                {
-                  "asset_class": "",
-                  "carrying_amount": "",
-                  "recoverable_amount": "",
-                  "impairment_loss": "",
-                  "key_assumptions": "",
-                  "sensitivity_analysis": "",
-                  "concerns": []
-                }
-              ],
-              "goodwill_impairment_testing": {
-                "performed": true,
-                "cash_generating_units": "",
-                "key_assumptions": "",
-                "concerns": []
-              },
-              "overall_compliance": ""
-            },
-            "ias_37_provisions": {
-              "applicable": true,
-              "provisions_disclosed": [
-                {
-                  "type": "",
-                  "amount": "",
-                  "recognition_criteria_met": "",
-                  "measurement_basis": "",
-                  "concerns": []
-                }
-              ],
-              "contingent_liabilities": {
-                "disclosed": true,
-                "material_items": [],
-                "adequacy_of_disclosure": ""
-              },
-              "overall_compliance": ""
-            }
-          },
-          "detailed_ifrs_compliance_matrix": [
-            {
-              "standard_code": "",
-              "standard_name": "",
-              "applicability": "Yes/No/Partially",
-              "page_reference": "",
-              "compliance_status": "Compliant/Non-Compliant/Partially Compliant",
-              "specific_requirements_checked": [
-                {
-                  "requirement": "",
-                  "compliance_status": "",
-                  "evidence_location": "",
-                  "concerns": ""
-                }
-              ],
-              "material_departures": [],
-              "ias_1_para_19_24_implication": ""
-            }
-          ],
-          "tax_compliance_check": {
-            "ias_12_application": {
-              "current_tax": {
-                "calculation_basis": "",
-                "reconciliation_provided": true,
-                "compliance_assessment": ""
-              },
-              "deferred_tax": {
-                "assets_disclosed": "",
-                "liabilities_disclosed": "",
-                "temporary_differences_identified": "",
-                "tax_rate_disclosed": true,
-                "compliance_assessment": ""
-              },
-              "tax_contingencies": {
-                "disclosed": true,
-                "uncertain_tax_positions": "",
-                "ifric_23_compliance": ""
-              }
-            },
-            "bangladesh_income_tax_act_2023": {
-              "tax_holidays_availed": [],
-              "incentives_claimed": [],
-              "withholding_tax_compliance": "",
-              "advance_tax_payments": "",
-              "compliance_assessment": ""
-            }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "YYYY",
+            "row1": ["", ""], // e.g., Cash from Operations
+            "row2": ["", ""], // e.g., Cash from Investing
+            "row3": ["", ""], // e.g., Cash from Financing
+            "row4": ["", ""], // e.g., Net Cash Flow
+            "row5": ["", ""], // e.g., Opening Cash
+            "row6": ["", ""]  // e.g., Closing Cash
           }
-        },
-        "phase_4_audit_governance_verification": {
-          "audit_report_analysis": {
-            "auditor_information": {
-              "firm_name": "",
-              "firm_registration_number": "",
-              "audit_tenure_years": "",
-              "rotation_compliance": ""
-            },
-            "audit_opinion": {
-              "opinion_type": "Unmodified/Modified/Adverse/Disclaimer",
-              "basis_for_opinion": "",
-              "modified_opinion_reasons": []
-            },
-            "key_audit_matters": [
-              {
-                "matter": "",
-                "auditor_response": "",
-                "frc_risk_assessment": "",
-                "follow_up_required": true
-              }
-            ],
-            "going_concern_assessment": {
-              "material_uncertainty_disclosed": true,
-              "period_assessed": "",
-              "management_plans_disclosed": [],
-              "auditor_conclusion": "",
-              "frc_assessment": ""
-            },
-            "emphasis_of_matter": {
-              "paragraphs_present": true,
-              "matters_emphasized": [],
-              "implications": ""
-            },
-            "other_matter": {
-              "paragraphs_present": true,
-              "matters_disclosed": [],
-              "implications": ""
-            },
-            "isa_compliance_check": {
-              "isa_700_compliance": "",
-              "isa_701_compliance": "",
-              "isa_570_compliance": "",
-              "identified_deficiencies": []
-            }
-          },
-          "corporate_governance_review": {
-            "board_structure": {
-              "board_size": "",
-              "independent_directors": "",
-              "female_directors": "",
-              "bsec_compliance": "",
-              "concerns": []
-            },
-            "committee_effectiveness": {
-              "audit_committee": {
-                "composition": "",
-                "meetings_held": "",
-                "key_activities": [],
-                "effectiveness_assessment": ""
-              },
-              "remuneration_committee": {
-                "composition": "",
-                "policies_disclosed": true,
-                "effectiveness_assessment": ""
-              },
-              "nominating_committee": {
-                "composition": "",
-                "activities": [],
-                "effectiveness_assessment": ""
-              }
-            },
-            "internal_controls": {
-              "management_assertion": "",
-              "auditor_opinion": "",
-              "weaknesses_identified": [],
-              "frc_assessment": ""
-            },
-            "risk_management": {
-              "framework_disclosed": true,
-              "key_risks_identified": [],
-              "mitigation_strategies": [],
-              "adequacy_assessment": ""
-            },
-            "related_party_transactions": {
-              "ias_24_disclosures": {
-                "completeness": "",
-                "arm_length_assessment": "",
-                "board_approval_process": "",
-                "concerns": []
-              },
-              "material_transactions": [
-                {
-                  "related_party": "",
-                  "nature": "",
-                  "amount": "",
-                  "terms": "",
-                  "arm_length_justification": "",
-                  "concern_level": ""
-                }
-              ]
-            },
-            "director_remuneration": {
-              "disclosure_completeness": "",
-              "performance_linkage": "",
-              "shareholder_approval": "",
-              "concerns": []
-            }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "YYYY",
+            "row1": ["", ""], // e.g., Opening Balance
+            "row2": ["", ""], // e.g., Profit for Year
+            "row3": ["", ""], // e.g., Dividends Paid
+            "row4": ["", ""], // e.g., Share Issue
+            "row5": ["", ""]  // e.g., Closing Balance
           }
-        },
-        "phase_5_synthesis_and_findings": {
-          "material_departures_summary": [
-            {
-              "issue_id": "",
-              "issue_description": "",
-              "relevant_standard": "",
-              "page_reference": "",
-              "extract_from_fs": "",
-              "materiality_assessment": "Material/Immaterial",
-              "financial_impact": "",
-              "recommended_action": ""
-            }
-          ],
-          "risk_factor_consolidation": {
-            "high_risk_factors": [
+        ],
+        "notes_with_tables": [
+          // Notes containing tabular data
+          {
+            "note_number": "", // Note number from financial statements
+            "title": "", // Title of the note
+            "content": "", // Narrative content of the note
+            "tables": [
               {
-                "risk_category": "",
-                "risk_description": "",
-                "source": "",
-                "potential_impact": "",
-                "mitigation_status": ""
-              }
-            ],
-            "medium_risk_factors": [
-              {
-                "risk_category": "",
-                "risk_description": "",
-                "source": "",
-                "potential_impact": "",
-                "mitigation_status": ""
-              }
-            ],
-            "low_risk_factors": [
-              {
-                "risk_category": "",
-                "risk_description": "",
-                "source": "",
-                "potential_impact": "",
-                "mitigation_status": ""
+                "table_title": "", // Title of the table
+                "columns": [], // Array of column headers
+                "rows": [
+                  // Each row as an array matching column count
+                  []
+                ]
               }
             ]
+          }
+          // Add more notes with tables
+        ],
+        "notes_without_tables": [
+          // Notes without tabular data (pure narrative)
+          {
+            "note_number": "",
+            "title": "",
+            "content": "" // Full text content of the note
+          }
+          // Add more notes without tables
+        ]
+      },
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "", // Framework disclosed in FS (e.g., "IFRS")
+          "notes_reference": "", // Note number where framework disclosed
+          "actual_standards_applied": [], // Array of standards actually applied
+          "discrepancies_identified": [], // Differences between disclosed and applied
+          "compliance_assessment": "" // Overall assessment: Compliant/Partially/Non-Compliant
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "FRC / BSEC / Bangladesh Bank / RJSC / NBR",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "", // Compliant/Non-compliant/Partially
+              "specific_disclosures_found": [] // Specific disclosures made
+            }
+            // Add more regulators as applicable
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": true, // true/false
+            "bsec_filing_date": "", // Date of BSEC filing
+            "income_tax_return_filed": true, // true/false
+            "income_tax_year": "", // Tax year
+            "rjsc_compliance": true, // true/false
+            "bb_compliance_if_applicable": "" // Only for financial institutions
           },
-          "going_concern_assessment": {
-            "frc_conclusion": "",
-            "supporting_factors": [],
-            "contradicting_factors": [],
-            "recommendation": ""
+          "overall_regulatory_assessment": "" // Overall regulatory compliance assessment
+        }
+      },
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": "", // Current Assets / Current Liabilities
+          "debt_to_equity": "", // Total Debt / Total Equity
+          "gross_profit_margin": "", // Gross Profit / Revenue * 100%
+          "net_profit_margin": "", // Net Profit / Revenue * 100%
+          "roa": "", // Return on Assets: Net Income / Total Assets * 100%
+          "roe": "", // Return on Equity: Net Income / Shareholders' Equity * 100%
+          "interest_coverage": "" // EBIT / Interest Expense
+          // Add additional ratios as needed
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": "", // (Net Income - Cash from Operations) / Total Assets
+          "cash_flow_to_earnings": "", // Cash from Operations / Net Income
+          "revenue_growth_quality": "", // Qualitative assessment of revenue growth
+          "expense_recognition_pattern": "" // Assessment of expense recognition
+        },
+        "vertical_and_horizontal_analysis": {
+          "vertical_2023": {
+            "assets_composition": "", // Percentage composition of assets
+            "liabilities_composition": "" // Percentage composition of liabilities
           },
-          "overall_assessment": {
-            "fairness_of_view": "",
-            "compliance_level": "",
-            "reliability_score": "",
-            "transparency_rating": "",
-            "key_strengths": [],
-            "critical_issues": [
-              {
-                "issue": "",
-                "priority": "High/Medium/Low",
-                "regulatory_implication": "",
-                "deadline_for_action": ""
-              }
-            ],
-            "frc_recommendations": [
-              {
-                "recommendation": "",
-                "addressed_to": "Management/Auditor/Regulator",
-                "timeline": "",
-                "expected_outcome": ""
-              }
-            ]
+          "horizontal_growth": {
+            "revenue_growth": "", // Year-on-year revenue growth %
+            "asset_growth": "", // Year-on-year asset growth %
+            "debt_growth": "" // Year-on-year debt growth %
           }
         }
+      },
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [], // List of significant policies disclosed
+          "changes_in_accounting_policies": [], // Any changes in accounting policies
+          "ias_8_hierarchy_compliance": "" // Assessment of IAS 8 hierarchy compliance
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [
+            {
+              "area": "", // Area of judgment (e.g., revenue recognition)
+              "management_assumption": "", // Management's assumption
+              "alternative_view": "", // Alternative reasonable view
+              "frc_skeptical_assessment": "", // FRC's skeptical assessment
+              "impact_if_changed": "" // Financial impact if assumption changed
+            }
+            // Add more critical judgments
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "", // Key estimate (e.g., useful lives, impairment)
+              "sensitivity_range": "", // Range of possible outcomes
+              "disclosure_adequacy": "", // Adequacy of disclosures
+              "risk_level": "" // High/Medium/Low risk level
+            }
+            // Add more estimation uncertainties
+          ]
+        },
+        "key_standards_compliance_check": [
+          // Complete list of IFRS/IAS standards - copy this structure for each standard
+          {
+            "standard_code": "IAS X / IFRS X", // Standard code
+            "standard_name": "", // Full standard name
+            "applicable_for_this_company": "Yes/No", // Whether standard applies to this entity
+            "applied": "Yes/No/N/A", // Whether entity has applied the standard
+            "notes_reference": "" // Note number where standard is addressed
+          }
+          // Repeat for ALL standards: IAS 1 through 41 and IFRS 1 through 17
+        ],
+        "detailed_ifrs_compliance_matrix": [
+          // Detailed analysis of selected key standards
+          {
+            "standard_code": "", // Standard code
+            "standard_name": "", // Standard name
+            "applicability": "Yes/No/Partially", // Applicability to entity
+            "page_reference": "", // Page reference in annual report
+            "compliance_status": "Compliant/Partially Compliant/Non-Compliant",
+            "material_departures": [], // List of material departures
+            "ias_1_para_19_24_implication": "" // Implication for true and fair view
+          }
+          // Add more standards for detailed analysis
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "", // Compliance assessment
+            "issues": [] // List of specific issues
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "", // Compliance assessment
+            "issues": [] // List of specific issues
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "", // Compliance status
+            "advance_tax_status": "", // Status of advance tax payments
+            "tax_holidays_or_incentives": [], // Any tax benefits claimed
+            "overall_tax_compliance_assessment": "" // Overall tax compliance
+          }
+        }
+      },
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [], // List of identified fraud risk factors
+        "revenue_manipulation_indicators": [], // Indicators of revenue manipulation
+        "journal_entry_override_risk": "", // Risk level: High/Medium/Low
+        "override_of_internal_controls_risk": "", // Risk level: High/Medium/Low
+        "overall_fraud_risk_assessment": "" // Overall fraud risk assessment
+      },
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "", // Name of audit firm
+            "firm_registration_number": "", // CAR registration number
+            "audit_tenure_years": "", // Number of years as auditor
+            "rotation_compliance": "" // Compliance with rotation requirements
+          },
+          "audit_opinion": {
+            "opinion_type": "Unmodified/Modified/Adverse/Disclaimer",
+            "basis_for_opinion": "", // Basis stated in audit report
+            "modified_opinion_reasons": [] // Reasons for modified opinion
+          },
+          "key_audit_matters": [], // List of KAMs from audit report
+          "going_concern_assessment": {
+            "auditor_conclusion": "", // Auditor's going concern conclusion
+            "period_assessed": "", // Period assessed (e.g., "12 months")
+            "mitigating_factors": [] // Mitigating factors identified
+          },
+          "isa_compliance_check": {
+            "compliance": "", // Compliance with ISA standards
+            "issues": [] // Specific compliance issues
+          }
+        },
+        "corporate_governance_review": {
+          "board_structure": {
+            "independence": "", // % of independent directors
+            "expertise": "", // Assessment of board expertise
+            "effectiveness": "" // Assessment of board effectiveness
+          },
+          "committee_effectiveness": {
+            "audit_committee": "", // Assessment of audit committee
+            "risk_committee": "", // Assessment of risk committee
+            "nomination_committee": "" // Assessment of nomination committee
+          },
+          "internal_controls": {
+            "effectiveness": "", // Effectiveness of internal controls
+            "management_assessment": "", // Management's self-assessment
+            "auditor_opinion": "" // Auditor's opinion on ICFR
+          }
+        }
+      },
+      "legal_and_enforcement_mapping": {
+        "financial_reporting_act_2015": {
+          "sections_triggered": [], // Sections of FRA 2015 applicable
+          "nature_of_breach": "", // Nature of breach if any
+          "severity_assessment": "High/Medium/Low" // Severity of breach
+        },
+        "companies_act_1994": {
+          "sections_implicated": [], // Sections of Companies Act applicable
+          "director_liability_assessed": true, // Whether director liability exists
+          "liability_nature": "" // Nature of potential liability
+        },
+        "bsec_rules_if_applicable": {
+          "rules_breached": [], // BSEC rules breached (if listed)
+          "market_impact": "" // Potential impact on market
+        }
+      },
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [
+          {
+            "issue_id": "MD-XXX", // Unique issue identifier
+            "description": "", // Description of the issue
+            "relevant_standard": "", // Relevant IFRS/IAS standard
+            "page_reference": "", // Page reference in annual report
+            "extract_from_fs": "", // Extract from financial statements
+            "materiality": "Material/Immaterial", // Materiality assessment
+            "financial_impact_estimate": "", // Estimated financial impact
+            "recommended_action": "" // Recommended corrective action
+          }
+          // Add more material departures
+        ],
+        "risk_factor_consolidation": {
+          "high_risk": [], // List of high-risk factors
+          "medium_risk": [], // List of medium-risk factors
+          "low_risk": [] // List of low-risk factors
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "", // FRC's going concern conclusion
+          "supporting_factors": [], // Factors supporting going concern
+          "contradicting_factors": [], // Factors contradicting going concern
+          "recommendation": "" // FRC recommendation
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "", // Assessment of true and fair view
+          "overall_ifrs_compliance_level": "", // Percentage compliance score
+          "reliability_scoring_methodology": {
+            "components": {
+              "ifrs_compliance": "", // Score for IFRS compliance
+              "audit_quality": "", // Score for audit quality
+              "governance_quality": "", // Score for governance quality
+              "earnings_quality": "", // Score for earnings quality
+              "disclosure_transparency": "" // Score for disclosure transparency
+            },
+            "final_score": "", // Final composite score
+            "interpretation": "" // Interpretation of the score
+          },
+          "key_strengths": [], // List of key strengths identified
+          "critical_issues": [], // List of critical issues identified
+          "frc_recommendations": [] // List of FRC recommendations
+        }
       }
-    },
-    "cross_company_comparative_analysis": {
-      "industry_benchmarking": {},
-      "regulatory_trends_identified": [],
-      "common_compliance_issues": [],
-      "sector_wide_recommendations": []
     }
   }
 }
