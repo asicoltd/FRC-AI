@@ -1,0 +1,630 @@
+{
+  "frc_analysis_report": {
+    "metadata": {
+      "report_id": "",
+      "generation_date": "",
+      "analyst_framework_version": "",
+      "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+      "prepared_for": "Financial Reporting Council, Bangladesh",
+      "source_documents": []
+    },
+    "entity": {
+      "entity_id": "",
+      "entity_profile": {
+        "legal_name": "",
+        "trade_name": "",
+        "registration_number": "",
+        "industry_sector": "",
+        "listing_status": "",
+        "stock_exchange_symbol": "",
+        "reporting_currency": "BDT",
+        "financial_year_end": "",
+        "report_publication_date": ""
+      },
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "",
+          "percentage_applied": "",
+          "overall_materiality_amount": "",
+          "performance_materiality_amount": "",
+          "clearly_trivial_threshold": ""
+        },
+        "qualitative_materiality_considerations": [],
+        "frc_materiality_conclusion": ""
+      },
+      "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+        "statement_of_financial_position": [],
+        "statement_of_profit_or_loss_and_oci": [],
+        "statement_of_cash_flows": [],
+        "statement_of_changes_in_equity": [],
+        "notes_with_tables": [],
+        "notes_without_tables": []
+      },
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "",
+          "notes_reference": "",
+          "actual_standards_applied": [],
+          "discrepancies_identified": [],
+          "compliance_assessment": ""
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [],
+          "statutory_filings_status": {
+            "bsec_filed": false,
+            "bsec_filing_date": "",
+            "income_tax_return_filed": false,
+            "income_tax_year": "",
+            "rjsc_compliance": false,
+            "bb_compliance_if_applicable": ""
+          },
+          "overall_regulatory_assessment": ""
+        }
+      },
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {},
+        "earnings_quality_analysis": {},
+        "vertical_and_horizontal_analysis": {}
+      },
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [],
+          "changes_in_accounting_policies": [],
+          "ias_8_hierarchy_compliance": ""
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [],
+          "key_estimation_uncertainties": []
+        },
+        "key_standards_compliance_check": {
+          "ias_1_presentation": {
+            "fair_presentation_compliance": "",
+            "going_concern_assumption_applied": "",
+            "materiality_threshold_applied": "",
+            "offsetting_compliance": "",
+            "classification_current_non_current": "",
+            "statement_of_comprehensive_income_format": ""
+          },
+          "ias_2_inventories": {
+            "applicable": true,
+            "measurement_basis": "Lower of cost and net realizable value",
+            "cost_formulas_used": [],
+            "net_realizable_value_assessment": "",
+            "write_down_reversals_compliance": "",
+            "disclosures_completeness": ""
+          },
+          "ias_7_statement_of_cash_flows": {
+            "operating_cash_flow_method": "",
+            "investing_activities_disclosed": "",
+            "financing_activities_disclosed": "",
+            "cash_equivalents_definition": "",
+            "non_cash_transactions_disclosed": "",
+            "restricted_cash_disclosed": ""
+          },
+          "ias_8_accounting_policies": {
+            "changes_in_accounting_policies": "",
+            "changes_in_accounting_estimates": "",
+            "errors_corrections": "",
+            "hierarchy_applied": "",
+            "retrospective_application": ""
+          },
+          "ias_10_events_after_reporting_period": {
+            "adjusting_events_identified": "",
+            "non_adjusting_events_disclosed": "",
+            "dividends_declared_after_reporting_date": "",
+            "going_concern_assessment_updates": "",
+            "authorization_date_disclosed": ""
+          },
+          "ias_12_income_taxes": {
+            "current_tax_calculation": "",
+            "deferred_tax_assets_liabilities": "",
+            "temporary_differences_identified": "",
+            "tax_rate_disclosures": "",
+            "tax_reconciliation_provided": "",
+            "uncertain_tax_treatments": ""
+          },
+          "ias_16_property_plant_equipment": {
+            "recognition_criteria_met": "",
+            "measurement_model": "",
+            "depreciation_methods": "",
+            "useful_lives_assumptions": "",
+            "impairment_indications_assessed": "",
+            "derecognition_compliance": ""
+          },
+          "ias_19_employee_benefits": {
+            "short_term_benefits": "",
+            "post_employment_benefits": [],
+            "defined_benefit_obligation": "",
+            "actuarial_assumptions": "",
+            "past_service_costs": "",
+            "multi_employer_plans": ""
+          },
+          "ias_20_government_grants": {
+            "grants_received": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "presentation_method": "",
+            "repayment_conditions": "",
+            "disclosures_provided": ""
+          },
+          "ias_21_effects_of_changes_in_foreign_exchange_rates": {
+            "functional_currency_determination": "",
+            "foreign_currency_transactions": "",
+            "exchange_differences_treatment": "",
+            "foreign_operations_translation": "",
+            "hedge_accounting_applied": "",
+            "disclosure_of_rates": ""
+          },
+          "ias_23_borrowing_costs": {
+            "capitalization_criteria_met": "",
+            "capitalization_rate_calculation": "",
+            "qualifying_assets_identified": "",
+            "suspension_periods": "",
+            "cessation_of_capitalization": "",
+            "disclosures_complete": ""
+          },
+          "ias_24_related_party_disclosures": {
+            "related_parties_identified": "",
+            "transactions_disclosed": "",
+            "outstanding_balances": "",
+            "compensation_disclosed": "",
+            "arm_length_nature_justified": "",
+            "control_relationships": ""
+          },
+          "ias_27_separate_financial_statements": {
+            "investment_subsidiaries_measured": [],
+            "dividends_from_subsidiaries": "",
+            "impairment_assessment": "",
+            "disclosures_provided": ""
+          },
+          "ias_28_investments_in_associates_and_joint_ventures": {
+            "equity_method_applied": "",
+            "significant_influence_assessed": "",
+            "goodwill_calculation": "",
+            "impairment_testing": "",
+            "losses_recognition": "",
+            "disclosures_complete": ""
+          },
+          "ias_29_financial_reporting_in_hyperinflationary_economies": {
+            "hyperinflation_indications": "",
+            "restatement_applied": "",
+            "gain_loss_on_net_monetary_position": "",
+            "comparatives_restated": "",
+            "disclosures_provided": ""
+          },
+          "ias_32_financial_instruments_presentation": {
+            "classification_liability_equity": "",
+            "compound_instruments_split": "",
+            "interest_dividends_treatment": "",
+            "treasury_shares_treatment": "",
+            "offsetting_applied": "",
+            "disclosures_complete": ""
+          },
+          "ias_33_earnings_per_share": {
+            "basic_eps_calculated": "",
+            "diluted_eps_calculated": "",
+            "potential_ordinary_shares_identified": "",
+            "anti_dilutive_excluded": "",
+            "disclosures_provided": ""
+          },
+          "ias_34_interim_financial_reporting": {
+            "interim_reports_prepared": "",
+            "recognition_measurement_policies": "",
+            "seasonality_disclosed": "",
+            "significant_events_disclosed": "",
+            "year_end_estimates_changes": "",
+            "disclosures_complete": ""
+          },
+          "ias_36_impairment_of_assets": {
+            "impairment_indicators_assessed": "",
+            "cash_generating_units_identified": "",
+            "recoverable_amount_determination": [],
+            "discount_rate_assumptions": "",
+            "growth_rate_assumptions": "",
+            "sensitivity_analysis_provided": "",
+            "goodwill_allocation": ""
+          },
+          "ias_37_provisions_contingent_liabilities_assets": {
+            "provisions_recognition": "",
+            "measurement_best_estimate": "",
+            "onerous_contracts_assessed": "",
+            "restructuring_provisions": "",
+            "contingent_liabilities_disclosed": "",
+            "contingent_assets_disclosed": ""
+          },
+          "ias_38_intangible_assets": {
+            "recognition_criteria_met": "",
+            "measurement_model": "",
+            "amortization_methods": "",
+            "useful_lives_assumptions": "",
+            "research_development_separation": "",
+            "impairment_testing": ""
+          },
+          "ias_40_investment_property": {
+            "investment_property_identified": "",
+            "measurement_model": "",
+            "fair_value_determination": "",
+            "transfers_to_from_inventory": "",
+            "disposals_accounting": "",
+            "disclosures_provided": ""
+          },
+          "ias_41_agriculture": {
+            "biological_assets_identified": "",
+            "measurement_basis": "",
+            "gain_loss_recognition": "",
+            "government_grants": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_1_first_time_adoption": {
+            "first_time_adopter": false,
+            "exemptions_applied": [],
+            "exceptions_mandatory": "",
+            "comparatives_restated": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_2_share_based_payment": {
+            "equity_settled_transactions": "",
+            "cash_settled_transactions": "",
+            "vesting_conditions": "",
+            "fair_value_measurement": "",
+            "modifications_cancellations": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_3_business_combinations": {
+            "acquisitions_during_period": "",
+            "purchase_price_allocation": "",
+            "goodwill_calculation": "",
+            "contingent_consideration": "",
+            "bargain_purchases": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_5_non_current_assets_held_for_sale": {
+            "assets_classified_held_for_sale": "",
+            "measurement_basis": "",
+            "discontinued_operations": "",
+            "presentation_separate": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+            "exploration_evaluation_assets": "",
+            "measurement_model": "",
+            "impairment_testing": "",
+            "reclassification_to_development": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_7_financial_instruments_disclosures": {
+            "categories_financial_instruments": "",
+            "fair_value_hierarchy": [],
+            "credit_risk_disclosures": "",
+            "liquidity_risk_disclosures": "",
+            "market_risk_disclosures": "",
+            "collateral_disclosed": ""
+          },
+          "ifrs_8_operating_segments": {
+            "chief_operating_decision_maker_identified": "",
+            "reportable_segments_identified": "",
+            "segment_results_disclosed": "",
+            "segment_assets_liabilities": "",
+            "reconciliations_provided": "",
+            "entity_wide_disclosures": ""
+          },
+          "ifrs_9_financial_instruments": {
+            "classification_categories": [],
+            "impairment_expected_credit_losses": "",
+            "business_model_assessment": "",
+            "contractual_cash_flow_characteristics": "",
+            "hedge_accounting_applied": "",
+            "reclassification_events": ""
+          },
+          "ifrs_10_consolidated_financial_statements": {
+            "control_assessment": "",
+            "subsidiaries_consolidated": "",
+            "non_controlling_interests": "",
+            "loss_of_control": "",
+            "investment_entities": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_11_joint_arrangements": {
+            "joint_arrangements_classified": [],
+            "accounting_method": [],
+            "separate_financial_statements": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_12_disclosure_of_interests_in_other_entities": {
+            "subsidiaries_disclosures": "",
+            "joint_arrangements_disclosures": "",
+            "associates_disclosures": "",
+            "structured_entities": "",
+            "significant_judgments": "",
+            "interests_nature_risks": ""
+          },
+          "ifrs_13_fair_value_measurement": {
+            "fair_value_hierarchy_applied": "",
+            "valuation_techniques": [],
+            "unobservable_inputs_disclosed": "",
+            "highest_best_use": "",
+            "non_financial_assets_valuation": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_14_regulatory_deferral_accounts": {
+            "regulatory_deferral_accounts_applicable": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "presentation": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_15_revenue_from_contracts_with_customers": {
+            "five_step_model_applied": "",
+            "contract_identification": "",
+            "performance_obligations": "",
+            "transaction_price_determination": "",
+            "allocation_to_obligations": "",
+            "revenue_recognition_timing": "",
+            "contract_assets_liabilities": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_16_leases": {
+            "lessee_accounting": {
+              "right_of_use_assets": "",
+              "lease_liabilities": "",
+              "discount_rate_assumptions": "",
+              "lease_term_assessment": "",
+              "variable_lease_payments": "",
+              "short_term_leases_exemption": ""
+            },
+            "lessor_accounting": {
+              "operating_leases": "",
+              "finance_leases": "",
+              "manufacturer_dealer_leases": "",
+              "subleases": ""
+            },
+            "sale_and_leaseback": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_17_insurance_contracts": {
+            "insurance_contracts_identified": "",
+            "measurement_models": [],
+            "contractual_service_margin": "",
+            "risk_adjustment": "",
+            "disclosures_complete": ""
+          },
+          "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+            "decommissioning_provisions": "",
+            "changes_accounting": "",
+            "asset_retirement_obligations": "",
+            "disclosures_provided": ""
+          },
+          "ifric_2_members_shares_in_cooperative_entities": {
+            "cooperative_entities_applicable": "",
+            "members_shares_classification": "",
+            "dividend_distribution": "",
+            "disclosures_provided": ""
+          },
+          "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+            "decommissioning_funds": "",
+            "rights_measurement": "",
+            "contributions_accounting": "",
+            "disclosures_provided": ""
+          },
+          "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+            "waste_electrical_equipment": "",
+            "environmental_liabilities": "",
+            "compliance_obligations": "",
+            "disclosures_provided": ""
+          },
+          "ifric_7_applying_the_restatement_approach_under_ias_29": {
+            "hyperinflation_restatement": "",
+            "comparatives_adjusted": "",
+            "gain_loss_calculation": "",
+            "disclosures_provided": ""
+          },
+          "ifric_10_interim_financial_reporting_and_impairment": {
+            "interim_impairment_testing": "",
+            "reversal_of_impairment": "",
+            "disclosures_provided": ""
+          },
+          "ifric_12_service_concession_arrangements": {
+            "service_concession_arrangements": "",
+            "operator_accounting": "",
+            "grantor_accounting": "",
+            "intangible_assets_recognition": "",
+            "financial_asset_recognition": ""
+          },
+          "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+            "defined_benefit_asset_limit": "",
+            "minimum_funding_requirements": "",
+            "available_refunds": "",
+            "disclosures_provided": ""
+          },
+          "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+            "net_investment_hedging": "",
+            "effectiveness_assessment": "",
+            "exchange_differences_treatment": "",
+            "disclosures_provided": ""
+          },
+          "ifric_17_distributions_of_non_cash_assets_to_owners": {
+            "non_cash_distributions": "",
+            "fair_value_measurement": "",
+            "dividend_payable_recognition": "",
+            "disclosures_provided": ""
+          },
+          "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+            "debt_equity_swaps": "",
+            "fair_value_measurement": "",
+            "gain_loss_recognition": "",
+            "disclosures_provided": ""
+          },
+          "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+            "stripping_activity_costs": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "amortization_method": "",
+            "disclosures_provided": ""
+          },
+          "ifric_21_levies": {
+            "government_levies": "",
+            "recognition_timing": "",
+            "measurement_basis": "",
+            "disclosures_provided": ""
+          },
+          "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+            "advance_payments_foreign_currency": "",
+            "exchange_rate_determination": "",
+            "asset_liability_recognition": "",
+            "disclosures_provided": ""
+          },
+          "ifric_23_uncertainty_over_income_tax_treatments": {
+            "uncertain_tax_positions": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "disclosures_provided": ""
+          },
+          "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "",
+            "deferred_tax_impacts": "",
+            "dividend_withholding_taxes": "",
+            "disclosures_provided": ""
+          },
+          "sic_7_introduction_of_euro": {
+            "euro_transition_impacts": "",
+            "exchange_rate_fixing": "",
+            "rounding_conventions": "",
+            "disclosures_provided": ""
+          },
+          "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+            "government_assistance": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "disclosures_provided": ""
+          },
+          "sic_15_operating_leases_incentives": {
+            "lease_incentives": "",
+            "recognition_timing": "",
+            "allocation_over_lease_term": "",
+            "disclosures_provided": ""
+          },
+          "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "",
+            "deferred_tax_effects": "",
+            "disclosures_provided": ""
+          },
+          "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+            "substance_over_form": "",
+            "linked_transactions": "",
+            "lease_classification": "",
+            "disclosures_provided": ""
+          },
+          "sic_29_service_concession_arrangements_disclosures": {
+            "service_concession_disclosures": "",
+            "rights_obligations": "",
+            "revenue_expense_recognition": "",
+            "disclosures_provided": ""
+          },
+          "sic_32_intangible_assets_website_costs": {
+            "website_development_costs": "",
+            "recognition_criteria": "",
+            "amortization_policy": "",
+            "impairment_testing": "",
+            "disclosures_provided": ""
+          }
+        },
+        "detailed_ifrs_compliance_matrix": [],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {},
+          "ifric_23_uncertain_tax_positions": {},
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "",
+            "advance_tax_status": "",
+            "tax_holidays_or_incentives": [],
+            "overall_tax_compliance_assessment": ""
+          }
+        }
+      },
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [],
+        "revenue_manipulation_indicators": [],
+        "journal_entry_override_risk": "",
+        "override_of_internal_controls_risk": "",
+        "overall_fraud_risk_assessment": ""
+      },
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "",
+            "firm_registration_number": "",
+            "audit_tenure_years": "",
+            "rotation_compliance": ""
+          },
+          "audit_opinion": {
+            "opinion_type": "",
+            "basis_for_opinion": "",
+            "modified_opinion_reasons": []
+          },
+          "key_audit_matters": [],
+          "going_concern_assessment": {
+            "auditor_conclusion": "",
+            "period_assessed": "",
+            "mitigating_factors": []
+          },
+          "isa_compliance_check": {
+            "compliance": "",
+            "issues": []
+          }
+        },
+        "corporate_governance_review": {
+          "board_structure": {},
+          "committee_effectiveness": {},
+          "internal_controls": {}
+        }
+      },
+      "legal_and_enforcement_mapping": {
+        "financial_reporting_act_2015": {
+          "sections_triggered": [],
+          "nature_of_breach": "",
+          "severity_assessment": ""
+        },
+        "companies_act_1994": {
+          "sections_implicated": [],
+          "director_liability_assessed": false,
+          "liability_nature": ""
+        },
+        "bsec_rules_if_applicable": {
+          "rules_breached": [],
+          "market_impact": ""
+        }
+      },
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [],
+        "risk_factor_consolidation": {
+          "high_risk": [],
+          "medium_risk": [],
+          "low_risk": []
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "",
+          "supporting_factors": [],
+          "contradicting_factors": [],
+          "recommendation": ""
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "",
+          "overall_ifrs_compliance_level": "",
+          "reliability_scoring_methodology": {
+            "components": {
+              "ifrs_compliance": "",
+              "audit_quality": "",
+              "governance_quality": "",
+              "earnings_quality": "",
+              "disclosure_transparency": ""
+            },
+            "final_score": "",
+            "interpretation": ""
+          },
+          "key_strengths": [],
+          "critical_issues": [],
+          "frc_recommendations": []
+        }
+      }
+    }
+  }
+}
