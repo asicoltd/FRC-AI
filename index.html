@@ -1,48 +1,359 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Test GitHub Pages Paths</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC Bangladesh - Financial Reporting Dashboard</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #283593;
+            --success: #388e3c;
+            --warning: #f57c00;
+            --danger: #d32f2f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .dashboard {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        select, button {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: var(--secondary);
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .badge-success { background: var(--success); color: white; }
+        .badge-warning { background: var(--warning); color: white; }
+        .badge-danger { background: var(--danger); color: white; }
+        
+        .data-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow: auto;
+            margin: 1rem 0;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .file-item {
+            padding: 0.75rem;
+            background: #f0f7ff;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .file-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .file-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            margin-top: 3rem;
+            border-top: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
-    <h1>Testing GitHub Pages Paths</h1>
+    <header>
+        <h1>Financial Reporting Council (FRC) Bangladesh</h1>
+        <p>Financial Statement Analysis Dashboard</p>
+    </header>
     
-    <div id="results"></div>
+    <div class="container">
+        <div class="controls">
+            <select id="companySelect">
+                <option value="">Select a company...</option>
+                <option value="company1">ABC Corporation Ltd.</option>
+                <option value="company2">XYZ Manufacturing PLC</option>
+                <option value="company3">Global Textiles Inc.</option>
+            </select>
+            
+            <button onclick="loadCompanyData()">Load Analysis</button>
+            
+            <div id="status" class="status-badge">Ready</div>
+        </div>
+        
+        <div id="loading" class="loading" style="display: none;">
+            <h3>Loading company data...</h3>
+            <p>Fetching JSON files from GitHub...</p>
+        </div>
+        
+        <div id="dashboard" class="dashboard" style="display: none;">
+            <!-- Content will be loaded here -->
+        </div>
+        
+        <div id="error" style="display: none; color: var(--danger); padding: 2rem; text-align: center;">
+            <h3>Error Loading Data</h3>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>FRC Bangladesh &copy; 2024 | Powered by GitHub Pages</p>
+        <p><a href="https://github.com/asicoltd/FRC-AI" target="_blank">View Repository on GitHub</a></p>
+    </footer>
     
     <script>
-        const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
-        const repoName = window.location.pathname.split('/')[1] || 'FRC-AI';
+        // Get the base path for GitHub Pages
+        function getBasePath() {
+            const path = window.location.pathname;
+            // If we're at the root of the site (not repo root)
+            if (path === '/' || path === '/FRC-AI/' || path.includes('index.html')) {
+                return '';
+            }
+            // Extract repo name from path
+            const parts = path.split('/').filter(p => p);
+            if (parts.length > 0 && parts[0] !== 'FRC-AI') {
+                return '/' + parts[0];
+            }
+            return '/FRC-AI';
+        }
         
-        const tests = [
-            { name: 'Base URL', url: window.location.origin },
-            { name: 'Repo path', url: window.location.origin + '/' + repoName },
-            { name: 'JSON file', url: window.location.origin + '/' + repoName + '/dataset/company1/1.json' },
-            { name: 'Relative JSON', url: 'dataset/company1/1.json' },
-            { name: 'Absolute JSON', url: '/' + repoName + '/dataset/company1/1.json' }
-        ];
+        const BASE_PATH = getBasePath();
+        console.log('Base Path:', BASE_PATH);
+        console.log('Full URL:', window.location.href);
         
-        async function runTests() {
-            const resultsDiv = document.getElementById('results');
+        async function loadCompanyData() {
+            const companyId = document.getElementById('companySelect').value;
+            if (!companyId) {
+                alert('Please select a company first');
+                return;
+            }
             
-            for (const test of tests) {
-                const div = document.createElement('div');
-                div.innerHTML = `<h3>${test.name}: ${test.url}</h3>`;
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('status').textContent = 'Loading...';
+            document.getElementById('status').className = 'status-badge badge-warning';
+            
+            try {
+                // Load key JSON files
+                const filesToLoad = [1, 2, 3, 16, 26];
+                const loadedData = {};
                 
-                try {
-                    const response = await fetch(test.url);
-                    if (response.ok) {
-                        div.innerHTML += `<p style="color: green;">✅ Success</p>`;
-                    } else {
-                        div.innerHTML += `<p style="color: red;">❌ Failed: ${response.status}</p>`;
+                for (const fileNum of filesToLoad) {
+                    try {
+                        // Try multiple path formats
+                        const paths = [
+                            `${BASE_PATH}/dataset/${companyId}/${fileNum}.json`,
+                            `/FRC-AI/dataset/${companyId}/${fileNum}.json`,
+                            `dataset/${companyId}/${fileNum}.json`,
+                            `./dataset/${companyId}/${fileNum}.json`
+                        ];
+                        
+                        let response = null;
+                        for (const path of paths) {
+                            try {
+                                console.log('Trying path:', path);
+                                response = await fetch(path);
+                                if (response.ok) break;
+                            } catch (e) {
+                                continue;
+                            }
+                        }
+                        
+                        if (response && response.ok) {
+                            const data = await response.json();
+                            loadedData[fileNum] = data;
+                            console.log(`✅ Loaded section ${fileNum}`);
+                        } else {
+                            console.warn(`⚠️ Could not load section ${fileNum}`);
+                        }
+                    } catch (error) {
+                        console.warn(`Error loading section ${fileNum}:`, error);
                     }
-                } catch (error) {
-                    div.innerHTML += `<p style="color: red;">❌ Error: ${error.message}</p>`;
                 }
                 
-                resultsDiv.appendChild(div);
+                // Display the data
+                displayDashboard(companyId, loadedData);
+                
+                // Update status
+                document.getElementById('status').textContent = 'Loaded';
+                document.getElementById('status').className = 'status-badge badge-success';
+                
+            } catch (error) {
+                // Show error
+                document.getElementById('error-message').textContent = error.message;
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('status').textContent = 'Error';
+                document.getElementById('status').className = 'status-badge badge-danger';
+                console.error('Error:', error);
+            } finally {
+                document.getElementById('loading').style.display = 'none';
             }
         }
         
-        runTests();
+        function displayDashboard(companyId, data) {
+            const dashboard = document.getElementById('dashboard');
+            
+            // Determine company name
+            const companyNames = {
+                'company1': 'ABC Corporation Ltd.',
+                'company2': 'XYZ Manufacturing PLC',
+                'company3': 'Global Textiles Inc.'
+            };
+            
+            const companyName = companyNames[companyId] || companyId;
+            
+            // Create dashboard content
+            dashboard.innerHTML = `
+                <h2>${companyName} - Financial Analysis</h2>
+                <p>Data loaded from GitHub Pages: <code>${BASE_PATH}/dataset/${companyId}/</code></p>
+                
+                <div class="file-list">
+                    ${[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26].map(num => `
+                        <div class="file-item">
+                            <a href="${BASE_PATH}/dataset/${companyId}/${num}.json" target="_blank">
+                                Section ${num}
+                            </a>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                ${data[1] ? `
+                <div class="data-section">
+                    <h3>📋 Metadata (Section 1)</h3>
+                    <pre>${JSON.stringify(data[1], null, 2)}</pre>
+                </div>
+                ` : ''}
+                
+                ${data[2] ? `
+                <div class="data-section">
+                    <h3>🏢 Company Profile (Section 2)</h3>
+                    <pre>${JSON.stringify(data[2].frc_analysis_report?.entity || {}, null, 2)}</pre>
+                </div>
+                ` : ''}
+                
+                ${data[3] ? `
+                <div class="data-section">
+                    <h3>⚖️ Materiality Framework (Section 3)</h3>
+                    <pre>${JSON.stringify(data[3].frc_analysis_report?.entity || {}, null, 2)}</pre>
+                </div>
+                ` : ''}
+                
+                <div class="data-section">
+                    <h3>🔗 Direct JSON Links</h3>
+                    <p>Test these links to verify data availability:</p>
+                    <ul>
+                        <li><a href="${BASE_PATH}/dataset/${companyId}/1.json" target="_blank">Section 1 - Metadata</a></li>
+                        <li><a href="${BASE_PATH}/dataset/${companyId}/2.json" target="_blank">Section 2 - Company Profile</a></li>
+                        <li><a href="${BASE_PATH}/dataset/${companyId}/16.json" target="_blank">Section 16 - Synthesis</a></li>
+                        <li><a href="${BASE_PATH}/dataset/${companyId}/26.json" target="_blank">Section 26 - Executive Summary</a></li>
+                    </ul>
+                </div>
+                
+                <div class="data-section">
+                    <h3>📊 Dashboard Features</h3>
+                    <p>This dashboard demonstrates:</p>
+                    <ul>
+                        <li>✅ Loading JSON data from GitHub Pages</li>
+                        <li>✅ Dynamic company selection</li>
+                        <li>✅ Real-time data display</li>
+                        <li>✅ Direct access to raw JSON files</li>
+                        <li>✅ Responsive design for all devices</li>
+                    </ul>
+                </div>
+            `;
+            
+            dashboard.style.display = 'block';
+        }
+        
+        // Auto-load company1 for demo
+        window.addEventListener('load', () => {
+            document.getElementById('companySelect').value = 'company1';
+            setTimeout(() => loadCompanyData(), 1000);
+        });
     </script>
 </body>
 </html>
