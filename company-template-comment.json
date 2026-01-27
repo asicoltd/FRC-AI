@@ -50,55 +50,43 @@
         "statement_of_financial_position": [
           {
             "year": "YYYY",
-            // Each row: ["amount without commas", "note number"]
-            "row1": ["", ""], // e.g., Total Assets
-            "row2": ["", ""], // e.g., Total Liabilities
-            "row3": ["", ""], // e.g., Total Equity
-            "row4": ["", ""], // e.g., Current Assets
-            "row5": ["", ""]  // e.g., Non-current Assets
-            // Add additional rows as needed
+            // Each row name: ["amount without commas", "Just note number"]
+            "row1_name": ["", ""], // e.g., Total Assets
+            "row2_name": ["", ""], // e.g., Total Liabilities
+            // Add all rows as given in the Balance Sheet or Statement of Assets, Liabilities and Equity or Position of Financials
           },
           {
             "year": "YYYY-1",
-            "row1": ["", ""],
-            "row2": ["", ""],
-            "row3": ["", ""],
-            "row4": ["", ""],
-            "row5": ["", ""]
+            "row1_name": ["", ""], // e.g., Total Assets
+            "row2_name": ["", ""], // e.g., Total Liabilities
+            // Add all rows as given in the Balance Sheet or Statement of Assets, Liabilities and Equity or Position of Financials
+
           }
           // Add more years if available
         ],
         "statement_of_profit_or_loss_and_oci": [
           {
             "year": "YYYY",
-            "row1": ["", ""], // e.g., Revenue
-            "row2": ["", ""], // e.g., Cost of Sales
-            "row3": ["", ""], // e.g., Gross Profit
-            "row4": ["", ""], // e.g., Operating Expenses
-            "row5": ["", ""], // e.g., Profit Before Tax
-            "row6": ["", ""]  // e.g., Tax Expense
-            // Add additional rows as needed
+            "row1_name": ["", ""], // e.g., Revenue
+            "row2_name": ["", ""], // e.g., Cost of Sales
+            "row3_name": ["", ""], // e.g., Gross Profit
+            // Add all rows as given in the Income Statement or Profit & Loss Account (P&L) or Statement of Operations or Statement of Comprehensive Income (if it includes OCI)
           }
         ],
         "statement_of_cash_flows": [
           {
             "year": "YYYY",
-            "row1": ["", ""], // e.g., Cash from Operations
-            "row2": ["", ""], // e.g., Cash from Investing
-            "row3": ["", ""], // e.g., Cash from Financing
-            "row4": ["", ""], // e.g., Net Cash Flow
-            "row5": ["", ""], // e.g., Opening Cash
-            "row6": ["", ""]  // e.g., Closing Cash
+            "row1_name": ["", ""], // e.g., Cash from Operations
+            "row2_name": ["", ""], // e.g., Cash from Investing
+            // Add all rows as given in the Statement of Changes in Shareholders’ Equity or Statement of Retained Earnings or Equity Statement
           }
         ],
         "statement_of_changes_in_equity": [
           {
             "year": "YYYY",
-            "row1": ["", ""], // e.g., Opening Balance
-            "row2": ["", ""], // e.g., Profit for Year
-            "row3": ["", ""], // e.g., Dividends Paid
-            "row4": ["", ""], // e.g., Share Issue
-            "row5": ["", ""]  // e.g., Closing Balance
+            "row1_name": ["", ""], // e.g., Opening Balance
+            "row2_name": ["", ""], // e.g., Profit for Year
+            // Add all rows as given in the Cash Flow Statement or Statement of Cash Movements
           }
         ],
         "notes_with_tables": [
