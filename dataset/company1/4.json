@@ -1,0 +1,109 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+        "statement_of_financial_position": [
+          {
+            "year": "2022",
+            "row1_name": ["Total Assets", "Tk. 2,789,226,607"],
+            "row2_name": ["Total Liabilities", "Tk. 17,424,742,309"],
+            "row3_name": ["Total Equity (Deficit)", "Tk. (14,635,515,702)"]
+          },
+          {
+            "year": "2023",
+            "row1_name": ["Total Assets", "Tk. 2,789,226,607"],
+            "row2_name": ["Total Liabilities", "Tk. 17,500,620,952"],
+            "row3_name": ["Total Equity (Deficit)", "Tk. (14,711,394,345)"]
+          }
+        ],
+        "statement_of_profit_or_loss_and_oci": [
+          {
+            "year": "2022",
+            "row1_name": ["Revenue", "Tk. 2,342,171,667"],
+            "row2_name": ["Net Loss After Tax", "Tk. (851,192,528)"],
+            "row3_name": ["Accumulated Loss", "Tk. (15,769,131,945)"]
+          },
+          {
+            "year": "2023",
+            "row1_name": ["Revenue", "Tk. 3,113,743,215"],
+            "row2_name": ["Net Loss After Tax", "Tk. (5,801,759)"],
+            "row3_name": ["Accumulated Loss", "Tk. (15,769,131,945)"]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "2022",
+            "row1_name": ["Cash from Operations", "Tk. 1,561,791,655"],
+            "row2_name": ["Net Cash Increase", "Tk. 40,880,974"],
+            "row3_name": ["Closing Cash", "Tk. 56,836,420"]
+          },
+          {
+            "year": "2023",
+            "row1_name": ["Cash from Operations", "Not fully disclosed"],
+            "row2_name": ["Cash at Bank", "Multiple bank accounts with varying balances"],
+            "row3_name": ["Cash in Hand", "Unable to verify"]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2022",
+            "row1_name": ["Share Capital", "Tk. 90,000,000"],
+            "row2_name": ["Retained Earnings (Deficit)", "Tk. (15,769,131,945)"],
+            "row3_name": ["Total Equity (Deficit)", "Tk. (15,679,131,945)"]
+          },
+          {
+            "year": "2023",
+            "row1_name": ["Share Capital", "Tk. 90,000,000"],
+            "row2_name": ["Retained Earnings (Deficit)", "Tk. (15,769,131,945)"],
+            "row3_name": ["Total Equity (Deficit)", "Tk. (15,679,131,945)"]
+          }
+        ],
+        "notes_with_tables": [
+          {
+            "note_number": "8",
+            "title": "Cash and Cash Equivalents",
+            "content": "Cash balance Tk. 362,138 reported but not verified",
+            "tables": [
+              {
+                "table_title": "Bank Balances",
+                "columns": ["Bank Name", "Account No", "Balance 2022", "Balance 2021"],
+                "rows": [
+                  ["Exim Bank", "00211100002745", "Tk. 77,660", "Tk. 5,891,147"],
+                  ["Jamna Bank", "0011-0210001976", "Tk. 44,525", "Tk. 152,835"]
+                ]
+              }
+            ]
+          },
+          {
+            "note_number": "22",
+            "title": "Intercompany Loan",
+            "content": "Tk. 1,103,724,807 not verified",
+            "tables": [
+              {
+                "table_title": "Intercompany Loan Breakdown",
+                "columns": ["Entity", "Opening", "Addition", "Closing"],
+                "rows": [
+                  ["Anwer Khan Modern University", "Tk. 53,265,000", "Tk. 19,270,000", "Tk. 72,135,000"],
+                  ["Modern Holding Ltd.", "Tk. 305,592,201", "Tk. 261,361,450", "Tk. 319,953,191"]
+                ]
+              }
+            ]
+          }
+        ],
+        "notes_without_tables": [
+          {
+            "note_number": "1.0",
+            "title": "General Information",
+            "content": "Company incorporated on 8 March 2005, registered office at House #17, Road #8, Dhanmondi, Dhaka."
+          },
+          {
+            "note_number": "2.0",
+            "title": "Significant Accounting Policies",
+            "content": "Historical cost convention, going concern basis, revenue recognition from hospital services."
+          }
+        ]
+      }
+    }
+  }
+}

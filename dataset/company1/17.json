@@ -1,0 +1,44 @@
+{
+  "section_id": "17",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_earnings_quality_analysis": {
+          "total_accruals_calculation": {
+            "year_2022": {
+              "net_income": "Tk. (851,192,528)",
+              "cash_flow_from_operations": "Tk. 1,561,791,655",
+              "total_accruals": "Tk. (2,412,984,183)",
+              "accruals_to_net_income_ratio": "283.5%",
+              "analysis_comment": "Large negative accruals indicate potential earnings management or accounting irregularities"
+            },
+            "year_2023": {
+              "net_income": "Tk. (5,801,759)",
+              "cash_flow_from_operations": "Not fully disclosed",
+              "total_accruals": "Cannot calculate",
+              "accruals_to_net_income_ratio": "N/A",
+              "analysis_comment": "Insufficient data due to audit limitations"
+            },
+            "trend_assessment": "Unreliable due to data limitations",
+            "red_flags_identified": [
+              "Extreme accrual levels in 2022",
+              "Cash flow significantly exceeds reported losses",
+              "Inability to verify revenue and expense recognition"
+            ],
+            "areas_for_further_investigation": [
+              "Revenue recognition timing",
+              "Expense capitalization policies",
+              "Intercompany transaction accounting"
+            ]
+          },
+          "revenue_quality_indicators": {
+            "revenue_growth_vs_cash_collection": "Revenue increased 33% in 2023 but cash collection not verifiable",
+            "accounting_policy_changes_impact": "No policy changes disclosed but revenue pattern suspicious",
+            "significant_judgments_areas": ["Revenue recognition timing", "Allowance for doubtful accounts", "Segment revenue allocation"],
+            "risk_assessment": "HIGH - Revenue cannot be verified"
+          }
+        }
+      }
+    }
+  }
+}
