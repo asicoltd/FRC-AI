@@ -1,0 +1,57 @@
+{
+  "section_id": "24",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "consolidated_material_departures": [
+          {
+            "departure_id": "DEPT-001",
+            "ifrs_standard": "IAS 16, IAS 38",
+            "nature_of_departure": "Assets cannot be verified for existence or valuation",
+            "page_reference": "All audit reports, Notes 3.00, 8, 22",
+            "extract_from_fs": "Fixed assets Tk. 2,789,226,607 reported but not verifiable",
+            "financial_impact_estimate": "Up to Tk. 2.79 billion potential misstatement",
+            "materiality_assessment": "Material",
+            "ias_1_para_19_24_implication": "True and fair view not achieved",
+            "corrective_action_required": "Physical verification and proper documentation",
+            "regulatory_reporting_required": true
+          },
+          {
+            "departure_id": "DEPT-002",
+            "ifrs_standard": "IAS 24, IFRS 9",
+            "nature_of_departure": "Intercompany loans Tk. 1.1 billion not verified",
+            "page_reference": "Note 22, Pages 17-18",
+            "extract_from_fs": "Intercompany loan Tk. 1,103,724,807 - audited accounts not provided",
+            "financial_impact_estimate": "Up to Tk. 1.1 billion potential misstatement",
+            "materiality_assessment": "Material",
+            "ias_1_para_19_24_implication": "Potential undisclosed related party benefits",
+            "corrective_action_required": "Obtain audited accounts and confirm balances",
+            "regulatory_reporting_required": true
+          }
+        ],
+        "non_compliance_with_laws_regulations": [
+          {
+            "compliance_id": "COMP-001",
+            "law_regulation": "Companies Act 1994",
+            "section_violated": "Section 187",
+            "nature_of_breach": "Annual General Meeting not held",
+            "evidence_location": "Audit report emphasis of matter",
+            "severity_assessment": "High",
+            "potential_penalties": "Fines, director disqualification",
+            "remediation_required": "Hold AGM immediately"
+          },
+          {
+            "compliance_id": "COMP-002",
+            "law_regulation": "Companies Act 1994",
+            "section_violated": "Section 191",
+            "nature_of_breach": "Proper books of account not maintained",
+            "evidence_location": "Audit report (2023: proper books not kept)",
+            "severity_assessment": "High",
+            "potential_penalties": "Fines, legal action",
+            "remediation_required": "Establish proper accounting records"
+          }
+        ]
+      }
+    }
+  }
+}

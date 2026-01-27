@@ -1,0 +1,90 @@
+{
+  "section_id": "11",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+            "debt_equity_swaps": "None",
+            "fair_value_measurement": "Not applicable",
+            "gain_loss_recognition": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+            "stripping_activity_costs": "Not applicable",
+            "recognition_criteria": "Not applicable",
+            "measurement_basis": "Not applicable",
+            "amortization_method": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifric_21_levies": {
+            "government_levies": "Taxes only",
+            "recognition_timing": "When payable",
+            "measurement_basis": "Legal obligation",
+            "disclosures_provided": "Basic"
+          },
+          "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+            "advance_payments_foreign_currency": "Minimal if any",
+            "exchange_rate_determination": "Not applicable",
+            "asset_liability_recognition": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifric_23_uncertainty_over_income_tax_treatments": {
+            "uncertain_tax_positions": "None disclosed",
+            "recognition_criteria": "Not applicable",
+            "measurement_basis": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "None",
+            "deferred_tax_impacts": "Not applicable",
+            "dividend_withholding_taxes": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_7_introduction_of_euro": {
+            "euro_transition_impacts": "Not applicable",
+            "exchange_rate_fixing": "Not applicable",
+            "rounding_conventions": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+            "government_assistance": "None disclosed",
+            "recognition_criteria": "Not applicable",
+            "measurement_basis": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_15_operating_leases_incentives": {
+            "lease_incentives": "None disclosed",
+            "recognition_timing": "Not applicable",
+            "allocation_over_lease_term": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "None",
+            "deferred_tax_effects": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+            "substance_over_form": "Not assessed",
+            "linked_transactions": "Not disclosed",
+            "lease_classification": "Not assessed",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_29_service_concession_arrangements_disclosures": {
+            "service_concession_disclosures": "None",
+            "rights_obligations": "Not applicable",
+            "revenue_expense_recognition": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          },
+          "sic_32_intangible_assets_website_costs": {
+            "website_development_costs": "None disclosed",
+            "recognition_criteria": "Not applicable",
+            "amortization_policy": "Not applicable",
+            "impairment_testing": "Not applicable",
+            "disclosures_provided": "Not applicable"
+          }
+        }
+      }
+    }
+  }
+}

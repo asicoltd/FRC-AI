@@ -1,0 +1,45 @@
+{
+  "section_id": "23",
+  "frc_analysis_report": {
+    "entity": {
+      "professional_skepticism_application": {
+        "management_assertions_challenged": [
+          {
+            "assertion_area": "Revenue Recognition",
+            "management_claim": "",
+            "evidence_sought": "",
+            "evidence_found": "",
+            "corroboration_level": "Strong/Moderate/Weak",
+            "skeptical_conclusion": ""
+          }
+        ],
+        "accounting_policy_questioning": [
+          {
+            "policy_area": "",
+            "policy_applied": "",
+            "alternative_treatment": "",
+            "justification_provided": "",
+            "skeptical_assessment": "",
+            "recommendation": ""
+          }
+        ],
+        "disclosure_adequacy_assessment": [
+          {
+            "disclosure_area": "",
+            "information_provided": "",
+            "missing_information": "",
+            "transparency_level": "",
+            "materiality_assessment": "",
+            "improvement_suggested": ""
+          }
+        ],
+        "overall_skepticism_applied": {
+          "areas_of_high_concern": [],
+          "areas_of_moderate_concern": [],
+          "areas_of_low_concern": [],
+          "skepticism_conclusion": ""
+        }
+      }
+    }
+  }
+}

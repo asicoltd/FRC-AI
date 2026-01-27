@@ -1,0 +1,66 @@
+{
+  "section_id": "21",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "enhanced_audit_report_analysis": {
+          "opinion_type_analysis": {
+            "opinion_category": "Modified with Emphasis of Matter",
+            "basis_for_opinion_extract": "We conducted our audit in accordance with International Standards on Auditing... but were unable to obtain sufficient appropriate audit evidence...",
+            "modified_opinion_reasons_detailed": [
+              "Fixed assets cannot be verified",
+              "Inventory existence and valuation uncertain",
+              "Intercompany loans not confirmed",
+              "Revenue recognition cannot be verified",
+              "Expenses lack supporting documentation"
+            ],
+            "impact_on_fs_reliability": "SEVERE - financial statements cannot be relied upon for any material decisions"
+          },
+          "key_audit_matters_extraction": [
+            {
+              "kam_number": 1,
+              "description": "Verification of Property, Plant and Equipment",
+              "auditor_response": "Management did not provide item-wise list or supporting documents",
+              "frca_risk_assessment": "HIGH - potential material misstatement",
+              "follow_up_required": true
+            },
+            {
+              "kam_number": 2,
+              "description": "Confirmation of Intercompany Loans",
+              "auditor_response": "Audited accounts of inter companies not provided",
+              "frca_risk_assessment": "HIGH - Tk. 1.1 billion at risk",
+              "follow_up_required": true
+            }
+          ],
+          "going_concern_analysis": {
+            "material_uncertainty_disclosed": true,
+            "period_assessed": "Foreseeable future",
+            "mitigating_factors_listed": ["None"],
+            "auditor_conclusion": "Material uncertainty exists",
+            "frca_assessment": "Auditor's conclusion appropriate but may be understated"
+          },
+          "emphasis_other_matters": {
+            "emphasis_of_matter_paragraphs": [
+              "Inability to verify fixed assets",
+              "Inventory verification limitations",
+              "Intercompany loan confirmation issues",
+              "Going concern uncertainty (2024)"
+            ],
+            "other_matter_paragraphs": ["None"],
+            "significance_assessment": "CRITICAL - affects entire financial statement reliability"
+          },
+          "isa_compliance_verification": {
+            "compliance_with_isa_700_705": "Partially compliant",
+            "standard_requirements_met": ["Basic opinion format", "Basis for opinion disclosed"],
+            "deficiencies_noted": [
+              "ISA 570 - Going concern assessment may be inadequate",
+              "ISA 700 - Opinion may need to be more severe (disclaimer)",
+              "ISA 705 - Basis for modification could be clearer"
+            ],
+            "overall_compliance": "Marginally compliant but quality poor"
+          }
+        }
+      }
+    }
+  }
+}

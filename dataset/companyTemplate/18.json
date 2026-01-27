@@ -1,0 +1,56 @@
+{
+  "section_id": "18",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_trend_analysis": {
+          "horizontal_analysis_yoy": {
+            "statement_of_financial_position": [
+              {
+                "line_item": "Cash and cash equivalents",
+                "year_yyyy": "",
+                "year_yyyy_1": "",
+                "absolute_change": "",
+                "percentage_change": "",
+                "volatility_assessment": "",
+                "investigation_required": true
+              }
+            ],
+            "statement_of_profit_or_loss": [
+              {
+                "line_item": "Revenue",
+                "year_yyyy": "",
+                "year_yyyy_1": "",
+                "absolute_change": "",
+                "percentage_change": "",
+                "business_justification": "",
+                "skeptical_question": ""
+              }
+            ]
+          },
+          "vertical_analysis_composition": {
+            "assets_composition_yyyy": {
+              "current_assets_percentage": "",
+              "non_current_assets_percentage": "",
+              "significant_changes": []
+            },
+            "liabilities_composition_yyyy": {
+              "current_liabilities_percentage": "",
+              "non_current_liabilities_percentage": "",
+              "equity_composition": "",
+              "risk_implications": ""
+            }
+          },
+          "two_to_three_year_trend": {
+            "revenue_trend": ["", "", ""],
+            "profit_trend": ["", "", ""],
+            "asset_growth_trend": ["", "", ""],
+            "debt_trend": ["", "", ""],
+            "trend_analysis_commentary": "",
+            "unusual_patterns_identified": []
+          }
+        }
+      }
+    }
+  }
+}
