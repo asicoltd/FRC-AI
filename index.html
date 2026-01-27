@@ -666,7 +666,7 @@
                 // Load all JSON files for the company (1-26)
                 for (let i = 1; i <= 26; i++) {
                     try {
-                        const response = await fetch(`dataset/${companyId}/${i}.json`);
+                        const response = await fetch(`./dataset/${companyId}/${i}.json`);
                         if (response.ok) {
                             const data = await response.json();
                             companyData[i] = data;
