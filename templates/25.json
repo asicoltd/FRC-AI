@@ -1,0 +1,45 @@
+{
+  "section_id": "25",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "holistic_risk_factor_synthesis": {
+          "financial_risks_from_analysis": {
+            "from_ratio_trends": [],
+            "from_accruals_analysis": [],
+            "from_cash_flow_patterns": [],
+            "from_earnings_quality": [],
+            "consolidated_financial_risk_level": ""
+          },
+          "operational_risks": {
+            "from_segment_analysis": [],
+            "from_related_party_transactions": [],
+            "from_post_reporting_events": [],
+            "from_going_concern_assessment": [],
+            "consolidated_operational_risk_level": ""
+          },
+          "compliance_risks": {
+            "from_ifrs_departures": [],
+            "from_regulatory_breaches": [],
+            "from_governance_weaknesses": [],
+            "from_audit_qualifications": [],
+            "consolidated_compliance_risk_level": ""
+          },
+          "key_audit_matters_synthesis": {
+            "kams_identified_by_auditor": [],
+            "frca_assessment_of_kams": [],
+            "additional_risks_identified": [],
+            "risk_mitigation_assessment": ""
+          },
+          "overall_integrated_risk_assessment": {
+            "highest_risk_areas": [],
+            "medium_risk_areas": [],
+            "low_risk_areas": [],
+            "risk_interconnections": [],
+            "frca_priority_actions": []
+          }
+        }
+      }
+    }
+  }
+}

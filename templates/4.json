@@ -1,0 +1,66 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+        "statement_of_financial_position": [
+          {
+            "year": "YYYY",
+            "row1_name": ["", ""],
+            "row2_name": ["", ""]
+          },
+          {
+            "year": "YYYY-1",
+            "row1_name": ["", ""],
+            "row2_name": ["", ""]
+          }
+        ],
+        "statement_of_profit_or_loss_and_oci": [
+          {
+            "year": "YYYY",
+            "row1_name": ["", ""],
+            "row2_name": ["", ""],
+            "row3_name": ["", ""]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "YYYY",
+            "row1_name": ["", ""],
+            "row2_name": ["", ""]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "YYYY",
+            "row1_name": ["", ""],
+            "row2_name": ["", ""]
+          }
+        ],
+        "notes_with_tables": [
+          {
+            "note_number": "",
+            "title": "",
+            "content": "",
+            "tables": [
+              {
+                "table_title": "",
+                "columns": [],
+                "rows": [
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "notes_without_tables": [
+          {
+            "note_number": "",
+            "title": "",
+            "content": ""
+          }
+        ]
+      }
+    }
+  }
+}

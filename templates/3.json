@@ -1,0 +1,24 @@
+{
+  "section_id": "3",
+  "frc_analysis_report": {
+    "entity": {
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "Profit before tax/Revenue/Total Assets/Equity",
+          "percentage_applied": "X%",
+          "overall_materiality_amount": "",
+          "performance_materiality_amount": "",
+          "clearly_trivial_threshold": ""
+        },
+        "qualitative_materiality_considerations": [
+          "Related party transactions",
+          "Regulatory non-compliance",
+          "Going concern indicators",
+          "Management override risk",
+          "Fraud risk indicators"
+        ],
+        "frc_materiality_conclusion": ""
+      }
+    }
+  }
+}

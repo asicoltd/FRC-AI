@@ -1,0 +1,35 @@
+{
+  "section_id": "24",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "consolidated_material_departures": [
+          {
+            "departure_id": "DEPT-001",
+            "ifrs_standard": "",
+            "nature_of_departure": "",
+            "page_reference": "",
+            "extract_from_fs": "",
+            "financial_impact_estimate": "",
+            "materiality_assessment": "Material/Immaterial",
+            "ias_1_para_19_24_implication": "",
+            "corrective_action_required": "",
+            "regulatory_reporting_required": true
+          }
+        ],
+        "non_compliance_with_laws_regulations": [
+          {
+            "compliance_id": "COMP-001",
+            "law_regulation": "Companies Act 1994",
+            "section_violated": "",
+            "nature_of_breach": "",
+            "evidence_location": "",
+            "severity_assessment": "High/Medium/Low",
+            "potential_penalties": "",
+            "remediation_required": ""
+          }
+        ]
+      }
+    }
+  }
+}
