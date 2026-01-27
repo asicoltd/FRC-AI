@@ -1,0 +1,35 @@
+{
+  "section_id": "5",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "",
+          "notes_reference": "",
+          "actual_standards_applied": [],
+          "discrepancies_identified": [],
+          "compliance_assessment": ""
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "FRC / BSEC / Bangladesh Bank / RJSC / NBR",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "",
+              "specific_disclosures_found": []
+            }
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": true,
+            "bsec_filing_date": "",
+            "income_tax_return_filed": true,
+            "income_tax_year": "",
+            "rjsc_compliance": true,
+            "bb_compliance_if_applicable": ""
+          },
+          "overall_regulatory_assessment": ""
+        }
+      }
+    }
+  }
+}

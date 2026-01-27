@@ -1,0 +1,36 @@
+{
+  "section_id": "12",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "detailed_ifrs_compliance_matrix": [
+          {
+            "standard_code": "",
+            "standard_name": "",
+            "applicability": "Yes/No/Partially",
+            "page_reference": "",
+            "compliance_status": "Compliant/Partially Compliant/Non-Compliant",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": ""
+          }
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "",
+            "issues": []
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "",
+            "issues": []
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "",
+            "advance_tax_status": "",
+            "tax_holidays_or_incentives": [],
+            "overall_tax_compliance_assessment": ""
+          }
+        }
+      }
+    }
+  }
+}

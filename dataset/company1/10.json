@@ -1,0 +1,121 @@
+{
+  "section_id": "10",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifrs_13_fair_value_measurement": {
+            "fair_value_hierarchy_applied": "",
+            "valuation_techniques": ["Market approach", "Income approach", "Cost approach"],
+            "unobservable_inputs_disclosed": "",
+            "highest_best_use": "",
+            "non_financial_assets_valuation": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_14_regulatory_deferral_accounts": {
+            "regulatory_deferral_accounts_applicable": "",
+            "recognition_criteria": "",
+            "measurement_basis": "",
+            "presentation": "",
+            "disclosures_provided": ""
+          },
+          "ifrs_15_revenue_from_contracts_with_customers": {
+            "five_step_model_applied": "",
+            "contract_identification": "",
+            "performance_obligations": "",
+            "transaction_price_determination": "",
+            "allocation_to_obligations": "",
+            "revenue_recognition_timing": "",
+            "contract_assets_liabilities": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_16_leases": {
+            "lessee_accounting": {
+              "right_of_use_assets": "",
+              "lease_liabilities": "",
+              "discount_rate_assumptions": "",
+              "lease_term_assessment": "",
+              "variable_lease_payments": "",
+              "short_term_leases_exemption": ""
+            },
+            "lessor_accounting": {
+              "operating_leases": "",
+              "finance_leases": "",
+              "manufacturer_dealer_leases": "",
+              "subleases": ""
+            },
+            "sale_and_leaseback": "",
+            "disclosures_complete": ""
+          },
+          "ifrs_17_insurance_contracts": {
+            "insurance_contracts_identified": "",
+            "measurement_models": ["General model", "Premium allocation approach", "Variable fee approach"],
+            "contractual_service_margin": "",
+            "risk_adjustment": "",
+            "disclosures_complete": ""
+          },
+          "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+            "decommissioning_provisions": "",
+            "changes_accounting": "",
+            "asset_retirement_obligations": "",
+            "disclosures_provided": ""
+          },
+          "ifric_2_members_shares_in_cooperative_entities": {
+            "cooperative_entities_applicable": "",
+            "members_shares_classification": "",
+            "dividend_distribution": "",
+            "disclosures_provided": ""
+          },
+          "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+            "decommissioning_funds": "",
+            "rights_measurement": "",
+            "contributions_accounting": "",
+            "disclosures_provided": ""
+          },
+          "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+            "waste_electrical_equipment": "",
+            "environmental_liabilities": "",
+            "compliance_obligations": "",
+            "disclosures_provided": ""
+          },
+          "ifric_7_applying_the_restatement_approach_under_ias_29": {
+            "hyperinflation_restatement": "",
+            "comparatives_adjusted": "",
+            "gain_loss_calculation": "",
+            "disclosures_provided": ""
+          },
+          "ifric_10_interim_financial_reporting_and_impairment": {
+            "interim_impairment_testing": "",
+            "reversal_of_impairment": "",
+            "disclosures_provided": ""
+          },
+          "ifric_12_service_concession_arrangements": {
+            "service_concession_arrangements": "",
+            "operator_accounting": "",
+            "grantor_accounting": "",
+            "intangible_assets_recognition": "",
+            "financial_asset_recognition": ""
+          },
+          "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+            "defined_benefit_asset_limit": "",
+            "minimum_funding_requirements": "",
+            "available_refunds": "",
+            "disclosures_provided": ""
+          },
+          "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+            "net_investment_hedging": "",
+            "effectiveness_assessment": "",
+            "exchange_differences_treatment": "",
+            "disclosures_provided": ""
+          },
+          "ifric_17_distributions_of_non_cash_assets_to_owners": {
+            "non_cash_distributions": "",
+            "fair_value_measurement": "",
+            "dividend_payable_recognition": "",
+            "disclosures_provided": ""
+          }
+        }
+      }
+    }
+  }
+}
