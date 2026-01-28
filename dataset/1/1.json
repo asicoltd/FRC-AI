@@ -1,0 +1,20 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "1",
+  "frc_analysis_report": {
+    "metadata": {
+      "generation_date": "2024-12-04",
+      "analyst_framework_version": "2.0",
+      "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+      "prepared_for": "Financial Reporting Council, Bangladesh",
+      "source_documents": [
+        "Dommage Steel Building Systems Limited Annual Report FY 2023-2024",
+        "BSEC Filing Documentation 2024",
+        "Auditor's Report - Khan Wahab Shafique Rahman & Co., Chartered Accountants",
+        "Corporate Governance Report (implied in directors' report)",
+        "Previous Year Comparative FS FY 2022-2023"
+      ]
+    }
+  }
+}

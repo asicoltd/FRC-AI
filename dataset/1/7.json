@@ -1,0 +1,65 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "7",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [
+            {
+              "area": "Revenue Recognition",
+              "management_assumption": "Recognized based on point of delivery for steel components and when performance obligations satisfied",
+              "alternative_view": "Could use percentage-of-completion method",
+              "frc_skeptical_assessment": "Appropriate for construction contracts",
+              "impact_if_changed": "Timing differences in revenue recognition"
+            },
+            {
+              "area": "Inventory Valuation",
+              "management_assumption": "Lower of cost and net realizable value",
+              "alternative_view": "Could use FIFO instead of weighted average",
+              "frc_skeptical_assessment": "Weighted average appropriate for homogeneous items",
+              "impact_if_changed": "Marginal impact on COGS"
+            },
+            {
+              "area": "Property, Plant and Equipment",
+              "management_assumption": "Reducing balance depreciation method",
+              "alternative_view": "Straight-line method",
+              "frc_skeptical_assessment": "Reducing balance appropriate for assets with higher maintenance in later years",
+              "impact_if_changed": "Higher depreciation expense in early years"
+            }
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "Allowance for doubtful debts",
+              "sensitivity_range": "Management considers all receivables collectible (0% allowance)",
+              "disclosure_adequacy": "Inadequate - No sensitivity analysis for BDT 157M aged >6 months",
+              "risk_level": "High"
+            },
+            {
+              "estimate": "Useful lives of PPE",
+              "sensitivity_range": "Building: 40 years (2.5%), Plant: 20 years (5%)",
+              "disclosure_adequacy": "Adequate - Rates and justifications provided",
+              "risk_level": "Low"
+            },
+            {
+              "estimate": "Inventory net realizable value",
+              "sensitivity_range": "Lower of cost and NRV applied",
+              "disclosure_adequacy": "Adequate - Policy disclosed",
+              "risk_level": "Medium"
+            }
+          ]
+        },
+        "changes_in_accounting_policies": [
+          {
+            "policy_changed": "None disclosed",
+            "reason_for_change": "N/A",
+            "impact_disclosed": false,
+            "ias_8_compliance": "Compliant"
+          }
+        ],
+        "ias_8_hierarchy_compliance": "Compliant - No changes or errors disclosed"
+      }
+    }
+  }
+}

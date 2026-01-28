@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "23",
+  "frc_analysis_report": {
+    "entity": {
+      "professional_skepticism_application": {
+        "management_assertions_challenged": [
+          {
+            "assertion_area": "Revenue Recognition",
+            "management_claim": "Revenue recognized appropriately based on delivery and performance obligations",
+            "evidence_sought": "Contracts, delivery challans, VAT challans",
+            "evidence_found": "Auditor tested source documents",
+            "corroboration_level": "Moderate",
+            "skeptical_conclusion": "Revenue recognition appropriate but declining revenue concerning"
+          },
+          {
+            "assertion_area": "Receivables Recoverability",
+            "management_claim": "All receivables considered good and collectible",
+            "evidence_sought": "Ageing analysis, customer confirmations, subsequent receipts",
+            "evidence_found": "BDT 157M aged >6 months with no impairment",
+            "corroboration_level": "Weak",
+            "skeptical_conclusion": "Impairment assessment questionable given ageing"
+          }
+        ],
+        "accounting_policy_questioning": [
+          {
+            "policy_area": "Inventory Valuation",
+            "policy_applied": "Lower of cost and NRV",
+            "alternative_treatment": "Standard cost or retail method",
+            "justification_provided": "IAS 2 compliance, weighted average appropriate",
+            "skeptical_assessment": "Appropriate but high inventory days concerning",
+            "recommendation": "Review slow-moving inventory"
+          }
+        ],
+        "disclosure_adequacy_assessment": [
+          {
+            "disclosure_area": "Related Party Transactions",
+            "information_provided": "Basic director remuneration and fees",
+            "missing_information": "Board composition, committee structures, comprehensive RPT",
+            "transparency_level": "Low",
+            "materiality_assessment": "Material governance deficiency",
+            "improvement_suggested": "Full BSEC corporate governance compliance"
+          }
+        ],
+        "overall_skepticism_applied": {
+          "areas_of_high_concern": ["Receivables impairment", "Revenue decline", "Governance"],
+          "areas_of_moderate_concern": ["Inventory valuation", "Cash management"],
+          "areas_of_low_concern": ["Tax compliance", "Fixed asset accounting"],
+          "skepticism_conclusion": "Moderate level of skepticism required - several areas require closer scrutiny"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "22",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "corporate_governance_code_assessment": {
+          "bsec_corporate_governance_code": {
+            "compliance_checklist": [
+              {
+                "requirement": "Board Composition & Independence",
+                "disclosed_in_report": "No",
+                "compliance_status": "Non-compliant",
+                "page_reference": "No disclosure found",
+                "frca_assessment": "Inadequate transparency",
+                "recommendations": "Disclose board composition, independence status"
+              },
+              {
+                "requirement": "Audit Committee",
+                "disclosed_in_report": "No",
+                "compliance_status": "Non-compliant",
+                "page_reference": "No disclosure found",
+                "frca_assessment": "Critical deficiency",
+                "recommendations": "Establish and disclose audit committee"
+              },
+              {
+                "requirement": "Financial Reporting & Internal Control",
+                "disclosed_in_report": "Partial",
+                "compliance_status": "Partially Compliant",
+                "page_reference": "Implied in auditor's report",
+                "frca_assessment": "Weaknesses identified",
+                "recommendations": "Strengthen internal controls"
+              }
+            ],
+            "overall_compliance_score": "30%",
+            "major_non_compliances": [
+              "No board composition disclosure",
+              "No audit committee disclosure",
+              "No risk committee disclosure",
+              "Limited internal control framework"
+            ],
+            "boilerplate_statements_identified": ["Normal course of business", "Arm's length basis"]
+          },
+          "board_committee_effectiveness": {
+            "audit_committee": {
+              "composition": "Not disclosed",
+              "meetings_held": "Not disclosed",
+              "activities_disclosed": "None",
+              "independence_assessment": "Cannot assess",
+              "effectiveness_rating": "Poor"
+            },
+            "risk_committee": {
+              "existence": "Not disclosed",
+              "activities": "None",
+              "risk_coverage": "None",
+              "effectiveness": "Poor"
+            },
+            "nomination_remuneration": {
+              "committee_structure": "Not disclosed",
+              "disclosures_made": "Basic director remuneration only",
+              "transparency_level": "Low",
+              "compliance_issues": "Insufficient disclosure"
+            }
+          },
+          "internal_control_framework": {
+            "management_assessment_disclosed": "Implied but not explicit",
+            "auditor_opinion_on_icfr": "No opinion provided",
+            "deficiencies_reported": ["Payments outside banking channel", "IPO fund tracking"],
+            "remediation_plans": "Not disclosed",
+            "overall_effectiveness": "Weak"
+          }
+        }
+      }
+    }
+  }
+}

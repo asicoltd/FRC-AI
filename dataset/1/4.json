@@ -1,0 +1,195 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data": {
+        "statement_of_financial_position": [
+          {
+            "year": "2024",
+            "assets": [
+              {"item": "Cash and cash equivalents", "amount": "79,164,973", "note": "11.00"},
+              {"item": "Trade and other receivables", "amount": "219,737,791", "note": "9.00"},
+              {"item": "Inventories", "amount": "348,618,026", "note": "8.00"},
+              {"item": "Other current assets", "amount": "Advances, deposits & prepayments: 72,917,181", "note": "Page 22"},
+              {"item": "Total current assets", "amount": "Not fully calculable from provided pages", "note": ""},
+              {"item": "Property, plant and equipment", "amount": "From Annexure-A (not in extract)", "note": "4.00"},
+              {"item": "Intangible assets", "amount": "None disclosed", "note": ""},
+              {"item": "Investment property", "amount": "None", "note": ""},
+              {"item": "Investments in associates", "amount": "None", "note": ""},
+              {"item": "Other non-current assets", "amount": "Projects in progress (non-current portion)", "note": "7.01"},
+              {"item": "Total non-current assets", "amount": "Not calculable", "note": ""},
+              {"item": "TOTAL ASSETS", "amount": "Not fully disclosed", "note": ""}
+            ],
+            "liabilities_and_equity": [
+              {"item": "Trade and other payables", "amount": "Not fully specified", "note": ""},
+              {"item": "Short-term borrowings", "amount": "3,740,584", "note": "23.00"},
+              {"item": "Current tax payable", "amount": "34,129,257", "note": "21.00"},
+              {"item": "Other current liabilities", "amount": "Lease: 54,963; Expenses: 5,832,369; WPPF: 194,876", "note": "19,22,24"},
+              {"item": "Total current liabilities", "amount": "Not fully calculable", "note": ""},
+              {"item": "Long-term borrowings", "amount": "11,689,324", "note": "14.00"},
+              {"item": "Deferred tax liabilities", "amount": "Not disclosed in extract", "note": ""},
+              {"item": "Retirement benefit obligation", "amount": "Not disclosed", "note": ""},
+              {"item": "Other non-current liabilities", "amount": "Lease non-current: 0", "note": "15.00"},
+              {"item": "Total non-current liabilities", "amount": "11,689,324", "note": ""},
+              {"item": "TOTAL LIABILITIES", "amount": "Not calculable", "note": ""},
+              {"item": "Share capital", "amount": "1,026,000,000", "note": "12.00"},
+              {"item": "Share premium", "amount": "None", "note": ""},
+              {"item": "Retained earnings", "amount": "731,812,537", "note": "13.00"},
+              {"item": "Other reserves", "amount": "None", "note": ""},
+              {"item": "TOTAL EQUITY", "amount": "1,757,812,537", "note": "Page 10"},
+              {"item": "TOTAL LIABILITIES AND EQUITY", "amount": "Not calculable", "note": ""}
+            ]
+          },
+          {
+            "year": "2023",
+            "assets": [
+              {"item": "Cash and cash equivalents", "amount": "177,842,857", "note": "11.00"},
+              {"item": "Trade and other receivables", "amount": "154,947,185", "note": "9.00"},
+              {"item": "Inventories", "amount": "369,074,973", "note": "8.00"},
+              {"item": "Other current assets", "amount": "Advances: 61,704,486", "note": "Page 22"},
+              {"item": "Total current assets", "amount": "Not calculable", "note": ""},
+              {"item": "Property, plant and equipment", "amount": "From Annexure-A", "note": "4.00"},
+              {"item": "Intangible assets", "amount": "None", "note": ""},
+              {"item": "Investment property", "amount": "None", "note": ""},
+              {"item": "Investments in associates", "amount": "None", "note": ""},
+              {"item": "Other non-current assets", "amount": "Projects in progress", "note": "7.00"},
+              {"item": "Total non-current assets", "amount": "Not calculable", "note": ""},
+              {"item": "TOTAL ASSETS", "amount": "Not disclosed", "note": ""}
+            ],
+            "liabilities_and_equity": [
+              {"item": "Trade and other payables", "amount": "Not specified", "note": ""},
+              {"item": "Short-term borrowings", "amount": "3,330,401", "note": "23.00"},
+              {"item": "Current tax payable", "amount": "34,129,257", "note": "21.00"},
+              {"item": "Other current liabilities", "amount": "Lease: 533,250; Expenses: 3,577,906; WPPF: 1,768,822", "note": "19,22,24"},
+              {"item": "Total current liabilities", "amount": "Not calculable", "note": ""},
+              {"item": "Long-term borrowings", "amount": "7,077,103", "note": "14.00"},
+              {"item": "Deferred tax liabilities", "amount": "Not disclosed", "note": ""},
+              {"item": "Retirement benefit obligation", "amount": "None", "note": ""},
+              {"item": "Other non-current liabilities", "amount": "Lease non-current: 0", "note": "15.00"},
+              {"item": "Total non-current liabilities", "amount": "7,077,103", "note": ""},
+              {"item": "TOTAL LIABILITIES", "amount": "Not calculable", "note": ""},
+              {"item": "Share capital", "amount": "1,026,000,000", "note": "12.00"},
+              {"item": "Share premium", "amount": "None", "note": ""},
+              {"item": "Retained earnings", "amount": "732,558,616", "note": "13.00"},
+              {"item": "Other reserves", "amount": "None", "note": ""},
+              {"item": "TOTAL EQUITY", "amount": "1,758,558,616", "note": "Page 10"},
+              {"item": "TOTAL LIABILITIES AND EQUITY", "amount": "Not calculable", "note": ""}
+            ]
+          }
+        ],
+        
+        "statement_of_profit_or_loss_and_other_comprehensive_income": [
+          {
+            "year": "2024",
+            "profit_or_loss": [
+              {"item": "Revenue", "amount": "187,729,653", "note": "25.00"},
+              {"item": "Cost of sales", "amount": "157,203,771", "note": "26.00"},
+              {"item": "Gross profit", "amount": "30,525,882", "note": "Calculated"},
+              {"item": "Other income", "amount": "From wastage sales and interest", "note": "3.12"},
+              {"item": "Distribution costs", "amount": "Not separately disclosed", "note": ""},
+              {"item": "Administrative expenses", "amount": "From Note 27.00 (partial)", "note": "27.00"},
+              {"item": "Other expenses", "amount": "Included in administrative", "note": ""},
+              {"item": "Finance costs", "amount": "From manufacturing and admin", "note": "3.13"},
+              {"item": "Share of profit/(loss) of associates", "amount": "None", "note": ""},
+              {"item": "Profit before tax", "amount": "3,897,530", "note": "Page 29"},
+              {"item": "Income tax expense", "amount": "1,062,639", "note": "Calculated (3,897,530 - 2,834,891)"},
+              {"item": "PROFIT FOR THE YEAR", "amount": "2,834,891", "note": "Page 10, 29"}
+            ],
+            "other_comprehensive_income": [
+              {"item": "Items that will not be reclassified to profit or loss", "amount": "None", "note": ""},
+              {"item": "Remeasurement of defined benefit plans", "amount": "None", "note": ""},
+              {"item": "Fair value changes on equity investments", "amount": "None", "note": ""},
+              {"item": "Items that may be reclassified to profit or loss", "amount": "None", "note": ""},
+              {"item": "Exchange differences on foreign operations", "amount": "None", "note": ""},
+              {"item": "Effective portion of cash flow hedges", "amount": "None", "note": ""},
+              {"item": "OTHER COMPREHENSIVE INCOME FOR THE YEAR", "amount": "None", "note": ""},
+              {"item": "TOTAL COMPREHENSIVE INCOME FOR THE YEAR", "amount": "2,834,891", "note": "Same as profit"}
+            ]
+          },
+          {
+            "year": "2023",
+            "profit_or_loss": [
+              {"item": "Revenue", "amount": "333,443,469", "note": "25.00"},
+              {"item": "Cost of sales", "amount": "273,423,645", "note": "26.00"},
+              {"item": "Gross profit", "amount": "60,019,824", "note": "Calculated"},
+              {"item": "Other income", "amount": "From wastage sales and interest", "note": "3.12"},
+              {"item": "Distribution costs", "amount": "Not separately disclosed", "note": ""},
+              {"item": "Administrative expenses", "amount": "From Note 27.00", "note": "27.00"},
+              {"item": "Other expenses", "amount": "Included", "note": ""},
+              {"item": "Finance costs", "amount": "From expenses", "note": "3.13"},
+              {"item": "Share of profit/(loss) of associates", "amount": "None", "note": ""},
+              {"item": "Profit before tax", "amount": "35,376,440", "note": "Page 29"},
+              {"item": "Income tax expense", "amount": "30,792,158", "note": "Calculated (35,376,440 - 4,584,282)"},
+              {"item": "PROFIT FOR THE YEAR", "amount": "4,584,282", "note": "Page 10"}
+            ]
+          }
+        ],
+        
+        "statement_of_cash_flows": [
+          {
+            "year": "2024",
+            "cash_flows_from_operating_activities": [
+              {"item": "Profit before tax", "amount": "3,897,530", "note": "Page 29"},
+              {"item": "Adjustments for:", "amount": "", "note": ""},
+              {"item": "Depreciation and amortization", "amount": "37,558,849", "note": "Page 34"},
+              {"item": "Finance costs", "amount": "9,972,129", "note": "Page 34"},
+              {"item": "Share of profit of associates", "amount": "None", "note": ""},
+              {"item": "Changes in working capital:", "amount": "", "note": ""},
+              {"item": "Increase in trade and other receivables", "amount": "(62,914,732)", "note": "Page 34"},
+              {"item": "Increase in inventories", "amount": "27,783,638", "note": "Page 34"},
+              {"item": "Increase in trade and other payables", "amount": "Not separately shown", "note": ""},
+              {"item": "Cash generated from operations", "amount": "48,170,859", "note": "Page 34"},
+              {"item": "Interest paid", "amount": "Included in finance costs", "note": ""},
+              {"item": "Income tax paid", "amount": "(7,639,915)", "note": "Page 34"},
+              {"item": "NET CASH FROM OPERATING ACTIVITIES", "amount": "40,530,943", "note": "Page 29, 34"}
+            ],
+            "cash_flows_from_investing_activities": [
+              {"item": "Purchase of property, plant and equipment", "amount": "Not in provided pages", "note": ""},
+              {"item": "Proceeds from sale of property, plant and equipment", "amount": "None", "note": ""},
+              {"item": "Purchase of intangible assets", "amount": "None", "note": ""},
+              {"item": "Investments in associates", "amount": "None", "note": ""},
+              {"item": "Interest received", "amount": "Included in operating", "note": ""},
+              {"item": "Dividends received", "amount": "None", "note": ""},
+              {"item": "NET CASH USED IN INVESTING ACTIVITIES", "amount": "Not in extract", "note": ""}
+            ],
+            "cash_flows_from_financing_activities": [
+              {"item": "Proceeds from issuance of share capital", "amount": "None (IPO was previous year)", "note": ""},
+              {"item": "Proceeds from borrowings", "amount": "Addition during year: 1,382,391", "note": "14.00"},
+              {"item": "Repayment of borrowings", "amount": "Adjusted during year: 100,571", "note": "14.00"},
+              {"item": "Dividends paid", "amount": "(3,580,970)", "note": "Page 10"},
+              {"item": "NET CASH FROM FINANCING ACTIVITIES", "amount": "Not calculable", "note": ""},
+              {"item": "NET INCREASE/(DECREASE) IN CASH AND CASH EQUIVALENTS", "amount": "(98,677,884)", "note": "Calculated (2024:79,164,973 - 2023:177,842,857)"},
+              {"item": "Cash and cash equivalents at beginning of year", "amount": "177,842,857", "note": "11.00"},
+              {"item": "Cash and cash equivalents at end of year", "amount": "79,164,973", "note": "11.00"}
+            ]
+          }
+        ],
+        
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2024",
+            "equity_components": ["Share capital", "Retained earnings", "Total"],
+            "opening_balance": [
+              {"component": "Share capital", "amount": "1,026,000,000", "note": "Page 10"},
+              {"component": "Retained earnings", "amount": "732,558,616", "note": "Page 10"},
+              {"component": "TOTAL EQUITY AT BEGINNING OF YEAR", "amount": "1,758,558,616", "note": "Page 10"}
+            ],
+            "changes_during_year": [
+              {"description": "Profit for the year", "impact_on": "Retained earnings", "amount": "2,834,891", "note": "Page 10"},
+              {"description": "Other comprehensive income", "impact_on": "None", "amount": "0", "note": ""},
+              {"description": "Total comprehensive income for the year", "impact_on": "Retained earnings", "amount": "2,834,891", "note": ""},
+              {"description": "Dividends paid", "impact_on": "Retained earnings", "amount": "(3,580,970)", "note": "Page 10"},
+              {"description": "Issue of share capital", "impact_on": "Share capital", "amount": "0", "note": "No new issue"},
+              {"description": "Share premium on issue", "impact_on": "None", "amount": "0", "note": ""}
+            ],
+            "closing_balance": [
+              {"component": "Share capital", "amount": "1,026,000,000", "note": "Page 10"},
+              {"component": "Retained earnings", "amount": "731,812,537", "note": "Page 10"},
+              {"component": "TOTAL EQUITY AT END OF YEAR", "amount": "1,757,812,537", "note": "Page 10"}
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "6",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": "Not calculable (insufficient data)",
+          "debt_to_equity": "0.009 (based on visible debt of BDT 15.5M vs equity BDT 1.76B)",
+          "gross_profit_margin": "16.26% (2024)",
+          "net_profit_margin": "1.51% (2024)",
+          "roa": "Not calculable (total assets not known)",
+          "roe": "0.16% (2,834,891 / 1,758,185,577 average equity)",
+          "interest_coverage": "Not calculable (EBIT and interest expense not separately shown)"
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": "-1330% (Total accruals -37.7M / Net income 2.8M)",
+          "cash_flow_to_earnings": "14.3x (Operating cash flow 40.5M / Net income 2.8M)",
+          "revenue_growth_quality": "Poor - Revenue declined 43.7% with no clear recovery plan",
+          "expense_recognition_pattern": "Consistent accounting policies applied"
+        },
+        "vertical_and_horizontal_analysis": {
+          "vertical_2023": {
+            "assets_composition": "Cannot determine from provided pages",
+            "liabilities_composition": "Cannot determine from provided pages"
+          },
+          "horizontal_growth": {
+            "revenue_growth": "-43.70%",
+            "asset_growth": "Cannot determine",
+            "debt_growth": "Long-term debt increased from BDT 7.08M to BDT 11.69M (65% increase)"
+          }
+        }
+      }
+    }
+  }
+}

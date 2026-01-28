@@ -1,0 +1,136 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "9",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ias_36_impairment_of_assets": {
+            "impairment_indicators_assessed": "Annual assessment performed",
+            "cash_generating_units_identified": "Not specifically disclosed",
+            "recoverable_amount_determination": ["Value in use", "Fair value less costs of disposal"],
+            "discount_rate_assumptions": "Not disclosed",
+            "growth_rate_assumptions": "Not disclosed",
+            "sensitivity_analysis_provided": "No",
+            "goodwill_allocation": "No goodwill on balance sheet"
+          },
+          "ias_37_provisions_contingent_liabilities_assets": {
+            "provisions_recognition": "For present obligations",
+            "measurement_best_estimate": "Applied",
+            "onerous_contracts_assessed": "None",
+            "restructuring_provisions": "None",
+            "contingent_liabilities_disclosed": "None",
+            "contingent_assets_disclosed": "None"
+          },
+          "ias_38_intangible_assets": {
+            "recognition_criteria_met": "N/A (no intangibles)",
+            "measurement_model": "N/A",
+            "amortization_methods": "N/A",
+            "useful_lives_assumptions": "N/A",
+            "research_development_separation": "N/A",
+            "impairment_testing": "N/A"
+          },
+          "ias_40_investment_property": {
+            "investment_property_identified": "None",
+            "measurement_model": "N/A",
+            "fair_value_determination": "N/A",
+            "transfers_to_from_inventory": "N/A",
+            "disposals_accounting": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ias_41_agriculture": {
+            "biological_assets_identified": "None",
+            "measurement_basis": "N/A",
+            "gain_loss_recognition": "N/A",
+            "government_grants": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_1_first_time_adoption": {
+            "first_time_adopter": false,
+            "exemptions_applied": [],
+            "exceptions_mandatory": "N/A",
+            "comparatives_restated": "N/A",
+            "disclosures_complete": "N/A"
+          },
+          "ifrs_2_share_based_payment": {
+            "equity_settled_transactions": "None",
+            "cash_settled_transactions": "None",
+            "vesting_conditions": "N/A",
+            "fair_value_measurement": "N/A",
+            "modifications_cancellations": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_3_business_combinations": {
+            "acquisitions_during_period": "None",
+            "purchase_price_allocation": "N/A",
+            "goodwill_calculation": "N/A",
+            "contingent_consideration": "N/A",
+            "bargain_purchases": "N/A",
+            "disclosures_complete": "N/A"
+          },
+          "ifrs_5_non_current_assets_held_for_sale": {
+            "assets_classified_held_for_sale": "None",
+            "measurement_basis": "N/A",
+            "discontinued_operations": "None",
+            "presentation_separate": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+            "exploration_evaluation_assets": "Not applicable",
+            "measurement_model": "N/A",
+            "impairment_testing": "N/A",
+            "reclassification_to_development": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_7_financial_instruments_disclosures": {
+            "categories_financial_instruments": "Basic disclosure",
+            "fair_value_hierarchy": ["Not disclosed"],
+            "credit_risk_disclosures": "Basic in risk management",
+            "liquidity_risk_disclosures": "Basic",
+            "market_risk_disclosures": "Currency and interest rate risk",
+            "collateral_disclosed": "None"
+          },
+          "ifrs_8_operating_segments": {
+            "chief_operating_decision_maker_identified": "Not specifically",
+            "reportable_segments_identified": "Single segment - steel building construction",
+            "segment_results_disclosed": "N/A (single segment)",
+            "segment_assets_liabilities": "N/A",
+            "reconciliations_provided": "N/A",
+            "entity_wide_disclosures": "Geographic and major customers not disclosed"
+          },
+          "ifrs_9_financial_instruments": {
+            "classification_categories": ["Amortized cost"],
+            "impairment_expected_credit_losses": "ECL model mentioned but no impairment recognized",
+            "business_model_assessment": "Hold to collect",
+            "contractual_cash_flow_characteristics": "Principal and interest",
+            "hedge_accounting_applied": "No",
+            "reclassification_events": "None"
+          },
+          "ifrs_10_consolidated_financial_statements": {
+            "control_assessment": "N/A (no subsidiaries)",
+            "subsidiaries_consolidated": "None",
+            "non_controlling_interests": "None",
+            "loss_of_control": "N/A",
+            "investment_entities": "Not an investment entity",
+            "disclosures_complete": "N/A"
+          },
+          "ifrs_11_joint_arrangements": {
+            "joint_arrangements_classified": ["None"],
+            "accounting_method": ["N/A"],
+            "separate_financial_statements": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_12_disclosure_of_interests_in_other_entities": {
+            "subsidiaries_disclosures": "N/A",
+            "joint_arrangements_disclosures": "N/A",
+            "associates_disclosures": "N/A",
+            "structured_entities": "None",
+            "significant_judgments": "N/A",
+            "interests_nature_risks": "N/A"
+          }
+        }
+      }
+    }
+  }
+}
