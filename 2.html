@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,36 +17,36 @@
             --frc-danger: #d32f2f;
             --frc-success: #388e3c;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f7fa;
         }
-        
+
         .navbar {
             background: linear-gradient(135deg, var(--frc-primary), var(--frc-secondary));
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .nav-link {
             font-weight: 500;
             transition: all 0.3s;
         }
-        
+
         .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
         }
-        
+
         .sidebar {
             background: white;
             border-right: 1px solid #e0e0e0;
             height: calc(100vh - 70px);
             position: fixed;
             overflow-y: auto;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .sidebar-item {
             padding: 12px 20px;
             border-bottom: 1px solid #f0f0f0;
@@ -53,52 +54,52 @@
             transition: all 0.2s;
             font-weight: 500;
         }
-        
+
         .sidebar-item:hover {
             background-color: #f0f7ff;
             border-left: 4px solid var(--frc-accent);
         }
-        
+
         .sidebar-item.active {
             background-color: #e3f2fd;
             border-left: 4px solid var(--frc-primary);
             color: var(--frc-primary);
         }
-        
+
         .main-content {
             margin-left: 300px;
             padding: 30px;
             background-color: #f5f7fa;
             min-height: calc(100vh - 70px);
         }
-        
+
         .dashboard-card {
             background: white;
             border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 25px;
             transition: transform 0.3s;
             border-left: 5px solid var(--frc-primary);
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         }
-        
+
         .dashboard-card.warning {
             border-left-color: var(--frc-warning);
         }
-        
+
         .dashboard-card.danger {
             border-left-color: var(--frc-danger);
         }
-        
+
         .dashboard-card.success {
             border-left-color: var(--frc-success);
         }
-        
+
         .section-title {
             color: var(--frc-primary);
             border-bottom: 2px solid var(--frc-accent);
@@ -107,20 +108,20 @@
             margin-bottom: 25px;
             font-weight: 600;
         }
-        
+
         .metric-value {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--frc-primary);
         }
-        
+
         .metric-label {
             font-size: 0.9rem;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .compliance-badge {
             display: inline-block;
             padding: 4px 12px;
@@ -129,22 +130,22 @@
             font-weight: 600;
             margin: 2px;
         }
-        
+
         .badge-compliant {
             background-color: #e8f5e9;
             color: var(--frc-success);
         }
-        
+
         .badge-partial {
             background-color: #fff3e0;
             color: var(--frc-warning);
         }
-        
+
         .badge-noncompliant {
             background-color: #ffebee;
             color: var(--frc-danger);
         }
-        
+
         .risk-indicator {
             width: 12px;
             height: 12px;
@@ -152,30 +153,30 @@
             display: inline-block;
             margin-right: 8px;
         }
-        
+
         .risk-high {
             background-color: var(--frc-danger);
         }
-        
+
         .risk-medium {
             background-color: var(--frc-warning);
         }
-        
+
         .risk-low {
             background-color: var(--frc-success);
         }
-        
+
         .timeline {
             border-left: 3px solid var(--frc-accent);
             padding-left: 20px;
             margin-left: 10px;
         }
-        
+
         .timeline-item {
             position: relative;
             margin-bottom: 20px;
         }
-        
+
         .timeline-item:before {
             content: '';
             position: absolute;
@@ -188,40 +189,40 @@
             border: 3px solid white;
             box-shadow: 0 0 0 3px var(--frc-accent);
         }
-        
+
         .data-table {
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
-        
+
         .tab-content {
             background: white;
             border-radius: 0 0 10px 10px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
-        
+
         .nav-tabs .nav-link.active {
             background-color: white;
             border-bottom-color: white;
             color: var(--frc-primary);
             font-weight: 600;
         }
-        
+
         .empty-state {
             text-align: center;
             padding: 60px 20px;
             color: #666;
         }
-        
+
         .empty-state i {
             font-size: 4rem;
             color: #ddd;
             margin-bottom: 20px;
         }
-        
+
         .upload-area {
             border: 3px dashed #ddd;
             border-radius: 10px;
@@ -231,12 +232,12 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .upload-area:hover {
             border-color: var(--frc-accent);
             background-color: #f0f7ff;
         }
-        
+
         .company-header {
             background: linear-gradient(135deg, var(--frc-primary), var(--frc-secondary));
             color: white;
@@ -244,17 +245,19 @@
             border-radius: 10px;
             margin-bottom: 30px;
         }
-        
+
         @media (max-width: 992px) {
             .sidebar {
                 display: none;
             }
+
             .main-content {
                 margin-left: 0;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Sidebar -->
     <div class="sidebar col-lg-2 d-none d-lg-block">
@@ -304,13 +307,229 @@
         script.src = 'https://kit.fontawesome.com/a076d05399.js';
         document.head.appendChild(script);
 
-        // Global state
-        let currentEntityData = {};
-        let currentAnalysisData = {};
+        // Global configuration
+        const GITHUB_PAGES_BASE = 'https://asicoltd.github.io/FRC-AI/dataset/';
+        let currentCompanyId = 1; // Default to first company
         let allJSONData = {};
+        let availableCompanies = [1, 2, 3]; // Update this with actual company IDs
 
-        // Load default section
-        document.addEventListener('DOMContentLoaded', function() {
+        // Initialize with default company
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Load company selector first
+            await loadCompanySelector();
+            // Load data for default company
+            await loadCompanyData(currentCompanyId);
+            loadDashboard();
+        });
+        // Function to load company selector
+        async function loadCompanySelector() {
+            // Try to fetch company list from GitHub
+            try {
+                const response = await fetch(`${GITHUB_PAGES_BASE}companies.json`);
+                if (response.ok) {
+                    const companies = await response.json();
+                    availableCompanies = companies;
+                }
+            } catch (error) {
+                console.log('No companies.json found, using default companies');
+                // Fallback: try to auto-discover companies
+                await autoDiscoverCompanies();
+            }
+
+            // Add company selector to navbar
+            const navbar = document.querySelector('.navbar .container-fluid');
+            if (navbar) {
+                const selectorHTML = `
+            <div class="dropdown ms-3">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="companyDropdown" data-bs-toggle="dropdown">
+                    <i class="fas fa-building me-2"></i>Company ${currentCompanyId}
+                </button>
+                <ul class="dropdown-menu" id="companyList">
+                    ${availableCompanies.map(id => `
+                        <li><a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
+                               href="#" onclick="switchCompany(${id})">Company ${id}</a></li>
+                    `).join('')}
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" onclick="refreshCompanyList()">
+                        <i class="fas fa-sync me-2"></i>Refresh List
+                    </a></li>
+                </ul>
+            </div>
+        `;
+
+                // Insert after the brand
+                const brand = navbar.querySelector('.navbar-brand');
+                if (brand) {
+                    brand.insertAdjacentHTML('afterend', selectorHTML);
+                }
+            }
+        }
+
+        // Auto-discover companies by checking for existing folders
+        async function autoDiscoverCompanies() {
+            const maxCheck = 10; // Check up to 10 companies
+            const promises = [];
+
+            for (let i = 1; i <= maxCheck; i++) {
+                promises.push(checkCompanyExists(i));
+            }
+
+            const results = await Promise.all(promises);
+            availableCompanies = results.filter((exists, index) => exists).map((_, index) => index + 1);
+            console.log('Auto-discovered companies:', availableCompanies);
+        }
+
+        // Check if a company folder exists
+        async function checkCompanyExists(companyId) {
+            try {
+                const response = await fetch(`${GITHUB_PAGES_BASE}${companyId}/1.json`, { method: 'HEAD' });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        // Function to load JSON data for specific company
+        async function loadJSONData(companyId, fileNumber) {
+            try {
+                const url = `${GITHUB_PAGES_BASE}${companyId}/${fileNumber}.json`;
+                console.log('Loading:', url);
+
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(`Error loading company ${companyId}, file ${fileNumber}:`, error);
+                return null;
+            }
+        }
+
+        // Load all data for a company
+        async function loadCompanyData(companyId) {
+            showLoading(`Loading data for Company ${companyId}...`);
+
+            // Reset data
+            allJSONData = {};
+            currentCompanyId = companyId;
+
+            // Update company selector
+            updateCompanySelector(companyId);
+
+            // Load all JSON files (1-26) in parallel
+            const promises = [];
+            for (let i = 1; i <= 26; i++) {
+                promises.push(
+                    loadJSONData(companyId, i)
+                        .then(data => {
+                            if (data) allJSONData[i] = data;
+                            return data;
+                        })
+                );
+            }
+
+            const results = await Promise.allSettled(promises);
+            const loadedCount = results.filter(r => r.status === 'fulfilled' && r.value).length;
+
+            hideLoading();
+
+            if (loadedCount > 0) {
+                showNotification(`Loaded ${loadedCount}/26 files for Company ${companyId}`, 'success');
+
+                // Update company header
+                updateCompanyHeader(companyId);
+
+                return true;
+            } else {
+                showNotification(`No data found for Company ${companyId}`, 'warning');
+                // Load sample data as fallback
+                loadSampleData();
+                return false;
+            }
+        }
+        // Function to update company header with real data
+        function updateCompanyHeader(companyId) {
+            const header = document.querySelector('.company-header');
+            if (!header) return;
+
+            const companyData = allJSONData[2]; // Entity profile is in 2.json
+            if (!companyData) return;
+
+            const profile = companyData.frc_analysis_report?.entity?.entity_profile;
+
+            header.innerHTML = `
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h2 class="mb-2">${profile?.legal_name || `Company ${companyId}`}</h2>
+                <p class="mb-1">${profile?.trade_name || ''}</p>
+                <p class="mb-0">Registration: ${profile?.registration_number || 'N/A'}</p>
+            </div>
+            <div class="col-md-4 text-end">
+                <span class="badge ${profile?.listing_status === 'Listed' ? 'bg-success' : 'bg-secondary'} fs-6">
+                    ${profile?.listing_status || 'Unknown'}
+                </span>
+                <p class="mt-2 mb-0">FYE: ${profile?.financial_year_end || 'N/A'}</p>
+                <p class="mb-0">Data Source: GitHub Pages</p>
+            </div>
+        </div>
+    `;
+        }
+        // Update company selector UI
+        function updateCompanySelector(companyId) {
+            const dropdownButton = document.getElementById('companyDropdown');
+            const dropdownItems = document.querySelectorAll('#companyList .dropdown-item');
+
+            if (dropdownButton) {
+                dropdownButton.innerHTML = `<i class="fas fa-building me-2"></i>Company ${companyId}`;
+            }
+
+            dropdownItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.textContent.includes(`Company ${companyId}`)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Switch between companies
+        async function switchCompany(companyId) {
+            if (companyId === currentCompanyId) return;
+
+            // Save current data if needed
+            if (Object.keys(allJSONData).length > 0) {
+                localStorage.setItem(`company_${currentCompanyId}_data`, JSON.stringify(allJSONData));
+            }
+
+            // Load new company data
+            const success = await loadCompanyData(companyId);
+
+            if (success) {
+                // Reload current view
+                const currentSection = document.querySelector('.sidebar-item.active')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (currentSection) {
+                    loadSection(currentSection);
+                } else {
+                    loadDashboard();
+                }
+            }
+        }
+        // Function to load all JSON data
+        async function loadAllJSONData() {
+            const promises = [];
+            for (let i = 1; i <= 26; i++) {
+                promises.push(loadJSONData(i));
+            }
+
+            await Promise.all(promises);
+            console.log('All JSON data loaded:', allJSONData);
+        }
+
+        // Call this on page load
+        document.addEventListener('DOMContentLoaded', async function () {
+            await loadAllJSONData();
             loadDashboard();
         });
 
@@ -321,9 +540,9 @@
                 item.classList.remove('active');
             });
             event.target.closest('.sidebar-item').classList.add('active');
-            
+
             // Load section content
-            switch(section) {
+            switch (section) {
                 case 'dashboard':
                     loadDashboard();
                     break;
@@ -358,178 +577,44 @@
         }
 
         function loadDashboard() {
+            const companyData = allJSONData[2];
+            const companyName = companyData?.frc_analysis_report?.entity?.entity_profile?.legal_name || `Company ${currentCompanyId}`;
+
             const content = `
-                <div class="company-header">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <h2 class="mb-2">Financial Reporting Analysis Dashboard</h2>
-                            <p class="mb-0">Comprehensive IFRS, ISA & Regulatory Compliance Review</p>
-                        </div>
-                        <div class="col-md-4 text-end">
-                            <span class="badge bg-warning fs-6">Analysis in Progress</span>
-                            <p class="mt-2 mb-0">Last Updated: ${new Date().toLocaleDateString()}</p>
-                        </div>
+        <div class="company-header">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="mb-2">${companyName}</h2>
+                    <p class="mb-0">Financial Reporting Analysis Dashboard - Company ${currentCompanyId}</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <span class="badge bg-info fs-6">Company ${currentCompanyId}</span>
+                    <p class="mt-2 mb-0">Data Source: GitHub Pages</p>
+                    <p class="mb-0">URL: ${GITHUB_PAGES_BASE}${currentCompanyId}/</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rest of dashboard content remains similar, but uses currentCompanyId -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dashboard-card">
+                    <div class="metric-label">Current Company</div>
+                    <div class="metric-value">${currentCompanyId}</div>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-outline-primary w-100" onclick="loadDataImport()">
+                            Switch Company
+                        </button>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="dashboard-card">
-                            <div class="metric-label">Overall Compliance Score</div>
-                            <div class="metric-value">68%</div>
-                            <div class="mt-2">
-                                <span class="risk-indicator risk-medium"></span> Medium Risk
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-card">
-                            <div class="metric-label">Material Departures</div>
-                            <div class="metric-value">12</div>
-                            <div class="mt-2">
-                                <span class="risk-indicator risk-high"></span> High Priority
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-card">
-                            <div class="metric-label">IFRS Standards Checked</div>
-                            <div class="metric-value">42</div>
-                            <div class="mt-2">
-                                <span class="compliance-badge badge-compliant">65% Compliant</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dashboard-card">
-                            <div class="metric-label">Audit Opinion</div>
-                            <div class="metric-value text-warning">Modified</div>
-                            <div class="mt-2">
-                                <span class="compliance-badge badge-partial">3 KAMs Identified</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mt-4">
-                    <div class="col-md-8">
-                        <div class="dashboard-card">
-                            <h5 class="section-title">Critical Issues Timeline</h5>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <h6><span class="risk-indicator risk-high"></span> Revenue Recognition Issues</h6>
-                                    <p class="text-muted small">IFRS 15 Non-compliance detected in multiple contracts</p>
-                                    <span class="badge bg-danger">High Risk</span>
-                                </div>
-                                <div class="timeline-item">
-                                    <h6><span class="risk-indicator risk-high"></span> Related Party Disclosures</h6>
-                                    <p class="text-muted small">Incomplete IAS 24 disclosures identified</p>
-                                    <span class="badge bg-danger">High Risk</span>
-                                </div>
-                                <div class="timeline-item">
-                                    <h6><span class="risk-indicator risk-medium"></span> Going Concern Uncertainty</h6>
-                                    <p class="text-muted small">Material uncertainty paragraph in audit report</p>
-                                    <span class="badge bg-warning">Medium Risk</span>
-                                </div>
-                                <div class="timeline-item">
-                                    <h6><span class="risk-indicator risk-medium"></span> Tax Compliance Gaps</h6>
-                                    <p class="text-muted small">Uncertain tax positions under IFRIC 23</p>
-                                    <span class="badge bg-warning">Medium Risk</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5 class="section-title">Financial Health Indicators</h5>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <canvas id="profitabilityChart" height="200"></canvas>
-                                </div>
-                                <div class="col-md-6">
-                                    <canvas id="liquidityChart" height="200"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="dashboard-card">
-                            <h5 class="section-title">Quick Actions</h5>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary" onclick="loadEntityProfile()">
-                                    <i class="fas fa-edit me-2"></i> Entity Profile
-                                </button>
-                                <button class="btn btn-warning" onclick="loadComplianceMatrix()">
-                                    <i class="fas fa-clipboard-list me-2"></i> Compliance Matrix
-                                </button>
-                                <button class="btn btn-info" onclick="loadRiskAssessment()">
-                                    <i class="fas fa-chart-pie me-2"></i> Risk Assessment Review
-                                </button>
-                                <button class="btn btn-success" onclick="loadReportGenerator()">
-                                    <i class="fas fa-file-export me-2"></i> Generate FRC Report
-                                </button>
-                                <button class="btn btn-outline-danger" onclick="showExportModal()">
-                                    <i class="fas fa-download me-2"></i> Export All Data
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5 class="section-title">Analysis Progress</h5>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Phase 1: Foundational Checks</span>
-                                    <span>100%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Phase 2: Financial Analysis</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-info" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Phase 3: IFRS Compliance</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Phase 4: Audit & Governance</span>
-                                    <span>60%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-warning" style="width: 60%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Phase 5: Synthesis & Reporting</span>
-                                    <span>40%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-danger" style="width: 40%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
+            </div>
+            <!-- ... other dashboard cards ... -->
+        </div>
+    `;
+
             document.getElementById('mainContent').innerHTML = content;
             renderDashboardCharts();
         }
-
         function loadEntityProfile() {
             const content = `
                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -657,7 +742,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
             loadEntityData();
         }
@@ -929,7 +1014,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
             renderFinancialCharts();
             initializeGrids();
@@ -1057,7 +1142,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
             loadComplianceData();
         }
@@ -1202,7 +1287,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
         }
 
@@ -1343,7 +1428,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
             renderDeparturesChart();
         }
@@ -1525,7 +1610,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
             renderRiskCharts();
         }
@@ -1682,120 +1767,80 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
         }
 
         function loadDataImport() {
             const content = `
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="section-title">Data Import & Management</h3>
-                    <div>
-                        <button class="btn btn-success me-2" onclick="importJSONData()">
-                            <i class="fas fa-file-import me-2"></i> Import JSON
-                        </button>
-                        <button class="btn btn-primary" onclick="syncAllData()">
-                            <i class="fas fa-sync me-2"></i> Sync All Data
-                        </button>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="section-title">Data Import & Management</h3>
+            <div>
+                <span class="badge bg-info me-2">Company ${currentCompanyId}</span>
+                <button class="btn btn-success me-2" onclick="refreshCompanyData()">
+                    <i class="fas fa-sync me-2"></i> Refresh Data
+                </button>
+                <button class="btn btn-primary" onclick="syncAllData()">
+                    <i class="fas fa-sync me-2"></i> Sync All Data
+                </button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-database me-2 text-primary"></i>JSON Data Structure - Company ${currentCompanyId}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>File</th>
+                                    <th>Data Category</th>
+                                    <th>Status</th>
+                                    <th>Source URL</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jsonFilesTable">
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-database me-2 text-primary"></i>JSON Data Structure Mapping</h5>
-                            <div class="table-responsive">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Section ID</th>
-                                            <th>File Name</th>
-                                            <th>Data Category</th>
-                                            <th>Status</th>
-                                            <th>Last Updated</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="jsonFilesTable">
-                                        <!-- Dynamic content will be loaded here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-file-upload me-2 text-primary"></i>Upload JSON Files</h5>
-                            <div class="upload-area" onclick="document.getElementById('jsonUpload').click()">
-                                <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
-                                <h5>Drag & Drop JSON Files Here</h5>
-                                <p class="text-muted">or click to browse</p>
-                                <p class="small">Supported: JSON files from 1.json to 26.json</p>
-                                <input type="file" id="jsonUpload" multiple accept=".json" style="display: none;" onchange="handleJSONUpload(event)">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-info-circle me-2 text-primary"></i>Data Validation Status</h5>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Required Fields Filled</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Data Consistency</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-info" style="width: 92%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>Cross-Reference Validation</span>
-                                    <span>78%</span>
-                                </div>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-warning" style="width: 78%"></div>
-                                </div>
-                            </div>
-                            <div class="alert alert-info small">
-                                <i class="fas fa-lightbulb me-2"></i>
-                                Tip: Ensure all JSON files follow the exact structure defined in the template
-                            </div>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-cogs me-2 text-primary"></i>Data Management Tools</h5>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-outline-primary" onclick="validateAllData()">
-                                    <i class="fas fa-check-circle me-2"></i> Validate All Data
-                                </button>
-                                <button class="btn btn-outline-warning" onclick="backupData()">
-                                    <i class="fas fa-save me-2"></i> Backup Data
-                                </button>
-                                <button class="btn btn-outline-danger" onclick="clearAllData()">
-                                    <i class="fas fa-trash-alt me-2"></i> Clear All Data
-                                </button>
-                                <button class="btn btn-outline-info" onclick="generateSampleData()">
-                                    <i class="fas fa-magic me-2"></i> Generate Sample Data
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            </div>
             
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-building me-2 text-primary"></i>Company Management</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Switch Company</label>
+                        <select class="form-select" id="companySelect" onchange="switchCompany(this.value)">
+                            ${availableCompanies.map(id => `
+                                <option value="${id}" ${id === currentCompanyId ? 'selected' : ''}>Company ${id}</option>
+                            `).join('')}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add New Company</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="newCompanyId" placeholder="Company ID">
+                            <button class="btn btn-outline-primary" onclick="addNewCompany()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="alert alert-info small">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Data is loaded from: ${GITHUB_PAGES_BASE}${currentCompanyId}/
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
             document.getElementById('mainContent').innerHTML = content;
             loadJSONFilesStatus();
         }
-
         function loadReportGenerator() {
             const content = `
                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -1977,7 +2022,7 @@
                     </div>
                 </div>
             `;
-            
+
             document.getElementById('mainContent').innerHTML = content;
         }
 
@@ -2015,7 +2060,7 @@
                     }
                 });
             }
-            
+
             // Liquidity Chart
             const liquidityCtx = document.getElementById('liquidityChart')?.getContext('2d');
             if (liquidityCtx) {
@@ -2079,7 +2124,7 @@
                     }
                 });
             }
-            
+
             // Assets Chart
             const assetsCtx = document.getElementById('assetsChart')?.getContext('2d');
             if (assetsCtx) {
@@ -2103,7 +2148,7 @@
                     }
                 });
             }
-            
+
             // Liabilities Chart
             const liabilitiesCtx = document.getElementById('liabilitiesChart')?.getContext('2d');
             if (liabilitiesCtx) {
@@ -2196,17 +2241,41 @@
         }
 
         // Data loading functions
-        function loadEntityData() {
-            // This would typically load from JSON files
-            // For now, we'll set some sample data
-            document.getElementById('legalName').textContent = 'Sample Corporation Limited';
-            document.getElementById('tradeName').textContent = 'SampleCorp';
-            document.getElementById('registrationNumber').textContent = 'C-123456';
-            document.getElementById('industrySector').textContent = 'Manufacturing';
-            document.getElementById('listingStatus').textContent = 'Listed';
-            document.getElementById('financialYearEnd').textContent = '2023-12-31';
-        }
+        // Update loadEntityData for multiple companies
+        async function loadEntityData() {
+            const companyId = currentCompanyId;
 
+            // Try to load from allJSONData first
+            let metadata = allJSONData[1];
+            let entityProfile = allJSONData[2];
+            let materiality = allJSONData[3];
+
+            // If not loaded, fetch fresh
+            if (!entityProfile) {
+                entityProfile = await loadJSONData(companyId, 2);
+            }
+
+            if (!materiality) {
+                materiality = await loadJSONData(companyId, 3);
+            }
+
+            // Update UI with real data
+            if (entityProfile) {
+                const profile = entityProfile.frc_analysis_report?.entity?.entity_profile;
+                if (profile) {
+                    document.getElementById('legalName').textContent = profile.legal_name || '[Not Available]';
+                    document.getElementById('tradeName').textContent = profile.trade_name || '[Not Available]';
+                    document.getElementById('registrationNumber').textContent = profile.registration_number || '[Not Available]';
+                    document.getElementById('industrySector').textContent = profile.industry_sector || '[Not Available]';
+                    document.getElementById('listingStatus').textContent = profile.listing_status || '[Not Available]';
+                    document.getElementById('reportingCurrency').textContent = profile.reporting_currency || 'BDT';
+                    document.getElementById('financialYearEnd').textContent = profile.financial_year_end || '[Not Available]';
+                    document.getElementById('reportPublicationDate').textContent = profile.report_publication_date || '[Not Available]';
+                }
+            }
+
+            // Update other sections similarly...
+        }
         function loadComplianceData() {
             const complianceData = [
                 { code: 'IAS 1', name: 'Presentation of Financial Statements', applicability: 'Yes', status: 'Compliant', page: '1-5', issues: '' },
@@ -2220,10 +2289,10 @@
                 { code: 'IFRS 15', name: 'Revenue from Contracts', applicability: 'Yes', status: 'Non-Compliant', page: '40-45', issues: 'Five-step model not applied' },
                 { code: 'IFRS 16', name: 'Leases', applicability: 'Yes', status: 'Compliant', page: '75-80', issues: '' }
             ];
-            
+
             const table = document.getElementById('complianceTable');
             table.innerHTML = '';
-            
+
             complianceData.forEach(item => {
                 let statusBadge = '';
                 if (item.status === 'Compliant') {
@@ -2233,7 +2302,7 @@
                 } else {
                     statusBadge = '<span class="compliance-badge badge-noncompliant">Non-Compliant</span>';
                 }
-                
+
                 table.innerHTML += `
                     <tr>
                         <td>${item.code}</td>
@@ -2252,88 +2321,172 @@
             });
         }
 
-        function loadJSONFilesStatus() {
-            const files = [
-                { id: 1, name: '1.json', category: 'Metadata', status: 'Loaded', updated: '2024-01-15' },
-                { id: 2, name: '2.json', category: 'Entity Profile', status: 'Loaded', updated: '2024-01-15' },
-                { id: 3, name: '3.json', category: 'Materiality', status: 'Loaded', updated: '2024-01-15' },
-                { id: 4, name: '4.json', category: 'Financial Data', status: 'Partial', updated: '2024-01-14' },
-                { id: 5, name: '5.json', category: 'Phase 1 Checks', status: 'Loaded', updated: '2024-01-15' },
-                { id: 6, name: '6.json', category: 'Phase 2 Analysis', status: 'Loaded', updated: '2024-01-15' },
-                { id: 7, name: '7.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 8, name: '8.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 9, name: '9.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 10, name: '10.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 11, name: '11.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 12, name: '12.json', category: 'Phase 3 IFRS', status: 'Not Loaded', updated: '-' },
-                { id: 13, name: '13.json', category: 'Fraud Assessment', status: 'Loaded', updated: '2024-01-14' },
-                { id: 14, name: '14.json', category: 'Phase 4 Audit', status: 'Loaded', updated: '2024-01-15' },
-                { id: 15, name: '15.json', category: 'Legal Mapping', status: 'Partial', updated: '2024-01-14' },
-                { id: 16, name: '16.json', category: 'Phase 5 Synthesis', status: 'Not Loaded', updated: '-' },
-                { id: 17, name: '17.json', category: 'Phase 2 Detailed', status: 'Loaded', updated: '2024-01-15' },
-                { id: 18, name: '18.json', category: 'Phase 2 Trend', status: 'Loaded', updated: '2024-01-15' },
-                { id: 19, name: '19.json', category: 'Phase 2 Ratios', status: 'Loaded', updated: '2024-01-15' },
-                { id: 20, name: '20.json', category: 'Phase 3 Detailed', status: 'Not Loaded', updated: '-' },
-                { id: 21, name: '21.json', category: 'Phase 4 Enhanced', status: 'Not Loaded', updated: '-' },
-                { id: 22, name: '22.json', category: 'Phase 4 Governance', status: 'Not Loaded', updated: '-' },
-                { id: 23, name: '23.json', category: 'Skepticism', status: 'Partial', updated: '2024-01-14' },
-                { id: 24, name: '24.json', category: 'Phase 5 Material', status: 'Not Loaded', updated: '-' },
-                { id: 25, name: '25.json', category: 'Phase 5 Risk', status: 'Not Loaded', updated: '-' },
-                { id: 26, name: '26.json', category: 'Phase 5 Executive', status: 'Not Loaded', updated: '-' }
-            ];
-            
+        async function loadJSONFilesStatus() {
+            const files = [];
+            const categories = {
+                1: 'Metadata', 2: 'Entity Profile', 3: 'Materiality', 4: 'Financial Data',
+                5: 'Phase 1 Checks', 6: 'Phase 2 Analysis', 7: 'Phase 3 IFRS', 8: 'Phase 3 IFRS',
+                9: 'Phase 3 IFRS', 10: 'Phase 3 IFRS', 11: 'Phase 3 IFRS', 12: 'Phase 3 IFRS',
+                13: 'Fraud Assessment', 14: 'Phase 4 Audit', 15: 'Legal Mapping', 16: 'Phase 5 Synthesis',
+                17: 'Phase 2 Detailed', 18: 'Phase 2 Trend', 19: 'Phase 2 Ratios', 20: 'Phase 3 Detailed',
+                21: 'Phase 4 Enhanced', 22: 'Phase 4 Governance', 23: 'Skepticism', 24: 'Phase 5 Material',
+                25: 'Phase 5 Risk', 26: 'Phase 5 Executive'
+            };
+
+            for (let i = 1; i <= 26; i++) {
+                const data = allJSONData[i];
+                const status = data ? 'Loaded' : 'Missing';
+                const url = `${GITHUB_PAGES_BASE}${currentCompanyId}/${i}.json`;
+
+                files.push({
+                    id: i,
+                    name: `${i}.json`,
+                    category: categories[i] || 'Unknown',
+                    status: status,
+                    url: url
+                });
+            }
+
             const table = document.getElementById('jsonFilesTable');
-            table.innerHTML = '';
-            
-            files.forEach(file => {
-                let statusBadge = '';
-                if (file.status === 'Loaded') {
-                    statusBadge = '<span class="badge bg-success">Loaded</span>';
-                } else if (file.status === 'Partial') {
-                    statusBadge = '<span class="badge bg-warning">Partial</span>';
-                } else {
-                    statusBadge = '<span class="badge bg-danger">Not Loaded</span>';
-                }
-                
-                table.innerHTML += `
-                    <tr>
-                        <td>${file.id}</td>
-                        <td>${file.name}</td>
-                        <td>${file.category}</td>
-                        <td>${statusBadge}</td>
-                        <td>${file.updated}</td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary" onclick="loadJSONFile(${file.id})">
-                                <i class="fas fa-download"></i>
+            if (table) {
+                table.innerHTML = '';
+
+                files.forEach(file => {
+                    let statusBadge = '';
+                    if (file.status === 'Loaded') {
+                        statusBadge = '<span class="badge bg-success">Loaded</span>';
+                    } else {
+                        statusBadge = '<span class="badge bg-danger">Missing</span>';
+                    }
+
+                    table.innerHTML += `
+                <tr>
+                    <td>${file.name}</td>
+                    <td>${file.category}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <a href="${file.url}" target="_blank" class="text-decoration-none">
+                            <small>${file.url.substring(0, 40)}...</small>
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" onclick="loadSingleFile(${file.id})">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        ${file.status === 'Loaded' ? `
+                            <button class="btn btn-sm btn-outline-info ms-1" onclick="viewJSONData(${file.id})">
+                                <i class="fas fa-eye"></i>
                             </button>
-                        </td>
-                    </tr>
-                `;
-            });
+                        ` : ''}
+                    </td>
+                </tr>
+            `;
+                });
+            }
+        }
+        // Refresh all data for current company
+        async function refreshCompanyData() {
+            const success = await loadCompanyData(currentCompanyId);
+            if (success) {
+                // Refresh current view
+                const currentSection = document.querySelector('.sidebar-item.active')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (currentSection) {
+                    loadSection(currentSection);
+                }
+            }
         }
 
-        function initializeGrids() {
-            // Financial Position Grid
-            const financialPositionData = [
-                { lineItem: 'Cash and cash equivalents', yyyy: '150,000,000', yyyy_1: '120,000,000', change: '+25.0%', volatility: 'Low' },
-                { lineItem: 'Trade receivables', yyyy: '450,000,000', yyyy_1: '350,000,000', change: '+28.6%', volatility: 'Medium' },
-                { lineItem: 'Inventories', yyyy: '300,000,000', yyyy_1: '250,000,000', change: '+20.0%', volatility: 'Low' },
-                { lineItem: 'Total current assets', yyyy: '900,000,000', yyyy_1: '720,000,000', change: '+25.0%', volatility: 'Medium' },
-                { lineItem: 'Property, plant & equipment', yyyy: '1,200,000,000', yyyy_1: '1,100,000,000', change: '+9.1%', volatility: 'Low' }
-            ];
-            
-            // Profit Loss Grid
-            const profitLossData = [
-                { lineItem: 'Revenue', yyyy: '2,850,000,000', yyyy_1: '2,400,000,000', change: '+18.8%' },
-                { lineItem: 'Cost of sales', yyyy: '1,800,000,000', yyyy_1: '1,500,000,000', change: '+20.0%' },
-                { lineItem: 'Gross profit', yyyy: '1,050,000,000', yyyy_1: '900,000,000', change: '+16.7%' },
-                { lineItem: 'Administrative expenses', yyyy: '400,000,000', yyyy_1: '320,000,000', change: '+25.0%' },
-                { lineItem: 'Finance costs', yyyy: '150,000,000', yyyy_1: '100,000,000', change: '+50.0%' }
-            ];
-            
-            // These would be initialized with ag-Grid if needed
+        // Add new company
+        async function addNewCompany() {
+            const newId = parseInt(document.getElementById('newCompanyId').value);
+            if (!newId || isNaN(newId)) {
+                showNotification('Please enter a valid company ID', 'error');
+                return;
+            }
+
+            // Check if company exists
+            showLoading(`Checking Company ${newId}...`);
+            const exists = await checkCompanyExists(newId);
+            hideLoading();
+
+            if (exists) {
+                if (!availableCompanies.includes(newId)) {
+                    availableCompanies.push(newId);
+                    availableCompanies.sort((a, b) => a - b);
+                }
+                await switchCompany(newId);
+                showNotification(`Switched to Company ${newId}`, 'success');
+            } else {
+                showNotification(`Company ${newId} not found on GitHub`, 'warning');
+            }
         }
 
+        // Refresh company list
+        async function refreshCompanyList() {
+            await autoDiscoverCompanies();
+            // Update dropdown
+            const dropdown = document.getElementById('companyList');
+            if (dropdown) {
+                dropdown.innerHTML = `
+            ${availableCompanies.map(id => `
+                <li><a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
+                       href="#" onclick="switchCompany(${id})">Company ${id}</a></li>
+            `).join('')}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" onclick="refreshCompanyList()">
+                <i class="fas fa-sync me-2"></i>Refresh List
+            </a></li>
+        `;
+            }
+            showNotification(`Found ${availableCompanies.length} companies`, 'info');
+        }
+        // Load single file
+        async function loadSingleFile(fileNumber) {
+            showLoading(`Loading file ${fileNumber}.json...`);
+            const data = await loadJSONData(currentCompanyId, fileNumber);
+            hideLoading();
+
+            if (data) {
+                allJSONData[fileNumber] = data;
+                showNotification(`File ${fileNumber}.json loaded successfully`, 'success');
+                loadJSONFilesStatus();
+
+                // If this is a key file, refresh relevant section
+                if ([1, 2, 3].includes(fileNumber)) {
+                    loadEntityProfile();
+                }
+            } else {
+                showNotification(`Failed to load file ${fileNumber}.json`, 'error');
+            }
+        }
+        async function loadSpecificJSONFile(fileId) {
+            const data = await loadJSONData(fileId);
+            if (data) {
+                alert(`File ${fileId}.json loaded successfully!`);
+                loadJSONFilesStatus(); // Refresh status
+            }
+        }
+        async function initializeGrids() {
+            // Load financial data from JSON 4
+            const financialData = allJSONData[4] || await loadJSONData(4);
+
+            if (financialData) {
+                const rawData = financialData.frc_analysis_report?.entity?.financial_statements_raw_data;
+
+                // Process Statement of Financial Position
+                if (rawData?.statement_of_financial_position?.[0]) {
+                    const sop = rawData.statement_of_financial_position[0];
+                    // Extract data for display
+                    // You would process assets and liabilities here
+                }
+
+                // Process Profit or Loss Statement
+                if (rawData?.statement_of_profit_or_loss_and_other_comprehensive_income?.[0]) {
+                    const pnl = rawData.statement_of_profit_or_loss_and_other_comprehensive_income[0];
+                    // Extract data for display
+                }
+            }
+        }
         // Utility functions
         function showExportModal() {
             alert('Export functionality would be implemented here. Data would be exported in JSON format.');
@@ -2385,12 +2538,33 @@
             document.getElementById('jsonUpload').click();
         }
 
-        function handleJSONUpload(event) {
+        async function handleJSONUpload(event) {
             const files = event.target.files;
-            alert(`${files.length} JSON file(s) selected for upload.`);
-            // Implementation would handle file reading and parsing
-        }
 
+            for (let file of files) {
+                const reader = new FileReader();
+
+                reader.onload = async function (e) {
+                    try {
+                        const jsonData = JSON.parse(e.target.result);
+                        const fileNumber = parseInt(file.name.split('.')[0]);
+
+                        // Save to local dataset (you'd need a backend for this)
+                        // For now, update the in-memory data
+                        allJSONData[fileNumber] = jsonData;
+
+                        // Update UI
+                        alert(`${file.name} loaded successfully!`);
+                        loadJSONFilesStatus();
+
+                    } catch (error) {
+                        alert(`Error parsing ${file.name}: ${error.message}`);
+                    }
+                };
+
+                reader.readAsText(file);
+            }
+        }
         function syncAllData() {
             alert('Data synchronization across all sections would begin.');
         }
@@ -2455,4 +2629,5 @@
         }
     </script>
 </body>
+
 </html>
