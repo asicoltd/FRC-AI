@@ -2753,1180 +2753,1179 @@
           }
         }
       },
-  "DSBSL-2024": {
-    "company_info": {
-      "legal_name": "Dommage Steel Building Systems Limited",
-      "trade_name": "Dommage Steel Building Systems Ltd.",
-      "registration_number": "C-66036 (3527)/07",
-      "industry_sector": "Construction, Pre-engineered Steel Buildings, Fabrication & Erection",
-      "stock_exchange_symbol": "Not disclosed in document",
-      "reporting_currency": "BDT (Bangladesh Taka)",
-      "financial_year_end": "30 June 2024",
-      "report_publication_date": "28 October 2024"
-    },
-    "financial_statements_raw_data": {
-      "statement_of_financial_position": [
-        {
-          "line_item": "Total Assets",
-          "classification": "Asset",
-          "sub_classification": "N/A",
-          "current_year_amount": "Not explicitly stated in provided pages",
-          "prior_year_1_amount": "Not provided",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Scattered across notes",
-          "custom_additional_info": {}
+      "DSBSL-2024": {
+        "company_info": {
+          "legal_name": "Dommage Steel Building Systems Limited",
+          "trade_name": "Dommage Steel Building Systems Ltd.",
+          "registration_number": "C-66036 (3527)/07",
+          "industry_sector": "Construction, Pre-engineered Steel Buildings, Fabrication & Erection",
+          "stock_exchange_symbol": "Not disclosed in document",
+          "reporting_currency": "BDT (Bangladesh Taka)",
+          "financial_year_end": "30 June 2024",
+          "report_publication_date": "28 October 2024"
         },
-        {
-          "line_item": "Total Equity",
-          "classification": "Equity",
-          "sub_classification": "N/A",
-          "current_year_amount": "1,757,812,537",
-          "prior_year_1_amount": "1,758,558,616",
-          "prior_year_2_amount": "1,768,298,212",
-          "notes_reference": "Page 10",
-          "custom_additional_info": {
-            "decline_in_equity": "Minor decline year-over-year"
-          }
-        },
-        {
-          "line_item": "Trade and Other Receivables",
-          "classification": "Asset",
-          "sub_classification": "Current",
-          "current_year_amount": "219,737,791",
-          "prior_year_1_amount": "154,947,185",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 20, Note 9.00",
-          "custom_additional_info": {
-            "ageing_info": "More than six months: BDT 157,017,183; Less than six months: BDT 62,720,608",
-            "high_risk_component": "Significant number of individual small customers"
-          }
-        }
-      ],
-      "statement_of_profit_or_loss_and_oci": [
-        {
-          "line_item": "Revenue from Sales",
-          "classification": "Revenue",
-          "current_year_amount": "187,729,653",
-          "prior_year_1_amount": "333,443,469",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 27, Note 25.00",
-          "custom_additional_info": {
-            "drastic_decline": "43.7% year-over-year decrease"
-          }
-        },
-        {
-          "line_item": "Net Profit After Tax",
-          "classification": "Expense",
-          "current_year_amount": "2,834,891",
-          "prior_year_1_amount": "4,584,282",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 10, Page 29",
-          "custom_additional_info": {
-            "decline": "38.2% year-over-year decrease"
-          }
-        },
-        {
-          "line_item": "Earnings Per Share",
-          "classification": "Other Comprehensive Income",
-          "current_year_amount": "0.03",
-          "prior_year_1_amount": "0.04",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 29, Note 33.00",
-          "custom_additional_info": {
-            "significant_fall": "As disclosed in Note 35.01, EPS significantly fell"
-          }
-        }
-      ],
-      "statement_of_cash_flows": [
-        {
-          "line_item": "Net Cash from Operating Activities",
-          "classification": "Operating",
-          "current_year_amount": "40,530,943",
-          "prior_year_1_amount": "143,769,580",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 29, Note 35.00",
-          "custom_additional_info": {
-            "drastic_decline": "71.8% decrease in operating cash flow"
-          }
-        },
-        {
-          "line_item": "Net Cash Used in Investing Activities",
-          "classification": "Investing",
-          "current_year_amount": "Not provided in extracted pages",
-          "prior_year_1_amount": "Not provided",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "N/A",
-          "custom_additional_info": {}
-        },
-        {
-          "line_item": "Cash and Cash Equivalents at End",
-          "classification": "Operating",
-          "current_year_amount": "79,164,973",
-          "prior_year_1_amount": "177,842,857",
-          "prior_year_2_amount": "Not provided",
-          "notes_reference": "Page 22, Note 11.00",
-          "custom_additional_info": {
-            "significant_decline": "55.5% decrease in cash balance"
-          }
-        }
-      ],
-      "statement_of_changes_in_equity": [
-        {
-          "component": "Retained Earnings",
-          "opening_balance": "732,558,616",
-          "transactions_during_year": [
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
             {
-              "transaction_type": "Net Profit",
-              "amount": "2,834,891",
-              "description": "Net profit for the year"
+              "line_item": "Total Assets",
+              "classification": "Asset",
+              "sub_classification": "N/A",
+              "current_year_amount": "Not explicitly stated in provided pages",
+              "prior_year_1_amount": "Not provided",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Scattered across notes",
+              "custom_additional_info": {}
             },
             {
-              "transaction_type": "Cash Dividend",
-              "amount": "-3,580,970",
-              "description": "0.5% cash dividend for 2023"
+              "line_item": "Total Equity",
+              "classification": "Equity",
+              "sub_classification": "N/A",
+              "current_year_amount": "1,757,812,537",
+              "prior_year_1_amount": "1,758,558,616",
+              "prior_year_2_amount": "1,768,298,212",
+              "notes_reference": "Page 10",
+              "custom_additional_info": {
+                "decline_in_equity": "Minor decline year-over-year"
+              }
+            },
+            {
+              "line_item": "Trade and Other Receivables",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "219,737,791",
+              "prior_year_1_amount": "154,947,185",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 20, Note 9.00",
+              "custom_additional_info": {
+                "ageing_info": "More than six months: BDT 157,017,183; Less than six months: BDT 62,720,608",
+                "high_risk_component": "Significant number of individual small customers"
+              }
             }
           ],
-          "closing_balance": "731,812,537",
-          "notes_reference": "Page 10"
-        }
-      ]
-    },
-    "phase_1_foundational_checks": {
-      "reporting_framework": {
-        "disclosed_framework": "International Financial Reporting Standards (IFRSs), Companies Act 1994, Securities and Exchange Rules 2020",
-        "disclosed_in_notes": "Page 11, 12, Note 2.00",
-        "actual_standards_applied": [
-          "IAS 1",
-          "IAS 2",
-          "IAS 7",
-          "IAS 8",
-          "IAS 10",
-          "IAS 12",
-          "IAS 16",
-          "IAS 19",
-          "IAS 21",
-          "IAS 23",
-          "IAS 24",
-          "IAS 33",
-          "IAS 34",
-          "IAS 36",
-          "IAS 37",
-          "IFRS 8",
-          "IFRS 9",
-          "IFRS 13",
-          "IFRS 15",
-          "IFRS 16"
-        ],
-        "discrepancies_identified": [
-          "IPO funds not utilized within stipulated time, extension applied",
-          "Some purchase and payments made outside banking channel",
-          "IPO subscription money untraceable but reflected in cash"
-        ],
-        "compliance_assessment": "Compliance with Qualifications (Emphasis of Matters)"
-      },
-      "regulatory_landscape": {
-        "applicable_regulators": [
-          {
-            "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
-            "jurisdiction": "Bangladesh",
-            "compliance_status": "Non-Compliant in Specific Area",
-            "specific_disclosures_found": [
-              "IPO fund utilization timeline not met, extension applied",
-              "Unclaimed dividend transfer to CMSF mentioned (Page 25)"
-            ]
-          },
-          {
-            "regulator_name": "National Board of Revenue (NBR)",
-            "jurisdiction": "Bangladesh",
-            "compliance_status": "Compliant",
-            "specific_disclosures_found": [
-              "Income tax disclosures provided",
-              "VAT and customs compliance implied"
-            ]
-          }
-        ],
-        "regulatory_filings_status": {
-          "sec_filed": true,
-          "sec_filing_date": "Not explicitly stated",
-          "tax_return_filed": true,
-          "tax_return_date": "Not disclosed",
-          "rjsccompliance": "Not mentioned",
-          "bb_compliance": "Not mentioned"
-        },
-        "overall_regulatory_assessment": "Moderate Compliance - IPO fund utilization issue identified"
-      }
-    },
-    "phase_2_financial_analysis": {
-      "ratio_analysis": {
-        "liquidity_ratios": {
-          "current_ratio": {
-            "calculation": {
-              "current_year": {
-                "current_assets": "Not fully extractable from provided pages",
-                "current_liabilities": "Not fully extractable from provided pages",
-                "ratio": "Not calculable from provided data"
-              },
-              "prior_year_1": {
-                "current_assets": "Not provided",
-                "current_liabilities": "Not provided",
-                "ratio": "N/A"
-              },
-              "prior_year_2": {
-                "current_assets": "Not provided",
-                "current_liabilities": "Not provided",
-                "ratio": "N/A"
+          "statement_of_profit_or_loss_and_oci": [
+            {
+              "line_item": "Revenue from Sales",
+              "classification": "Revenue",
+              "current_year_amount": "187,729,653",
+              "prior_year_1_amount": "333,443,469",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 27, Note 25.00",
+              "custom_additional_info": {
+                "drastic_decline": "43.7% year-over-year decrease"
               }
             },
-            "industry_benchmark": "1.5-2.0",
-            "trend_analysis": "Cannot determine from provided data",
-            "risk_assessment": "Cannot assess",
-            "investigation_points": [
-              "Insufficient data in provided pages"
-            ]
-          },
-          "quick_ratio": {
-            "calculation": {
-              "current_year": {
-                "quick_assets": "Not calculable",
-                "current_liabilities": "Not calculable",
-                "ratio": "N/A"
-              },
-              "prior_year_1": {
-                "quick_assets": "Not provided",
-                "current_liabilities": "Not provided",
-                "ratio": "N/A"
-              },
-              "prior_year_2": {
-                "quick_assets": "Not provided",
-                "current_liabilities": "Not provided",
-                "ratio": "N/A"
+            {
+              "line_item": "Net Profit After Tax",
+              "classification": "Expense",
+              "current_year_amount": "2,834,891",
+              "prior_year_1_amount": "4,584,282",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 10, Page 29",
+              "custom_additional_info": {
+                "decline": "38.2% year-over-year decrease"
               }
             },
-            "industry_benchmark": "1.0-1.5",
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess",
-            "investigation_points": [
-              "Insufficient data in provided pages"
-            ]
-          },
-          "cash_ratio": {
-            "calculation": {
-              "current_year": {
-                "cash_equivalents": "79,164,973",
-                "current_liabilities": "Not fully extractable",
-                "ratio": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cash declined significantly from prior year",
-            "risk_assessment": "Potential liquidity concern indicated by cash decline"
-          }
-        },
-        "solvency_ratios": {
-          "debt_to_equity": {
-            "calculation": {
-              "current_year": {
-                "total_debt": "Not fully extractable (Long-term loan: 11,689,324 + current portion: 3,740,584 + lease liability: 54,963)",
-                "total_equity": "1,757,812,537",
-                "ratio": "Approx. 0.009 if only identifiable debt considered"
-              },
-              "prior_year_1": {
-                "total_debt": "Not fully extractable",
-                "total_equity": "1,758,558,616",
-                "ratio": "N/A"
-              },
-              "prior_year_2": {
-                "total_debt": "Not provided",
-                "total_equity": "Not provided",
-                "ratio": "N/A"
-              }
-            },
-            "covenant_limits": "Not disclosed",
-            "trend_analysis": "Low apparent debt level from provided data",
-            "risk_assessment": "Low Risk based on limited debt visibility",
-            "investigation_points": [
-              "Complete debt picture not available in provided pages"
-            ]
-          },
-          "debt_to_assets": {
-            "calculation": {
-              "current_year": {
-                "total_debt": "Not fully known",
-                "total_assets": "Not fully known",
-                "ratio": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess"
-          },
-          "interest_coverage": {
-            "calculation": {
-              "current_year": {
-                "ebit": "Not directly provided",
-                "interest_expense": "Not directly provided",
-                "ratio": "Not calculable"
-              },
-              "prior_year_1": {
-                "ebit": "Not provided",
-                "interest_expense": "Not provided",
-                "ratio": "N/A"
-              },
-              "prior_year_2": {
-                "ebit": "Not provided",
-                "interest_expense": "Not provided",
-                "ratio": "N/A"
-              }
-            },
-            "minimum_requirement": "Typically >1.5",
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess",
-            "investigation_points": [
-              "Financial expenses line item not detailed in provided pages"
-            ]
-          }
-        },
-        "efficiency_ratios": {
-          "inventory_turnover": {
-            "calculation": {
-              "current_year": {
-                "cogs": "157,203,771",
-                "average_inventory": "Not calculable (Closing: 348,618,026, Opening: Not provided in extract)",
-                "ratio": "Not calculable",
-                "days": "Not calculable"
-              },
-              "prior_year_1": {
-                "cogs": "273,423,645",
-                "average_inventory": "Not calculable",
-                "ratio": "N/A",
-                "days": "N/A"
-              },
-              "prior_year_2": {
-                "cogs": "Not provided",
-                "average_inventory": "Not provided",
-                "ratio": "N/A",
-                "days": "N/A"
-              }
-            },
-            "industry_benchmark": "Construction: 4-6 times annually",
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Inventory value high (BDT 348.6M) relative to COGS",
-            "investigation_points": [
-              "High inventory carrying amount may indicate slow turnover"
-            ]
-          },
-          "receivables_turnover": {
-            "calculation": {
-              "current_year": {
-                "credit_sales": "Assume all sales on credit: 187,729,653",
-                "average_receivables": "Not calculable (Closing: 219,737,791, Opening: 154,947,185)",
-                "ratio": "Approx. 1.0 if using closing receivables",
-                "days": "Approx. 365"
-              }
-            },
-            "trend_analysis": "Poor collection efficiency if ratio ~1.0",
-            "risk_assessment": "High Risk - Receivables collection may take a year"
-          },
-          "asset_turnover": {
-            "calculation": {
-              "current_year": {
-                "revenue": "187,729,653",
-                "average_total_assets": "Not calculable",
-                "ratio": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess"
-          },
-          "working_capital_turnover": {
-            "calculation": {
-              "current_year": {
-                "revenue": "187,729,653",
-                "average_working_capital": "Not calculable",
-                "ratio": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess"
-          }
-        },
-        "profitability_ratios": {
-          "gross_profit_margin": {
-            "calculation": {
-              "current_year": {
-                "gross_profit": "30,525,882 (Revenue 187,729,653 - COGS 157,203,771)",
-                "revenue": "187,729,653",
-                "percentage": "16.26%"
-              },
-              "prior_year_1": {
-                "gross_profit": "60,019,824 (Revenue 333,443,469 - COGS 273,423,645)",
-                "revenue": "333,443,469",
-                "percentage": "18.00%"
-              },
-              "prior_year_2": {
-                "gross_profit": "Not provided",
-                "revenue": "Not provided",
-                "percentage": "N/A"
-              }
-            },
-            "industry_benchmark": "Construction: 10-20%",
-            "trend_analysis": "Margin declined slightly",
-            "risk_assessment": "Moderate Risk - Margin compression",
-            "investigation_points": [
-              "Decrease in gross profit margin"
-            ]
-          },
-          "operating_profit_margin": {
-            "calculation": {
-              "current_year": {
-                "operating_profit": "Not directly separable from provided data",
-                "revenue": "187,729,653",
-                "percentage": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess"
-          },
-          "net_profit_margin": {
-            "calculation": {
-              "current_year": {
-                "net_profit": "2,834,891",
-                "revenue": "187,729,653",
-                "percentage": "1.51%"
-              },
-              "prior_year_1": {
-                "net_profit": "4,584,282",
-                "revenue": "333,443,469",
-                "percentage": "1.37%"
-              },
-              "prior_year_2": {
-                "net_profit": "Not provided",
-                "revenue": "Not provided",
-                "percentage": "N/A"
-              }
-            },
-            "industry_benchmark": "Construction: 3-8%",
-            "trend_analysis": "Very low but slightly improved margin percentage",
-            "risk_assessment": "High Risk - Very thin net margins",
-            "investigation_points": [
-              "Profitability is minimal"
-            ]
-          },
-          "return_on_assets": {
-            "calculation": {
-              "current_year": {
-                "net_profit": "2,834,891",
-                "average_total_assets": "Not calculable",
-                "percentage": "Not calculable"
-              }
-            },
-            "trend_analysis": "Cannot determine",
-            "risk_assessment": "Cannot assess"
-          },
-          "return_on_equity": {
-            "calculation": {
-              "current_year": {
-                "net_profit": "2,834,891",
-                "average_shareholders_equity": "1,758,185,577",
-                "percentage": "0.16%"
-              },
-              "prior_year_1": {
-                "net_profit": "4,584,282",
-                "average_shareholders_equity": "Not calculable",
-                "percentage": "N/A"
-              },
-              "prior_year_2": {
-                "net_profit": "Not provided",
-                "average_shareholders_equity": "Not provided",
-                "percentage": "N/A"
-              }
-            },
-            "cost_of_equity": "Estimated 12-15% in Bangladesh",
-            "trend_analysis": "Extremely low return",
-            "risk_assessment": "Critical Risk - ROE far below cost of equity, destroying shareholder value",
-            "investigation_points": [
-              "ROE of 0.16% is extremely poor"
-            ]
-          }
-        },
-        "market_ratios": {
-          "earnings_per_share": {
-            "calculation": {
-              "current_year": {
-                "basic": "0.03",
-                "diluted": "Not provided"
-              }
-            },
-            "disclosed_in_fs": true
-          },
-          "price_to_earnings": {
-            "calculation": {
-              "current_year": {
-                "market_price": "Not provided in document",
-                "eps": "0.03",
-                "ratio": "Not calculable"
+            {
+              "line_item": "Earnings Per Share",
+              "classification": "Other Comprehensive Income",
+              "current_year_amount": "0.03",
+              "prior_year_1_amount": "0.04",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 29, Note 33.00",
+              "custom_additional_info": {
+                "significant_fall": "As disclosed in Note 35.01, EPS significantly fell"
               }
             }
-          },
-          "book_value_per_share": {
-            "calculation": {
-              "current_year": {
-                "shareholders_equity": "1,757,812,537",
-                "number_of_shares": "102,600,000",
-                "value": "17.13"
+          ],
+          "statement_of_cash_flows": [
+            {
+              "line_item": "Net Cash from Operating Activities",
+              "classification": "Operating",
+              "current_year_amount": "40,530,943",
+              "prior_year_1_amount": "143,769,580",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 29, Note 35.00",
+              "custom_additional_info": {
+                "drastic_decline": "71.8% decrease in operating cash flow"
+              }
+            },
+            {
+              "line_item": "Net Cash Used in Investing Activities",
+              "classification": "Investing",
+              "current_year_amount": "Not provided in extracted pages",
+              "prior_year_1_amount": "Not provided",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "N/A",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Cash and Cash Equivalents at End",
+              "classification": "Operating",
+              "current_year_amount": "79,164,973",
+              "prior_year_1_amount": "177,842,857",
+              "prior_year_2_amount": "Not provided",
+              "notes_reference": "Page 22, Note 11.00",
+              "custom_additional_info": {
+                "significant_decline": "55.5% decrease in cash balance"
               }
             }
-          }
-        }
-      },
-      "earnings_quality_analysis": {
-        "accruals_analysis": {
-          "calculations": {
-            "current_year": {
-              "net_income": "2,834,891",
-              "operating_cash_flow": "40,530,943",
-              "total_accruals": "-37,696,052",
-              "accruals_to_net_income": "-1330%"
-            },
-            "prior_year_1": {
-              "net_income": "4,584,282",
-              "operating_cash_flow": "143,769,580",
-              "total_accruals": "-139,185,298",
-              "accruals_to_net_income": "-3036%"
-            },
-            "prior_year_2": {
-              "net_income": "Not provided",
-              "operating_cash_flow": "Not provided",
-              "total_accruals": "N/A",
-              "accruals_to_net_income": "N/A"
+          ],
+          "statement_of_changes_in_equity": [
+            {
+              "component": "Retained Earnings",
+              "opening_balance": "732,558,616",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "Net Profit",
+                  "amount": "2,834,891",
+                  "description": "Net profit for the year"
+                },
+                {
+                  "transaction_type": "Cash Dividend",
+                  "amount": "-3,580,970",
+                  "description": "0.5% cash dividend for 2023"
+                }
+              ],
+              "closing_balance": "731,812,537",
+              "notes_reference": "Page 10"
             }
-          },
-          "trend_analysis": "Large negative accruals, cash flow significantly exceeds earnings",
-          "quality_assessment": "Low Earnings Quality - Cash flows not translating proportionally to profits",
-          "red_flags": [
-            "Large negative accruals suggest aggressive expense recognition or deferred revenue",
-            "Operating cash flow 14x net income in current year"
           ]
         },
-        "cash_flow_pattern_analysis": {
-          "operating_cash_flow_trend": "Drastic decline but still positive",
-          "investing_cash_flow_pattern": "Not provided in extract",
-          "financing_cash_flow_pattern": "Not provided in extract",
-          "free_cash_flow_calculation": {
-            "current_year": "Not calculable",
-            "prior_year_1": "Not calculable",
-            "prior_year_2": "N/A"
-          },
-          "sustainability_assessment": "Concerning - Operating cash flow declined 72% year-over-year"
-        }
-      },
-      "vertical_and_horizontal_analysis": {
-        "common_size_income_statement": [
-          {
-            "line_item": "Cost of Goods Sold",
-            "current_year_percentage": "83.74%",
-            "prior_year_1_percentage": "82.00%",
-            "prior_year_2_percentage": "N/A",
-            "significant_variance": false,
-            "variance_explanation": "COGS percentage increased slightly"
-          },
-          {
-            "line_item": "Administrative Expenses",
-            "current_year_percentage": "Not calculable from provided data",
-            "prior_year_1_percentage": "Not calculable",
-            "prior_year_2_percentage": "N/A",
-            "significant_variance": "N/A",
-            "variance_explanation": "N/A"
-          }
-        ],
-        "common_size_balance_sheet": [
-          {
-            "line_item": "Property, Plant and Equipment",
-            "current_year_percentage": "Not calculable",
-            "prior_year_1_percentage": "Not calculable",
-            "prior_year_2_percentage": "N/A",
-            "significant_variance": "N/A",
-            "variance_explanation": "N/A"
-          },
-          {
-            "line_item": "Inventory",
-            "current_year_percentage": "Not calculable",
-            "prior_year_1_percentage": "Not calculable",
-            "prior_year_2_percentage": "N/A",
-            "significant_variance": "N/A",
-            "variance_explanation": "N/A"
-          }
-        ],
-        "year_over_year_growth_rates": {
-          "revenue_growth": {
-            "yoy_1": "-43.70%",
-            "yoy_2": "N/A",
-            "cagr_3_year": "N/A"
-          },
-          "profit_growth": {
-            "yoy_1": "-38.16%",
-            "yoy_2": "N/A",
-            "cagr_3_year": "N/A"
-          },
-          "asset_growth": {
-            "yoy_1": "Not calculable",
-            "yoy_2": "N/A",
-            "cagr_3_year": "N/A"
-          },
-          "equity_growth": {
-            "yoy_1": "-0.04%",
-            "yoy_2": "-0.55%",
-            "cagr_3_year": "-0.30%"
-          }
-        }
-      }
-    },
-    "phase_3_ifrs_compliance_detailed": {
-      "accounting_policies_review": {
-        "significant_policies_disclosed": [
-          {
-            "policy_area": "Revenue Recognition",
-            "disclosed_policy": "Recognized based on point of delivery for steel components and when performance obligations satisfied for rest",
-            "ifrs_standard": "IFRS 15",
-            "compliance_assessment": "Compliant",
-            "departures_identified": []
-          },
-          {
-            "policy_area": "Property, Plant and Equipment",
-            "disclosed_policy": "At cost less depreciation, using reducing balance method",
-            "ifrs_standard": "IAS 16",
-            "compliance_assessment": "Compliant",
-            "departures_identified": []
-          },
-          {
-            "policy_area": "Inventory",
-            "disclosed_policy": "Lower of cost and net realizable value, weighted average cost",
-            "ifrs_standard": "IAS 2",
-            "compliance_assessment": "Compliant",
-            "departures_identified": []
-          }
-        ],
-        "changes_in_accounting_policies": [
-          {
-            "policy_changed": "No changes disclosed",
-            "reason_for_change": "N/A",
-            "impact_disclosed": false,
-            "ias_8_compliance": "Compliant"
-          }
-        ],
-        "ias_8_hierarchy_compliance": "Compliant - No policy changes or errors disclosed"
-      },
-      "key_standards_compliance_check": {
-        "ifrs_15_revenue_recognition": {
-          "applicable": true,
-          "revenue_streams_identified": [
-            {
-              "stream": "Steel Building Construction",
-              "timing_of_recognition": "Point of delivery for steel components; upon satisfaction of performance obligations for rest",
-              "performance_obligations": "Delivery of steel components; completion of construction services",
-              "transaction_price_allocation": "Based on contract consideration",
-              "compliance_assessment": "Compliant"
-            }
-          ],
-          "contract_liabilities": {
-            "disclosed": false,
-            "amount": "Not disclosed",
-            "movement_analysis": "N/A",
-            "concerns": [
-              "No disclosure of contract liabilities (advances from customers)"
-            ]
-          },
-          "overall_compliance": "Partially Compliant - Missing disclosures"
-        },
-        "ifrs_16_leases": {
-          "applicable": true,
-          "lessee_accounting": {
-            "right_of_use_assets": "Disclosed but amount not in extract",
-            "lease_liabilities": "54,963 (current) + 0 (non-current) = 54,963",
-            "discount_rate_disclosed": false,
-            "lease_term_assumptions": "Not disclosed",
-            "compliance_assessment": "Partially Compliant"
-          },
-          "lessor_accounting": {
-            "operating_leases": "Not applicable",
-            "finance_leases": "Not applicable",
-            "compliance_assessment": "N/A"
-          },
-          "disclosure_completeness": "Insufficient - Missing discount rates and lease terms"
-        },
-        "ifrs_9_financial_instruments": {
-          "applicable": true,
-          "classification_and_measurement": {
-            "categories_used": [
-              "Amortized cost for receivables, loans, payables"
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "International Financial Reporting Standards (IFRSs), Companies Act 1994, Securities and Exchange Rules 2020",
+            "disclosed_in_notes": "Page 11, 12, Note 2.00",
+            "actual_standards_applied": [
+              "IAS 1",
+              "IAS 2",
+              "IAS 7",
+              "IAS 8",
+              "IAS 10",
+              "IAS 12",
+              "IAS 16",
+              "IAS 19",
+              "IAS 21",
+              "IAS 23",
+              "IAS 24",
+              "IAS 33",
+              "IAS 34",
+              "IAS 36",
+              "IAS 37",
+              "IFRS 8",
+              "IFRS 9",
+              "IFRS 13",
+              "IFRS 15",
+              "IFRS 16"
             ],
-            "fair_value_hierarchy_disclosures": "Limited disclosure",
-            "impairment_model_applied": "Expected credit loss model mentioned",
-            "compliance_assessment": "Partially Compliant"
+            "discrepancies_identified": [
+              "IPO funds not utilized within stipulated time, extension applied",
+              "Some purchase and payments made outside banking channel",
+              "IPO subscription money untraceable but reflected in cash"
+            ],
+            "compliance_assessment": "Compliance with Qualifications (Emphasis of Matters)"
           },
-          "hedge_accounting": {
-            "applied": false,
-            "effectiveness_assessment": "N/A",
-            "compliance_assessment": "N/A"
-          },
-          "overall_compliance": "Partially Compliant - ECL disclosure limited"
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Non-Compliant in Specific Area",
+                "specific_disclosures_found": [
+                  "IPO fund utilization timeline not met, extension applied",
+                  "Unclaimed dividend transfer to CMSF mentioned (Page 25)"
+                ]
+              },
+              {
+                "regulator_name": "National Board of Revenue (NBR)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant",
+                "specific_disclosures_found": [
+                  "Income tax disclosures provided",
+                  "VAT and customs compliance implied"
+                ]
+              }
+            ],
+            "regulatory_filings_status": {
+              "sec_filed": true,
+              "sec_filing_date": "Not explicitly stated",
+              "tax_return_filed": true,
+              "tax_return_date": "Not disclosed",
+              "rjsccompliance": "Not mentioned",
+              "bb_compliance": "Not mentioned"
+            },
+            "overall_regulatory_assessment": "Moderate Compliance - IPO fund utilization issue identified"
+          }
         },
-        "ias_36_impairment": {
-          "applicable": true,
-          "impairment_tests_performed": [
-            {
-              "asset_class": "Trade Receivables",
-              "carrying_amount": "219,737,791",
-              "recoverable_amount": "Not tested separately",
-              "impairment_loss": "None recognized",
-              "key_assumptions": "Management considered all bills receivable as good",
-              "sensitivity_analysis": "None provided",
-              "concerns": [
-                "No impairment despite economic challenges mentioned",
-                "Aging shows BDT 157M >6 months old"
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {
+            "liquidity_ratios": {
+              "current_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "current_assets": "Not fully extractable from provided pages",
+                    "current_liabilities": "Not fully extractable from provided pages",
+                    "ratio": "Not calculable from provided data"
+                  },
+                  "prior_year_1": {
+                    "current_assets": "Not provided",
+                    "current_liabilities": "Not provided",
+                    "ratio": "N/A"
+                  },
+                  "prior_year_2": {
+                    "current_assets": "Not provided",
+                    "current_liabilities": "Not provided",
+                    "ratio": "N/A"
+                  }
+                },
+                "industry_benchmark": "1.5-2.0",
+                "trend_analysis": "Cannot determine from provided data",
+                "risk_assessment": "Cannot assess",
+                "investigation_points": [
+                  "Insufficient data in provided pages"
+                ]
+              },
+              "quick_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "quick_assets": "Not calculable",
+                    "current_liabilities": "Not calculable",
+                    "ratio": "N/A"
+                  },
+                  "prior_year_1": {
+                    "quick_assets": "Not provided",
+                    "current_liabilities": "Not provided",
+                    "ratio": "N/A"
+                  },
+                  "prior_year_2": {
+                    "quick_assets": "Not provided",
+                    "current_liabilities": "Not provided",
+                    "ratio": "N/A"
+                  }
+                },
+                "industry_benchmark": "1.0-1.5",
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess",
+                "investigation_points": [
+                  "Insufficient data in provided pages"
+                ]
+              },
+              "cash_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "cash_equivalents": "79,164,973",
+                    "current_liabilities": "Not fully extractable",
+                    "ratio": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cash declined significantly from prior year",
+                "risk_assessment": "Potential liquidity concern indicated by cash decline"
+              }
+            },
+            "solvency_ratios": {
+              "debt_to_equity": {
+                "calculation": {
+                  "current_year": {
+                    "total_debt": "Not fully extractable (Long-term loan: 11,689,324 + current portion: 3,740,584 + lease liability: 54,963)",
+                    "total_equity": "1,757,812,537",
+                    "ratio": "Approx. 0.009 if only identifiable debt considered"
+                  },
+                  "prior_year_1": {
+                    "total_debt": "Not fully extractable",
+                    "total_equity": "1,758,558,616",
+                    "ratio": "N/A"
+                  },
+                  "prior_year_2": {
+                    "total_debt": "Not provided",
+                    "total_equity": "Not provided",
+                    "ratio": "N/A"
+                  }
+                },
+                "covenant_limits": "Not disclosed",
+                "trend_analysis": "Low apparent debt level from provided data",
+                "risk_assessment": "Low Risk based on limited debt visibility",
+                "investigation_points": [
+                  "Complete debt picture not available in provided pages"
+                ]
+              },
+              "debt_to_assets": {
+                "calculation": {
+                  "current_year": {
+                    "total_debt": "Not fully known",
+                    "total_assets": "Not fully known",
+                    "ratio": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess"
+              },
+              "interest_coverage": {
+                "calculation": {
+                  "current_year": {
+                    "ebit": "Not directly provided",
+                    "interest_expense": "Not directly provided",
+                    "ratio": "Not calculable"
+                  },
+                  "prior_year_1": {
+                    "ebit": "Not provided",
+                    "interest_expense": "Not provided",
+                    "ratio": "N/A"
+                  },
+                  "prior_year_2": {
+                    "ebit": "Not provided",
+                    "interest_expense": "Not provided",
+                    "ratio": "N/A"
+                  }
+                },
+                "minimum_requirement": "Typically >1.5",
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess",
+                "investigation_points": [
+                  "Financial expenses line item not detailed in provided pages"
+                ]
+              }
+            },
+            "efficiency_ratios": {
+              "inventory_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "cogs": "157,203,771",
+                    "average_inventory": "Not calculable (Closing: 348,618,026, Opening: Not provided in extract)",
+                    "ratio": "Not calculable",
+                    "days": "Not calculable"
+                  },
+                  "prior_year_1": {
+                    "cogs": "273,423,645",
+                    "average_inventory": "Not calculable",
+                    "ratio": "N/A",
+                    "days": "N/A"
+                  },
+                  "prior_year_2": {
+                    "cogs": "Not provided",
+                    "average_inventory": "Not provided",
+                    "ratio": "N/A",
+                    "days": "N/A"
+                  }
+                },
+                "industry_benchmark": "Construction: 4-6 times annually",
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Inventory value high (BDT 348.6M) relative to COGS",
+                "investigation_points": [
+                  "High inventory carrying amount may indicate slow turnover"
+                ]
+              },
+              "receivables_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "credit_sales": "Assume all sales on credit: 187,729,653",
+                    "average_receivables": "Not calculable (Closing: 219,737,791, Opening: 154,947,185)",
+                    "ratio": "Approx. 1.0 if using closing receivables",
+                    "days": "Approx. 365"
+                  }
+                },
+                "trend_analysis": "Poor collection efficiency if ratio ~1.0",
+                "risk_assessment": "High Risk - Receivables collection may take a year"
+              },
+              "asset_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "revenue": "187,729,653",
+                    "average_total_assets": "Not calculable",
+                    "ratio": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess"
+              },
+              "working_capital_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "revenue": "187,729,653",
+                    "average_working_capital": "Not calculable",
+                    "ratio": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess"
+              }
+            },
+            "profitability_ratios": {
+              "gross_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "gross_profit": "30,525,882 (Revenue 187,729,653 - COGS 157,203,771)",
+                    "revenue": "187,729,653",
+                    "percentage": "16.26%"
+                  },
+                  "prior_year_1": {
+                    "gross_profit": "60,019,824 (Revenue 333,443,469 - COGS 273,423,645)",
+                    "revenue": "333,443,469",
+                    "percentage": "18.00%"
+                  },
+                  "prior_year_2": {
+                    "gross_profit": "Not provided",
+                    "revenue": "Not provided",
+                    "percentage": "N/A"
+                  }
+                },
+                "industry_benchmark": "Construction: 10-20%",
+                "trend_analysis": "Margin declined slightly",
+                "risk_assessment": "Moderate Risk - Margin compression",
+                "investigation_points": [
+                  "Decrease in gross profit margin"
+                ]
+              },
+              "operating_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "operating_profit": "Not directly separable from provided data",
+                    "revenue": "187,729,653",
+                    "percentage": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess"
+              },
+              "net_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "2,834,891",
+                    "revenue": "187,729,653",
+                    "percentage": "1.51%"
+                  },
+                  "prior_year_1": {
+                    "net_profit": "4,584,282",
+                    "revenue": "333,443,469",
+                    "percentage": "1.37%"
+                  },
+                  "prior_year_2": {
+                    "net_profit": "Not provided",
+                    "revenue": "Not provided",
+                    "percentage": "N/A"
+                  }
+                },
+                "industry_benchmark": "Construction: 3-8%",
+                "trend_analysis": "Very low but slightly improved margin percentage",
+                "risk_assessment": "High Risk - Very thin net margins",
+                "investigation_points": [
+                  "Profitability is minimal"
+                ]
+              },
+              "return_on_assets": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "2,834,891",
+                    "average_total_assets": "Not calculable",
+                    "percentage": "Not calculable"
+                  }
+                },
+                "trend_analysis": "Cannot determine",
+                "risk_assessment": "Cannot assess"
+              },
+              "return_on_equity": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "2,834,891",
+                    "average_shareholders_equity": "1,758,185,577",
+                    "percentage": "0.16%"
+                  },
+                  "prior_year_1": {
+                    "net_profit": "4,584,282",
+                    "average_shareholders_equity": "Not calculable",
+                    "percentage": "N/A"
+                  },
+                  "prior_year_2": {
+                    "net_profit": "Not provided",
+                    "average_shareholders_equity": "Not provided",
+                    "percentage": "N/A"
+                  }
+                },
+                "cost_of_equity": "Estimated 12-15% in Bangladesh",
+                "trend_analysis": "Extremely low return",
+                "risk_assessment": "Critical Risk - ROE far below cost of equity, destroying shareholder value",
+                "investigation_points": [
+                  "ROE of 0.16% is extremely poor"
+                ]
+              }
+            },
+            "market_ratios": {
+              "earnings_per_share": {
+                "calculation": {
+                  "current_year": {
+                    "basic": "0.03",
+                    "diluted": "Not provided"
+                  }
+                },
+                "disclosed_in_fs": true
+              },
+              "price_to_earnings": {
+                "calculation": {
+                  "current_year": {
+                    "market_price": "Not provided in document",
+                    "eps": "0.03",
+                    "ratio": "Not calculable"
+                  }
+                }
+              },
+              "book_value_per_share": {
+                "calculation": {
+                  "current_year": {
+                    "shareholders_equity": "1,757,812,537",
+                    "number_of_shares": "102,600,000",
+                    "value": "17.13"
+                  }
+                }
+              }
+            }
+          },
+          "earnings_quality_analysis": {
+            "accruals_analysis": {
+              "calculations": {
+                "current_year": {
+                  "net_income": "2,834,891",
+                  "operating_cash_flow": "40,530,943",
+                  "total_accruals": "-37,696,052",
+                  "accruals_to_net_income": "-1330%"
+                },
+                "prior_year_1": {
+                  "net_income": "4,584,282",
+                  "operating_cash_flow": "143,769,580",
+                  "total_accruals": "-139,185,298",
+                  "accruals_to_net_income": "-3036%"
+                },
+                "prior_year_2": {
+                  "net_income": "Not provided",
+                  "operating_cash_flow": "Not provided",
+                  "total_accruals": "N/A",
+                  "accruals_to_net_income": "N/A"
+                }
+              },
+              "trend_analysis": "Large negative accruals, cash flow significantly exceeds earnings",
+              "quality_assessment": "Low Earnings Quality - Cash flows not translating proportionally to profits",
+              "red_flags": [
+                "Large negative accruals suggest aggressive expense recognition or deferred revenue",
+                "Operating cash flow 14x net income in current year"
               ]
             },
-            {
-              "asset_class": "Inventory",
-              "carrying_amount": "348,618,026",
-              "recoverable_amount": "Lower of cost and NRV applied",
-              "impairment_loss": "None recognized",
-              "key_assumptions": "No indication of impairment per management",
-              "sensitivity_analysis": "None provided",
-              "concerns": [
-                "High inventory value with declining revenue"
-              ]
+            "cash_flow_pattern_analysis": {
+              "operating_cash_flow_trend": "Drastic decline but still positive",
+              "investing_cash_flow_pattern": "Not provided in extract",
+              "financing_cash_flow_pattern": "Not provided in extract",
+              "free_cash_flow_calculation": {
+                "current_year": "Not calculable",
+                "prior_year_1": "Not calculable",
+                "prior_year_2": "N/A"
+              },
+              "sustainability_assessment": "Concerning - Operating cash flow declined 72% year-over-year"
             }
-          ],
-          "goodwill_impairment_testing": {
-            "performed": false,
-            "cash_generating_units": "Not disclosed",
-            "key_assumptions": "N/A",
-            "concerns": [
-              "No disclosure of goodwill"
-            ]
           },
-          "overall_compliance": "Questionable - No impairment on aged receivables despite economic challenges"
-        },
-        "ias_37_provisions": {
-          "applicable": true,
-          "provisions_disclosed": [
-            {
-              "type": "Provision for expenses",
-              "amount": "Not separately quantified in extract",
-              "recognition_criteria_met": "Implied",
-              "measurement_basis": "Best estimate",
-              "concerns": [
-                "Limited disclosure"
-              ]
-            }
-          ],
-          "contingent_liabilities": {
-            "disclosed": false,
-            "material_items": [
-              "No contingent liabilities disclosed"
+          "vertical_and_horizontal_analysis": {
+            "common_size_income_statement": [
+              {
+                "line_item": "Cost of Goods Sold",
+                "current_year_percentage": "83.74%",
+                "prior_year_1_percentage": "82.00%",
+                "prior_year_2_percentage": "N/A",
+                "significant_variance": false,
+                "variance_explanation": "COGS percentage increased slightly"
+              },
+              {
+                "line_item": "Administrative Expenses",
+                "current_year_percentage": "Not calculable from provided data",
+                "prior_year_1_percentage": "Not calculable",
+                "prior_year_2_percentage": "N/A",
+                "significant_variance": "N/A",
+                "variance_explanation": "N/A"
+              }
             ],
-            "adequacy_of_disclosure": "Adequate if none exist"
+            "common_size_balance_sheet": [
+              {
+                "line_item": "Property, Plant and Equipment",
+                "current_year_percentage": "Not calculable",
+                "prior_year_1_percentage": "Not calculable",
+                "prior_year_2_percentage": "N/A",
+                "significant_variance": "N/A",
+                "variance_explanation": "N/A"
+              },
+              {
+                "line_item": "Inventory",
+                "current_year_percentage": "Not calculable",
+                "prior_year_1_percentage": "Not calculable",
+                "prior_year_2_percentage": "N/A",
+                "significant_variance": "N/A",
+                "variance_explanation": "N/A"
+              }
+            ],
+            "year_over_year_growth_rates": {
+              "revenue_growth": {
+                "yoy_1": "-43.70%",
+                "yoy_2": "N/A",
+                "cagr_3_year": "N/A"
+              },
+              "profit_growth": {
+                "yoy_1": "-38.16%",
+                "yoy_2": "N/A",
+                "cagr_3_year": "N/A"
+              },
+              "asset_growth": {
+                "yoy_1": "Not calculable",
+                "yoy_2": "N/A",
+                "cagr_3_year": "N/A"
+              },
+              "equity_growth": {
+                "yoy_1": "-0.04%",
+                "yoy_2": "-0.55%",
+                "cagr_3_year": "-0.30%"
+              }
+            }
+          }
+        },
+        "phase_3_ifrs_compliance_detailed": {
+          "accounting_policies_review": {
+            "significant_policies_disclosed": [
+              {
+                "policy_area": "Revenue Recognition",
+                "disclosed_policy": "Recognized based on point of delivery for steel components and when performance obligations satisfied for rest",
+                "ifrs_standard": "IFRS 15",
+                "compliance_assessment": "Compliant",
+                "departures_identified": []
+              },
+              {
+                "policy_area": "Property, Plant and Equipment",
+                "disclosed_policy": "At cost less depreciation, using reducing balance method",
+                "ifrs_standard": "IAS 16",
+                "compliance_assessment": "Compliant",
+                "departures_identified": []
+              },
+              {
+                "policy_area": "Inventory",
+                "disclosed_policy": "Lower of cost and net realizable value, weighted average cost",
+                "ifrs_standard": "IAS 2",
+                "compliance_assessment": "Compliant",
+                "departures_identified": []
+              }
+            ],
+            "changes_in_accounting_policies": [
+              {
+                "policy_changed": "No changes disclosed",
+                "reason_for_change": "N/A",
+                "impact_disclosed": false,
+                "ias_8_compliance": "Compliant"
+              }
+            ],
+            "ias_8_hierarchy_compliance": "Compliant - No policy changes or errors disclosed"
           },
-          "overall_compliance": "Partially Compliant - Limited provision disclosures"
-        }
-      },
-      "detailed_ifrs_compliance_matrix": [
-        {
-          "standard_code": "IAS 1",
-          "standard_name": "Presentation of Financial Statements",
-          "applicability": "Yes",
-          "page_reference": "Page 11, Note 2.1",
-          "compliance_status": "Compliant",
-          "specific_requirements_checked": [
+          "key_standards_compliance_check": {
+            "ifrs_15_revenue_recognition": {
+              "applicable": true,
+              "revenue_streams_identified": [
+                {
+                  "stream": "Steel Building Construction",
+                  "timing_of_recognition": "Point of delivery for steel components; upon satisfaction of performance obligations for rest",
+                  "performance_obligations": "Delivery of steel components; completion of construction services",
+                  "transaction_price_allocation": "Based on contract consideration",
+                  "compliance_assessment": "Compliant"
+                }
+              ],
+              "contract_liabilities": {
+                "disclosed": false,
+                "amount": "Not disclosed",
+                "movement_analysis": "N/A",
+                "concerns": [
+                  "No disclosure of contract liabilities (advances from customers)"
+                ]
+              },
+              "overall_compliance": "Partially Compliant - Missing disclosures"
+            },
+            "ifrs_16_leases": {
+              "applicable": true,
+              "lessee_accounting": {
+                "right_of_use_assets": "Disclosed but amount not in extract",
+                "lease_liabilities": "54,963 (current) + 0 (non-current) = 54,963",
+                "discount_rate_disclosed": false,
+                "lease_term_assumptions": "Not disclosed",
+                "compliance_assessment": "Partially Compliant"
+              },
+              "lessor_accounting": {
+                "operating_leases": "Not applicable",
+                "finance_leases": "Not applicable",
+                "compliance_assessment": "N/A"
+              },
+              "disclosure_completeness": "Insufficient - Missing discount rates and lease terms"
+            },
+            "ifrs_9_financial_instruments": {
+              "applicable": true,
+              "classification_and_measurement": {
+                "categories_used": [
+                  "Amortized cost for receivables, loans, payables"
+                ],
+                "fair_value_hierarchy_disclosures": "Limited disclosure",
+                "impairment_model_applied": "Expected credit loss model mentioned",
+                "compliance_assessment": "Partially Compliant"
+              },
+              "hedge_accounting": {
+                "applied": false,
+                "effectiveness_assessment": "N/A",
+                "compliance_assessment": "N/A"
+              },
+              "overall_compliance": "Partially Compliant - ECL disclosure limited"
+            },
+            "ias_36_impairment": {
+              "applicable": true,
+              "impairment_tests_performed": [
+                {
+                  "asset_class": "Trade Receivables",
+                  "carrying_amount": "219,737,791",
+                  "recoverable_amount": "Not tested separately",
+                  "impairment_loss": "None recognized",
+                  "key_assumptions": "Management considered all bills receivable as good",
+                  "sensitivity_analysis": "None provided",
+                  "concerns": [
+                    "No impairment despite economic challenges mentioned",
+                    "Aging shows BDT 157M >6 months old"
+                  ]
+                },
+                {
+                  "asset_class": "Inventory",
+                  "carrying_amount": "348,618,026",
+                  "recoverable_amount": "Lower of cost and NRV applied",
+                  "impairment_loss": "None recognized",
+                  "key_assumptions": "No indication of impairment per management",
+                  "sensitivity_analysis": "None provided",
+                  "concerns": [
+                    "High inventory value with declining revenue"
+                  ]
+                }
+              ],
+              "goodwill_impairment_testing": {
+                "performed": false,
+                "cash_generating_units": "Not disclosed",
+                "key_assumptions": "N/A",
+                "concerns": [
+                  "No disclosure of goodwill"
+                ]
+              },
+              "overall_compliance": "Questionable - No impairment on aged receivables despite economic challenges"
+            },
+            "ias_37_provisions": {
+              "applicable": true,
+              "provisions_disclosed": [
+                {
+                  "type": "Provision for expenses",
+                  "amount": "Not separately quantified in extract",
+                  "recognition_criteria_met": "Implied",
+                  "measurement_basis": "Best estimate",
+                  "concerns": [
+                    "Limited disclosure"
+                  ]
+                }
+              ],
+              "contingent_liabilities": {
+                "disclosed": false,
+                "material_items": [
+                  "No contingent liabilities disclosed"
+                ],
+                "adequacy_of_disclosure": "Adequate if none exist"
+              },
+              "overall_compliance": "Partially Compliant - Limited provision disclosures"
+            }
+          },
+          "detailed_ifrs_compliance_matrix": [
             {
-              "requirement": "Complete set of financial statements",
+              "standard_code": "IAS 1",
+              "standard_name": "Presentation of Financial Statements",
+              "applicability": "Yes",
+              "page_reference": "Page 11, Note 2.1",
               "compliance_status": "Compliant",
-              "evidence_location": "Pages 1-10, 19-36",
-              "concerns": "None"
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Complete set of financial statements",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Pages 1-10, 19-36",
+                  "concerns": "None"
+                },
+                {
+                  "requirement": "Fair presentation",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Auditor's Opinion, Page 1",
+                  "concerns": "None"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "N/A"
             },
             {
-              "requirement": "Fair presentation",
+              "standard_code": "IAS 2",
+              "standard_name": "Inventories",
+              "applicability": "Yes",
+              "page_reference": "Page 14, Note 3.7.2; Page 20, Note 8.01",
               "compliance_status": "Compliant",
-              "evidence_location": "Auditor's Opinion, Page 1",
-              "concerns": "None"
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Measurement at lower of cost and NRV",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 3.7.2",
+                  "concerns": "None"
+                },
+                {
+                  "requirement": "Cost formula disclosure",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 3.7.2",
+                  "concerns": "None"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "N/A"
             }
           ],
-          "material_departures": [],
-          "ias_1_para_19_24_implication": "N/A"
+          "tax_compliance_check": {
+            "ias_12_application": {
+              "current_tax": {
+                "calculation_basis": "Income Tax Act 2023, Finance Act",
+                "reconciliation_provided": true,
+                "compliance_assessment": "Compliant"
+              },
+              "deferred_tax": {
+                "assets_disclosed": "Not mentioned in extract",
+                "liabilities_disclosed": "Not mentioned in extract",
+                "temporary_differences_identified": "Not discussed in extract",
+                "tax_rate_disclosed": true,
+                "compliance_assessment": "Cannot assess from extract"
+              },
+              "tax_contingencies": {
+                "disclosed": false,
+                "uncertain_tax_positions": "Not disclosed",
+                "ifric_23_compliance": "Cannot assess"
+              }
+            },
+            "bangladesh_income_tax_act_2023": {
+              "tax_holidays_availed": "Not disclosed",
+              "incentives_claimed": "Not disclosed",
+              "withholding_tax_compliance": "Not disclosed",
+              "advance_tax_payments": "Not disclosed in extract",
+              "compliance_assessment": "Cannot assess from extract"
+            }
+          }
         },
-        {
-          "standard_code": "IAS 2",
-          "standard_name": "Inventories",
-          "applicability": "Yes",
-          "page_reference": "Page 14, Note 3.7.2; Page 20, Note 8.01",
-          "compliance_status": "Compliant",
-          "specific_requirements_checked": [
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "Khan Wahab Shafique Rahman & Co. Chartered Accountants",
+              "firm_registration_number": "11970",
+              "audit_tenure_years": "Not disclosed",
+              "rotation_compliance": "Not disclosed"
+            },
+            "audit_opinion": {
+              "opinion_type": "Unmodified with Emphasis of Matters",
+              "basis_for_opinion": "Audit conducted in accordance with ISAs, sufficient appropriate evidence obtained",
+              "modified_opinion_reasons": [
+                "None - opinion is unmodified"
+              ]
+            },
+            "key_audit_matters": [
+              {
+                "matter": "Revenue Recognition",
+                "auditor_response": "Tested controls, traced performance obligations, inspected source documents",
+                "frc_risk_assessment": "High Risk - Revenue declined 43.7%",
+                "follow_up_required": true
+              },
+              {
+                "matter": "Valuation of Inventory and Project in Progress",
+                "auditor_response": "Verified management assumptions, checked physical condition, reviewed provisioning",
+                "frc_risk_assessment": "High Risk - High inventory value (BDT 348.6M + BDT 164.9M)",
+                "follow_up_required": true
+              },
+              {
+                "matter": "Recoverability Assessment of Trade Receivables",
+                "auditor_response": "Tested ageing accuracy, evaluated allowance policy, confirmed balances",
+                "frc_risk_assessment": "High Risk - BDT 219.7M receivables with BDT 157M >6 months old",
+                "follow_up_required": true
+              }
+            ],
+            "going_concern_assessment": {
+              "material_uncertainty_disclosed": false,
+              "period_assessed": "Foreseeable future",
+              "management_plans_disclosed": [
+                "Adequate resources to continue"
+              ],
+              "auditor_conclusion": "Going concern appropriate",
+              "frc_assessment": "Reasonable - Despite challenges, no going concern threat indicated"
+            },
+            "emphasis_of_matter": {
+              "paragraphs_present": true,
+              "matters_emphasized": [
+                "EPS significantly fell due to decreased revenue",
+                "IPO funds not utilized within stipulated time, extension applied",
+                "Dredger capitalization after installation delay",
+                "IPO subscription money untraceable but reflected in cash",
+                "Some purchases/payments made outside banking channel"
+              ],
+              "implications": "Operational and compliance issues highlighted"
+            },
+            "other_matter": {
+              "paragraphs_present": false,
+              "matters_disclosed": [],
+              "implications": "None"
+            },
+            "isa_compliance_check": {
+              "isa_700_compliance": "Compliant",
+              "isa_701_compliance": "Compliant",
+              "isa_570_compliance": "Compliant",
+              "identified_deficiencies": [
+                "None identified from report"
+              ]
+            }
+          },
+          "corporate_governance_review": {
+            "board_structure": {
+              "board_size": "Not disclosed in extract",
+              "independent_directors": "Not disclosed",
+              "female_directors": "Not disclosed",
+              "bsec_compliance": "Cannot assess from extract",
+              "concerns": [
+                "Limited governance disclosures in provided pages"
+              ]
+            },
+            "committee_effectiveness": {
+              "audit_committee": {
+                "composition": "Not disclosed",
+                "meetings_held": "Not disclosed",
+                "key_activities": [
+                  "Not disclosed"
+                ],
+                "effectiveness_assessment": "Cannot assess"
+              },
+              "remuneration_committee": {
+                "composition": "Not disclosed",
+                "policies_disclosed": false,
+                "effectiveness_assessment": "Cannot assess"
+              },
+              "nominating_committee": {
+                "composition": "Not disclosed",
+                "activities": [
+                  "Not disclosed"
+                ],
+                "effectiveness_assessment": "Cannot assess"
+              }
+            },
+            "internal_controls": {
+              "management_assertion": "Implied in auditor's report",
+              "auditor_opinion": "No opinion on internal controls",
+              "weaknesses_identified": [
+                "Payments made outside banking channel",
+                "IPO fund tracking issue"
+              ],
+              "frc_assessment": "Moderate - Some control weaknesses identified"
+            },
+            "risk_management": {
+              "framework_disclosed": true,
+              "key_risks_identified": [
+                "Credit risk (trade receivables)",
+                "Liquidity risk",
+                "Market risk (currency, interest rate)"
+              ],
+              "mitigation_strategies": [
+                "Credit policy",
+                "Cash flow forecasting",
+                "Related company support in stressed conditions"
+              ],
+              "adequacy_assessment": "Adequate - Framework disclosed with mitigation strategies"
+            },
+            "related_party_transactions": {
+              "ias_24_disclosures": {
+                "completeness": "Partially Complete",
+                "arm_length_assessment": "Claims normal course of business at arm's length",
+                "board_approval_process": "Not disclosed",
+                "concerns": [
+                  "Limited transaction details in provided extract"
+                ]
+              },
+              "material_transactions": [
+                {
+                  "related_party": "Directors (various)",
+                  "nature": "Remuneration, Board Meeting Fees",
+                  "amount": "Total BDT 1,636,000 (fees) + BDT 3,000,000 (remuneration balance)",
+                  "terms": "Normal business",
+                  "arm_length_justification": "Normal course of business",
+                  "concern_level": "Low"
+                }
+              ]
+            },
+            "director_remuneration": {
+              "disclosure_completeness": "Partial",
+              "performance_linkage": "Not disclosed",
+              "shareholder_approval": "Not disclosed",
+              "concerns": [
+                "Limited disclosure of director compensation details"
+              ]
+            }
+          }
+        },
+        "phase_5_synthesis_and_findings": {
+          "material_departures_summary": [
             {
-              "requirement": "Measurement at lower of cost and NRV",
-              "compliance_status": "Compliant",
-              "evidence_location": "Note 3.7.2",
-              "concerns": "None"
+              "issue_id": "MD-001",
+              "issue_description": "IPO funds not utilized within stipulated timeframe, requiring extension from BSEC",
+              "relevant_standard": "Securities and Exchange Rules 2020",
+              "page_reference": "Page 1, Emphasis of Matter #2",
+              "extract_from_fs": "The total IPO Fund was not utilized within the stipulated time and the company has applied further time extension to Bangladesh securities exchange commission up to December 2024.",
+              "materiality_assessment": "Material",
+              "financial_impact": "IPO fund amount not specified in extract",
+              "recommended_action": "Ensure timely utilization of IPO funds or obtain formal extension"
             },
             {
-              "requirement": "Cost formula disclosure",
-              "compliance_status": "Compliant",
-              "evidence_location": "Note 3.7.2",
-              "concerns": "None"
+              "issue_id": "MD-002",
+              "issue_description": "Untraceable IPO subscription money (USD 1,674.83) reflected in cash instead of liabilities",
+              "relevant_standard": "IAS 1, IAS 8",
+              "page_reference": "Page 1, Emphasis of Matter #4; Note 18.01",
+              "extract_from_fs": "An amount of USD 1,674.83 equivalent to BDT 197,630 was received in FC Account for IPO that remain untraceable by the company but was reflected in cash & cash equivalent as against to other liabilities.",
+              "materiality_assessment": "Material due to misclassification",
+              "financial_impact": "BDT 197,630",
+              "recommended_action": "Reclassify to appropriate liability account and investigate"
+            },
+            {
+              "issue_id": "MD-003",
+              "issue_description": "Purchases and payments made outside banking channel",
+              "relevant_standard": "Internal Control, Regulatory Compliance",
+              "page_reference": "Page 1, Emphasis of Matter #5",
+              "extract_from_fs": "Some items of purchase and payments were made other than banking channel.",
+              "materiality_assessment": "Material",
+              "financial_impact": "Amount not specified",
+              "recommended_action": "Strengthen internal controls over cash disbursements"
             }
           ],
-          "material_departures": [],
-          "ias_1_para_19_24_implication": "N/A"
-        }
-      ],
-      "tax_compliance_check": {
-        "ias_12_application": {
-          "current_tax": {
-            "calculation_basis": "Income Tax Act 2023, Finance Act",
-            "reconciliation_provided": true,
-            "compliance_assessment": "Compliant"
-          },
-          "deferred_tax": {
-            "assets_disclosed": "Not mentioned in extract",
-            "liabilities_disclosed": "Not mentioned in extract",
-            "temporary_differences_identified": "Not discussed in extract",
-            "tax_rate_disclosed": true,
-            "compliance_assessment": "Cannot assess from extract"
-          },
-          "tax_contingencies": {
-            "disclosed": false,
-            "uncertain_tax_positions": "Not disclosed",
-            "ifric_23_compliance": "Cannot assess"
-          }
-        },
-        "bangladesh_income_tax_act_2023": {
-          "tax_holidays_availed": "Not disclosed",
-          "incentives_claimed": "Not disclosed",
-          "withholding_tax_compliance": "Not disclosed",
-          "advance_tax_payments": "Not disclosed in extract",
-          "compliance_assessment": "Cannot assess from extract"
-        }
-      }
-    },
-    "phase_4_audit_governance_verification": {
-      "audit_report_analysis": {
-        "auditor_information": {
-          "firm_name": "Khan Wahab Shafique Rahman & Co. Chartered Accountants",
-          "firm_registration_number": "11970",
-          "audit_tenure_years": "Not disclosed",
-          "rotation_compliance": "Not disclosed"
-        },
-        "audit_opinion": {
-          "opinion_type": "Unmodified with Emphasis of Matters",
-          "basis_for_opinion": "Audit conducted in accordance with ISAs, sufficient appropriate evidence obtained",
-          "modified_opinion_reasons": [
-            "None - opinion is unmodified"
-          ]
-        },
-        "key_audit_matters": [
-          {
-            "matter": "Revenue Recognition",
-            "auditor_response": "Tested controls, traced performance obligations, inspected source documents",
-            "frc_risk_assessment": "High Risk - Revenue declined 43.7%",
-            "follow_up_required": true
-          },
-          {
-            "matter": "Valuation of Inventory and Project in Progress",
-            "auditor_response": "Verified management assumptions, checked physical condition, reviewed provisioning",
-            "frc_risk_assessment": "High Risk - High inventory value (BDT 348.6M + BDT 164.9M)",
-            "follow_up_required": true
-          },
-          {
-            "matter": "Recoverability Assessment of Trade Receivables",
-            "auditor_response": "Tested ageing accuracy, evaluated allowance policy, confirmed balances",
-            "frc_risk_assessment": "High Risk - BDT 219.7M receivables with BDT 157M >6 months old",
-            "follow_up_required": true
-          }
-        ],
-        "going_concern_assessment": {
-          "material_uncertainty_disclosed": false,
-          "period_assessed": "Foreseeable future",
-          "management_plans_disclosed": [
-            "Adequate resources to continue"
-          ],
-          "auditor_conclusion": "Going concern appropriate",
-          "frc_assessment": "Reasonable - Despite challenges, no going concern threat indicated"
-        },
-        "emphasis_of_matter": {
-          "paragraphs_present": true,
-          "matters_emphasized": [
-            "EPS significantly fell due to decreased revenue",
-            "IPO funds not utilized within stipulated time, extension applied",
-            "Dredger capitalization after installation delay",
-            "IPO subscription money untraceable but reflected in cash",
-            "Some purchases/payments made outside banking channel"
-          ],
-          "implications": "Operational and compliance issues highlighted"
-        },
-        "other_matter": {
-          "paragraphs_present": false,
-          "matters_disclosed": [],
-          "implications": "None"
-        },
-        "isa_compliance_check": {
-          "isa_700_compliance": "Compliant",
-          "isa_701_compliance": "Compliant",
-          "isa_570_compliance": "Compliant",
-          "identified_deficiencies": [
-            "None identified from report"
-          ]
-        }
-      },
-      "corporate_governance_review": {
-        "board_structure": {
-          "board_size": "Not disclosed in extract",
-          "independent_directors": "Not disclosed",
-          "female_directors": "Not disclosed",
-          "bsec_compliance": "Cannot assess from extract",
-          "concerns": [
-            "Limited governance disclosures in provided pages"
-          ]
-        },
-        "committee_effectiveness": {
-          "audit_committee": {
-            "composition": "Not disclosed",
-            "meetings_held": "Not disclosed",
-            "key_activities": [
-              "Not disclosed"
+          "risk_factor_consolidation": {
+            "high_risk_factors": [
+              {
+                "risk_category": "Operational Risk",
+                "risk_description": "43.7% revenue decline due to global economic crisis and domestic slowdown",
+                "source": "Note 35.01, Income Statement",
+                "potential_impact": "Business sustainability threat",
+                "mitigation_status": "No effective turnaround disclosed"
+              },
+              {
+                "risk_category": "Financial Risk",
+                "risk_description": "Extremely low ROE (0.16%) far below cost of equity",
+                "source": "ROE Calculation",
+                "potential_impact": "Shareholder value destruction",
+                "mitigation_status": "No improvement plan disclosed"
+              },
+              {
+                "risk_category": "Liquidity Risk",
+                "risk_description": "Cash declined 55.5% year-over-year",
+                "source": "Cash Flow Statement, Note 11.00",
+                "potential_impact": "Short-term obligation meeting difficulty",
+                "mitigation_status": "Positive operating cash flow but declining"
+              }
             ],
-            "effectiveness_assessment": "Cannot assess"
-          },
-          "remuneration_committee": {
-            "composition": "Not disclosed",
-            "policies_disclosed": false,
-            "effectiveness_assessment": "Cannot assess"
-          },
-          "nominating_committee": {
-            "composition": "Not disclosed",
-            "activities": [
-              "Not disclosed"
+            "medium_risk_factors": [
+              {
+                "risk_category": "Credit Risk",
+                "risk_description": "BDT 157 million receivables (>6 months old) with no impairment",
+                "source": "Note 9.00, Ageing analysis",
+                "potential_impact": "Bad debt losses",
+                "mitigation_status": "Management considers recoverable"
+              },
+              {
+                "risk_category": "Compliance Risk",
+                "risk_description": "IPO fund utilization delay requiring BSEC extension",
+                "source": "Emphasis of Matter #2",
+                "potential_impact": "Regulatory penalties, reputational damage",
+                "mitigation_status": "Extension applied for"
+              },
+              {
+                "risk_category": "Inventory Risk",
+                "risk_description": "High inventory (BDT 348.6M) with declining revenue",
+                "source": "Note 8.00, Inventory valuation",
+                "potential_impact": "Obsolescence, write-downs",
+                "mitigation_status": "No impairment recognized"
+              }
             ],
-            "effectiveness_assessment": "Cannot assess"
-          }
-        },
-        "internal_controls": {
-          "management_assertion": "Implied in auditor's report",
-          "auditor_opinion": "No opinion on internal controls",
-          "weaknesses_identified": [
-            "Payments made outside banking channel",
-            "IPO fund tracking issue"
-          ],
-          "frc_assessment": "Moderate - Some control weaknesses identified"
-        },
-        "risk_management": {
-          "framework_disclosed": true,
-          "key_risks_identified": [
-            "Credit risk (trade receivables)",
-            "Liquidity risk",
-            "Market risk (currency, interest rate)"
-          ],
-          "mitigation_strategies": [
-            "Credit policy",
-            "Cash flow forecasting",
-            "Related company support in stressed conditions"
-          ],
-          "adequacy_assessment": "Adequate - Framework disclosed with mitigation strategies"
-        },
-        "related_party_transactions": {
-          "ias_24_disclosures": {
-            "completeness": "Partially Complete",
-            "arm_length_assessment": "Claims normal course of business at arm's length",
-            "board_approval_process": "Not disclosed",
-            "concerns": [
-              "Limited transaction details in provided extract"
+            "low_risk_factors": [
+              {
+                "risk_category": "Control Risk",
+                "risk_description": "Payments made outside banking channel",
+                "source": "Emphasis of Matter #5",
+                "potential_impact": "Fraud, misappropriation",
+                "mitigation_status": "Can be rectified with control improvements"
+              }
             ]
           },
-          "material_transactions": [
-            {
-              "related_party": "Directors (various)",
-              "nature": "Remuneration, Board Meeting Fees",
-              "amount": "Total BDT 1,636,000 (fees) + BDT 3,000,000 (remuneration balance)",
-              "terms": "Normal business",
-              "arm_length_justification": "Normal course of business",
-              "concern_level": "Low"
-            }
-          ]
-        },
-        "director_remuneration": {
-          "disclosure_completeness": "Partial",
-          "performance_linkage": "Not disclosed",
-          "shareholder_approval": "Not disclosed",
-          "concerns": [
-            "Limited disclosure of director compensation details"
-          ]
+          "going_concern_assessment": {
+            "frc_conclusion": "No Significant Doubt but Monitoring Required",
+            "supporting_factors": [
+              "Positive operating cash flow (BDT 40.5M)",
+              "Adequate equity base (BDT 1.76B)",
+              "Low debt level from visible data",
+              "Auditor's unmodified opinion with going concern basis"
+            ],
+            "contradicting_factors": [
+              "43.7% revenue decline",
+              "55.5% cash balance decline",
+              "Thin profit margins (1.51% net margin)",
+              "Economic challenges highlighted"
+            ],
+            "recommendation": "Monitor closely, develop revenue recovery plan, strengthen cash management"
+          },
+          "overall_assessment": {
+            "fairness_of_view": "Fairly Presented with Qualifications",
+            "compliance_level": "Moderate",
+            "reliability_score": "Moderate",
+            "transparency_rating": "Average",
+            "key_strengths": [
+              "Unmodified audit opinion",
+              "Detailed emphasis of matters highlighting issues",
+              "Comprehensive key audit matters addressed",
+              "Clear accounting policy disclosures"
+            ],
+            "critical_issues": [
+              {
+                "issue": "Significant revenue decline (43.7%) impacting profitability",
+                "priority": "High",
+                "regulatory_implication": "May trigger BSEC inquiry if persistent",
+                "deadline_for_action": "Immediate strategic review"
+              },
+              {
+                "issue": "IPO fund utilization delay requiring regulatory extension",
+                "priority": "High",
+                "regulatory_implication": "BSEC may impose conditions or penalties",
+                "deadline_for_action": "December 2024 (extension deadline)"
+              },
+              {
+                "issue": "Aged receivables (BDT 157M >6 months) with no impairment",
+                "priority": "Medium",
+                "regulatory_implication": "Potential asset overstatement",
+                "deadline_for_action": "Next reporting period"
+              }
+            ],
+            "frc_recommendations": [
+              {
+                "recommendation": "Implement robust turnaround strategy to address revenue decline",
+                "addressed_to": "Management",
+                "timeline": "Immediate",
+                "expected_outcome": "Revenue stabilization and growth"
+              },
+              {
+                "recommendation": "Strengthen internal controls over cash disbursements and IPO fund tracking",
+                "addressed_to": "Management",
+                "timeline": "Within 60 days",
+                "expected_outcome": "Elimination of non-banking channel payments and proper fund utilization"
+              },
+              {
+                "recommendation": "Perform detailed impairment assessment on aged receivables",
+                "addressed_to": "Management & Auditor",
+                "timeline": "Next audit cycle",
+                "expected_outcome": "Appropriate allowance for doubtful debts"
+              },
+              {
+                "recommendation": "Enhance corporate governance disclosures per BSEC requirements",
+                "addressed_to": "Management",
+                "timeline": "Next annual report",
+                "expected_outcome": "Improved transparency and investor confidence"
+              }
+            ]
+          }
         }
       }
-    },
-    "phase_5_synthesis_and_findings": {
-      "material_departures_summary": [
-        {
-          "issue_id": "MD-001",
-          "issue_description": "IPO funds not utilized within stipulated timeframe, requiring extension from BSEC",
-          "relevant_standard": "Securities and Exchange Rules 2020",
-          "page_reference": "Page 1, Emphasis of Matter #2",
-          "extract_from_fs": "The total IPO Fund was not utilized within the stipulated time and the company has applied further time extension to Bangladesh securities exchange commission up to December 2024.",
-          "materiality_assessment": "Material",
-          "financial_impact": "IPO fund amount not specified in extract",
-          "recommended_action": "Ensure timely utilization of IPO funds or obtain formal extension"
-        },
-        {
-          "issue_id": "MD-002",
-          "issue_description": "Untraceable IPO subscription money (USD 1,674.83) reflected in cash instead of liabilities",
-          "relevant_standard": "IAS 1, IAS 8",
-          "page_reference": "Page 1, Emphasis of Matter #4; Note 18.01",
-          "extract_from_fs": "An amount of USD 1,674.83 equivalent to BDT 197,630 was received in FC Account for IPO that remain untraceable by the company but was reflected in cash & cash equivalent as against to other liabilities.",
-          "materiality_assessment": "Material due to misclassification",
-          "financial_impact": "BDT 197,630",
-          "recommended_action": "Reclassify to appropriate liability account and investigate"
-        },
-        {
-          "issue_id": "MD-003",
-          "issue_description": "Purchases and payments made outside banking channel",
-          "relevant_standard": "Internal Control, Regulatory Compliance",
-          "page_reference": "Page 1, Emphasis of Matter #5",
-          "extract_from_fs": "Some items of purchase and payments were made other than banking channel.",
-          "materiality_assessment": "Material",
-          "financial_impact": "Amount not specified",
-          "recommended_action": "Strengthen internal controls over cash disbursements"
-        }
-      ],
-      "risk_factor_consolidation": {
-        "high_risk_factors": [
-          {
-            "risk_category": "Operational Risk",
-            "risk_description": "43.7% revenue decline due to global economic crisis and domestic slowdown",
-            "source": "Note 35.01, Income Statement",
-            "potential_impact": "Business sustainability threat",
-            "mitigation_status": "No effective turnaround disclosed"
-          },
-          {
-            "risk_category": "Financial Risk",
-            "risk_description": "Extremely low ROE (0.16%) far below cost of equity",
-            "source": "ROE Calculation",
-            "potential_impact": "Shareholder value destruction",
-            "mitigation_status": "No improvement plan disclosed"
-          },
-          {
-            "risk_category": "Liquidity Risk",
-            "risk_description": "Cash declined 55.5% year-over-year",
-            "source": "Cash Flow Statement, Note 11.00",
-            "potential_impact": "Short-term obligation meeting difficulty",
-            "mitigation_status": "Positive operating cash flow but declining"
-          }
-        ],
-        "medium_risk_factors": [
-          {
-            "risk_category": "Credit Risk",
-            "risk_description": "BDT 157 million receivables (>6 months old) with no impairment",
-            "source": "Note 9.00, Ageing analysis",
-            "potential_impact": "Bad debt losses",
-            "mitigation_status": "Management considers recoverable"
-          },
-          {
-            "risk_category": "Compliance Risk",
-            "risk_description": "IPO fund utilization delay requiring BSEC extension",
-            "source": "Emphasis of Matter #2",
-            "potential_impact": "Regulatory penalties, reputational damage",
-            "mitigation_status": "Extension applied for"
-          },
-          {
-            "risk_category": "Inventory Risk",
-            "risk_description": "High inventory (BDT 348.6M) with declining revenue",
-            "source": "Note 8.00, Inventory valuation",
-            "potential_impact": "Obsolescence, write-downs",
-            "mitigation_status": "No impairment recognized"
-          }
-        ],
-        "low_risk_factors": [
-          {
-            "risk_category": "Control Risk",
-            "risk_description": "Payments made outside banking channel",
-            "source": "Emphasis of Matter #5",
-            "potential_impact": "Fraud, misappropriation",
-            "mitigation_status": "Can be rectified with control improvements"
-          }
-        ]
-      },
-      "going_concern_assessment": {
-        "frc_conclusion": "No Significant Doubt but Monitoring Required",
-        "supporting_factors": [
-          "Positive operating cash flow (BDT 40.5M)",
-          "Adequate equity base (BDT 1.76B)",
-          "Low debt level from visible data",
-          "Auditor's unmodified opinion with going concern basis"
-        ],
-        "contradicting_factors": [
-          "43.7% revenue decline",
-          "55.5% cash balance decline",
-          "Thin profit margins (1.51% net margin)",
-          "Economic challenges highlighted"
-        ],
-        "recommendation": "Monitor closely, develop revenue recovery plan, strengthen cash management"
-      },
-      "overall_assessment": {
-        "fairness_of_view": "Fairly Presented with Qualifications",
-        "compliance_level": "Moderate",
-        "reliability_score": "Moderate",
-        "transparency_rating": "Average",
-        "key_strengths": [
-          "Unmodified audit opinion",
-          "Detailed emphasis of matters highlighting issues",
-          "Comprehensive key audit matters addressed",
-          "Clear accounting policy disclosures"
-        ],
-        "critical_issues": [
-          {
-            "issue": "Significant revenue decline (43.7%) impacting profitability",
-            "priority": "High",
-            "regulatory_implication": "May trigger BSEC inquiry if persistent",
-            "deadline_for_action": "Immediate strategic review"
-          },
-          {
-            "issue": "IPO fund utilization delay requiring regulatory extension",
-            "priority": "High",
-            "regulatory_implication": "BSEC may impose conditions or penalties",
-            "deadline_for_action": "December 2024 (extension deadline)"
-          },
-          {
-            "issue": "Aged receivables (BDT 157M >6 months) with no impairment",
-            "priority": "Medium",
-            "regulatory_implication": "Potential asset overstatement",
-            "deadline_for_action": "Next reporting period"
-          }
-        ],
-        "frc_recommendations": [
-          {
-            "recommendation": "Implement robust turnaround strategy to address revenue decline",
-            "addressed_to": "Management",
-            "timeline": "Immediate",
-            "expected_outcome": "Revenue stabilization and growth"
-          },
-          {
-            "recommendation": "Strengthen internal controls over cash disbursements and IPO fund tracking",
-            "addressed_to": "Management",
-            "timeline": "Within 60 days",
-            "expected_outcome": "Elimination of non-banking channel payments and proper fund utilization"
-          },
-          {
-            "recommendation": "Perform detailed impairment assessment on aged receivables",
-            "addressed_to": "Management & Auditor",
-            "timeline": "Next audit cycle",
-            "expected_outcome": "Appropriate allowance for doubtful debts"
-          },
-          {
-            "recommendation": "Enhance corporate governance disclosures per BSEC requirements",
-            "addressed_to": "Management",
-            "timeline": "Next annual report",
-            "expected_outcome": "Improved transparency and investor confidence"
-          }
-        ]
-      }
-    }
-  }
-
     }
   }
 }
