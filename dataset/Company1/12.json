@@ -1,0 +1,74 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "12",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "detailed_ifrs_compliance_matrix": [
+          {
+            "standard_code": "IAS 1",
+            "standard_name": "Presentation of Financial Statements",
+            "applicability": "Yes",
+            "page_reference": "Page 11-12, Note 2.1",
+            "compliance_status": "Compliant",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "N/A"
+          },
+          {
+            "standard_code": "IAS 2",
+            "standard_name": "Inventories",
+            "applicability": "Yes",
+            "page_reference": "Page 14-15, 20, Notes 3.7.2, 8.01",
+            "compliance_status": "Compliant",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "N/A"
+          },
+          {
+            "standard_code": "IFRS 15",
+            "standard_name": "Revenue from Contracts with Customers",
+            "applicability": "Yes",
+            "page_reference": "Page 16, Note 3.11; Page 2 KAM",
+            "compliance_status": "Partially Compliant",
+            "material_departures": ["Missing contract liabilities disclosure"],
+            "ias_1_para_19_24_implication": "No disclosure of departure"
+          },
+          {
+            "standard_code": "IAS 36",
+            "standard_name": "Impairment of Assets",
+            "applicability": "Yes",
+            "page_reference": "Page 14, Note 3.5",
+            "compliance_status": "Partially Compliant",
+            "material_departures": ["No impairment on aged receivables >6 months"],
+            "ias_1_para_19_24_implication": "Potential overstatement of assets"
+          },
+          {
+            "standard_code": "IFRS 9",
+            "standard_name": "Financial Instruments",
+            "applicability": "Yes",
+            "page_reference": "Page 12, Note 2.4",
+            "compliance_status": "Partially Compliant",
+            "material_departures": ["No ECL impairment on receivables"],
+            "ias_1_para_19_24_implication": "N/A"
+          }
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "Compliant",
+            "issues": []
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "Compliant (no uncertain positions)",
+            "issues": []
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "Implied compliant",
+            "advance_tax_status": "Advance tax paid",
+            "tax_holidays_or_incentives": ["None disclosed"],
+            "overall_tax_compliance_assessment": "Compliant"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "26",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "frca_executive_summary": {
+          "overall_fairness_assessment": {
+            "true_and_fair_view_conclusion": "",
+            "compliance_level_assessment": "",
+            "reliability_rating": "High/Medium/Low",
+            "basis_for_conclusion": ""
+          },
+          "critical_issues_summary": [
+            {
+              "issue_priority": "Critical/High/Medium",
+              "issue_description": "",
+              "standards_affected": [],
+              "financial_impact": "",
+              "regulatory_implications": "",
+              "frca_recommendation": ""
+            }
+          ],
+          "key_strengths_identified": [],
+          "material_weaknesses_identified": [],
+          "frca_final_recommendations": {
+            "immediate_actions_required": [],
+            "medium_term_improvements": [],
+            "long_term_enhancements": [],
+            "regulatory_reporting_requirements": [],
+            "follow_up_monitoring_needed": true
+          }
+        }
+      }
+    }
+  }
+}

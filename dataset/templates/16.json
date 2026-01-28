@@ -1,0 +1,52 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "16",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [
+          {
+            "issue_id": "MD-XXX",
+            "description": "",
+            "relevant_standard": "",
+            "page_reference": "",
+            "extract_from_fs": "",
+            "materiality": "Material/Immaterial",
+            "financial_impact_estimate": "",
+            "recommended_action": ""
+          }
+        ],
+        "risk_factor_consolidation": {
+          "high_risk": [],
+          "medium_risk": [],
+          "low_risk": []
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "",
+          "supporting_factors": [],
+          "contradicting_factors": [],
+          "recommendation": ""
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "",
+          "overall_ifrs_compliance_level": "",
+          "reliability_scoring_methodology": {
+            "components": {
+              "ifrs_compliance": "",
+              "audit_quality": "",
+              "governance_quality": "",
+              "earnings_quality": "",
+              "disclosure_transparency": ""
+            },
+            "final_score": "",
+            "interpretation": ""
+          },
+          "key_strengths": [],
+          "critical_issues": [],
+          "frc_recommendations": []
+        }
+      }
+    }
+  }
+}

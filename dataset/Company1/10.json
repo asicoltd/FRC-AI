@@ -1,0 +1,123 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "10",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifrs_13_fair_value_measurement": {
+            "fair_value_hierarchy_applied": "Not extensively used",
+            "valuation_techniques": ["Cost approach for PPE"],
+            "unobservable_inputs_disclosed": "Not applicable",
+            "highest_best_use": "N/A",
+            "non_financial_assets_valuation": "Historical cost",
+            "disclosures_complete": "Basic"
+          },
+          "ifrs_14_regulatory_deferral_accounts": {
+            "regulatory_deferral_accounts_applicable": "No",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "presentation": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifrs_15_revenue_from_contracts_with_customers": {
+            "five_step_model_applied": "Yes",
+            "contract_identification": "Written, oral, customary practices",
+            "performance_obligations": "Delivery of steel components, completion of services",
+            "transaction_price_determination": "Contract consideration",
+            "allocation_to_obligations": "Based on standalone selling prices",
+            "revenue_recognition_timing": "Point in time and over time",
+            "contract_assets_liabilities": "Not specifically disclosed",
+            "disclosures_complete": "Partially complete"
+          },
+          "ifrs_16_leases": {
+            "lessee_accounting": {
+              "right_of_use_assets": "Recognized",
+              "lease_liabilities": "BDT 54,963 current",
+              "discount_rate_assumptions": "Not disclosed",
+              "lease_term_assessment": "Not disclosed",
+              "variable_lease_payments": "None",
+              "short_term_leases_exemption": "Applied where applicable"
+            },
+            "lessor_accounting": {
+              "operating_leases": "None",
+              "finance_leases": "None",
+              "manufacturer_dealer_leases": "None",
+              "subleases": "None"
+            },
+            "sale_and_leaseback": "None",
+            "disclosures_complete": "Basic"
+          },
+          "ifrs_17_insurance_contracts": {
+            "insurance_contracts_identified": "None",
+            "measurement_models": ["N/A"],
+            "contractual_service_margin": "N/A",
+            "risk_adjustment": "N/A",
+            "disclosures_complete": "N/A"
+          },
+          "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+            "decommissioning_provisions": "None",
+            "changes_accounting": "N/A",
+            "asset_retirement_obligations": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_2_members_shares_in_cooperative_entities": {
+            "cooperative_entities_applicable": "No",
+            "members_shares_classification": "N/A",
+            "dividend_distribution": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+            "decommissioning_funds": "None",
+            "rights_measurement": "N/A",
+            "contributions_accounting": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+            "waste_electrical_equipment": "Not applicable",
+            "environmental_liabilities": "None",
+            "compliance_obligations": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_7_applying_the_restatement_approach_under_ias_29": {
+            "hyperinflation_restatement": "Not applicable",
+            "comparatives_adjusted": "N/A",
+            "gain_loss_calculation": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_10_interim_financial_reporting_and_impairment": {
+            "interim_impairment_testing": "N/A (annual report)",
+            "reversal_of_impairment": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_12_service_concession_arrangements": {
+            "service_concession_arrangements": "None",
+            "operator_accounting": "N/A",
+            "grantor_accounting": "N/A",
+            "intangible_assets_recognition": "N/A",
+            "financial_asset_recognition": "N/A"
+          },
+          "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+            "defined_benefit_asset_limit": "N/A",
+            "minimum_funding_requirements": "N/A",
+            "available_refunds": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+            "net_investment_hedging": "None",
+            "effectiveness_assessment": "N/A",
+            "exchange_differences_treatment": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_17_distributions_of_non_cash_assets_to_owners": {
+            "non_cash_distributions": "None",
+            "fair_value_measurement": "N/A",
+            "dividend_payable_recognition": "N/A",
+            "disclosures_provided": "N/A"
+          }
+        }
+      }
+    }
+  }
+}

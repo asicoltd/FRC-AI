@@ -1,0 +1,37 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "6",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": "",
+          "debt_to_equity": "",
+          "gross_profit_margin": "",
+          "net_profit_margin": "",
+          "roa": "",
+          "roe": "",
+          "interest_coverage": ""
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": "",
+          "cash_flow_to_earnings": "",
+          "revenue_growth_quality": "",
+          "expense_recognition_pattern": ""
+        },
+        "vertical_and_horizontal_analysis": {
+          "vertical_2023": {
+            "assets_composition": "",
+            "liabilities_composition": ""
+          },
+          "horizontal_growth": {
+            "revenue_growth": "",
+            "asset_growth": "",
+            "debt_growth": ""
+          }
+        }
+      }
+    }
+  }
+}

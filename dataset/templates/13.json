@@ -1,0 +1,16 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "13",
+  "frc_analysis_report": {
+    "entity": {
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [],
+        "revenue_manipulation_indicators": [],
+        "journal_entry_override_risk": "",
+        "override_of_internal_controls_risk": "",
+        "overall_fraud_risk_assessment": ""
+      }
+    }
+  }
+}

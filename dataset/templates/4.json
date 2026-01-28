@@ -1,0 +1,146 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data": {
+        "statement_of_financial_position": [
+          {
+            "year": "YYYY",
+            "assets": [
+              {"item": "Cash and cash equivalents", "amount": "", "note": ""},
+              {"item": "Trade and other receivables", "amount": "", "note": ""},
+              {"item": "Inventories", "amount": "", "note": ""},
+              {"item": "Other current assets", "amount": "", "note": ""},
+              {"item": "Total current assets", "amount": "", "note": ""},
+              {"item": "Property, plant and equipment", "amount": "", "note": ""},
+              {"item": "Intangible assets", "amount": "", "note": ""},
+              {"item": "Investment property", "amount": "", "note": ""},
+              {"item": "Investments in associates", "amount": "", "note": ""},
+              {"item": "Other non-current assets", "amount": "", "note": ""},
+              {"item": "Total non-current assets", "amount": "", "note": ""},
+              {"item": "TOTAL ASSETS", "amount": "", "note": ""}
+            ],
+            "liabilities_and_equity": [
+              {"item": "Trade and other payables", "amount": "", "note": ""},
+              {"item": "Short-term borrowings", "amount": "", "note": ""},
+              {"item": "Current tax payable", "amount": "", "note": ""},
+              {"item": "Other current liabilities", "amount": "", "note": ""},
+              {"item": "Total current liabilities", "amount": "", "note": ""},
+              {"item": "Long-term borrowings", "amount": "", "note": ""},
+              {"item": "Deferred tax liabilities", "amount": "", "note": ""},
+              {"item": "Retirement benefit obligation", "amount": "", "note": ""},
+              {"item": "Other non-current liabilities", "amount": "", "note": ""},
+              {"item": "Total non-current liabilities", "amount": "", "note": ""},
+              {"item": "TOTAL LIABILITIES", "amount": "", "note": ""},
+              {"item": "Share capital", "amount": "", "note": ""},
+              {"item": "Share premium", "amount": "", "note": ""},
+              {"item": "Retained earnings", "amount": "", "note": ""},
+              {"item": "Other reserves", "amount": "", "note": ""},
+              {"item": "TOTAL EQUITY", "amount": "", "note": ""},
+              {"item": "TOTAL LIABILITIES AND EQUITY", "amount": "", "note": ""}
+            ]
+          }
+        ],
+        
+        "statement_of_profit_or_loss_and_other_comprehensive_income": [
+          {
+            "year": "YYYY",
+            "profit_or_loss": [
+              {"item": "Revenue", "amount": "", "note": ""},
+              {"item": "Cost of sales", "amount": "", "note": ""},
+              {"item": "Gross profit", "amount": "", "note": ""},
+              {"item": "Other income", "amount": "", "note": ""},
+              {"item": "Distribution costs", "amount": "", "note": ""},
+              {"item": "Administrative expenses", "amount": "", "note": ""},
+              {"item": "Other expenses", "amount": "", "note": ""},
+              {"item": "Finance costs", "amount": "", "note": ""},
+              {"item": "Share of profit/(loss) of associates", "amount": "", "note": ""},
+              {"item": "Profit before tax", "amount": "", "note": ""},
+              {"item": "Income tax expense", "amount": "", "note": ""},
+              {"item": "PROFIT FOR THE YEAR", "amount": "", "note": ""}
+            ],
+            "other_comprehensive_income": [
+              {"item": "Items that will not be reclassified to profit or loss", "amount": "", "note": ""},
+              {"item": "Remeasurement of defined benefit plans", "amount": "", "note": ""},
+              {"item": "Fair value changes on equity investments", "amount": "", "note": ""},
+              {"item": "Items that may be reclassified to profit or loss", "amount": "", "note": ""},
+              {"item": "Exchange differences on foreign operations", "amount": "", "note": ""},
+              {"item": "Effective portion of cash flow hedges", "amount": "", "note": ""},
+              {"item": "OTHER COMPREHENSIVE INCOME FOR THE YEAR", "amount": "", "note": ""},
+              {"item": "TOTAL COMPREHENSIVE INCOME FOR THE YEAR", "amount": "", "note": ""}
+            ]
+          }
+        ],
+        
+        "statement_of_cash_flows": [
+          {
+            "year": "YYYY",
+            "cash_flows_from_operating_activities": [
+              {"item": "Profit before tax", "amount": "", "note": ""},
+              {"item": "Adjustments for:", "amount": "", "note": ""},
+              {"item": "Depreciation and amortization", "amount": "", "note": ""},
+              {"item": "Finance costs", "amount": "", "note": ""},
+              {"item": "Share of profit of associates", "amount": "", "note": ""},
+              {"item": "Changes in working capital:", "amount": "", "note": ""},
+              {"item": "Increase in trade and other receivables", "amount": "", "note": ""},
+              {"item": "Increase in inventories", "amount": "", "note": ""},
+              {"item": "Increase in trade and other payables", "amount": "", "note": ""},
+              {"item": "Cash generated from operations", "amount": "", "note": ""},
+              {"item": "Interest paid", "amount": "", "note": ""},
+              {"item": "Income tax paid", "amount": "", "note": ""},
+              {"item": "NET CASH FROM OPERATING ACTIVITIES", "amount": "", "note": ""}
+            ],
+            "cash_flows_from_investing_activities": [
+              {"item": "Purchase of property, plant and equipment", "amount": "", "note": ""},
+              {"item": "Proceeds from sale of property, plant and equipment", "amount": "", "note": ""},
+              {"item": "Purchase of intangible assets", "amount": "", "note": ""},
+              {"item": "Investments in associates", "amount": "", "note": ""},
+              {"item": "Interest received", "amount": "", "note": ""},
+              {"item": "Dividends received", "amount": "", "note": ""},
+              {"item": "NET CASH USED IN INVESTING ACTIVITIES", "amount": "", "note": ""}
+            ],
+            "cash_flows_from_financing_activities": [
+              {"item": "Proceeds from issuance of share capital", "amount": "", "note": ""},
+              {"item": "Proceeds from borrowings", "amount": "", "note": ""},
+              {"item": "Repayment of borrowings", "amount": "", "note": ""},
+              {"item": "Dividends paid", "amount": "", "note": ""},
+              {"item": "NET CASH FROM FINANCING ACTIVITIES", "amount": "", "note": ""},
+              {"item": "NET INCREASE/(DECREASE) IN CASH AND CASH EQUIVALENTS", "amount": "", "note": ""},
+              {"item": "Cash and cash equivalents at beginning of year", "amount": "", "note": ""},
+              {"item": "Cash and cash equivalents at end of year", "amount": "", "note": ""}
+            ]
+          }
+        ],
+        
+        "statement_of_changes_in_equity": [
+          {
+            "year": "YYYY",
+            "equity_components": ["Share capital", "Share premium", "Retained earnings", "Other reserves", "Total"],
+            "opening_balance": [
+              {"component": "Share capital", "amount": "", "note": ""},
+              {"component": "Share premium", "amount": "", "note": ""},
+              {"component": "Retained earnings", "amount": "", "note": ""},
+              {"component": "Other reserves", "amount": "", "note": ""},
+              {"component": "TOTAL EQUITY AT BEGINNING OF YEAR", "amount": "", "note": ""}
+            ],
+            "changes_during_year": [
+              {"description": "Profit for the year", "impact_on": "Retained earnings", "amount": "", "note": ""},
+              {"description": "Other comprehensive income", "impact_on": "Other reserves", "amount": "", "note": ""},
+              {"description": "Total comprehensive income for the year", "impact_on": "Multiple", "amount": "", "note": ""},
+              {"description": "Dividends paid", "impact_on": "Retained earnings", "amount": "", "note": ""},
+              {"description": "Issue of share capital", "impact_on": "Share capital", "amount": "", "note": ""},
+              {"description": "Share premium on issue", "impact_on": "Share premium", "amount": "", "note": ""}
+            ],
+            "closing_balance": [
+              {"component": "Share capital", "amount": "", "note": ""},
+              {"component": "Share premium", "amount": "", "note": ""},
+              {"component": "Retained earnings", "amount": "", "note": ""},
+              {"component": "Other reserves", "amount": "", "note": ""},
+              {"component": "TOTAL EQUITY AT END OF YEAR", "amount": "", "note": ""}
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

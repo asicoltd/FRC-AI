@@ -1,0 +1,52 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "25",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "holistic_risk_factor_synthesis": {
+          "financial_risks_from_analysis": {
+            "from_ratio_trends": ["Extremely low ROE (0.16%)", "High inventory days (335)", "Poor receivables collection (427 days)"],
+            "from_accruals_analysis": ["Large negative accruals pattern", "Cash flow significantly exceeds earnings"],
+            "from_cash_flow_patterns": ["Cash declined 55.5% despite positive operating cash flow"],
+            "from_earnings_quality": ["Declining revenue trend", "Thin profit margins"],
+            "consolidated_financial_risk_level": "High"
+          },
+          "operational_risks": {
+            "from_segment_analysis": ["Single segment concentration", "Construction industry cyclicality"],
+            "from_related_party_transactions": ["Basic but compliant"],
+            "from_post_reporting_events": ["No material events"],
+            "from_going_concern_assessment": ["No immediate threat but monitoring required"],
+            "consolidated_operational_risk_level": "Medium"
+          },
+          "compliance_risks": {
+            "from_ifrs_departures": ["Misclassification of IPO money", "No impairment on aged receivables"],
+            "from_regulatory_breaches": ["IPO fund utilization delay", "Payments outside banking channel"],
+            "from_governance_weaknesses": ["No board/committee disclosures", "Weak internal controls"],
+            "from_audit_qualifications": ["Unmodified but with emphasis of matters"],
+            "consolidated_compliance_risk_level": "High"
+          },
+          "key_audit_matters_synthesis": {
+            "kams_identified_by_auditor": ["Revenue Recognition", "Inventory Valuation", "Receivables Recoverability"],
+            "frca_assessment_of_kams": ["Appropriately identified and addressed", "Adequate auditor responses"],
+            "additional_risks_identified": ["Corporate governance deficiencies", "IPO fund management", "Cash management"],
+            "risk_mitigation_assessment": "Partial - Some risks mitigated, others require attention"
+          },
+          "overall_integrated_risk_assessment": {
+            "highest_risk_areas": ["Financial performance decline", "Receivables impairment", "Regulatory compliance"],
+            "medium_risk_areas": ["Corporate governance", "Inventory management", "Cash management"],
+            "low_risk_areas": ["Tax compliance", "Fixed asset accounting", "Related party transactions"],
+            "risk_interconnections": ["Revenue decline → cash flow pressure → working capital issues → compliance risks"],
+            "frca_priority_actions": [
+              "Immediate impairment assessment on receivables",
+              "Corporate governance overhaul",
+              "Revenue recovery strategy development",
+              "Internal controls strengthening"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

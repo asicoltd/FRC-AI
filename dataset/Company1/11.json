@@ -1,0 +1,92 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "11",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+            "debt_equity_swaps": "None",
+            "fair_value_measurement": "N/A",
+            "gain_loss_recognition": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+            "stripping_activity_costs": "Not applicable",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "amortization_method": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_21_levies": {
+            "government_levies": "Taxes and VAT applicable",
+            "recognition_timing": "When obligating event occurs",
+            "measurement_basis": "Best estimate",
+            "disclosures_provided": "Basic"
+          },
+          "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+            "advance_payments_foreign_currency": "IPO subscription in FC account",
+            "exchange_rate_determination": "Transaction date rate",
+            "asset_liability_recognition": "Misclassified as cash instead of liability",
+            "disclosures_provided": "Disclosed as emphasis of matter"
+          },
+          "ifric_23_uncertainty_over_income_tax_treatments": {
+            "uncertain_tax_positions": "None disclosed",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "None",
+            "deferred_tax_impacts": "N/A",
+            "dividend_withholding_taxes": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_7_introduction_of_euro": {
+            "euro_transition_impacts": "Not applicable",
+            "exchange_rate_fixing": "N/A",
+            "rounding_conventions": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+            "government_assistance": "None disclosed",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_15_operating_leases_incentives": {
+            "lease_incentives": "None",
+            "recognition_timing": "N/A",
+            "allocation_over_lease_term": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "tax_status_changes": "None",
+            "deferred_tax_effects": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+            "substance_over_form": "Applied in lease classification",
+            "linked_transactions": "None",
+            "lease_classification": "Finance leases identified",
+            "disclosures_provided": "Basic"
+          },
+          "sic_29_service_concession_arrangements_disclosures": {
+            "service_concession_disclosures": "None",
+            "rights_obligations": "N/A",
+            "revenue_expense_recognition": "N/A",
+            "disclosures_provided": "N/A"
+          },
+          "sic_32_intangible_assets_website_costs": {
+            "website_development_costs": "None capitalized",
+            "recognition_criteria": "Expensed as incurred",
+            "amortization_policy": "N/A",
+            "impairment_testing": "N/A",
+            "disclosures_provided": "N/A"
+          }
+        }
+      }
+    }
+  }
+}

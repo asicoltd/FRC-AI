@@ -1,0 +1,26 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "3",
+  "frc_analysis_report": {
+    "entity": {
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "Profit before tax",
+          "percentage_applied": "5%",
+          "overall_materiality_amount": "Approx BDT 194,877 (5% of BDT 3,897,530)",
+          "performance_materiality_amount": "Not disclosed by auditor",
+          "clearly_trivial_threshold": "Not disclosed"
+        },
+        "qualitative_materiality_considerations": [
+          "Related party transactions",
+          "Regulatory non-compliance (IPO fund utilization)",
+          "Going concern indicators",
+          "Management override risk (payments outside banking channel)",
+          "Fraud risk indicators (untraceable IPO money)"
+        ],
+        "frc_materiality_conclusion": "Materiality appears appropriate. Emphasis of matters in audit report addresses key qualitative material issues including IPO fund delays, untraceable funds, and non-banking channel payments."
+      }
+    }
+  }
+}

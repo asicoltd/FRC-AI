@@ -1,0 +1,35 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "7",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [],
+          "changes_in_accounting_policies": [],
+          "ias_8_hierarchy_compliance": ""
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [
+            {
+              "area": "",
+              "management_assumption": "",
+              "alternative_view": "",
+              "frc_skeptical_assessment": "",
+              "impact_if_changed": ""
+            }
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "",
+              "sensitivity_range": "",
+              "disclosure_adequacy": "",
+              "risk_level": ""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

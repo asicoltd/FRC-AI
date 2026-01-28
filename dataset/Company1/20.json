@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "20",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "standard_by_standard_verification": {
+          "ias_8_compliance_check": {
+            "accounting_policy_hierarchy": {
+              "hierarchy_applied": "IFRS then conceptual framework",
+              "departures_from_ifrs": ["None explicitly disclosed"],
+              "justification_for_departures": "N/A",
+              "compliance_assessment": "Compliant"
+            },
+            "policy_changes_analysis": {
+              "changes_made": [],
+              "retrospective_application": "Not applicable",
+              "impact_quantified": "N/A",
+              "disclosure_adequacy": "Adequate"
+            }
+          },
+          "ias_24_scrutiny": {
+            "related_party_identification": {
+              "parties_identified": ["Directors: Muhammad Shamsul Islam, Mohammad Rafiqul Islam, etc."],
+              "control_relationships": ["Directors control through shareholdings"],
+              "potential_omissions": ["No disclosure of other related parties"],
+              "completeness_assessment": "Partial - Basic compliance only"
+            },
+            "transaction_analysis": {
+              "arm_length_assessment": "Claimed but not demonstrated",
+              "material_transactions": ["Director remuneration BDT 1.5M, Board fees BDT 136,000"],
+              "unusual_terms": ["None disclosed"],
+              "risk_assessment": "Low - Amounts not material relative to company size"
+            },
+            "disclosure_completeness": {
+              "nature_disclosed": "Yes - remuneration, board fees",
+              "amounts_disclosed": "Yes",
+              "balances_outstanding": "Yes - BDT 3M director remuneration payable",
+              "terms_conditions": "Basic",
+              "adequacy_assessment": "Adequate for material transactions"
+            }
+          },
+          "ias_10_events_check": {
+            "adjusting_events_identified": [],
+            "non_adjusting_events_disclosed": ["None material"],
+            "going_concern_updates": "No changes post reporting date",
+            "authorization_date_verification": "28 October 2024 disclosed",
+            "compliance_assessment": "Compliant"
+          }
+        }
+      }
+    }
+  }
+}
