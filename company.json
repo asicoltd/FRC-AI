@@ -1643,7 +1643,9 @@
               "prior_year_1_amount": "23,082,849,063",
               "prior_year_2_amount": "22,334,056,922",
               "notes_reference": "Page 7",
-              "custom_additional_info": {"decline_in_equity": "6.3% year-over-year"}
+              "custom_additional_info": {
+                "decline_in_equity": "6.3% year-over-year"
+              }
             },
             {
               "line_item": "Trade and Other Receivables",
@@ -1653,7 +1655,9 @@
               "prior_year_1_amount": "14,476,985,638",
               "prior_year_2_amount": "15,896,603,198",
               "notes_reference": "Page 7, Note 12",
-              "custom_additional_info": {"high_risk_component": "BDT 651,060,882 from related party with legal uncertainty"}
+              "custom_additional_info": {
+                "high_risk_component": "BDT 651,060,882 from related party with legal uncertainty"
+              }
             }
           ],
           "statement_of_profit_or_loss_and_oci": [
@@ -1664,7 +1668,9 @@
               "prior_year_1_amount": "10,620,866,405",
               "prior_year_2_amount": "Not provided",
               "notes_reference": "Page 9, Note 27",
-              "custom_additional_info": {"drastic_decline": "61.6% year-over-year decrease"}
+              "custom_additional_info": {
+                "drastic_decline": "61.6% year-over-year decrease"
+              }
             },
             {
               "line_item": "Net Profit After Tax",
@@ -1673,7 +1679,9 @@
               "prior_year_1_amount": "342,550,889",
               "prior_year_2_amount": "Not provided",
               "notes_reference": "Page 9",
-              "custom_additional_info": {"loss_magnitude": "Shift from profit to significant loss"}
+              "custom_additional_info": {
+                "loss_magnitude": "Shift from profit to significant loss"
+              }
             },
             {
               "line_item": "Earnings Per Share",
@@ -1682,7 +1690,9 @@
               "prior_year_1_amount": "1.36",
               "prior_year_2_amount": "Not provided",
               "notes_reference": "Page 9, Note 35",
-              "custom_additional_info": {"negative_eps": "First negative EPS reported"}
+              "custom_additional_info": {
+                "negative_eps": "First negative EPS reported"
+              }
             }
           ],
           "statement_of_cash_flows": [
@@ -1693,7 +1703,9 @@
               "prior_year_1_amount": "1,586,555,453",
               "prior_year_2_amount": "Not provided",
               "notes_reference": "Page 13",
-              "custom_additional_info": {"decline": "30.4% decrease in operating cash flow"}
+              "custom_additional_info": {
+                "decline": "30.4% decrease in operating cash flow"
+              }
             },
             {
               "line_item": "Net Cash Used in Investing Activities",
@@ -1702,7 +1714,9 @@
               "prior_year_1_amount": "-1,167,384,476",
               "prior_year_2_amount": "Not provided",
               "notes_reference": "Page 13",
-              "custom_additional_info": {"cwip_investment": "Major component is Capital Work-in-Progress"}
+              "custom_additional_info": {
+                "cwip_investment": "Major component is Capital Work-in-Progress"
+              }
             },
             {
               "line_item": "Cash and Cash Equivalents at End",
@@ -1711,7 +1725,9 @@
               "prior_year_1_amount": "147,730,452",
               "prior_year_2_amount": "130,107,383",
               "notes_reference": "Page 13",
-              "custom_additional_info": {"critical_low": "Only 0.13% of total assets in cash"}
+              "custom_additional_info": {
+                "critical_low": "Only 0.13% of total assets in cash"
+              }
             }
           ],
           "statement_of_changes_in_equity": [
@@ -1739,7 +1755,35 @@
           "reporting_framework": {
             "disclosed_framework": "International Financial Reporting Standards (IFRSs), Companies Act 1994, Securities and Exchange Rules 2020",
             "disclosed_in_notes": "Page 16, Note 2.1",
-            "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 7", "IAS 8", "IAS 10", "IAS 12", "IAS 16", "IAS 19", "IAS 21", "IAS 23", "IAS 24", "IAS 27", "IAS 28", "IAS 32", "IAS 33", "IAS 34", "IAS 36", "IAS 37", "IAS 38", "IFRS 7", "IFRS 8", "IFRS 9", "IFRS 10", "IFRS 12", "IFRS 13", "IFRS 15", "IFRS 16"],
+            "actual_standards_applied": [
+              "IAS 1",
+              "IAS 2",
+              "IAS 7",
+              "IAS 8",
+              "IAS 10",
+              "IAS 12",
+              "IAS 16",
+              "IAS 19",
+              "IAS 21",
+              "IAS 23",
+              "IAS 24",
+              "IAS 27",
+              "IAS 28",
+              "IAS 32",
+              "IAS 33",
+              "IAS 34",
+              "IAS 36",
+              "IAS 37",
+              "IAS 38",
+              "IFRS 7",
+              "IFRS 8",
+              "IFRS 9",
+              "IFRS 10",
+              "IFRS 12",
+              "IFRS 13",
+              "IFRS 15",
+              "IFRS 16"
+            ],
             "discrepancies_identified": [
               "Prior year financials audited by different auditor (Page 3)",
               "Retrospective adjustments without clear IAS 8 explanation"
@@ -1762,7 +1806,9 @@
                 "regulator_name": "National Board of Revenue (NBR)",
                 "jurisdiction": "Bangladesh",
                 "compliance_status": "Pending Assessments Under Appeal",
-                "specific_disclosures_found": ["Multiple tax assessments under appeal (Page 3)"]
+                "specific_disclosures_found": [
+                  "Multiple tax assessments under appeal (Page 3)"
+                ]
               }
             ],
             "regulatory_filings_status": {
@@ -1800,7 +1846,10 @@
                 "industry_benchmark": "1.5-2.0",
                 "trend_analysis": "Stable but declining slightly",
                 "risk_assessment": "Low liquidity risk based on ratio, but high risk due to cash shortage",
-                "investigation_points": ["High receivables inflating current assets", "Low cash balance"]
+                "investigation_points": [
+                  "High receivables inflating current assets",
+                  "Low cash balance"
+                ]
               },
               "quick_ratio": {
                 "calculation": {
@@ -1823,7 +1872,9 @@
                 "industry_benchmark": "1.0-1.5",
                 "trend_analysis": "Declining trend",
                 "risk_assessment": "Moderate risk due to receivables concentration",
-                "investigation_points": ["Receivables represent 86% of quick assets"]
+                "investigation_points": [
+                  "Receivables represent 86% of quick assets"
+                ]
               },
               "cash_ratio": {
                 "calculation": {
@@ -1859,7 +1910,9 @@
                 "covenant_limits": "Not disclosed",
                 "trend_analysis": "Increasing leverage trend",
                 "risk_assessment": "High Risk - Excessive debt levels",
-                "investigation_points": ["Long-term loans increased by BDT 2 billion"]
+                "investigation_points": [
+                  "Long-term loans increased by BDT 2 billion"
+                ]
               },
               "debt_to_assets": {
                 "calculation": {
@@ -1893,7 +1946,9 @@
                 "minimum_requirement": "Typically >1.5",
                 "trend_analysis": "Drastic deterioration from 2.23 to 0.12",
                 "risk_assessment": "Critical Risk - Cannot cover interest expenses",
-                "investigation_points": ["Operating profit declined by 94%"]
+                "investigation_points": [
+                  "Operating profit declined by 94%"
+                ]
               }
             },
             "efficiency_ratios": {
@@ -1921,7 +1976,9 @@
                 "industry_benchmark": "4-6 times annually",
                 "trend_analysis": "Very slow turnover, worsening trend",
                 "risk_assessment": "High Risk - Inventory may be obsolete or overvalued",
-                "investigation_points": ["Inventory days >300 indicates poor management"]
+                "investigation_points": [
+                  "Inventory days >300 indicates poor management"
+                ]
               },
               "receivables_turnover": {
                 "calculation": {
@@ -1980,7 +2037,9 @@
                 "industry_benchmark": "Pharma: 40-60%, Power: 15-25%",
                 "trend_analysis": "Margin improved but on drastically lower revenue",
                 "risk_assessment": "Moderate Risk - Margin improvement may not be sustainable",
-                "investigation_points": ["Power segment reported loss of BDT 195 million"]
+                "investigation_points": [
+                  "Power segment reported loss of BDT 195 million"
+                ]
               },
               "operating_profit_margin": {
                 "calculation": {
@@ -2014,7 +2073,9 @@
                 "industry_benchmark": "Pharma: 10-20%",
                 "trend_analysis": "Drastic deterioration from profit to significant loss",
                 "risk_assessment": "Critical Risk - Company is loss-making",
-                "investigation_points": ["Power segment losses dragging overall profitability"]
+                "investigation_points": [
+                  "Power segment losses dragging overall profitability"
+                ]
               },
               "return_on_assets": {
                 "calculation": {
@@ -2048,7 +2109,9 @@
                 "cost_of_equity": "Estimated 12-15% in Bangladesh",
                 "trend_analysis": "Deteriorated from positive to negative",
                 "risk_assessment": "Critical Risk - Destroying shareholder value",
-                "investigation_points": ["Negative ROE indicates capital erosion"]
+                "investigation_points": [
+                  "Negative ROE indicates capital erosion"
+                ]
               }
             },
             "market_ratios": {
@@ -2105,7 +2168,10 @@
               },
               "trend_analysis": "Consistent negative accruals indicating cash flow exceeds earnings",
               "quality_assessment": "Low Earnings Quality - Cash flows not translating to profits",
-              "red_flags": ["Large negative accruals suggest aggressive accounting", "Cash flow positive but earnings negative"]
+              "red_flags": [
+                "Large negative accruals suggest aggressive accounting",
+                "Cash flow positive but earnings negative"
+              ]
             },
             "cash_flow_pattern_analysis": {
               "operating_cash_flow_trend": "Declining but still positive",
@@ -2195,7 +2261,10 @@
                 "disclosed_policy": "Initially at cost, subsequently land/buildings/machinery at fair value",
                 "ifrs_standard": "IAS 16",
                 "compliance_assessment": "Partially Compliant",
-                "departures_identified": ["Mixed measurement model not typical under IAS 16", "Revaluation in 2008 & 2011 only - not regular"]
+                "departures_identified": [
+                  "Mixed measurement model not typical under IAS 16",
+                  "Revaluation in 2008 & 2011 only - not regular"
+                ]
               }
             ],
             "changes_in_accounting_policies": [
@@ -2231,7 +2300,9 @@
                 "disclosed": false,
                 "amount": "Not disclosed",
                 "movement_analysis": "N/A",
-                "concerns": ["No disclosure of contract liabilities"]
+                "concerns": [
+                  "No disclosure of contract liabilities"
+                ]
               },
               "overall_compliance": "Partially Compliant - Missing disclosures"
             },
@@ -2254,7 +2325,10 @@
             "ifrs_9_financial_instruments": {
               "applicable": true,
               "classification_and_measurement": {
-                "categories_used": ["FVOCI for equity investments", "Amortized cost for receivables and deposits"],
+                "categories_used": [
+                  "FVOCI for equity investments",
+                  "Amortized cost for receivables and deposits"
+                ],
                 "fair_value_hierarchy_disclosures": "Limited disclosure",
                 "impairment_model_applied": "Expected credit loss model for receivables",
                 "compliance_assessment": "Partially Compliant"
@@ -2276,14 +2350,19 @@
                   "impairment_loss": "None recognized",
                   "key_assumptions": "Management considers recoverable",
                   "sensitivity_analysis": "None provided",
-                  "concerns": ["No impairment despite legal uncertainty on BDT 651 million", "Aging not analyzed for impairment"]
+                  "concerns": [
+                    "No impairment despite legal uncertainty on BDT 651 million",
+                    "Aging not analyzed for impairment"
+                  ]
                 }
               ],
               "goodwill_impairment_testing": {
                 "performed": false,
                 "cash_generating_units": "Not disclosed",
                 "key_assumptions": "N/A",
-                "concerns": ["No disclosure of goodwill or impairment testing"]
+                "concerns": [
+                  "No disclosure of goodwill or impairment testing"
+                ]
               },
               "overall_compliance": "Non-Compliant - No proper impairment testing"
             },
@@ -2300,7 +2379,9 @@
               ],
               "contingent_liabilities": {
                 "disclosed": false,
-                "material_items": ["Legal claim for BDT 651 million should be contingent liability"],
+                "material_items": [
+                  "Legal claim for BDT 651 million should be contingent liability"
+                ],
                 "adequacy_of_disclosure": "Inadequate - Material contingent liability not disclosed"
               },
               "overall_compliance": "Non-Compliant - Material contingent liabilities not disclosed"
@@ -2338,7 +2419,9 @@
                   "concerns": "Retrospective adjustments without clear error correction justification"
                 }
               ],
-              "material_departures": ["Retrospective loan recognition and reclassification"],
+              "material_departures": [
+                "Retrospective loan recognition and reclassification"
+              ],
               "ias_1_para_19_24_implication": "Material departure requiring disclosure not provided"
             }
           ],
@@ -2363,8 +2446,12 @@
               }
             },
             "bangladesh_income_tax_act_2023": {
-              "tax_holidays_availed": ["Export incentives"],
-              "incentives_claimed": ["Cash incentive from export sales"],
+              "tax_holidays_availed": [
+                "Export incentives"
+              ],
+              "incentives_claimed": [
+                "Cash incentive from export sales"
+              ],
               "withholding_tax_compliance": "Not disclosed",
               "advance_tax_payments": "339,129,507",
               "compliance_assessment": "Partially Compliant"
@@ -2404,7 +2491,9 @@
             "going_concern_assessment": {
               "material_uncertainty_disclosed": false,
               "period_assessed": "Foreseeable future",
-              "management_plans_disclosed": ["Adequate resources claimed"],
+              "management_plans_disclosed": [
+                "Adequate resources claimed"
+              ],
               "auditor_conclusion": "Going concern appropriate",
               "frc_assessment": "Questionable - Despite losses and cash constraints, no uncertainty disclosed"
             },
@@ -2430,7 +2519,9 @@
               "isa_700_compliance": "Compliant",
               "isa_701_compliance": "Compliant",
               "isa_570_compliance": "Questionable - Going concern assessment may be inadequate",
-              "identified_deficiencies": ["Insufficient skepticism on going concern"]
+              "identified_deficiencies": [
+                "Insufficient skepticism on going concern"
+              ]
             }
           },
           "corporate_governance_review": {
@@ -2439,13 +2530,17 @@
               "independent_directors": "Not disclosed",
               "female_directors": "Not disclosed",
               "bsec_compliance": "Non-Compliant - Insufficient disclosures",
-              "concerns": ["Lack of transparency on board composition"]
+              "concerns": [
+                "Lack of transparency on board composition"
+              ]
             },
             "committee_effectiveness": {
               "audit_committee": {
                 "composition": "Not disclosed",
                 "meetings_held": "Not disclosed",
-                "key_activities": ["Approval of financial statements inferred"],
+                "key_activities": [
+                  "Approval of financial statements inferred"
+                ],
                 "effectiveness_assessment": "Poor - Multiple control failures identified"
               },
               "remuneration_committee": {
@@ -2455,20 +2550,36 @@
               },
               "nominating_committee": {
                 "composition": "Not disclosed",
-                "activities": ["Not disclosed"],
+                "activities": [
+                  "Not disclosed"
+                ],
                 "effectiveness_assessment": "Unknown"
               }
             },
             "internal_controls": {
               "management_assertion": "Implied but not explicitly stated",
               "auditor_opinion": "No opinion on internal controls",
-              "weaknesses_identified": ["Fixed asset register not updated", "Dividend distribution controls failed"],
+              "weaknesses_identified": [
+                "Fixed asset register not updated",
+                "Dividend distribution controls failed"
+              ],
               "frc_assessment": "Weak - Multiple control failures evident"
             },
             "risk_management": {
               "framework_disclosed": true,
-              "key_risks_identified": ["Interest rate risk", "Exchange rate risk", "Industry risk", "Market risk", "Operational risk", "Liquidity risk"],
-              "mitigation_strategies": ["Low debt/equity ratio", "Local currency sales", "Strong marketing"],
+              "key_risks_identified": [
+                "Interest rate risk",
+                "Exchange rate risk",
+                "Industry risk",
+                "Market risk",
+                "Operational risk",
+                "Liquidity risk"
+              ],
+              "mitigation_strategies": [
+                "Low debt/equity ratio",
+                "Local currency sales",
+                "Strong marketing"
+              ],
               "adequacy_assessment": "Inadequate - Risks materialized but mitigation ineffective"
             },
             "related_party_transactions": {
@@ -2476,7 +2587,9 @@
                 "completeness": "Partially Complete",
                 "arm_length_assessment": "Claimed but not demonstrated",
                 "board_approval_process": "Not disclosed",
-                "concerns": ["BDT 651 million to individual without clear business purpose"]
+                "concerns": [
+                  "BDT 651 million to individual without clear business purpose"
+                ]
               },
               "material_transactions": [
                 {
@@ -2493,7 +2606,9 @@
               "disclosure_completeness": "Partial",
               "performance_linkage": "Not disclosed",
               "shareholder_approval": "Not disclosed",
-              "concerns": ["Limited disclosure of director compensation"]
+              "concerns": [
+                "Limited disclosure of director compensation"
+              ]
             }
           }
         },
@@ -2572,7 +2687,10 @@
           },
           "going_concern_assessment": {
             "frc_conclusion": "Significant Doubt Exists",
-            "supporting_factors": ["Positive operating cash flow", "Adequate current ratio"],
+            "supporting_factors": [
+              "Positive operating cash flow",
+              "Adequate current ratio"
+            ],
             "contradicting_factors": [
               "Net loss of BDT 494 million",
               "Negative interest coverage",
@@ -2634,8 +2752,811 @@
             ]
           }
         }
+      },
+      "frc_analysis_report": {
+        "metadata": {
+          "report_id": "FRC-ANL-2024-DSBSL001",
+          "generation_date": "2024-11-12",
+          "analyst_framework_version": "1.0",
+          "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+          "prepared_for": "Financial Reporting Council, Bangladesh",
+          "source_documents": [
+            "Annual Report FY 2023-2024 of Dommage Steel Building Systems Limited",
+            "Independent Auditor's Report by Khan Wahab Shafique Rahman & Co.",
+            "Financial Statements for year ended 30 June 2024",
+            "Comparative financial information for year ended 30 June 2023"
+          ]
+        },
+        "entity": {
+          "entity_id": "C-66036",
+          "entity_profile": {
+            "legal_name": "Dommage Steel Building Systems Limited",
+            "trade_name": "DSBSL",
+            "registration_number": "C-66036 (3527)/07",
+            "industry_sector": "Manufacturing - Steel Building Construction",
+            "listing_status": "Listed",
+            "stock_exchange_symbol": "Not provided",
+            "reporting_currency": "BDT",
+            "financial_year_end": "2024-06-30",
+            "report_publication_date": "2024-10-28"
+          },
+          "materiality_framework": {
+            "quantitative_materiality": {
+              "benchmark_used": "Profit before tax",
+              "percentage_applied": "5%",
+              "overall_materiality_amount": "194877",
+              "performance_materiality_amount": "146158",
+              "clearly_trivial_threshold": "9744"
+            },
+            "qualitative_materiality_considerations": [
+              "IPO fund utilization delay",
+              "Unaccounted IPO subscription money",
+              "Declining revenue and profitability",
+              "Non-banking channel transactions",
+              "Trade receivables recoverability risk"
+            ],
+            "frc_materiality_conclusion": "Materiality appropriately considered with identified qualitative risk factors."
+          },
+          "financial_statements_raw_data_all_from_FS_with_note_each_year": {
+            "statement_of_financial_position": [
+              {
+                "year": "2024",
+                "total_assets": [
+                  "",
+                  ""
+                ],
+                "total_liabilities": [
+                  "",
+                  ""
+                ],
+                "total_equity": [
+                  "1757812537",
+                  "10"
+                ],
+                "property_plant_equipment": [
+                  "",
+                  "4.00"
+                ],
+                "inventories": [
+                  "348618026",
+                  "8.00"
+                ],
+                "trade_receivables": [
+                  "219737791",
+                  "9.00"
+                ],
+                "cash_cash_equivalents": [
+                  "79164973",
+                  "11.00"
+                ],
+                "share_capital": [
+                  "1026000000",
+                  "12.00"
+                ],
+                "retained_earnings": [
+                  "731812537",
+                  "13.00"
+                ]
+              },
+              {
+                "year": "2023",
+                "total_equity": [
+                  "1758558616",
+                  "10"
+                ],
+                "cash_cash_equivalents": [
+                  "177842857",
+                  "11.00"
+                ],
+                "share_capital": [
+                  "1026000000",
+                  "12.00"
+                ],
+                "retained_earnings": [
+                  "732558616",
+                  "13.00"
+                ]
+              }
+            ],
+            "statement_of_profit_or_loss_and_oci": [
+              {
+                "year": "2024",
+                "revenue": [
+                  "187729653",
+                  "25.00"
+                ],
+                "cost_of_sales": [
+                  "157203771",
+                  "26.00"
+                ],
+                "gross_profit": [
+                  "30525882",
+                  ""
+                ],
+                "net_profit_after_tax": [
+                  "2834891",
+                  "10"
+                ],
+                "eps": [
+                  "0.03",
+                  "33.00"
+                ]
+              },
+              {
+                "year": "2023",
+                "revenue": [
+                  "333443469",
+                  "25.00"
+                ],
+                "net_profit_after_tax": [
+                  "4584282",
+                  "10"
+                ],
+                "eps": [
+                  "0.04",
+                  "33.00"
+                ]
+              }
+            ],
+            "statement_of_cash_flows": [
+              {
+                "year": "2024",
+                "cash_from_operations": [
+                  "40530943",
+                  "41.00"
+                ],
+                "net_cash_generated": [
+                  "40530943",
+                  "41.00"
+                ]
+              },
+              {
+                "year": "2023",
+                "cash_from_operations": [
+                  "143769580",
+                  "41.00"
+                ]
+              }
+            ],
+            "statement_of_changes_in_equity": [
+              {
+                "year": "2024",
+                "opening_balance": [
+                  "1758558616",
+                  "10"
+                ],
+                "cash_dividend": [
+                  "-3580970",
+                  "10"
+                ],
+                "net_profit_after_tax": [
+                  "2834891",
+                  "10"
+                ],
+                "closing_balance": [
+                  "1757812537",
+                  "10"
+                ]
+              },
+              {
+                "year": "2023",
+                "cash_dividend": [
+                  "-14323878",
+                  "10"
+                ],
+                "net_profit_after_tax": [
+                  "4584282",
+                  "10"
+                ]
+              }
+            ],
+            "notes_with_tables": [
+              {
+                "note_number": "12.03",
+                "title": "Shareholding Distribution",
+                "content": "A distribution schedule of shares",
+                "tables": [
+                  {
+                    "table_title": "Shareholding Pattern",
+                    "columns": [
+                      "SI. No.",
+                      "Name",
+                      "Nature of Shareholding",
+                      "% of Share hold",
+                      "No of Shares",
+                      "30/Jun/2024",
+                      "30/Jun/2023"
+                    ],
+                    "rows": [
+                      [
+                        "1",
+                        "Muhammad Shamsul Islam",
+                        "Individual",
+                        "11.74%",
+                        "12,041,988",
+                        "120,419,881",
+                        "120,419,881"
+                      ],
+                      [
+                        "2",
+                        "Mohammad Rafiqul Islam",
+                        "Individual",
+                        "11.74%",
+                        "12,041,988",
+                        "120,419,881",
+                        "120,419,881"
+                      ],
+                      [
+                        "3",
+                        "Sujit Saha",
+                        "Individual",
+                        "2.56%",
+                        "2,632,523",
+                        "26,325,228",
+                        "26,325,228"
+                      ],
+                      [
+                        "4",
+                        "Rakibul Islam",
+                        "Individual",
+                        "2.08%",
+                        "2,132,055",
+                        "21,320,550",
+                        "21,320,550"
+                      ],
+                      [
+                        "5",
+                        "Abul Kalam Bhuiyan",
+                        "Individual",
+                        "2.08%",
+                        "2,132,055",
+                        "21,320,550",
+                        "21,320,550"
+                      ],
+                      [
+                        "6",
+                        "Others",
+                        "Individual",
+                        "69.80%",
+                        "71,619,391",
+                        "716,193,910",
+                        "716,193,910"
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "note_number": "36.04",
+                "title": "Related Party Disclosure",
+                "content": "Transactions with related parties",
+                "tables": [
+                  {
+                    "table_title": "Related Party Transactions",
+                    "columns": [
+                      "Name",
+                      "Designation",
+                      "Nature of Transaction",
+                      "Balance as on 30.06.2023",
+                      "Addition during the year",
+                      "Paid during the year",
+                      "Balance as on 30 Jun 2024"
+                    ],
+                    "rows": [
+                      [
+                        "Mr. Muhammad Shamsul Islam",
+                        "Chairman",
+                        "Honorarium",
+                        "-",
+                        "-",
+                        "-",
+                        "-"
+                      ],
+                      [
+                        "",
+                        "",
+                        "Board Meeting Fees",
+                        "-",
+                        "24,000",
+                        "24,000",
+                        "-"
+                      ],
+                      [
+                        "Mr. Mohammad Rafiqul Islam",
+                        "Managing Director",
+                        "Remuneration",
+                        "1,500,000",
+                        "1,500,000",
+                        "-",
+                        "3,000,000"
+                      ],
+                      [
+                        "",
+                        "",
+                        "Board Meeting Fees",
+                        "-",
+                        "24,000",
+                        "24,000",
+                        "-"
+                      ],
+                      [
+                        "Mr. Rakibul Islam",
+                        "Director",
+                        "Board Meeting Fees",
+                        "-",
+                        "22,000",
+                        "22,000",
+                        "-"
+                      ],
+                      [
+                        "Mr. Abul Kalam Bhuiyan",
+                        "Director",
+                        "Board Meeting Fees",
+                        "-",
+                        "20,000",
+                        "20,000",
+                        "-"
+                      ],
+                      [
+                        "Mr. Tapan Chandra Banik",
+                        "Independent Director",
+                        "Board Meeting Fees",
+                        "-",
+                        "22,000",
+                        "22,000",
+                        "-"
+                      ],
+                      [
+                        "Mr. Md. Mizanur Rahman",
+                        "Independent Director",
+                        "Board Meeting Fees",
+                        "-",
+                        "24,000",
+                        "24,000",
+                        "-"
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ],
+            "notes_without_tables": [
+              {
+                "note_number": "1.00",
+                "title": "Reporting Entity",
+                "content": "Dominge Steel Building Systems Ltd. is a private Limited Company Incorporated on 8 March 2007 Vide Registration No. C-66036 (3527)/07 under the Companies Act. 1994. Subsequently the Company converted into Public limited company dated on 20 August 2018."
+              },
+              {
+                "note_number": "35.01",
+                "title": "Significant Deviation",
+                "content": "The company's revenue has decreased due to the ongoing global economic crisis, coupled with a slowdown in domestic industrialization and infrastructure development, which has led to a decline in demand for our products and services. Net profit/(Loss) after tax has also decreased compared to the previous year due to less revenue, less other income and higher finance expenses compared to the previous year."
+              }
+            ]
+          },
+          "phase_1_foundational_checks": {
+            "reporting_framework": {
+              "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+              "notes_reference": "2.00",
+              "actual_standards_applied": [
+                "IAS 1",
+                "IAS 2",
+                "IAS 7",
+                "IAS 8",
+                "IAS 10",
+                "IAS 12",
+                "IAS 16",
+                "IAS 19",
+                "IAS 21",
+                "IAS 23",
+                "IAS 24",
+                "IAS 33",
+                "IAS 34",
+                "IAS 36",
+                "IAS 37",
+                "IFRS 8",
+                "IFRS 9",
+                "IFRS 13",
+                "IFRS 15",
+                "IFRS 16"
+              ],
+              "discrepancies_identified": [],
+              "compliance_assessment": "Compliant"
+            },
+            "regulatory_landscape": {
+              "applicable_regulators": [
+                {
+                  "regulator_name": "BSEC",
+                  "jurisdiction": "Bangladesh",
+                  "compliance_status": "Partially Compliant",
+                  "specific_disclosures_found": [
+                    "IPO fund utilization delay disclosed",
+                    "EPS decline disclosed",
+                    "Unclaimed dividend transfer to CMSF disclosed"
+                  ]
+                },
+                {
+                  "regulator_name": "RJSC",
+                  "jurisdiction": "Bangladesh",
+                  "compliance_status": "Compliant",
+                  "specific_disclosures_found": [
+                    "Company registration details",
+                    "Directors' information",
+                    "Share capital structure"
+                  ]
+                },
+                {
+                  "regulator_name": "NBR",
+                  "jurisdiction": "Bangladesh",
+                  "compliance_status": "Compliant",
+                  "specific_disclosures_found": [
+                    "Tax rate disclosure",
+                    "Tax expense calculation",
+                    "Deferred tax computation"
+                  ]
+                }
+              ],
+              "statutory_filings_status": {
+                "bsec_filed": true,
+                "bsec_filing_date": "2024-10-28",
+                "income_tax_return_filed": true,
+                "income_tax_year": "2023-2024",
+                "rjsc_compliance": true,
+                "bb_compliance_if_applicable": "Not Applicable"
+              },
+              "overall_regulatory_assessment": "Partially Compliant - Issues with IPO fund utilization timeline"
+            }
+          },
+          "phase_2_financial_analysis": {
+            "ratio_analysis": {
+              "current_ratio": "",
+              "debt_to_equity": "",
+              "gross_profit_margin": "16.27%",
+              "net_profit_margin": "1.51%",
+              "roa": "",
+              "roe": "0.16%",
+              "interest_coverage": ""
+            },
+            "earnings_quality_analysis": {
+              "accruals_ratio": "",
+              "cash_flow_to_earnings": "14.30",
+              "revenue_growth_quality": "Poor - Revenue declined by 43.7%",
+              "expense_recognition_pattern": "Consistent with historical patterns"
+            },
+            "vertical_and_horizontal_analysis": {
+              "vertical_2023": {
+                "assets_composition": "",
+                "liabilities_composition": ""
+              },
+              "horizontal_growth": {
+                "revenue_growth": "-43.70%",
+                "asset_growth": "",
+                "debt_growth": ""
+              }
+            }
+          },
+          "phase_3_ifrs_compliance_detailed": {
+            "accounting_policies_review": {
+              "significant_policies_disclosed": [
+                "Revenue recognition",
+                "Property, plant and equipment",
+                "Inventories",
+                "Employee benefits",
+                "Taxation"
+              ],
+              "changes_in_accounting_policies": [
+                "None disclosed"
+              ],
+              "ias_8_hierarchy_compliance": "Compliant"
+            },
+            "management_judgment_and_estimation_uncertainty": {
+              "critical_judgments": [
+                {
+                  "area": "Revenue recognition",
+                  "management_assumption": "Revenue recognized upon delivery of steel components and satisfaction of performance obligations",
+                  "alternative_view": "Could recognize revenue upon full contract completion",
+                  "frc_skeptical_assessment": "Judgment appears reasonable given industry practice",
+                  "impact_if_changed": "Could defer revenue recognition"
+                },
+                {
+                  "area": "Trade receivables recoverability",
+                  "management_assumption": "All receivables considered good and collectible",
+                  "alternative_view": "Allowance required for doubtful debts given economic conditions",
+                  "frc_skeptical_assessment": "Judgment appears optimistic given Emphasis of Matter in audit report",
+                  "impact_if_changed": "Could require significant impairment provision"
+                }
+              ],
+              "key_estimation_uncertainties": [
+                {
+                  "estimate": "Useful lives of PPE",
+                  "sensitivity_range": "2.5% for buildings to 10% for equipment",
+                  "disclosure_adequacy": "Adequate - rates and justifications provided",
+                  "risk_level": "Medium"
+                },
+                {
+                  "estimate": "Inventory net realizable value",
+                  "sensitivity_range": "Not disclosed",
+                  "disclosure_adequacy": "Limited",
+                  "risk_level": "Medium"
+                }
+              ]
+            },
+            "key_standards_compliance_check": {
+              "ias_1_presentation": {
+                "fair_presentation_compliance": "Compliant",
+                "going_concern_assumption_applied": "Yes",
+                "materiality_threshold_applied": "Yes",
+                "offsetting_compliance": "Compliant",
+                "classification_current_non_current": "Compliant",
+                "statement_of_comprehensive_income_format": "Single statement"
+              },
+              "ias_2_inventories": {
+                "applicable": true,
+                "measurement_basis": "Lower of cost and net realizable value",
+                "cost_formulas_used": [
+                  "Weighted Average"
+                ],
+                "net_realizable_value_assessment": "Management assessment",
+                "write_down_reversals_compliance": "No write-downs during period",
+                "disclosures_completeness": "Partial - no sensitivity disclosed"
+              },
+              "ias_7_statement_of_cash_flows": {
+                "operating_cash_flow_method": "Direct and Indirect",
+                "investing_activities_disclosed": "Yes",
+                "financing_activities_disclosed": "Yes",
+                "cash_equivalents_definition": "IAS 7 compliant",
+                "non_cash_transactions_disclosed": "Limited",
+                "restricted_cash_disclosed": "No restrictions disclosed"
+              },
+              "ias_12_income_taxes": {
+                "current_tax_calculation": "20% corporate rate with 0.6% minimum tax",
+                "deferred_tax_assets_liabilities": "Recognized",
+                "temporary_differences_identified": "Yes",
+                "tax_rate_disclosures": "Adequate",
+                "tax_reconciliation_provided": "Yes",
+                "uncertain_tax_treatments": "Not disclosed"
+              },
+              "ias_16_property_plant_equipment": {
+                "recognition_criteria_met": "Yes",
+                "measurement_model": "Cost",
+                "depreciation_methods": "Reducing balance",
+                "useful_lives_assumptions": "Disclosed with justifications",
+                "impairment_indications_assessed": "Physical verification conducted",
+                "derecognition_compliance": "Compliant"
+              },
+              "ifrs_15_revenue_from_contracts_with_customers": {
+                "five_step_model_applied": "Implied but not explicitly stated",
+                "contract_identification": "Yes",
+                "performance_obligations": "Steel delivery and erection services",
+                "transaction_price_determination": "Contract value",
+                "allocation_to_obligations": "Based on delivery milestones",
+                "revenue_recognition_timing": "Over time and at point in time",
+                "contract_assets_liabilities": "Not separately identified",
+                "disclosures_complete": "Partial"
+              }
+            },
+            "detailed_ifrs_compliance_matrix": [
+              {
+                "standard_code": "IFRS 15",
+                "standard_name": "Revenue from Contracts with Customers",
+                "applicability": "Yes",
+                "page_reference": "Page 2, Note 3.11",
+                "compliance_status": "Partially Compliant",
+                "material_departures": [
+                  "Insufficient disclosure of five-step model application",
+                  "Limited disclosure of contract balances"
+                ],
+                "ias_1_para_19_24_implication": "May affect true and fair view of revenue recognition"
+              },
+              {
+                "standard_code": "IAS 2",
+                "standard_name": "Inventories",
+                "applicability": "Yes",
+                "page_reference": "Page 14-15, Note 3.7.2",
+                "compliance_status": "Compliant",
+                "material_departures": [],
+                "ias_1_para_19_24_implication": "No impact on true and fair view"
+              }
+            ],
+            "tax_compliance_check": {
+              "ias_12_income_taxes": {
+                "compliance": "Compliant",
+                "issues": []
+              },
+              "ifric_23_uncertain_tax_positions": {
+                "compliance": "Not Assessed",
+                "issues": []
+              },
+              "bangladesh_income_tax_act_2023": {
+                "withholding_tax_compliance": "Presumed Compliant",
+                "advance_tax_status": "Disclosed",
+                "tax_holidays_or_incentives": [
+                  "None disclosed"
+                ],
+                "overall_tax_compliance_assessment": "Compliant"
+              }
+            }
+          },
+          "fraud_and_management_override_assessment": {
+            "fraud_risk_factors_identified": [
+              "Declining financial performance",
+              "Pressure to meet targets",
+              "Non-banking channel transactions",
+              "Unaccounted IPO funds"
+            ],
+            "revenue_manipulation_indicators": [
+              "Revenue decline while maintaining receivables",
+              "Timing of revenue recognition judgment"
+            ],
+            "journal_entry_override_risk": "Medium",
+            "override_of_internal_controls_risk": "Medium - noted in Emphasis of Matters",
+            "overall_fraud_risk_assessment": "Medium"
+          },
+          "phase_4_audit_governance_verification": {
+            "audit_report_analysis": {
+              "auditor_information": {
+                "firm_name": "Khan Wahab Shafique Rahman & Co.",
+                "firm_registration_number": "11970",
+                "audit_tenure_years": "Not disclosed",
+                "rotation_compliance": "Not Assessed"
+              },
+              "audit_opinion": {
+                "opinion_type": "Unmodified with Emphasis of Matters",
+                "basis_for_opinion": "ISA compliance and ethical requirements",
+                "modified_opinion_reasons": []
+              },
+              "key_audit_matters": [
+                "Revenue Recognition",
+                "Valuation of Inventory and Project in Progress",
+                "Valuation of PPE",
+                "Recoverability Assessment of Trade Receivables"
+              ],
+              "going_concern_assessment": {
+                "auditor_conclusion": "Going concern appropriate",
+                "period_assessed": "12 months from reporting date",
+                "mitigating_factors": [
+                  "Adequate resources",
+                  "No material uncertainties disclosed"
+                ]
+              },
+              "isa_compliance_check": {
+                "compliance": "Compliant",
+                "issues": []
+              }
+            },
+            "corporate_governance_review": {
+              "board_structure": {
+                "independence": "2 out of 7 directors independent (28.6%)",
+                "expertise": "Appropriate for industry",
+                "effectiveness": "Appears functional"
+              },
+              "committee_effectiveness": {
+                "audit_committee": "Not disclosed",
+                "risk_committee": "Not disclosed",
+                "nomination_committee": "Not disclosed"
+              },
+              "internal_controls": {
+                "effectiveness": "Limited disclosure",
+                "management_assessment": "Not provided",
+                "auditor_opinion": "Not provided on ICFR"
+              }
+            }
+          },
+          "legal_and_enforcement_mapping": {
+            "financial_reporting_act_2015": {
+              "sections_triggered": [
+                "Section 4 - True and Fair View",
+                "Section 5 - Compliance with Standards"
+              ],
+              "nature_of_breach": "Potential non-compliance with IFRS disclosure requirements",
+              "severity_assessment": "Medium"
+            },
+            "companies_act_1994": {
+              "sections_implicated": [
+                "Section 181 - Proper books of account",
+                "Section 183 - Annual financial statements"
+              ],
+              "director_liability_assessed": true,
+              "liability_nature": "Potential for oversight failure regarding IPO fund utilization"
+            },
+            "bsec_rules_if_applicable": {
+              "rules_breached": [
+                "IPO fund utilization timeline",
+                "EPS decline disclosure"
+              ],
+              "market_impact": "Medium - investor confidence may be affected"
+            }
+          },
+          "phase_5_synthesis_and_findings": {
+            "material_departures_summary": [
+              {
+                "issue_id": "MD-001",
+                "description": "Insufficient disclosure of IFRS 15 revenue recognition application",
+                "relevant_standard": "IFRS 15",
+                "page_reference": "Page 2, Note 3.11",
+                "extract_from_fs": "Revenue recognized when contract signed and steel delivered",
+                "materiality": "Material",
+                "financial_impact_estimate": "Could affect timing of revenue recognition",
+                "recommended_action": "Enhance disclosures on five-step model and contract balances"
+              },
+              {
+                "issue_id": "MD-002",
+                "description": "No allowance for doubtful debts despite economic challenges",
+                "relevant_standard": "IFRS 9",
+                "page_reference": "Page 4, Emphasis of Matter",
+                "extract_from_fs": "Management considered entire bills receivable as good and collectable",
+                "materiality": "Material",
+                "financial_impact_estimate": "Potential overstatement of receivables by unknown amount",
+                "recommended_action": "Perform detailed credit risk assessment and recognize ECL"
+              }
+            ],
+            "risk_factor_consolidation": {
+              "high_risk": [
+                "Trade receivables recoverability",
+                "Declining revenue trend",
+                "IPO fund management"
+              ],
+              "medium_risk": [
+                "Revenue recognition disclosures",
+                "Inventory valuation",
+                "Non-banking transactions"
+              ],
+              "low_risk": [
+                "Tax compliance",
+                "PPE accounting",
+                "Share capital structure"
+              ]
+            },
+            "going_concern_final_assessment": {
+              "frc_conclusion": "Going concern appropriate but with heightened risk",
+              "supporting_factors": [
+                "Positive net profit",
+                "Adequate cash balance",
+                "Established market position"
+              ],
+              "contradicting_factors": [
+                "Significant revenue decline",
+                "EPS drop",
+                "Economic challenges"
+              ],
+              "recommendation": "Monitor closely for next 12 months with enhanced disclosures"
+            },
+            "overall_assessment": {
+              "true_and_fair_view_assessment": "Qualified - subject to material uncertainties in receivables and revenue recognition",
+              "overall_ifrs_compliance_level": "75%",
+              "reliability_scoring_methodology": {
+                "components": {
+                  "ifrs_compliance": "70",
+                  "audit_quality": "80",
+                  "governance_quality": "65",
+                  "earnings_quality": "60",
+                  "disclosure_transparency": "70"
+                },
+                "final_score": "69",
+                "interpretation": "Moderate reliability with significant improvement areas"
+              },
+              "key_strengths": [
+                "Clear audit opinion",
+                "Adequate tax disclosures",
+                "Proper PPE accounting",
+                "Transparent shareholding disclosure"
+              ],
+              "critical_issues": [
+                "Revenue recognition disclosures",
+                "Trade receivables impairment assessment",
+                "IPO fund utilization delays",
+                "Declining financial performance"
+              ],
+              "frc_recommendations": [
+                "Enhance IFRS 15 revenue recognition disclosures",
+                "Perform proper ECL assessment on trade receivables",
+                "Improve internal controls over non-banking transactions",
+                "Provide clearer going concern assessment with sensitivities",
+                "Strengthen corporate governance disclosures"
+              ]
+            }
+          }
+        }
       }
-      
     },
     "cross_company_comparative_analysis": {
       "regulatory_trends_identified": [
