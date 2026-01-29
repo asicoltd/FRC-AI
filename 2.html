@@ -326,6 +326,7 @@
             // Try to fetch company list from GitHub
             try {
                 const response = await fetch(`${GITHUB_PAGES_BASE}companies.json`);
+
                 if (response.ok) {
                     const companies = await response.json();
                     availableCompanies = companies;
@@ -2724,6 +2725,349 @@
         function loadReporting() {
             loadReportGenerator();
         }
+
+
+        // ==================== UTILITY FUNCTIONS ====================
+
+        // Loading indicator
+        function showLoading(message = 'Loading...') {
+            // Remove existing overlay if any
+            hideLoading();
+
+            const overlay = document.createElement('div');
+            overlay.id = 'loadingOverlay';
+            overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        backdrop-filter: blur(3px);
+    `;
+
+            overlay.innerHTML = `
+        <div class="text-center text-white">
+            <div class="spinner-border spinner-border-lg text-primary mb-3" role="status"></div>
+            <h5 class="mb-2">${message}</h5>
+            <p class="text-muted mb-0">Loading data from GitHub Pages...</p>
+            <div class="progress mt-3" style="width: 300px; margin: 0 auto;">
+                <div id="loadingProgress" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+            </div>
+        </div>
+    `;
+
+            document.body.appendChild(overlay);
+
+            // Animate progress bar
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                if (progress < 90) {
+                    progress += 5;
+                    const progressBar = document.getElementById('loadingProgress');
+                    if (progressBar) {
+                        progressBar.style.width = `${progress}%`;
+                    }
+                }
+            }, 200);
+
+            // Store interval ID to clear later
+            overlay.dataset.intervalId = progressInterval;
+        }
+
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                // Clear progress animation
+                if (overlay.dataset.intervalId) {
+                    clearInterval(parseInt(overlay.dataset.intervalId));
+                }
+                overlay.remove();
+            }
+        }
+
+        function updateLoadingProgress(percent) {
+            const progressBar = document.getElementById('loadingProgress');
+            if (progressBar) {
+                progressBar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+            }
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info', duration = 5000) {
+            const types = {
+                'success': { class: 'alert-success', icon: 'fas fa-check-circle' },
+                'error': { class: 'alert-danger', icon: 'fas fa-exclamation-circle' },
+                'warning': { class: 'alert-warning', icon: 'fas fa-exclamation-triangle' },
+                'info': { class: 'alert-info', icon: 'fas fa-info-circle' }
+            };
+
+            const config = types[type] || types.info;
+
+            // Remove existing notifications
+            const existingAlerts = document.querySelectorAll('.notification-alert');
+            existingAlerts.forEach(alert => {
+                if (alert.parentNode) {
+                    alert.parentNode.removeChild(alert);
+                }
+            });
+
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `notification-alert alert ${config.class} alert-dismissible fade show`;
+            alertDiv.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 10000;
+        min-width: 300px;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border: none;
+    `;
+
+            alertDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+            <i class="${config.icon} me-2 fs-5"></i>
+            <div class="flex-grow-1">${message}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+
+            document.body.appendChild(alertDiv);
+
+            // Auto remove after duration
+            if (duration > 0) {
+                setTimeout(() => {
+                    if (alertDiv.parentNode) {
+                        const bsAlert = new bootstrap.Alert(alertDiv);
+                        bsAlert.close();
+                    }
+                }, duration);
+            }
+
+            return alertDiv;
+        }
+
+        // Initialize Bootstrap tooltips
+        function initTooltips() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        }
+
+        // Format numbers with commas
+        function formatNumber(num) {
+            if (num === undefined || num === null) return '0';
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Get URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Set URL parameter
+        function setUrlParameter(name, value) {
+            const url = new URL(window.location);
+            url.searchParams.set(name, value);
+            window.history.pushState({}, '', url);
+        }
+
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Throttle function
+        function throttle(func, limit) {
+            let inThrottle;
+            return function () {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // Validate email
+        function isValidEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Copied to clipboard!', 'success');
+            }).catch(err => {
+                showNotification('Failed to copy: ' + err, 'error');
+            });
+        }
+
+        // Download file
+        function downloadFile(filename, content, type = 'text/plain') {
+            const blob = new Blob([content], { type: type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Read file
+        function readFile(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.onerror = (e) => reject(e);
+                reader.readAsText(file);
+            });
+        }
+
+        // Generate unique ID
+        function generateId() {
+            return 'id_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Format date
+        function formatDate(date, format = 'yyyy-mm-dd') {
+            const d = new Date(date);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+
+            if (format === 'yyyy-mm-dd') {
+                return `${year}-${month}-${day}`;
+            } else if (format === 'dd/mm/yyyy') {
+                return `${day}/${month}/${year}`;
+            } else if (format === 'mm/dd/yyyy') {
+                return `${month}/${day}/${year}`;
+            }
+            return date.toString();
+        }
+
+        // Get file extension
+        function getFileExtension(filename) {
+            return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+        }
+
+        // Check if object is empty
+        function isEmpty(obj) {
+            return Object.keys(obj).length === 0;
+        }
+
+        // Deep clone object
+        function deepClone(obj) {
+            return JSON.parse(JSON.stringify(obj));
+        }
+
+        // ==================== INITIALIZATION ====================
+
+        // Initialize the application
+        async function initializeApp() {
+            console.log('🚀 FRC Portal Initializing...');
+
+            // Initialize Bootstrap components
+            initTooltips();
+
+            // Check URL for company parameter
+            const urlCompanyId = getUrlParameter('company');
+            if (urlCompanyId && !isNaN(parseInt(urlCompanyId))) {
+                currentCompanyId = parseInt(urlCompanyId);
+            } else {
+                // Check localStorage for last company
+                const savedCompanyId = localStorage.getItem('frc_last_company_id');
+                if (savedCompanyId && !isNaN(parseInt(savedCompanyId))) {
+                    currentCompanyId = parseInt(savedCompanyId);
+                }
+            }
+
+            // Save current company ID
+            localStorage.setItem('frc_last_company_id', currentCompanyId.toString());
+            setUrlParameter('company', currentCompanyId);
+
+            // Load company selector
+            await loadCompanySelector();
+
+            // Try to load cached data first
+            await loadCachedData();
+
+            // Then load fresh data
+            await loadCompanyData(currentCompanyId);
+
+            // Initialize dashboard
+            loadDashboard();
+
+            // Add debug/test buttons
+            addDebugButton();
+            addTestButton();
+
+            console.log('✅ FRC Portal Initialized');
+            showNotification('FRC Portal Ready', 'success', 2000);
+        }
+
+        // Load cached data
+        async function loadCachedData() {
+            const cacheKey = `frc_company_${currentCompanyId}_data`;
+            const cachedData = localStorage.getItem(cacheKey);
+
+            if (cachedData) {
+                try {
+                    const parsed = JSON.parse(cachedData);
+                    if (parsed.data && parsed.timestamp) {
+                        const ageHours = (new Date() - new Date(parsed.timestamp)) / (1000 * 60 * 60);
+
+                        if (ageHours < 24) { // Use cache if less than 24 hours old
+                            allJSONData = parsed.data;
+                            console.log(`📦 Loaded cached data (${ageHours.toFixed(1)} hours old)`);
+                            return true;
+                        } else {
+                            console.log('🔄 Cache expired, loading fresh data');
+                        }
+                    }
+                } catch (error) {
+                    console.log('❌ Cache parse error:', error);
+                }
+            }
+
+            return false;
+        }
+
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the app
+            initializeApp();
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function () {
+                const urlCompanyId = getUrlParameter('company');
+                if (urlCompanyId && parseInt(urlCompanyId) !== currentCompanyId) {
+                    switchCompany(parseInt(urlCompanyId));
+                }
+            });
+        });
     </script>
 </body>
 
