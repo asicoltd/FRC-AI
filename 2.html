@@ -323,37 +323,53 @@
         });
         // Function to load company selector
         async function loadCompanySelector() {
-            // Try to fetch company list from GitHub
+            // Try to fetch company list
             try {
                 const response = await fetch(`${GITHUB_PAGES_BASE}companies.json`);
-
                 if (response.ok) {
                     const companies = await response.json();
                     availableCompanies = companies;
+                    console.log(`📋 Found ${companies.length} companies in companies.json`);
                 }
             } catch (error) {
-                console.log('No companies.json found, using default companies');
-                // Fallback: try to auto-discover companies
+                console.log('📋 No companies.json found, auto-discovering...');
                 await autoDiscoverCompanies();
             }
 
             // Add company selector to navbar
             const navbar = document.querySelector('.navbar .container-fluid');
             if (navbar) {
+                // Check if selector already exists
+                if (navbar.querySelector('#companyDropdown')) return;
+
                 const selectorHTML = `
             <div class="dropdown ms-3">
-                <button class="btn btn-outline-light dropdown-toggle" type="button" id="companyDropdown" data-bs-toggle="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" 
+                        id="companyDropdown" data-bs-toggle="dropdown"
+                        data-bs-toggle="tooltip" title="Switch Company">
                     <i class="fas fa-building me-2"></i>Company ${currentCompanyId}
                 </button>
                 <ul class="dropdown-menu" id="companyList">
                     ${availableCompanies.map(id => `
-                        <li><a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
-                               href="#" onclick="switchCompany(${id})">Company ${id}</a></li>
+                        <li>
+                            <a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
+                               href="#" onclick="switchCompany(${id})">
+                                <i class="fas fa-building me-2"></i>Company ${id}
+                                ${id === currentCompanyId ? '<i class="fas fa-check ms-2"></i>' : ''}
+                            </a>
+                        </li>
                     `).join('')}
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#" onclick="refreshCompanyList()">
-                        <i class="fas fa-sync me-2"></i>Refresh List
-                    </a></li>
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="refreshCompanyList()">
+                            <i class="fas fa-sync me-2"></i>Refresh Company List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="addNewCompanyDialog()">
+                            <i class="fas fa-plus me-2"></i>Add New Company
+                        </a>
+                    </li>
                 </ul>
             </div>
         `;
@@ -363,9 +379,11 @@
                 if (brand) {
                     brand.insertAdjacentHTML('afterend', selectorHTML);
                 }
+
+                // Initialize tooltips
+                initTooltips();
             }
         }
-
         // Auto-discover companies by checking for existing folders
         async function autoDiscoverCompanies() {
             const maxCheck = 10; // Check up to 10 companies
@@ -409,8 +427,6 @@
             }
         }
 
-        // Load all data for a company
-        // Load all data for a company
         async function loadCompanyData(companyId) {
             showLoading(`Loading data for Company ${companyId}...`);
 
@@ -418,73 +434,66 @@
             allJSONData = {};
             currentCompanyId = companyId;
 
+            // Update URL and storage
+            localStorage.setItem('frc_last_company_id', companyId.toString());
+            setUrlParameter('company', companyId);
+
             // Update company selector
             updateCompanySelector(companyId);
 
-            console.log(`Starting to load data for company ${companyId}`);
+            console.log(`📂 Starting to load data for company ${companyId}`);
 
-            // Load all JSON files (1-26) with better error handling
-            const loadPromises = [];
-            const loadedFiles = [];
+            let loadedCount = 0;
+            const totalFiles = 26;
 
-            for (let i = 1; i <= 26; i++) {
-                const promise = loadJSONData(companyId, i)
-                    .then(data => {
-                        if (data) {
-                            allJSONData[i] = data;
-                            loadedFiles.push(i);
-                            console.log(`✓ Loaded file ${i}.json`);
-                            return { file: i, success: true, data: data };
-                        } else {
-                            console.log(`✗ Failed to load file ${i}.json`);
-                            return { file: i, success: false, data: null };
-                        }
-                    })
-                    .catch(error => {
-                        console.error(`Error loading file ${i}.json:`, error);
-                        return { file: i, success: false, data: null, error: error.message };
-                    });
+            // Load files with progress tracking
+            for (let i = 1; i <= totalFiles; i++) {
+                try {
+                    updateLoadingProgress((i - 1) / totalFiles * 100);
 
-                loadPromises.push(promise);
+                    const data = await loadJSONData(companyId, i);
+                    if (data) {
+                        allJSONData[i] = data;
+                        loadedCount++;
+                        console.log(`✅ Loaded file ${i}.json`);
+                    } else {
+                        console.log(`❌ Failed to load file ${i}.json`);
+                    }
+                } catch (error) {
+                    console.error(`🚨 Error loading file ${i}.json:`, error);
+                }
             }
 
-            // Wait for all to complete
-            const results = await Promise.allSettled(loadPromises);
-
-            const successfulLoads = results.filter(r =>
-                r.status === 'fulfilled' && r.value && r.value.success
-            ).length;
-
+            updateLoadingProgress(100);
             hideLoading();
 
-            console.log(`Loaded ${successfulLoads}/26 files for Company ${companyId}`);
-            console.log('Loaded files:', Object.keys(allJSONData).map(k => `${k}.json`));
+            console.log(`📊 Loaded ${loadedCount}/${totalFiles} files for Company ${companyId}`);
 
-            if (successfulLoads > 0) {
-                showNotification(`Successfully loaded ${successfulLoads}/26 files for Company ${companyId}`, 'success');
+            if (loadedCount > 0) {
+                // Cache the loaded data
+                localStorage.setItem(`frc_company_${companyId}_data`, JSON.stringify({
+                    data: allJSONData,
+                    timestamp: new Date().toISOString()
+                }));
 
-                // Update company header with real data
+                // Update company header
                 updateCompanyHeader(companyId);
 
-                // Store in localStorage for persistence
-                try {
-                    localStorage.setItem(`frc_company_${companyId}_data`, JSON.stringify({
-                        data: allJSONData,
-                        timestamp: new Date().toISOString()
-                    }));
-                } catch (e) {
-                    console.log('Could not save to localStorage:', e);
-                }
+                // Show success notification
+                const successMessage = loadedCount === totalFiles
+                    ? `✅ Successfully loaded all ${totalFiles} files for Company ${companyId}`
+                    : `⚠️ Loaded ${loadedCount}/${totalFiles} files for Company ${companyId}`;
+
+                showNotification(successMessage, loadedCount === totalFiles ? 'success' : 'warning');
 
                 return true;
             } else {
-                showNotification(`No data loaded for Company ${companyId}. Using sample data.`, 'warning');
                 // Load sample data as fallback
                 loadSampleData();
+                showNotification(`❌ No data found for Company ${companyId}. Using sample data.`, 'error');
                 return false;
             }
         }
-
         // Enhanced loadJSONData with better error handling
         async function loadJSONData(companyId, fileNumber) {
             const url = `${GITHUB_PAGES_BASE}${companyId}/${fileNumber}.json`;
@@ -2982,7 +2991,47 @@
         function deepClone(obj) {
             return JSON.parse(JSON.stringify(obj));
         }
+        function addDebugButton() {
+            const navbar = document.querySelector('.navbar .container-fluid');
+            if (!navbar) return;
 
+            // Check if debug button already exists
+            if (navbar.querySelector('[onclick="showDebugInfo()"]')) return;
+
+            const debugBtn = `
+        <button class="btn btn-outline-light btn-sm ms-2" onclick="showDebugInfo()" 
+                data-bs-toggle="tooltip" title="Debug Information">
+            <i class="fas fa-bug"></i>
+        </button>
+    `;
+
+            // Add after company dropdown
+            const companyDropdown = navbar.querySelector('.dropdown');
+            if (companyDropdown) {
+                companyDropdown.insertAdjacentHTML('afterend', debugBtn);
+            }
+        }
+
+        function addTestButton() {
+            const navbar = document.querySelector('.navbar .container-fluid');
+            if (!navbar) return;
+
+            // Check if test button already exists
+            if (navbar.querySelector('[onclick="testAllUrls()"]')) return;
+
+            const testBtn = `
+        <button class="btn btn-outline-warning btn-sm ms-2" onclick="testAllUrls()" 
+                data-bs-toggle="tooltip" title="Test All URLs">
+            <i class="fas fa-wifi"></i>
+        </button>
+    `;
+
+            // Add after debug button
+            const debugBtn = navbar.querySelector('[onclick="showDebugInfo()"]');
+            if (debugBtn) {
+                debugBtn.insertAdjacentHTML('afterend', testBtn);
+            }
+        }
         // ==================== INITIALIZATION ====================
 
         // Initialize the application
