@@ -409,45 +409,142 @@
         }
 
         // Load all data for a company
+        // Load all data for a company
         async function loadCompanyData(companyId) {
             showLoading(`Loading data for Company ${companyId}...`);
 
-            // Reset data
+            // Reset data for current company
             allJSONData = {};
             currentCompanyId = companyId;
 
             // Update company selector
             updateCompanySelector(companyId);
 
-            // Load all JSON files (1-26) in parallel
-            const promises = [];
+            console.log(`Starting to load data for company ${companyId}`);
+
+            // Load all JSON files (1-26) with better error handling
+            const loadPromises = [];
+            const loadedFiles = [];
+
             for (let i = 1; i <= 26; i++) {
-                promises.push(
-                    loadJSONData(companyId, i)
-                        .then(data => {
-                            if (data) allJSONData[i] = data;
-                            return data;
-                        })
-                );
+                const promise = loadJSONData(companyId, i)
+                    .then(data => {
+                        if (data) {
+                            allJSONData[i] = data;
+                            loadedFiles.push(i);
+                            console.log(`✓ Loaded file ${i}.json`);
+                            return { file: i, success: true, data: data };
+                        } else {
+                            console.log(`✗ Failed to load file ${i}.json`);
+                            return { file: i, success: false, data: null };
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`Error loading file ${i}.json:`, error);
+                        return { file: i, success: false, data: null, error: error.message };
+                    });
+
+                loadPromises.push(promise);
             }
 
-            const results = await Promise.allSettled(promises);
-            const loadedCount = results.filter(r => r.status === 'fulfilled' && r.value).length;
+            // Wait for all to complete
+            const results = await Promise.allSettled(loadPromises);
+
+            const successfulLoads = results.filter(r =>
+                r.status === 'fulfilled' && r.value && r.value.success
+            ).length;
 
             hideLoading();
 
-            if (loadedCount > 0) {
-                showNotification(`Loaded ${loadedCount}/26 files for Company ${companyId}`, 'success');
+            console.log(`Loaded ${successfulLoads}/26 files for Company ${companyId}`);
+            console.log('Loaded files:', Object.keys(allJSONData).map(k => `${k}.json`));
 
-                // Update company header
+            if (successfulLoads > 0) {
+                showNotification(`Successfully loaded ${successfulLoads}/26 files for Company ${companyId}`, 'success');
+
+                // Update company header with real data
                 updateCompanyHeader(companyId);
+
+                // Store in localStorage for persistence
+                try {
+                    localStorage.setItem(`frc_company_${companyId}_data`, JSON.stringify({
+                        data: allJSONData,
+                        timestamp: new Date().toISOString()
+                    }));
+                } catch (e) {
+                    console.log('Could not save to localStorage:', e);
+                }
 
                 return true;
             } else {
-                showNotification(`No data found for Company ${companyId}`, 'warning');
+                showNotification(`No data loaded for Company ${companyId}. Using sample data.`, 'warning');
                 // Load sample data as fallback
                 loadSampleData();
                 return false;
+            }
+        }
+
+        // Enhanced loadJSONData with better error handling
+        async function loadJSONData(companyId, fileNumber) {
+            const url = `${GITHUB_PAGES_BASE}${companyId}/${fileNumber}.json`;
+            console.log(`Fetching: ${url}`);
+
+            try {
+                // Add cache busting to avoid stale data
+                const cacheBuster = `?_=${Date.now()}`;
+                const response = await fetch(`${url}${cacheBuster}`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
+                console.log(`Response status for ${fileNumber}.json:`, response.status, response.statusText);
+
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        console.log(`File not found: ${url}`);
+                        return null;
+                    }
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const text = await response.text();
+                console.log(`Raw response for ${fileNumber}.json:`, text.substring(0, 200) + '...');
+
+                if (!text || text.trim() === '') {
+                    console.log(`Empty response for ${fileNumber}.json`);
+                    return null;
+                }
+
+                const data = JSON.parse(text);
+                console.log(`Successfully parsed ${fileNumber}.json:`, Object.keys(data));
+
+                // Validate the JSON structure
+                if (!data.pdf_token || !data.report_id) {
+                    console.warn(`File ${fileNumber}.json missing required fields`);
+                }
+
+                return data;
+            } catch (error) {
+                console.error(`Error loading ${url}:`, error);
+
+                // Try without cache buster as fallback
+                if (url.includes('?_=')) {
+                    try {
+                        console.log(`Retrying without cache buster: ${url.split('?')[0]}`);
+                        const response = await fetch(url.split('?')[0]);
+                        if (response.ok) {
+                            return await response.json();
+                        }
+                    } catch (retryError) {
+                        console.error('Retry also failed:', retryError);
+                    }
+                }
+
+                return null;
             }
         }
         // Function to update company header with real data
