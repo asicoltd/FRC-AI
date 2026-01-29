@@ -2046,39 +2046,352 @@ function renderRiskCharts() {
 
 // Data loading functions
 // Update loadEntityData for multiple companies
-async function loadEntityData() {
-    const companyId = currentCompanyId;
-
-    // Try to load from allJSONData first
-    let metadata = allJSONData[1];
-    let entityProfile = allJSONData[2];
-    let materiality = allJSONData[3];
-
-    // If not loaded, fetch fresh
-    if (!entityProfile) {
-        entityProfile = await loadJSONData(companyId, 2);
-    }
-
-    if (!materiality) {
-        materiality = await loadJSONData(companyId, 3);
-    }
-
-    // Update UI with real data
-    if (entityProfile) {
-        const profile = entityProfile.frc_analysis_report?.entity?.entity_profile;
+function loadEntityData() {
+    console.log('Loading entity data for Company', currentCompanyId);
+    
+    // Clear previous loading states
+    const entityProfileLoading = document.getElementById('entityProfileLoading');
+    const materialityLoading = document.getElementById('materialityLoading');
+    const materialityConclusionLoading = document.getElementById('materialityConclusionLoading');
+    
+    if (entityProfileLoading) entityProfileLoading.style.display = 'none';
+    if (materialityLoading) materialityLoading.style.display = 'none';
+    if (materialityConclusionLoading) materialityConclusionLoading.style.display = 'none';
+    
+    const entityProfileTable = document.getElementById('entityProfileTable');
+    const materialityTable = document.getElementById('materialityTable');
+    const materialityConclusionContent = document.getElementById('materialityConclusionContent');
+    
+    if (entityProfileTable) entityProfileTable.style.display = 'table';
+    if (materialityTable) materialityTable.style.display = 'table';
+    if (materialityConclusionContent) materialityConclusionContent.style.display = 'block';
+    
+    // Load data from JSON files
+    const entityProfileData = allJSONData[2]; // 2.json contains entity profile
+    const materialityData = allJSONData[3];   // 3.json contains materiality framework
+    const metadata = allJSONData[1];          // 1.json contains metadata
+    
+    console.log('Entity Profile Data (2.json):', entityProfileData);
+    console.log('Materiality Data (3.json):', materialityData);
+    console.log('Metadata (1.json):', metadata);
+    
+    // ==================== ENTITY PROFILE (from 2.json) ====================
+    if (entityProfileData) {
+        const frcReport = entityProfileData.frc_analysis_report;
+        const entity = frcReport?.entity;
+        const profile = entity?.entity_profile;
+        
+        console.log('Extracted entity profile:', profile);
+        
         if (profile) {
-            document.getElementById('legalName').textContent = profile.legal_name || '[Not Available]';
-            document.getElementById('tradeName').textContent = profile.trade_name || '[Not Available]';
-            document.getElementById('registrationNumber').textContent = profile.registration_number || '[Not Available]';
-            document.getElementById('industrySector').textContent = profile.industry_sector || '[Not Available]';
-            document.getElementById('listingStatus').textContent = profile.listing_status || '[Not Available]';
-            document.getElementById('reportingCurrency').textContent = profile.reporting_currency || 'BDT';
-            document.getElementById('financialYearEnd').textContent = profile.financial_year_end || '[Not Available]';
-            document.getElementById('reportPublicationDate').textContent = profile.report_publication_date || '[Not Available]';
+            // Update each field
+            document.getElementById('legalName').textContent = 
+                profile.legal_name || '[Not Specified]';
+            document.getElementById('tradeName').textContent = 
+                profile.trade_name || '[Not Specified]';
+            document.getElementById('registrationNumber').textContent = 
+                profile.registration_number || '[Not Specified]';
+            document.getElementById('industrySector').textContent = 
+                profile.industry_sector || '[Not Available]';
+            document.getElementById('listingStatus').textContent = 
+                profile.listing_status || '[Not Available]';
+            document.getElementById('reportingCurrency').textContent = 
+                profile.reporting_currency || 'BDT';
+            document.getElementById('financialYearEnd').textContent = 
+                profile.financial_year_end || '[Not Available]';
+            document.getElementById('reportPublicationDate').textContent = 
+                profile.report_publication_date || '[Not Available]';
+            document.getElementById('stockExchangeSymbol').textContent = 
+                profile.stock_exchange_symbol || '[Not Available]';
+            
+            // Add entity ID if available
+            if (entity?.entity_id) {
+                let entityIdRow = document.querySelector('#entityIdRow');
+                if (!entityIdRow) {
+                    const table = document.getElementById('entityProfileTable');
+                    if (table) {
+                        const firstRow = table.querySelector('tr');
+                        const newRow = document.createElement('tr');
+                        newRow.id = 'entityIdRow';
+                        newRow.innerHTML = `
+                            <th width="40%">Entity ID:</th>
+                            <td>${entity.entity_id}</td>
+                        `;
+                        if (firstRow) {
+                            firstRow.parentNode.insertBefore(newRow, firstRow);
+                        }
+                    }
+                } else {
+                    entityIdRow.querySelector('td').textContent = entity.entity_id;
+                }
+            }
+            
+            // Add PDF token and report ID if available
+            if (entityProfileData.pdf_token) {
+                let pdfTokenRow = document.querySelector('#pdfTokenRow');
+                if (!pdfTokenRow) {
+                    const table = document.getElementById('entityProfileTable');
+                    if (table) {
+                        const lastRow = table.querySelector('tr:last-child');
+                        const newRow = document.createElement('tr');
+                        newRow.id = 'pdfTokenRow';
+                        newRow.innerHTML = `
+                            <th>PDF Token:</th>
+                            <td>${entityProfileData.pdf_token}</td>
+                        `;
+                        table.appendChild(newRow);
+                    }
+                }
+            }
+            
+            if (entityProfileData.report_id) {
+                let reportIdRow = document.querySelector('#reportIdRow');
+                if (!reportIdRow) {
+                    const table = document.getElementById('entityProfileTable');
+                    if (table) {
+                        const lastRow = table.querySelector('tr:last-child');
+                        const newRow = document.createElement('tr');
+                        newRow.id = 'reportIdRow';
+                        newRow.innerHTML = `
+                            <th>Report ID:</th>
+                            <td>${entityProfileData.report_id}</td>
+                        `;
+                        table.appendChild(newRow);
+                    }
+                }
+            }
+            
+            console.log('✅ Entity Profile loaded successfully');
+        } else {
+            console.warn('Entity profile not found in 2.json data structure');
+            showNotification('Entity profile structure not found in 2.json', 'warning');
+        }
+    } else {
+        console.warn('2.json data not loaded');
+        document.getElementById('legalName').textContent = 'Data not loaded (2.json missing)';
+        showNotification('Entity profile data (2.json) not loaded', 'error');
+    }
+    
+    // ==================== MATERIALITY FRAMEWORK (from 3.json) ====================
+    if (materialityData) {
+        const materiality = materialityData.frc_analysis_report?.entity?.materiality_framework;
+        
+        console.log('Extracted materiality framework:', materiality);
+        
+        if (materiality) {
+            const quantitative = materiality.quantitative_materiality;
+            
+            if (quantitative) {
+                document.getElementById('materialityBenchmark').textContent = 
+                    quantitative.benchmark_used || '[Not Specified]';
+                document.getElementById('materialityPercentage').textContent = 
+                    quantitative.percentage_applied || '[Not Specified]';
+                document.getElementById('overallMateriality').textContent = 
+                    quantitative.overall_materiality_amount || '[Not Specified]';
+                document.getElementById('performanceMateriality').textContent = 
+                    quantitative.performance_materiality_amount || '[Not Specified]';
+                
+                // Check if clearlyTrivialThreshold element exists
+                const clearlyTrivialElement = document.getElementById('clearlyTrivialThreshold');
+                if (clearlyTrivialElement) {
+                    clearlyTrivialElement.textContent = 
+                        quantitative.clearly_trivial_threshold || '[Not Specified]';
+                }
+            }
+            
+            // Display qualitative considerations
+            if (materiality.qualitative_materiality_considerations) {
+                const considerationsDiv = document.getElementById('qualitativeConsiderations');
+                if (considerationsDiv) {
+                    considerationsDiv.innerHTML = materiality.qualitative_materiality_considerations
+                        .map(item => `<li class="mb-1">${item}</li>`)
+                        .join('');
+                    
+                    // Show the section
+                    const considerationsSection = document.getElementById('qualitativeConsiderationsSection');
+                    if (considerationsSection) {
+                        considerationsSection.style.display = 'block';
+                    }
+                }
+            }
+            
+            // Display materiality conclusion
+            if (materiality.frc_materiality_conclusion) {
+                const conclusionElement = document.getElementById('materialityConclusionText');
+                if (conclusionElement) {
+                    conclusionElement.textContent = materiality.frc_materiality_conclusion;
+                }
+            }
+            
+            console.log('✅ Materiality Framework loaded successfully');
+        } else {
+            console.warn('Materiality framework not found in 3.json data structure');
+            showNotification('Materiality framework structure not found in 3.json', 'warning');
+        }
+    } else {
+        console.warn('3.json data not loaded');
+        document.getElementById('materialityBenchmark').textContent = 'Data not loaded (3.json missing)';
+        showNotification('Materiality framework data (3.json) not loaded', 'error');
+    }
+    
+    // ==================== REPORTING FRAMEWORK (from 1.json) ====================
+    if (metadata) {
+        const meta = metadata.frc_analysis_report?.metadata;
+        
+        console.log('Extracted metadata:', meta);
+        
+        if (meta) {
+            document.getElementById('disclosedFramework').textContent = 
+                meta.analysis_scope || 'IFRS as adopted in Bangladesh';
+            
+            // Display source documents
+            if (meta.source_documents && Array.isArray(meta.source_documents)) {
+                const sourcesDiv = document.getElementById('sourceDocuments');
+                if (sourcesDiv) {
+                    sourcesDiv.innerHTML = meta.source_documents
+                        .map(doc => `<li class="mb-1">${doc}</li>`)
+                        .join('');
+                }
+            }
+            
+            // Display generation date and version
+            document.getElementById('generationDate').textContent = 
+                meta.generation_date || '[Not Available]';
+            document.getElementById('frameworkVersion').textContent = 
+                meta.analyst_framework_version || '[Not Available]';
+            document.getElementById('preparedFor').textContent = 
+                meta.prepared_for || 'Financial Reporting Council, Bangladesh';
+            
+            console.log('✅ Metadata loaded successfully');
+        } else {
+            console.warn('Metadata not found in 1.json data structure');
+            showNotification('Metadata structure not found in 1.json', 'warning');
+        }
+    } else {
+        console.warn('1.json data not loaded');
+        showNotification('Metadata (1.json) not loaded', 'error');
+    }
+    
+    // ==================== REGULATORY LANDSCAPE (from 5.json if available) ====================
+    const regulatoryData = allJSONData[5];
+    if (regulatoryData) {
+        const regulatory = regulatoryData.frc_analysis_report?.entity?.phase_1_foundational_checks?.regulatory_landscape;
+        
+        console.log('Extracted regulatory data:', regulatory);
+        
+        if (regulatory) {
+            // Update regulators
+            if (regulatory.applicable_regulators) {
+                const regulatorsDiv = document.getElementById('applicableRegulators');
+                if (regulatorsDiv) {
+                    regulatorsDiv.innerHTML = regulatory.applicable_regulators
+                        .filter(reg => reg.regulator_name)
+                        .map(reg => `<span class="badge bg-secondary me-1 mb-1">${reg.regulator_name}</span>`)
+                        .join('');
+                }
+            }
+            
+            // Update statutory filings status
+            if (regulatory.statutory_filings_status) {
+                const filings = regulatory.statutory_filings_status;
+                
+                // Update BSEC filed status
+                const bsecFiledElement = document.getElementById('bsecFiled');
+                if (bsecFiledElement) {
+                    bsecFiledElement.textContent = filings.bsec_filed ? 'Yes' : 'No';
+                    bsecFiledElement.className = filings.bsec_filed ? 'badge bg-success' : 'badge bg-danger';
+                }
+                
+                // Update BSEC filing date
+                const bsecFilingDateElement = document.getElementById('bsecFilingDate');
+                if (bsecFilingDateElement) {
+                    bsecFilingDateElement.textContent = filings.bsec_filing_date || '[Not Available]';
+                }
+                
+                // Update tax return filed status
+                const taxReturnFiledElement = document.getElementById('taxReturnFiled');
+                if (taxReturnFiledElement) {
+                    taxReturnFiledElement.textContent = filings.income_tax_return_filed ? 'Filed' : 'Not Filed';
+                    taxReturnFiledElement.className = filings.income_tax_return_filed ? 'badge bg-success' : 'badge bg-danger';
+                }
+                
+                // Update tax year
+                const taxYearElement = document.getElementById('taxYear');
+                if (taxYearElement) {
+                    taxYearElement.textContent = filings.income_tax_year || '[Not Available]';
+                }
+                
+                // Update RJSC compliance
+                const rjscComplianceElement = document.getElementById('rjscCompliance');
+                if (rjscComplianceElement) {
+                    rjscComplianceElement.textContent = filings.rjsc_compliance ? 'Compliant' : 'Non-Compliant';
+                    rjscComplianceElement.className = filings.rjsc_compliance ? 'badge bg-success' : 'badge bg-danger';
+                }
+                
+                // Update BB compliance
+                const bbComplianceElement = document.getElementById('bbCompliance');
+                if (bbComplianceElement) {
+                    bbComplianceElement.textContent = filings.bb_compliance_if_applicable || 'Not Applicable';
+                    bbComplianceElement.className = filings.bb_compliance_if_applicable ? 'badge bg-info' : 'badge bg-secondary';
+                }
+            }
+            
+            // Update overall regulatory assessment if available
+            if (regulatory.overall_regulatory_assessment) {
+                const assessmentElement = document.getElementById('overallRegulatoryAssessment');
+                if (!assessmentElement) {
+                    // Add assessment element if it doesn't exist
+                    const regulatoryCard = document.querySelector('.dashboard-card:has(.fa-gavel)');
+                    if (regulatoryCard) {
+                        const assessmentDiv = document.createElement('div');
+                        assessmentDiv.className = 'mt-3';
+                        assessmentDiv.innerHTML = `
+                            <h6>Overall Regulatory Assessment:</h6>
+                            <div class="p-2 bg-light rounded" id="overallRegulatoryAssessment">
+                                ${regulatory.overall_regulatory_assessment}
+                            </div>
+                        `;
+                        regulatoryCard.appendChild(assessmentDiv);
+                    }
+                }
+            }
+            
+            console.log('✅ Regulatory data loaded successfully');
+        } else {
+            console.warn('Regulatory data not found in 5.json data structure');
+        }
+    } else {
+        console.log('5.json not loaded (optional file)');
+    }
+    
+    // Update last refresh time
+    const lastRefreshElement = document.getElementById('lastRefreshTime');
+    if (lastRefreshElement) {
+        lastRefreshElement.textContent = new Date().toLocaleString();
+    }
+    
+    // Show data source
+    const dataSourceElement = document.getElementById('dataSourceInfo');
+    if (!dataSourceElement) {
+        const mainContent = document.getElementById('mainContent');
+        if (mainContent) {
+            const sourceDiv = document.createElement('div');
+            sourceDiv.className = 'mt-4 text-center';
+            sourceDiv.id = 'dataSourceInfo';
+            sourceDiv.innerHTML = `
+                <div class="alert alert-info mb-0">
+                    <i class="fas fa-database me-2"></i>
+                    <strong>Data Source:</strong> 
+                    <code>https://asicoltd.github.io/FRC-AI/dataset/${currentCompanyId}/</code>
+                    <br>
+                    <small>Loaded ${Object.keys(allJSONData).length}/26 JSON files</small>
+                </div>
+            `;
+            mainContent.appendChild(sourceDiv);
         }
     }
-
-    // Update other sections similarly...
+    
+    console.log('✅ Entity data loading complete');
 }
 function loadComplianceData() {
     const complianceData = [
