@@ -1,0 +1,73 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "14",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "Khan Wahab Shafique Rahman & Co. Chartered Accountants",
+            "firm_registration_number": "11970",
+            "audit_tenure_years": "Not disclosed",
+            "rotation_compliance": "Not disclosed"
+          },
+          "audit_opinion": {
+            "opinion_type": "Unmodified with Emphasis of Matters",
+            "basis_for_opinion": "Audit conducted in accordance with ISAs, sufficient appropriate evidence obtained",
+            "modified_opinion_reasons": []
+          },
+          "key_audit_matters": [
+            {
+              "kam_number": 1,
+              "description": "Revenue Recognition",
+              "auditor_response": "Tested controls, traced performance obligations, inspected source documents",
+              "frca_risk_assessment": "High",
+              "follow_up_required": true
+            },
+            {
+              "kam_number": 2,
+              "description": "Valuation of Inventory and Project in Progress",
+              "auditor_response": "Verified management assumptions, checked physical condition",
+              "frca_risk_assessment": "High",
+              "follow_up_required": true
+            },
+            {
+              "kam_number": 3,
+              "description": "Recoverability Assessment of Trade Receivables",
+              "auditor_response": "Tested ageing accuracy, evaluated allowance policy",
+              "frca_risk_assessment": "High",
+              "follow_up_required": true
+            }
+          ],
+          "going_concern_assessment": {
+            "auditor_conclusion": "Going concern appropriate",
+            "period_assessed": "Foreseeable future",
+            "mitigating_factors": ["Adequate resources", "Positive operating cash flow"]
+          },
+          "isa_compliance_check": {
+            "compliance": "Compliant",
+            "issues": ["No rotation disclosure", "Limited going concern sensitivity analysis"]
+          }
+        },
+        "corporate_governance_review": {
+          "board_structure": {
+            "independence": "Not disclosed",
+            "expertise": "Construction industry experience implied",
+            "effectiveness": "Cannot assess from limited disclosures"
+          },
+          "committee_effectiveness": {
+            "audit_committee": "Not disclosed",
+            "risk_committee": "Not disclosed",
+            "nomination_committee": "Not disclosed"
+          },
+          "internal_controls": {
+            "effectiveness": "Weaknesses identified (payments outside banking channel)",
+            "management_assessment": "Implied but not explicit",
+            "auditor_opinion": "No opinion on internal controls"
+          }
+        }
+      }
+    }
+  }
+}

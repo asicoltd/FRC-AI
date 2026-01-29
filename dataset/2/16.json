@@ -1,0 +1,124 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "16",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [
+          {
+            "issue_id": "MD-001",
+            "description": "IPO funds not utilized within stipulated timeframe, requiring BSEC extension",
+            "relevant_standard": "Securities and Exchange Rules 2020",
+            "page_reference": "Page 1, Emphasis of Matter #2",
+            "extract_from_fs": "The total IPO Fund was not utilized within the stipulated time and the company has applied further time extension to Bangladesh securities exchange commission up to December 2024.",
+            "materiality": "Material",
+            "financial_impact_estimate": "IPO fund amount not specified",
+            "recommended_action": "Ensure timely utilization or obtain formal extension"
+          },
+          {
+            "issue_id": "MD-002",
+            "description": "Untraceable IPO subscription money (USD 1,674.83) reflected in cash instead of liabilities",
+            "relevant_standard": "IAS 1, IAS 8",
+            "page_reference": "Page 1, Emphasis of Matter #4; Note 18.01",
+            "extract_from_fs": "An amount of USD 1,674.83 equivalent to BDT 197,630 was received in FC Account for IPO that remain untraceable by the company but was reflected in cash & cash equivalent as against to other liabilities.",
+            "materiality": "Material due to misclassification",
+            "financial_impact_estimate": "BDT 197,630",
+            "recommended_action": "Reclassify to appropriate liability account and investigate"
+          },
+          {
+            "issue_id": "MD-003",
+            "description": "No impairment on aged receivables (BDT 157M >6 months) despite economic challenges",
+            "relevant_standard": "IAS 36, IFRS 9",
+            "page_reference": "Note 9.00 ageing analysis",
+            "extract_from_fs": "Ageing of Trade Receivables: More than six months: BDT 157,017,183; Less than six months: BDT 62,720,608",
+            "materiality": "Material",
+            "financial_impact_estimate": "Potential impairment up to BDT 157M",
+            "recommended_action": "Perform detailed impairment assessment"
+          }
+        ],
+        "risk_factor_consolidation": {
+          "high_risk": [
+            "Revenue decline of 43.7% with no recovery plan",
+            "Extremely low ROE (0.16%) destroying shareholder value",
+            "Aged receivables BDT 157M >6 months with no impairment",
+            "IPO fund utilization regulatory non-compliance"
+          ],
+          "medium_risk": [
+            "Cash decline of 55.5% year-over-year",
+            "Payments made outside banking channel",
+            "High inventory value (BDT 348.6M) with declining revenue",
+            "Untraceable IPO subscription money"
+          ],
+          "low_risk": [
+            "Fixed asset depreciation policies",
+            "Tax compliance issues",
+            "Minor equity decline"
+          ]
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "No Immediate Threat but Requires Monitoring",
+          "supporting_factors": [
+            "Positive operating cash flow (BDT 40.5M)",
+            "Strong equity base (BDT 1.76B)",
+            "Low debt levels",
+            "Auditor's unmodified going concern opinion"
+          ],
+          "contradicting_factors": [
+            "Significant revenue decline (43.7%)",
+            "Drastic cash reduction (55.5%)",
+            "Thin profit margins (1.51%)",
+            "Economic challenges mentioned"
+          ],
+          "recommendation": "Develop comprehensive turnaround strategy, enhance cash management, monitor closely"
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "Fairly Presented with Qualifications",
+          "overall_ifrs_compliance_level": "Partially Compliant",
+          "reliability_scoring_methodology": {
+            "components": {
+              "ifrs_compliance": "60%",
+              "audit_quality": "75%",
+              "governance_quality": "40%",
+              "earnings_quality": "50%",
+              "disclosure_transparency": "65%"
+            },
+            "final_score": "58%",
+            "interpretation": "Moderate Reliability - Significant improvement needed in governance and compliance"
+          },
+          "key_strengths": [
+            "Unmodified audit opinion",
+            "Detailed emphasis of matters",
+            "Clear accounting policy disclosures",
+            "Comprehensive KAMs addressed by auditor"
+          ],
+          "critical_issues": [
+            {
+              "issue_priority": "High",
+              "issue_description": "Regulatory non-compliance on IPO fund utilization",
+              "standards_affected": ["BSEC Rules"],
+              "financial_impact": "Regulatory penalties possible",
+              "regulatory_implications": "BSEC monitoring required",
+              "frca_recommendation": "Immediate compliance with extension terms"
+            },
+            {
+              "issue_priority": "High",
+              "issue_description": "Aged receivables with no impairment",
+              "standards_affected": ["IAS 36", "IFRS 9"],
+              "financial_impact": "Potential overstatement up to BDT 157M",
+              "regulatory_implications": "Asset overstatement",
+              "frca_recommendation": "Perform impairment testing"
+            }
+          ],
+          "frca_recommendations": [
+            "Immediate impairment assessment on aged receivables",
+            "Strengthen internal controls over cash disbursements",
+            "Develop revenue recovery strategy",
+            "Enhance corporate governance disclosures",
+            "Regular monitoring by FRC required"
+          ]
+        }
+      }
+    }
+  }
+}

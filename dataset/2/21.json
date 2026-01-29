@@ -1,0 +1,66 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-DSBSL-2024",
+  "section_id": "21",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "enhanced_audit_report_analysis": {
+          "opinion_type_analysis": {
+            "opinion_category": "Unmodified with Emphasis of Matters",
+            "basis_for_opinion_extract": "We conducted our audit in accordance with International Standards on Auditing (ISAs). Our responsibilities under those standards are further described in the Auditors' Responsibilities section. We are independent of the Company in accordance with the International Ethics Standards Board for Accountants' Code of Ethics for Professional Accountants (IESBA Code)... We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion.",
+            "modified_opinion_reasons_detailed": [],
+            "impact_on_fs_reliability": "No impact on reliability - unmodified opinion"
+          },
+          "key_audit_matters_extraction": [
+            {
+              "kam_number": 1,
+              "description": "Revenue Recognition - During the year ended 30 June 2024, total reported revenue is Tk. 187,729,653. The company generates revenue through execution of contracts with Government & Non-Government Institutions and other local parties.",
+              "auditor_response": "We have tested the design and operating effectiveness of key controls focusing on: obtaining understanding of controls, segregation of duties, timing of revenue recognition, tracing performance obligations, testing occurrence and accuracy, and assessing appropriateness of disclosures.",
+              "frca_risk_assessment": "High - Revenue declined 43.7%, significant judgment involved",
+              "follow_up_required": true
+            },
+            {
+              "kam_number": 2,
+              "description": "Valuation of Inventory and Project in Progress - As at 30 June 2024, the reported amount of inventory is Tk. 348,618,026 & project in progress is Tk. 164,892,183.",
+              "auditor_response": "We verified appropriateness of management's assumptions, evaluated design of controls, checked physical condition, reviewed historical accuracy of provisioning, checked reconciliation and movement, obtained management confirmation.",
+              "frca_risk_assessment": "High - BDT 513.5M total, involves management judgment",
+              "follow_up_required": true
+            },
+            {
+              "kam_number": 3,
+              "description": "Recoverability Assessment of Trade Receivables - The total amount of trade receivable is Tk. 219,737,791 at 30 June, 2024. There are significant large number of individual small customers.",
+              "auditor_response": "Tested accuracy of ageing, evaluated company's policy for allowance, assessed classification, physically visited projects, assessed recoverability through evaluation of management's assessment, inspected subsequent bank receipts.",
+              "frca_risk_assessment": "High - BDT 219.7M with BDT 157M aged >6 months",
+              "follow_up_required": true
+            }
+          ],
+          "going_concern_analysis": {
+            "material_uncertainty_disclosed": false,
+            "period_assessed": "Foreseeable future",
+            "mitigating_factors_listed": ["Adequate resources to continue"],
+            "auditor_conclusion": "Going concern appropriate",
+            "frca_assessment": "Reasonable given positive cash flow and equity base"
+          },
+          "emphasis_other_matters": {
+            "emphasis_of_matter_paragraphs": [
+              "EPS significantly fell due to decrease in revenue",
+              "IPO Fund not utilized within stipulated time",
+              "Dredger capitalization after installation delay",
+              "Untraceable IPO subscription money",
+              "Payments made outside banking channel"
+            ],
+            "other_matter_paragraphs": [],
+            "significance_assessment": "Significant operational and compliance issues highlighted"
+          },
+          "isa_compliance_verification": {
+            "compliance_with_isa_700_705": "Compliant",
+            "standard_requirements_met": ["Clear opinion", "Basis for opinion", "KAMs disclosed", "Going concern", "Responsibilities"],
+            "deficiencies_noted": ["No audit tenure disclosure", "Limited going concern sensitivity"],
+            "overall_compliance": "Compliant"
+          }
+        }
+      }
+    }
+  }
+}
