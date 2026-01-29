@@ -1,0 +1,2816 @@
+
+// Initialize FontAwesome (replace with your kit code)
+const script = document.createElement('script');
+script.src = 'https://kit.fontawesome.com/a076d05399.js';
+document.head.appendChild(script);
+
+// Global configuration
+const GITHUB_PAGES_BASE = 'https://asicoltd.github.io/FRC-AI/dataset/';
+let currentCompanyId = 1; // Default to first company
+let allJSONData = {};
+let availableCompanies = [1, 2, 3]; // Update this with actual company IDs
+
+// Initialize with default company
+document.addEventListener('DOMContentLoaded', async function () {
+    // Load company selector first
+    await loadCompanySelector();
+    // Load data for default company
+    await loadCompanyData(currentCompanyId);
+    loadDashboard();
+});
+// Function to load company selector
+async function loadCompanySelector() {
+    // Try to fetch company list
+    try {
+        const response = await fetch(`${GITHUB_PAGES_BASE}companies.json`);
+        if (response.ok) {
+            const companies = await response.json();
+            availableCompanies = companies;
+            console.log(`📋 Found ${companies.length} companies in companies.json`);
+        }
+    } catch (error) {
+        console.log('📋 No companies.json found, auto-discovering...');
+        await autoDiscoverCompanies();
+    }
+
+    // Add company selector to navbar
+    const navbar = document.querySelector('.navbar .container-fluid');
+    if (navbar) {
+        // Check if selector already exists
+        if (navbar.querySelector('#companyDropdown')) return;
+
+        const selectorHTML = `
+            <div class="dropdown ms-3">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" 
+                        id="companyDropdown" data-bs-toggle="dropdown"
+                        data-bs-toggle="tooltip" title="Switch Company">
+                    <i class="fas fa-building me-2"></i>Company ${currentCompanyId}
+                </button>
+                <ul class="dropdown-menu" id="companyList">
+                    ${availableCompanies.map(id => `
+                        <li>
+                            <a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
+                               href="#" onclick="switchCompany(${id})">
+                                <i class="fas fa-building me-2"></i>Company ${id}
+                                ${id === currentCompanyId ? '<i class="fas fa-check ms-2"></i>' : ''}
+                            </a>
+                        </li>
+                    `).join('')}
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="refreshCompanyList()">
+                            <i class="fas fa-sync me-2"></i>Refresh Company List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="addNewCompanyDialog()">
+                            <i class="fas fa-plus me-2"></i>Add New Company
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        `;
+
+        // Insert after the brand
+        const brand = navbar.querySelector('.navbar-brand');
+        if (brand) {
+            brand.insertAdjacentHTML('afterend', selectorHTML);
+        }
+
+        // Initialize tooltips
+        initTooltips();
+    }
+}
+// Auto-discover companies by checking for existing folders
+async function autoDiscoverCompanies() {
+    const maxCheck = 10; // Check up to 10 companies
+    const promises = [];
+
+    for (let i = 1; i <= maxCheck; i++) {
+        promises.push(checkCompanyExists(i));
+    }
+
+    const results = await Promise.all(promises);
+    availableCompanies = results.filter((exists, index) => exists).map((_, index) => index + 1);
+    console.log('Auto-discovered companies:', availableCompanies);
+}
+
+// Check if a company folder exists
+async function checkCompanyExists(companyId) {
+    try {
+        const response = await fetch(`${GITHUB_PAGES_BASE}${companyId}/1.json`, { method: 'HEAD' });
+        return response.ok;
+    } catch {
+        return false;
+    }
+}
+
+// Function to load JSON data for specific company
+async function loadJSONData(companyId, fileNumber) {
+    try {
+        const url = `${GITHUB_PAGES_BASE}${companyId}/${fileNumber}.json`;
+        console.log('Loading:', url);
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(`Error loading company ${companyId}, file ${fileNumber}:`, error);
+        return null;
+    }
+}
+
+async function loadCompanyData(companyId) {
+    showLoading(`Loading data for Company ${companyId}...`);
+
+    // Reset data for current company
+    allJSONData = {};
+    currentCompanyId = companyId;
+
+    // Update URL and storage
+    localStorage.setItem('frc_last_company_id', companyId.toString());
+    setUrlParameter('company', companyId);
+
+    // Update company selector
+    updateCompanySelector(companyId);
+
+    console.log(`📂 Starting to load data for company ${companyId}`);
+
+    let loadedCount = 0;
+    const totalFiles = 26;
+
+    // Load files with progress tracking
+    for (let i = 1; i <= totalFiles; i++) {
+        try {
+            updateLoadingProgress((i - 1) / totalFiles * 100);
+
+            const data = await loadJSONData(companyId, i);
+            if (data) {
+                allJSONData[i] = data;
+                loadedCount++;
+                console.log(`✅ Loaded file ${i}.json`);
+            } else {
+                console.log(`❌ Failed to load file ${i}.json`);
+            }
+        } catch (error) {
+            console.error(`🚨 Error loading file ${i}.json:`, error);
+        }
+    }
+
+    updateLoadingProgress(100);
+    hideLoading();
+
+    console.log(`📊 Loaded ${loadedCount}/${totalFiles} files for Company ${companyId}`);
+
+    if (loadedCount > 0) {
+        // Cache the loaded data
+        localStorage.setItem(`frc_company_${companyId}_data`, JSON.stringify({
+            data: allJSONData,
+            timestamp: new Date().toISOString()
+        }));
+
+        // Update company header
+        updateCompanyHeader(companyId);
+
+        // Show success notification
+        const successMessage = loadedCount === totalFiles
+            ? `✅ Successfully loaded all ${totalFiles} files for Company ${companyId}`
+            : `⚠️ Loaded ${loadedCount}/${totalFiles} files for Company ${companyId}`;
+
+        showNotification(successMessage, loadedCount === totalFiles ? 'success' : 'warning');
+
+        return true;
+    } else {
+        // Load sample data as fallback
+        loadSampleData();
+        showNotification(`❌ No data found for Company ${companyId}. Using sample data.`, 'error');
+        return false;
+    }
+}
+// Enhanced loadJSONData with better error handling
+async function loadJSONData(companyId, fileNumber) {
+    const url = `${GITHUB_PAGES_BASE}${companyId}/${fileNumber}.json`;
+    console.log(`Fetching: ${url}`);
+
+    try {
+        // Add cache busting to avoid stale data
+        const cacheBuster = `?_=${Date.now()}`;
+        const response = await fetch(`${url}${cacheBuster}`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Cache-Control': 'no-cache'
+            }
+        });
+
+        console.log(`Response status for ${fileNumber}.json:`, response.status, response.statusText);
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                console.log(`File not found: ${url}`);
+                return null;
+            }
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const text = await response.text();
+        console.log(`Raw response for ${fileNumber}.json:`, text.substring(0, 200) + '...');
+
+        if (!text || text.trim() === '') {
+            console.log(`Empty response for ${fileNumber}.json`);
+            return null;
+        }
+
+        const data = JSON.parse(text);
+        console.log(`Successfully parsed ${fileNumber}.json:`, Object.keys(data));
+
+        // Validate the JSON structure
+        if (!data.pdf_token || !data.report_id) {
+            console.warn(`File ${fileNumber}.json missing required fields`);
+        }
+
+        return data;
+    } catch (error) {
+        console.error(`Error loading ${url}:`, error);
+
+        // Try without cache buster as fallback
+        if (url.includes('?_=')) {
+            try {
+                console.log(`Retrying without cache buster: ${url.split('?')[0]}`);
+                const response = await fetch(url.split('?')[0]);
+                if (response.ok) {
+                    return await response.json();
+                }
+            } catch (retryError) {
+                console.error('Retry also failed:', retryError);
+            }
+        }
+
+        return null;
+    }
+}
+// Function to update company header with real data
+function updateCompanyHeader(companyId) {
+    const header = document.querySelector('.company-header');
+    if (!header) return;
+
+    const companyData = allJSONData[2]; // Entity profile is in 2.json
+    if (!companyData) return;
+
+    const profile = companyData.frc_analysis_report?.entity?.entity_profile;
+
+    header.innerHTML = `
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h2 class="mb-2">${profile?.legal_name || `Company ${companyId}`}</h2>
+                <p class="mb-1">${profile?.trade_name || ''}</p>
+                <p class="mb-0">Registration: ${profile?.registration_number || 'N/A'}</p>
+            </div>
+            <div class="col-md-4 text-end">
+                <span class="badge ${profile?.listing_status === 'Listed' ? 'bg-success' : 'bg-secondary'} fs-6">
+                    ${profile?.listing_status || 'Unknown'}
+                </span>
+                <p class="mt-2 mb-0">FYE: ${profile?.financial_year_end || 'N/A'}</p>
+                <p class="mb-0">Data Source: GitHub Pages</p>
+            </div>
+        </div>
+    `;
+}
+// Update company selector UI
+function updateCompanySelector(companyId) {
+    const dropdownButton = document.getElementById('companyDropdown');
+    const dropdownItems = document.querySelectorAll('#companyList .dropdown-item');
+
+    if (dropdownButton) {
+        dropdownButton.innerHTML = `<i class="fas fa-building me-2"></i>Company ${companyId}`;
+    }
+
+    dropdownItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.textContent.includes(`Company ${companyId}`)) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// Switch between companies
+async function switchCompany(companyId) {
+    if (companyId === currentCompanyId) return;
+
+    // Save current data if needed
+    if (Object.keys(allJSONData).length > 0) {
+        localStorage.setItem(`company_${currentCompanyId}_data`, JSON.stringify(allJSONData));
+    }
+
+    // Load new company data
+    const success = await loadCompanyData(companyId);
+
+    if (success) {
+        // Reload current view
+        const currentSection = document.querySelector('.sidebar-item.active')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+        if (currentSection) {
+            loadSection(currentSection);
+        } else {
+            loadDashboard();
+        }
+    }
+}
+// Function to load all JSON data
+async function loadAllJSONData() {
+    const promises = [];
+    for (let i = 1; i <= 26; i++) {
+        promises.push(loadJSONData(i));
+    }
+
+    await Promise.all(promises);
+    console.log('All JSON data loaded:', allJSONData);
+}
+
+// Call this on page load
+document.addEventListener('DOMContentLoaded', async function () {
+    await loadAllJSONData();
+    loadDashboard();
+});
+
+// Navigation functions
+function loadSection(section) {
+    // Update active sidebar item
+    document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    event.target.closest('.sidebar-item').classList.add('active');
+
+    // Load section content
+    switch (section) {
+        case 'dashboard':
+            loadDashboard();
+            break;
+        case 'entity':
+            loadEntityProfile();
+            break;
+        case 'financial-analysis':
+            loadFinancialAnalysis();
+            break;
+        case 'compliance':
+            loadComplianceMatrix();
+            break;
+        case 'audit-governance':
+            loadAuditGovernance();
+            break;
+        case 'material-departures':
+            loadMaterialDepartures();
+            break;
+        case 'risk-assessment':
+            loadRiskAssessment();
+            break;
+        case 'skepticism':
+            loadSkepticism();
+            break;
+        case 'data-import':
+            loadDataImport();
+            break;
+        case 'report-generator':
+            loadReportGenerator();
+            break;
+    }
+}
+
+function loadDashboard() {
+    const companyData = allJSONData[2];
+    const companyName = companyData?.frc_analysis_report?.entity?.entity_profile?.legal_name || `Company ${currentCompanyId}`;
+
+    const content = `
+        <div class="company-header">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="mb-2">${companyName}</h2>
+                    <p class="mb-0">Financial Reporting Analysis Dashboard - Company ${currentCompanyId}</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <span class="badge bg-info fs-6">Company ${currentCompanyId}</span>
+                    <p class="mt-2 mb-0">Data Source: GitHub Pages</p>
+                    <p class="mb-0">URL: ${GITHUB_PAGES_BASE}${currentCompanyId}/</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rest of dashboard content remains similar, but uses currentCompanyId -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dashboard-card">
+                    <div class="metric-label">Current Company</div>
+                    <div class="metric-value">${currentCompanyId}</div>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-outline-primary w-100" onclick="loadDataImport()">
+                            Switch Company
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- ... other dashboard cards ... -->
+        </div>
+    `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    renderDashboardCharts();
+}
+function loadEntityProfile() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Entity Context & Framework</h3>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-info-circle me-2 text-primary"></i>Entity Profile</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="40%">Legal Name:</th>
+                                    <td id="legalName">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Trade Name:</th>
+                                    <td id="tradeName">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Registration Number:</th>
+                                    <td id="registrationNumber">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Industry Sector:</th>
+                                    <td id="industrySector">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Listing Status:</th>
+                                    <td id="listingStatus">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Reporting Currency:</th>
+                                    <td id="reportingCurrency">BDT</td>
+                                </tr>
+                                <tr>
+                                    <th>Financial Year End:</th>
+                                    <td id="financialYearEnd">YYYY-12-31</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-balance-scale me-2 text-primary"></i>Materiality Framework</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="50%">Benchmark Used:</th>
+                                    <td id="materialityBenchmark">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Percentage Applied:</th>
+                                    <td id="materialityPercentage">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Overall Materiality:</th>
+                                    <td id="overallMateriality">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Performance Materiality:</th>
+                                    <td id="performanceMateriality">[Not Specified]</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-file-contract me-2 text-primary"></i>Reporting Framework</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Disclosed Framework:</label>
+                                <div id="disclosedFramework" class="p-2 bg-light rounded">IFRS as adopted in Bangladesh</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Actual Standards Applied:</label>
+                                <div id="actualStandards" class="p-2 bg-light rounded">
+                                    <span class="badge bg-primary me-1">IAS 1</span>
+                                    <span class="badge bg-primary me-1">IAS 2</span>
+                                    <span class="badge bg-primary me-1">IAS 16</span>
+                                    <span class="badge bg-primary me-1">IFRS 9</span>
+                                    <span class="badge bg-primary me-1">IFRS 15</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Compliance Assessment:</label>
+                                <div class="compliance-badge badge-partial">Partially Compliant</div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-gavel me-2 text-primary"></i>Regulatory Landscape</h5>
+                            <div class="mb-3">
+                                <h6>Applicable Regulators:</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-secondary">FRC</span>
+                                    <span class="badge bg-secondary">BSEC</span>
+                                    <span class="badge bg-secondary">RJSC</span>
+                                    <span class="badge bg-secondary">NBR</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Statutory Filings Status:</h6>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td>BSEC Filed:</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Income Tax Return:</td>
+                                        <td><span class="badge bg-success">Filed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>RJSC Compliance:</td>
+                                        <td><span class="badge bg-success">Compliant</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-comment-dots me-2 text-primary"></i>Materiality Conclusion</h5>
+                    <div id="materialityConclusion" class="p-3 bg-light rounded">
+                        Materiality assessment completed based on 5% of profit before tax. Qualitative factors considered include related party transactions and going concern indicators.
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    loadEntityData();
+}
+
+function loadFinancialAnalysis() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Financial Ratio & Trend Analysis</h3>
+                    <div>
+                        <button class="btn btn-outline-primary me-2" onclick="calculateRatios()">
+                            <i class="fas fa-calculator me-2"></i> Calculate Ratios
+                        </button>
+                        <button class="btn btn-primary" onclick="loadTrendAnalysis()">
+                            <i class="fas fa-chart-line me-2"></i> View Trends
+                        </button>
+                    </div>
+                </div>
+                
+                <ul class="nav nav-tabs" id="analysisTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="ratios-tab" data-bs-toggle="tab" data-bs-target="#ratios">Ratio Analysis</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="trends-tab" data-bs-toggle="tab" data-bs-target="#trends">Trend Analysis</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="earnings-tab" data-bs-toggle="tab" data-bs-target="#earnings">Earnings Quality</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vertical-tab" data-bs-toggle="tab" data-bs-target="#vertical">Vertical Analysis</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="analysisTabContent">
+                    <div class="tab-pane fade show active" id="ratios">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="dashboard-card">
+                                    <h5>Liquidity Ratios</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ratio</th>
+                                                <th>2023</th>
+                                                <th>2022</th>
+                                                <th>Trend</th>
+                                                <th>Risk</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Current Ratio</td>
+                                                <td>1.5</td>
+                                                <td>1.8</td>
+                                                <td><i class="fas fa-arrow-down text-danger"></i></td>
+                                                <td><span class="risk-indicator risk-medium"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quick Ratio</td>
+                                                <td>0.9</td>
+                                                <td>1.2</td>
+                                                <td><i class="fas fa-arrow-down text-danger"></i></td>
+                                                <td><span class="risk-indicator risk-high"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <h5>Efficiency Ratios</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ratio</th>
+                                                <th>2023</th>
+                                                <th>2022</th>
+                                                <th>Industry Avg</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Days of Inventory</td>
+                                                <td>45</td>
+                                                <td>38</td>
+                                                <td>40</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Days Sales Outstanding</td>
+                                                <td>60</td>
+                                                <td>55</td>
+                                                <td>45</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Asset Turnover</td>
+                                                <td>0.8</td>
+                                                <td>0.9</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="dashboard-card">
+                                    <h5>Solvency & Coverage Ratios</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ratio</th>
+                                                <th>2023</th>
+                                                <th>2022</th>
+                                                <th>Risk</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Debt to Equity</td>
+                                                <td>1.2</td>
+                                                <td>0.9</td>
+                                                <td><span class="risk-indicator risk-high"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Interest Coverage</td>
+                                                <td>3.5</td>
+                                                <td>4.8</td>
+                                                <td><span class="risk-indicator risk-medium"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <h5>Profitability Ratios</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ratio</th>
+                                                <th>2023</th>
+                                                <th>2022</th>
+                                                <th>Change</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ROA</td>
+                                                <td>6.5%</td>
+                                                <td>8.2%</td>
+                                                <td class="text-danger">-1.7%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ROE</td>
+                                                <td>12.3%</td>
+                                                <td>15.6%</td>
+                                                <td class="text-danger">-3.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Net Profit Margin</td>
+                                                <td>8.5%</td>
+                                                <td>10.2%</td>
+                                                <td class="text-danger">-1.7%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5>Ratio Analysis Commentary</h5>
+                            <div class="p-3 bg-light rounded">
+                                <p><strong>Key Findings:</strong> Declining liquidity ratios indicate potential working capital pressures. Increasing debt-to-equity ratio suggests higher financial risk. Profitability ratios show a declining trend, requiring investigation into revenue quality and cost structure.</p>
+                                <p><strong>Areas for Investigation:</strong> Deteriorating quick ratio, increasing days sales outstanding, and declining interest coverage ratio warrant detailed review of receivables aging and debt covenants.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="trends">
+                        <div class="dashboard-card">
+                            <h5>Year-on-Year Trend Analysis</h5>
+                            <canvas id="trendChart" height="100"></canvas>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="dashboard-card">
+                                    <h6>Statement of Financial Position - Key Items</h6>
+                                    <div id="gridFinancialPosition" class="ag-theme-alpine" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="dashboard-card">
+                                    <h6>Profit or Loss - Key Items</h6>
+                                    <div id="gridProfitLoss" class="ag-theme-alpine" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="earnings">
+                        <div class="dashboard-card">
+                            <h5>Earnings Quality Analysis</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Metric</th>
+                                                <th>2023</th>
+                                                <th>2022</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Net Income</td>
+                                                <td>450,000,000</td>
+                                                <td>520,000,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cash Flow from Operations</td>
+                                                <td>320,000,000</td>
+                                                <td>480,000,000</td>
+                                            </tr>
+                                            <tr class="table-warning">
+                                                <td><strong>Total Accruals</strong></td>
+                                                <td><strong>130,000,000</strong></td>
+                                                <td><strong>40,000,000</strong></td>
+                                            </tr>
+                                            <tr class="table-danger">
+                                                <td><strong>Accruals/Net Income</strong></td>
+                                                <td><strong>28.9%</strong></td>
+                                                <td><strong>7.7%</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="alert alert-warning">
+                                        <h6><i class="fas fa-exclamation-triangle me-2"></i>Warning Signs Detected</h6>
+                                        <p class="mb-2">• Significant increase in accruals component (from 7.7% to 28.9%)</p>
+                                        <p class="mb-2">• Declining cash flow from operations despite stable net income</p>
+                                        <p class="mb-0">• Potential earnings management indicators present</p>
+                                    </div>
+                                    <div class="alert alert-info">
+                                        <h6><i class="fas fa-search me-2"></i>Areas for Further Investigation</h6>
+                                        <p class="mb-0">• Revenue recognition policies (IFRS 15)</p>
+                                        <p class="mb-0">• Provision accounting (IAS 37)</p>
+                                        <p class="mb-0">• Receivables and inventory valuation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="vertical">
+                        <div class="dashboard-card">
+                            <h5>Vertical Analysis - 2023</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Assets Composition</h6>
+                                    <canvas id="assetsChart" height="200"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Liabilities & Equity Composition</h6>
+                                    <canvas id="liabilitiesChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    renderFinancialCharts();
+    initializeGrids();
+}
+
+function loadComplianceMatrix() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">IFRS Compliance Review</h3>
+                    <div>
+                        <button class="btn btn-outline-primary me-2" onclick="updateComplianceStatus()">
+                            <i class="fas fa-sync me-2"></i> Update Status
+                        </button>
+                        <button class="btn btn-primary" onclick="exportComplianceMatrix()">
+                            <i class="fas fa-download me-2"></i> Export Matrix
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="dashboard-card text-center">
+                            <div class="metric-label">Compliant</div>
+                            <div class="metric-value text-success">27</div>
+                            <small>Standards</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-card text-center">
+                            <div class="metric-label">Partial</div>
+                            <div class="metric-value text-warning">8</div>
+                            <small>Standards</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-card text-center">
+                            <div class="metric-label">Non-Compliant</div>
+                            <div class="metric-value text-danger">7</div>
+                            <small>Standards</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dashboard-card text-center">
+                            <div class="metric-label">Not Applicable</div>
+                            <div class="metric-value text-info">15</div>
+                            <small>Standards</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Compliance Matrix</h5>
+                        <div class="d-flex">
+                            <input type="text" class="form-control form-control-sm me-2" placeholder="Search standards..." id="complianceSearch">
+                            <select class="form-select form-select-sm w-auto" id="complianceFilter">
+                                <option value="all">All Status</option>
+                                <option value="compliant">Compliant</option>
+                                <option value="partial">Partially Compliant</option>
+                                <option value="noncompliant">Non-Compliant</option>
+                                <option value="na">Not Applicable</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Standard Code</th>
+                                    <th>Standard Name</th>
+                                    <th>Applicability</th>
+                                    <th>Compliance Status</th>
+                                    <th>Page Reference</th>
+                                    <th>Issues Identified</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="complianceTable">
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5>Key Standards Detailed Check</h5>
+                            <div id="keyStandardsAccordion" class="accordion">
+                                <!-- Dynamic accordion will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5>Material Departures Summary</h5>
+                            <div class="list-group">
+                                <div class="list-group-item list-group-item-danger">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">IFRS 15 - Revenue Recognition</h6>
+                                        <small>High Risk</small>
+                                    </div>
+                                    <p class="mb-1">Five-step model not properly applied to long-term contracts</p>
+                                    <small>Pages 45-48 of Financial Statements</small>
+                                </div>
+                                <div class="list-group-item list-group-item-warning">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">IAS 24 - Related Parties</h6>
+                                        <small>Medium Risk</small>
+                                    </div>
+                                    <p class="mb-1">Incomplete disclosure of transactions with key management personnel</p>
+                                    <small>Page 112 of Financial Statements</small>
+                                </div>
+                                <div class="list-group-item list-group-item-warning">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">IAS 37 - Provisions</h6>
+                                        <small>Medium Risk</small>
+                                    </div>
+                                    <p class="mb-1">Onerous contracts provision understated</p>
+                                    <small>Page 89 of Financial Statements</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    loadComplianceData();
+}
+
+function loadAuditGovernance() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Audit & Governance Assessment</h3>
+                    <button class="btn btn-primary" onclick="loadEnhancedAuditAnalysis()">
+                        <i class="fas fa-search-plus me-2"></i> Detailed Analysis
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-file-signature me-2 text-primary"></i>Audit Report Analysis</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <th width="50%">Audit Firm:</th>
+                                            <td id="auditFirm">ABC & Co. Chartered Accountants</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Audit Tenure:</th>
+                                            <td>5 years</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Rotation Compliance:</th>
+                                            <td><span class="badge bg-success">Compliant</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Opinion Type:</th>
+                                            <td><span class="badge bg-warning">Modified with Emphasis of Matter</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="alert alert-warning">
+                                        <h6><i class="fas fa-exclamation-circle me-2"></i>Material Uncertainty</h6>
+                                        <p class="mb-0">Going concern uncertainty related to debt covenant compliance</p>
+                                    </div>
+                                    <div class="alert alert-info">
+                                        <h6><i class="fas fa-clipboard-list me-2"></i>Key Audit Matters: 3</h6>
+                                        <p class="mb-0">Revenue recognition, inventory valuation, related party transactions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-user-tie me-2 text-primary"></i>Corporate Governance Review</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6>Board Structure</h6>
+                                    <div class="mb-2">
+                                        <span class="badge bg-success me-1">Independent: 40%</span>
+                                        <span class="badge bg-warning me-1">Expertise: Medium</span>
+                                    </div>
+                                    <p class="small">Board composition meets minimum requirements but lacks industry-specific expertise.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>Committee Effectiveness</h6>
+                                    <div class="mb-2">
+                                        <span class="badge bg-success me-1">Audit: Active</span>
+                                        <span class="badge bg-warning me-1">Risk: Limited</span>
+                                    </div>
+                                    <p class="small">Audit committee meets regularly but risk committee activities are minimal.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>Internal Controls</h6>
+                                    <div class="mb-2">
+                                        <span class="badge bg-warning me-1">Effectiveness: Moderate</span>
+                                    </div>
+                                    <p class="small">Management assessment indicates weaknesses in IT controls.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-balance-scale me-2 text-primary"></i>BSEC Governance Code Compliance</h5>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Overall Compliance Score</span>
+                                    <span>72%</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    <div class="progress-bar bg-warning" style="width: 72%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion" id="governanceAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#governance1">
+                                            Major Non-Compliances (3)
+                                        </button>
+                                    </h2>
+                                    <div id="governance1" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <ul class="mb-0">
+                                                <li>Director independence disclosures incomplete</li>
+                                                <li>Remuneration policy not fully disclosed</li>
+                                                <li>Risk management framework documentation lacking</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#governance2">
+                                            Partial Compliances (5)
+                                        </button>
+                                    </h2>
+                                    <div id="governance2" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <ul class="mb-0">
+                                                <li>Board diversity policy</li>
+                                                <li>Stakeholder engagement</li>
+                                                <li>Whistleblower policy implementation</li>
+                                                <li>IT governance framework</li>
+                                                <li>Succession planning</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-shield-alt me-2 text-primary"></i>ISA Compliance Check</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-success me-1">ISA 700: Compliant</span>
+                                <span class="badge bg-success me-1">ISA 705: Compliant</span>
+                                <span class="badge bg-warning">ISA 570: Modified</span>
+                            </div>
+                            <p class="small mb-0">Audit report structure complies with ISA requirements. Emphasis of matter paragraph appropriately included for going concern uncertainty.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+}
+
+function loadMaterialDepartures() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Material Departures & Non-Compliance</h3>
+                    <div>
+                        <button class="btn btn-outline-danger me-2" onclick="addNewDeparture()">
+                            <i class="fas fa-plus me-2"></i> Add Departure
+                        </button>
+                        <button class="btn btn-primary" onclick="generateComplianceReport()">
+                            <i class="fas fa-file-pdf me-2"></i> Generate Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card danger">
+                    <h5><i class="fas fa-exclamation-triangle me-2"></i>Critical Material Departures</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="table-danger">
+                                    <th>ID</th>
+                                    <th>IFRS Standard</th>
+                                    <th>Nature of Departure</th>
+                                    <th>Financial Impact</th>
+                                    <th>Materiality</th>
+                                    <th>Corrective Action</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DEPT-001</td>
+                                    <td>IFRS 15</td>
+                                    <td>Revenue recognized before performance obligations satisfied</td>
+                                    <td>BDT 45,000,000</td>
+                                    <td><span class="badge bg-danger">Material</span></td>
+                                    <td>Restate revenue recognition policy</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>DEPT-002</td>
+                                    <td>IAS 24</td>
+                                    <td>Incomplete related party transaction disclosures</td>
+                                    <td>BDT 12,500,000</td>
+                                    <td><span class="badge bg-danger">Material</span></td>
+                                    <td>Provide full disclosure in notes</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>DEPT-003</td>
+                                    <td>IAS 37</td>
+                                    <td>Provision for onerous contracts understated</td>
+                                    <td>BDT 8,200,000</td>
+                                    <td><span class="badge bg-warning">Material</span></td>
+                                    <td>Recalculate and adjust provision</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card warning">
+                    <h5><i class="fas fa-gavel me-2"></i>Non-Compliance with Laws & Regulations</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="table-warning">
+                                    <th>Compliance ID</th>
+                                    <th>Law/Regulation</th>
+                                    <th>Section Violated</th>
+                                    <th>Nature of Breach</th>
+                                    <th>Severity</th>
+                                    <th>Potential Penalties</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>COMP-001</td>
+                                    <td>Companies Act 1994</td>
+                                    <td>Section 184</td>
+                                    <td>Inadequate director's report disclosures</td>
+                                    <td><span class="risk-indicator risk-medium"></span> Medium</td>
+                                    <td>Fine up to BDT 50,000</td>
+                                </tr>
+                                <tr>
+                                    <td>COMP-002</td>
+                                    <td>Financial Reporting Act 2015</td>
+                                    <td>Section 12</td>
+                                    <td>Failure to apply IFRS as adopted in Bangladesh</td>
+                                    <td><span class="risk-indicator risk-high"></span> High</td>
+                                    <td>Fine up to BDT 500,000</td>
+                                </tr>
+                                <tr>
+                                    <td>COMP-003</td>
+                                    <td>Income Tax Act 2023</td>
+                                    <td>Section 75</td>
+                                    <td>Transfer pricing documentation inadequate</td>
+                                    <td><span class="risk-indicator risk-medium"></span> Medium</td>
+                                    <td>Adjustments + 20% penalty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-chart-pie me-2"></i>Departures by Standard</h5>
+                            <canvas id="departuresChart" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-calendar-alt me-2"></i>Remediation Timeline</h5>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h6>Immediate Actions (0-30 days)</h6>
+                                    <p class="small mb-1">• Restate IFRS 15 revenue recognition</p>
+                                    <p class="small mb-0">• Complete IAS 24 disclosures</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6>Short-term Actions (30-90 days)</h6>
+                                    <p class="small mb-1">• Enhance internal controls</p>
+                                    <p class="small mb-0">• Update accounting policies manual</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6>Medium-term Actions (90-180 days)</h6>
+                                    <p class="small mb-1">• Implement IFRS 9 ECL model</p>
+                                    <p class="small mb-0">• Enhance governance framework</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    renderDeparturesChart();
+}
+
+function loadRiskAssessment() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Integrated Risk Assessment</h3>
+                    <div>
+                        <button class="btn btn-outline-primary me-2" onclick="updateRiskAssessment()">
+                            <i class="fas fa-redo me-2"></i> Reassess
+                        </button>
+                        <button class="btn btn-primary" onclick="exportRiskMatrix()">
+                            <i class="fas fa-download me-2"></i> Export Matrix
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="dashboard-card danger text-center">
+                            <div class="metric-label">High Risk Areas</div>
+                            <div class="metric-value">8</div>
+                            <div class="mt-2">
+                                <p class="small mb-1">• Revenue recognition</p>
+                                <p class="small mb-1">• Going concern</p>
+                                <p class="small mb-0">• Debt covenant compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dashboard-card warning text-center">
+                            <div class="metric-label">Medium Risk Areas</div>
+                            <div class="metric-value">12</div>
+                            <div class="mt-2">
+                                <p class="small mb-1">• Inventory valuation</p>
+                                <p class="small mb-1">• Related party transactions</p>
+                                <p class="small mb-0">• Tax compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dashboard-card success text-center">
+                            <div class="metric-label">Low Risk Areas</div>
+                            <div class="metric-value">15</div>
+                            <div class="mt-2">
+                                <p class="small mb-1">• Property, plant & equipment</p>
+                                <p class="small mb-1">• Share capital</p>
+                                <p class="small mb-0">• Cash equivalents</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-project-diagram me-2"></i>Risk Factor Synthesis</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Financial Risks</h6>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Liquidity risk</span>
+                                        <span class="risk-indicator risk-high"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Credit risk</span>
+                                        <span class="risk-indicator risk-medium"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Market risk</span>
+                                        <span class="risk-indicator risk-low"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Operational Risks</h6>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Internal controls</span>
+                                        <span class="risk-indicator risk-medium"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Business continuity</span>
+                                        <span class="risk-indicator risk-medium"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Supply chain</span>
+                                        <span class="risk-indicator risk-low"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Compliance Risks</h6>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>IFRS compliance</span>
+                                        <span class="risk-indicator risk-high"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Tax compliance</span>
+                                        <span class="risk-indicator risk-medium"></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Regulatory filings</span>
+                                        <span class="risk-indicator risk-low"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-chart-bar me-2"></i>Risk Heat Map</h5>
+                    <canvas id="riskHeatMap" height="100"></canvas>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-tasks me-2"></i>FRCA Priority Actions</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Priority</th>
+                                    <th>Action Required</th>
+                                    <th>Responsible</th>
+                                    <th>Timeline</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-danger">
+                                    <td>Critical</td>
+                                    <td>Address going concern uncertainties</td>
+                                    <td>Board of Directors</td>
+                                    <td>Immediate</td>
+                                    <td><span class="badge bg-danger">Not Started</span></td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <td>High</td>
+                                    <td>Correct IFRS 15 revenue recognition</td>
+                                    <td>CFO & Finance Team</td>
+                                    <td>30 days</td>
+                                    <td><span class="badge bg-warning">In Progress</span></td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td>Medium</td>
+                                    <td>Enhance related party disclosures</td>
+                                    <td>Company Secretary</td>
+                                    <td>60 days</td>
+                                    <td><span class="badge bg-secondary">Pending</span></td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td>Medium</td>
+                                    <td>Strengthen internal controls</td>
+                                    <td>Internal Audit</td>
+                                    <td>90 days</td>
+                                    <td><span class="badge bg-secondary">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    renderRiskCharts();
+}
+
+function loadSkepticism() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Professional Skepticism Application</h3>
+                    <button class="btn btn-primary" onclick="addSkepticalQuestion()">
+                        <i class="fas fa-question-circle me-2"></i> Add Question
+                    </button>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-search me-2 text-primary"></i>Management Assertions Challenged</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Assertion Area</th>
+                                    <th>Management Claim</th>
+                                    <th>Evidence Sought</th>
+                                    <th>Evidence Found</th>
+                                    <th>Corroboration Level</th>
+                                    <th>Conclusion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Revenue Recognition</td>
+                                    <td>All performance obligations satisfied at point of sale</td>
+                                    <td>Contract terms, delivery evidence, customer acceptance</td>
+                                    <td>Partial - missing customer acceptance for 15% of revenue</td>
+                                    <td><span class="badge bg-warning">Moderate</span></td>
+                                    <td>Revenue may be overstated by ~BDT 30M</td>
+                                </tr>
+                                <tr>
+                                    <td>Inventory Valuation</td>
+                                    <td>NRV > carrying amount for all inventory</td>
+                                    <td>Market prices, sales contracts, obsolescence assessment</td>
+                                    <td>Insufficient - no recent market price assessment</td>
+                                    <td><span class="badge bg-danger">Weak</span></td>
+                                    <td>Potential impairment not recognized</td>
+                                </tr>
+                                <tr>
+                                    <td>Going Concern</td>
+                                    <td>No material uncertainties exist</td>
+                                    <td>Cash flow forecasts, debt covenants, financing plans</td>
+                                    <td>Contradictory - debt covenant breaches identified</td>
+                                    <td><span class="badge bg-danger">Weak</span></td>
+                                    <td>Material uncertainty exists</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-question me-2 text-primary"></i>Accounting Policy Questioning</h5>
+                            <div class="accordion" id="policyAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#policy1">
+                                            Revenue Recognition Policy
+                                        </button>
+                                    </h2>
+                                    <div id="policy1" class="accordion-collapse collapse show">
+                                        <div class="accordion-body">
+                                            <p><strong>Policy Applied:</strong> Revenue recognized at point of sale</p>
+                                            <p><strong>Alternative Treatment:</strong> Over time recognition for services</p>
+                                            <p><strong>Skeptical Assessment:</strong> Policy may not reflect economic substance</p>
+                                            <p><strong>Recommendation:</strong> Apply IFRS 15 five-step model</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policy2">
+                                            Inventory Cost Formula
+                                        </button>
+                                    </h2>
+                                    <div id="policy2" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            <p><strong>Policy Applied:</strong> Weighted average cost</p>
+                                            <p><strong>Alternative Treatment:</strong> FIFO</p>
+                                            <p><strong>Skeptical Assessment:</strong> Appropriate given inventory characteristics</p>
+                                            <p><strong>Recommendation:</strong> No change required</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-eye me-2 text-primary"></i>Disclosure Adequacy Assessment</h5>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Related Party Transactions</h6>
+                                        <span class="badge bg-danger">Inadequate</span>
+                                    </div>
+                                    <p class="mb-1 small">Missing: Terms & conditions, balances outstanding, justification for arm's length</p>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Financial Instruments</h6>
+                                        <span class="badge bg-warning">Partial</span>
+                                    </div>
+                                    <p class="mb-1 small">Missing: Fair value hierarchy details, credit risk concentrations</p>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Critical Accounting Estimates</h6>
+                                        <span class="badge bg-success">Adequate</span>
+                                    </div>
+                                    <p class="mb-1 small">Comprehensive disclosure of key assumptions and sensitivities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-chart-pie me-2 text-primary"></i>Overall Skepticism Assessment</h5>
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <div class="p-3 border rounded">
+                                <div class="metric-value text-danger">8</div>
+                                <div class="metric-label">High Concern Areas</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="p-3 border rounded">
+                                <div class="metric-value text-warning">12</div>
+                                <div class="metric-label">Medium Concern Areas</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="p-3 border rounded">
+                                <div class="metric-value text-success">18</div>
+                                <div class="metric-label">Low Concern Areas</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="p-3 border rounded">
+                                <div class="metric-value">72%</div>
+                                <div class="metric-label">Overall Skepticism Level</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+}
+
+function loadDataImport() {
+    const content = `
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="section-title">Data Import & Management</h3>
+            <div>
+                <span class="badge bg-info me-2">Company ${currentCompanyId}</span>
+                <button class="btn btn-success me-2" onclick="refreshCompanyData()">
+                    <i class="fas fa-sync me-2"></i> Refresh Data
+                </button>
+                <button class="btn btn-primary" onclick="syncAllData()">
+                    <i class="fas fa-sync me-2"></i> Sync All Data
+                </button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-database me-2 text-primary"></i>JSON Data Structure - Company ${currentCompanyId}</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>File</th>
+                                    <th>Data Category</th>
+                                    <th>Status</th>
+                                    <th>Source URL</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jsonFilesTable">
+                                <!-- Dynamic content will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-building me-2 text-primary"></i>Company Management</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Switch Company</label>
+                        <select class="form-select" id="companySelect" onchange="switchCompany(this.value)">
+                            ${availableCompanies.map(id => `
+                                <option value="${id}" ${id === currentCompanyId ? 'selected' : ''}>Company ${id}</option>
+                            `).join('')}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Add New Company</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="newCompanyId" placeholder="Company ID">
+                            <button class="btn btn-outline-primary" onclick="addNewCompany()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="alert alert-info small">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Data is loaded from: ${GITHUB_PAGES_BASE}${currentCompanyId}/
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('mainContent').innerHTML = content;
+    loadJSONFilesStatus();
+}
+function loadReportGenerator() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">FRC Report Generator</h3>
+                    <div>
+                        <button class="btn btn-success me-2" onclick="generateFullReport()">
+                            <i class="fas fa-file-pdf me-2"></i> Generate Full Report
+                        </button>
+                        <button class="btn btn-primary" onclick="previewReport()">
+                            <i class="fas fa-eye me-2"></i> Preview Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-cogs me-2 text-primary"></i>Report Configuration</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Report Type</label>
+                                    <select class="form-select" id="reportType">
+                                        <option value="full">Full Analysis Report</option>
+                                        <option value="executive">Executive Summary</option>
+                                        <option value="compliance">Compliance Only</option>
+                                        <option value="risk">Risk Assessment Only</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Format</label>
+                                    <select class="form-select" id="reportFormat">
+                                        <option value="pdf">PDF Document</option>
+                                        <option value="word">Word Document</option>
+                                        <option value="excel">Excel Workbook</option>
+                                        <option value="html">HTML Report</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Sections to Include</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec1" checked>
+                                            <label class="form-check-label" for="sec1">Executive Summary</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec2" checked>
+                                            <label class="form-check-label" for="sec2">Entity Context</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec3" checked>
+                                            <label class="form-check-label" for="sec3">Financial Analysis</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec4" checked>
+                                            <label class="form-check-label" for="sec4">IFRS Compliance</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec5" checked>
+                                            <label class="form-check-label" for="sec5">Audit & Governance</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec6" checked>
+                                            <label class="form-check-label" for="sec6">Material Departures</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec7" checked>
+                                            <label class="form-check-label" for="sec7">Risk Assessment</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sec8" checked>
+                                            <label class="form-check-label" for="sec8">Recommendations</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Custom Report Title</label>
+                                <input type="text" class="form-control" id="reportTitle" value="FRC Analysis Report - [Company Name]">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Additional Notes</label>
+                                <textarea class="form-control" id="additionalNotes" rows="3" placeholder="Add any specific instructions or notes for the report..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-history me-2 text-primary"></i>Recent Reports</h5>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Full Analysis Report</h6>
+                                        <small>Yesterday</small>
+                                    </div>
+                                    <p class="mb-1 small">45 pages, PDF format</p>
+                                    <button class="btn btn-sm btn-outline-primary mt-1">Download</button>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Executive Summary</h6>
+                                        <small>3 days ago</small>
+                                    </div>
+                                    <p class="mb-1 small">12 pages, Word format</p>
+                                    <button class="btn btn-sm btn-outline-primary mt-1">Download</button>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Compliance Matrix</h6>
+                                        <small>1 week ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Excel workbook</p>
+                                    <button class="btn btn-sm btn-outline-primary mt-1">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-palette me-2 text-primary"></i>Branding Options</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Include FRC Logo</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="includeLogo" checked>
+                                    <label class="form-check-label" for="includeLogo">Yes</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Confidentiality Level</label>
+                                <select class="form-select" id="confidentiality">
+                                    <option value="public">Public</option>
+                                    <option value="confidential" selected>Confidential</option>
+                                    <option value="strictly-confidential">Strictly Confidential</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Include Signature</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="includeSignature" checked>
+                                    <label class="form-check-label" for="includeSignature">Yes</label>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary w-100" onclick="configureReport()">
+                                <i class="fas fa-sliders-h me-2"></i> Configure Advanced Options
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-rocket me-2 text-primary"></i>Quick Generate Options</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-primary w-100 mb-2" onclick="generateExecutiveSummary()">
+                                <i class="fas fa-file-alt me-2"></i> Executive Summary
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-warning w-100 mb-2" onclick="generateComplianceReport()">
+                                <i class="fas fa-clipboard-check me-2"></i> Compliance Report
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-danger w-100 mb-2" onclick="generateRiskReport()">
+                                <i class="fas fa-exclamation-triangle me-2"></i> Risk Report
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-success w-100 mb-2" onclick="generateRecommendations()">
+                                <i class="fas fa-bullseye me-2"></i> Recommendations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+    document.getElementById('mainContent').innerHTML = content;
+}
+
+// Chart rendering functions
+function renderDashboardCharts() {
+    // Profitability Chart
+    const profitabilityCtx = document.getElementById('profitabilityChart')?.getContext('2d');
+    if (profitabilityCtx) {
+        new Chart(profitabilityCtx, {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    label: 'ROE (%)',
+                    data: [18.2, 15.6, 12.3],
+                    borderColor: '#3949ab',
+                    backgroundColor: 'rgba(57, 73, 171, 0.1)',
+                    tension: 0.3
+                }, {
+                    label: 'ROA (%)',
+                    data: [9.8, 8.2, 6.5],
+                    borderColor: '#ff6f00',
+                    backgroundColor: 'rgba(255, 111, 0, 0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Profitability Trend'
+                    }
+                }
+            }
+        });
+    }
+
+    // Liquidity Chart
+    const liquidityCtx = document.getElementById('liquidityChart')?.getContext('2d');
+    if (liquidityCtx) {
+        new Chart(liquidityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Current Ratio',
+                    data: [2.1, 1.8, 1.5],
+                    backgroundColor: '#3949ab'
+                }, {
+                    label: 'Quick Ratio',
+                    data: [1.5, 1.2, 0.9],
+                    backgroundColor: '#ff6f00'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Liquidity Ratios'
+                    }
+                }
+            }
+        });
+    }
+}
+
+function renderFinancialCharts() {
+    // Trend Chart
+    const trendCtx = document.getElementById('trendChart')?.getContext('2d');
+    if (trendCtx) {
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Revenue (BDT Millions)',
+                    data: [120, 135, 148, 165, 180, 195, 210, 225, 240, 255, 270, 285],
+                    borderColor: '#3949ab',
+                    backgroundColor: 'rgba(57, 73, 171, 0.1)',
+                    tension: 0.3
+                }, {
+                    label: 'Profit (BDT Millions)',
+                    data: [15, 18, 20, 22, 25, 28, 30, 32, 35, 37, 40, 42],
+                    borderColor: '#4caf50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Monthly Performance Trend'
+                    }
+                }
+            }
+        });
+    }
+
+    // Assets Chart
+    const assetsCtx = document.getElementById('assetsChart')?.getContext('2d');
+    if (assetsCtx) {
+        new Chart(assetsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Current Assets', 'Property, Plant & Equipment', 'Intangible Assets', 'Other Non-Current'],
+                datasets: [{
+                    data: [35, 45, 10, 10],
+                    backgroundColor: ['#3949ab', '#ff6f00', '#4caf50', '#9c27b0']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Assets Composition'
+                    }
+                }
+            }
+        });
+    }
+
+    // Liabilities Chart
+    const liabilitiesCtx = document.getElementById('liabilitiesChart')?.getContext('2d');
+    if (liabilitiesCtx) {
+        new Chart(liabilitiesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Current Liabilities', 'Long-term Borrowings', 'Equity', 'Other Liabilities'],
+                datasets: [{
+                    data: [30, 40, 25, 5],
+                    backgroundColor: ['#f44336', '#ff9800', '#4caf50', '#9e9e9e']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Liabilities & Equity Composition'
+                    }
+                }
+            }
+        });
+    }
+}
+
+function renderDeparturesChart() {
+    const departuresCtx = document.getElementById('departuresChart')?.getContext('2d');
+    if (departuresCtx) {
+        new Chart(departuresCtx, {
+            type: 'bar',
+            data: {
+                labels: ['IFRS 15', 'IAS 24', 'IAS 37', 'IFRS 9', 'IAS 16'],
+                datasets: [{
+                    label: 'Number of Issues',
+                    data: [5, 3, 2, 2, 1],
+                    backgroundColor: ['#f44336', '#ff9800', '#ffeb3b', '#4caf50', '#2196f3']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Material Departures by Standard'
+                    }
+                }
+            }
+        });
+    }
+}
+
+function renderRiskCharts() {
+    const riskCtx = document.getElementById('riskHeatMap')?.getContext('2d');
+    if (riskCtx) {
+        new Chart(riskCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Financial Risk', 'Operational Risk', 'Compliance Risk', 'Strategic Risk', 'Reputational Risk'],
+                datasets: [{
+                    label: 'Current Risk Level',
+                    data: [8, 6, 9, 5, 7],
+                    backgroundColor: 'rgba(244, 67, 54, 0.2)',
+                    borderColor: '#f44336',
+                    pointBackgroundColor: '#f44336'
+                }, {
+                    label: 'Industry Average',
+                    data: [5, 5, 5, 5, 5],
+                    backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                    borderColor: '#2196f3',
+                    pointBackgroundColor: '#2196f3'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Risk Heat Map Comparison'
+                    }
+                }
+            }
+        });
+    }
+}
+
+// Data loading functions
+// Update loadEntityData for multiple companies
+async function loadEntityData() {
+    const companyId = currentCompanyId;
+
+    // Try to load from allJSONData first
+    let metadata = allJSONData[1];
+    let entityProfile = allJSONData[2];
+    let materiality = allJSONData[3];
+
+    // If not loaded, fetch fresh
+    if (!entityProfile) {
+        entityProfile = await loadJSONData(companyId, 2);
+    }
+
+    if (!materiality) {
+        materiality = await loadJSONData(companyId, 3);
+    }
+
+    // Update UI with real data
+    if (entityProfile) {
+        const profile = entityProfile.frc_analysis_report?.entity?.entity_profile;
+        if (profile) {
+            document.getElementById('legalName').textContent = profile.legal_name || '[Not Available]';
+            document.getElementById('tradeName').textContent = profile.trade_name || '[Not Available]';
+            document.getElementById('registrationNumber').textContent = profile.registration_number || '[Not Available]';
+            document.getElementById('industrySector').textContent = profile.industry_sector || '[Not Available]';
+            document.getElementById('listingStatus').textContent = profile.listing_status || '[Not Available]';
+            document.getElementById('reportingCurrency').textContent = profile.reporting_currency || 'BDT';
+            document.getElementById('financialYearEnd').textContent = profile.financial_year_end || '[Not Available]';
+            document.getElementById('reportPublicationDate').textContent = profile.report_publication_date || '[Not Available]';
+        }
+    }
+
+    // Update other sections similarly...
+}
+function loadComplianceData() {
+    const complianceData = [
+        { code: 'IAS 1', name: 'Presentation of Financial Statements', applicability: 'Yes', status: 'Compliant', page: '1-5', issues: '' },
+        { code: 'IAS 2', name: 'Inventories', applicability: 'Yes', status: 'Compliant', page: '15-18', issues: '' },
+        { code: 'IAS 8', name: 'Accounting Policies', applicability: 'Yes', status: 'Partial', page: '8-10', issues: 'Hierarchy not fully applied' },
+        { code: 'IAS 10', name: 'Events After Reporting Period', applicability: 'Yes', status: 'Compliant', page: '112', issues: '' },
+        { code: 'IAS 12', name: 'Income Taxes', applicability: 'Yes', status: 'Partial', page: '45-50', issues: 'Deferred tax disclosure incomplete' },
+        { code: 'IAS 16', name: 'Property, Plant & Equipment', applicability: 'Yes', status: 'Compliant', page: '20-30', issues: '' },
+        { code: 'IAS 24', name: 'Related Party Disclosures', applicability: 'Yes', status: 'Non-Compliant', page: '110-112', issues: 'Incomplete disclosures' },
+        { code: 'IFRS 9', name: 'Financial Instruments', applicability: 'Yes', status: 'Partial', page: '60-70', issues: 'ECL model not fully implemented' },
+        { code: 'IFRS 15', name: 'Revenue from Contracts', applicability: 'Yes', status: 'Non-Compliant', page: '40-45', issues: 'Five-step model not applied' },
+        { code: 'IFRS 16', name: 'Leases', applicability: 'Yes', status: 'Compliant', page: '75-80', issues: '' }
+    ];
+
+    const table = document.getElementById('complianceTable');
+    table.innerHTML = '';
+
+    complianceData.forEach(item => {
+        let statusBadge = '';
+        if (item.status === 'Compliant') {
+            statusBadge = '<span class="compliance-badge badge-compliant">Compliant</span>';
+        } else if (item.status === 'Partial') {
+            statusBadge = '<span class="compliance-badge badge-partial">Partial</span>';
+        } else {
+            statusBadge = '<span class="compliance-badge badge-noncompliant">Non-Compliant</span>';
+        }
+
+        table.innerHTML += `
+                    <tr>
+                        <td>${item.code}</td>
+                        <td>${item.name}</td>
+                        <td>${item.applicability}</td>
+                        <td>${statusBadge}</td>
+                        <td>${item.page}</td>
+                        <td>${item.issues}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="editCompliance('${item.code}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+    });
+}
+
+async function loadJSONFilesStatus() {
+    const files = [];
+    const categories = {
+        1: 'Metadata', 2: 'Entity Profile', 3: 'Materiality', 4: 'Financial Data',
+        5: 'Phase 1 Checks', 6: 'Phase 2 Analysis', 7: 'Phase 3 IFRS', 8: 'Phase 3 IFRS',
+        9: 'Phase 3 IFRS', 10: 'Phase 3 IFRS', 11: 'Phase 3 IFRS', 12: 'Phase 3 IFRS',
+        13: 'Fraud Assessment', 14: 'Phase 4 Audit', 15: 'Legal Mapping', 16: 'Phase 5 Synthesis',
+        17: 'Phase 2 Detailed', 18: 'Phase 2 Trend', 19: 'Phase 2 Ratios', 20: 'Phase 3 Detailed',
+        21: 'Phase 4 Enhanced', 22: 'Phase 4 Governance', 23: 'Skepticism', 24: 'Phase 5 Material',
+        25: 'Phase 5 Risk', 26: 'Phase 5 Executive'
+    };
+
+    for (let i = 1; i <= 26; i++) {
+        const data = allJSONData[i];
+        const status = data ? 'Loaded' : 'Missing';
+        const url = `${GITHUB_PAGES_BASE}${currentCompanyId}/${i}.json`;
+
+        files.push({
+            id: i,
+            name: `${i}.json`,
+            category: categories[i] || 'Unknown',
+            status: status,
+            url: url
+        });
+    }
+
+    const table = document.getElementById('jsonFilesTable');
+    if (table) {
+        table.innerHTML = '';
+
+        files.forEach(file => {
+            let statusBadge = '';
+            if (file.status === 'Loaded') {
+                statusBadge = '<span class="badge bg-success">Loaded</span>';
+            } else {
+                statusBadge = '<span class="badge bg-danger">Missing</span>';
+            }
+
+            table.innerHTML += `
+                <tr>
+                    <td>${file.name}</td>
+                    <td>${file.category}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <a href="${file.url}" target="_blank" class="text-decoration-none">
+                            <small>${file.url.substring(0, 40)}...</small>
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" onclick="loadSingleFile(${file.id})">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        ${file.status === 'Loaded' ? `
+                            <button class="btn btn-sm btn-outline-info ms-1" onclick="viewJSONData(${file.id})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        ` : ''}
+                    </td>
+                </tr>
+            `;
+        });
+    }
+}
+// Refresh all data for current company
+async function refreshCompanyData() {
+    const success = await loadCompanyData(currentCompanyId);
+    if (success) {
+        // Refresh current view
+        const currentSection = document.querySelector('.sidebar-item.active')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+        if (currentSection) {
+            loadSection(currentSection);
+        }
+    }
+}
+
+// Add new company
+async function addNewCompany() {
+    const newId = parseInt(document.getElementById('newCompanyId').value);
+    if (!newId || isNaN(newId)) {
+        showNotification('Please enter a valid company ID', 'error');
+        return;
+    }
+
+    // Check if company exists
+    showLoading(`Checking Company ${newId}...`);
+    const exists = await checkCompanyExists(newId);
+    hideLoading();
+
+    if (exists) {
+        if (!availableCompanies.includes(newId)) {
+            availableCompanies.push(newId);
+            availableCompanies.sort((a, b) => a - b);
+        }
+        await switchCompany(newId);
+        showNotification(`Switched to Company ${newId}`, 'success');
+    } else {
+        showNotification(`Company ${newId} not found on GitHub`, 'warning');
+    }
+}
+
+// Refresh company list
+async function refreshCompanyList() {
+    await autoDiscoverCompanies();
+    // Update dropdown
+    const dropdown = document.getElementById('companyList');
+    if (dropdown) {
+        dropdown.innerHTML = `
+            ${availableCompanies.map(id => `
+                <li><a class="dropdown-item ${id === currentCompanyId ? 'active' : ''}" 
+                       href="#" onclick="switchCompany(${id})">Company ${id}</a></li>
+            `).join('')}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" onclick="refreshCompanyList()">
+                <i class="fas fa-sync me-2"></i>Refresh List
+            </a></li>
+        `;
+    }
+    showNotification(`Found ${availableCompanies.length} companies`, 'info');
+}
+// Load single file
+async function loadSingleFile(fileNumber) {
+    showLoading(`Loading file ${fileNumber}.json...`);
+    const data = await loadJSONData(currentCompanyId, fileNumber);
+    hideLoading();
+
+    if (data) {
+        allJSONData[fileNumber] = data;
+        showNotification(`File ${fileNumber}.json loaded successfully`, 'success');
+        loadJSONFilesStatus();
+
+        // If this is a key file, refresh relevant section
+        if ([1, 2, 3].includes(fileNumber)) {
+            loadEntityProfile();
+        }
+    } else {
+        showNotification(`Failed to load file ${fileNumber}.json`, 'error');
+    }
+}
+async function loadSpecificJSONFile(fileId) {
+    const data = await loadJSONData(fileId);
+    if (data) {
+        alert(`File ${fileId}.json loaded successfully!`);
+        loadJSONFilesStatus(); // Refresh status
+    }
+}
+async function initializeGrids() {
+    // Load financial data from JSON 4
+    const financialData = allJSONData[4] || await loadJSONData(4);
+
+    if (financialData) {
+        const rawData = financialData.frc_analysis_report?.entity?.financial_statements_raw_data;
+
+        // Process Statement of Financial Position
+        if (rawData?.statement_of_financial_position?.[0]) {
+            const sop = rawData.statement_of_financial_position[0];
+            // Extract data for display
+            // You would process assets and liabilities here
+        }
+
+        // Process Profit or Loss Statement
+        if (rawData?.statement_of_profit_or_loss_and_other_comprehensive_income?.[0]) {
+            const pnl = rawData.statement_of_profit_or_loss_and_other_comprehensive_income[0];
+            // Extract data for display
+        }
+    }
+}
+// Utility functions
+function showExportModal() {
+    alert('Export functionality would be implemented here. Data would be exported in JSON format.');
+}
+
+function calculateRatios() {
+    alert('Ratio calculation would be performed based on financial data.');
+}
+
+function loadTrendAnalysis() {
+    loadFinancialAnalysis();
+    // Switch to trends tab
+    document.getElementById('trends-tab').click();
+}
+
+function updateComplianceStatus() {
+    alert('Compliance status update would refresh all compliance checks.');
+}
+
+function exportComplianceMatrix() {
+    alert('Compliance matrix would be exported to Excel.');
+}
+
+function loadEnhancedAuditAnalysis() {
+    alert('Enhanced audit analysis view would open.');
+}
+
+function addNewDeparture() {
+    alert('Modal for adding new material departure would open.');
+}
+
+function generateComplianceReport() {
+    alert('Compliance report generation would start.');
+}
+
+function updateRiskAssessment() {
+    alert('Risk assessment recalculation would begin.');
+}
+
+function exportRiskMatrix() {
+    alert('Risk matrix would be exported.');
+}
+
+function addSkepticalQuestion() {
+    alert('Form for adding skeptical questions would open.');
+}
+
+function importJSONData() {
+    document.getElementById('jsonUpload').click();
+}
+
+async function handleJSONUpload(event) {
+    const files = event.target.files;
+
+    for (let file of files) {
+        const reader = new FileReader();
+
+        reader.onload = async function (e) {
+            try {
+                const jsonData = JSON.parse(e.target.result);
+                const fileNumber = parseInt(file.name.split('.')[0]);
+
+                // Save to local dataset (you'd need a backend for this)
+                // For now, update the in-memory data
+                allJSONData[fileNumber] = jsonData;
+
+                // Update UI
+                alert(`${file.name} loaded successfully!`);
+                loadJSONFilesStatus();
+
+            } catch (error) {
+                alert(`Error parsing ${file.name}: ${error.message}`);
+            }
+        };
+
+        reader.readAsText(file);
+    }
+}
+function syncAllData() {
+    alert('Data synchronization across all sections would begin.');
+}
+
+function validateAllData() {
+    alert('Data validation process would run.');
+}
+
+function backupData() {
+    alert('Data backup would be created.');
+}
+
+function clearAllData() {
+    if (confirm('Are you sure you want to clear all data?')) {
+        alert('All data would be cleared.');
+    }
+}
+
+function generateSampleData() {
+    alert('Sample data generation would populate all sections.');
+}
+
+function loadJSONFile(fileId) {
+    alert(`Loading JSON file ${fileId}.json from dataset`);
+}
+
+function generateFullReport() {
+    alert('Full FRC report generation would begin.');
+}
+
+function previewReport() {
+    alert('Report preview would open in new window.');
+}
+
+function generateExecutiveSummary() {
+    alert('Executive summary report generation would begin.');
+}
+
+function generateRiskReport() {
+    alert('Risk assessment report generation would begin.');
+}
+
+function generateRecommendations() {
+    alert('Recommendations report generation would begin.');
+}
+
+function configureReport() {
+    alert('Advanced report configuration options would open.');
+}
+
+// Navigation functions for top menu
+function loadAnalysis() {
+    loadFinancialAnalysis();
+}
+
+function loadCompliance() {
+    loadComplianceMatrix();
+}
+
+function loadReporting() {
+    loadReportGenerator();
+}
+
+
+// ==================== UTILITY FUNCTIONS ====================
+
+// Loading indicator
+function showLoading(message = 'Loading...') {
+    // Remove existing overlay if any
+    hideLoading();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'loadingOverlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        backdrop-filter: blur(3px);
+    `;
+
+    overlay.innerHTML = `
+        <div class="text-center text-white">
+            <div class="spinner-border spinner-border-lg text-primary mb-3" role="status"></div>
+            <h5 class="mb-2">${message}</h5>
+            <p class="text-muted mb-0">Loading data from GitHub Pages...</p>
+            <div class="progress mt-3" style="width: 300px; margin: 0 auto;">
+                <div id="loadingProgress" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Animate progress bar
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        if (progress < 90) {
+            progress += 5;
+            const progressBar = document.getElementById('loadingProgress');
+            if (progressBar) {
+                progressBar.style.width = `${progress}%`;
+            }
+        }
+    }, 200);
+
+    // Store interval ID to clear later
+    overlay.dataset.intervalId = progressInterval;
+}
+
+function hideLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        // Clear progress animation
+        if (overlay.dataset.intervalId) {
+            clearInterval(parseInt(overlay.dataset.intervalId));
+        }
+        overlay.remove();
+    }
+}
+
+function updateLoadingProgress(percent) {
+    const progressBar = document.getElementById('loadingProgress');
+    if (progressBar) {
+        progressBar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+    }
+}
+
+// Notification system
+function showNotification(message, type = 'info', duration = 5000) {
+    const types = {
+        'success': { class: 'alert-success', icon: 'fas fa-check-circle' },
+        'error': { class: 'alert-danger', icon: 'fas fa-exclamation-circle' },
+        'warning': { class: 'alert-warning', icon: 'fas fa-exclamation-triangle' },
+        'info': { class: 'alert-info', icon: 'fas fa-info-circle' }
+    };
+
+    const config = types[type] || types.info;
+
+    // Remove existing notifications
+    const existingAlerts = document.querySelectorAll('.notification-alert');
+    existingAlerts.forEach(alert => {
+        if (alert.parentNode) {
+            alert.parentNode.removeChild(alert);
+        }
+    });
+
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `notification-alert alert ${config.class} alert-dismissible fade show`;
+    alertDiv.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 10000;
+        min-width: 300px;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border: none;
+    `;
+
+    alertDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+            <i class="${config.icon} me-2 fs-5"></i>
+            <div class="flex-grow-1">${message}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+
+    document.body.appendChild(alertDiv);
+
+    // Auto remove after duration
+    if (duration > 0) {
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                const bsAlert = new bootstrap.Alert(alertDiv);
+                bsAlert.close();
+            }
+        }, duration);
+    }
+
+    return alertDiv;
+}
+
+// Initialize Bootstrap tooltips
+function initTooltips() {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+}
+
+// Format numbers with commas
+function formatNumber(num) {
+    if (num === undefined || num === null) return '0';
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Get URL parameter
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Set URL parameter
+function setUrlParameter(name, value) {
+    const url = new URL(window.location);
+    url.searchParams.set(name, value);
+    window.history.pushState({}, '', url);
+}
+
+// Debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Validate email
+function isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+// Copy to clipboard
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('Copied to clipboard!', 'success');
+    }).catch(err => {
+        showNotification('Failed to copy: ' + err, 'error');
+    });
+}
+
+// Download file
+function downloadFile(filename, content, type = 'text/plain') {
+    const blob = new Blob([content], { type: type });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Read file
+function readFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = (e) => reject(e);
+        reader.readAsText(file);
+    });
+}
+
+// Generate unique ID
+function generateId() {
+    return 'id_' + Math.random().toString(36).substr(2, 9);
+}
+
+// Format date
+function formatDate(date, format = 'yyyy-mm-dd') {
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    if (format === 'yyyy-mm-dd') {
+        return `${year}-${month}-${day}`;
+    } else if (format === 'dd/mm/yyyy') {
+        return `${day}/${month}/${year}`;
+    } else if (format === 'mm/dd/yyyy') {
+        return `${month}/${day}/${year}`;
+    }
+    return date.toString();
+}
+
+// Get file extension
+function getFileExtension(filename) {
+    return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+}
+
+// Check if object is empty
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+// Deep clone object
+function deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+function addDebugButton() {
+    const navbar = document.querySelector('.navbar .container-fluid');
+    if (!navbar) return;
+
+    // Check if debug button already exists
+    if (navbar.querySelector('[onclick="showDebugInfo()"]')) return;
+
+    const debugBtn = `
+        <button class="btn btn-outline-light btn-sm ms-2" onclick="showDebugInfo()" 
+                data-bs-toggle="tooltip" title="Debug Information">
+            <i class="fas fa-bug"></i>
+        </button>
+    `;
+
+    // Add after company dropdown
+    const companyDropdown = navbar.querySelector('.dropdown');
+    if (companyDropdown) {
+        companyDropdown.insertAdjacentHTML('afterend', debugBtn);
+    }
+}
+
+function addTestButton() {
+    const navbar = document.querySelector('.navbar .container-fluid');
+    if (!navbar) return;
+
+    // Check if test button already exists
+    if (navbar.querySelector('[onclick="testAllUrls()"]')) return;
+
+    const testBtn = `
+        <button class="btn btn-outline-warning btn-sm ms-2" onclick="testAllUrls()" 
+                data-bs-toggle="tooltip" title="Test All URLs">
+            <i class="fas fa-wifi"></i>
+        </button>
+    `;
+
+    // Add after debug button
+    const debugBtn = navbar.querySelector('[onclick="showDebugInfo()"]');
+    if (debugBtn) {
+        debugBtn.insertAdjacentHTML('afterend', testBtn);
+    }
+}
+// ==================== INITIALIZATION ====================
+
+// Initialize the application
+async function initializeApp() {
+    console.log('🚀 FRC Portal Initializing...');
+
+    // Initialize Bootstrap components
+    initTooltips();
+
+    // Check URL for company parameter
+    const urlCompanyId = getUrlParameter('company');
+    if (urlCompanyId && !isNaN(parseInt(urlCompanyId))) {
+        currentCompanyId = parseInt(urlCompanyId);
+    } else {
+        // Check localStorage for last company
+        const savedCompanyId = localStorage.getItem('frc_last_company_id');
+        if (savedCompanyId && !isNaN(parseInt(savedCompanyId))) {
+            currentCompanyId = parseInt(savedCompanyId);
+        }
+    }
+
+    // Save current company ID
+    localStorage.setItem('frc_last_company_id', currentCompanyId.toString());
+    setUrlParameter('company', currentCompanyId);
+
+    // Load company selector
+    await loadCompanySelector();
+
+    // Try to load cached data first
+    await loadCachedData();
+
+    // Then load fresh data
+    await loadCompanyData(currentCompanyId);
+
+    // Initialize dashboard
+    loadDashboard();
+
+    // Add debug/test buttons
+    addDebugButton();
+    addTestButton();
+
+    console.log('✅ FRC Portal Initialized');
+    showNotification('FRC Portal Ready', 'success', 2000);
+}
+
+// Load cached data
+async function loadCachedData() {
+    const cacheKey = `frc_company_${currentCompanyId}_data`;
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+        try {
+            const parsed = JSON.parse(cachedData);
+            if (parsed.data && parsed.timestamp) {
+                const ageHours = (new Date() - new Date(parsed.timestamp)) / (1000 * 60 * 60);
+
+                if (ageHours < 24) { // Use cache if less than 24 hours old
+                    allJSONData = parsed.data;
+                    console.log(`📦 Loaded cached data (${ageHours.toFixed(1)} hours old)`);
+                    return true;
+                } else {
+                    console.log('🔄 Cache expired, loading fresh data');
+                }
+            }
+        } catch (error) {
+            console.log('❌ Cache parse error:', error);
+        }
+    }
+
+    return false;
+}
+
+// DOM Ready
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the app
+    initializeApp();
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function () {
+        const urlCompanyId = getUrlParameter('company');
+        if (urlCompanyId && parseInt(urlCompanyId) !== currentCompanyId) {
+            switchCompany(parseInt(urlCompanyId));
+        }
+    });
+});
