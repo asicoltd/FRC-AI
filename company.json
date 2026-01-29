@@ -3925,6 +3925,985 @@
             ]
           }
         }
+      },
+      "social-islami-bank-plc": {
+        "company_info": {
+          "legal_name": "Social Islami Bank PLC.",
+          "trade_name": "Social Islami Bank PLC. (SIBL)",
+          "registration_number": "Incorporated under Companies Act 1994",
+          "industry_sector": "Islamic Banking/Financial Services",
+          "stock_exchange_symbol": "Listed on DSE and CSE",
+          "reporting_currency": "Bangladeshi Taka (BDT)",
+          "financial_year_end": "December 31",
+          "report_publication_date": "29-05-2025"
+        },
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
+            {
+              "line_item": "Cash in Hand (including Foreign Currencies)",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "2170407376",
+              "prior_year_1_amount": "4897399344",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "3",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Balance with Bangladesh Bank & its Agent Banks (including Foreign Currencies)",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "18070740862",
+              "prior_year_1_amount": "29260845550",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "3.1",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Balance with Other Banks and Financial Institutions",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "20240781238",
+              "prior_year_1_amount": "34158244894",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "4",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Placement with Other Banks & Financial Institutions",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "9063293194",
+              "prior_year_1_amount": "9961293194",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "5",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Investments in Shares & Securities",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "25655746338",
+              "prior_year_1_amount": "25343720324",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "6",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Investments",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "383165069070",
+              "prior_year_1_amount": "360816978271",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "7",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Fixed Assets including Premises, Furniture and Fixtures",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "4265762411",
+              "prior_year_1_amount": "4332920158",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "8",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Other Assets",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "25235807401",
+              "prior_year_1_amount": "35093057013",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "9",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Non-Banking Assets",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "",
+              "prior_year_1_amount": "",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Property and Assets",
+              "classification": "Asset",
+              "sub_classification": "Total",
+              "current_year_amount": "476374427910",
+              "prior_year_1_amount": "476051862172",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Placement from Other Banks & Financial Institutions",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "90847458920",
+              "prior_year_1_amount": "43280000000",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "10",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Deposits and Other Accounts",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "309770546142",
+              "prior_year_1_amount": "357388847131",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "11",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Mudaraba Bonds",
+              "classification": "Liability",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "12000000000",
+              "prior_year_1_amount": "13000000000",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "12,13",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Other Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "42679668607",
+              "prior_year_1_amount": "39531465218",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "14",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Deferred Tax Liabilities/(Assets)",
+              "classification": "Liability",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "463301544",
+              "prior_year_1_amount": "468107529",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "15",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Total",
+              "current_year_amount": "455760975213",
+              "prior_year_1_amount": "453668419878",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Paid-up Capital",
+              "classification": "Equity",
+              "sub_classification": "Capital",
+              "current_year_amount": "11401551000",
+              "prior_year_1_amount": "10858620000",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "16.2",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Statutory Reserve",
+              "classification": "Equity",
+              "sub_classification": "Reserve",
+              "current_year_amount": "9420732990",
+              "prior_year_1_amount": "9420732990",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "17",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Revaluation Reserve on Fixed Assets",
+              "classification": "Equity",
+              "sub_classification": "Reserve",
+              "current_year_amount": "516752966",
+              "prior_year_1_amount": "529838298",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "18",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Retained Earnings",
+              "classification": "Equity",
+              "sub_classification": "Retained Earnings",
+              "current_year_amount": "-725584259",
+              "prior_year_1_amount": "1574251006",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "19",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Shareholders' Equity",
+              "classification": "Equity",
+              "sub_classification": "Total",
+              "current_year_amount": "20613452697",
+              "prior_year_1_amount": "22383442294",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Liabilities & Shareholders' Equity",
+              "classification": "Equity",
+              "sub_classification": "Total",
+              "current_year_amount": "476374427910",
+              "prior_year_1_amount": "476051862172",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_profit_or_loss_and_oci": [
+            {
+              "line_item": "Investment Income",
+              "classification": "Revenue",
+              "current_year_amount": "31696714701",
+              "prior_year_1_amount": "25244019245",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "21",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Profit paid on Mudaraba Deposits",
+              "classification": "Expense",
+              "current_year_amount": "25588089812",
+              "prior_year_1_amount": "17677123207",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "22",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net Investment Income",
+              "classification": "Profit/Loss",
+              "current_year_amount": "6108624890",
+              "prior_year_1_amount": "7566896038",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Income from Investment in Shares and Securities",
+              "classification": "Revenue",
+              "current_year_amount": "1462525092",
+              "prior_year_1_amount": "1481632839",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "23",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Commission, Exchange and Brokerage",
+              "classification": "Revenue",
+              "current_year_amount": "1297551470",
+              "prior_year_1_amount": "2797494183",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "24",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Other Operating Income",
+              "classification": "Revenue",
+              "current_year_amount": "809964844",
+              "prior_year_1_amount": "826128694",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "25",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Operating Income",
+              "classification": "Revenue",
+              "current_year_amount": "9678666296",
+              "prior_year_1_amount": "12672151754",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Operating Expenses",
+              "classification": "Expense",
+              "current_year_amount": "8474057813",
+              "prior_year_1_amount": "7877654247",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "26-35",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Profit/(Loss) before Provision",
+              "classification": "Profit/Loss",
+              "current_year_amount": "1204608483",
+              "prior_year_1_amount": "4794497507",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Provision for Investments",
+              "classification": "Expense",
+              "current_year_amount": "1200000000",
+              "prior_year_1_amount": "736036727",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Other Provisions",
+              "classification": "Expense",
+              "current_year_amount": "324117800",
+              "prior_year_1_amount": "94571573",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "36",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Provision",
+              "classification": "Expense",
+              "current_year_amount": "1524117800",
+              "prior_year_1_amount": "830608300",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "37",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Profit/(Loss) before Income Taxes",
+              "classification": "Profit/Loss",
+              "current_year_amount": "-319509317",
+              "prior_year_1_amount": "3963889207",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Provision for Taxation",
+              "classification": "Expense",
+              "current_year_amount": "213228943",
+              "prior_year_1_amount": "1399759111",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "38",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net Profit/(Loss) after Taxation",
+              "classification": "Profit/Loss",
+              "current_year_amount": "-532738260",
+              "prior_year_1_amount": "2564130096",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_cash_flows": [
+            {
+              "line_item": "Net Cash flow from operating activities",
+              "classification": "Operating",
+              "current_year_amount": "-8710291716",
+              "prior_year_1_amount": "9009917876",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "A",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net Cash flows from investing activities",
+              "classification": "Investing",
+              "current_year_amount": "-430441489",
+              "prior_year_1_amount": "-438997351",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "B",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net Cash flow from financing activities",
+              "classification": "Financing",
+              "current_year_amount": "-2008202241",
+              "prior_year_1_amount": "2271948342",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "C",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net increase/(decrease) in cash & cash equivalents",
+              "classification": "Net Change",
+              "current_year_amount": "-11148935447",
+              "prior_year_1_amount": "10842868867",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "D",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Effects of exchange rate changes on cash & cash equivalents",
+              "classification": "Net Change",
+              "current_year_amount": "-1264208269",
+              "prior_year_1_amount": "130035856",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "E",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Cash and cash equivalents at the beginning of the year",
+              "classification": "Opening Balance",
+              "current_year_amount": "50465186406",
+              "prior_year_1_amount": "39492281683",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "F",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Cash and cash equivalents at the end of the year",
+              "classification": "Closing Balance",
+              "current_year_amount": "38052042690",
+              "prior_year_1_amount": "50465186406",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "G",
+              "custom_additional_info": {}
+            }
+          ]
+        },
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "International Financial Reporting Standards (IFRS) as adopted in Bangladesh",
+            "disclosed_in_notes": "Note 2 - Basis of preparation of the financial statements",
+            "actual_standards_applied": [
+              "IFRS 9",
+              "IAS 1",
+              "IFRS 16",
+              "IAS 36",
+              "IAS 12",
+              "IAS 24",
+              "IFRS 8",
+              "IAS 33",
+              "IAS 10",
+              "IAS 19",
+              "IAS 21",
+              "IAS 27"
+            ],
+            "discrepancies_identified": [
+              "Differences between IFRS and Bangladesh Bank guidelines in presentation, classification, and measurement of certain items (detailed in Note 2.2)"
+            ],
+            "compliance_assessment": "Compliant with IFRS, with disclosed exceptions where Bangladesh Bank regulations prevail"
+          },
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "Bangladesh Bank (Central Bank of Bangladesh)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Qualified Compliance (multiple regulatory breaches noted)",
+                "specific_disclosures_found": [
+                  "CRR and SLR non-compliance disclosures",
+                  "Capital adequacy shortfall",
+                  "Provisioning requirements",
+                  "Related party transaction disclosure inadequacy"
+                ]
+              },
+              {
+                "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Partial Compliance",
+                "specific_disclosures_found": [
+                  "Sponsor/director shareholding below 30% requirement",
+                  "Public disclosure requirements"
+                ]
+              },
+              {
+                "regulator_name": "Financial Reporting Council (FRC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant",
+                "specific_disclosures_found": [
+                  "IFRS compliance disclosures"
+                ]
+              }
+            ],
+            "regulatory_filings_status": {
+              "sec_filed": true,
+              "sec_filing_date": "Annual Report with audited financial statements",
+              "tax_return_filed": true,
+              "tax_return_date": "Not specified",
+              "rjsccompliance": true,
+              "bb_compliance": false
+            },
+            "overall_regulatory_assessment": "Significant Regulatory Concerns - Multiple non-compliances with Bangladesh Bank requirements including capital adequacy, CRR/SLR, and sponsor shareholding"
+          }
+        },
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {
+            "profitability_ratios": {
+              "return_on_assets": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "-532738260",
+                    "average_total_assets": "476213145041",
+                    "percentage": "-0.11%"
+                  },
+                  "prior_year_1": {
+                    "net_profit": "2564130096",
+                    "average_total_assets": "",
+                    "percentage": "0.54%"
+                  }
+                },
+                "trend_analysis": "Significant deterioration from positive return to negative return",
+                "risk_assessment": "High - Bank reported net loss in current year"
+              },
+              "return_on_equity": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "-532738260",
+                    "average_equity": "21498447495.5",
+                    "percentage": "-2.48%"
+                  }
+                },
+                "trend_analysis": "Negative return on equity",
+                "risk_assessment": "High"
+              }
+            },
+            "liquidity_ratios": {
+              "current_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "current_assets": "Not directly available",
+                    "current_liabilities": "Not directly available",
+                    "ratio": "Not calculable from provided data"
+                  }
+                },
+                "trend_analysis": "Liquidity concerns highlighted in audit report",
+                "risk_assessment": "High - Bank faced significant liquidity challenges and CRR/SLR non-compliance"
+              }
+            },
+            "solvency_ratios": {
+              "debt_to_equity": {
+                "calculation": {
+                  "current_year": {
+                    "total_liabilities": "455760975213",
+                    "total_equity": "20613452697",
+                    "ratio": "22.11"
+                  }
+                },
+                "trend_analysis": "Very high leverage ratio",
+                "risk_assessment": "Critical - Excessive reliance on debt financing"
+              }
+            },
+            "capital_adequacy": {
+              "capital_to_risk_weighted_assets_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "crar": "6.43% (deteriorates to negative 33.95% after considering deferred provision shortfall)",
+                    "regulatory_requirement": "12.50%",
+                    "shortfall": "Taka 22,850.14 crore"
+                  }
+                },
+                "trend_analysis": "Severe capital deficiency",
+                "risk_assessment": "Critical - Capital shortfall and non-compliance with regulatory requirements"
+              }
+            },
+            "asset_quality": {
+              "non_performing_investments_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "npi_amount": "236580000000",
+                    "total_investments": "383165069070",
+                    "percentage": "61.74%"
+                  },
+                  "prior_year_1": {
+                    "npi_amount": "17289000000",
+                    "total_investments": "360816978271",
+                    "percentage": "4.79%"
+                  }
+                },
+                "trend_analysis": "Dramatic deterioration - NPI increased by 1268% year-on-year",
+                "risk_assessment": "Critical - Extremely high and rapidly worsening asset quality"
+              }
+            }
+          }
+        },
+        "phase_3_ifrs_compliance_detailed": {
+          "detailed_ifrs_compliance_matrix": [
+            {
+              "standard_code": "IFRS 9",
+              "standard_name": "Financial Instruments",
+              "applicability": "Yes",
+              "page_reference": "Note 2.2.5, Key Audit Matters",
+              "compliance_status": "Qualified Compliance",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Impairment assessment of investments",
+                  "compliance_status": "Non-Compliant",
+                  "evidence_location": "Basis for Qualified Opinion, Emphasis of Matter (a)",
+                  "concerns": "Bank required to maintain Tk 23,158.06 crore in provisions but maintained only Tk 1,502.62 crore. Bangladesh Bank permitted finalization without full provisioning."
+                },
+                {
+                  "requirement": "Classification and measurement of financial instruments",
+                  "compliance_status": "Compliant with disclosed differences",
+                  "evidence_location": "Note 2.2",
+                  "concerns": "Differences between IFRS and Bangladesh Bank guidelines properly disclosed"
+                },
+                {
+                  "requirement": "Expected credit loss model application",
+                  "compliance_status": "Partially Compliant",
+                  "evidence_location": "Note 2.2.5, Key Audit Matters",
+                  "concerns": "Manual processes used for provision calculation, high level of judgment involved"
+                }
+              ],
+              "material_departures": [
+                {
+                  "departure": "Inadequate provisioning for investments as per Bangladesh Bank requirements",
+                  "nature": "Material departure from regulatory requirements",
+                  "impact": "Significant understatement of provisions and overstatement of equity",
+                  "page_reference": "Basis for Qualified Opinion"
+                }
+              ],
+              "ias_1_para_19_24_implication": "Financial statements do not present fairly due to inadequate provisioning"
+            },
+            {
+              "standard_code": "IAS 1",
+              "standard_name": "Presentation of Financial Statements",
+              "applicability": "Yes",
+              "page_reference": "Note 2.2.1, Entire Financial Statements",
+              "compliance_status": "Qualified Compliance",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Fair presentation and compliance with IFRS",
+                  "compliance_status": "Qualified",
+                  "evidence_location": "Auditor's Qualified Opinion",
+                  "concerns": "Except for effects of inadequate provisioning, financial statements give true and fair view"
+                },
+                {
+                  "requirement": "Going concern assessment",
+                  "compliance_status": "With Material Uncertainty",
+                  "evidence_location": "Material Uncertainty section",
+                  "concerns": "Capital shortfall of Tk 22,850.14 crore, CRAR negative 33.95%, prolonged non-compliance with regulatory requirements"
+                },
+                {
+                  "requirement": "Comparative information",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "All financial statements with comparative figures",
+                  "concerns": "Adequate comparative information provided"
+                },
+                {
+                  "requirement": "Material aggregation and classification",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Consolidated Balance Sheet and Income Statement",
+                  "concerns": "Appropriate aggregation and classification maintained"
+                }
+              ],
+              "material_departures": [
+                {
+                  "departure": "Material uncertainty regarding going concern",
+                  "nature": "Going concern basis used but with material uncertainty",
+                  "impact": "Significant doubt about Bank's ability to continue as going concern",
+                  "page_reference": "Material Uncertainty section"
+                }
+              ],
+              "ias_1_para_19_24_implication": "Financial statements prepared on going concern basis but with material uncertainty disclosed"
+            },
+            {
+              "standard_code": "IAS 24",
+              "standard_name": "Related Party Disclosures",
+              "applicability": "Yes",
+              "page_reference": "Emphasis of Matter (d), Note 2.33",
+              "compliance_status": "Non-Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Identification of related parties",
+                  "compliance_status": "Partially Compliant",
+                  "evidence_location": "Note 2.33",
+                  "concerns": "Definition provided but disclosure inadequate"
+                },
+                {
+                  "requirement": "Disclosure of related party transactions",
+                  "compliance_status": "Non-Compliant",
+                  "evidence_location": "Emphasis of Matter (d)",
+                  "concerns": "Disclosure regarding related party transactions yet to be adequately made as per IAS 24"
+                }
+              ],
+              "material_departures": [
+                {
+                  "departure": "Inadequate disclosure of related party transactions",
+                  "nature": "Non-compliance with disclosure requirements",
+                  "impact": "Users cannot assess effects of related party relationships",
+                  "page_reference": "Emphasis of Matter (d)"
+                }
+              ],
+              "ias_1_para_19_24_implication": "Inadequate disclosure affects fair presentation"
+            }
+          ],
+          "overall_assessment": {
+            "compliance_rating": "Qualified Compliance",
+            "key_strengths": [
+              "Comprehensive disclosure of differences between IFRS and Bangladesh Bank guidelines",
+              "Detailed notes to financial statements",
+              "Transparent disclosure of regulatory non-compliances"
+            ],
+            "areas_for_enhancement": [
+              "Adequate provisioning for investments as required",
+              "Compliance with capital adequacy requirements",
+              "Adequate disclosure of related party transactions",
+              "Maintenance of regulatory ratios (CRR, SLR)"
+            ],
+            "material_non_compliance": [
+              "Inadequate provisioning for investments",
+              "Capital adequacy ratio below regulatory requirement",
+              "Non-compliance with CRR and SLR requirements",
+              "Inadequate related party transaction disclosures",
+              "Sponsor/director shareholding below BSEC requirement"
+            ],
+            "audit_verification_level": "High - 9,650 person hours spent, over 80% of Risk Weighted Assets reviewed"
+          },
+          "regulatory_alignment": {
+            "bangladesh_bank_guidelines": "Multiple non-compliances identified",
+            "basel_iii_requirements": "Non-compliant - CRAR of 6.43% vs 12.50% requirement",
+            "bsec_requirements": "Partial compliance - Sponsor shareholding below 30% requirement",
+            "conflicts_resolution": "Bangladesh Bank guidelines prevail over IFRS where differences exist"
+          }
+        },
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "Kazi Zahir Khan & Co., Chartered Accountants and Khan Wahab Shafique Rahman & Co., Chartered Accountants (Joint Auditors)",
+              "firm_registration_number": "DVC No. 2505290240AS300016 and DVC No. 2505290619AS574921",
+              "audit_tenure_years": "Not specified",
+              "rotation_compliance": "Not specified",
+              "independence_declaration": "Confirmed in audit report",
+              "professional_certification": "FCA (Fellow Chartered Accountants)",
+              "quality_control": "Audit conducted in accordance with International Standards on Auditing (ISAs)"
+            },
+            "audit_opinion": {
+              "opinion_type": "Qualified Opinion",
+              "opinion_year": 2024,
+              "basis_for_opinion": [
+                "Bank maintained only Tk 1,502.62 crore in provisions against required Tk 23,158.06 crore",
+                "Bangladesh Bank permitted finalization without provisioning remaining amount",
+                "Audit conducted in accordance with ISAs",
+                "Sufficient appropriate audit evidence obtained"
+              ],
+              "modified_opinion_reasons": [
+                "Inadequate provisioning for investments"
+              ],
+              "emphasis_of_matter_paragraphs": [
+                "Investment income includes Tk 185.29 crore from irregular investment clients",
+                "Bank could not maintain CRR and SLR on multiple occasions",
+                "Sponsor/director shareholding at 11.62% vs 30% BSEC requirement",
+                "Inadequate disclosure of related party transactions"
+              ],
+              "material_uncertainty_paragraphs": [
+                "CRAR of 6.43% deteriorates to negative 33.95% after considering deferred provision shortfall",
+                "Capital shortfall of Tk 22,850.14 crore",
+                "Prolonged non-compliance with CRR and SLR",
+                "Non-performing investments exceeding 60%",
+                "16.64% decline in customer deposits",
+                "IDR ratio of 121.15% against regulatory cap of 92.5%"
+              ],
+              "going_concern_assessment": "Material uncertainty exists regarding going concern"
+            },
+            "key_audit_matters": [
+              {
+                "matter": "Measurement of provision for investments",
+                "matter_description": "High level of judgment involved in estimating provisions using manual processes based on Bangladesh Bank instructions",
+                "auditor_response": [
+                  "Focused on significant judgments and estimates",
+                  "Reviewed completeness and timing of loss event recognition",
+                  "Assessed provision measurement assumptions"
+                ],
+                "frc_risk_assessment": "High",
+                "follow_up_required": true,
+                "materiality_impact": "Critical - Total provision shortfall of Tk 209,937,209,364",
+                "scope_of_work": "Over 80% of risk-weighted assets reviewed",
+                "person_hours": "9,650 person-hours"
+              },
+              {
+                "matter": "Recognition of investment income",
+                "matter_description": "Includes Tk 185.29 crore charged on irregular investment clients identified by Bangladesh Bank",
+                "auditor_response": [
+                  "Tested design and operating effectiveness of key controls",
+                  "Performed substantive procedures",
+                  "Assessed appropriateness of disclosures"
+                ],
+                "frc_risk_assessment": "High",
+                "follow_up_required": true,
+                "materiality_impact": "Significant - Tk 185.29 crore or 5.85% of total investment income"
+              },
+              {
+                "matter": "Liquidity concern and significant increase in borrowing from Bangladesh Bank",
+                "matter_description": "Bank encountered significant liquidity challenges, borrowed Tk 90,847 million from Bangladesh Bank",
+                "auditor_response": [
+                  "Assessed effectiveness of liquidity risk management",
+                  "Checked appropriate disclosure of borrowings",
+                  "Reviewed ledger and documents on sample basis"
+                ],
+                "frc_risk_assessment": "High",
+                "follow_up_required": true,
+                "materiality_impact": "Critical - Borrowings increased to Tk 90,847 million from Tk 43,280 million"
+              },
+              {
+                "matter": "Investments",
+                "matter_description": "Main element of financial statements, inherent risk of fraud in disbursement, non-performing investment of Tk 236,580 million (61.74% of total)",
+                "auditor_response": [
+                  "Tested design and operating effectiveness of key controls",
+                  "Performed procedures to check appropriate documentation",
+                  "Assessed appropriateness of disclosure"
+                ],
+                "frc_risk_assessment": "High",
+                "follow_up_required": true,
+                "materiality_impact": "Critical - NPI increased by 1268% year-on-year"
+              }
+            ]
+          },
+          "audit_scope_and_methodology": {
+            "audit_approach": "Risk-based audit approach",
+            "materiality_level": "Not explicitly quantified",
+            "sample_selection_methodology": "Statistical and judgmental sampling",
+            "coverage_extent": "Over 80% of risk-weighted assets reviewed",
+            "audit_hours": {
+              "2024": "9,650 person-hours"
+            },
+            "use_of_experts": "Not specified",
+            "analytical_procedures": "Substantive analytical procedures performed",
+            "substantive_testing": "Detailed testing of transactions, balances, and disclosures"
+          },
+          "governance_assessment": {
+            "board_oversight": {
+              "audit_committee": {
+                "existence": "Implied but not explicitly mentioned",
+                "effectiveness": "Concerns raised about regulatory compliance",
+                "meeting_frequency": "Not specified",
+                "independence": "Not explicitly stated"
+              },
+              "risk_committee": {
+                "existence": "Implied through risk management framework",
+                "effectiveness": "Concerns about risk management given significant issues",
+                "risk_coverage": "Comprehensive but with implementation gaps"
+              }
+            },
+            "internal_audit_function": {
+              "existence": "Implied from Bangladesh Bank requirements",
+              "coordination_with_external_audit": "Effective coordination evident",
+              "coverage": "Comprehensive based on audit findings"
+            },
+            "internal_controls": {
+              "control_environment": "Weaknesses identified in key areas",
+              "risk_assessment_process": "Gaps in identifying and mitigating key risks",
+              "control_activities": "Ineffective in preventing regulatory non-compliance",
+              "information_and_communication": "Adequate financial reporting but regulatory reporting gaps",
+              "monitoring_activities": "Ineffective given prolonged non-compliance"
+            }
+          },
+          "regulatory_compliance": {
+            "bangladesh_standards_on_auditing": "Not explicitly stated",
+            "international_standards_on_auditing": "Applied as stated in audit report",
+            "bangladesh_bank_requirements": "Multiple non-compliances identified",
+            "ifac_code_of_ethics": "Complied with as stated in audit report",
+            "quality_control_standards": "Implied through ISA compliance"
+          },
+          "fraud_consideration": {
+            "fraud_risk_assessment": "Conducted as part of audit",
+            "management_override_testing": "Performed as part of audit procedures",
+            "fraud_identified": "None reported but irregular investments noted",
+            "whistleblower_procedures": "Not explicitly mentioned"
+          },
+          "going_concern_assessment": {
+            "auditor_assessment": "Material uncertainty exists",
+            "management_assessment": "Going concern basis used but with material uncertainty",
+            "key_factors_considered": [
+              "Capital shortfall of Tk 22,850.14 crore",
+              "CRAR deteriorates to negative 33.95%",
+              "Prolonged regulatory non-compliance",
+              "High non-performing investments (61.74%)",
+              "Liquidity challenges and increased borrowings"
+            ],
+            "period_assessed": "At least 12 months from reporting date"
+          },
+          "frc_assessment_conclusion": {
+            "overall_audit_quality": "Satisfactory - Qualified opinion appropriately issued",
+            "key_strengths": [
+              "Comprehensive identification of key audit matters",
+              "Appropriate emphasis of matter paragraphs",
+              "Clear communication of material uncertainties",
+              "Substantial audit hours (9,650 person-hours)",
+              "Professional skepticism demonstrated"
+            ],
+            "areas_for_monitoring": [
+              "Bank's remediation of identified deficiencies",
+              "Regulatory compliance improvements",
+              "Going concern uncertainties resolution",
+              "Asset quality improvement"
+            ],
+            "regulatory_follow_up_required": "Yes - Multiple regulatory non-compliances need resolution",
+            "recommendations": [
+              "Immediate action to address capital shortfall",
+              "Adequate provisioning for investments",
+              "Compliance with CRR and SLR requirements",
+              "Improved related party transaction disclosures",
+              "Action plan to reduce non-performing investments"
+            ],
+            "final_assessment": "Satisfactory - Audit appropriately identified and reported material deficiencies, providing qualified opinion with adequate disclosures"
+          }
+        },
+        "phase_5_synthesis_and_findings": {
+          "overall_assessment": {
+            "fairness_of_view": "Qualified Fair Presentation",
+            "compliance_level": "Low",
+            "reliability_score": "Low",
+            "transparency_rating": "Moderate",
+            "key_strengths": [
+              "Transparent disclosure of regulatory non-compliances",
+              "Detailed financial statement notes",
+              "Comprehensive audit report with qualified opinion"
+            ],
+            "critical_issues": [
+              "Capital adequacy crisis (CRAR negative 33.95% after adjustments)",
+              "Severe asset quality deterioration (NPI 61.74%)",
+              "Significant provisioning shortfall",
+              "Liquidity challenges and regulatory non-compliance",
+              "Material uncertainty regarding going concern"
+            ]
+          }
+        }
       }
     }
   }
