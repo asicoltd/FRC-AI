@@ -244,3 +244,62 @@
          margin-left: 0;
      }
  }
+
+ /* Loading overlay */
+#loadingOverlay {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#loadingOverlay .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+#loadingOverlay .progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#loadingOverlay .progress-bar {
+    border-radius: 4px;
+}
+
+/* Notification alerts */
+.notification-alert {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Fade out animation for alerts */
+.alert.fade:not(.show) {
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+/* Company selector in navbar */
+.navbar .dropdown .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Debug button */
+.navbar .btn-outline-light.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Test button */
+.navbar .btn-outline-warning.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}

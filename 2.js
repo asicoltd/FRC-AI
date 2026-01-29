@@ -404,7 +404,7 @@ function loadDashboard() {
             <div class="col-md-3">
                 <div class="dashboard-card">
                     <div class="metric-label">Current Company</div>
-                    <div class="metric-value">${currentCompanyId}</div>
+                    <div class="metric-value">${companyName}</div>
                     <div class="mt-2">
                         <button class="btn btn-sm btn-outline-primary w-100" onclick="loadDataImport()">
                             Switch Company
