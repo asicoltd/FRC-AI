@@ -4896,11 +4896,78 @@
               "Comprehensive audit report with qualified opinion"
             ],
             "critical_issues": [
-              "Capital adequacy crisis (CRAR negative 33.95% after adjustments)",
-              "Severe asset quality deterioration (NPI 61.74%)",
-              "Significant provisioning shortfall",
-              "Liquidity challenges and regulatory non-compliance",
-              "Material uncertainty regarding going concern"
+              {
+                "issue": "Severe capital adequacy crisis - CRAR of 6.43% deteriorates to negative 33.95% after considering deferred provision shortfall",
+                "priority": "Critical",
+                "regulatory_implication": "Bangladesh Bank may impose sanctions, restrictions, or initiate corrective actions including capital injection requirements",
+                "deadline_for_action": "Immediate regulatory intervention required"
+              },
+              {
+                "issue": "Massive provisioning shortfall of Tk 209,937,209,364 against required provisions for investments",
+                "priority": "Critical",
+                "regulatory_implication": "Bangladesh Bank may require immediate provisioning affecting equity and triggering further capital adequacy violations",
+                "deadline_for_action": "Immediate corrective action required"
+              },
+              {
+                "issue": "Extreme deterioration in asset quality - Non-performing investments increased 1268% to 61.74% of total investments",
+                "priority": "Critical",
+                "regulatory_implication": "Bangladesh Bank may impose special monitoring, investment restrictions, or require asset recovery plans",
+                "deadline_for_action": "Immediate asset quality review and recovery plan"
+              },
+              {
+                "issue": "Material uncertainty regarding going concern due to capital shortfall of Tk 22,850.14 crore",
+                "priority": "Critical",
+                "regulatory_implication": "BSEC may suspend trading, Bangladesh Bank may consider resolution measures under Banking Companies Act",
+                "deadline_for_action": "Immediate capital restoration plan required"
+              },
+              {
+                "issue": "Prolonged regulatory non-compliance - CRR not maintained for 319 days and SLR not maintained for 355 days",
+                "priority": "High",
+                "regulatory_implication": "Bangladesh Bank may impose penalties, restrict operations, or require special liquidity arrangements",
+                "deadline_for_action": "Immediate compliance restoration required"
+              },
+              {
+                "issue": "Sponsor/director shareholding at 11.62% vs BSEC requirement of 30%",
+                "priority": "High",
+                "regulatory_implication": "BSEC may impose fines, restrict director appointments, or require share acquisition plan",
+                "deadline_for_action": "Compliance within stipulated timeline from BSEC"
+              },
+              {
+                "issue": "Inadequate disclosure of related party transactions as per IAS 24 requirements",
+                "priority": "High",
+                "regulatory_implication": "BSEC may require restatement, impose penalties, or require enhanced governance measures",
+                "deadline_for_action": "Next financial reporting period"
+              },
+              {
+                "issue": "Significant liquidity challenges requiring Tk 90,847 million borrowing from Bangladesh Bank",
+                "priority": "High",
+                "regulatory_implication": "Bangladesh Bank may impose borrowing limits, require liquidity contingency plans, or special monitoring",
+                "deadline_for_action": "Immediate liquidity management plan"
+              },
+              {
+                "issue": "Investment income recognition includes Tk 185.29 crore from irregular investment clients identified by Bangladesh Bank",
+                "priority": "High",
+                "regulatory_implication": "Potential revenue overstatement, Bangladesh Bank may require income reversal or special provisioning",
+                "deadline_for_action": "Immediate review and corrective action"
+              },
+              {
+                "issue": "IDR ratio of 121.15% exceeds regulatory cap of 92.5%",
+                "priority": "Medium",
+                "regulatory_implication": "Bangladesh Bank may require reduction in investment-deposit ratio and impose restrictions",
+                "deadline_for_action": "Quarterly reduction targets required"
+              },
+              {
+                "issue": "Customer deposits declined by 16.64% indicating potential loss of market confidence",
+                "priority": "Medium",
+                "regulatory_implication": "Bangladesh Bank may require deposit retention strategy and enhanced public confidence measures",
+                "deadline_for_action": "Immediate deposit mobilization strategy"
+              },
+              {
+                "issue": "High reliance on manual processes for investment provision calculations with significant judgment",
+                "priority": "Medium",
+                "regulatory_implication": "Bangladesh Bank may require automation, enhanced controls, and independent validation",
+                "deadline_for_action": "System enhancement within 6 months"
+              }
             ]
           }
         }
