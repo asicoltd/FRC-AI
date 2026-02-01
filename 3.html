@@ -58,14 +58,21 @@
         <!-- Content will be dynamically loaded here -->
     </div>
 
-    <!-- JavaScript Files -->
+    <!-- JavaScript Files - IMPORTANT: Load in correct order -->
+    
+    <!-- Configuration and Core Utilities -->
     <script src="js/config.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/utils/notifications.js"></script>
+    <script src="js/utils/charts.js"></script>
+    
+    <!-- Data Management -->
     <script src="js/data-manager.js"></script>
+    
+    <!-- UI Components -->
     <script src="js/ui-components.js"></script>
     
-    <!-- Sections -->
+    <!-- All Section Classes (must be loaded before section-manager.js) -->
     <script src="js/sections/dashboard.js"></script>
     <script src="js/sections/entity-profile.js"></script>
     <script src="js/sections/financial-statements.js"></script>
@@ -78,9 +85,39 @@
     <script src="js/sections/data-import.js"></script>
     <script src="js/sections/report-generator.js"></script>
     
-    <!-- Utilities -->
-    <script src="js/utils/charts.js"></script>
+    <!-- Section Manager (must be loaded after all sections) -->
     <script src="js/section-manager.js"></script>
+    
+    <!-- Main Application (must be loaded last) -->
     <script src="js/main.js"></script>
+    
+    <!-- Debug/Helper Scripts (optional) -->
+    <script>
+        // Global debugging helper
+        function debugAppState() {
+            console.log('=== APP STATE DEBUG ===');
+            console.log('Current Company ID:', appState.currentCompanyId);
+            console.log('Current Section:', appState.currentSection);
+            console.log('Available Companies:', appState.availableCompanies);
+            console.log('Loaded JSON Files:', Object.keys(appState.allJSONData).length);
+            console.log('Section Classes Loaded:');
+            console.log('- Dashboard:', typeof Dashboard);
+            console.log('- EntityProfile:', typeof EntityProfile);
+            console.log('- FinancialStatements:', typeof FinancialStatements);
+            console.log('- FinancialAnalysis:', typeof FinancialAnalysis);
+            console.log('- Compliance:', typeof Compliance);
+            console.log('- AuditGovernance:', typeof AuditGovernance);
+            console.log('- MaterialDepartures:', typeof MaterialDepartures);
+            console.log('- RiskAssessment:', typeof RiskAssessment);
+            console.log('- Skepticism:', typeof Skepticism);
+            console.log('- DataImport:', typeof DataImport);
+            console.log('- ReportGenerator:', typeof ReportGenerator);
+            console.log('SectionManager:', typeof SectionManager);
+            console.log('========================');
+        }
+        
+        // Call this in console if you have issues
+        window.debugAppState = debugAppState;
+    </script>
 </body>
 </html>
