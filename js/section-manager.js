@@ -6,7 +6,7 @@ class SectionManager {
         // Update active sidebar item
         UIComponents.updateActiveSidebarItem(section);
 
-        // Load section content
+        // Load section content using the actual section classes
         switch (section) {
             case 'dashboard':
                 Dashboard.load();
