@@ -383,559 +383,234 @@ function loadSection(section) {
     }
 }
 function loadDashboard() {
-    const companyData = allJSONData[2];
-    const companyName = companyData?.frc_analysis_report?.entity?.entity_profile?.legal_name || `Company ${currentCompanyId}`;
-    
     const content = `
         <div class="container-fluid">
-            <!-- Dashboard Header -->
-            <div class="company-header dashboard-header mb-4">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h1 class="mb-2">
-                            <i class="fas fa-chart-line text-primary me-2"></i>
-                            FRC Compliance Dashboard
-                        </h1>
-                        <p class="mb-0 text-muted">Financial Reporting Analysis Portal</p>
-                    </div>
-                    <div class="col-md-4 text-end">
-                        <span class="badge bg-primary fs-6">Company ${currentCompanyId}</span>
-                        <p class="mt-2 mb-0 text-muted small">
-                            <i class="fas fa-database me-1"></i>
-                            GitHub Pages Data Source
-                        </p>
-                    </div>
+            <!-- Simple Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="display-6 mb-2">
+                        <i class="fas fa-building me-2 text-primary"></i>
+                        Company Dashboard
+                    </h1>
+                    <p class="text-muted mb-0">Select a company to analyze</p>
                 </div>
             </div>
             
-            <!-- Quick Stats & Company Selector -->
+            <!-- Company Selection Cards -->
             <div class="row mb-4">
-                <div class="col-md-4 mb-4">
-                    <div class="metric-card total-companies">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="metric-label">Total Companies Available</h6>
-                                <h2 class="metric-value" id="totalCompaniesCount">${availableCompanies.length}</h2>
-                                <div class="metric-trend">
-                                    <span class="text-success">
-                                        <i class="fas fa-check-circle me-1"></i>
-                                        <span id="activeCompanies">${availableCompanies.length}</span> Active
-                                    </span>
-                                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">
+                                <i class="fas fa-list me-2"></i>
+                                Available Companies
+                            </h5>
+                            
+                            <!-- Search Box -->
+                            <div class="input-group mb-4">
+                                <span class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="companySearch" 
+                                       placeholder="Search companies by name..."
+                                       onkeyup="filterCompanies()">
                             </div>
-                            <div class="metric-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-8 mb-4">
-                    <div class="dashboard-card">
-                        <h5 class="mb-3">
-                            <i class="fas fa-building me-2 text-primary"></i>
-                            Select Company to Analyze
-                        </h5>
-                        
-                        <!-- Quick Company Cards -->
-                        <div class="mb-4">
-                            <h6 class="mb-2 text-muted">Quick Selection</h6>
-                            <div class="d-flex flex-wrap gap-2" id="quickCompanyCards">
-                                ${availableCompanies.slice(0, 10).map(id => `
-                                    <button class="btn btn-${id === currentCompanyId ? 'primary' : 'outline-primary'} company-quick-btn" 
-                                            onclick="switchCompany(${id})">
-                                        <i class="fas fa-building me-1"></i>
-                                        Company ${id}
-                                        ${id === currentCompanyId ? '<i class="fas fa-check ms-1"></i>' : ''}
-                                    </button>
+                            
+                            <!-- Companies Grid -->
+                            <div class="row" id="companiesGrid">
+                                ${availableCompanies.map(id => `
+                                    <div class="col-md-3 col-sm-6 mb-3 company-card" data-company-id="${id}">
+                                        <div class="card h-100 company-select-card ${id === currentCompanyId ? 'border-primary' : ''}">
+                                            <div class="card-body text-center">
+                                                <div class="mb-3">
+                                                    <i class="fas fa-building fa-3x text-primary"></i>
+                                                </div>
+                                                <h5 class="card-title">Company ${id}</h5>
+                                                <p class="card-text text-muted small">Click to analyze</p>
+                                            </div>
+                                            <div class="card-footer bg-transparent">
+                                                <button class="btn btn-sm ${id === currentCompanyId ? 'btn-primary' : 'btn-outline-primary'} w-100"
+                                                        onclick="switchCompany(${id})">
+                                                    ${id === currentCompanyId ? 
+                                                        '<i class="fas fa-check me-1"></i> Selected' : 
+                                                        '<i class="fas fa-eye me-1"></i> View'}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 `).join('')}
                             </div>
+                            
+                            <!-- No Results Message -->
+                            <div id="noCompaniesMessage" class="text-center py-5" style="display: none;">
+                                <i class="fas fa-building fa-3x text-muted mb-3"></i>
+                                <h5>No companies found</h5>
+                                <p class="text-muted">Try a different search term</p>
+                            </div>
                         </div>
-                        
-                        <!-- Advanced Company Selector -->
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                    <input type="text" class="form-control" 
-                                           id="companySearchInput" 
-                                           placeholder="Search or enter Company ID..." 
-                                           onkeyup="filterCompanySearch()">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="refreshCompanyList()">
-                                        <i class="fas fa-sync"></i>
-                                    </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Selected Company Info -->
+            ${currentCompanyId ? `
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Currently Selected: Company ${currentCompanyId}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Quick Actions</h6>
+                                    <div class="d-flex flex-wrap gap-2 mt-3">
+                                        <button class="btn btn-outline-primary" onclick="loadFinancialStatements()">
+                                            <i class="fas fa-file-invoice-dollar me-1"></i> Financial Statements
+                                        </button>
+                                        <button class="btn btn-outline-success" onclick="loadFinancialAnalysis()">
+                                            <i class="fas fa-chart-line me-1"></i> Ratio Analysis
+                                        </button>
+                                        <button class="btn btn-outline-warning" onclick="loadComplianceMatrix()">
+                                            <i class="fas fa-clipboard-check me-1"></i> IFRS Compliance
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Company Data</h6>
+                                    <div class="mt-3">
+                                        <p class="mb-2">
+                                            <strong>Status:</strong> 
+                                            <span class="badge bg-success ms-2">Active</span>
+                                        </p>
+                                        <p class="mb-2">
+                                            <strong>Files Loaded:</strong> 
+                                            <span>${Object.keys(allJSONData).length} of 26</span>
+                                        </p>
+                                        <p class="mb-0">
+                                            <strong>Last Updated:</strong> 
+                                            <span>${new Date().toLocaleString()}</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-success w-100" onclick="addNewCompanyDialog()">
-                                    <i class="fas fa-plus me-2"></i>
-                                    Add New Company
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Search Results -->
-                        <div class="mt-3" id="companySearchResults" style="display: none;">
-                            <h6 class="mb-2">Search Results</h6>
-                            <div class="list-group" id="companyResultsList">
-                                <!-- Results will appear here -->
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Current Company Analysis -->
-            <div class="dashboard-card mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">
-                        <i class="fas fa-chart-bar me-2 text-primary"></i>
-                        Current Analysis: Company ${currentCompanyId}
-                    </h5>
-                    <button class="btn btn-sm btn-outline-primary" onclick="loadEntityProfile()">
-                        <i class="fas fa-external-link-alt me-1"></i>
-                        View Details
-                    </button>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="info-card">
-                            <div class="info-card-icon bg-primary">
-                                <i class="fas fa-info-circle"></i>
-                            </div>
-                            <div class="info-card-content">
-                                <h6>Company Name</h6>
-                                <p class="mb-0">${companyName}</p>
-                            </div>
+            ` : ''}
+        </div>
+        
+        <!-- Simple Add Company Modal -->
+        <div class="modal fade" id="addCompanyModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add New Company</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="newCompanyId" class="form-label">Company ID Number</label>
+                            <input type="number" class="form-control" id="newCompanyId" placeholder="Enter company ID">
+                            <div class="form-text">Enter the numerical ID of the company to add</div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-4">
-                        <div class="info-card">
-                            <div class="info-card-icon bg-success">
-                                <i class="fas fa-clipboard-check"></i>
-                            </div>
-                            <div class="info-card-content">
-                                <h6>Data Status</h6>
-                                <p class="mb-0" id="companyDataStatus">
-                                    ${Object.keys(allJSONData).length > 0 ? 
-                                        `${Object.keys(allJSONData).length}/26 files loaded` : 
-                                        'No data loaded'}
-                                </p>
-                            </div>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="addNewCompany()">Add Company</button>
                     </div>
-                    
-                    <div class="col-md-4">
-                        <div class="info-card">
-                            <div class="info-card-icon bg-warning">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="info-card-content">
-                                <h6>Last Updated</h6>
-                                <p class="mb-0" id="lastUpdatedTime">
-                                    ${new Date().toLocaleString()}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Actions -->
-            <div class="dashboard-card">
-                <h5 class="mb-3">
-                    <i class="fas fa-bolt me-2 text-primary"></i>
-                    Quick Analysis Actions
-                </h5>
-                <div class="row">
-                    <div class="col-md-3 col-6 mb-3">
-                        <button class="btn btn-outline-primary w-100 d-flex flex-column align-items-center py-3" 
-                                onclick="loadFinancialStatements()">
-                            <i class="fas fa-file-invoice-dollar fs-2 mb-2"></i>
-                            <span>Financial Statements</span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-6 mb-3">
-                        <button class="btn btn-outline-success w-100 d-flex flex-column align-items-center py-3" 
-                                onclick="loadFinancialAnalysis()">
-                            <i class="fas fa-chart-line fs-2 mb-2"></i>
-                            <span>Ratio Analysis</span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-6 mb-3">
-                        <button class="btn btn-outline-warning w-100 d-flex flex-column align-items-center py-3" 
-                                onclick="loadComplianceMatrix()">
-                            <i class="fas fa-clipboard-check fs-2 mb-2"></i>
-                            <span>IFRS Compliance</span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-6 mb-3">
-                        <button class="btn btn-outline-danger w-100 d-flex flex-column align-items-center py-3" 
-                                onclick="loadMaterialDepartures()">
-                            <i class="fas fa-exclamation-triangle fs-2 mb-2"></i>
-                            <span>Material Departures</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- All Companies List -->
-            <div class="dashboard-card mt-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">
-                        <i class="fas fa-list me-2 text-primary"></i>
-                        All Available Companies (${availableCompanies.length})
-                    </h5>
-                    <button class="btn btn-sm btn-outline-secondary" onclick="discoverAllCompanies()">
-                        <i class="fas fa-search me-1"></i>
-                        Discover More
-                    </button>
-                </div>
-                
-                <div class="table-responsive">
-                    <table class="table table-hover" id="allCompaniesTable">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Company ID</th>
-                                <th>Status</th>
-                                <th>Data Files</th>
-                                <th>Last Checked</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="allCompaniesTableBody">
-                            <tr>
-                                <td colspan="5" class="text-center py-4">
-                                    <div class="spinner-border text-primary" role="status">
-                                        <span class="visually-hidden">Loading companies...</span>
-                                    </div>
-                                    <p class="mt-2 text-muted">Loading company list...</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
     `;
 
     document.getElementById('mainContent').innerHTML = content;
-    
-    // Load companies table
-    loadAllCompaniesTable();
 }
 
-// Load all companies in table
-async function loadAllCompaniesTable() {
-    const tbody = document.getElementById('allCompaniesTableBody');
-    if (!tbody) return;
+// Filter companies by search
+function filterCompanies() {
+    const searchTerm = document.getElementById('companySearch').value.toLowerCase();
+    const companyCards = document.querySelectorAll('.company-card');
+    const noResultsMessage = document.getElementById('noCompaniesMessage');
     
-    tbody.innerHTML = '';
+    let visibleCount = 0;
     
-    for (const companyId of availableCompanies) {
-        try {
-            // Check if company has data
-            const hasData = await checkCompanyExists(companyId);
-            const dataFiles = hasData ? 'Available' : 'Missing';
-            const statusBadge = hasData ? 
-                '<span class="badge bg-success">Active</span>' : 
-                '<span class="badge bg-warning">No Data</span>';
-            
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>
-                    <strong>Company ${companyId}</strong>
-                </td>
-                <td>${statusBadge}</td>
-                <td>${dataFiles}</td>
-                <td>${new Date().toLocaleDateString()}</td>
-                <td>
-                    <div class="btn-group btn-group-sm" role="group">
-                        <button class="btn btn-outline-primary" onclick="switchCompany(${companyId})" 
-                                ${hasData ? '' : 'disabled'}>
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                        <button class="btn btn-outline-info" onclick="loadCompanyData(${companyId})">
-                            <i class="fas fa-sync"></i> Refresh
-                        </button>
-                        ${companyId !== 1 ? `
-                            <button class="btn btn-outline-danger" onclick="removeCompany(${companyId})">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        ` : ''}
-                    </div>
-                </td>
-            `;
-            
-            tbody.appendChild(row);
-        } catch (error) {
-            console.error(`Error loading company ${companyId}:`, error);
-        }
-    }
-}
-
-// Filter company search
-function filterCompanySearch() {
-    const searchInput = document.getElementById('companySearchInput');
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const resultsContainer = document.getElementById('companySearchResults');
-    const resultsList = document.getElementById('companyResultsList');
-    
-    if (!searchTerm) {
-        resultsContainer.style.display = 'none';
-        return;
-    }
-    
-    // Filter companies
-    const filteredCompanies = availableCompanies.filter(id => 
-        id.toString().includes(searchTerm) || 
-        `Company ${id}`.toLowerCase().includes(searchTerm)
-    );
-    
-    // Show results
-    if (filteredCompanies.length > 0) {
-        resultsList.innerHTML = filteredCompanies.map(id => `
-            <a href="#" class="list-group-item list-group-item-action" onclick="switchCompany(${id})">
-                <div class="d-flex w-100 justify-content-between align-items-center">
-                    <div>
-                        <h6 class="mb-1">Company ${id}</h6>
-                        <small class="text-muted">Click to load this company</small>
-                    </div>
-                    <span class="badge bg-primary">ID: ${id}</span>
-                </div>
-            </a>
-        `).join('');
+    companyCards.forEach(card => {
+        const companyId = card.getAttribute('data-company-id');
+        const cardText = `Company ${companyId}`.toLowerCase();
         
-        resultsContainer.style.display = 'block';
-    } else {
-        // Check if it's a new company ID
-        const newId = parseInt(searchTerm);
-        if (!isNaN(newId) && newId > 0 && !availableCompanies.includes(newId)) {
-            resultsList.innerHTML = `
-                <div class="list-group-item">
-                    <div class="d-flex w-100 justify-content-between align-items-center">
-                        <div>
-                            <h6 class="mb-1">Add Company ${newId}</h6>
-                            <small class="text-muted">This company is not in the list</small>
-                        </div>
-                        <button class="btn btn-sm btn-success" onclick="addCompanyById(${newId})">
-                            <i class="fas fa-plus"></i> Add
-                        </button>
-                    </div>
-                </div>
-            `;
-            resultsContainer.style.display = 'block';
+        if (cardText.includes(searchTerm)) {
+            card.style.display = 'block';
+            visibleCount++;
         } else {
-            resultsList.innerHTML = `
-                <div class="list-group-item">
-                    <div class="text-center text-muted py-2">
-                        <i class="fas fa-search fa-lg mb-2"></i>
-                        <p class="mb-0">No companies found</p>
-                    </div>
-                </div>
-            `;
-            resultsContainer.style.display = 'block';
+            card.style.display = 'none';
         }
+    });
+    
+    // Show/hide no results message
+    if (visibleCount === 0) {
+        noResultsMessage.style.display = 'block';
+    } else {
+        noResultsMessage.style.display = 'none';
     }
 }
 
-// Add company by ID
-async function addCompanyById(companyId) {
-    if (availableCompanies.includes(companyId)) {
-        showNotification(`Company ${companyId} already exists`, 'warning');
+
+// Add new company
+function addNewCompany() {
+    const newId = document.getElementById('newCompanyId').value;
+    
+    if (!newId || isNaN(newId) || parseInt(newId) <= 0) {
+        showNotification('Please enter a valid company ID number', 'error');
         return;
     }
     
-    showLoading(`Checking Company ${companyId}...`);
-    const exists = await checkCompanyExists(companyId);
-    hideLoading();
+    const companyId = parseInt(newId);
     
-    if (exists) {
-        availableCompanies.push(companyId);
-        availableCompanies.sort((a, b) => a - b);
-        
-        // Update UI
-        await loadCompanySelector();
-        loadAllCompaniesTable();
-        
-        // Switch to new company
-        await switchCompany(companyId);
-        
-        showNotification(`Company ${companyId} added successfully`, 'success');
-    } else {
-        showNotification(`Company ${companyId} not found on server`, 'error');
+    if (availableCompanies.includes(companyId)) {
+        showNotification(`Company ${companyId} is already in the list`, 'warning');
+        return;
     }
     
-    // Clear search
-    document.getElementById('companySearchInput').value = '';
-    document.getElementById('companySearchResults').style.display = 'none';
+    // Add to list
+    availableCompanies.push(companyId);
+    availableCompanies.sort((a, b) => a - b);
+    
+    // Reload dashboard
+    loadDashboard();
+    
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addCompanyModal'));
+    modal.hide();
+    
+    showNotification(`Company ${companyId} added successfully`, 'success');
 }
 
-// Remove company
-function removeCompany(companyId) {
-    if (confirm(`Are you sure you want to remove Company ${companyId} from the list?`)) {
-        const index = availableCompanies.indexOf(companyId);
-        if (index > -1) {
-            availableCompanies.splice(index, 1);
-            
-            // Update UI
-            loadAllCompaniesTable();
-            
-            // Update company count
-            document.getElementById('totalCompaniesCount').textContent = availableCompanies.length;
-            document.getElementById('activeCompanies').textContent = availableCompanies.length;
-            
-            showNotification(`Company ${companyId} removed from list`, 'success');
-        }
+// Switch to a company
+async function switchCompany(companyId) {
+    if (currentCompanyId === companyId) return;
+    
+    showLoading(`Loading Company ${companyId}...`);
+    
+    try {
+        currentCompanyId = companyId;
+        await loadCompanyData(companyId);
+        loadDashboard(); // Refresh the dashboard
+        showNotification(`Switched to Company ${companyId}`, 'success');
+    } catch (error) {
+        console.error('Error switching company:', error);
+        showNotification('Failed to load company data', 'error');
+    } finally {
+        hideLoading();
     }
 }
 
-// Update the addNewCompanyDialog to be simpler
-function addNewCompanyDialog() {
-    const newId = prompt('Enter new Company ID:', '');
-    
-    if (newId && !isNaN(newId) && parseInt(newId) > 0) {
-        const companyId = parseInt(newId);
-        addCompanyById(companyId);
-    } else if (newId) {
-        showNotification('Please enter a valid company ID number', 'error');
-    }
-}
-function loadEntityProfile() {
-    const content = `
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="section-title">Entity Context & Framework</h3>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-info-circle me-2 text-primary"></i>Entity Profile</h5>
-                            <table class="table table-borderless">
-                                <tr>
-                                    <th width="40%">Legal Name:</th>
-                                    <td id="legalName">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Trade Name:</th>
-                                    <td id="tradeName">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Registration Number:</th>
-                                    <td id="registrationNumber">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Industry Sector:</th>
-                                    <td id="industrySector">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Listing Status:</th>
-                                    <td id="listingStatus">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Reporting Currency:</th>
-                                    <td id="reportingCurrency">BDT</td>
-                                </tr>
-                                <tr>
-                                    <th>Financial Year End:</th>
-                                    <td id="financialYearEnd">YYYY-12-31</td>
-                                </tr>
-                            </table>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-balance-scale me-2 text-primary"></i>Materiality Framework</h5>
-                            <table class="table table-borderless">
-                                <tr>
-                                    <th width="50%">Benchmark Used:</th>
-                                    <td id="materialityBenchmark">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Percentage Applied:</th>
-                                    <td id="materialityPercentage">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Overall Materiality:</th>
-                                    <td id="overallMateriality">[Not Specified]</td>
-                                </tr>
-                                <tr>
-                                    <th>Performance Materiality:</th>
-                                    <td id="performanceMateriality">[Not Specified]</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-file-contract me-2 text-primary"></i>Reporting Framework</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Disclosed Framework:</label>
-                                <div id="disclosedFramework" class="p-2 bg-light rounded">IFRS as adopted in Bangladesh</div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Actual Standards Applied:</label>
-                                <div id="actualStandards" class="p-2 bg-light rounded">
-                                    <span class="badge bg-primary me-1">IAS 1</span>
-                                    <span class="badge bg-primary me-1">IAS 2</span>
-                                    <span class="badge bg-primary me-1">IAS 16</span>
-                                    <span class="badge bg-primary me-1">IFRS 9</span>
-                                    <span class="badge bg-primary me-1">IFRS 15</span>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Compliance Assessment:</label>
-                                <div class="compliance-badge badge-partial">Partially Compliant</div>
-                            </div>
-                        </div>
-                        
-                        <div class="dashboard-card">
-                            <h5><i class="fas fa-gavel me-2 text-primary"></i>Regulatory Landscape</h5>
-                            <div class="mb-3">
-                                <h6>Applicable Regulators:</h6>
-                                <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-secondary">FRC</span>
-                                    <span class="badge bg-secondary">BSEC</span>
-                                    <span class="badge bg-secondary">RJSC</span>
-                                    <span class="badge bg-secondary">NBR</span>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <h6>Statutory Filings Status:</h6>
-                                <table class="table table-sm">
-                                    <tr>
-                                        <td>BSEC Filed:</td>
-                                        <td><span class="badge bg-success">Yes</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Income Tax Return:</td>
-                                        <td><span class="badge bg-success">Filed</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RJSC Compliance:</td>
-                                        <td><span class="badge bg-success">Compliant</span></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-card">
-                    <h5><i class="fas fa-comment-dots me-2 text-primary"></i>Materiality Conclusion</h5>
-                    <div id="materialityConclusion" class="p-3 bg-light rounded">
-                        Materiality assessment completed based on 5% of profit before tax. Qualitative factors considered include related party transactions and going concern indicators.
-                    </div>
-                </div>
-            `;
-
-    document.getElementById('mainContent').innerHTML = content;
-    loadEntityData();
-}
 
 // Financial Statements Section
 async function loadFinancialStatements() {
@@ -3528,8 +3203,8 @@ function showLoading(message = 'Loading...') {
     // Animate progress bar
     let progress = 0;
     const progressInterval = setInterval(() => {
-        if (progress < 90) {
-            progress += 5;
+        if (progress < 50) {
+            progress += 50;
             const progressBar = document.getElementById('loadingProgress');
             if (progressBar) {
                 progressBar.style.width = `${progress}%`;
