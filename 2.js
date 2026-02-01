@@ -647,7 +647,9 @@ async function loadFinancialStatements() {
 async function loadFinancialStatementData() {
     try {
         const response = await fetch('4.json');
+        alert(response);
         const data = await response.json();
+        alert(data);
         
         const financialData = data.frc_analysis_report.entity.financial_statements_raw_data;
         
