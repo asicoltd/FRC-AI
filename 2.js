@@ -575,7 +575,7 @@ async function loadFinancialStatements() {
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pl-tab" data-bs-toggle="tab" 
                                     data-bs-target="#pl-statement" type="button" role="tab">
-                                Statement of Profit or Loss and Other Comprehensive Income
+                                Statement of Profit or Loss
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -1254,7 +1254,7 @@ function loadComplianceMatrix() {
                                     <th>Compliance Status</th>
                                     <th>Page Reference</th>
                                     <th>Issues Identified</th>
-                                    <th>Action</th>
+                                    // <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="complianceTable">
@@ -1962,7 +1962,7 @@ function loadDataImport() {
                                     <th>Data Category</th>
                                     <th>Status</th>
                                     <th>Source URL</th>
-                                    <th>Action</th>
+                                    // <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="jsonFilesTable">
@@ -3152,7 +3152,7 @@ function showLoading(message = 'Loading...') {
                 progressBar.style.width = `${progress}%`;
             }
         }
-    }, 5);
+    }, 0);
 
     // Store interval ID to clear later
     overlay.dataset.intervalId = progressInterval;
