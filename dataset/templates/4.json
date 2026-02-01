@@ -7,15 +7,15 @@
           {
             "year": "YYYY1",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           },
           {
             "year": "YYYY2",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           }
         ],
@@ -23,15 +23,15 @@
           {
             "year": "YYYY1",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           },
           {
             "year": "YYYY2",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           }
         ],
@@ -39,15 +39,15 @@
           {
             "year": "YYYY1",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           },
           {
             "year": "YYYY2",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           }
         ],
@@ -55,15 +55,15 @@
           {
             "year": "YYYY1",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           },
           {
             "year": "YYYY2",
             "line_items": [
-              {"item": "same as line named", "amount": "no comma", "note": "number"},
-              {"item": "same as line named", "amount": "no comma", "note": "number"}
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"},
+              {"item": "same as line named", "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes", "note": "number"}
             ]
           }
         ]

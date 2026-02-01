@@ -10,8 +10,10 @@
             "standard_code": "",
             "standard_name": "",
             "applicability": "Yes/No/Partially",
-            "page_reference": "",
+            "page_reference": "page numbers of the pdf",
             "compliance_status": "Compliant/Partially Compliant/Non-Compliant",
+            "reason_of_the_status":"Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+            "status_reference":"Where can user directly cross check to validate your comment",
             "material_departures": [],
             "ias_1_para_19_24_implication": ""
           }
@@ -19,17 +21,23 @@
         "tax_compliance_check": {
           "ias_12_income_taxes": {
             "compliance": "",
+            "reason_of_the_status":"Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+            "status_reference":"Where can user directly cross check to validate your comment",
             "issues": []
           },
           "ifric_23_uncertain_tax_positions": {
             "compliance": "",
+            "reason_of_the_status":"Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+            "status_reference":"Where can user directly cross check to validate your comment",
             "issues": []
           },
           "bangladesh_income_tax_act_2023": {
             "withholding_tax_compliance": "",
             "advance_tax_status": "",
             "tax_holidays_or_incentives": [],
-            "overall_tax_compliance_assessment": ""
+            "overall_tax_compliance_assessment": "",
+            "reason_of_the_status":"Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+            "status_reference":"Where can user directly cross check to validate your comment"
           }
         }
       }
