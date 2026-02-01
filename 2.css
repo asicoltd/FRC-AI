@@ -303,3 +303,79 @@
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
 }
+
+/* Financial Statements Styling */
+.financial-statement-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.financial-statement-table {
+    font-size: 14px;
+}
+
+.financial-statement-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.financial-statement-table td {
+    vertical-align: middle;
+}
+
+.financial-statement-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Tab Styling */
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #dee2e6 #dee2e6 #f8f9fa;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .financial-statement-table {
+        font-size: 12px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 14px;
+    }
+}
+
+/* Print-friendly styles */
+@media print {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .tab-content > .tab-pane {
+        display: block !important;
+        opacity: 1 !important;
+        page-break-inside: avoid;
+    }
+    
+    .financial-statement-table {
+        font-size: 11px;
+    }
+}
