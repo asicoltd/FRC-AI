@@ -646,11 +646,7 @@ async function loadFinancialStatements() {
 // Load all financial statement data
 async function loadFinancialStatementData() {
     try {
-        const response = await fetch('4.json');
-        alert(response);
-        const data = await response.json();
-        alert(data);
-        
+        const data = allJSONData[4];
         const financialData = data.frc_analysis_report.entity.financial_statements_raw_data;
         
         // Load each statement
