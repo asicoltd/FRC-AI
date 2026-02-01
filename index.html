@@ -1,2458 +1,987 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRC Financial Statement Analysis Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Add jQuery BEFORE DataTables -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>FRC AI Portal - File Checker</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --frc-primary: #2c3e50;
-            --frc-secondary: #3498db;
-            --frc-success: #27ae60;
-            --frc-warning: #f39c12;
-            --frc-danger: #e74c3c;
-            --frc-info: #17a2b8;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--frc-primary) 0%, #34495e 100%);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar {
-            background-color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .sidebar .nav-link {
-            color: var(--frc-primary);
-            padding: 12px 20px;
-            border-radius: 5px;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            background-color: var(--frc-secondary);
-            color: white;
-        }
-
-        .main-content {
             padding: 20px;
         }
-
-        .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
+        
+        .container {
+            max-width: 1200px;
         }
-
-        .card:hover {
-            transform: translateY(-2px);
+        
+        .header-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
         }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--frc-primary) 0%, #34495e 100%);
-            color: white;
-            border-radius: 10px 10px 0 0 !important;
-            padding: 15px 20px;
+        
+        .file-checker-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
         }
-
-        .company-card {
-            border-left: 5px solid var(--frc-secondary);
-        }
-
-        .risk-high {
-            background-color: rgba(231, 76, 60, 0.1);
-            border-left: 4px solid var(--frc-danger);
-        }
-
-        .risk-moderate {
-            background-color: rgba(243, 156, 18, 0.1);
-            border-left: 4px solid var(--frc-warning);
-        }
-
-        .risk-low {
-            background-color: rgba(39, 174, 96, 0.1);
-            border-left: 4px solid var(--frc-success);
-        }
-
-        .ratio-badge {
-            font-size: 0.8em;
-            padding: 3px 8px;
-            border-radius: 12px;
-        }
-
-        .financial-table {
-            font-size: 0.9em;
-        }
-
-        .financial-table th {
-            background-color: #f8f9fa;
-            position: sticky;
-            top: 0;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 300px;
-            margin: 20px 0;
-        }
-
-        .compliance-badge {
-            padding: 5px 12px;
+        
+        .status-badge {
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.85em;
             font-weight: 600;
+            font-size: 0.9rem;
         }
-
-        .compliance-compliant {
+        
+        .status-success {
             background-color: #d4edda;
             color: #155724;
+            border: 1px solid #c3e6cb;
         }
-
-        .compliance-partial {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-
-        .compliance-non-compliant {
+        
+        .status-error {
             background-color: #f8d7da;
             color: #721c24;
+            border: 1px solid #f5c6cb;
         }
-
-        .tab-content {
-            background-color: white;
-            border-radius: 0 0 10px 10px;
-            padding: 20px;
-            border: 1px solid #dee2e6;
-            border-top: none;
-        }
-
-        .search-box {
-            max-width: 300px;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
-                position: relative;
-            }
-
-            .main-content {
-                padding: 10px;
-            }
-        }
-
-        .company-logo {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--frc-secondary) 0%, #2980b9 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        .status-critical {
-            background-color: var(--frc-danger);
-            animation: pulse 2s infinite;
-        }
-
+        
         .status-warning {
-            background-color: var(--frc-warning);
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
         }
-
-        .status-ok {
-            background-color: var(--frc-success);
+        
+        .status-loading {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
         }
-
-        @keyframes pulse {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-
-            100% {
-                opacity: 1;
-            }
+        
+        .file-item {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background: rgba(248, 249, 250, 0.8);
+            transition: all 0.3s ease;
+            border-left: 5px solid #6c757d;
         }
-
-        .export-btn {
-            background: linear-gradient(135deg, var(--frc-success) 0%, #229954 100%);
+        
+        .file-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .file-item.success {
+            border-left-color: #28a745;
+            background: rgba(40, 167, 69, 0.1);
+        }
+        
+        .file-item.error {
+            border-left-color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+        }
+        
+        .file-item.warning {
+            border-left-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .file-item.loading {
+            border-left-color: #17a2b8;
+            background: rgba(23, 162, 184, 0.1);
+        }
+        
+        .progress-container {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+        }
+        
+        .btn-check-all {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
             color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
-
-        .export-btn:hover {
+        
+        .btn-check-all:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
-
-        .confidential-watermark {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 50px;
-            color: rgba(231, 76, 60, 0.1);
-            z-index: 10000;
-            pointer-events: none;
-            white-space: nowrap;
-            font-weight: bold;
+        
+        .btn-check-all:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
-
-        .note-number {
-            font-size: 0.8em;
-            color: var(--frc-secondary);
-            background-color: #e8f4fd;
-            padding: 2px 6px;
-            border-radius: 3px;
-            margin-left: 5px;
-            font-weight: bold;
+        
+        .summary-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-
-        .note-reference {
-            font-size: 0.75em;
-            color: #666;
-            font-style: italic;
-            margin-left: 10px;
+        
+        .summary-item {
+            text-align: center;
+            padding: 15px;
         }
-
-        .full-number {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+        
+        .summary-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .copy-btn:hover {
+            color: #495057;
+        }
+        
+        .console-output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        .log-time {
+            color: #6a9955;
+        }
+        
+        .log-info {
+            color: #569cd6;
+        }
+        
+        .log-success {
+            color: #4ec9b0;
+        }
+        
+        .log-error {
+            color: #f44747;
+        }
+        
+        .log-warning {
+            color: #d7ba7d;
         }
     </style>
 </head>
-
 <body>
-    <!-- Confidential Watermark -->
-    <div class="confidential-watermark d-none" id="confidentialWatermark">
-        FRC - CONFIDENTIAL
-    </div>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="bi bi-bar-chart-fill me-2"></i>
-                FRC Analysis Dashboard
-            </a>
-            <div class="d-flex">
-                <div class="input-group search-box">
-                    <input type="text" class="form-control" placeholder="Search companies..." id="searchInput">
-                    <button class="btn btn-outline-light" type="button">
-                        <i class="bi bi-search"></i>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-card">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-3">
+                        <i class="fas fa-file-code me-2"></i>
+                        FRC AI Portal - File Checker
+                    </h1>
+                    <p class="lead text-muted mb-0">
+                        Verify that all JavaScript files are properly loaded and accessible
+                    </p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button id="checkAllBtn" class="btn-check-all" onclick="checkAllFiles()">
+                        <i class="fas fa-play me-2"></i>Check All Files
                     </button>
                 </div>
-                <button class="btn export-btn ms-2" id="exportBtn">
-                    <i class="bi bi-download me-1"></i> Export Report
+            </div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <div id="totalFiles" class="summary-value">0</div>
+                        <div class="summary-label">Total Files</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <div id="loadedFiles" class="summary-value text-success">0</div>
+                        <div class="summary-label">Loaded</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <div id="errorFiles" class="summary-value text-danger">0</div>
+                        <div class="summary-label">Errors</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <div id="warningFiles" class="summary-value text-warning">0</div>
+                        <div class="summary-label">Warnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="file-checker-card">
+            <h4 class="mb-3">
+                <i class="fas fa-tasks me-2"></i>
+                File Check Progress
+            </h4>
+            <div class="d-flex justify-content-between mb-2">
+                <span id="progressText">0% Complete</span>
+                <span id="fileCount">0/0 Files</span>
+            </div>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- File List -->
+        <div class="file-checker-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">
+                    <i class="fas fa-folder me-2"></i>
+                    JavaScript Files
+                </h4>
+                <button class="btn btn-outline-primary btn-sm" onclick="toggleAllDetails()">
+                    <i class="fas fa-expand me-1"></i>Toggle All Details
                 </button>
             </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-lg-2 col-md-3 sidebar d-none d-md-block">
-                <div class="p-3">
-                    <h5 class="mb-4">Companies</h5>
-                    <div class="list-group" id="companyList">
-                        <!-- Company list will be populated here -->
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h6 class="mb-2">Source Documents</h6>
-                    <div class="d-grid gap-2">
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-1_compressed.pdf"
-                            target="_blank" rel="noopener">AKMH Audited FS 1</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-2_compressed.pdf"
-                            target="_blank" rel="noopener">AKMH Audited FS 2</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://github.com/asicoltd/my-site/blob/main/Anwer%20Khan%20Modern%20Hospital%20Audited%20FSs-3_compressed.pdf"
-                            target="_blank" rel="noopener">AKMH Audited FS 3</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1gHvTHnfqDZH1mj8V2iuEbuVxlM-QA-LA/view?usp=drive_link"
-                            target="_blank" rel="noopener">Bank Asia 2024</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1M6Ygu-4x7wXnLvKnTI8AneAEZ_9yAUAM/view?usp=drive_link"
-                            target="_blank" rel="noopener">Bank Asia 2023</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1GwiFI7vy2FDbYUmcIWXXbDE1pV8J6E8E/view?usp=drive_link"
-                            target="_blank" rel="noopener">Bank Asia 2022</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1xgyayKPHmXr0H3A3Ryrn--Q3__fK9qWz/view?usp=sharing"
-                            target="_blank" rel="noopener">Dominage 2023-2024</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1pyVPolYAGXA51QWNseHtzgnF7BCs0qd5/view?usp=drive_link"
-                            target="_blank" rel="noopener">SIBL 2023</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1xouZOq0aj5mdK5-cuDANF2ywuH1FVytE/view?usp=sharing"
-                            target="_blank" rel="noopener">SIBL 2024</a>
-                        <a class="btn btn-sm btn-outline-secondary"
-                            href="https://drive.google.com/file/d/1KWvqfm7hPX_q23Zj-hF1tOzw4xFzklRe/view?usp=sharing"
-                            target="_blank" rel="noopener">APEX SPINNING & KNITTING MILLS LIMITED Annual Report 2024-2025</a>
-                    </div>
-
-
-                </div>
-            </div>
-
-            <!-- Mobile Sidebar Toggle -->
-            <div class="d-md-none mb-3">
-                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mobileSidebar">
-                    <i class="bi bi-list me-2"></i> Show Companies & Filters
-                </button>
-                <div class="collapse mt-2" id="mobileSidebar">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="mobileCompanyList"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-lg-10 col-md-9 main-content">
-                <!-- Dashboard Header -->
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h3 id="companyName">Select a Company</h3>
-                                        <p class="text-muted mb-0" id="companyDescription">Click on a company from the
-                                            sidebar to view detailed analysis</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span class="status-indicator" id="complianceStatusIcon"></span>
-                                            <span class="small" id="complianceStatus">-</span>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <span class="status-indicator" id="auditStatusIcon"></span>
-                                            <span class="small" id="auditStatus">-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Stats -->
-
-                <!-- Main Tabs -->
-                <ul class="nav nav-tabs" id="mainTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
-                            data-bs-target="#overview" type="button">
-                            <i class="bi bi-house-door me-1"></i> Overview
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="financials-tab" data-bs-toggle="tab" data-bs-target="#financials"
-                            type="button">
-                            <i class="bi bi-cash-coin me-1"></i> Financial Analysis
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="compliance-tab" data-bs-toggle="tab" data-bs-target="#compliance"
-                            type="button">
-                            <i class="bi bi-clipboard-check me-1"></i> IFRS Compliance
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="audit-tab" data-bs-toggle="tab" data-bs-target="#audit"
-                            type="button">
-                            <i class="bi bi-file-earmark-text me-1"></i> Audit & Governance
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="risks-tab" data-bs-toggle="tab" data-bs-target="#risks"
-                            type="button">
-                            <i class="bi bi-exclamation-triangle me-1"></i> Risk Analysis
-                        </button>
-                    </li>
-                </ul>
-
-                <!-- Tab Content -->
-                <div class="tab-content" id="mainTabContent">
-                    <!-- Overview Tab -->
-                    <div class="tab-pane fade show active" id="overview" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Financial Performance Trend (BDT)</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart-container">
-                                            <canvas id="performanceChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Key Findings</h5>
-                                    </div>
-                                    <div class="card-body" id="keyFindings">
-                                        <!-- Key findings will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Financial Statement Summary</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover financial-table" id="financialSummaryTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Year</th>
-                                                        <th>Revenue</th>
-                                                        <th>Net Profit</th>
-                                                        <th>Total Assets</th>
-                                                        <th>Total Liabilities</th>
-                                                        <th>Equity</th>
-                                                        <th>Current Ratio</th>
-                                                        <th>ROA</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="financialSummaryBody">
-                                                    <!-- Data will be populated here -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Financial Analysis Tab -->
-                    <div class="tab-pane fade" id="financials" role="tabpanel">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Financial Statements</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="nav nav-tabs mb-3" id="financialTabs" role="tablist">
-                                            <li class="nav-item">
-                                                <button class="nav-link active" id="balance-sheet-tab"
-                                                    data-bs-toggle="tab" data-bs-target="#balance-sheet">
-                                                    Balance Sheet
-                                                </button>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="nav-link" id="income-statement-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#income-statement">
-                                                    Income Statement
-                                                </button>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="nav-link" id="cashflow-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#cashflow">
-                                                    Cash Flow
-                                                </button>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="nav-link" id="ratios-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#ratios">
-                                                    Ratio Analysis
-                                                </button>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="nav-link" id="notes-tab" data-bs-toggle="tab"
-                                                    data-bs-target="#notes">
-                                                    Notes
-                                                </button>
-                                            </li>
-                                        </ul>
-
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade show active" id="balance-sheet">
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover financial-table"
-                                                        id="balanceSheetTable">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Line Item</th>
-                                                                <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
-                                                                <th>Change (2023-2024)</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="balanceSheetBody">
-                                                            <!-- Data will be populated here -->
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="income-statement">
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover financial-table"
-                                                        id="incomeStatementTable">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Line Item</th>
-                                                                <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
-                                                                <th>Change (2023-2024)</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="incomeStatementBody">
-                                                            <!-- Data will be populated here -->
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="cashflow">
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover financial-table" id="cashFlowTable">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Cash Flow Category</th>
-                                                                <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="cashFlowBody">
-                                                            <!-- Data will be populated here -->
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="ratios">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="card mb-3">
-                                                            <div class="card-header">
-                                                                <h6 class="mb-0">Liquidity Ratios</h6>
-                                                            </div>
-                                                            <div class="card-body" id="liquidityRatios">
-                                                                <!-- Data will be populated here -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="card mb-3">
-                                                            <div class="card-header">
-                                                                <h6 class="mb-0">Profitability Ratios</h6>
-                                                            </div>
-                                                            <div class="card-body" id="profitabilityRatios">
-                                                                <!-- Data will be populated here -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="card mb-3">
-                                                            <div class="card-header">
-                                                                <h6 class="mb-0">Solvency Ratios</h6>
-                                                            </div>
-                                                            <div class="card-body" id="solvencyRatios">
-                                                                <!-- Data will be populated here -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="card mb-3">
-                                                            <div class="card-header">
-                                                                <h6 class="mb-0">Efficiency Ratios</h6>
-                                                            </div>
-                                                            <div class="card-body" id="efficiencyRatios">
-                                                                <!-- Data will be populated here -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="notes">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h6 class="mb-0">Notes to Financial Statements</h6>
-                                                    </div>
-                                                    <div class="card-body" id="notesContent">
-                                                        <!-- Notes will be populated here -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Compliance Tab -->
-                    <div class="tab-pane fade" id="compliance" role="tabpanel">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">IFRS Compliance Matrix</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="complianceTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Standard</th>
-                                                        <th>Compliance Status</th>
-                                                        <th>Requirements Checked</th>
-                                                        <th>Issues Identified</th>
-                                                        <th>Risk Level(Demo)</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="complianceBody">
-                                                    <!-- Data will be populated here -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Compliance Summary</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart-container">
-                                            <canvas id="complianceChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Material Departures</h5>
-                                    </div>
-                                    <div class="card-body" id="materialDepartures">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Audit & Governance Tab -->
-                    <div class="tab-pane fade" id="audit" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Audit Report Analysis</h5>
-                                    </div>
-                                    <div class="card-body" id="auditAnalysis">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Corporate Governance</h5>
-                                    </div>
-                                    <div class="card-body" id="governanceAnalysis">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Key Audit Matters</h5>
-                                    </div>
-                                    <div class="card-body" id="keyAuditMatters">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Risk Analysis Tab -->
-                    <div class="tab-pane fade" id="risks" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Risk Assessment Dashboard</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart-container">
-                                            <canvas id="riskChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Risk Indicators</h5>
-                                    </div>
-                                    <div class="card-body" id="riskIndicators">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Going Concern Assessment</h5>
-                                    </div>
-                                    <div class="card-body" id="goingConcern">
-                                        <!-- Data will be populated here -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+            <div id="fileList">
+                <!-- File items will be inserted here -->
             </div>
         </div>
-    </div>
 
-    <!-- Modal for Detailed View -->
-    <div class="modal fade" id="detailModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailModalTitle">Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="detailModalBody">
-                    <!-- Detailed content will be loaded here -->
+        <!-- Console Output -->
+        <div class="file-checker-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">
+                    <i class="fas fa-terminal me-2"></i>
+                    Console Output
+                </h4>
+                <div>
+                    <button class="btn btn-outline-secondary btn-sm me-2" onclick="clearConsole()">
+                        <i class="fas fa-broom me-1"></i>Clear
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="copyConsole()">
+                        <i class="fas fa-copy me-1"></i>Copy
+                    </button>
                 </div>
             </div>
+            
+            <div id="consoleOutput" class="console-output">
+                <div class="log-info">[<span class="log-time" id="currentTime">00:00:00</span>] System: Console initialized</div>
+            </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <!-- Bootstrap JS (comes after jQuery) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- DataTables JS (comes after jQuery) -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <!-- PDF Export Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-    <script>
-        // Global variables
-        let frcData = null;
-        let currentCompany = null;
-        let performanceChart = null;
-        let complianceChart = null;
-        let riskChart = null;
-
-        // Format number with commas (FULL NUMBER FORMAT)
-        function formatNumber(num) {
-            if (num === null || num === undefined || num === '-') return '-';
-
-            // Remove any existing commas
-            const numStr = num.toString().replace(/,/g, '');
-
-            // Check if it's a valid number
-            if (!/^-?\d*\.?\d+$/.test(numStr)) return numStr;
-
-            // Convert to number
-            const numFloat = parseFloat(numStr);
-            if (isNaN(numFloat)) return numStr;
-
-            // Format with commas for thousands separators
-            return numFloat.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        }
-
-        // Format currency (FULL NUMBERS ONLY - NO B/K/M)
-        function formatCurrency(amount) {
-            if (amount === null || amount === undefined || amount === '-') return '-';
-
-            // Remove any existing commas
-            const numStr = amount.toString().replace(/,/g, '');
-
-            // Check if it's a valid number
-            if (!/^-?\d*\.?\d+$/.test(numStr)) return numStr;
-
-            // Convert to number
-            const num = parseFloat(numStr);
-            if (isNaN(num)) return amount;
-
-            // Always show full number with commas
-            return 'BDT ' + formatNumber(num);
-        }
-
-        // Format number for display (FULL NUMBER)
-        function formatDisplayNumber(num) {
-            return formatNumber(num);
-        }
-
-        // Get note reference display
-        function formatNoteReference(note) {
-            if (!note) return '';
-            if (typeof note === 'string') return `<span class="note-number">${note}</span>`;
-            if (typeof note === 'object') {
-                // Handle object format like {"2022": "3.00", "2023": "3.00", "2024": "3.00"}
-                return Object.values(note).join(', ');
-            }
-            return note.toString();
-        }
-
-        // Calculate percentage change
-        function calculateChange(current, previous) {
-            if (!current || !previous || previous == 0) return null;
-            const change = ((parseFloat(current) - parseFloat(previous)) / Math.abs(parseFloat(previous))) * 100;
-            return change.toFixed(1);
-        }
-
-        // Get risk level class
-        function getRiskClass(risk) {
-            if (!risk) return '';
-            switch (risk.toLowerCase()) {
-                case 'high':
-                case 'critical':
-                    return 'risk-high';
-                case 'moderate':
-                case 'medium':
-                    return 'risk-moderate';
-                case 'low':
-                    return 'risk-low';
-                default:
-                    return '';
-            }
-        }
-
-        // Get risk status indicator
-        function getRiskStatusIcon(risk) {
-            if (!risk) return 'status-ok';
-            switch (risk.toLowerCase()) {
-                case 'high':
-                case 'critical':
-                    return 'status-critical';
-                case 'moderate':
-                case 'medium':
-                    return 'status-warning';
-                case 'low':
-                    return 'status-ok';
-                default:
-                    return 'status-ok';
-            }
-        }
-
-        // Load JSON data
-        async function loadData() {
-            try {
-                console.log('Loading company.json...');
-                const response = await fetch('company.json');
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                console.log('Data loaded successfully');
-
-                // Handle different JSON structures
-                if (data.frc_analysis_report) {
-                    frcData = data.frc_analysis_report;
-                } else if (data.companies) {
-                    frcData = data;
-                } else {
-                    frcData = {
-                        metadata: {
-                            report_id: "FRC-ANL-2024-001",
-                            generation_date: new Date().toISOString().split('T')[0],
-                            analyst_framework_version: "2.0"
-                        },
-                        companies: data
-                    };
-                }
-
-                if (!frcData.companies) {
-                    throw new Error('Invalid data structure: companies not found');
-                }
-
-                console.log('Companies found:', Object.keys(frcData.companies));
-                initializeDashboard();
-
-            } catch (error) {
-                console.error('Error loading data:', error);
-                // Try alternative loading methods for local file system
-                try {
-                    console.log('Trying alternative loading method...');
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('GET', 'company.json', true);
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status === 200 || xhr.status === 0) {
-                                const data = JSON.parse(xhr.responseText);
-                                frcData = data.frc_analysis_report || data;
-                                initializeDashboard();
-                            } else {
-                                createSampleData();
-                            }
-                        }
-                    };
-                    xhr.send();
-                } catch (xhrError) {
-                    console.error('XHR also failed:', xhrError);
-                    createSampleData();
-                }
-            }
-        }
-
-        // Create sample data for testing
-        function createSampleData() {
-            console.log('Creating sample data...');
-            frcData = {
-                metadata: {
-                    report_id: "FRC-ANL-2024-SAMPLE",
-                    generation_date: new Date().toISOString().split('T')[0],
-                    analyst_framework_version: "2.0"
-                },
-                companies: {
-                    "sample-company": {
-                        company_info: {
-                            legal_name: "Sample Company Ltd",
-                            industry_sector: "Manufacturing",
-                            reporting_currency: "BDT",
-                            financial_year_end: "December 31"
-                        },
-                        financial_statements_raw_data: {
-                            statement_of_financial_position: [
-                                {
-                                    line_item: "Property, Plant & Equipment",
-                                    current_year_amount: "5947021530",
-                                    prior_year_1_amount: "5947021530",
-                                    prior_year_2_amount: "6126751417",
-                                    notes_reference: "3.00"
-                                },
-                                {
-                                    line_item: "Investments",
-                                    current_year_amount: "236727536",
-                                    prior_year_1_amount: "236727536",
-                                    prior_year_2_amount: "236727536",
-                                    notes_reference: "4.00"
-                                },
-                                {
-                                    line_item: "Total Assets",
-                                    current_year_amount: "6750779608",
-                                    prior_year_1_amount: "6748753187",
-                                    prior_year_2_amount: "7013399398"
-                                }
-                            ],
-                            statement_of_profit_or_loss_and_oci: [
-                                {
-                                    line_item: "Revenue",
-                                    current_year_amount: "3491969249",
-                                    prior_year_1_amount: "3113743215",
-                                    prior_year_2_amount: "2342171667",
-                                    notes_reference: "16.00"
-                                },
-                                {
-                                    line_item: "Net Profit",
-                                    current_year_amount: "6997958",
-                                    prior_year_1_amount: "5801759",
-                                    prior_year_2_amount: "-851192528"
-                                }
-                            ],
-                            statement_of_cash_flows: [
-                                {
-                                    line_item: "Cash flows from operating activities",
-                                    current_year_amount: "2487666801",
-                                    prior_year_1_amount: "2734299740",
-                                    prior_year_2_amount: "1561791655"
-                                }
-                            ]
-                        },
-                        phase_5_synthesis_and_findings: {
-                            overall_assessment: {
-                                critical_issues: [
-                                    {
-                                        issue: "Technical insolvency with negative equity",
-                                        priority: "High",
-                                        deadline_for_action: "Immediate"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
-            };
-            initializeDashboard();
-            alert('Using sample data. For full functionality, ensure company.json is in the same folder and run a local server.');
-        }
-
-        // Initialize dashboard
-        function initializeDashboard() {
-            if (!frcData || !frcData.companies) {
-                console.error('No companies data available');
-                return;
-            }
-
-            populateCompanyList();
-            setupEventListeners();
-
-            // Load first company by default
-            const companyIds = Object.keys(frcData.companies);
-            if (companyIds.length > 0) {
-                loadCompany(companyIds[0]);
-            }
-        }
-
-        // Populate company list in sidebar
-        function populateCompanyList() {
-            const companyList = document.getElementById('companyList');
-            const mobileCompanyList = document.getElementById('mobileCompanyList');
-
-            if (!companyList || !mobileCompanyList || !frcData.companies) {
-                console.error('Required elements not found');
-                return;
-            }
-
-            companyList.innerHTML = '';
-            mobileCompanyList.innerHTML = '';
-
-            Object.keys(frcData.companies).forEach(companyId => {
-                const company = frcData.companies[companyId];
-                if (!company || !company.company_info) return;
-
-                const listItem = `
-                    <a href="#" class="list-group-item list-group-item-action" 
-                       data-company-id="${companyId}">
-                        <div class="d-flex align-items-center">
-                            <div class="company-logo">
-                                ${company.company_info.legal_name ? company.company_info.legal_name.charAt(0) : 'C'}
-                            </div>
+        <!-- Test Results -->
+        <div class="file-checker-card">
+            <h4 class="mb-3">
+                <i class="fas fa-vial me-2"></i>
+                Functionality Tests
+            </h4>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="file-item">
+                        <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="mb-0">${company.company_info.legal_name || 'Unknown Company'}</h6>
-                                <small class="text-muted">${company.company_info.industry_sector || 'N/A'}</small>
+                                <h6 class="mb-1">Global Functions Test</h6>
+                                <small class="text-muted">Check if key functions are available globally</small>
+                            </div>
+                            <span id="globalTestStatus" class="status-badge status-loading">Pending</span>
+                        </div>
+                        <div id="globalTestDetails" class="mt-2" style="display: none;">
+                            <div class="alert alert-info">
+                                <small>Testing: loadSection, loadDashboard, switchCompany, etc.</small>
                             </div>
                         </div>
-                    </a>
-                `;
-
-                companyList.innerHTML += listItem;
-                mobileCompanyList.innerHTML += listItem;
-            });
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Company selection
-            document.addEventListener('click', function (e) {
-                const companyLink = e.target.closest('[data-company-id]');
-                if (companyLink) {
-                    e.preventDefault();
-                    const companyId = companyLink.getAttribute('data-company-id');
-                    loadCompany(companyId);
-
-                    // Close mobile sidebar on selection
-                    const mobileSidebar = document.getElementById('mobileSidebar');
-                    if (mobileSidebar && mobileSidebar.classList.contains('show')) {
-                        new bootstrap.Collapse(mobileSidebar).hide();
-                    }
-                }
-            });
-
-            // Filter application
-            const applyFiltersBtn = document.getElementById('applyFilters');
-            const resetFiltersBtn = document.getElementById('resetFilters');
-            if (applyFiltersBtn) applyFiltersBtn.addEventListener('click', applyFilters);
-            if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetFilters);
-
-            // Export button
-            const exportBtn = document.getElementById('exportBtn');
-            if (exportBtn) exportBtn.addEventListener('click', exportReport);
-
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) searchInput.addEventListener('input', function (e) {
-                searchCompanies(e.target.value);
-            });
-        }
-
-        // Load company data
-        function loadCompany(companyId) {
-            if (!frcData || !frcData.companies || !frcData.companies[companyId]) {
-                console.error('Company not found:', companyId);
-                return;
-            }
-
-            currentCompany = frcData.companies[companyId];
-
-            updateCompanyHeader();
-            updateQuickStats();
-            updateOverviewTab();
-            updateFinancialsTab();
-            updateComplianceTab();
-            updateAuditTab();
-            updateRisksTab();
-
-            // Show quick stats
-            const quickStats = document.getElementById('quickStats');
-            if (quickStats) quickStats.style.display = 'flex';
-        }
-
-        // Update company header
-        function updateCompanyHeader() {
-            const companyName = document.getElementById('companyName');
-            const companyDescription = document.getElementById('companyDescription');
-            const complianceStatus = document.getElementById('complianceStatus');
-            const auditStatus = document.getElementById('auditStatus');
-            const complianceStatusIcon = document.getElementById('complianceStatusIcon');
-            const auditStatusIcon = document.getElementById('auditStatusIcon');
-
-            if (!currentCompany || !currentCompany.company_info) return;
-
-            if (companyName) {
-                companyName.textContent = currentCompany.company_info.legal_name || 'Unknown Company';
-            }
-
-            if (companyDescription) {
-                const sector = currentCompany.company_info.industry_sector || 'N/A';
-                const fye = currentCompany.company_info.financial_year_end || 'N/A';
-                companyDescription.textContent = `${sector} - FYE: ${fye}`;
-            }
-
-            // Update compliance status
-            const compliance = currentCompany.phase_1_foundational_checks?.reporting_framework?.compliance_assessment || 'Not Assessed';
-            if (complianceStatus) complianceStatus.textContent = `Compliance: ${compliance}`;
-            if (complianceStatusIcon) {
-                complianceStatusIcon.className = 'status-indicator ' +
-                    (compliance.toLowerCase().includes('non') ? 'status-critical' :
-                        compliance.toLowerCase().includes('partial') ? 'status-warning' : 'status-ok');
-            }
-
-            // Update audit status
-            const auditOpinion = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available';
-            if (auditStatus) auditStatus.textContent = `Audit: ${auditOpinion}`;
-            if (auditStatusIcon) {
-                auditStatusIcon.className = 'status-indicator ' +
-                    (auditOpinion.toLowerCase().includes('qualified') ? 'status-warning' :
-                        auditOpinion.toLowerCase().includes('adverse') ? 'status-critical' : 'status-ok');
-            }
-        }
-
-        // Update quick stats
-        function updateQuickStats() {
-            const totalAssetsEl = document.getElementById('totalAssets');
-            const netProfitEl = document.getElementById('netProfit');
-            const currentRatioEl = document.getElementById('currentRatio');
-            const riskLevelEl = document.getElementById('riskLevel');
-
-            if (!currentCompany) return;
-
-            const fsData = currentCompany.financial_statements_raw_data;
-
-            // Total Assets (get latest year)
-            if (totalAssetsEl && fsData && fsData.statement_of_financial_position) {
-                const balanceSheet = fsData.statement_of_financial_position;
-                const totalAssetItem = balanceSheet.find(item =>
-                    item && item.line_item && (
-                        item.line_item.toLowerCase().includes('total assets') ||
-                        item.line_item.toLowerCase().includes('total assets')
-                    )
-                );
-                totalAssetsEl.textContent =
-                    totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
-                totalAssetsEl.className = 'full-number';
-            }
-
-            // Net Profit
-            if (netProfitEl && fsData && fsData.statement_of_profit_or_loss_and_oci) {
-                const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
-                const netProfitItem = incomeStatement.find(item =>
-                    item && item.line_item && (
-                        item.line_item.toLowerCase().includes('profit') ||
-                        item.line_item.toLowerCase().includes('net income') ||
-                        item.line_item.toLowerCase().includes('profit after tax')
-                    )
-                );
-                netProfitEl.textContent =
-                    netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
-                netProfitEl.className = 'full-number';
-            }
-
-            // Current Ratio
-            if (currentRatioEl && currentCompany.phase_2_financial_analysis) {
-                const ratioAnalysis = currentCompany.phase_2_financial_analysis.ratio_analysis;
-                const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio;
-                currentRatioEl.textContent = currentRatio || '-';
-            }
-
-            // Risk Level
-            if (riskLevelEl && currentCompany.phase_5_synthesis_and_findings) {
-                const overallAssessment = currentCompany.phase_5_synthesis_and_findings.overall_assessment;
-                const criticalIssues = overallAssessment?.critical_issues || [];
-                const riskLevel = criticalIssues.length > 0 ? 'High' : 'Low';
-                riskLevelEl.textContent = riskLevel;
-            }
-        }
-
-        // Update overview tab
-        function updateOverviewTab() {
-            updatePerformanceChart();
-            updateKeyFindings();
-            updateFinancialSummary();
-        }
-
-        // Update performance chart
-        function updatePerformanceChart() {
-            const ctx = document.getElementById('performanceChart');
-            if (!ctx) return;
-
-            if (performanceChart) {
-                performanceChart.destroy();
-            }
-
-            if (!currentCompany || !currentCompany.financial_statements_raw_data) return;
-
-            const fsData = currentCompany.financial_statements_raw_data;
-            const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
-
-            if (!incomeStatement) return;
-
-            // Extract revenue and profit data
-            const revenueData = [];
-            const profitData = [];
-            const years = ['2022', '2023', '2024'];
-
-            const revItem = incomeStatement.find(item =>
-                item && item.line_item && (
-                    item.line_item.toLowerCase().includes('revenue') ||
-                    item.line_item.toLowerCase().includes('interest income')
-                )
-            );
-            const profitItem = incomeStatement.find(item =>
-                item && item.line_item && (
-                    item.line_item.toLowerCase().includes('profit') ||
-                    item.line_item.toLowerCase().includes('net income') ||
-                    item.line_item.toLowerCase().includes('profit after tax')
-                )
-            );
-
-            // Map years to the correct field names
-            const yearKeys = ['prior_year_2_amount', 'prior_year_1_amount', 'current_year_amount'];
-
-            yearKeys.forEach(key => {
-                const revValue = revItem ? parseFloat(revItem[key] || 0) : 0;
-                const profitValue = profitItem ? parseFloat(profitItem[key] || 0) : 0;
-
-                revenueData.push(revValue);
-                profitData.push(profitValue);
-            });
-
-            performanceChart = new Chart(ctx.getContext('2d'), {
-                type: 'line',
-                data: {
-                    labels: years,
-                    datasets: [
-                        {
-                            label: 'Revenue',
-                            data: revenueData,
-                            borderColor: 'rgb(54, 162, 235)',
-                            backgroundColor: 'rgba(54, 162, 235, 0.1)',
-                            borderWidth: 2,
-                            tension: 0.1
-                        },
-                        {
-                            label: 'Net Profit',
-                            data: profitData,
-                            borderColor: 'rgb(75, 192, 192)',
-                            backgroundColor: 'rgba(75, 192, 192, 0.1)',
-                            borderWidth: 2,
-                            tension: 0.1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function (context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    label += formatCurrency(context.parsed.y);
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function (value) {
-                                    return formatDisplayNumber(value);
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Update key findings
-        function updateKeyFindings() {
-            const container = document.getElementById('keyFindings');
-            if (!container) return;
-
-            const findings = currentCompany?.phase_5_synthesis_and_findings?.overall_assessment?.critical_issues || [];
-
-            if (findings.length === 0) {
-                container.innerHTML = '<div class="alert alert-success">No critical issues identified.</div>';
-                return;
-            }
-
-            let html = '';
-            findings.forEach((finding, index) => {
-                const riskClass = getRiskClass(finding.priority);
-                html += `
-                    <div class="alert ${riskClass} d-flex align-items-start mb-2">
-                        <i class="bi bi-exclamation-triangle-fill me-2 mt-1"></i>
-                        <div>
-                            <strong>${finding.issue || 'Unknown Issue'}</strong><br>
-                            <small class="text-muted">
-                                Priority: ${finding.priority || 'N/A'} | 
-                                Action by: ${finding.deadline_for_action || 'N/A'}
-                            </small>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="file-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">Module Import Test</h6>
+                                <small class="text-muted">Test ES6 module imports</small>
+                            </div>
+                            <span id="moduleTestStatus" class="status-badge status-loading">Pending</span>
+                        </div>
+                        <div id="moduleTestDetails" class="mt-2" style="display: none;">
+                            <div class="alert alert-info">
+                                <small>Testing module imports and exports</small>
+                            </div>
                         </div>
                     </div>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
-
-        // Update financial summary table
-        function updateFinancialSummary() {
-            const tbody = document.getElementById('financialSummaryBody');
-            if (!tbody || !currentCompany) return;
-
-            const fsData = currentCompany.financial_statements_raw_data;
-            if (!fsData) return;
-
-            let html = '';
-            const years = ['2022', '2023', '2024'];
-            const yearKeys = ['prior_year_2_amount', 'prior_year_1_amount', 'current_year_amount'];
-
-            years.forEach((year, index) => {
-                const yearKey = yearKeys[index];
-
-                // Get data for each metric
-                const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                    item && item.line_item && (
-                        item.line_item.toLowerCase().includes('revenue') ||
-                        item.line_item.toLowerCase().includes('interest income')
-                    )
-                );
-                const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                    item && item.line_item && (
-                        item.line_item.toLowerCase().includes('profit') ||
-                        item.line_item.toLowerCase().includes('net income')
-                    )
-                );
-                const assetItem = fsData.statement_of_financial_position?.find(item =>
-                    item && item.line_item && item.line_item.toLowerCase().includes('total assets')
-                );
-                const liabilityItem = fsData.statement_of_financial_position?.find(item =>
-                    item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
-                );
-                const equityItem = fsData.statement_of_financial_position?.find(item =>
-                    item && item.line_item && (
-                        item.line_item.toLowerCase().includes('equity') ||
-                        item.line_item.toLowerCase().includes('shareholders equity')
-                    )
-                );
-
-                // Calculate ratios
-                const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[year.toLowerCase()]?.ratio || '-';
-                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[year.toLowerCase()]?.percentage || '-';
-
-                html += `
-                    <tr>
-                        <td>${year}</td>
-                        <td class="full-number">${revenueItem ? formatCurrency(revenueItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${profitItem ? formatCurrency(profitItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${assetItem ? formatCurrency(assetItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${liabilityItem ? formatCurrency(liabilityItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${equityItem ? formatCurrency(equityItem[yearKey]) : '-'}</td>
-                        <td>${currentRatio}</td>
-                        <td>${roa}</td>
-                    </tr>
-                `;
-            });
-
-            tbody.innerHTML = html;
-        }
-
-        // Update financials tab
-        function updateFinancialsTab() {
-            updateBalanceSheet();
-            updateIncomeStatement();
-            updateCashFlow();
-            updateRatios();
-            updateNotes();
-        }
-
-        // Update balance sheet table WITH NOTE NUMBERS
-        function updateBalanceSheet() {
-            const tbody = document.getElementById('balanceSheetBody');
-            if (!tbody || !currentCompany) return;
-
-            const balanceSheet = currentCompany.financial_statements_raw_data?.statement_of_financial_position;
-            if (!balanceSheet) {
-                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No balance sheet data available</td></tr>';
-                return;
-            }
-
-            let html = '';
-            balanceSheet.forEach(item => {
-                if (!item) return;
-
-                const current = parseFloat(item.current_year_amount) || 0;
-                const prev = parseFloat(item.prior_year_1_amount) || 0;
-                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
-                const change = calculateChange(current, prev);
-                const noteRef = item.notes_reference;
-
-                html += `
-                    <tr>
-                        <td>${item.line_item || 'Unknown'}</td>
-                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(current)}</td>
-                        <td class="full-number">${formatCurrency(prev)}</td>
-                        <td class="full-number">${formatCurrency(prev2)}</td>
-                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
-                            ${change !== null ? change + '%' : '-'}
-                        </td>
-                    </tr>
-                `;
-            });
-
-            tbody.innerHTML = html;
-        }
-
-        // Update income statement table WITH NOTE NUMBERS
-        function updateIncomeStatement() {
-            const tbody = document.getElementById('incomeStatementBody');
-            if (!tbody || !currentCompany) return;
-
-            const incomeStatement = currentCompany.financial_statements_raw_data?.statement_of_profit_or_loss_and_oci;
-            if (!incomeStatement) {
-                tbody.innerHTML = '<tr><td colspan="6" class="text-center">No income statement data available</td></tr>';
-                return;
-            }
-
-            let html = '';
-            incomeStatement.forEach(item => {
-                if (!item) return;
-
-                const current = parseFloat(item.current_year_amount) || 0;
-                const prev = parseFloat(item.prior_year_1_amount) || 0;
-                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
-                const change = calculateChange(current, prev);
-                const noteRef = item.notes_reference;
-
-                html += `
-                    <tr>
-                        <td>${item.line_item || 'Unknown'}</td>
-                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(current)}</td>
-                        <td class="full-number">${formatCurrency(prev)}</td>
-                        <td class="full-number">${formatCurrency(prev2)}</td>
-                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
-                            ${change !== null ? change + '%' : '-'}
-                        </td>
-                    </tr>
-                `;
-            });
-
-            tbody.innerHTML = html;
-        }
-
-        // Update cash flow table WITH NOTE NUMBERS
-        function updateCashFlow() {
-            const tbody = document.getElementById('cashFlowBody');
-            if (!tbody || !currentCompany) return;
-
-            const cashFlow = currentCompany.financial_statements_raw_data?.statement_of_cash_flows;
-            if (!cashFlow || cashFlow.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No cash flow data available</td></tr>';
-                return;
-            }
-
-            let html = '';
-            cashFlow.forEach(item => {
-                if (!item) return;
-
-                const noteRef = item.notes_reference;
-
-                html += `
-                    <tr>
-                        <td>${item.line_item || 'Unknown'}</td>
-                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(item.current_year_amount)}</td>
-                        <td class="full-number">${formatCurrency(item.prior_year_1_amount)}</td>
-                        <td class="full-number">${formatCurrency(item.prior_year_2_amount)}</td>
-                    </tr>
-                `;
-            });
-
-            tbody.innerHTML = html;
-        }
-
-        // Update ratios display
-        function updateRatios() {
-            if (!currentCompany || !currentCompany.phase_2_financial_analysis) return;
-
-            const ratioData = currentCompany.phase_2_financial_analysis.ratio_analysis;
-
-            // Liquidity ratios
-            const liquidityContainer = document.getElementById('liquidityRatios');
-            if (liquidityContainer && ratioData && ratioData.liquidity_ratios) {
-                const currentRatio = ratioData.liquidity_ratios.current_ratio;
-                const quickRatio = ratioData.liquidity_ratios.quick_ratio;
-
-                let liquidityHtml = '';
-                if (currentRatio) {
-                    liquidityHtml += `
-                        <div class="mb-2">
-                            <strong>Current Ratio:</strong> ${currentRatio.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Benchmark: ${currentRatio.industry_benchmark || 'N/A'}</small>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="file-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">External Dependencies</h6>
+                                <small class="text-muted">Check Bootstrap, Chart.js, Font Awesome</small>
+                            </div>
+                            <span id="dependencyTestStatus" class="status-badge status-loading">Pending</span>
                         </div>
-                    `;
-                }
-                if (quickRatio) {
-                    liquidityHtml += `
-                        <div>
-                            <strong>Quick Ratio:</strong> ${quickRatio.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Benchmark: ${quickRatio.industry_benchmark || 'N/A'}</small>
+                        <div id="dependencyTestDetails" class="mt-2" style="display: none;">
+                            <div class="alert alert-info">
+                                <small>Testing: Bootstrap, Chart.js, Font Awesome icons</small>
+                            </div>
                         </div>
-                    `;
-                }
-                liquidityContainer.innerHTML = liquidityHtml;
-            }
-
-            // Profitability ratios
-            const profitabilityContainer = document.getElementById('profitabilityRatios');
-            if (profitabilityContainer && ratioData && ratioData.profitability_ratios) {
-                const grossMargin = ratioData.profitability_ratios.gross_profit_margin;
-                const roa = ratioData.profitability_ratios.return_on_assets;
-                const roe = ratioData.profitability_ratios.return_on_equity;
-
-                let profitabilityHtml = '';
-                if (grossMargin) {
-                    profitabilityHtml += `
-                        <div class="mb-2">
-                            <strong>Gross Margin:</strong> ${grossMargin.calculation?.current_year?.percentage || 'N/A'}
-                            <br><small class="text-muted">Industry: ${grossMargin.industry_benchmark || 'N/A'}</small>
-                        </div>
-                    `;
-                }
-                if (roa) {
-                    profitabilityHtml += `
-                        <div class="mb-2">
-                            <strong>Return on Assets:</strong> ${roa.calculation?.current_year?.percentage || 'N/A'}
-                        </div>
-                    `;
-                }
-                if (roe) {
-                    profitabilityHtml += `
-                        <div>
-                            <strong>Return on Equity:</strong> ${roe.calculation?.current_year?.percentage || 'N/A'}
-                        </div>
-                    `;
-                }
-                profitabilityContainer.innerHTML = profitabilityHtml;
-            }
-
-            // Solvency ratios
-            const solvencyContainer = document.getElementById('solvencyRatios');
-            if (solvencyContainer && ratioData && ratioData.solvency_ratios) {
-                const debtToEquity = ratioData.solvency_ratios.debt_to_equity;
-                const interestCoverage = ratioData.solvency_ratios.interest_coverage;
-
-                let solvencyHtml = '';
-                if (debtToEquity) {
-                    solvencyHtml += `
-                        <div class="mb-2">
-                            <strong>Debt to Equity:</strong> ${debtToEquity.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Trend: ${debtToEquity.trend_analysis || 'N/A'}</small>
-                        </div>
-                    `;
-                }
-                if (interestCoverage) {
-                    solvencyHtml += `
-                        <div>
-                            <strong>Interest Coverage:</strong> ${interestCoverage.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Minimum Required: ${interestCoverage.minimum_requirement || 'N/A'}</small>
-                        </div>
-                    `;
-                }
-                solvencyContainer.innerHTML = solvencyHtml;
-            }
-
-            // Efficiency ratios
-            const efficiencyContainer = document.getElementById('efficiencyRatios');
-            if (efficiencyContainer && ratioData && ratioData.efficiency_ratios) {
-                const inventoryTurnover = ratioData.efficiency_ratios.inventory_turnover;
-                const assetTurnover = ratioData.efficiency_ratios.asset_turnover;
-
-                let efficiencyHtml = '';
-                if (inventoryTurnover) {
-                    efficiencyHtml += `
-                        <div class="mb-2">
-                            <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Days: ${inventoryTurnover.calculation?.current_year?.days || 'N/A'}</small>
-                        </div>
-                    `;
-                }
-                if (assetTurnover) {
-                    efficiencyHtml += `
-                        <div>
-                            <strong>Asset Turnover:</strong> ${assetTurnover.calculation?.current_year?.ratio || 'N/A'}
-                            <br><small class="text-muted">Trend: ${assetTurnover.trend_analysis || 'N/A'}</small>
-                        </div>
-                    `;
-                }
-                efficiencyContainer.innerHTML = efficiencyHtml;
-            }
-        }
-
-        // Update notes content
-        function updateNotes() {
-            const container = document.getElementById('notesContent');
-            if (!container || !currentCompany) return;
-
-            // Collect all unique note references
-            const noteSet = new Set();
-            const fsData = currentCompany.financial_statements_raw_data;
-
-            if (fsData) {
-                // Check balance sheet
-                if (fsData.statement_of_financial_position) {
-                    fsData.statement_of_financial_position.forEach(item => {
-                        if (item.notes_reference) {
-                            if (typeof item.notes_reference === 'string') {
-                                noteSet.add(item.notes_reference);
-                            } else if (typeof item.notes_reference === 'object') {
-                                Object.values(item.notes_reference).forEach(note => {
-                                    if (note) noteSet.add(note);
-                                });
-                            }
-                        }
-                    });
-                }
-
-                // Check income statement
-                if (fsData.statement_of_profit_or_loss_and_oci) {
-                    fsData.statement_of_profit_or_loss_and_oci.forEach(item => {
-                        if (item.notes_reference) {
-                            if (typeof item.notes_reference === 'string') {
-                                noteSet.add(item.notes_reference);
-                            } else if (typeof item.notes_reference === 'object') {
-                                Object.values(item.notes_reference).forEach(note => {
-                                    if (note) noteSet.add(note);
-                                });
-                            }
-                        }
-                    });
-                }
-
-                // Check cash flow
-                if (fsData.statement_of_cash_flows) {
-                    fsData.statement_of_cash_flows.forEach(item => {
-                        if (item.notes_reference) {
-                            if (typeof item.notes_reference === 'string') {
-                                noteSet.add(item.notes_reference);
-                            } else if (typeof item.notes_reference === 'object') {
-                                Object.values(item.notes_reference).forEach(note => {
-                                    if (note) noteSet.add(note);
-                                });
-                            }
-                        }
-                    });
-                }
-            }
-
-            // Convert to array and sort
-            const notes = Array.from(noteSet).sort();
-
-            if (notes.length === 0) {
-                container.innerHTML = '<p class="text-muted">No note references found in financial statements.</p>';
-                return;
-            }
-
-            let html = '<div class="row">';
-            notes.forEach(note => {
-                html += `
-                    <div class="col-md-3 col-sm-4 col-6 mb-2">
-                        <span class="note-number">${note}</span>
-                        <small class="text-muted">Note reference</small>
                     </div>
-                `;
-            });
-            html += '</div>';
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="file-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">Data Loading Test</h6>
+                                <small class="text-muted">Test GitHub Pages data fetch</small>
+                            </div>
+                            <span id="dataTestStatus" class="status-badge status-loading">Pending</span>
+                        </div>
+                        <div id="dataTestDetails" class="mt-2" style="display: none;">
+                            <div class="alert alert-info">
+                                <small>Testing data loading from GitHub Pages</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="runTestsBtn" class="btn btn-primary w-100 mt-3" onclick="runAllTests()">
+                <i class="fas fa-play-circle me-2"></i>Run All Tests
+            </button>
+        </div>
+    </div>
 
-            container.innerHTML = html;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Configuration
+        const jsFiles = [
+            { name: 'main.js', path: 'js/main.js', type: 'module', required: true },
+            { name: 'config.js', path: 'js/config.js', type: 'module', required: true },
+            { name: 'utilities.js', path: 'js/utilities.js', type: 'module', required: true },
+            { name: 'data/loader.js', path: 'js/data/loader.js', type: 'module', required: true },
+            { name: 'data/companies.js', path: 'js/data/companies.js', type: 'module', required: true },
+            { name: 'modules/dashboard.js', path: 'js/modules/dashboard.js', type: 'module', required: true },
+            { name: 'modules/entity.js', path: 'js/modules/entity.js', type: 'module', required: true },
+            { name: 'modules/financial.js', path: 'js/modules/financial.js', type: 'module', required: true },
+            { name: 'modules/compliance.js', path: 'js/modules/compliance.js', type: 'module', required: false },
+            { name: 'modules/audit.js', path: 'js/modules/audit.js', type: 'module', required: false },
+            { name: 'modules/risk.js', path: 'js/modules/risk.js', type: 'module', required: false },
+            { name: 'modules/skepticism.js', path: 'js/modules/skepticism.js', type: 'module', required: false },
+            { name: 'modules/data-import.js', path: 'js/modules/data-import.js', type: 'module', required: false },
+            { name: 'modules/reports.js', path: 'js/modules/reports.js', type: 'module', required: false },
+            { name: 'ui/notifications.js', path: 'js/ui/notifications.js', type: 'module', required: true },
+            { name: 'ui/charts.js', path: 'js/ui/charts.js', type: 'module', required: false }
+        ];
+
+        // State variables
+        let checkInProgress = false;
+        let testResults = {
+            total: 0,
+            loaded: 0,
+            errors: 0,
+            warnings: 0
+        };
+
+        // DOM elements
+        const fileListElement = document.getElementById('fileList');
+        const consoleOutput = document.getElementById('consoleOutput');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const fileCount = document.getElementById('fileCount');
+        const totalFilesElement = document.getElementById('totalFiles');
+        const loadedFilesElement = document.getElementById('loadedFiles');
+        const errorFilesElement = document.getElementById('errorFiles');
+        const warningFilesElement = document.getElementById('warningFiles');
+        const checkAllBtn = document.getElementById('checkAllBtn');
+        const runTestsBtn = document.getElementById('runTestsBtn');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            // Initialize file list
+            renderFileList();
+            updateSummary();
+            
+            // Auto-check on page load
+            setTimeout(() => {
+                checkAllFiles();
+            }, 1000);
+        });
+
+        // Update time in console
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toTimeString().split(' ')[0];
+            document.getElementById('currentTime').textContent = timeString;
         }
 
-        // Update compliance tab
-        function updateComplianceTab() {
-            updateComplianceTable();
-            updateComplianceChart();
-            updateMaterialDepartures();
-        }
-
-        // Update compliance table
-        function updateComplianceTable() {
-            const tbody = document.getElementById('complianceBody');
-            if (!tbody || !currentCompany) return;
-
-            const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
-
-            if (!complianceMatrix || complianceMatrix.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No compliance data available</td></tr>';
-                return;
-            }
-
-            let html = '';
-            complianceMatrix.forEach(item => {
-                if (!item) return;
-
-                const complianceStatus = item.compliance_status?.toLowerCase() || '';
-                const complianceClass = complianceStatus.includes('non') ? 'compliance-non-compliant' :
-                    complianceStatus.includes('partial') ? 'compliance-partial' :
-                        'compliance-compliant';
-
-                html += `
-                    <tr>
-                        <td>
-                            <strong>${item.standard_code || 'N/A'}</strong><br>
-                            <small>${item.standard_name || 'N/A'}</small>
-                        </td>
-                        <td>
-                            <span class="compliance-badge ${complianceClass}">
-                                ${item.compliance_status || 'N/A'}
+        // Render file list
+        function renderFileList() {
+            fileListElement.innerHTML = '';
+            jsFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item loading';
+                fileItem.id = `file-${index}`;
+                fileItem.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="flex: 1;">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-code me-3" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h6 class="mb-1">${file.name}</h6>
+                                    <small class="text-muted d-block">${file.path}</small>
+                                    ${file.required ? '<span class="badge bg-danger mt-1">Required</span>' : ''}
+                                    ${file.type === 'module' ? '<span class="badge bg-info mt-1 ms-1">ES6 Module</span>' : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <span id="status-${index}" class="status-badge status-loading">
+                                <span class="spinner"></span>Checking...
                             </span>
-                        </td>
-                        <td>
-                            <ul class="mb-0" style="padding-left: 1rem; font-size: 0.9em;">
-                                ${(item.specific_requirements_checked || []).map(req =>
-                    `<li>${req.requirement || 'N/A'}: ${req.compliance_status || 'N/A'}</li>`
-                ).join('')}
-                            </ul>
-                        </td>
-                        <td>
-                            <small>${(item.material_departures || []).join(', ') || 'None'}</small>
-                        </td>
-                        <td>
-                            <span class="badge ${getRiskClass(item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low')}">
-                                ${item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low'}
-                            </span>
-                        </td>
-                    </tr>
+                            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="toggleDetails(${index})">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="details-${index}" class="mt-2" style="display: none;">
+                        <div class="alert alert-info">
+                            <small><i class="fas fa-info-circle me-1"></i> Details will appear after check</small>
+                        </div>
+                    </div>
                 `;
+                fileListElement.appendChild(fileItem);
             });
-
-            tbody.innerHTML = html;
+            
+            totalFilesElement.textContent = jsFiles.length;
         }
 
-        // Update compliance chart
-        function updateComplianceChart() {
-            const ctx = document.getElementById('complianceChart');
-            if (!ctx) return;
-
-            if (complianceChart) {
-                complianceChart.destroy();
+        // Check all files
+        async function checkAllFiles() {
+            if (checkInProgress) {
+                logMessage('File check already in progress', 'warning');
+                return;
             }
+            
+            checkInProgress = true;
+            checkAllBtn.disabled = true;
+            checkAllBtn.innerHTML = '<span class="spinner"></span>Checking...';
+            
+            // Reset state
+            testResults = { total: jsFiles.length, loaded: 0, errors: 0, warnings: 0 };
+            
+            logMessage('Starting file check...', 'info');
+            
+            // Check each file
+            for (let i = 0; i < jsFiles.length; i++) {
+                await checkFile(i);
+                updateProgress(i + 1);
+            }
+            
+            // Final update
+            checkInProgress = false;
+            checkAllBtn.disabled = false;
+            checkAllBtn.innerHTML = '<i class="fas fa-redo me-2"></i>Check Again';
+            
+            logMessage(`File check completed: ${testResults.loaded} loaded, ${testResults.errors} errors, ${testResults.warnings} warnings`, 
+                      testResults.errors > 0 ? 'error' : 'success');
+            
+            updateSummary();
+            
+            // Run tests if all files loaded successfully
+            if (testResults.errors === 0) {
+                setTimeout(() => {
+                    runAllTests();
+                }, 1000);
+            }
+        }
 
-            const complianceMatrix = currentCompany?.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
-            if (!complianceMatrix) return;
-
-            // Count compliance status
-            let compliant = 0, partial = 0, nonCompliant = 0;
-            complianceMatrix.forEach(item => {
-                if (!item || !item.compliance_status) return;
-
-                const status = item.compliance_status.toLowerCase();
-                if (status.includes('non')) {
-                    nonCompliant++;
-                } else if (status.includes('partial')) {
-                    partial++;
-                } else {
-                    compliant++;
-                }
-            });
-
-            complianceChart = new Chart(ctx.getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Compliant', 'Partially Compliant', 'Non-Compliant'],
-                    datasets: [{
-                        data: [compliant, partial, nonCompliant],
-                        backgroundColor: [
-                            'rgb(75, 192, 192)',
-                            'rgb(255, 205, 86)',
-                            'rgb(255, 99, 132)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function (context) {
-                                    const total = compliant + partial + nonCompliant;
-                                    const percentage = total > 0 ? ((context.raw / total) * 100).toFixed(1) : 0;
-                                    return `${context.label}: ${context.raw} (${percentage}%)`;
-                                }
-                            }
+        // Check individual file
+        async function checkFile(index) {
+            const file = jsFiles[index];
+            const statusElement = document.getElementById(`status-${index}`);
+            const detailsElement = document.getElementById(`details-${index}`);
+            
+            try {
+                // Try to fetch the file
+                const response = await fetch(file.path);
+                
+                if (response.ok) {
+                    // File exists, now try to parse/load it
+                    const content = await response.text();
+                    
+                    // Basic validation
+                    let warnings = [];
+                    
+                    if (file.type === 'module') {
+                        if (!content.includes('export')) {
+                            warnings.push('No export statements found');
+                        }
+                        if (!content.includes('import') && file.name !== 'main.js') {
+                            warnings.push('No import statements found');
                         }
                     }
-                }
-            });
-        }
-
-        // Update material departures
-        function updateMaterialDepartures() {
-            const container = document.getElementById('materialDepartures');
-            if (!container || !currentCompany) return;
-
-            const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
-
-            if (!departures || departures.length === 0) {
-                container.innerHTML = '<div class="alert alert-success">No material departures identified.</div>';
-                return;
-            }
-
-            let html = '';
-            departures.forEach((departure, index) => {
-                if (!departure) return;
-
-                html += `
-                    <div class="alert alert-danger mb-2">
-                        <strong>${departure.issue_description || 'Unknown Issue'}</strong><br>
-                        <small class="text-muted">
-                            Standard: ${departure.relevant_standard || 'N/A'} | 
-                            Impact: ${formatCurrency(departure.financial_impact) || 'N/A'}<br>
-                            Action: ${departure.recommended_action || 'N/A'}
-                        </small>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
-
-        // Update audit tab
-        function updateAuditTab() {
-            updateAuditAnalysis();
-            updateGovernanceAnalysis();
-            updateKeyAuditMatters();
-        }
-
-        // Update audit analysis
-        function updateAuditAnalysis() {
-            const container = document.getElementById('auditAnalysis');
-            if (!container || !currentCompany) return;
-
-            const auditData = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis;
-
-            if (!auditData) {
-                container.innerHTML = '<p class="text-muted">No audit data available.</p>';
-                return;
-            }
-
-            const goingConcern = auditData.going_concern_assessment;
-
-            let html = `
-                <p><strong>Auditor:</strong> ${auditData.auditor_information?.firm_name || 'N/A'}</p>
-                <p><strong>Opinion:</strong> ${auditData.audit_opinion?.opinion_type || 'N/A'}</p>
-                <p><strong>Audit Tenure:</strong> ${auditData.auditor_information?.audit_tenure_years || 'N/A'} years</p>
-            `;
-
-            if (goingConcern?.material_uncertainty_disclosed) {
-                html += `
-                    <div class="alert alert-warning mt-3">
-                        <strong><i class="bi bi-exclamation-triangle-fill me-1"></i> Going Concern Uncertainty</strong><br>
-                        <small>${goingConcern.frc_assessment || goingConcern.auditor_conclusion || 'Material uncertainty exists'}</small>
-                    </div>
-                `;
-            }
-
-            container.innerHTML = html;
-        }
-
-        // Update governance analysis
-        function updateGovernanceAnalysis() {
-            const container = document.getElementById('governanceAnalysis');
-            if (!container || !currentCompany) return;
-
-            const governanceData = currentCompany.phase_4_audit_governance_verification?.corporate_governance_review;
-
-            if (!governanceData) {
-                container.innerHTML = '<p class="text-muted">No governance data available.</p>';
-                return;
-            }
-
-            let html = '';
-            if (governanceData.board_structure) {
-                const board = governanceData.board_structure;
-                html += `
-                    <p><strong>Board Size:</strong> ${board.board_size || 'Not Disclosed'}</p>
-                    <p><strong>Independent Directors:</strong> ${board.independent_directors || 'Not Disclosed'}</p>
-                    <p><strong>BSEC Compliance:</strong> ${board.bsec_compliance || 'N/A'}</p>
-                `;
-            }
-
-            container.innerHTML = html || '<p class="text-muted">No governance information available.</p>';
-        }
-
-        // Update key audit matters
-        function updateKeyAuditMatters() {
-            const container = document.getElementById('keyAuditMatters');
-            if (!container || !currentCompany) return;
-
-            const kam = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.key_audit_matters;
-
-            if (!kam || kam.length === 0) {
-                container.innerHTML = '<p class="text-muted">No key audit matters reported.</p>';
-                return;
-            }
-
-            let html = '';
-            kam.forEach((matter, index) => {
-                if (!matter) return;
-
-                const riskClass = getRiskClass(matter.frc_risk_assessment);
-                html += `
-                    <div class="alert ${riskClass} mb-3">
-                        <strong>${matter.matter || 'Unknown Matter'}</strong>
-                        <p class="mb-1"><small>Auditor Response: ${matter.auditor_response || 'N/A'}</small></p>
-                        <p class="mb-0"><small>FRC Assessment: ${matter.frc_risk_assessment || 'N/A'}</small></p>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
-
-        // Update risks tab
-        function updateRisksTab() {
-            updateRiskChart();
-            updateRiskIndicators();
-            updateGoingConcern();
-        }
-
-        // Update risk chart
-        function updateRiskChart() {
-            const ctx = document.getElementById('riskChart');
-            if (!ctx) return;
-
-            if (riskChart) {
-                riskChart.destroy();
-            }
-
-            // Sample risk categories
-            const riskCategories = [
-                'Credit Risk',
-                'Market Risk',
-                'Operational Risk',
-                'Liquidity Risk',
-                'Compliance Risk'
-            ];
-
-            // Sample risk scores (in real app, calculate from data)
-            const riskScores = [7, 5, 6, 8, 9];
-
-            riskChart = new Chart(ctx.getContext('2d'), {
-                type: 'radar',
-                data: {
-                    labels: riskCategories,
-                    datasets: [{
-                        label: 'Risk Assessment',
-                        data: riskScores,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        pointBackgroundColor: 'rgb(255, 99, 132)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(255, 99, 132)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 10
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        }
+                    
+                    if (content.length < 10) {
+                        warnings.push('File appears to be empty or very small');
                     }
-                }
-            });
-        }
-
-        // Update risk indicators
-        function updateRiskIndicators() {
-            const container = document.getElementById('riskIndicators');
-            if (!container || !currentCompany) return;
-
-            const riskData = currentCompany.phase_5_synthesis_and_findings?.risk_factor_consolidation;
-
-            if (!riskData) {
-                container.innerHTML = '<p class="text-muted">No risk indicators available.</p>';
-                return;
-            }
-
-            let html = '';
-            ['high_risk_factors', 'medium_risk_factors', 'low_risk_factors'].forEach(riskLevel => {
-                const factors = riskData[riskLevel] || [];
-                if (factors.length > 0) {
-                    const levelName = riskLevel.split('_')[0].toUpperCase();
-                    html += `<h6 class="mt-3">${levelName} RISK</h6>`;
-
-                    factors.forEach(factor => {
-                        if (!factor) return;
-
-                        html += `
-                            <div class="alert ${getRiskClass(levelName.toLowerCase())} py-2 mb-2">
-                                <strong>${factor.risk_category || 'Unknown Category'}</strong><br>
-                                <small>${factor.risk_description || 'No description'}</small>
+                    
+                    // Update UI
+                    statusElement.className = 'status-badge ' + 
+                        (warnings.length > 0 ? 'status-warning' : 'status-success');
+                    statusElement.innerHTML = warnings.length > 0 ? 
+                        `<i class="fas fa-exclamation-triangle me-1"></i>Warning (${warnings.length})` : 
+                        `<i class="fas fa-check-circle me-1"></i>Loaded`;
+                    
+                    // Update file item style
+                    const fileItem = document.getElementById(`file-${index}`);
+                    fileItem.className = 'file-item ' + 
+                        (warnings.length > 0 ? 'warning' : 'success');
+                    
+                    // Update details
+                    let detailsHTML = `
+                        <div class="alert alert-success">
+                            <h6><i class="fas fa-check-circle me-2"></i>File Loaded Successfully</h6>
+                            <small>Size: ${(content.length / 1024).toFixed(2)} KB</small><br>
+                            <small>Status: ${response.status} ${response.statusText}</small>
+                        </div>
+                    `;
+                    
+                    if (warnings.length > 0) {
+                        detailsHTML += `
+                            <div class="alert alert-warning">
+                                <h6><i class="fas fa-exclamation-triangle me-2"></i>Warnings</h6>
+                                <ul class="mb-0">
+                                    ${warnings.map(w => `<li><small>${w}</small></li>`).join('')}
+                                </ul>
                             </div>
                         `;
-                    });
+                        testResults.warnings++;
+                    }
+                    
+                    detailsElement.innerHTML = detailsHTML;
+                    testResults.loaded++;
+                    
+                    logMessage(`✓ ${file.name}: Loaded successfully`, 'success');
+                    
+                } else {
+                    // File not found or error
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
-            });
-
-            container.innerHTML = html || '<p class="text-muted">No risk factors identified.</p>';
-        }
-
-        // Update going concern assessment
-        function updateGoingConcern() {
-            const container = document.getElementById('goingConcern');
-            if (!container || !currentCompany) return;
-
-            const gcData = currentCompany.phase_2_financial_analysis?.going_concern_assessment ||
-                currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.going_concern_assessment;
-
-            if (!gcData) {
-                container.innerHTML = '<p class="text-muted">No going concern assessment available.</p>';
-                return;
-            }
-
-            let html = '';
-            if (gcData.indicators) {
-                html += '<h6>Indicators:</h6><ul>';
-                gcData.indicators.forEach(indicator => {
-                    if (!indicator) return;
-
-                    const severityClass = indicator.severity === 'Critical' ? 'text-danger' :
-                        indicator.severity === 'High' ? 'text-warning' : 'text-success';
-                    html += `<li><span class="${severityClass}">${indicator.indicator || 'Unknown'}:</span> ${indicator.status || 'N/A'}</li>`;
-                });
-                html += '</ul>';
-            }
-
-            if (gcData.overall_assessment) {
-                const alertClass = gcData.overall_assessment.toLowerCase().includes('uncertainty') ? 'alert-warning' : 'alert-success';
-                html += `
-                    <div class="alert ${alertClass} mt-3">
-                        <strong>Overall Assessment:</strong> ${gcData.overall_assessment}
+                
+            } catch (error) {
+                // Handle error
+                statusElement.className = 'status-badge status-error';
+                statusElement.innerHTML = `<i class="fas fa-times-circle me-1"></i>Error`;
+                
+                const fileItem = document.getElementById(`file-${index}`);
+                fileItem.className = 'file-item error';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h6><i class="fas fa-times-circle me-2"></i>Failed to Load</h6>
+                        <small>Error: ${error.message}</small><br>
+                        <small>Path: ${file.path}</small>
                     </div>
                 `;
-            }
-
-            container.innerHTML = html || '<p class="text-muted">No going concern assessment available.</p>';
-        }
-
-        // Apply filters
-        function applyFilters() {
-            alert('Filter functionality would be implemented here.');
-        }
-
-        // Reset filters
-        function resetFilters() {
-            const yearFilter = document.getElementById('yearFilter');
-            const riskFilter = document.getElementById('riskFilter');
-            const complianceFilter = document.getElementById('complianceFilter');
-
-            if (yearFilter) yearFilter.value = 'all';
-            if (riskFilter) riskFilter.value = 'all';
-            if (complianceFilter) complianceFilter.value = 'all';
-
-            alert('Filters reset.');
-        }
-
-        // Search companies
-        function searchCompanies(query) {
-            const companyLinks = document.querySelectorAll('[data-company-id]');
-            companyLinks.forEach(link => {
-                const companyName = link.textContent.toLowerCase();
-                if (companyName.includes(query.toLowerCase())) {
-                    link.style.display = 'flex';
+                
+                testResults.errors++;
+                
+                if (file.required) {
+                    logMessage(`✗ ${file.name}: REQUIRED FILE NOT FOUND - ${error.message}`, 'error');
                 } else {
-                    link.style.display = 'none';
+                    logMessage(`✗ ${file.name}: Optional file not found - ${error.message}`, 'warning');
+                }
+            }
+        }
+
+        // Update progress bar
+        function updateProgress(current) {
+            const percent = Math.round((current / jsFiles.length) * 100);
+            progressBar.style.width = `${percent}%`;
+            progressText.textContent = `${percent}% Complete`;
+            fileCount.textContent = `${current}/${jsFiles.length} Files`;
+        }
+
+        // Update summary
+        function updateSummary() {
+            loadedFilesElement.textContent = testResults.loaded;
+            errorFilesElement.textContent = testResults.errors;
+            warningFilesElement.textContent = testResults.warnings;
+        }
+
+        // Toggle details
+        function toggleDetails(index) {
+            const details = document.getElementById(`details-${index}`);
+            const button = details.parentElement.querySelector('button');
+            const icon = button.querySelector('i');
+            
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                details.style.display = 'none';
+                icon.className = 'fas fa-chevron-down';
+            }
+        }
+
+        // Toggle all details
+        function toggleAllDetails() {
+            const allHidden = Array.from(document.querySelectorAll('[id^="details-"]'))
+                .every(el => el.style.display === 'none');
+            
+            jsFiles.forEach((_, index) => {
+                const details = document.getElementById(`details-${index}`);
+                const button = document.querySelector(`#file-${index} button`);
+                const icon = button.querySelector('i');
+                
+                if (allHidden) {
+                    details.style.display = 'block';
+                    icon.className = 'fas fa-chevron-up';
+                } else {
+                    details.style.display = 'none';
+                    icon.className = 'fas fa-chevron-down';
                 }
             });
         }
 
-        // Export comprehensive FRC report
-        async function exportReport() {
-            if (!currentCompany) {
-                alert('Please select a company first.');
-                return;
-            }
-
-            try {
-                // Show watermark
-                const watermark = document.getElementById('confidentialWatermark');
-                if (watermark) watermark.classList.remove('d-none');
-
-                // Create a comprehensive PDF report
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF('p', 'mm', 'a4');
-
-                // Add FRC Confidential Header
-                doc.setFontSize(16);
-                doc.setTextColor(40, 40, 40);
-                doc.text('FINANCIAL REPORTING COUNCIL (FRC)', 105, 20, { align: 'center' });
-                doc.setFontSize(10);
-                doc.text('CONFIDENTIAL REGULATORY ANALYSIS REPORT', 105, 27, { align: 'center' });
-
-                // Add line separator
-                doc.setDrawColor(200, 200, 200);
-                doc.line(20, 32, 190, 32);
-
-                // Report Details
-                doc.setFontSize(9);
-                doc.text(`Report ID: ${frcData.metadata?.report_id || 'N/A'}`, 20, 40);
-                doc.text(`Generated: ${frcData.metadata?.generation_date || new Date().toISOString().split('T')[0]}`, 20, 45);
-                doc.text(`Analyst Framework: v${frcData.metadata?.analyst_framework_version || '1.0'}`, 20, 50);
-
-                doc.text(`Company: ${currentCompany.company_info?.legal_name || 'N/A'}`, 130, 40);
-                doc.text(`Sector: ${currentCompany.company_info?.industry_sector || 'N/A'}`, 130, 45);
-                doc.text(`Year End: ${currentCompany.company_info?.financial_year_end || 'N/A'}`, 130, 50);
-
-                // Add confidentiality warning
-                doc.setFontSize(8);
-                doc.setTextColor(150, 0, 0);
-                doc.text('CONFIDENTIAL - FOR INTERNAL FRC USE ONLY', 105, 58, { align: 'center' });
-                doc.setTextColor(0, 0, 0);
-
-                // Add page number
-                let page = 1;
-                const addPageNumber = () => {
-                    doc.setFontSize(8);
-                    doc.text(`Page ${page}`, 190, 285, { align: 'right' });
-                    page++;
-                };
-                addPageNumber();
-
-                // EXECUTIVE SUMMARY
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('1. EXECUTIVE SUMMARY', 20, 20);
-                doc.setFontSize(10);
-
-                const overallAssessment = currentCompany.phase_5_synthesis_and_findings?.overall_assessment;
-                const compliance = currentCompany.phase_1_foundational_checks?.reporting_framework?.compliance_assessment || 'Not Assessed';
-                const auditOpinion = currentCompany.phase_4_audit_governance_verification?.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available';
-
-                let yPos = 30;
-                doc.text(`Company Name: ${currentCompany.company_info?.legal_name || 'N/A'}`, 20, yPos);
-                yPos += 7;
-                doc.text(`Overall Compliance: ${compliance}`, 20, yPos);
-                yPos += 7;
-                doc.text(`Audit Opinion: ${auditOpinion}`, 20, yPos);
-                yPos += 7;
-                doc.text(`Reliability Score: ${overallAssessment?.reliability_score || 'N/A'}`, 20, yPos);
-                yPos += 7;
-                doc.text(`Transparency Rating: ${overallAssessment?.transparency_rating || 'N/A'}`, 20, yPos);
-                yPos += 10;
-
-                // Critical Issues
-                if (overallAssessment?.critical_issues && overallAssessment.critical_issues.length > 0) {
-                    doc.setFontSize(12);
-                    doc.setTextColor(200, 0, 0);
-                    doc.text('CRITICAL ISSUES REQUIRING ACTION:', 20, yPos);
-                    doc.setTextColor(0, 0, 0);
-                    doc.setFontSize(10);
-                    yPos += 10;
-
-                    overallAssessment.critical_issues.forEach((issue, index) => {
-                        doc.setFont(undefined, 'bold');
-                        doc.text(`${index + 1}. ${issue.issue || 'Unknown Issue'}`, 20, yPos);
-                        doc.setFont(undefined, 'normal');
-                        yPos += 5;
-                        doc.text(`   Priority: ${issue.priority || 'N/A'} | Deadline: ${issue.deadline_for_action || 'N/A'}`, 25, yPos);
-                        yPos += 7;
-
-                        if (yPos > 270) {
-                            doc.addPage();
-                            yPos = 20;
-                            addPageNumber();
-                        }
-                    });
-                }
-
-                addPageNumber();
-
-                // FINANCIAL ANALYSIS
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('2. FINANCIAL ANALYSIS', 20, 20);
-
-                // Financial Summary Table
-                const fsData = currentCompany.financial_statements_raw_data;
-                if (fsData) {
-                    yPos = 30;
-                    doc.setFontSize(10);
-                    doc.text('Financial Highlights (Full Numbers):', 20, yPos);
-                    yPos += 10;
-
-                    // Create table data
-                    const tableData = [
-                        ['Metric', '2024', '2023', '2022', 'YoY Change']
-                    ];
-
-                    // Revenue
-                    const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                        item && item.line_item && (
-                            item.line_item.toLowerCase().includes('revenue') ||
-                            item.line_item.toLowerCase().includes('interest income')
-                        )
-                    );
-                    if (revenueItem) {
-                        const rev2024 = revenueItem.current_year_amount || '0';
-                        const rev2023 = revenueItem.prior_year_1_amount || '0';
-                        const rev2022 = revenueItem.prior_year_2_amount || '0';
-                        const change = calculateChange(rev2024, rev2023);
-                        tableData.push(['Revenue', formatNumber(rev2024), formatNumber(rev2023), formatNumber(rev2022), change ? change + '%' : 'N/A']);
-                    }
-
-                    // Net Profit
-                    const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                        item && item.line_item && (
-                            item.line_item.toLowerCase().includes('profit') ||
-                            item.line_item.toLowerCase().includes('net income')
-                        )
-                    );
-                    if (profitItem) {
-                        const profit2024 = profitItem.current_year_amount || '0';
-                        const profit2023 = profitItem.prior_year_1_amount || '0';
-                        const profit2022 = profitItem.prior_year_2_amount || '0';
-                        const change = calculateChange(profit2024, profit2023);
-                        tableData.push(['Net Profit', formatNumber(profit2024), formatNumber(profit2023), formatNumber(profit2022), change ? change + '%' : 'N/A']);
-                    }
-
-                    // Total Assets
-                    const assetItem = fsData.statement_of_financial_position?.find(item =>
-                        item && item.line_item && item.line_item.toLowerCase().includes('total assets')
-                    );
-                    if (assetItem) {
-                        const asset2024 = assetItem.current_year_amount || '0';
-                        const asset2023 = assetItem.prior_year_1_amount || '0';
-                        const asset2022 = assetItem.prior_year_2_amount || '0';
-                        const change = calculateChange(asset2024, asset2023);
-                        tableData.push(['Total Assets', formatNumber(asset2024), formatNumber(asset2023), formatNumber(asset2022), change ? change + '%' : 'N/A']);
-                    }
-
-                    // Add table to PDF
-                    doc.autoTable({
-                        startY: yPos,
-                        head: [tableData[0]],
-                        body: tableData.slice(1),
-                        theme: 'striped',
-                        headStyles: { fillColor: [44, 62, 80] },
-                        margin: { left: 20 }
-                    });
-                }
-
-                addPageNumber();
-
-                // IFRS COMPLIANCE
-                doc.addPage();
-                doc.setFontSize(14);
-                doc.text('3. IFRS COMPLIANCE ASSESSMENT', 20, 20);
-
-                const complianceMatrix = currentCompany.phase_3_ifrs_compliance_detailed?.detailed_ifrs_compliance_matrix;
-                if (complianceMatrix && complianceMatrix.length > 0) {
-                    yPos = 30;
-                    doc.setFontSize(10);
-
-                    // Material Departures
-                    const departures = currentCompany.phase_5_synthesis_and_findings?.material_departures_summary;
-                    if (departures && departures.length > 0) {
-                        doc.setFont(undefined, 'bold');
-                        doc.setTextColor(200, 0, 0);
-                        doc.text('MATERIAL DEPARTURES IDENTIFIED:', 20, yPos);
-                        doc.setTextColor(0, 0, 0);
-                        doc.setFont(undefined, 'normal');
-                        yPos += 7;
-
-                        departures.forEach((departure, index) => {
-                            if (!departure) return;
-
-                            doc.text(`${index + 1}. ${departure.issue_description || 'Unknown'}`, 25, yPos);
-                            yPos += 5;
-                            doc.text(`   Standard: ${departure.relevant_standard || 'N/A'}`, 30, yPos);
-                            yPos += 7;
-
-                            if (yPos > 270) {
-                                doc.addPage();
-                                yPos = 20;
-                                addPageNumber();
-                            }
-                        });
-                    }
-                }
-
-                addPageNumber();
-
-                // FINAL PAGE
-                doc.addPage();
-                doc.setFontSize(16);
-                doc.setTextColor(40, 40, 40);
-                doc.text('FRC CONFIDENTIAL ANALYSIS REPORT', 105, 100, { align: 'center' });
-                doc.setFontSize(12);
-                doc.text('--- END OF REPORT ---', 105, 120, { align: 'center' });
-
-                doc.setFontSize(10);
-                doc.setTextColor(100, 100, 100);
-                doc.text('This report contains confidential regulatory analysis prepared for internal FRC use only.', 105, 150, { align: 'center' });
-                doc.text('Unauthorized distribution, reproduction, or disclosure is strictly prohibited.', 105, 160, { align: 'center' });
-
-                doc.setFontSize(8);
-                doc.text(`Report Generated: ${new Date().toLocaleString()}`, 105, 180, { align: 'center' });
-                doc.text(`Analyst Framework: v${frcData.metadata?.analyst_framework_version || '1.0'}`, 105, 190, { align: 'center' });
-
-                addPageNumber();
-
-                // Save the PDF
-                const fileName = `FRC_Report_${currentCompany.company_info?.legal_name?.replace(/\s+/g, '_') || 'Company'}_${new Date().toISOString().split('T')[0]}.pdf`;
-                doc.save(fileName);
-
-                // Hide watermark
-                if (watermark) watermark.classList.add('d-none');
-
-                console.log('PDF generated successfully:', fileName);
-
-            } catch (error) {
-                console.error('Error generating PDF:', error);
-                alert('Error generating PDF report. Please check console for details.');
-
-                // Hide watermark if error occurs
-                const watermark = document.getElementById('confidentialWatermark');
-                if (watermark) watermark.classList.add('d-none');
+        // Log messages to console
+        function logMessage(message, type = 'info') {
+            const now = new Date();
+            const timeString = now.toTimeString().split(' ')[0];
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-${type}`;
+            logEntry.innerHTML = `[<span class="log-time">${timeString}</span>] ${message}`;
+            
+            consoleOutput.appendChild(logEntry);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            
+            // Also log to browser console
+            switch(type) {
+                case 'error': console.error(message); break;
+                case 'warning': console.warn(message); break;
+                case 'success': console.log('%c' + message, 'color: green'); break;
+                default: console.log(message);
             }
         }
 
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', loadData);
+        // Clear console
+        function clearConsole() {
+            consoleOutput.innerHTML = '<div class="log-info">[<span class="log-time" id="currentTime">00:00:00</span>] System: Console cleared</div>';
+            updateTime();
+        }
+
+        // Copy console
+        function copyConsole() {
+            const text = consoleOutput.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                logMessage('Console output copied to clipboard', 'success');
+            }).catch(err => {
+                logMessage(`Failed to copy: ${err}`, 'error');
+            });
+        }
+
+        // Run all tests
+        async function runAllTests() {
+            runTestsBtn.disabled = true;
+            runTestsBtn.innerHTML = '<span class="spinner"></span>Running Tests...';
+            
+            logMessage('Starting functionality tests...', 'info');
+            
+            // Run tests sequentially
+            await testGlobalFunctions();
+            await testModuleImports();
+            await testDependencies();
+            await testDataLoading();
+            
+            runTestsBtn.disabled = false;
+            runTestsBtn.innerHTML = '<i class="fas fa-play-circle me-2"></i>Run All Tests';
+            
+            logMessage('All tests completed', 'info');
+        }
+
+        // Test global functions
+        async function testGlobalFunctions() {
+            const statusElement = document.getElementById('globalTestStatus');
+            const detailsElement = document.getElementById('globalTestDetails');
+            
+            statusElement.className = 'status-badge status-loading';
+            statusElement.innerHTML = '<span class="spinner"></span>Testing...';
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const requiredFunctions = [
+                'loadSection',
+                'loadDashboard', 
+                'loadEntityProfile',
+                'loadFinancialStatements',
+                'switchCompany',
+                'filterCompanies'
+            ];
+            
+            const missingFunctions = [];
+            const availableFunctions = [];
+            
+            requiredFunctions.forEach(funcName => {
+                if (typeof window[funcName] === 'function') {
+                    availableFunctions.push(funcName);
+                } else {
+                    missingFunctions.push(funcName);
+                }
+            });
+            
+            if (missingFunctions.length === 0) {
+                statusElement.className = 'status-badge status-success';
+                statusElement.innerHTML = '<i class="fas fa-check-circle me-1"></i>All Functions Found';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-check-circle me-2"></i>All Global Functions Available</h6>
+                        <small>Found ${availableFunctions.length} functions: ${availableFunctions.join(', ')}</small>
+                    </div>
+                `;
+                
+                logMessage(`✓ Global functions: All ${availableFunctions.length} functions available`, 'success');
+                
+            } else {
+                statusElement.className = 'status-badge status-error';
+                statusElement.innerHTML = '<i class="fas fa-times-circle me-1"></i>Missing Functions';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h6><i class="fas fa-times-circle me-2"></i>Missing Functions</h6>
+                        <small>Found: ${availableFunctions.length} functions</small><br>
+                        <small>Missing: ${missingFunctions.length} functions</small><br>
+                        <small class="text-danger">Required: ${missingFunctions.join(', ')}</small>
+                    </div>
+                `;
+                
+                logMessage(`✗ Global functions: Missing ${missingFunctions.length} functions - ${missingFunctions.join(', ')}`, 'error');
+            }
+        }
+
+        // Test module imports
+        async function testModuleImports() {
+            const statusElement = document.getElementById('moduleTestStatus');
+            const detailsElement = document.getElementById('moduleTestDetails');
+            
+            statusElement.className = 'status-badge status-loading';
+            statusElement.innerHTML = '<span class="spinner"></span>Testing...';
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            try {
+                // Try to dynamically import main.js
+                await import('./js/main.js');
+                
+                statusElement.className = 'status-badge status-success';
+                statusElement.innerHTML = '<i class="fas fa-check-circle me-1"></i>Modules Loaded';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-check-circle me-2"></i>ES6 Modules Loaded Successfully</h6>
+                        <small>main.js imported successfully</small><br>
+                        <small>All module dependencies resolved</small>
+                    </div>
+                `;
+                
+                logMessage('✓ ES6 modules: main.js imported successfully', 'success');
+                
+            } catch (error) {
+                statusElement.className = 'status-badge status-error';
+                statusElement.innerHTML = '<i class="fas fa-times-circle me-1"></i>Import Failed';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h6><i class="fas fa-times-circle me-2"></i>Module Import Error</h6>
+                        <small>Error: ${error.message}</small><br>
+                        <small>This could be due to circular dependencies or missing files</small>
+                    </div>
+                `;
+                
+                logMessage(`✗ ES6 modules: Import failed - ${error.message}`, 'error');
+            }
+        }
+
+        // Test dependencies
+        async function testDependencies() {
+            const statusElement = document.getElementById('dependencyTestStatus');
+            const detailsElement = document.getElementById('dependencyTestDetails');
+            
+            statusElement.className = 'status-badge status-loading';
+            statusElement.innerHTML = '<span class="spinner"></span>Testing...';
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const tests = {
+                'Bootstrap': typeof bootstrap !== 'undefined',
+                'Chart.js': typeof Chart !== 'undefined',
+                'Font Awesome': document.querySelector('.fa-check-circle') !== null,
+                'jQuery': typeof $ !== 'undefined'
+            };
+            
+            const passed = Object.values(tests).filter(Boolean).length;
+            const total = Object.keys(tests).length;
+            
+            if (passed === total) {
+                statusElement.className = 'status-badge status-success';
+                statusElement.innerHTML = '<i class="fas fa-check-circle me-1"></i>All Loaded';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-check-circle me-2"></i>All Dependencies Loaded</h6>
+                        <small>Bootstrap: ✓ Loaded</small><br>
+                        <small>Chart.js: ✓ Loaded</small><br>
+                        <small>Font Awesome: ✓ Loaded</small><br>
+                        <small>jQuery: ${tests['jQuery'] ? '✓ Loaded' : '✗ Not required'}</small>
+                    </div>
+                `;
+                
+                logMessage(`✓ Dependencies: All ${total} dependencies loaded`, 'success');
+                
+            } else {
+                statusElement.className = 'status-badge status-warning';
+                statusElement.innerHTML = '<i class="fas fa-exclamation-triangle me-1"></i>Partial';
+                
+                const missing = Object.keys(tests).filter(key => !tests[key]);
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-warning">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i>Some Dependencies Missing</h6>
+                        <small>Loaded: ${passed}/${total}</small><br>
+                        <small>Missing: ${missing.join(', ')}</small>
+                    </div>
+                `;
+                
+                logMessage(`⚠ Dependencies: ${passed}/${total} loaded, missing: ${missing.join(', ')}`, 'warning');
+            }
+        }
+
+        // Test data loading
+        async function testDataLoading() {
+            const statusElement = document.getElementById('dataTestStatus');
+            const detailsElement = document.getElementById('dataTestDetails');
+            
+            statusElement.className = 'status-badge status-loading';
+            statusElement.innerHTML = '<span class="spinner"></span>Testing...';
+            
+            try {
+                // Test GitHub Pages connectivity
+                const testUrl = 'https://asicoltd.github.io/FRC-AI/dataset/1/1.json';
+                const response = await fetch(testUrl, { mode: 'cors' });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    statusElement.className = 'status-badge status-success';
+                    statusElement.innerHTML = '<i class="fas fa-check-circle me-1"></i>Connected';
+                    
+                    detailsElement.innerHTML = `
+                        <div class="alert alert-success">
+                            <h6><i class="fas fa-check-circle me-2"></i>GitHub Pages Connected</h6>
+                            <small>URL: ${testUrl}</small><br>
+                            <small>Status: ${response.status} ${response.statusText}</small><br>
+                            <small>Data type: ${typeof data}</small><br>
+                            <small>Response time: <span id="responseTime">...</span></small>
+                        </div>
+                    `;
+                    
+                    logMessage('✓ Data loading: GitHub Pages accessible', 'success');
+                    
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+            } catch (error) {
+                statusElement.className = 'status-badge status-error';
+                statusElement.innerHTML = '<i class="fas fa-times-circle me-1"></i>Failed';
+                
+                detailsElement.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h6><i class="fas fa-times-circle me-2"></i>Data Loading Failed</h6>
+                        <small>Error: ${error.message}</small><br>
+                        <small>Could not connect to GitHub Pages</small><br>
+                        <small>Check CORS settings and network connectivity</small>
+                    </div>
+                `;
+                
+                logMessage(`✗ Data loading: Failed to connect - ${error.message}`, 'error');
+            }
+        }
     </script>
 </body>
-
 </html>
