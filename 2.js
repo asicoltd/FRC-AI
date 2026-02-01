@@ -611,7 +611,137 @@ async function switchCompany(companyId) {
     }
 }
 
+function loadEntityProfile() {
+    const content = `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">Entity Context & Framework</h3>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-info-circle me-2 text-primary"></i>Entity Profile</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="40%">Legal Name:</th>
+                                    <td id="legalName">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Trade Name:</th>
+                                    <td id="tradeName">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Registration Number:</th>
+                                    <td id="registrationNumber">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Industry Sector:</th>
+                                    <td id="industrySector">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Listing Status:</th>
+                                    <td id="listingStatus">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Reporting Currency:</th>
+                                    <td id="reportingCurrency">BDT</td>
+                                </tr>
+                                <tr>
+                                    <th>Financial Year End:</th>
+                                    <td id="financialYearEnd">YYYY-12-31</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-balance-scale me-2 text-primary"></i>Materiality Framework</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th width="50%">Benchmark Used:</th>
+                                    <td id="materialityBenchmark">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Percentage Applied:</th>
+                                    <td id="materialityPercentage">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Overall Materiality:</th>
+                                    <td id="overallMateriality">[Not Specified]</td>
+                                </tr>
+                                <tr>
+                                    <th>Performance Materiality:</th>
+                                    <td id="performanceMateriality">[Not Specified]</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-file-contract me-2 text-primary"></i>Reporting Framework</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Disclosed Framework:</label>
+                                <div id="disclosedFramework" class="p-2 bg-light rounded">IFRS as adopted in Bangladesh</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Actual Standards Applied:</label>
+                                <div id="actualStandards" class="p-2 bg-light rounded">
+                                    <span class="badge bg-primary me-1">IAS 1</span>
+                                    <span class="badge bg-primary me-1">IAS 2</span>
+                                    <span class="badge bg-primary me-1">IAS 16</span>
+                                    <span class="badge bg-primary me-1">IFRS 9</span>
+                                    <span class="badge bg-primary me-1">IFRS 15</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Compliance Assessment:</label>
+                                <div class="compliance-badge badge-partial">Partially Compliant</div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h5><i class="fas fa-gavel me-2 text-primary"></i>Regulatory Landscape</h5>
+                            <div class="mb-3">
+                                <h6>Applicable Regulators:</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-secondary">FRC</span>
+                                    <span class="badge bg-secondary">BSEC</span>
+                                    <span class="badge bg-secondary">RJSC</span>
+                                    <span class="badge bg-secondary">NBR</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Statutory Filings Status:</h6>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td>BSEC Filed:</td>
+                                        <td><span class="badge bg-success">Yes</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Income Tax Return:</td>
+                                        <td><span class="badge bg-success">Filed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>RJSC Compliance:</td>
+                                        <td><span class="badge bg-success">Compliant</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h5><i class="fas fa-comment-dots me-2 text-primary"></i>Materiality Conclusion</h5>
+                    <div id="materialityConclusion" class="p-3 bg-light rounded">
+                        Materiality assessment completed based on 5% of profit before tax. Qualitative factors considered include related party transactions and going concern indicators.
+                    </div>
+                </div>
+            `;
 
+    document.getElementById('mainContent').innerHTML = content;
+    loadEntityData();
+}
 // Financial Statements Section
 async function loadFinancialStatements() {
     const mainContent = document.getElementById('mainContent');
