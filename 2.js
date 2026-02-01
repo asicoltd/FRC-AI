@@ -8,7 +8,7 @@ document.head.appendChild(script);
 const GITHUB_PAGES_BASE = 'https://asicoltd.github.io/FRC-AI/dataset/';
 let currentCompanyId = 1; // Default to first company
 let allJSONData = {};
-let availableCompanies = [1, 2, 3]; // Update this with actual company IDs
+let availableCompanies = []; // Update this with actual company IDs
 
 // Initialize with default company
 document.addEventListener('DOMContentLoaded', async function () {
@@ -21,17 +21,34 @@ document.addEventListener('DOMContentLoaded', async function () {
 // Function to load company selector
 async function loadCompanySelector() {
     // Try to fetch company list
-    try {
-        const response = await fetch(`${GITHUB_PAGES_BASE}companies.json`);
-        if (response.ok) {
+    let availableCompanies = [];
+    let i = 1;
+
+    while (true) {
+        const url = `${GITHUB_PAGES_BASE}/${i}/1.json`;
+        try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                // Stop when the file is not available (e.g., 404)
+                console.log(`🚫 No more JSON files found at ${url}`);
+                break;
+            }
+
             const companies = await response.json();
-            availableCompanies = companies;
-            console.log(`📋 Found ${companies.length} companies in companies.json`);
+            availableCompanies.push(...companies); // Merge all companies
+            console.log(`📋 Found ${companies.length} companies in ${url}`);
+
+        } catch (error) {
+            console.log(`⚠️ Error fetching ${url}:`, error);
+            break; // Stop on network or other fetch errors
         }
-    } catch (error) {
-        console.log('📋 No companies.json found, auto-discovering...');
-        await autoDiscoverCompanies();
+
+        i++; // Move to the next file
     }
+
+    console.log('✅ All available companies:', availableCompanies);
+
 
     // Add company selector to navbar
     const navbar = document.querySelector('.navbar .container-fluid');
@@ -125,7 +142,7 @@ async function loadJSONData(companyId, fileNumber) {
 }
 
 async function loadCompanyData(companyId) {
-    showLoading(`Loading data for Company ${companyId}...`);
+    // showLoading(`Loading data for Company ${companyId}...`);
 
     // Reset data for current company
     allJSONData = {};
@@ -151,6 +168,7 @@ async function loadCompanyData(companyId) {
             const data = await loadJSONData(companyId, i);
             if (data) {
                 allJSONData[i] = data;
+                console.log(allJSONData[i]);
                 loadedCount++;
                 console.log(`✅ Loaded file ${i}.json`);
             } else {
@@ -186,7 +204,6 @@ async function loadCompanyData(companyId) {
         return true;
     } else {
         // Load sample data as fallback
-        loadSampleData();
         showNotification(`❌ No data found for Company ${companyId}. Using sample data.`, 'error');
         return false;
     }
@@ -433,9 +450,9 @@ function loadDashboard() {
                                             <div class="card-footer bg-transparent">
                                                 <button class="btn btn-sm ${id === currentCompanyId ? 'btn-primary' : 'btn-outline-primary'} w-100"
                                                         onclick="switchCompany(${id})">
-                                                    ${id === currentCompanyId ? 
-                                                        '<i class="fas fa-check me-1"></i> Selected' : 
-                                                        '<i class="fas fa-eye me-1"></i> View'}
+                                                    ${id === currentCompanyId ?
+            '<i class="fas fa-check me-1"></i> Selected' :
+            '<i class="fas fa-eye me-1"></i> View'}
                                                 </button>
                                             </div>
                                         </div>
@@ -538,13 +555,13 @@ function filterCompanies() {
     const searchTerm = document.getElementById('companySearch').value.toLowerCase();
     const companyCards = document.querySelectorAll('.company-card');
     const noResultsMessage = document.getElementById('noCompaniesMessage');
-    
+
     let visibleCount = 0;
-    
+
     companyCards.forEach(card => {
         const companyId = card.getAttribute('data-company-id');
         const cardText = `Company ${companyId}`.toLowerCase();
-        
+
         if (cardText.includes(searchTerm)) {
             card.style.display = 'block';
             visibleCount++;
@@ -552,7 +569,7 @@ function filterCompanies() {
             card.style.display = 'none';
         }
     });
-    
+
     // Show/hide no results message
     if (visibleCount === 0) {
         noResultsMessage.style.display = 'block';
@@ -565,39 +582,39 @@ function filterCompanies() {
 // Add new company
 function addNewCompany() {
     const newId = document.getElementById('newCompanyId').value;
-    
+
     if (!newId || isNaN(newId) || parseInt(newId) <= 0) {
         showNotification('Please enter a valid company ID number', 'error');
         return;
     }
-    
+
     const companyId = parseInt(newId);
-    
+
     if (availableCompanies.includes(companyId)) {
         showNotification(`Company ${companyId} is already in the list`, 'warning');
         return;
     }
-    
+
     // Add to list
     availableCompanies.push(companyId);
     availableCompanies.sort((a, b) => a - b);
-    
+
     // Reload dashboard
     loadDashboard();
-    
+
     // Close modal
     const modal = bootstrap.Modal.getInstance(document.getElementById('addCompanyModal'));
     modal.hide();
-    
+
     showNotification(`Company ${companyId} added successfully`, 'success');
 }
 
 // Switch to a company
 async function switchCompany(companyId) {
     if (currentCompanyId === companyId) return;
-    
+
     showLoading(`Loading Company ${companyId}...`);
-    
+
     try {
         currentCompanyId = companyId;
         await loadCompanyData(companyId);
@@ -745,7 +762,7 @@ function loadEntityProfile() {
 // Financial Statements Section
 async function loadFinancialStatements() {
     const mainContent = document.getElementById('mainContent');
-    
+
     mainContent.innerHTML = `
         <div class="container-fluid">
             <div class="row">
@@ -823,10 +840,10 @@ async function loadFinancialStatements() {
             </div>
         </div>
     `;
-    
+
     // Initialize tabs
     new bootstrap.Tab(document.querySelector('#balance-sheet-tab'));
-    
+
     // Load data for each statement
     await loadFinancialStatementData();
 }
@@ -836,13 +853,13 @@ async function loadFinancialStatementData() {
     try {
         const data = allJSONData[4];
         const financialData = data.frc_analysis_report.entity.financial_statements_raw_data;
-        
+
         // Load each statement
         renderStatementOfFinancialPosition(financialData.statement_of_financial_position);
         renderProfitLossStatement(financialData.statement_of_profit_or_loss_and_other_comprehensive_income);
         renderCashFlowStatement(financialData.statement_of_cash_flows);
         renderChangesInEquity(financialData.statement_of_changes_in_equity);
-        
+
     } catch (error) {
         console.error('Error loading financial statement data:', error);
         showError('Failed to load financial statement data');
@@ -851,15 +868,15 @@ async function loadFinancialStatementData() {
 // Render Statement of Financial Position
 function renderStatementOfFinancialPosition(data) {
     const container = document.getElementById('balanceSheetContainer');
-    
+
     if (!data || data.length === 0) {
         container.innerHTML = '<div class="alert alert-info">No data available</div>';
         return;
     }
-    
+
     // Get all unique years
     const years = data.map(item => item.year);
-    
+
     // Get all unique line items across all years
     const allItems = new Set();
     data.forEach(yearData => {
@@ -867,9 +884,9 @@ function renderStatementOfFinancialPosition(data) {
             allItems.add(item.item);
         });
     });
-    
+
     const itemsArray = Array.from(allItems);
-    
+
     // Create table
     let html = `
         <div class="table-responsive">
@@ -878,23 +895,23 @@ function renderStatementOfFinancialPosition(data) {
                     <tr>
                         <th style="width: 40%;">Line Item</th>
     `;
-    
+
     // Add year columns
     years.forEach(year => {
         html += `<th class="text-center" style="width: 15%;">${year} Amount (BDT)</th>`;
         html += `<th class="text-center" style="width: 15%;">${year} Note</th>`;
     });
-    
+
     html += `</tr></thead><tbody>`;
-    
+
     // Add rows for each line item
     itemsArray.forEach(itemName => {
         html += `<tr><td><strong>${itemName}</strong></td>`;
-        
+
         years.forEach(year => {
             const yearData = data.find(d => d.year === year);
             const itemData = yearData.line_items.find(i => i.item === itemName);
-            
+
             if (itemData) {
                 html += `<td class="text-end">${formatNumber(itemData.amount)}</td>`;
                 html += `<td class="text-center">${itemData.note || '-'}</td>`;
@@ -902,24 +919,24 @@ function renderStatementOfFinancialPosition(data) {
                 html += `<td class="text-end">-</td><td class="text-center">-</td>`;
             }
         });
-        
+
         html += `</tr>`;
     });
-    
+
     html += `</tbody></table></div>`;
-    
+
     container.innerHTML = html;
 }
 
 // Render Profit and Loss Statement
 function renderProfitLossStatement(data) {
     const container = document.getElementById('plStatementContainer');
-    
+
     if (!data || data.length === 0) {
         container.innerHTML = '<div class="alert alert-info">No data available</div>';
         return;
     }
-    
+
     const years = data.map(item => item.year);
     const allItems = new Set();
     data.forEach(yearData => {
@@ -927,9 +944,9 @@ function renderProfitLossStatement(data) {
             allItems.add(item.item);
         });
     });
-    
+
     const itemsArray = Array.from(allItems);
-    
+
     let html = `
         <div class="table-responsive">
             <table class="table table-striped table-bordered financial-statement-table">
@@ -937,21 +954,21 @@ function renderProfitLossStatement(data) {
                     <tr>
                         <th style="width: 40%;">Line Item</th>
     `;
-    
+
     years.forEach(year => {
         html += `<th class="text-center" style="width: 15%;">${year} Amount (BDT)</th>`;
         html += `<th class="text-center" style="width: 15%;">${year} Note</th>`;
     });
-    
+
     html += `</tr></thead><tbody>`;
-    
+
     itemsArray.forEach(itemName => {
         html += `<tr><td><strong>${itemName}</strong></td>`;
-        
+
         years.forEach(year => {
             const yearData = data.find(d => d.year === year);
             const itemData = yearData.line_items.find(i => i.item === itemName);
-            
+
             if (itemData) {
                 html += `<td class="text-end">${formatNumber(itemData.amount)}</td>`;
                 html += `<td class="text-center">${itemData.note || '-'}</td>`;
@@ -959,24 +976,24 @@ function renderProfitLossStatement(data) {
                 html += `<td class="text-end">-</td><td class="text-center">-</td>`;
             }
         });
-        
+
         html += `</tr>`;
     });
-    
+
     html += `</tbody></table></div>`;
-    
+
     container.innerHTML = html;
 }
 
 // Render Cash Flow Statement
 function renderCashFlowStatement(data) {
     const container = document.getElementById('cashflowStatementContainer');
-    
+
     if (!data || data.length === 0) {
         container.innerHTML = '<div class="alert alert-info">No data available</div>';
         return;
     }
-    
+
     const years = data.map(item => item.year);
     const allItems = new Set();
     data.forEach(yearData => {
@@ -984,9 +1001,9 @@ function renderCashFlowStatement(data) {
             allItems.add(item.item);
         });
     });
-    
+
     const itemsArray = Array.from(allItems);
-    
+
     let html = `
         <div class="table-responsive">
             <table class="table table-striped table-bordered financial-statement-table">
@@ -994,21 +1011,21 @@ function renderCashFlowStatement(data) {
                     <tr>
                         <th style="width: 40%;">Line Item</th>
     `;
-    
+
     years.forEach(year => {
         html += `<th class="text-center" style="width: 15%;">${year} Amount (BDT)</th>`;
         html += `<th class="text-center" style="width: 15%;">${year} Note</th>`;
     });
-    
+
     html += `</tr></thead><tbody>`;
-    
+
     itemsArray.forEach(itemName => {
         html += `<tr><td><strong>${itemName}</strong></td>`;
-        
+
         years.forEach(year => {
             const yearData = data.find(d => d.year === year);
             const itemData = yearData.line_items.find(i => i.item === itemName);
-            
+
             if (itemData) {
                 html += `<td class="text-end">${formatNumber(itemData.amount)}</td>`;
                 html += `<td class="text-center">${itemData.note || '-'}</td>`;
@@ -1016,24 +1033,24 @@ function renderCashFlowStatement(data) {
                 html += `<td class="text-end">-</td><td class="text-center">-</td>`;
             }
         });
-        
+
         html += `</tr>`;
     });
-    
+
     html += `</tbody></table></div>`;
-    
+
     container.innerHTML = html;
 }
 
 // Render Changes in Equity Statement
 function renderChangesInEquity(data) {
     const container = document.getElementById('equityStatementContainer');
-    
+
     if (!data || data.length === 0) {
         container.innerHTML = '<div class="alert alert-info">No data available</div>';
         return;
     }
-    
+
     const years = data.map(item => item.year);
     const allItems = new Set();
     data.forEach(yearData => {
@@ -1041,9 +1058,9 @@ function renderChangesInEquity(data) {
             allItems.add(item.item);
         });
     });
-    
+
     const itemsArray = Array.from(allItems);
-    
+
     let html = `
         <div class="table-responsive">
             <table class="table table-striped table-bordered financial-statement-table">
@@ -1051,21 +1068,21 @@ function renderChangesInEquity(data) {
                     <tr>
                         <th style="width: 40%;">Line Item</th>
     `;
-    
+
     years.forEach(year => {
         html += `<th class="text-center" style="width: 15%;">${year} Amount (BDT)</th>`;
         html += `<th class="text-center" style="width: 15%;">${year} Note</th>`;
     });
-    
+
     html += `</tr></thead><tbody>`;
-    
+
     itemsArray.forEach(itemName => {
         html += `<tr><td><strong>${itemName}</strong></td>`;
-        
+
         years.forEach(year => {
             const yearData = data.find(d => d.year === year);
             const itemData = yearData.line_items.find(i => i.item === itemName);
-            
+
             if (itemData) {
                 html += `<td class="text-end">${formatNumber(itemData.amount)}</td>`;
                 html += `<td class="text-center">${itemData.note || '-'}</td>`;
@@ -1073,12 +1090,12 @@ function renderChangesInEquity(data) {
                 html += `<td class="text-end">-</td><td class="text-center">-</td>`;
             }
         });
-        
+
         html += `</tr>`;
     });
-    
+
     html += `</tbody></table></div>`;
-    
+
     container.innerHTML = html;
 }
 
@@ -1090,7 +1107,7 @@ function showError(message) {
         'cashflowStatementContainer',
         'equityStatementContainer'
     ];
-    
+
     containers.forEach(containerId => {
         const container = document.getElementById(containerId);
         if (container) {
@@ -2596,62 +2613,62 @@ function renderRiskCharts() {
 // Update loadEntityData for multiple companies
 function loadEntityData() {
     console.log('Loading entity data for Company', currentCompanyId);
-    
+
     // Clear previous loading states
     const entityProfileLoading = document.getElementById('entityProfileLoading');
     const materialityLoading = document.getElementById('materialityLoading');
     const materialityConclusionLoading = document.getElementById('materialityConclusionLoading');
-    
+
     if (entityProfileLoading) entityProfileLoading.style.display = 'none';
     if (materialityLoading) materialityLoading.style.display = 'none';
     if (materialityConclusionLoading) materialityConclusionLoading.style.display = 'none';
-    
+
     const entityProfileTable = document.getElementById('entityProfileTable');
     const materialityTable = document.getElementById('materialityTable');
     const materialityConclusionContent = document.getElementById('materialityConclusionContent');
-    
+
     if (entityProfileTable) entityProfileTable.style.display = 'table';
     if (materialityTable) materialityTable.style.display = 'table';
     if (materialityConclusionContent) materialityConclusionContent.style.display = 'block';
-    
+
     // Load data from JSON files
     const entityProfileData = allJSONData[2]; // 2.json contains entity profile
     const materialityData = allJSONData[3];   // 3.json contains materiality framework
     const metadata = allJSONData[1];          // 1.json contains metadata
-    
+
     console.log('Entity Profile Data (2.json):', entityProfileData);
     console.log('Materiality Data (3.json):', materialityData);
     console.log('Metadata (1.json):', metadata);
-    
+
     // ==================== ENTITY PROFILE (from 2.json) ====================
     if (entityProfileData) {
         const frcReport = entityProfileData.frc_analysis_report;
         const entity = frcReport?.entity;
         const profile = entity?.entity_profile;
-        
+
         console.log('Extracted entity profile:', profile);
-        
+
         if (profile) {
             // Update each field
-            document.getElementById('legalName').textContent = 
+            document.getElementById('legalName').textContent =
                 profile.legal_name || '[Not Specified]';
-            document.getElementById('tradeName').textContent = 
+            document.getElementById('tradeName').textContent =
                 profile.trade_name || '[Not Specified]';
-            document.getElementById('registrationNumber').textContent = 
+            document.getElementById('registrationNumber').textContent =
                 profile.registration_number || '[Not Specified]';
-            document.getElementById('industrySector').textContent = 
+            document.getElementById('industrySector').textContent =
                 profile.industry_sector || '[Not Available]';
-            document.getElementById('listingStatus').textContent = 
+            document.getElementById('listingStatus').textContent =
                 profile.listing_status || '[Not Available]';
-            document.getElementById('reportingCurrency').textContent = 
+            document.getElementById('reportingCurrency').textContent =
                 profile.reporting_currency || 'BDT';
-            document.getElementById('financialYearEnd').textContent = 
+            document.getElementById('financialYearEnd').textContent =
                 profile.financial_year_end || '[Not Available]';
-            document.getElementById('reportPublicationDate').textContent = 
+            document.getElementById('reportPublicationDate').textContent =
                 profile.report_publication_date || '[Not Available]';
-            document.getElementById('stockExchangeSymbol').textContent = 
+            document.getElementById('stockExchangeSymbol').textContent =
                 profile.stock_exchange_symbol || '[Not Available]';
-            
+
             // Add entity ID if available
             if (entity?.entity_id) {
                 let entityIdRow = document.querySelector('#entityIdRow');
@@ -2673,7 +2690,7 @@ function loadEntityData() {
                     entityIdRow.querySelector('td').textContent = entity.entity_id;
                 }
             }
-            
+
             // Add PDF token and report ID if available
             if (entityProfileData.pdf_token) {
                 let pdfTokenRow = document.querySelector('#pdfTokenRow');
@@ -2691,7 +2708,7 @@ function loadEntityData() {
                     }
                 }
             }
-            
+
             if (entityProfileData.report_id) {
                 let reportIdRow = document.querySelector('#reportIdRow');
                 if (!reportIdRow) {
@@ -2708,7 +2725,7 @@ function loadEntityData() {
                     }
                 }
             }
-            
+
             console.log('✅ Entity Profile loaded successfully');
         } else {
             console.warn('Entity profile not found in 2.json data structure');
@@ -2719,34 +2736,34 @@ function loadEntityData() {
         document.getElementById('legalName').textContent = 'Data not loaded (2.json missing)';
         showNotification('Entity profile data (2.json) not loaded', 'error');
     }
-    
+
     // ==================== MATERIALITY FRAMEWORK (from 3.json) ====================
     if (materialityData) {
         const materiality = materialityData.frc_analysis_report?.entity?.materiality_framework;
-        
+
         console.log('Extracted materiality framework:', materiality);
-        
+
         if (materiality) {
             const quantitative = materiality.quantitative_materiality;
-            
+
             if (quantitative) {
-                document.getElementById('materialityBenchmark').textContent = 
+                document.getElementById('materialityBenchmark').textContent =
                     quantitative.benchmark_used || '[Not Specified]';
-                document.getElementById('materialityPercentage').textContent = 
+                document.getElementById('materialityPercentage').textContent =
                     quantitative.percentage_applied || '[Not Specified]';
-                document.getElementById('overallMateriality').textContent = 
+                document.getElementById('overallMateriality').textContent =
                     quantitative.overall_materiality_amount || '[Not Specified]';
-                document.getElementById('performanceMateriality').textContent = 
+                document.getElementById('performanceMateriality').textContent =
                     quantitative.performance_materiality_amount || '[Not Specified]';
-                
+
                 // Check if clearlyTrivialThreshold element exists
                 const clearlyTrivialElement = document.getElementById('clearlyTrivialThreshold');
                 if (clearlyTrivialElement) {
-                    clearlyTrivialElement.textContent = 
+                    clearlyTrivialElement.textContent =
                         quantitative.clearly_trivial_threshold || '[Not Specified]';
                 }
             }
-            
+
             // Display qualitative considerations
             if (materiality.qualitative_materiality_considerations) {
                 const considerationsDiv = document.getElementById('qualitativeConsiderations');
@@ -2754,7 +2771,7 @@ function loadEntityData() {
                     considerationsDiv.innerHTML = materiality.qualitative_materiality_considerations
                         .map(item => `<li class="mb-1">${item}</li>`)
                         .join('');
-                    
+
                     // Show the section
                     const considerationsSection = document.getElementById('qualitativeConsiderationsSection');
                     if (considerationsSection) {
@@ -2762,7 +2779,7 @@ function loadEntityData() {
                     }
                 }
             }
-            
+
             // Display materiality conclusion
             if (materiality.frc_materiality_conclusion) {
                 const conclusionElement = document.getElementById('materialityConclusionText');
@@ -2770,7 +2787,7 @@ function loadEntityData() {
                     conclusionElement.textContent = materiality.frc_materiality_conclusion;
                 }
             }
-            
+
             console.log('✅ Materiality Framework loaded successfully');
         } else {
             console.warn('Materiality framework not found in 3.json data structure');
@@ -2781,17 +2798,17 @@ function loadEntityData() {
         document.getElementById('materialityBenchmark').textContent = 'Data not loaded (3.json missing)';
         showNotification('Materiality framework data (3.json) not loaded', 'error');
     }
-    
+
     // ==================== REPORTING FRAMEWORK (from 1.json) ====================
     if (metadata) {
         const meta = metadata.frc_analysis_report?.metadata;
-        
+
         console.log('Extracted metadata:', meta);
-        
+
         if (meta) {
-            document.getElementById('disclosedFramework').textContent = 
+            document.getElementById('disclosedFramework').textContent =
                 meta.analysis_scope || 'IFRS as adopted in Bangladesh';
-            
+
             // Display source documents
             if (meta.source_documents && Array.isArray(meta.source_documents)) {
                 const sourcesDiv = document.getElementById('sourceDocuments');
@@ -2801,15 +2818,15 @@ function loadEntityData() {
                         .join('');
                 }
             }
-            
+
             // Display generation date and version
-            document.getElementById('generationDate').textContent = 
+            document.getElementById('generationDate').textContent =
                 meta.generation_date || '[Not Available]';
-            document.getElementById('frameworkVersion').textContent = 
+            document.getElementById('frameworkVersion').textContent =
                 meta.analyst_framework_version || '[Not Available]';
-            document.getElementById('preparedFor').textContent = 
+            document.getElementById('preparedFor').textContent =
                 meta.prepared_for || 'Financial Reporting Council, Bangladesh';
-            
+
             console.log('✅ Metadata loaded successfully');
         } else {
             console.warn('Metadata not found in 1.json data structure');
@@ -2819,14 +2836,14 @@ function loadEntityData() {
         console.warn('1.json data not loaded');
         showNotification('Metadata (1.json) not loaded', 'error');
     }
-    
+
     // ==================== REGULATORY LANDSCAPE (from 5.json if available) ====================
     const regulatoryData = allJSONData[5];
     if (regulatoryData) {
         const regulatory = regulatoryData.frc_analysis_report?.entity?.phase_1_foundational_checks?.regulatory_landscape;
-        
+
         console.log('Extracted regulatory data:', regulatory);
-        
+
         if (regulatory) {
             // Update regulators
             if (regulatory.applicable_regulators) {
@@ -2838,44 +2855,44 @@ function loadEntityData() {
                         .join('');
                 }
             }
-            
+
             // Update statutory filings status
             if (regulatory.statutory_filings_status) {
                 const filings = regulatory.statutory_filings_status;
-                
+
                 // Update BSEC filed status
                 const bsecFiledElement = document.getElementById('bsecFiled');
                 if (bsecFiledElement) {
                     bsecFiledElement.textContent = filings.bsec_filed ? 'Yes' : 'No';
                     bsecFiledElement.className = filings.bsec_filed ? 'badge bg-success' : 'badge bg-danger';
                 }
-                
+
                 // Update BSEC filing date
                 const bsecFilingDateElement = document.getElementById('bsecFilingDate');
                 if (bsecFilingDateElement) {
                     bsecFilingDateElement.textContent = filings.bsec_filing_date || '[Not Available]';
                 }
-                
+
                 // Update tax return filed status
                 const taxReturnFiledElement = document.getElementById('taxReturnFiled');
                 if (taxReturnFiledElement) {
                     taxReturnFiledElement.textContent = filings.income_tax_return_filed ? 'Filed' : 'Not Filed';
                     taxReturnFiledElement.className = filings.income_tax_return_filed ? 'badge bg-success' : 'badge bg-danger';
                 }
-                
+
                 // Update tax year
                 const taxYearElement = document.getElementById('taxYear');
                 if (taxYearElement) {
                     taxYearElement.textContent = filings.income_tax_year || '[Not Available]';
                 }
-                
+
                 // Update RJSC compliance
                 const rjscComplianceElement = document.getElementById('rjscCompliance');
                 if (rjscComplianceElement) {
                     rjscComplianceElement.textContent = filings.rjsc_compliance ? 'Compliant' : 'Non-Compliant';
                     rjscComplianceElement.className = filings.rjsc_compliance ? 'badge bg-success' : 'badge bg-danger';
                 }
-                
+
                 // Update BB compliance
                 const bbComplianceElement = document.getElementById('bbCompliance');
                 if (bbComplianceElement) {
@@ -2883,7 +2900,7 @@ function loadEntityData() {
                     bbComplianceElement.className = filings.bb_compliance_if_applicable ? 'badge bg-info' : 'badge bg-secondary';
                 }
             }
-            
+
             // Update overall regulatory assessment if available
             if (regulatory.overall_regulatory_assessment) {
                 const assessmentElement = document.getElementById('overallRegulatoryAssessment');
@@ -2903,7 +2920,7 @@ function loadEntityData() {
                     }
                 }
             }
-            
+
             console.log('✅ Regulatory data loaded successfully');
         } else {
             console.warn('Regulatory data not found in 5.json data structure');
@@ -2911,13 +2928,13 @@ function loadEntityData() {
     } else {
         console.log('5.json not loaded (optional file)');
     }
-    
+
     // Update last refresh time
     const lastRefreshElement = document.getElementById('lastRefreshTime');
     if (lastRefreshElement) {
         lastRefreshElement.textContent = new Date().toLocaleString();
     }
-    
+
     // Show data source
     const dataSourceElement = document.getElementById('dataSourceInfo');
     if (!dataSourceElement) {
@@ -2938,7 +2955,7 @@ function loadEntityData() {
             mainContent.appendChild(sourceDiv);
         }
     }
-    
+
     console.log('✅ Entity data loading complete');
 }
 function loadComplianceData() {
