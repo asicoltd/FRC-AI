@@ -1,0 +1,25 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "15",
+  "frc_analysis_report": {
+    "entity": {
+      "legal_and_enforcement_mapping": {
+        "financial_reporting_act_2015": {
+          "sections_triggered": ["Disclosure requirements"],
+          "nature_of_breach": "Potential inadequate disclosures",
+          "severity_assessment": "Low"
+        },
+        "companies_act_1994": {
+          "sections_implicated": ["Section 183 - Proper books of accounts"],
+          "director_liability_assessed": true,
+          "liability_nature": "Potential for breach if payments outside banking channels not properly documented"
+        },
+        "bsec_rules_if_applicable": {
+          "rules_breached": ["IPO fund utilization rules"],
+          "market_impact": "IPO funds not utilized within stipulated time, extension applied"
+        }
+      }
+    }
+  }
+}

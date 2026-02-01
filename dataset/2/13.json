@@ -1,0 +1,25 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "13",
+  "frc_analysis_report": {
+    "entity": {
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [
+          "Untraceable IPO funds Tk. 197,630 reflected in cash",
+          "Payments made outside banking channels",
+          "Significant revenue decline without clear explanation",
+          "IPO funds not utilized as planned"
+        ],
+        "revenue_manipulation_indicators": [
+          "Revenue recognition involves multiple streams and performance obligations",
+          "Revenue decreased 43.7% while industry conditions cited as reason",
+          "Complex contract structures"
+        ],
+        "journal_entry_override_risk": "Medium - emphasis on untraceable funds",
+        "override_of_internal_controls_risk": "Medium - payments outside banking channels",
+        "overall_fraud_risk_assessment": "Medium to High - multiple red flags identified"
+      }
+    }
+  }
+}

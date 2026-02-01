@@ -1,0 +1,210 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data": {
+        "statement_of_financial_position": [
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Property, Plant and Equipment",
+                "amount": "1003519247",
+                "note": "4.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inventories",
+                "amount": "348618026",
+                "note": "8.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Trade and Other Receivables",
+                "amount": "219737791",
+                "note": "9.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents",
+                "amount": "Amount from Note 11.00",
+                "note": "11.00",
+                "errors_or_discrepancies": "IPO subscription money Tk. 197,630 untraceable but reflected in cash"
+              },
+              {
+                "item": "Share Capital",
+                "amount": "1026000000",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained Earnings",
+                "amount": "731812537",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Long Term Loan (Non-current)",
+                "amount": "14127891",
+                "note": "14.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Lease Liability (Non-current)",
+                "amount": "796372",
+                "note": "15.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Property, Plant and Equipment",
+                "amount": "Previous year amount",
+                "note": "4.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inventories",
+                "amount": "369074973",
+                "note": "8.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Trade and Other Receivables",
+                "amount": "154947185",
+                "note": "9.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_profit_or_loss_and_other_comprehensive_income": [
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Revenue",
+                "amount": "187729653",
+                "note": "25.00",
+                "errors_or_discrepancies": "Significant decrease from previous year"
+              },
+              {
+                "item": "Cost of Sales",
+                "amount": "157203771",
+                "note": "26.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit after Tax",
+                "amount": "2834891",
+                "note": "From Statement of Changes in Equity",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Revenue",
+                "amount": "333443469",
+                "note": "25.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cost of Sales",
+                "amount": "273423645",
+                "note": "26.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit after Tax",
+                "amount": "4584282",
+                "note": "From Statement of Changes in Equity",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Net Cash Generated from Operating Activities",
+                "amount": "40530943",
+                "note": "41.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Net Cash Generated from Operating Activities",
+                "amount": "143769580",
+                "note": "41.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Share Capital",
+                "amount": "1026000000",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained Earnings - Opening",
+                "amount": "732558616",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Dividend",
+                "amount": "-3580970",
+                "note": "Statement of Changes in Equity",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit after Tax",
+                "amount": "2834891",
+                "note": "Statement of Changes in Equity",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained Earnings - Closing",
+                "amount": "731812537",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "notes": [
+          {
+            "note_number": "2.04",
+            "note_title": "Applicable Accounting Standards",
+            "texts": "The following IASs and IFRSs are applicable for the Financial Statements of the Company for the year under review: IASs: IAS 1, IAS 2, IAS 7, IAS 8, IAS 10, IAS 12, IAS 16, IAS 19, IAS 21, IAS 23, IAS 24, IAS 33, IAS 34, IAS 36, IAS 37, and IFRSs: IFRS 8, IFRS 9, IFRS 13, IFRS 15, IFRS 16",
+            "line_items": []
+          },
+          {
+            "note_number": "3.11",
+            "note_title": "Revenue Recognition",
+            "texts": "In compliance with the requirements of IFRS-15 Revenue from Contracts with Customers...",
+            "line_items": []
+          }
+        ]
+      }
+    }
+  }
+}

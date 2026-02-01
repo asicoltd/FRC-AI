@@ -1,0 +1,63 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "23",
+  "frc_analysis_report": {
+    "entity": {
+      "professional_skepticism_application": {
+        "management_assertions_challenged": [
+          {
+            "assertion_area": "Revenue Recognition",
+            "management_claim": "Revenue recognized based on point of delivery and performance obligations satisfaction",
+            "evidence_sought": "Contracts, delivery challans, VAT challans",
+            "evidence_found": "Auditor tested source documents and traced performance obligations",
+            "corroboration_level": "Strong",
+            "skeptical_conclusion": "Revenue recognition appears appropriate but significant decline in revenue raises questions about future sustainability"
+          },
+          {
+            "assertion_area": "Inventory Valuation",
+            "management_claim": "Inventories valued at lower of cost and net realizable value",
+            "evidence_sought": "Physical verification, net realizable value assessments",
+            "evidence_found": "Management conducted physical verification, no impairment indicated",
+            "corroboration_level": "Moderate",
+            "skeptical_conclusion": "Given revenue decline, further scrutiny needed on slow-moving inventory"
+          }
+        ],
+        "accounting_policy_questioning": [
+          {
+            "policy_area": "Property, Plant and Equipment Depreciation",
+            "policy_applied": "Reducing balance method, Plant & Machinery 5%, Building 2.5%",
+            "alternative_treatment": "Straight-line method with different useful lives",
+            "justification_provided": "Assets can be strengthened with maintenance, factory buildings lifetime 40 years",
+            "skeptical_assessment": "Depreciation rates appear low compared to industry standards",
+            "recommendation": "Review depreciation policies for alignment with actual asset usage"
+          }
+        ],
+        "disclosure_adequacy_assessment": [
+          {
+            "disclosure_area": "Related Party Transactions",
+            "information_provided": "Limited disclosure of director remuneration and board fees",
+            "missing_information": "Transactions with associates, key management personnel compensation details",
+            "transparency_level": "Low",
+            "materiality_assessment": "Material",
+            "improvement_suggested": "Enhanced disclosure as per IAS 24 requirements"
+          }
+        ],
+        "overall_skepticism_applied": {
+          "areas_of_high_concern": [
+            "Untraceable IPO funds reflected in cash",
+            "Payments made outside banking channels",
+            "Significant revenue decline"
+          ],
+          "areas_of_moderate_concern": [
+            "IPO fund utilization delays",
+            "Low depreciation rates",
+            "Limited related party disclosures"
+          ],
+          "areas_of_low_concern": ["Going concern assessment"],
+          "skepticism_conclusion": "Multiple red flags identified requiring enhanced scrutiny"
+        }
+      }
+    }
+  }
+}

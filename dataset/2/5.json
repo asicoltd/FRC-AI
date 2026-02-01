@@ -1,0 +1,65 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "5",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "International Financial Reporting Standards (IFRSs)",
+          "notes_reference": "Note 2.00",
+          "actual_standards_applied": [
+            "IAS 1", "IAS 2", "IAS 7", "IAS 8", "IAS 10", "IAS 12", "IAS 16", "IAS 19", "IAS 21", "IAS 23", "IAS 24", "IAS 33", "IAS 34", "IAS 36", "IAS 37", "IFRS 8", "IFRS 9", "IFRS 13", "IFRS 15", "IFRS 16"
+          ],
+          "discrepancies_identified": [],
+          "compliance_assessment": "Compliant",
+          "reason_of_the_status": "The company has explicitly stated compliance with IFRSs adopted by ICAB and listed applicable standards in Note 2.04",
+          "status_reference": "Page 11-12, Note 2.00-2.04"
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "BSEC",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant",
+              "reason_for_non_compliance": "",
+              "notes_reference": "Note 2.02",
+              "specific_disclosures_found": ["Securities and Exchange Rules 2020 compliance"],
+              "reason_of_the_status": "Auditor's report confirms compliance with Securities and Exchange Rules 2020",
+              "status_reference": "Page 1, 6"
+            },
+            {
+              "regulator_name": "RJSC",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant",
+              "reason_for_non_compliance": "",
+              "notes_reference": "Note 1.00",
+              "specific_disclosures_found": ["Companies Act 1994 compliance"],
+              "reason_of_the_status": "Company incorporated under Companies Act 1994 and maintains compliance",
+              "status_reference": "Page 11, Note 1.00"
+            },
+            {
+              "regulator_name": "NBR",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant",
+              "reason_for_non_compliance": "",
+              "notes_reference": "Note 3.15",
+              "specific_disclosures_found": ["Income Tax Act 2023 compliance"],
+              "reason_of_the_status": "Income tax disclosures provided as per Income Tax Act 2023",
+              "status_reference": "Page 17, Note 3.15"
+            }
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": true,
+            "bsec_filing_date": "2024-10-28",
+            "income_tax_return_filed": true,
+            "income_tax_year": "2023-2024",
+            "rjsc_compliance": true,
+            "bb_compliance_if_applicable": "Not Applicable"
+          },
+          "overall_regulatory_assessment": "Compliant"
+        }
+      }
+    }
+  }
+}

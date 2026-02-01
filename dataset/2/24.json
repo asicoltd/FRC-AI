@@ -1,0 +1,49 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "24",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "consolidated_material_departures": [
+          {
+            "departure_id": "DEPT-001",
+            "ifrs_standard": "IAS 1 - Presentation of Financial Statements",
+            "nature_of_departure": "Untraceable IPO funds reflected in cash against other liabilities",
+            "page_reference": "Page 1, Emphasis Matter 4",
+            "extract_from_fs": "An amount of $1674.83 (equivalent to TK. 197,630) was received in FC Account for IPO that remain untraceable",
+            "financial_impact_estimate": "Tk. 197,630",
+            "materiality_assessment": "Immaterial quantitatively but material qualitatively",
+            "ias_1_para_19_24_implication": "Affects faithful representation",
+            "corrective_action_required": "Trace funds or write off with proper disclosure",
+            "regulatory_reporting_required": true
+          },
+          {
+            "departure_id": "DEPT-002",
+            "ifrs_standard": "Internal Control Framework",
+            "nature_of_departure": "Payments made outside banking channels",
+            "page_reference": "Page 1, Emphasis Matter 5",
+            "extract_from_fs": "Some items of purchase and payments were made other than banking channel",
+            "financial_impact_estimate": "Not quantified",
+            "materiality_assessment": "Material - control weakness",
+            "ias_1_para_19_24_implication": "Raises questions about internal controls",
+            "corrective_action_required": "Implement proper payment controls",
+            "regulatory_reporting_required": true
+          }
+        ],
+        "non_compliance_with_laws_regulations": [
+          {
+            "compliance_id": "COMP-001",
+            "law_regulation": "BSEC Rules",
+            "section_violated": "IPO Fund Utilization Rules",
+            "nature_of_breach": "IPO Fund not utilized within stipulated time",
+            "evidence_location": "Page 1, Emphasis Matter 2",
+            "severity_assessment": "Medium",
+            "potential_penalties": "Fines, restrictions on future fundraising",
+            "remediation_required": "Utilize funds as per prospectus or obtain proper extensions"
+          }
+        ]
+      }
+    }
+  }
+}

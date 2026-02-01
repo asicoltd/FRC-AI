@@ -1,0 +1,37 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "6",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": "To be calculated with current assets/liabilities",
+          "debt_to_equity": "Low (approx. 0.02:1 based on LT Loan 14.1M vs Equity 1,757.8M)",
+          "gross_profit_margin": "16.25% (Gross Profit 30.5M / Revenue 187.7M)",
+          "net_profit_margin": "1.51% (NPAT 2.83M / Revenue 187.7M)",
+          "roa": "0.16% (NPAT 2.83M / Total Assets approx. 1,772M)",
+          "roe": "0.16% (NPAT 2.83M / Equity 1,757.8M)",
+          "interest_coverage": "To be calculated"
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": "To be calculated",
+          "cash_flow_to_earnings": "14.3x (CFO 40.5M / NPAT 2.83M) - Very high suggests quality issues",
+          "revenue_growth_quality": "Negative - Revenue decreased 43.7%",
+          "expense_recognition_pattern": "Cost of sales decreased less than revenue (42.5% vs 43.7%)"
+        },
+        "vertical_and_horizontal_analysis": {
+          "vertical_2023": {
+            "assets_composition": "PPE 56.6%, Inventory 20.8%, Receivables 12.4%",
+            "liabilities_composition": "Equity 99.2%, Debt 0.8%"
+          },
+          "horizontal_growth": {
+            "revenue_growth": "-43.7%",
+            "asset_growth": "Slight decrease",
+            "debt_growth": "Minimal"
+          }
+        }
+      }
+    }
+  }
+}

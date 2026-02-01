@@ -1,0 +1,22 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "2",
+  "frc_analysis_report": {
+    "entity": {
+      "entity_id": "C-66036",
+      "entity_profile": {
+        "legal_name": "Dominage Steel Building Systems Limited",
+        "trade_name": "DSBSL",
+        "registration_number": "C-66036 (3527)/07",
+        "industry_sector": "Construction & Steel Building Systems",
+        "frc_sector": "Engineering",
+        "listing_status": "Listed to BSEC",
+        "stock_exchange_symbol": "",
+        "reporting_currency": "BDT",
+        "financial_year_end": "2024-06-30",
+        "report_publication_date": "2024-10-28"
+      }
+    }
+  }
+}
