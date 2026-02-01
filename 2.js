@@ -3154,7 +3154,7 @@ function showLoading(message = 'Loading...') {
                 progressBar.style.width = `${progress}%`;
             }
         }
-    }, 200);
+    }, 5);
 
     // Store interval ID to clear later
     overlay.dataset.intervalId = progressInterval;
