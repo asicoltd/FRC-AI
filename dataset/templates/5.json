@@ -10,7 +10,9 @@
           "notes_reference": "",
           "actual_standards_applied": [],
           "discrepancies_identified": [],
-          "compliance_assessment": ""
+          "compliance_assessment": "",
+          "reason_of_the_status": "Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+          "status_reference": "Where can user directly cross check to validate your comment"
         },
         "regulatory_landscape": {
           "applicable_regulators": [
@@ -18,7 +20,11 @@
               "regulator_name": "FRC / BSEC / Bangladesh Bank / RJSC / NBR",
               "jurisdiction": "Bangladesh",
               "compliance_status": "",
-              "specific_disclosures_found": []
+              "reason_for_non_compliance": "",
+              "notes_reference": "",
+              "specific_disclosures_found": [],
+              "reason_of_the_status": "Why do you think this is Compliant/Partially Compliant/Non-Compliant",
+              "status_reference": "Where can user directly cross check to validate your comment"
             }
           ],
           "statutory_filings_status": {
