@@ -1,4 +1,4 @@
-// Section management
+// Section management - UPDATED
 class SectionManager {
     static loadSection(section) {
         appState.currentSection = section;
@@ -12,140 +12,51 @@ class SectionManager {
                 Dashboard.load();
                 break;
             case 'entity':
-                // Load entity profile (to be implemented)
-                this.loadEntityProfile();
+                EntityProfile.load();
                 break;
             case 'financial-statements':
-                // Load financial statements (to be implemented)
-                this.loadFinancialStatements();
+                FinancialStatements.load();
                 break;
             case 'financial-analysis':
-                // Load financial analysis (to be implemented)
-                this.loadFinancialAnalysis();
+                FinancialAnalysis.load();
                 break;
             case 'compliance':
-                // Load compliance (to be implemented)
-                this.loadCompliance();
+                Compliance.load();
                 break;
             case 'audit-governance':
-                // Load audit governance (to be implemented)
-                this.loadAuditGovernance();
+                AuditGovernance.load();
                 break;
             case 'material-departures':
-                // Load material departures (to be implemented)
-                this.loadMaterialDepartures();
+                MaterialDepartures.load();
                 break;
             case 'risk-assessment':
-                // Load risk assessment (to be implemented)
-                this.loadRiskAssessment();
+                RiskAssessment.load();
                 break;
             case 'skepticism':
-                // Load skepticism (to be implemented)
-                this.loadSkepticism();
+                Skepticism.load();
                 break;
             case 'data-import':
-                // Load data import (to be implemented)
-                this.loadDataImport();
+                DataImport.load();
                 break;
             case 'report-generator':
-                // Load report generator (to be implemented)
-                this.loadReportGenerator();
+                ReportGenerator.load();
                 break;
             default:
                 Dashboard.load();
         }
     }
-
-    // Placeholder methods for other sections
-    static loadEntityProfile() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Entity Profile - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadFinancialStatements() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Financial Statements - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadFinancialAnalysis() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Financial Analysis - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadCompliance() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>IFRS Compliance - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadAuditGovernance() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Audit & Governance - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadMaterialDepartures() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Material Departures - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadRiskAssessment() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Risk Assessment - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadSkepticism() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Professional Skepticism - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadDataImport() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Data Import - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
-
-    static loadReportGenerator() {
-        UIComponents.getMainContent().innerHTML = `
-            <div class="container-fluid">
-                <h2>Report Generator - Coming Soon</h2>
-                <p>This section is under development.</p>
-            </div>
-        `;
-    }
 }
+
+// Handle sidebar clicks
+document.addEventListener('click', function(e) {
+    const sidebarItem = e.target.closest('.sidebar-item');
+    if (sidebarItem) {
+        const onclick = sidebarItem.getAttribute('onclick');
+        const match = onclick?.match(/'([^']+)'/);
+        if (match && match[1]) {
+            SectionManager.loadSection(match[1]);
+        }
+    }
+});
 
 window.SectionManager = SectionManager;
