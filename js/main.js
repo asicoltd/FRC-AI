@@ -100,3 +100,6 @@ function testAllUrls() {
         `, 'info', 10000);
     });
 }
+
+window.showDebugInfo = showDebugInfo;
+window.testAllUrls = testAllUrls;

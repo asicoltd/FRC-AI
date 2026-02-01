@@ -23,7 +23,7 @@ const CONFIG = {
 };
 
 // Global state
-let appState = {
+window.appState = {
     currentCompanyId: CONFIG.DEFAULT_COMPANY_ID,
     allJSONData: {},
     availableCompanies: [],

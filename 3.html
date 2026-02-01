@@ -1,35 +1,71 @@
-// test.html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC AI</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://asicoltd.github.io/FRC-AI/2.css">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <button onclick="testNotifications()">Test Notifications</button>
-    <button onclick="testLoading()">Test Loading</button>
-    <button onclick="testHelpers()">Test Helpers</button>
-    
+    <!-- Sidebar -->
+    <div class="sidebar col-lg-2 d-none d-lg-block">
+        <div class="sidebar-item active" onclick="SectionManager.loadSection('dashboard')">
+            <i class="fas fa-tachometer-alt me-2"></i> Executive Dashboard
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('entity')">
+            <i class="fas fa-building me-2"></i> Entity Context & Framework
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('financial-statements')">
+            <i class="fas fa-file-invoice-dollar me-2"></i> Financial Statements
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('financial-analysis')">
+            <i class="fas fa-chart-line me-2"></i> Financial Ratio & Trend Analysis
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('compliance')">
+            <i class="fas fa-clipboard-check me-2"></i> IFRS Compliance Review
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('audit-governance')">
+            <i class="fas fa-user-tie me-2"></i> Audit & Governance
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('material-departures')">
+            <i class="fas fa-exclamation-triangle me-2"></i> Material Departures
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('risk-assessment')">
+            <i class="fas fa-radiation me-2"></i> Integrated Risk Assessment
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('skepticism')">
+            <i class="fas fa-search me-2"></i> Professional Skepticism
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('data-import')">
+            <i class="fas fa-file-upload me-2"></i> Data Import & Management
+        </div>
+        <div class="sidebar-item" onclick="SectionManager.loadSection('report-generator')">
+            <i class="fas fa-file-pdf me-2"></i> Report Generator
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+
+    <!-- JavaScript Files -->
     <script src="js/config.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/utils/notifications.js"></script>
-    
-    <script>
-    function testNotifications() {
-        Notifications.show('Test success', 'success');
-        Notifications.show('Test error', 'error');
-        Notifications.show('Test warning', 'warning');
-        Notifications.show('Test info', 'info');
-    }
-    
-    function testLoading() {
-        Loading.show('Testing loading...');
-        setTimeout(() => Loading.hide(), 2000);
-    }
-    
-    function testHelpers() {
-        console.log('Format number:', Helpers.formatNumber(1234567));
-        console.log('Generate ID:', Helpers.generateId());
-    }
-    </script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/ui-components.js"></script>
+    <script src="js/sections/dashboard.js"></script>
+    <script src="js/section-manager.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

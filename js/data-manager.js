@@ -160,4 +160,4 @@ class DataManager {
 }
 
 // Initialize DataManager
-const dataManager = new DataManager();
+window.dataManager = new DataManager();

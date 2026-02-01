@@ -39,7 +39,7 @@ class UIComponents {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#" onclick="addNewCompanyDialog()">
+                            <a class="dropdown-item" href="#" onclick="Dashboard.addNewCompanyDialog()">
                                 <i class="fas fa-plus me-2"></i>Add New Company
                             </a>
                         </li>
@@ -177,3 +177,5 @@ async function refreshCompanyList() {
     }
     Notifications.show(`Found ${appState.availableCompanies.length} companies`, 'info');
 }
+
+window.UIComponents = UIComponents;

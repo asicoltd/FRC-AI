@@ -209,3 +209,5 @@ class Dashboard {
         modal.show();
     }
 }
+
+window.Dashboard = Dashboard;
