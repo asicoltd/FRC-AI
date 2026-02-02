@@ -8,27 +8,84 @@
         "consolidated_material_departures": [
           {
             "departure_id": "DEPT-001",
-            "ifrs_standard": "",
-            "nature_of_departure": "",
-            "page_reference": "",
-            "extract_from_fs": "",
-            "financial_impact_estimate": "",
-            "materiality_assessment": "Material/Immaterial",
-            "ias_1_para_19_24_implication": "",
-            "corrective_action_required": "",
-            "regulatory_reporting_required": true
+            "ifrs_standard": "IFRS 15 - Revenue from Contracts with Customers",
+            "nature_of_departure": "Failure to faithfully represent the transfer of control. Revenue recognized at shipment for complex, custom equipment where customer acceptance is a substantive post-shipment milestone.",
+            "page_reference": "55-56, 48",
+            "extract_from_fs": "Accounting Policy: 'Revenue from sale of goods is recognized at a point in time when control of the asset is transferred to the customer, which is generally upon shipment.'",
+            "financial_impact_estimate": "If revenue for affected contracts (estimated at 20% of total) were deferred to acceptance, current year revenue could be overstated by up to BDT 2,500 million, with a corresponding impact on profit.",
+            "materiality_assessment": "Material",
+            "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) as the financial statements do not faithfully represent the economic reality of the revenue transactions.",
+            "corrective_action_required": "Re-assess all contracts to determine the point of control transfer. Adjust revenue recognition policy and apply retrospectively, restating prior periods if necessary.",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "BSEC, Financial Reporting Council (FRC) of Bangladesh"
+          },
+          {
+            "departure_id": "DEPT-002",
+            "ifrs_standard": "IFRS 16 - Leases",
+            "nature_of_departure": "Failure to provide required disclosures, impairing users' ability to understand the measurement of material lease assets and liabilities.",
+            "page_reference": "69-73",
+            "extract_from_fs": "Note 9 - Leases: 'Right-of-use assets and lease liabilities are recognized... discount rate used is the entity's incremental borrowing rate.' (No rate, term, or sensitivity disclosed).",
+            "financial_impact_estimate": "Non-disclosure prevents impact quantification. Omission of discount rate and lease term judgments conceals the sensitivity of the BDT 1,250 million liability to management assumptions.",
+            "materiality_assessment": "Material",
+            "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) due to omission of information necessary for a clear understanding. Breach of Para 112-125 (specific disclosure requirements).",
+            "corrective_action_required": "Amend the leases note to include: weighted average discount rate, weighted average lease term, maturity analysis, and a description of significant judgments.",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "Financial Reporting Council (FRC) of Bangladesh"
+          },
+          {
+            "departure_id": "DEPT-003",
+            "ifrs_standard": "IAS 24 - Related Party Disclosures",
+            "nature_of_departure": "Inadequate disclosure of terms, conditions, and arm's length nature of material related party transactions.",
+            "page_reference": "95-97",
+            "extract_from_fs": "Note 28: 'Transactions were carried out on normal commercial terms and conditions.'",
+            "financial_impact_estimate": "Non-disclosure prevents assessment of potential profit shifting or fund diversion. Transactions aggregate BDT 1,170 million.",
+            "materiality_assessment": "Material",
+            "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) as the disclosures are insufficient to enable users to understand the potential effect on the financial statements.",
+            "corrective_action_required": "Provide detailed disclosure per IAS 24.18: amounts, terms, conditions, nature of relationships, and justification for 'arm's length' assertion with supporting evidence.",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "BSEC, Financial Reporting Council (FRC) of Bangladesh"
           }
         ],
         "non_compliance_with_laws_regulations": [
           {
             "compliance_id": "COMP-001",
             "law_regulation": "Companies Act 1994",
-            "section_violated": "",
-            "nature_of_breach": "",
-            "evidence_location": "",
-            "severity_assessment": "High/Medium/Low",
-            "potential_penalties": "",
-            "remediation_required": ""
+            "section_violated": "Section 184",
+            "nature_of_breach": "Directors' failure to exercise reasonable care, skill, and diligence in approving financial statements with material departures from IFRS and inadequate disclosures.",
+            "evidence_location": "Directors' Responsibility Statement (pg 119), coupled with material departures DEPT-001, DEPT-002, DEPT-003.",
+            "severity_assessment": "High",
+            "potential_penalties": "Civil liability for breach of duty. Potential disqualification from acting as a director. Fines.",
+            "remediation_required": "Board must undertake comprehensive training on directors' duties and IFRS. Implement a rigorous pre-approval review process for financial statements with external expert consultation."
+          },
+          {
+            "compliance_id": "COMP-002",
+            "law_regulation": "BSEC Corporate Governance Code, 2018",
+            "section_violated": "Regulation 8.3 & 8.7",
+            "nature_of_breach": "Board composition fails to meet minimum one-third independent director requirement. CEO and Chairman roles are combined.",
+            "evidence_location": "Corporate Governance Report, Board Composition (pg 28).",
+            "severity_assessment": "High",
+            "potential_penalties": "BSEC directive to comply, fines, public reprimand, suspension of trading.",
+            "remediation_required": "Appoint additional independent director(s) immediately to achieve compliance. Separate the roles of CEO and Chairman and appoint an independent Non-Executive Chairman."
+          },
+          {
+            "compliance_id": "COMP-003",
+            "law_regulation": "BSEC Corporate Governance Code, 2018",
+            "section_violated": "Regulation 16.2",
+            "nature_of_breach": "Audit Committee Chair is not an independent director.",
+            "evidence_location": "Corporate Governance Report, Audit Committee Composition (pg 29).",
+            "severity_assessment": "Medium",
+            "potential_penalties": "BSEC directive to reconstitute committee, fines.",
+            "remediation_required": "Reconstitute the Audit Committee, ensuring the Chair is an independent director as per the Code."
+          },
+          {
+            "compliance_id": "COMP-004",
+            "law_regulation": "Financial Reporting Act, 2015",
+            "section_violated": "Section 9",
+            "nature_of_breach": "Failure to prepare financial statements that give a true and fair view, due to material departures from IFRS.",
+            "evidence_location": "Consolidated Material Departures (DEPT-001, DEPT-002, DEPT-003) in this report.",
+            "severity_assessment": "High",
+            "potential_penalties": "FRC investigation, directive for restatement, monetary penalties on the entity and directors.",
+            "remediation_required": "Prepare and issue restated financial statements that correct the material departures identified, in consultation with the FRC."
           }
         ]
       }

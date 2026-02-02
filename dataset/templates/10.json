@@ -7,114 +7,159 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ifrs_13_fair_value_measurement": {
-            "fair_value_hierarchy_applied": "",
-            "valuation_techniques": ["Market approach", "Income approach", "Cost approach"],
-            "unobservable_inputs_disclosed": "",
-            "highest_best_use": "",
-            "non_financial_assets_valuation": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "fair_value_hierarchy_applied": "Consistently applied to all FV measurements/Inconsistently applied",
+            "valuation_techniques": ["Market approach", "Income approach", "Cost approach", "Techniques not disclosed"],
+            "unobservable_inputs_disclosed": "Adequately disclosed for Level 3 measurements/Insufficient disclosure",
+            "highest_best_use": "Considered for non-financial assets/Not considered or disclosed",
+            "non_financial_assets_valuation": "FV determined appropriately/Questionable valuation",
+            "disclosures_complete": "Adequate per IFRS 13/Incomplete",
+            "reason_of_the_status": "Assessment of hierarchy application, disclosure of valuation techniques/significant inputs, and specific disclosures for Level 3 fair values.",
+            "status_reference": "Fair value measurement note, accounting policies for fair value, financial instruments note"
           },
           "ifrs_14_regulatory_deferral_accounts": {
-            "regulatory_deferral_accounts_applicable": "",
-            "recognition_criteria": "",
-            "measurement_basis": "",
-            "presentation": "",
-            "disclosures_provided": ""
+            "applicable": false,
+            "regulatory_deferral_accounts_applicable": "N/A - Entity not a first-time adopter electing this exemption",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "presentation": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Standard is an optional exemption for first-time adopters in rate-regulated activities. Not applicable to most entities.",
+            "status_reference": "Basis of preparation note, regulatory assets/liabilities note (if any)"
           },
           "ifrs_15_revenue_from_contracts_with_customers": {
-            "five_step_model_applied": "",
-            "contract_identification": "",
-            "performance_obligations": "",
-            "transaction_price_determination": "",
-            "allocation_to_obligations": "",
-            "revenue_recognition_timing": "",
-            "contract_assets_liabilities": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "five_step_model_applied": "Clearly demonstrable in disclosures/Application unclear",
+            "contract_identification": "Contracts with customers identified/Identification issues",
+            "performance_obligations": "Distinct POBs identified/Bundling may be inappropriate",
+            "transaction_price_determination": "Includes variable consideration, constraints considered/Determination questionable",
+            "allocation_to_obligations": "Based on stand-alone selling prices/Allocation method not disclosed",
+            "revenue_recognition_timing": "Over time or at a point in time, appropriately determined/Timing may be aggressive",
+            "contract_assets_liabilities": "Properly presented/Classification issues",
+            "disclosures_complete": "Adequate (disaggregation, contract balances, performance obligations)/Incomplete",
+            "reason_of_the_status": "Assessment of the rigorous application of the 5-step model, correct identification of performance obligations, and completeness of disclosures.",
+            "status_reference": "Revenue recognition note, accounting policies for revenue, contract assets/liabilities note"
           },
           "ifrs_16_leases": {
+            "applicable": true,
             "lessee_accounting": {
-              "right_of_use_assets": "",
-              "lease_liabilities": "",
-              "discount_rate_assumptions": "",
-              "lease_term_assessment": "",
-              "variable_lease_payments": "",
-              "short_term_leases_exemption": ""
+              "right_of_use_assets": "Recognized for all applicable leases/Leases potentially off-balance sheet",
+              "lease_liabilities": "Recognized at present value/Discount rate questionable",
+              "discount_rate_assumptions": "Lessee's incremental borrowing rate used/Rate not disclosed or inappropriate",
+              "lease_term_assessment": "Includes optional periods where reasonably certain/Assessment may be under/overstated",
+              "variable_lease_payments": "Excluded from lease liability unless based on index/rate/Incorrectly included",
+              "short_term_leases_exemption": "Applied/Not applied where applicable"
             },
             "lessor_accounting": {
-              "operating_leases": "",
-              "finance_leases": "",
-              "manufacturer_dealer_leases": "",
-              "subleases": ""
+              "operating_leases": "Lease income recognized straight-line/Not applicable",
+              "finance_leases": "Net investment recognized/Not applicable",
+              "manufacturer_dealer_leases": "Profit/loss recognized at commencement/Not applicable",
+              "subleases": "Accounted for appropriately/Not applicable"
             },
-            "sale_and_leaseback": "",
-            "disclosures_complete": ""
+            "sale_and_leaseback": "Properly assessed for sale/lease treatment/Not applicable",
+            "disclosures_complete": "Adequate (maturity analysis, expenses, ROU assets)/Incomplete",
+            "reason_of_the_status": "Assessment of correct identification of leases, appropriate lessee accounting (ROU assets & liabilities), and adequacy of disclosures.",
+            "status_reference": "Leases note, accounting policies for leases, commitment notes"
           },
           "ifrs_17_insurance_contracts": {
-            "insurance_contracts_identified": "",
-            "measurement_models": ["General model", "Premium allocation approach", "Variable fee approach"],
-            "contractual_service_margin": "",
-            "risk_adjustment": "",
-            "disclosures_complete": ""
+            "applicable": false,
+            "insurance_contracts_identified": "N/A - Entity is not an insurer",
+            "measurement_models": ["N/A"],
+            "contractual_service_margin": "N/A",
+            "risk_adjustment": "N/A",
+            "disclosures_complete": "N/A",
+            "reason_of_the_status": "Standard applicable only to entities that issue insurance contracts. Not applicable to non-insurance entities.",
+            "status_reference": "Basis of preparation, nature of operations description"
           },
           "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
-            "decommissioning_provisions": "",
-            "changes_accounting": "",
-            "asset_retirement_obligations": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "decommissioning_provisions": "Recognized per IAS 37/Not recognized",
+            "changes_accounting": "Changes in estimate adjusted against related asset/Accounted for in P&L",
+            "asset_retirement_obligations": "Capitalized as part of PPE cost/Expensed",
+            "disclosures_provided": "Adequate (nature, amount, timing)/Inadequate",
+            "reason_of_the_status": "Assessment of correct treatment for changes in the decommissioning liability estimate (adjusting the related asset's carrying amount).",
+            "status_reference": "Provisions note (decommissioning), PPE note, accounting policies for provisions"
           },
           "ifric_2_members_shares_in_cooperative_entities": {
-            "cooperative_entities_applicable": "",
-            "members_shares_classification": "",
-            "dividend_distribution": "",
-            "disclosures_provided": ""
+            "applicable": false,
+            "cooperative_entities_applicable": "N/A - Entity is not a cooperative",
+            "members_shares_classification": "N/A",
+            "dividend_distribution": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Interpretation specific to cooperative entities and their members' shares.",
+            "status_reference": "N/A"
           },
           "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
-            "decommissioning_funds": "",
-            "rights_measurement": "",
-            "contributions_accounting": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "decommissioning_funds": "Entity participates in a fund/No fund participation",
+            "rights_measurement": "Recognized as an asset and measured appropriately/Not recognized",
+            "contributions_accounting": "Contributions to fund accounted for per IFRIC 5/Expensed",
+            "disclosures_provided": "Adequate (nature of fund, rights)/Inadequate or N/A",
+            "reason_of_the_status": "Assessment of accounting for rights to receive reimbursements from decommissioning funds (recognized as separate asset).",
+            "status_reference": "Provisions note (reference to fund), other assets note"
           },
           "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
-            "waste_electrical_equipment": "",
-            "environmental_liabilities": "",
-            "compliance_obligations": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "waste_electrical_equipment": "Obligation exists and is provided for/Not applicable",
+            "environmental_liabilities": "Recognized for compliance obligations/Not recognized",
+            "compliance_obligations": "Liability recognized when obligated/Recognized at point of sale",
+            "disclosures_provided": "Adequate/Inadequate or N/A",
+            "reason_of_the_status": "Assessment of timing for recognizing liabilities for waste management (e.g., WEEE, batteries) – recognition point is when obligation arises.",
+            "status_reference": "Provisions note (environmental), commitments note"
           },
           "ifric_7_applying_the_restatement_approach_under_ias_29": {
-            "hyperinflation_restatement": "",
-            "comparatives_adjusted": "",
-            "gain_loss_calculation": "",
-            "disclosures_provided": ""
+            "applicable": false,
+            "hyperinflation_restatement": "N/A - Entity does not operate in a hyperinflationary economy",
+            "comparatives_adjusted": "N/A",
+            "gain_loss_calculation": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Interpretation on applying IAS 29. Only applicable if the entity reports in a hyperinflationary currency.",
+            "status_reference": "Basis of preparation, foreign operations note"
           },
           "ifric_10_interim_financial_reporting_and_impairment": {
-            "interim_impairment_testing": "",
-            "reversal_of_impairment": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "interim_impairment_testing": "Impairment recognized at interim date if indicators exist/Not tested",
+            "reversal_of_impairment": "Reversal only if criteria met in subsequent interim period/Reversed arbitrarily",
+            "disclosures_provided": "Adequate/Inadequate",
+            "reason_of_the_status": "Assessment of impairment recognition and reversal rules specific to interim reporting.",
+            "status_reference": "Interim financial report notes, impairment note in interim statements"
           },
           "ifric_12_service_concession_arrangements": {
-            "service_concession_arrangements": "",
-            "operator_accounting": "",
-            "grantor_accounting": "",
-            "intangible_assets_recognition": "",
-            "financial_asset_recognition": ""
+            "applicable": true,
+            "service_concession_arrangements": "Entity is an operator/grantor in such arrangements/Not applicable",
+            "operator_accounting": "Recognizes financial asset or intangible asset/Accounting unclear",
+            "grantor_accounting": "N/A (grantor accounting not within IFRS scope)/N/A",
+            "intangible_asset_recognition": "If model applies, asset recognized/Not recognized",
+            "financial_asset_recognition": "If model applies, asset recognized/Not recognized",
+            "reason_of_the_status": "Assessment of operator accounting for service concessions (e.g., PPPs) – recognition of a financial asset or an intangible asset.",
+            "status_reference": "Intangible assets note, receivables note, revenue recognition note"
           },
           "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
-            "defined_benefit_asset_limit": "",
-            "minimum_funding_requirements": "",
-            "available_refunds": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "defined_benefit_asset_limit": "Considered in measuring defined benefit asset/Not considered",
+            "minimum_funding_requirements": "Impact on asset recognition assessed/Not assessed",
+            "available_refunds": "Considered if any/Not applicable",
+            "disclosures_provided": "Adequate/Inadequate or N/A",
+            "reason_of_the_status": "Assessment of the interaction between minimum funding requirements and the limit on recognizing a defined benefit asset.",
+            "status_reference": "Employee benefits (defined benefit) note, pension fund agreements"
           },
           "ifric_16_hedges_of_net_investment_in_foreign_operation": {
-            "net_investment_hedging": "",
-            "effectiveness_assessment": "",
-            "exchange_differences_treatment": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "net_investment_hedging": "Hedge accounting applied to net investment/Not applied",
+            "effectiveness_assessment": "Documented and effective/Not documented",
+            "exchange_differences_treatment": "Recognized in OCI/Recognized in P&L",
+            "disclosures_provided": "Adequate/Inadequate or N/A",
+            "reason_of_the_status": "Assessment of hedge accounting for net investments in foreign operations, including effectiveness testing and OCI treatment.",
+            "status_reference": "Hedge accounting note, foreign currency note, other comprehensive income statement"
           },
           "ifric_17_distributions_of_non_cash_assets_to_owners": {
-            "non_cash_distributions": "",
-            "fair_value_measurement": "",
-            "dividend_payable_recognition": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "non_cash_distributions": "Dividend declared payable in non-cash assets/No such distributions",
+            "fair_value_measurement": "Liability measured at FV of assets to be distributed/N/A",
+            "dividend_payable_recognition": "Recognized when appropriately authorized/N/A",
+            "disclosures_provided": "Adequate/Inadequate or N/A",
+            "reason_of_the_status": "Assessment of accounting for dividends declared to be settled in non-cash assets (measured at fair value of assets to be distributed).",
+            "status_reference": "Dividends note, equity note, related party transactions (if applicable)"
           }
         }
       }

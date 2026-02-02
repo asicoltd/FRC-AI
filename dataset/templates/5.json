@@ -6,36 +6,76 @@
     "entity": {
       "phase_1_foundational_checks": {
         "reporting_framework": {
-          "disclosed_framework": "",
-          "notes_reference": "",
-          "actual_standards_applied": [],
-          "discrepancies_identified": [],
-          "compliance_assessment": "",
-          "reason_of_the_status": "Why do you think this is Compliant/Partially Compliant/Non-Compliant",
-          "status_reference": "Where can user directly cross check to validate your comment"
+          "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+          "notes_reference": "Note 1: Basis of Preparation, page 45",
+          "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 12", "IFRS 9", "IFRS 15", "IFRS 16"],
+          "discrepancies_identified": ["Asserted compliance with IFRS, but material departures identified in IFRS 15 (revenue), IFRS 16 (disclosures), and IAS 24 (disclosures)."],
+          "compliance_assessment": "Partially Compliant",
+          "reason_of_the_status": "The entity explicitly states compliance with IFRS. However, detailed analysis reveals material departures in the application and disclosure requirements of specific standards, meaning the financial statements do not fully comply with the stated framework.",
+          "status_reference": "Basis of Preparation (pg 45) for claim. Detailed IFRS compliance checks in Sections 7-11 for discrepancies."
         },
         "regulatory_landscape": {
           "applicable_regulators": [
             {
-              "regulator_name": "FRC / BSEC / Bangladesh Bank / RJSC / NBR",
+              "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
               "jurisdiction": "Bangladesh",
-              "compliance_status": "",
-              "reason_for_non_compliance": "",
-              "notes_reference": "",
+              "compliance_status": "Partially Compliant",
+              "reason_for_non_compliance": "Non-compliance with BSEC Corporate Governance Code 2018: insufficient independent directors (Reg. 8.3), combined CEO/Chair roles (Reg. 8.7), non-independent audit committee chair (Reg. 16.2), and absence of a Risk Management Committee (Reg. 18).",
+              "notes_reference": "Corporate Governance Report, pages 26-31",
+              "specific_disclosures_found": ["Corporate Governance Compliance Statement"],
+              "reason_of_the_status": "The entity discloses its governance structure, which upon verification fails to meet several specific requirements of the BSEC Code for listed companies.",
+              "status_reference": "Corporate Governance Report (pg 26-31) and cross-reference to BSEC Code requirements."
+            },
+            {
+              "regulator_name": "Financial Reporting Council (FRC) Bangladesh",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Partially Compliant",
+              "reason_for_non_compliance": "Potential breach of Financial Reporting Act 2015, Section 9, as the financial statements may not give a 'true and fair view' due to material departures from IFRS.",
+              "notes_reference": "Auditor's Report (pg 120-125) asserts fair presentation, which is challenged by FRC analysis.",
+              "specific_disclosures_found": ["Auditor's opinion on true and fair view."],
+              "reason_of_the_status": "While the auditor provides an unmodified opinion, the FRC's independent analysis identifies material issues that undermine the true and fair view, indicating potential non-compliance with the FRA 2015.",
+              "status_reference": "Auditor's Report (pg 120) and consolidated findings in Section 24 of this report."
+            },
+            {
+              "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant (as per disclosure)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Directors' Report, page 118",
+              "specific_disclosures_found": ["Statement that all statutory requirements have been complied with."],
+              "reason_of_the_status": "The Directors' Report includes a boilerplate statement of compliance with the Companies Act. No specific RJSC-related issues are identified in the financial statements.",
+              "status_reference": "Directors' Report (pg 118)"
+            },
+            {
+              "regulator_name": "National Board of Revenue (NBR)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant (as per financial statement disclosures)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Note 12: Income Taxes, pages 78-82",
+              "specific_disclosures_found": ["Current and deferred tax calculations, tax expense reconciliation."],
+              "reason_of_the_status": "The income tax note appears comprehensive and calculated in accordance with the Bangladesh Income Tax Act 2023. No obvious discrepancies are noted from the face of the financial statements.",
+              "status_reference": "Note 12 - Income Taxes (pg 78-82)"
+            },
+            {
+              "regulator_name": "Bangladesh Bank",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Not Applicable",
+              "reason_for_non_compliance": "N/A - The entity is a manufacturing/trading company, not a financial institution.",
+              "notes_reference": "N/A",
               "specific_disclosures_found": [],
-              "reason_of_the_status": "Why do you think this is Compliant/Partially Compliant/Non-Compliant",
-              "status_reference": "Where can user directly cross check to validate your comment"
+              "reason_of_the_status": "Bangladesh Bank regulations primarily apply to financial institutions.",
+              "status_reference": "N/A"
             }
           ],
           "statutory_filings_status": {
             "bsec_filed": true,
-            "bsec_filing_date": "",
+            "bsec_filing_date": "March 30, 2025 (as per report authorization date)",
             "income_tax_return_filed": true,
-            "income_tax_year": "",
+            "income_tax_year": "Assessment Year 2024-2025",
             "rjsc_compliance": true,
-            "bb_compliance_if_applicable": ""
+            "bb_compliance_if_applicable": "N/A"
           },
-          "overall_regulatory_assessment": ""
+          "overall_regulatory_assessment": "Partially Compliant with Significant Deficiencies. While the entity meets basic filing requirements, there are material deficiencies in compliance with the substantive rules of key regulators (BSEC Corporate Governance Code and the underlying principles of the FRA 2015)."
         }
       }
     }

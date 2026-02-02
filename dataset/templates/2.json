@@ -6,16 +6,18 @@
     "entity": {
       "entity_id": "C-XXXXXX",
       "entity_profile": {
-        "legal_name": "",
-        "trade_name": "",
-        "registration_number": "",
-        "industry_sector": "",
-        "frc_sector":"Bank / Cement / Ceramics Sector / Debenture / Engineering / Financial Institutions / Food & Allied / Fuel & Power / Insurance / IT Sector / Jute / Miscellaneous / Mutual Funds / Paper & Printing / Pharmaceuticals & Chemicals / Services & Real Estate / Tannery Industries / Telecommunication / Textile / Travel & Leisure",
-        "listing_status": "Listed/Unlisted to BSEC",
-        "stock_exchange_symbol": "",
+        "legal_name": "ACME Manufacturing Company Limited",
+        "trade_name": "ACME Ltd.",
+        "registration_number": "C-123456",
+        "industry_sector": "Manufacturing",
+        "frc_sector": "Engineering",
+        "listing_status": "Listed to BSEC",
+        "stock_exchange_symbol": "ACME",
         "reporting_currency": "BDT",
-        "financial_year_end": "YYYY-12-31",
-        "report_publication_date": "YYYY-MM-DD"
+        "financial_year_end": "2024-12-31",
+        "report_publication_date": "2025-03-30",
+        "reason_of_the_status": "This profile is constructed based on consistent references throughout the analysis: the entity is described as involved in manufacturing/sales of complex custom-built equipment (engineering sector), is listed (subject to BSEC rules), reports in BDT, and had its financial statements authorized on March 28, 2025 (implying publication around that date).",
+        "status_reference": "Basis of Preparation note (pg 45) for year-end, Directors' Report (pg 118) for authorization date, and contextual references to 'listed entity' and 'BSEC rules' throughout Sections 14, 15, and 22."
       }
     }
   }

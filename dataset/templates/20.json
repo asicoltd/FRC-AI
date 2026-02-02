@@ -8,45 +8,50 @@
         "standard_by_standard_verification": {
           "ias_8_compliance_check": {
             "accounting_policy_hierarchy": {
-              "hierarchy_applied": "",
-              "departures_from_ifrs": [],
-              "justification_for_departures": "",
-              "compliance_assessment": ""
+              "hierarchy_applied": "Apparent compliance. The entity states that where a specific IFRS does not apply, management uses judgment and refers to the IASB Conceptual Framework.",
+              "departures_from_ifrs": ["Potential departure from the principle of substance over form in revenue recognition (IFRS 15) and lease term assessment (IFRS 16)."],
+              "justification_for_departures": "No justification provided for the aggressive application of standards (revenue, leases). Management applies the standards but appears to apply judgments at the most aggressive end of the acceptable spectrum.",
+              "compliance_assessment": "Partially Compliant. The hierarchy is cited, but the application of judgment in key areas appears to prioritize form over substance, potentially breaching the Conceptual Framework's faithful representation principle."
             },
             "policy_changes_analysis": {
-              "changes_made": [],
-              "retrospective_application": "",
-              "impact_quantified": "",
-              "disclosure_adequacy": ""
+              "changes_made": ["Adoption of amendments to IAS 1 regarding the classification of liabilities."],
+              "retrospective_application": "Applied retrospectively as required, with no material impact on prior periods disclosed.",
+              "impact_quantified": "Impact quantified as 'not material'.",
+              "disclosure_adequacy": "Adequate. The change is disclosed in the accounting policies note with a brief description and statement of immaterial impact."
             }
           },
           "ias_24_scrutiny": {
             "related_party_identification": {
-              "parties_identified": [],
-              "control_relationships": [],
-              "potential_omissions": [],
-              "completeness_assessment": ""
+              "parties_identified": ["Parent Company", "Subsidiaries", "Key Management Personnel (KMP)", "Entities controlled by KMP (specifically, 'Delta Trading Ltd' owned by CEO's brother)"],
+              "control_relationships": "Disclosed for parent and subsidiaries. The relationship with Delta Trading Ltd is described as an entity controlled by a close family member of a KMP.",
+              "potential_omissions": ["Other entities that may be under significant influence (e.g., major suppliers/customers where KMP have board seats) are not identified."],
+              "completeness_assessment": "Likely Incomplete. The identification appears limited to strict control and immediate family. The scope may be too narrow given the dominant influence of the CEO/founder."
             },
             "transaction_analysis": {
-              "arm_length_assessment": "",
-              "material_transactions": [],
-              "unusual_terms": [],
-              "risk_assessment": ""
+              "arm_length_assessment": "Asserted but not substantiated. Transactions with Delta Trading Ltd are stated to be 'on normal commercial terms and conditions' and 'market-based' with no independent verification or benchmarking data provided.",
+              "material_transactions": ["Sales to Delta Trading Ltd: BDT 850m", "Purchases from Delta Trading Ltd: BDT 320m"],
+              "unusual_terms": ["Extended credit periods granted to Delta Trading Ltd compared to other customers (disclosed in note)."],
+              "risk_assessment": "High. The materiality of transactions, extended credit terms, and lack of proof for arm's length pricing create significant risks of earnings manipulation, fund diversion, and misleading financial statements."
             },
             "disclosure_completeness": {
-              "nature_disclosed": "",
-              "amounts_disclosed": "",
-              "balances_outstanding": "",
-              "terms_conditions": "",
-              "adequacy_assessment": ""
+              "nature_disclosed": "Yes, the type of transactions (sales, purchases) is disclosed.",
+              "amounts_disclosed": "Yes, aggregate amounts are provided.",
+              "balances_outstanding": "Yes, year-end receivable from and payable to related parties are disclosed.",
+              "terms_conditions": "Inadequate. Only generic terms are mentioned ('normal credit terms'). The specific, extended terms for Delta Trading Ltd are buried in a separate note on credit risk, not linked here.",
+              "adequacy_assessment": "Partially Adequate. Quantitative disclosures meet minimum requirements, but qualitative disclosures on terms and justification for arm's length nature are poor and fragmented, impairing understanding."
             }
           },
           "ias_10_events_check": {
-            "adjusting_events_identified": [],
-            "non_adjusting_events_disclosed": [],
-            "going_concern_updates": "",
-            "authorization_date_verification": "",
-            "compliance_assessment": ""
+            "adjusting_events_identified": [
+              "Settlement of a major litigation claim that was pending at year-end. The final settlement amount was lower than the provision, leading to an adjustment."
+            ],
+            "non_adjusting_events_disclosed": [
+              "Declaration of a final dividend after the reporting period.",
+              "Significant decline in a key raw material price after year-end, which is disclosed as having a potential negative impact on inventory valuation in the next period."
+            ],
+            "going_concern_updates": "No updates disclosed. The events note does not indicate any post-year-end events that cast significant doubt on the going concern assumption, though the dividend declaration during a cash crunch could be questioned.",
+            "authorization_date_verification": "Disclosed. The financial statements were authorized for issue by the Board of Directors on March 28, 2025.",
+            "compliance_assessment": "Compliant. The entity has appropriately identified and classified adjusting and non-adjusting events, and disclosed the authorization date."
           }
         }
       }

@@ -7,43 +7,63 @@
       "phase_4_audit_governance_verification": {
         "audit_report_analysis": {
           "auditor_information": {
-            "firm_name": "",
-            "firm_registration_number": "",
-            "audit_tenure_years": "",
-            "rotation_compliance": ""
+            "firm_name": "Hoda Vasi Chowdhury & Co.",
+            "firm_registration_number": "CA 00001",
+            "audit_tenure_years": "8",
+            "rotation_compliance": "Compliant. The audit partner is rotated every 5 years as per ICAB guidelines; the current partner is in their 3rd year."
           },
           "audit_opinion": {
-            "opinion_type": "Unmodified/Modified/Adverse/Disclaimer",
-            "basis_for_opinion": "",
+            "opinion_type": "Unmodified",
+            "basis_for_opinion": "The auditor states the financial statements give a true and fair view in accordance with IFRS and the Companies Act 1994. The basis section references ISA compliance and proper accounting policies.",
             "modified_opinion_reasons": []
           },
-          "key_audit_matters": [],
+          "key_audit_matters": [
+            {
+              "matter": "Valuation of Inventory - Net Realizable Value (NRV)",
+              "description": "Identified as a KAM due to significant inventory balances and subjectivity in estimating NRV, which is impacted by market conditions and obsolescence.",
+              "auditor_response": "Evaluated management's NRV methodology, compared cost to recent selling prices, and assessed assumptions about future demand and costs."
+            },
+            {
+              "matter": "Recognition of Revenue from Long-Term Contracts",
+              "description": "Identified as a KAM due to the significance of revenue and the judgment involved in estimating percentage of completion (cost-to-cost method).",
+              "auditor_response": "Tested the operating effectiveness of controls over revenue recognition. Re-performed management's calculation of stage of completion and tested inputs (costs incurred, total estimated costs)."
+            },
+            {
+              "matter": "Impairment Assessment of Goodwill",
+              "description": "Identified as a KAM due to the significance of goodwill and the subjectivity of key assumptions (growth rates, discount rates) in the value-in-use model.",
+              "auditor_response": "Evaluated the reasonableness of management's cash flow forecasts and key assumptions by comparing to historical performance, approved budgets, and external market data. Performed sensitivity analysis on key assumptions."
+            }
+          ],
           "going_concern_assessment": {
-            "auditor_conclusion": "",
-            "period_assessed": "",
-            "mitigating_factors": []
+            "auditor_conclusion": "No material uncertainty identified. The auditor's report includes the standard going concern statement that they have not identified any material uncertainties.",
+            "period_assessed": "At least 12 months from the date of the financial statements.",
+            "mitigating_factors": ["Renewal of bank credit facilities", "Positive cash flow projections", "Diversified customer base"]
           },
           "isa_compliance_check": {
-            "compliance": "",
-            "issues": []
-          }
+            "compliance": "Apparent compliance based on report structure and disclosures",
+            "issues": ["The auditor's report does not explicitly name the engagement partner, which is an ISA 700 requirement for listed entities."]
+          },
+          "reason_of_the_status": "The audit report appears standard and unmodified. However, the omission of the engagement partner's name, while the firm and rotation are noted, represents a minor ISA disclosure deficiency. The KAMs are appropriately focused on areas of high judgment and risk.",
+          "status_reference": "Independent Auditor's Report (pages 120-125), specifically the 'Basis for Opinion' and 'Key Audit Matters' sections."
         },
         "corporate_governance_review": {
           "board_structure": {
-            "independence": "",
-            "expertise": "",
-            "effectiveness": ""
+            "independence": "Partially Compliant. The board has 8 members: 4 executive (including CEO/CFO) and 4 non-executive. Of the non-executives, only 2 are classified as independent, falling short of the 1/3 independence requirement for listed companies as per BSEC guidelines.",
+            "expertise": "Adequate. Board members have backgrounds in finance, law, and the relevant industry. The skill matrix is disclosed.",
+            "effectiveness": "Moderate. 8 meetings were held last year with 85% average attendance. However, the dominance of executive members and lack of independent chair (CEO is Chair) may challenge objective oversight."
           },
           "committee_effectiveness": {
-            "audit_committee": "",
-            "risk_committee": "",
-            "nomination_committee": ""
+            "audit_committee": "Partially Effective. The committee is composed of all 4 non-executive directors and met 4 times. It reviewed financial statements and internal audit reports. A concern is that the committee chair is a non-executive director who is not classified as independent due to a prior business relationship.",
+            "risk_committee": "Not Established. The board has not formed a separate risk committee; risk oversight is handled by the full board and audit committee.",
+            "nomination_committee": "Not Established. No separate committee; board appointments are decided by the full board."
           },
           "internal_controls": {
-            "effectiveness": "",
-            "management_assessment": "",
-            "auditor_opinion": ""
-          }
+            "effectiveness": "Management asserts that internal controls over financial reporting were effective as of year-end.",
+            "management_assessment": "The Directors' Responsibility Statement includes a generic assertion on maintaining adequate internal controls but does not provide a detailed framework or assessment against a recognized standard (e.g., COSO).",
+            "auditor_opinion": "The auditor's report is on the financial statements only. No separate opinion on the effectiveness of internal control over financial reporting is provided, which is not mandatory."
+          },
+          "reason_of_the_status": "Governance practices show significant gaps. Key deficiencies include lack of board independence (insufficient independent directors, combined CEO/Chair role), absence of key board committees (risk, nomination), and a non-independent audit committee chair. This structure weakens objective oversight and increases reliance on management.",
+          "status_reference": "Corporate Governance Report (pages 26-31), Directors' Responsibility Statement (page 119), Composition of Board and Committees (page 28-29)."
         }
       }
     }

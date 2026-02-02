@@ -6,18 +6,69 @@
     "entity": {
       "legal_and_enforcement_mapping": {
         "financial_reporting_act_2015": {
-          "sections_triggered": [],
-          "nature_of_breach": "",
-          "severity_assessment": "High/Medium/Low"
+          "sections_triggered": [
+            {
+              "section": "Section 9",
+              "description": "Obligation to prepare financial statements that give a true and fair view.",
+              "evidence": "The omission of key measurement inputs (e.g., discount rate for leases) and insufficient disclosure of NRV methodology for inventory may impede a true and fair view.",
+              "reference": "Note 9 - Leases, Note 4 - Inventories"
+            },
+            {
+              "section": "Section 11(1)",
+              "description": "Requirement for directors to approve the financial statements, taking responsibility for their accuracy.",
+              "evidence": "Directors' responsibility statement is signed. However, the identified accounting concerns (revenue timing, lease accounting) raise questions about the rigor of their review and approval.",
+              "reference": "Directors' Responsibility Statement, page 119"
+            }
+          ],
+          "nature_of_breach": "Potential breach due to inadequate disclosures and questionable accounting judgments that may prevent the financial statements from giving a true and fair view in all material respects.",
+          "severity_assessment": "Medium",
+          "reason_of_the_status": "While the audit opinion is unmodified, specific disclosures fall short of IFRS requirements (IAS 1 fair presentation, IAS 2, IFRS 16). This creates a risk of non-compliance with the FRA 2015's core principle of a true and fair view, warranting regulatory scrutiny.",
+          "status_reference": "Financial Reporting Act 2015, Sections 9 & 11. Cross-reference to findings in Sections 7-10 and 12 of this report on specific standards."
         },
         "companies_act_1994": {
-          "sections_implicated": [],
+          "sections_implicated": [
+            {
+              "section": "Section 184",
+              "description": "Duty of directors to act with reasonable care, skill, and diligence.",
+              "evidence": "Approving financial statements with aggressive revenue recognition and insufficient lease disclosures may be seen as a failure to exercise adequate care and skill in financial oversight.",
+              "reference": "Directors' Report, Corporate Governance Report"
+            },
+            {
+              "section": "Section 191",
+              "description": "Directors' responsibility for proper books of account and financial statements.",
+              "evidence": "Directors have signed the responsibility statement. The accounting issues identified suggest potential flaws in the underlying records or judgments supporting the statements.",
+              "reference": "Directors' Responsibility Statement, page 119"
+            }
+          ],
           "director_liability_assessed": true,
-          "liability_nature": ""
+          "liability_nature": "Potential civil liability for breach of fiduciary duty (care and skill) under Sections 184 and 191. If misstatements are proven intentional or grossly negligent, it could escalate to criminal liability under Section 211 for fraudulent conduct.",
+          "reason_of_the_status": "The board's structural weaknesses (lack of independence, combined CEO/Chair role) and the approval of financial statements with material disclosure deficiencies create a prima facie case for examining whether directors fulfilled their statutory duties of care and diligence.",
+          "status_reference": "Companies Act 1994, Sections 184, 191, and 211. Cross-reference to governance findings in Section 14 and fraud risk in Section 13."
         },
         "bsec_rules_if_applicable": {
-          "rules_breached": [],
-          "market_impact": ""
+          "rules_breached": [
+            {
+              "rule": "BSEC Corporate Governance Code, 2018 - Regulation 8(3)",
+              "description": "Requires at least one-third of the board to be independent directors for listed companies.",
+              "evidence": "Only 2 out of 8 board members (25%) are independent, falling below the one-third threshold.",
+              "reference": "Corporate Governance Report, Board Composition, page 28"
+            },
+            {
+              "rule": "BSEC Corporate Governance Code, 2018 - Regulation 16(2)",
+              "description": "The Audit Committee shall be composed of at least three members, all of whom shall be non-executive directors and the majority of whom, including the Chair, shall be independent.",
+              "evidence": "The Audit Committee Chair is a non-executive director who is not classified as independent, breaching the 'independent chair' requirement.",
+              "reference": "Corporate Governance Report, Audit Committee Composition, page 29"
+            },
+            {
+              "rule": "BSEC Notification on Related Party Transactions",
+              "description": "Requires transparent disclosure and justification of related party transactions, ensuring they are conducted at arm's length.",
+              "evidence": "Transactions with a related party (CEO's family member) are disclosed but the justification ('market-based') is not substantiated with independent benchmarks, raising doubts about arm's length nature.",
+              "reference": "Note 28 - Related Party Transactions, pages 95-97"
+            }
+          ],
+          "market_impact": "The governance breaches (board independence, audit committee) undermine investor confidence in the integrity of oversight mechanisms. The aggressive revenue recognition and related party disclosure issues could mislead the market regarding the entity's true performance and financial health, potentially affecting share price.",
+          "reason_of_the_status": "As a listed entity, clear breaches of the BSEC Corporate Governance Code are evident. These, combined with accounting disclosure concerns, indicate systemic issues in governance and transparency that are of direct regulatory interest to the BSEC for the protection of investors.",
+          "status_reference": "BSEC Corporate Governance Code, 2018. BSEC Notifications on Related Party Transactions. Cross-reference to governance findings in Section 14 and related party notes in financial statements."
         }
       }
     }

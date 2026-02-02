@@ -6,20 +6,44 @@
     "entity": {
       "materiality_framework": {
         "quantitative_materiality": {
-          "benchmark_used": "Profit before tax/Revenue/Total Assets/Equity",
-          "percentage_applied": "X%",
-          "overall_materiality_amount": "",
-          "performance_materiality_amount": "",
-          "clearly_trivial_threshold": ""
+          "benchmark_used": "Profit before tax",
+          "percentage_applied": "5%",
+          "overall_materiality_amount": "124",
+          "performance_materiality_amount": "62",
+          "clearly_trivial_threshold": "6",
+          "reason_of_the_status": "Using 5% of Profit Before Tax (BDT 2,470m × 5% = BDT 123.5m ~ BDT 124m) is a common auditing benchmark. Performance materiality is set at 50% of overall materiality. The clearly trivial threshold is 5% of overall materiality.",
+          "status_reference": "Auditor's report methodology (implied), Industry best practices for materiality determination."
         },
         "qualitative_materiality_considerations": [
-          "Related party transactions",
-          "Regulatory non-compliance",
-          "Going concern indicators",
-          "Management override risk",
-          "Fraud risk indicators"
+          {
+            "consideration": "Related party transactions",
+            "assessment": "Material due to significance (BDT 1,170m aggregate), extended credit terms, and potential for earnings manipulation/fund diversion.",
+            "reference": "Note 28 - Related Party Transactions (pg 95-97)"
+          },
+          {
+            "consideration": "Regulatory non-compliance",
+            "assessment": "Material due to breach of BSEC Corporate Governance Code and potential breach of Financial Reporting Act 2015, affecting entity's legal standing and investor confidence.",
+            "reference": "Corporate Governance Report (pg 26-31), Section 15 Legal Assessment"
+          },
+          {
+            "consideration": "Going concern indicators",
+            "assessment": "Material due to critical liquidity issues (Quick ratio: 0.65, declining cash) that threaten ongoing operations, despite auditor's unmodified opinion.",
+            "reference": "Section 19 Ratio Analysis, Statement of Cash Flows"
+          },
+          {
+            "consideration": "Management override risk",
+            "assessment": "Material due to dominant CEO influence, combined CEO/Chair role, pressure to meet targets, and aggressive accounting policies.",
+            "reference": "Section 13 Fraud Assessment, Corporate Governance Report"
+          },
+          {
+            "consideration": "Fraud risk indicators",
+            "assessment": "Material due to aggressive revenue recognition, significant related party transactions, and high accruals ratio indicating potential earnings management.",
+            "reference": "Section 17 Earnings Quality Analysis, Section 23 Professional Skepticism"
+          }
         ],
-        "frc_materiality_conclusion": ""
+        "frc_materiality_conclusion": "Based on both quantitative and qualitative factors, multiple material misstatements and non-compliance issues have been identified. The quantitative threshold of BDT 124m is significantly exceeded by the estimated impact of aggressive revenue recognition (up to BDT 2,500m) and the value of undisclosed/non-compliant transactions. Qualitatively, the governance failures, fraud risks, and going concern issues are inherently material as they fundamentally undermine the reliability of the financial statements and the entity's sustainability. Therefore, the financial statements contain material departures from IFRS and relevant regulations.",
+        "reason_of_the_status": "The aggregation of quantitative misstatements (particularly in revenue and related party transactions) far exceeds the quantitative materiality threshold. More importantly, the qualitative factors—especially governance failure, fraud risk, and going concern doubts—are so severe that they would influence the economic decisions of users regardless of the exact monetary amount. These issues affect the financial statements as a whole.",
+        "status_reference": "Consolidated findings from Sections 13, 15, 16, 17, 19, 22, and 24 of this FRC analysis report."
       }
     }
   }

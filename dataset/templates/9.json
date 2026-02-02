@@ -7,127 +7,175 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_36_impairment_of_assets": {
-            "impairment_indicators_assessed": "",
-            "cash_generating_units_identified": "",
-            "recoverable_amount_determination": ["Value in use", "Fair value less costs of disposal"],
-            "discount_rate_assumptions": "",
-            "growth_rate_assumptions": "",
-            "sensitivity_analysis_provided": "",
-            "goodwill_allocation": ""
+            "applicable": true,
+            "impairment_indicators_assessed": "Regularly assessed/Not assessed",
+            "cash_generating_units_identified": "Appropriately identified/Not clearly identified",
+            "recoverable_amount_determination": ["Value in use", "Fair value less costs of disposal", "Not determined"],
+            "discount_rate_assumptions": "Disclosed and reasonable/Not disclosed or questionable",
+            "growth_rate_assumptions": "Disclosed and reasonable/Not disclosed or aggressive",
+            "sensitivity_analysis_provided": "Provided/Not provided",
+            "goodwill_allocation": "Properly allocated to CGUs/Improperly allocated",
+            "reason_of_the_status": "Overall assessment based on impairment testing rigor, CGU identification, recoverable amount determination methodology, and disclosure of key assumptions.",
+            "status_reference": "Impairment of assets note, accounting policies, critical estimates disclosure"
           },
           "ias_37_provisions_contingent_liabilities_assets": {
-            "provisions_recognition": "",
-            "measurement_best_estimate": "",
-            "onerous_contracts_assessed": "",
-            "restructuring_provisions": "",
-            "contingent_liabilities_disclosed": "",
-            "contingent_assets_disclosed": ""
+            "applicable": true,
+            "provisions_recognition": "Recognized when criteria met/Over or under-recognized",
+            "measurement_best_estimate": "Reasonable estimate used/Estimate questionable",
+            "onerous_contracts_assessed": "Assessed and provided for/Not assessed",
+            "restructuring_provisions": "Recognized per IAS 37/Not properly recognized",
+            "contingent_liabilities_disclosed": "Adequately disclosed/Inadequately disclosed",
+            "contingent_assets_disclosed": "Disclosed where appropriate/Not disclosed",
+            "reason_of_the_status": "Assessment based on the recognition of a present obligation, use of best estimate, and adequate disclosure of contingencies.",
+            "status_reference": "Provisions note, contingent liabilities note, commitments note"
           },
           "ias_38_intangible_assets": {
-            "recognition_criteria_met": "",
+            "applicable": true,
+            "recognition_criteria_met": "Met (identifiable, control, future benefits)/Not met",
             "measurement_model": "Cost/Revaluation",
-            "amortization_methods": "",
-            "useful_lives_assumptions": "",
-            "research_development_separation": "",
-            "impairment_testing": ""
+            "amortization_methods": "Reflect pattern of benefits/Arbitrary",
+            "useful_lives_assumptions": "Finite/Indefinite, with reasonable justification",
+            "research_development_separation": "Properly distinguished/Not properly distinguished",
+            "impairment_testing": "Conducted for indefinite-lived assets/Not conducted",
+            "reason_of_the_status": "Assessment of recognition criteria (especially for internally generated intangibles), amortization method appropriateness, and useful life assumptions.",
+            "status_reference": "Intangible assets note, accounting policies, research & development costs note"
           },
           "ias_40_investment_property": {
-            "investment_property_identified": "",
+            "applicable": true,
+            "investment_property_identified": "Clearly distinguished from PPE/Not clearly identified",
             "measurement_model": "Fair value/Cost",
-            "fair_value_determination": "",
-            "transfers_to_from_inventory": "",
-            "disposals_accounting": "",
-            "disclosures_provided": ""
+            "fair_value_determination": "Based on market evidence/Level 3 with unobservable inputs",
+            "transfers_to_from_inventory": "Properly accounted/Improperly accounted",
+            "disposals_accounting": "Gain/loss recognized in P&L/Not properly recognized",
+            "disclosures_provided": "Adequate (fair value hierarchy, income/expense)/Inadequate",
+            "reason_of_the_status": "Assessment based on correct identification, consistent application of chosen model (fair value or cost), and adequacy of fair value disclosures.",
+            "status_reference": "Investment property note, fair value measurement note, accounting policies"
           },
           "ias_41_agriculture": {
-            "biological_assets_identified": "",
-            "measurement_basis": "Fair value less costs to sell",
-            "gain_loss_recognition": "",
-            "government_grants": "",
-            "disclosures_provided": ""
+            "applicable": false,
+            "biological_assets_identified": "N/A - Not an agricultural entity",
+            "measurement_basis": "N/A",
+            "gain_loss_recognition": "N/A",
+            "government_grants": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Standard not applicable as the entity does not have agricultural activity or biological assets.",
+            "status_reference": "N/A"
           },
           "ifrs_1_first_time_adoption": {
-            "first_time_adopter": true,
+            "applicable": false,
+            "first_time_adopter": false,
             "exemptions_applied": [],
-            "exceptions_mandatory": "",
-            "comparatives_restated": "",
-            "disclosures_complete": ""
+            "exceptions_mandatory": "N/A",
+            "comparatives_restated": "N/A",
+            "disclosures_complete": "N/A",
+            "reason_of_the_status": "Standard not applicable as the entity is not a first-time adopter of IFRS.",
+            "status_reference": "Basis of preparation note (should state IFRS adopted in prior years)"
           },
           "ifrs_2_share_based_payment": {
-            "equity_settled_transactions": "",
-            "cash_settled_transactions": "",
-            "vesting_conditions": "",
-            "fair_value_measurement": "",
-            "modifications_cancellations": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "equity_settled_transactions": "Present and accounted for/None",
+            "cash_settled_transactions": "Present and accounted for/None",
+            "vesting_conditions": "Properly considered in fair value/Not considered",
+            "fair_value_measurement": "Valuation technique disclosed/Not disclosed",
+            "modifications_cancellations": "Accounted for per IFRS 2/Not accounted for",
+            "disclosures_provided": "Adequate (nature/extent, fair value, impact)/Inadequate",
+            "reason_of_the_status": "Assessment based on recognition of expense over vesting period, use of fair value at grant date, and completeness of disclosures.",
+            "status_reference": "Share-based payment note, employee benefits note, directors' remuneration report"
           },
           "ifrs_3_business_combinations": {
-            "acquisitions_during_period": "",
-            "purchase_price_allocation": "",
-            "goodwill_calculation": "",
-            "contingent_consideration": "",
-            "bargain_purchases": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "acquisitions_during_period": "Disclosed/No acquisitions",
+            "purchase_price_allocation": "Assets/liabilities at fair value/Allocation incomplete",
+            "goodwill_calculation": "Residual amount calculated/Calculation flawed",
+            "contingent_consideration": "Recognized at fair value/Not recognized",
+            "bargain_purchases": "Gain recognized in P&L/None",
+            "disclosures_complete": "Adequate per IFRS 3 (purchase price, fair values, goodwill)/Inadequate",
+            "reason_of_the_status": "Assessment of acquisition accounting, including fair value allocation to net assets, goodwill calculation, and disclosure of pro-forma information.",
+            "status_reference": "Business combinations note, goodwill note, accounting policies for acquisitions"
           },
           "ifrs_5_non_current_assets_held_for_sale": {
-            "assets_classified_held_for_sale": "",
-            "measurement_basis": "Lower of carrying amount and fair value less costs to sell",
-            "discontinued_operations": "",
-            "presentation_separate": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "assets_classified_held_for_sale": "Classified per IFRS 5 criteria/Not classified",
+            "measurement_basis": "Lower of carrying amount and fair value less costs to sell/Measured incorrectly",
+            "discontinued_operations": "Presented separately in P&L/Not presented separately",
+            "presentation_separate": "Separate line item in statement of financial position/Not separate",
+            "disclosures_provided": "Adequate (description, measurements, cash flows)/Inadequate",
+            "reason_of_the_status": "Assessment based on strict classification criteria met, correct measurement at the lower of carrying amount and FVLCTS, and separate presentation.",
+            "status_reference": "Assets held for sale note, discontinued operations note, cash flow statement"
           },
           "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
-            "exploration_evaluation_assets": "",
-            "measurement_model": "Cost",
-            "impairment_testing": "",
-            "reclassification_to_development": "",
-            "disclosures_provided": ""
+            "applicable": false,
+            "exploration_evaluation_assets": "N/A - Not an extractive industry entity",
+            "measurement_model": "N/A",
+            "impairment_testing": "N/A",
+            "reclassification_to_development": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Standard not applicable as the entity is not in the extractive industries.",
+            "status_reference": "N/A"
           },
           "ifrs_7_financial_instruments_disclosures": {
-            "categories_financial_instruments": "",
-            "fair_value_hierarchy": ["Level 1", "Level 2", "Level 3"],
-            "credit_risk_disclosures": "",
-            "liquidity_risk_disclosures": "",
-            "market_risk_disclosures": "",
-            "collateral_disclosed": ""
+            "applicable": true,
+            "categories_financial_instruments": "Disclosed per IFRS 9 categories/Not clearly disclosed",
+            "fair_value_hierarchy": ["Level 1", "Level 2", "Level 3", "Not disclosed"],
+            "credit_risk_disclosures": "Adequate (credit quality, impairment, collateral)/Inadequate",
+            "liquidity_risk_disclosures": "Adequate (maturity analysis)/Inadequate",
+            "market_risk_disclosures": "Adequate (sensitivity analysis)/Inadequate",
+            "collateral_disclosed": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment of the completeness and clarity of quantitative and qualitative disclosures about the nature, extent, and management of financial risks.",
+            "status_reference": "Financial instruments risk management note, fair value measurement note, accounting policies for financial instruments"
           },
           "ifrs_8_operating_segments": {
-            "chief_operating_decision_maker_identified": "",
-            "reportable_segments_identified": "",
-            "segment_results_disclosed": "",
-            "segment_assets_liabilities": "",
-            "reconciliations_provided": "",
-            "entity_wide_disclosures": ""
+            "applicable": true,
+            "chief_operating_decision_maker_identified": "Identified (e.g., Board)/Not identified",
+            "reportable_segments_identified": "Based on internal reports/Arbitrary",
+            "segment_results_disclosed": "Revenue, profit/loss, assets, liabilities disclosed/Incomplete",
+            "segment_assets_liabilities": "Disclosed/Not disclosed",
+            "reconciliations_provided": "To consolidated totals provided/Not provided",
+            "entity_wide_disclosures": "Provided (products/services, geographical, major customers)/Incomplete",
+            "reason_of_the_status": "Assessment based on identification of segments based on internal reporting, disclosure of segment P&L and assets, and reconciliations to consolidated figures.",
+            "status_reference": "Segment reporting note, management commentary, accounting policies for segments"
           },
           "ifrs_9_financial_instruments": {
-            "classification_categories": ["Amortized cost", "Fair value through profit or loss", "Fair value through other comprehensive income"],
-            "impairment_expected_credit_losses": "",
-            "business_model_assessment": "",
-            "contractual_cash_flow_characteristics": "",
-            "hedge_accounting_applied": "",
-            "reclassification_events": ""
+            "applicable": true,
+            "classification_categories": ["Amortized cost", "Fair value through profit or loss", "Fair value through other comprehensive income", "Classification unclear"],
+            "impairment_expected_credit_losses": "ECL model applied (Stage 1/2/3)/Not applied",
+            "business_model_assessment": "Documented and applied/Not evident",
+            "contractual_cash_flow_characteristics": "SPPI test performed/Not performed",
+            "hedge_accounting_applied": "Applied with documentation/Not applied",
+            "reclassification_events": "Accounted for per IFRS 9/No reclassifications",
+            "reason_of_the_status": "Assessment of classification based on business model and cash flow characteristics, application of ECL model, and hedge accounting (if applied).",
+            "status_reference": "Financial instruments accounting policies, impairment note, hedge accounting note"
           },
           "ifrs_10_consolidated_financial_statements": {
-            "control_assessment": "",
-            "subsidiaries_consolidated": "",
-            "non_controlling_interests": "",
-            "loss_of_control": "",
-            "investment_entities": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "control_assessment": "Based on power, exposure to variable returns, ability to affect returns/Assessment flawed",
+            "subsidiaries_consolidated": "All subsidiaries consolidated/Some excluded",
+            "non_controlling_interests": "Presented in equity/Presented incorrectly",
+            "loss_of_control": "Accounted for per IFRS 10/No loss of control",
+            "investment_entities": "Entity is/is not an investment entity/Disclosure incomplete",
+            "disclosures_complete": "Adequate (interest in subsidiaries, NCI)/Inadequate",
+            "reason_of_the_status": "Assessment of control definition application, full consolidation of all subsidiaries, and presentation of non-controlling interests.",
+            "status_reference": "Basis of consolidation note, list of principal subsidiaries, NCI note"
           },
           "ifrs_11_joint_arrangements": {
-            "joint_arrangements_classified": ["Joint operations", "Joint ventures"],
-            "accounting_method": ["Equity method", "Proportionate consolidation if applicable"],
-            "separate_financial_statements": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "joint_arrangements_classified": ["Joint operations", "Joint ventures", "None"],
+            "accounting_method": ["Equity method", "Proportionate consolidation if applicable", "Method incorrect"],
+            "separate_financial_statements": "Investments at cost or equity method/Not applicable",
+            "disclosures_provided": "Adequate (nature, extent, financials)/Inadequate",
+            "reason_of_the_status": "Assessment of correct classification (joint operation vs. venture) and application of appropriate accounting (equity method for ventures).",
+            "status_reference": "Investments in joint arrangements note, accounting policies for joint arrangements"
           },
           "ifrs_12_disclosure_of_interests_in_other_entities": {
-            "subsidiaries_disclosures": "",
-            "joint_arrangements_disclosures": "",
-            "associates_disclosures": "",
-            "structured_entities": "",
-            "significant_judgments": "",
-            "interests_nature_risks": ""
+            "applicable": true,
+            "subsidiaries_disclosures": "Adequate (name, proportion held)/Inadequate",
+            "joint_arrangements_disclosures": "Adequate (nature, risks)/Inadequate",
+            "associates_disclosures": "Adequate (summarized financials)/Inadequate",
+            "structured_entities": "Disclosed if involvement exists/Not disclosed",
+            "significant_judgments": "Disclosed (control, joint control)/Not disclosed",
+            "interests_nature_risks": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Overall assessment of the completeness of disclosures about the nature, risks, and effects of interests in subsidiaries, joint arrangements, associates, and structured entities.",
+            "status_reference": "Interests in other entities note, list of investments, related party note for structured entities"
           }
         }
       }

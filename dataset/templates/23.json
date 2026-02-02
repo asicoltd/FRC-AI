@@ -7,39 +7,79 @@
       "professional_skepticism_application": {
         "management_assertions_challenged": [
           {
-            "assertion_area": "Revenue Recognition",
-            "management_claim": "",
-            "evidence_sought": "",
-            "evidence_found": "",
-            "corroboration_level": "Strong/Moderate/Weak",
-            "skeptical_conclusion": ""
+            "assertion_area": "Revenue Recognition (Occurrence & Timing)",
+            "management_claim": "Control transfers to the customer at the point of shipment for all sales, including complex custom-built equipment.",
+            "evidence_sought": "Contracts to verify if customer acceptance is a substantive milestone. Post-shipment support/cost data. Historical record of post-shipment rejections or modifications.",
+            "evidence_found": "Contract terms mention 'final customer acceptance.' High post-shipment installation and warranty costs are incurred. No disclosure of acceptance rejection history.",
+            "corroboration_level": "Weak",
+            "skeptical_conclusion": "Management's claim is questionable. Significant risk that control does not transfer until customer acceptance, making revenue recognition at shipment aggressive and potentially premature."
+          },
+          {
+            "assertion_area": "Valuation of Related Party Receivables (Valuation)",
+            "management_claim": "Related party receivables are fully collectible and measured at amortized cost.",
+            "evidence_sought": "Aged analysis of related party receivables. Comparison of payment history with unrelated customers. Independent assessment of the related party's creditworthiness.",
+            "evidence_found": "Only aggregate balance disclosed. Extended credit terms granted to related party disclosed elsewhere. No specific assessment of collectibility provided.",
+            "corroboration_level": "Weak",
+            "skeptical_conclusion": "Insufficient evidence to support the valuation assertion. The extended terms and lack of separate credit assessment increase the risk of impairment that is not recognized."
+          },
+          {
+            "assertion_area": "Going Concern (Management's Assessment)",
+            "management_claim": "The company is a going concern and has adequate resources for the next 12 months.",
+            "evidence_sought": "Detailed cash flow forecasts supporting liquidity. Evidence of firm commitments for renewed credit lines. Plan to address working capital inefficiencies.",
+            "evidence_found": "Generic statement about renewed facilities and positive forecasts. No detailed forecasts disclosed. No plan to rectify the critically low quick ratio or ballooning receivables.",
+            "corroboration_level": "Weak",
+            "skeptical_conclusion": "Management's going concern assertion is optimistic and not well-substantiated by the available financial evidence, which indicates severe liquidity stress."
           }
         ],
         "accounting_policy_questioning": [
           {
-            "policy_area": "",
-            "policy_applied": "",
-            "alternative_treatment": "",
-            "justification_provided": "",
-            "skeptical_assessment": "",
-            "recommendation": ""
+            "policy_area": "Lease Term Assessment (IFRS 16)",
+            "policy_applied": "Lease terms include only non-cancellable periods; options to extend are not included unless termination penalties are substantive.",
+            "alternative_treatment": "Include extension options in the lease term if reasonably certain of exercise, considering economic incentives (e.g., significant leasehold improvements).",
+            "justification_provided": "No justification or disclosure of judgments made regarding lease terms.",
+            "skeptical_assessment": "Policy application appears designed to minimize lease liability. Without disclosure, it's impossible to assess if this is appropriate, especially for significant property leases.",
+            "recommendation": "Disclose the weighted average lease term and the basis for excluding extension options. Re-assess if options are reasonably certain."
+          },
+          {
+            "policy_area": "Inventory - Net Realizable Value (IAS 2)",
+            "policy_applied": "NRV is assessed as estimated selling price less costs to complete and sell. Write-downs are recognized when cost > NRV.",
+            "alternative_treatment": "More frequent or granular assessment by product line, especially for slow-moving items.",
+            "justification_provided": "Generic statement in policy. No disclosure of how 'estimated selling price' is determined.",
+            "skeptical_assessment": "Policy is standard but its application is opaque. With increasing days of inventory, the risk of obsolete or overvalued stock is high, suggesting the policy may not be rigorously applied.",
+            "recommendation": "Disclose the methodology for estimating selling prices and key assumptions. Provide a breakdown of inventory by aging category."
           }
         ],
         "disclosure_adequacy_assessment": [
           {
-            "disclosure_area": "",
-            "information_provided": "",
-            "missing_information": "",
-            "transparency_level": "",
-            "materiality_assessment": "",
-            "improvement_suggested": ""
+            "disclosure_area": "Lease Liabilities (IFRS 16)",
+            "information_provided": "Carrying amount of ROU assets and lease liabilities. Maturity analysis of lease payments.",
+            "missing_information": "Weighted average discount rate. Weighted average lease term. Explanation of judgments in determining lease term and discount rate.",
+            "transparency_level": "Low",
+            "materiality_assessment": "Material (Liabilities: BDT 1,250m)",
+            "improvement_suggested": "Disclose all required inputs per IFRS 16.48 to allow users to understand and replicate the measurement."
+          },
+          {
+            "disclosure_area": "Related Party Transactions (IAS 24)",
+            "information_provided": "Names of related parties, nature of relationships, types of transactions, and aggregate amounts.",
+            "missing_information": "Pricing policy and how 'arm's length' was determined. Terms and conditions of outstanding balances. Separate disclosure of transactions with each major related party.",
+            "transparency_level": "Low",
+            "materiality_assessment": "Material (Transactions: BDT 1,170m aggregate)",
+            "improvement_suggested": "Provide a detailed breakdown by party, including pricing methodology and justification for arm's length terms."
+          },
+          {
+            "disclosure_area": "Credit Risk & Liquidity Risk (IFRS 7)",
+            "information_provided": "Generic narrative on risk management policies. Carrying amount of financial assets by category.",
+            "missing_information": "Credit risk exposure by credit rating or internal grading. Aging analysis of trade receivables that is reconciled to the statement of financial position. Entity-specific quantitative sensitivity analysis for market risks.",
+            "transparency_level": "Moderate to Low",
+            "materiality_assessment": "Material (High credit and liquidity risk evident)",
+            "improvement_suggested": "Provide an aged analysis of trade receivables. Disclose concentrations of credit risk. Provide numerical sensitivity of profit/equity to changes in key market risks."
           }
         ],
         "overall_skepticism_applied": {
-          "areas_of_high_concern": [],
-          "areas_of_moderate_concern": [],
-          "areas_of_low_concern": [],
-          "skepticism_conclusion": ""
+          "areas_of_high_concern": ["Revenue Recognition Timing", "Related Party Transactions & Disclosures", "Going Concern Assessment", "Lease Accounting Disclosures"],
+          "areas_of_moderate_concern": ["Inventory Valuation", "Goodwill Impairment Assumptions", "Governance Structure Compliance"],
+          "areas_of_low_concern": ["Basic Tax Accounting (IAS 12)", "Presentation of Primary Statements (IAS 1)"],
+          "skepticism_conclusion": "High degree of professional skepticism is warranted. The financial statements exhibit multiple red flags where management's assertions and applied accounting policies appear optimistic, self-serving, or inadequately disclosed. The aggregate of these issues significantly undermines the reliability of the financial statements as a faithful representation of the entity's financial position and performance."
         }
       }
     }

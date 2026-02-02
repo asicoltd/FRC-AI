@@ -10,46 +10,92 @@
             "statement_of_financial_position": [
               {
                 "line_item": "Cash and cash equivalents",
-                "year_yyyy": "",
-                "year_yyyy_1": "",
-                "absolute_change": "",
-                "percentage_change": "",
-                "volatility_assessment": "",
-                "investigation_required": true
+                "year_2024": "850",
+                "year_2023": "1,150",
+                "absolute_change": "-300",
+                "percentage_change": "-26.1%",
+                "volatility_assessment": "High volatility (significant decrease).",
+                "investigation_required": true,
+                "investigation_note": "Sharp decline despite reported profit increase. Requires checking cash flow from investing (CAPEX) and financing (debt/div payments) activities."
+              },
+              {
+                "line_item": "Trade and other receivables",
+                "year_2024": "4,200",
+                "year_2023": "3,350",
+                "absolute_change": "+850",
+                "percentage_change": "+25.4%",
+                "volatility_assessment": "High volatility (significant increase).",
+                "investigation_required": true,
+                "investigation_note": "Growth outpacing revenue growth (15%). Major red flag for revenue quality, potential channel stuffing, or collection issues."
+              },
+              {
+                "line_item": "Borrowings (Non-current)",
+                "year_2024": "3,800",
+                "year_2023": "2,900",
+                "absolute_change": "+900",
+                "percentage_change": "+31.0%",
+                "volatility_assessment": "High volatility (significant increase).",
+                "investigation_required": true,
+                "investigation_note": "Large increase in long-term debt. Need to check purpose (funding working capital gap? CAPEX?) and impact on leverage."
               }
             ],
             "statement_of_profit_or_loss": [
               {
                 "line_item": "Revenue",
-                "year_yyyy": "",
-                "year_yyyy_1": "",
-                "absolute_change": "",
-                "percentage_change": "",
-                "business_justification": "",
-                "skeptical_question": ""
+                "year_2024": "12,500",
+                "year_2023": "10,870",
+                "absolute_change": "+1,630",
+                "percentage_change": "+15.0%",
+                "business_justification": "Management attributes growth to 'increased market share and successful launch of new product line.'",
+                "skeptical_question": "Is the growth real and collectible? Why are receivables growing faster (25.4%) than revenue (15%)? Could it be driven by relaxed credit terms or aggressive recognition?"
+              },
+              {
+                "line_item": "Cost of Sales",
+                "year_2024": "8,125",
+                "year_2023": "7,065",
+                "absolute_change": "+1,060",
+                "percentage_change": "+15.0%",
+                "business_justification": "Costs increased in line with revenue growth.",
+                "skeptical_question": "Gross margin remained exactly flat at 35%. While stable, such precision year-on-year is unusual and warrants checking for cost capitalization or inventory valuation practices that may be smoothing margins."
+              },
+              {
+                "line_item": "Profit Before Tax",
+                "year_2024": "2,470",
+                "year_2023": "2,200",
+                "absolute_change": "+270",
+                "percentage_change": "+12.3%",
+                "business_justification": "Increase due to revenue growth, partially offset by higher finance costs.",
+                "skeptical_question": "Profit growth (12.3%) lags revenue growth (15%), indicating margin pressure. Is this due to real cost increases, or are one-off gains boosting the prior year's profit?"
               }
             ]
           },
           "vertical_analysis_composition": {
-            "assets_composition_yyyy": {
-              "current_assets_percentage": "",
-              "non_current_assets_percentage": "",
-              "significant_changes": []
+            "assets_composition_2024": {
+              "current_assets_percentage": "58%",
+              "non_current_assets_percentage": "42%",
+              "significant_changes": [
+                "Trade Receivables increased from 22% to 26% of total assets. This is a major shift, indicating a growing reliance on customer credit and potential liquidity strain.",
+                "Property, Plant & Equipment decreased from 38% to 34% of total assets, despite business growth, suggesting a shift to a less capital-intensive model or aging assets."
+              ]
             },
-            "liabilities_composition_yyyy": {
-              "current_liabilities_percentage": "",
-              "non_current_liabilities_percentage": "",
-              "equity_composition": "",
-              "risk_implications": ""
+            "liabilities_composition_2024": {
+              "current_liabilities_percentage": "48%",
+              "non_current_liabilities_percentage": "29%",
+              "equity_composition": "23%",
+              "risk_implications": "High Financial Risk. The capital structure is heavily reliant on debt (77% Liabilities to Assets). Equity is thin at 23%, providing a small buffer against losses. The high current liabilities percentage (48%) indicates significant short-term payment obligations, which is concerning given the declining cash balance."
             }
           },
           "two_to_three_year_trend": {
-            "revenue_trend": ["", "", ""],
-            "profit_trend": ["", "", ""],
-            "asset_growth_trend": ["", "", ""],
-            "debt_trend": ["", "", ""],
-            "trend_analysis_commentary": "",
-            "unusual_patterns_identified": []
+            "revenue_trend": ["9,500", "10,870", "12,500"],
+            "profit_trend": ["1,850", "2,200", "2,470"],
+            "asset_growth_trend": ["22,000", "25,000", "28,500"],
+            "debt_trend": ["14,500", "16,200", "19,500"],
+            "trend_analysis_commentary": "The entity shows consistent top-line growth. However, critical warning signs emerge: 1) **Profit growth is slowing** relative to revenue, indicating margin compression. 2) **Asset growth is increasingly fueled by debt**, not retained earnings, as seen in the rising debt trend. 3) The quality of asset growth is questionable, with a rising proportion tied up in receivables rather than productive operating assets. This paints a picture of growth achieved through aggressive sales/credit policies and increased financial leverage, not necessarily sustainable operational improvement.",
+            "unusual_patterns_identified": [
+              "Receivables Growth Outpacing Revenue: A persistent pattern over two years, signaling deteriorating revenue quality.",
+              "Stable Gross Margin Amidst Input Cost Volatility: The exact 35% margin for two consecutive years is statistically unusual in a real business environment and suggests potential earnings management.",
+              "Declining Cash Amidst Reported Profits: Profits are not translating into cash generation, a fundamental red flag."
+            ]
           }
         }
       }

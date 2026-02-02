@@ -7,142 +7,195 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_1_presentation": {
-            "fair_presentation_compliance": "",
-            "going_concern_assumption_applied": "",
-            "materiality_threshold_applied": "",
-            "offsetting_compliance": "",
-            "classification_current_non_current": "",
-            "statement_of_comprehensive_income_format": ""
+            "applicable": true,
+            "fair_presentation_compliance": "Compliant/Partially Compliant/Non-Compliant",
+            "going_concern_assumption_applied": "Applied/Not applied",
+            "materiality_threshold_applied": "Clearly applied/Not evident",
+            "offsetting_compliance": "Compliant/Non-Compliant",
+            "classification_current_non_current": "Properly classified/Issues noted",
+            "statement_of_comprehensive_income_format": "Single statement/Two statements",
+            "reason_of_the_status": "Overall assessment of IAS 1 compliance based on presentation format, going concern disclosure, and classification accuracy",
+            "status_reference": "Financial statements notes, auditor's report, accounting policies note"
           },
           "ias_2_inventories": {
             "applicable": true,
-            "measurement_basis": "Lower of cost and net realizable value",
-            "cost_formulas_used": ["FIFO", "Weighted Average"],
-            "net_realizable_value_assessment": "",
-            "write_down_reversals_compliance": "",
-            "disclosures_completeness": ""
+            "measurement_basis": "Lower of cost and net realizable value/Cost only",
+            "cost_formulas_used": ["FIFO", "Weighted Average", "Specific identification"],
+            "net_realizable_value_assessment": "Regularly assessed/Not assessed",
+            "write_down_reversals_compliance": "Compliant/Non-Compliant",
+            "disclosures_completeness": "Complete/Incomplete",
+            "reason_of_the_status": "Assessment based on measurement method consistency, NRV testing, and disclosure adequacy",
+            "status_reference": "Inventory note, accounting policies, cost of sales disclosure"
           },
           "ias_7_statement_of_cash_flows": {
+            "applicable": true,
             "operating_cash_flow_method": "Direct/Indirect",
-            "investing_activities_disclosed": "",
-            "financing_activities_disclosed": "",
-            "cash_equivalents_definition": "",
-            "non_cash_transactions_disclosed": "",
-            "restricted_cash_disclosed": ""
+            "investing_activities_disclosed": "Comprehensive/Incomplete",
+            "financing_activities_disclosed": "Comprehensive/Incomplete",
+            "cash_equivalents_definition": "IAS 7 compliant/Non-compliant",
+            "non_cash_transactions_disclosed": "Disclosed/Not disclosed",
+            "restricted_cash_disclosed": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment based on classification accuracy, method consistency, and disclosure completeness",
+            "status_reference": "Cash flow statement, accounting policies, notes to cash flows"
           },
           "ias_8_accounting_policies": {
-            "changes_in_accounting_policies": "",
-            "changes_in_accounting_estimates": "",
-            "errors_corrections": "",
-            "hierarchy_applied": "",
-            "retrospective_application": ""
+            "applicable": true,
+            "changes_in_accounting_policies": "Disclosed/Not disclosed",
+            "changes_in_accounting_estimates": "Disclosed/Not disclosed",
+            "errors_corrections": "Disclosed/Not disclosed",
+            "hierarchy_applied": "Compliant/Non-compliant",
+            "retrospective_application": "Properly applied/Incorrectly applied",
+            "reason_of_the_status": "Assessment of policy changes, error corrections, and hierarchy application",
+            "status_reference": "Accounting policies note, changes in accounting policies section"
           },
           "ias_10_events_after_reporting_period": {
-            "adjusting_events_identified": "",
-            "non_adjusting_events_disclosed": "",
-            "dividends_declared_after_reporting_date": "",
-            "going_concern_assessment_updates": "",
-            "authorization_date_disclosed": ""
+            "applicable": true,
+            "adjusting_events_identified": "Identified/Not identified",
+            "non_adjusting_events_disclosed": "Disclosed/Not disclosed",
+            "dividends_declared_after_reporting_date": "Disclosed/Not disclosed",
+            "going_concern_assessment_updates": "Updated/Not updated",
+            "authorization_date_disclosed": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment of post-reporting date event identification and disclosure",
+            "status_reference": "Events after reporting period note, authorization date disclosure"
           },
           "ias_12_income_taxes": {
-            "current_tax_calculation": "",
-            "deferred_tax_assets_liabilities": "",
-            "temporary_differences_identified": "",
-            "tax_rate_disclosures": "",
-            "tax_reconciliation_provided": "",
-            "uncertain_tax_treatments": ""
+            "applicable": true,
+            "current_tax_calculation": "Accurate/Questionable",
+            "deferred_tax_assets_liabilities": "Recognized/Not recognized",
+            "temporary_differences_identified": "Comprehensive/Incomplete",
+            "tax_rate_disclosures": "Complete/Incomplete",
+            "tax_reconciliation_provided": "Provided/Not provided",
+            "uncertain_tax_treatments": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment based on DTA/DTL recognition, temporary difference identification, and disclosure adequacy",
+            "status_reference": "Income taxes note, tax reconciliation table"
           },
           "ias_16_property_plant_equipment": {
-            "recognition_criteria_met": "",
+            "applicable": true,
+            "recognition_criteria_met": "Met/Not met",
             "measurement_model": "Cost/Revaluation",
-            "depreciation_methods": "",
-            "useful_lives_assumptions": "",
-            "impairment_indications_assessed": "",
-            "derecognition_compliance": ""
+            "depreciation_methods": "Straight-line/Reducing balance/Units of production",
+            "useful_lives_assumptions": "Reasonable/Questionable",
+            "impairment_indications_assessed": "Assessed/Not assessed",
+            "derecognition_compliance": "Compliant/Non-compliant",
+            "reason_of_the_status": "Assessment of recognition criteria, measurement model consistency, depreciation methods",
+            "status_reference": "PPE note, accounting policies, depreciation schedule"
           },
           "ias_19_employee_benefits": {
-            "short_term_benefits": "",
-            "post_employment_benefits": ["Defined contribution", "Defined benefit"],
-            "defined_benefit_obligation": "",
-            "actuarial_assumptions": "",
-            "past_service_costs": "",
-            "multi_employer_plans": ""
+            "applicable": true,
+            "short_term_benefits": "Properly accounted/Issues noted",
+            "post_employment_benefits": ["Defined contribution", "Defined benefit", "None"],
+            "defined_benefit_obligation": "Calculated/Not calculated",
+            "actuarial_assumptions": "Disclosed/Not disclosed",
+            "past_service_costs": "Recognized/Not recognized",
+            "multi_employer_plans": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment of benefit plan accounting, actuarial assumption disclosure, DBO calculation",
+            "status_reference": "Employee benefits note, actuarial reports referenced"
           },
           "ias_20_government_grants": {
-            "grants_received": "",
-            "recognition_criteria": "",
-            "measurement_basis": "",
+            "applicable": true,
+            "grants_received": "Yes/No",
+            "recognition_criteria": "Met/Not met",
+            "measurement_basis": "Fair value/Other",
             "presentation_method": "Gross/Net",
-            "repayment_conditions": "",
-            "disclosures_provided": ""
+            "repayment_conditions": "Disclosed/Not disclosed",
+            "disclosures_provided": "Adequate/Inadequate",
+            "reason_of_the_status": "Assessment based on grant recognition timing, measurement, and disclosure adequacy",
+            "status_reference": "Government grants note, revenue recognition policies"
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
-            "functional_currency_determination": "",
-            "foreign_currency_transactions": "",
-            "exchange_differences_treatment": "",
-            "foreign_operations_translation": "",
-            "hedge_accounting_applied": "",
-            "disclosure_of_rates": ""
+            "applicable": true,
+            "functional_currency_determination": "Appropriate/Questionable",
+            "foreign_currency_transactions": "Properly translated/Issues noted",
+            "exchange_differences_treatment": "IAS 21 compliant/Non-compliant",
+            "foreign_operations_translation": "Properly translated/Issues noted",
+            "hedge_accounting_applied": "Applied/Not applied",
+            "disclosure_of_rates": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment of functional currency determination, translation methods, exchange difference treatment",
+            "status_reference": "Foreign currency note, accounting policies, exchange rate disclosures"
           },
           "ias_23_borrowing_costs": {
-            "capitalization_criteria_met": "",
-            "capitalization_rate_calculation": "",
-            "qualifying_assets_identified": "",
-            "suspension_periods": "",
-            "cessation_of_capitalization": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "capitalization_criteria_met": "Met/Not met",
+            "capitalization_rate_calculation": "Appropriate/Inappropriate",
+            "qualifying_assets_identified": "Complete/Incomplete",
+            "suspension_periods": "Accounted/Not accounted",
+            "cessation_of_capitalization": "Properly applied/Incorrectly applied",
+            "disclosures_complete": "Complete/Incomplete",
+            "reason_of_the_status": "Assessment of capitalization criteria, rate calculation, qualifying asset identification",
+            "status_reference": "Borrowing costs note, accounting policies, PPE additions detail"
           },
           "ias_24_related_party_disclosures": {
-            "related_parties_identified": "",
-            "transactions_disclosed": "",
-            "outstanding_balances": "",
-            "compensation_disclosed": "",
-            "arm_length_nature_justified": "",
-            "control_relationships": ""
+            "applicable": true,
+            "related_parties_identified": "Comprehensive/Incomplete",
+            "transactions_disclosed": "Comprehensive/Incomplete",
+            "outstanding_balances": "Disclosed/Not disclosed",
+            "compensation_disclosed": "Disclosed/Not disclosed",
+            "arm_length_nature_justified": "Justified/Not justified",
+            "control_relationships": "Disclosed/Not disclosed",
+            "reason_of_the_status": "Assessment of related party identification completeness and transaction disclosure adequacy",
+            "status_reference": "Related party transactions note, director's report"
           },
           "ias_27_separate_financial_statements": {
-            "investment_subsidiaries_measured": ["Cost", "Equity"],
-            "dividends_from_subsidiaries": "",
-            "impairment_assessment": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "investment_subsidiaries_measured": ["Cost", "Equity", "Fair value"],
+            "dividends_from_subsidiaries": "Properly recognized/Issues noted",
+            "impairment_assessment": "Conducted/Not conducted",
+            "disclosures_provided": "Adequate/Inadequate",
+            "reason_of_the_status": "Assessment of investment measurement method consistency and impairment testing",
+            "status_reference": "Investments in subsidiaries note, accounting policies for investments"
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
-            "equity_method_applied": "",
-            "significant_influence_assessed": "",
-            "goodwill_calculation": "",
-            "impairment_testing": "",
-            "losses_recognition": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "equity_method_applied": "Properly applied/Issues noted",
+            "significant_influence_assessed": "Appropriate/Questionable",
+            "goodwill_calculation": "Correct/Incorrect",
+            "impairment_testing": "Conducted/Not conducted",
+            "losses_recognition": "Properly recognized/Issues noted",
+            "disclosures_complete": "Complete/Incomplete",
+            "reason_of_the_status": "Assessment of equity method application, significant influence determination, goodwill calculation",
+            "status_reference": "Investments in associates note, equity accounting policies"
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
-            "hyperinflation_indications": "",
-            "restatement_applied": "",
-            "gain_loss_on_net_monetary_position": "",
-            "comparatives_restated": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "hyperinflation_indications": "Present/Absent",
+            "restatement_applied": "Applied/Not applied",
+            "gain_loss_on_net_monetary_position": "Recognized/Not recognized",
+            "comparatives_restated": "Restated/Not restated",
+            "disclosures_provided": "Adequate/Inadequate",
+            "reason_of_the_status": "Assessment based on hyperinflation indicators and restatement application correctness",
+            "status_reference": "Hyperinflation note, accounting policies for inflation adjustment"
           },
           "ias_32_financial_instruments_presentation": {
-            "classification_liability_equity": "",
-            "compound_instruments_split": "",
-            "interest_dividends_treatment": "",
-            "treasury_shares_treatment": "",
-            "offsetting_applied": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "classification_liability_equity": "Proper/Improper",
+            "compound_instruments_split": "Split/Not split",
+            "interest_dividends_treatment": "IAS 32 compliant/Non-compliant",
+            "treasury_shares_treatment": "Proper/Improper",
+            "offsetting_applied": "Compliant/Non-compliant",
+            "disclosures_complete": "Complete/Incomplete",
+            "reason_of_the_status": "Assessment of instrument classification accuracy, compound instrument splitting, offsetting compliance",
+            "status_reference": "Financial instruments note, equity note, accounting policies"
           },
           "ias_33_earnings_per_share": {
-            "basic_eps_calculated": "",
-            "diluted_eps_calculated": "",
-            "potential_ordinary_shares_identified": "",
-            "anti_dilutive_excluded": "",
-            "disclosures_provided": ""
+            "applicable": true,
+            "basic_eps_calculated": "Accurate/Inaccurate",
+            "diluted_eps_calculated": "Accurate/Inaccurate",
+            "potential_ordinary_shares_identified": "Complete/Incomplete",
+            "anti_dilutive_excluded": "Excluded/Not excluded",
+            "disclosures_provided": "Adequate/Inadequate",
+            "reason_of_the_status": "Assessment of EPS calculation accuracy, dilution identification, and disclosure completeness",
+            "status_reference": "Earnings per share note, financial highlights"
           },
           "ias_34_interim_financial_reporting": {
-            "interim_reports_prepared": "",
-            "recognition_measurement_policies": "",
-            "seasonality_disclosed": "",
-            "significant_events_disclosed": "",
-            "year_end_estimates_changes": "",
-            "disclosures_complete": ""
+            "applicable": true,
+            "interim_reports_prepared": "Yes/No",
+            "recognition_measurement_policies": "Consistent/Inconsistent",
+            "seasonality_disclosed": "Disclosed/Not disclosed",
+            "significant_events_disclosed": "Disclosed/Not disclosed",
+            "year_end_estimates_changes": "Disclosed/Not disclosed",
+            "disclosures_complete": "Complete/Incomplete",
+            "reason_of_the_status": "Assessment of interim report policy consistency, seasonal disclosure, and significant event reporting",
+            "status_reference": "Interim report accounting policies, seasonality disclosure"
           }
         }
       }
