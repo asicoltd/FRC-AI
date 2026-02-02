@@ -25,7 +25,10 @@
               "estimate": "",
               "sensitivity_range": "",
               "disclosure_adequacy": "",
-              "risk_level": ""
+              "risk_level": "",
+              "reason_of_the_status": "Why do you think this is risk level",
+              "status_reference": "Where can user directly cross check to validate your comment"
+
             }
           ]
         }

@@ -27,12 +27,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           }
@@ -44,12 +46,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           },
@@ -59,12 +63,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           }
@@ -76,12 +82,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           },
@@ -91,12 +99,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           }
@@ -108,12 +118,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           },
@@ -123,12 +135,14 @@
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               },
               {
                 "item": "same as line named",
                 "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
-                "note": "number"
+                "note": "number",
+                "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
               }
             ]
           }
