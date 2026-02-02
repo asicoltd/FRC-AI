@@ -91,6 +91,31 @@ class FinancialStatements {
         await this.loadFinancialStatementData();
     }
 
+    // Helper method to create warning icon for items with errors
+    static createWarningIcon(errorMessage) {
+        if (!errorMessage || errorMessage.trim() === '') {
+            return '';
+        }
+        
+        // Create a unique ID for the tooltip
+        const tooltipId = 'warning-' + Math.random().toString(36).substr(2, 9);
+        
+        return `
+            <span class="warning-icon-wrapper ms-2" data-bs-toggle="tooltip" 
+                  data-bs-placement="top" title="${this.escapeHtml(errorMessage)}"
+                  data-bs-custom-class="warning-tooltip" id="${tooltipId}">
+                <i class="fas fa-exclamation-triangle text-warning"></i>
+            </span>
+        `;
+    }
+
+    // Helper method to escape HTML for tooltip content
+    static escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
     // Load all financial statement data
     static async loadFinancialStatementData() {
         try {
@@ -103,10 +128,25 @@ class FinancialStatements {
             this.renderCashFlowStatement(financialData.statement_of_cash_flows);
             this.renderChangesInEquity(financialData.statement_of_changes_in_equity);
 
+            // Initialize tooltips after rendering
+            this.initializeTooltips();
+
         } catch (error) {
             console.error('Error loading financial statement data:', error);
             this.showError('Failed to load financial statement data');
         }
+    }
+
+    // Initialize Bootstrap tooltips for warning icons
+    static initializeTooltips() {
+        // Initialize tooltips for all warning icons
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl, {
+                delay: { show: 100, hide: 100 },
+                trigger: 'hover'
+            });
+        });
     }
 
     // Render Statement of Financial Position
@@ -157,7 +197,16 @@ class FinancialStatements {
                 const itemData = yearData.line_items.find(i => i.item === itemName);
 
                 if (itemData) {
-                    html += `<td class="text-end">${Helpers.formatNumber(itemData.amount)}</td>`;
+                    const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
+                    const amountDisplay = itemData.amount === 'Not specified in text' || 
+                                          itemData.amount === 'Not fully specified' ||
+                                          itemData.amount === 'Not calculated' ||
+                                          itemData.amount === 'Previous year amount' ||
+                                          itemData.amount.includes('Not specified') 
+                                          ? `<span class="text-muted">${itemData.amount}</span>`
+                                          : Helpers.formatNumber(itemData.amount);
+                    
+                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
                     html += `<td class="text-end">-</td><td class="text-center">-</td>`;
@@ -214,7 +263,16 @@ class FinancialStatements {
                 const itemData = yearData.line_items.find(i => i.item === itemName);
 
                 if (itemData) {
-                    html += `<td class="text-end">${Helpers.formatNumber(itemData.amount)}</td>`;
+                    const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
+                    const amountDisplay = itemData.amount === 'Not specified in text' || 
+                                          itemData.amount === 'Not fully specified' ||
+                                          itemData.amount === 'Not calculated' ||
+                                          itemData.amount === 'Previous year amount' ||
+                                          itemData.amount.includes('Not specified') 
+                                          ? `<span class="text-muted">${itemData.amount}</span>`
+                                          : Helpers.formatNumber(itemData.amount);
+                    
+                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
                     html += `<td class="text-end">-</td><td class="text-center">-</td>`;
@@ -271,7 +329,16 @@ class FinancialStatements {
                 const itemData = yearData.line_items.find(i => i.item === itemName);
 
                 if (itemData) {
-                    html += `<td class="text-end">${Helpers.formatNumber(itemData.amount)}</td>`;
+                    const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
+                    const amountDisplay = itemData.amount === 'Not specified in text' || 
+                                          itemData.amount === 'Not fully specified' ||
+                                          itemData.amount === 'Not calculated' ||
+                                          itemData.amount === 'Previous year amount' ||
+                                          itemData.amount.includes('Not specified') 
+                                          ? `<span class="text-muted">${itemData.amount}</span>`
+                                          : Helpers.formatNumber(itemData.amount);
+                    
+                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
                     html += `<td class="text-end">-</td><td class="text-center">-</td>`;
@@ -328,7 +395,16 @@ class FinancialStatements {
                 const itemData = yearData.line_items.find(i => i.item === itemName);
 
                 if (itemData) {
-                    html += `<td class="text-end">${Helpers.formatNumber(itemData.amount)}</td>`;
+                    const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
+                    const amountDisplay = itemData.amount === 'Not specified in text' || 
+                                          itemData.amount === 'Not fully specified' ||
+                                          itemData.amount === 'Not calculated' ||
+                                          itemData.amount === 'Previous year amount' ||
+                                          itemData.amount.includes('Not specified') 
+                                          ? `<span class="text-muted">${itemData.amount}</span>`
+                                          : Helpers.formatNumber(itemData.amount);
+                    
+                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
                     html += `<td class="text-end">-</td><td class="text-center">-</td>`;
