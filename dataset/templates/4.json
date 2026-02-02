@@ -132,23 +132,6 @@
               }
             ]
           }
-        ],
-        "notes": [
-          {
-            "note_number": "number",
-            "note_title": "title of the note",
-            "texts": "notes that are directly copied from the financial statement",
-            "line_items": [
-              {
-                "item": "same as line named",
-                "amount": "no comma and digit that are directly mentioning in the note"
-              },
-              {
-                "item": "same as line named",
-                "amount": "no comma and digit that are directly mentioning in the note"
-              }
-            ]
-          }
         ]
       }
     }
