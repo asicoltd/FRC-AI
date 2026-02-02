@@ -1,86 +1,30 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "19",
   "frc_analysis_report": {
     "entity": {
       "phase_2_financial_analysis": {
         "enhanced_ratio_analysis": {
           "liquidity_ratios": {
-            "current_ratio": {
-              "2024": "1.21",
-              "2023": "1.35",
-              "trend": "Deteriorating",
-              "benchmark_comparison": "Below the commonly accepted 'safe' threshold of 1.5 and deteriorating.",
-              "risk_assessment": "Moderate to High Risk. The ratio is low and falling, indicating weakening ability to cover short-term obligations. The sharp decline in cash is a primary driver."
-            },
-            "quick_ratio_acid_test": {
-              "2024": "0.65",
-              "2023": "0.78",
-              "calculation_notes": "(Cash + Receivables) / Current Liabilities. Inventory is excluded as it may not be quickly liquidated.",
-              "implications": "Severe Liquidity Stress. The company can only cover 65% of its immediate liabilities with its most liquid assets. This is a critical warning sign.",
-              "investigation_points": ["Urgent review of upcoming debt maturities and supplier payment terms.", "Assessment of the feasibility and cost of securing additional short-term credit lines."]
-            }
+            "current_ratio": {},
+            "quick_ratio_acid_test": {}
           },
           "efficiency_ratios": {
-            "days_of_inventory": {
-              "2024": "95 days",
-              "2023": "89 days",
-              "industry_comparison": "Above the industry average of ~75 days.",
-              "operational_implications": "Inefficient inventory management. Capital is tied up for longer, increasing storage costs and obsolescence risk.",
-              "red_flags": ["Increasing trend suggests slowing demand or overstocking.", "Links to the risk of overstated inventory value and potential NRV write-downs."]
-            },
-            "days_sales_outstanding": {
-              "2024": "123 days",
-              "2023": "112 days",
-              "credit_policy_assessment": "Credit terms appear to be excessively long or collections are inefficient. Standard terms are likely 60-90 days.",
-              "collection_issues": "Severe. Customers are taking over 4 months to pay on average, and the trend is worsening. This directly causes the cash flow crisis and high receivables balance."
-            },
-            "asset_turnover": {
-              "2024": "0.44",
-              "2023": "0.43",
-              "efficiency_assessment": "Very Low and Stagnant. The company generates only BDT 0.44 of revenue for every BDT 1 of assets. This indicates poor utilization of its asset base.",
-              "capacity_utilization": "Likely underutilized assets or investment in non-productive assets (e.g., bloated receivables)."
-            }
+            "days_of_inventory": {},
+            "days_sales_outstanding": {},
+            "asset_turnover": {}
           },
           "solvency_coverage_ratios": {
-            "debt_to_equity": {
-              "2024": "3.36",
-              "2023": "2.84",
-              "trend_analysis": "Rapidly Increasing Leverage. The company is becoming significantly more dependent on debt financing. Equity is being eroded relative to obligations.",
-              "covenant_compliance_check": "Unknown, but the level is high enough to likely breach common debt covenants (e.g., D/E max of 2.5).",
-              "risk_level": "High Financial Risk. The capital structure is highly aggressive, leaving little margin for error."
-            },
-            "interest_coverage_ratio": {
-              "2024": "3.1",
-              "2023": "4.2",
-              "calculation": "EBIT / Finance Costs. Finance costs rose significantly with new debt.",
-              "sustainability_assessment": "Deteriorating. A ratio of 3.1 means operating profit covers interest costs just over 3 times. This is a thin buffer against a profit downturn.",
-              "default_risk": "Moderate. The company can currently service its debt, but the declining trend and high leverage increase vulnerability to rising interest rates or profit shocks."
-            }
+            "debt_to_equity": {},
+            "interest_coverage_ratio": {}
           },
           "profitability_ratios": {
-            "return_on_assets_roa": {
-              "2024": "6.5%",
-              "2023": "7.2%",
-              "analysis": "Declining. The company is generating less profit from its asset base. This aligns with the low and falling asset turnover.",
-              "asset_utilization_assessment": "Poor. The combination of low margin and low turnover results in a subpar ROA, indicating inefficient use of capital."
-            },
-            "return_on_equity_roe": {
-              "2024": "21.5%",
-              "2023": "24.8%",
-              "analysis": "High but Declining. The ROE is artificially inflated by high financial leverage (D/E of 3.36). The underlying operational return (ROA) is weak.",
-              "shareholder_value_assessment": "Misleading. The high ROE is driven by excessive risk (debt), not operational excellence. It is unsustainable and declining."
-            },
-            "net_profit_margin": {
-              "2024": "14.8%",
-              "2023": "15.2%",
-              "trend": "Slight Erosion",
-              "cost_structure_analysis": "Margin pressure is evident despite flat gross margin, indicating rising administrative, selling, or finance costs.",
-              "competitive_position": "Margin is reasonable but under pressure. The company may lack pricing power or be experiencing cost inflation it cannot pass on."
-            }
+            "return_on_assets_roa": {},
+            "return_on_equity_roe": {},
+            "net_profit_margin": {}
           },
-          "overall_ratio_assessment_summary": "The ratio analysis paints a picture of a company in financial distress. It suffers from a critical liquidity crunch (very low quick ratio), severe inefficiencies in working capital management (bloated receivables and inventory), and dangerously high and increasing leverage. Profitability metrics are weakening and are propped up by unsustainable debt. The aggregate of these ratios supports the earlier findings of high fraud risk, aggressive accounting, and compromised going concern sustainability over the medium term."
+          "overall_ratio_assessment_summary": ""
         }
       }
     }

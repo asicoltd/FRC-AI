@@ -1,38 +1,15 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "6",
   "frc_analysis_report": {
     "entity": {
       "phase_2_financial_analysis": {
-        "ratio_analysis": {
-          "current_ratio": "1.21 (2024), 1.35 (2023)",
-          "debt_to_equity": "3.36 (2024), 2.84 (2023)",
-          "gross_profit_margin": "35% (both 2024 & 2023)",
-          "net_profit_margin": "14.8% (2024), 15.2% (2023)",
-          "roa": "6.5% (2024), 7.2% (2023)",
-          "roe": "21.5% (2024), 24.8% (2023)",
-          "interest_coverage": "3.1 (2024), 4.2 (2023)"
-        },
-        "earnings_quality_analysis": {
-          "accruals_ratio": "28.6% (2024), 14.5% (2023)",
-          "cash_flow_to_earnings": "0.71 (2024), 0.85 (2023)",
-          "revenue_growth_quality": "Poor. Revenue growth (15%) is outpaced by receivables growth (25%), indicating aggressive recognition or collection issues.",
-          "expense_recognition_pattern": "Potentially Smoothing. Unusually stable gross margin suggests potential cost capitalization or inventory valuation management to maintain appearance of stability."
-        },
-        "vertical_and_horizontal_analysis": {
-          "vertical_2024": {
-            "assets_composition": "Current Assets: 58%, Non-Current Assets: 42%. Key: Trade Receivables (26%), Inventory (19%).",
-            "liabilities_composition": "Current Liabilities: 48%, Non-Current Liabilities: 29%, Equity: 23%."
-          },
-          "horizontal_growth": {
-            "revenue_growth": "+15% (2024 vs 2023)",
-            "asset_growth": "+14% (2024 vs 2023)",
-            "debt_growth": "+20% (2024 vs 2023)"
-          }
-        },
-        "reason_of_the_status": "The ratio analysis reveals a company in financial distress: deteriorating liquidity (low & falling current/quick ratios), dangerously high and increasing leverage (D/E of 3.36), and poor asset efficiency. Earnings quality is low, evidenced by a high and spiking accruals ratio and a growing gap between revenue and cash collection. The vertical analysis shows a capital structure overly reliant on debt and a worrying increase in receivables as a percentage of assets.",
-        "status_reference": "Calculated from the Statement of Financial Position (pg 2-4), Statement of Profit or Loss (pg 5), and Statement of Cash Flows (pg 6). Specific figures are drawn from the notes on Revenue (pg 55), Inventories (pg 52), and Trade Receivables (pg 62)."
+        "ratio_analysis": {},
+        "earnings_quality_analysis": {},
+        "vertical_and_horizontal_analysis": {},
+        "reason_of_the_status": "",
+        "status_reference": ""
       }
     }
   }

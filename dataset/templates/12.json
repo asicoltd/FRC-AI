@@ -1,98 +1,43 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "12",
   "frc_analysis_report": {
     "entity": {
       "phase_3_ifrs_compliance_detailed": {
         "detailed_ifrs_compliance_matrix": [
           {
-            "standard_code": "IAS 1",
-            "standard_name": "Presentation of Financial Statements",
-            "applicability": "Yes",
-            "page_reference": "1-3, 45-48",
-            "compliance_status": "Compliant",
-            "reason_of_the_status": "Financial statements include all required statements (statement of financial position, comprehensive income, changes in equity, cash flows, notes). Going concern basis is applied and disclosed. Assets and liabilities are properly classified as current/non-current.",
-            "status_reference": "Basis of preparation (pg 45), Note 1 - General Information, Statement of Financial Position",
+            "standard_code": "",
+            "standard_name": "",
+            "applicability": true,
+            "page_reference": "",
+            "compliance_status": "",
+            "reason_of_the_status": "",
+            "status_reference": "",
             "material_departures": [],
-            "ias_1_para_19_24_implication": "Para 19: Fair presentation achieved through compliance with IFRS. Para 24: Going concern basis explicitly stated in basis of preparation."
-          },
-          {
-            "standard_code": "IAS 2",
-            "standard_name": "Inventories",
-            "applicability": "Yes",
-            "page_reference": "52-54",
-            "compliance_status": "Partially Compliant",
-            "reason_of_the_status": "Inventories stated at lower of cost and NRV. Cost determined using FIFO. However, disclosure of NRV assessment methodology and write-down reversals is insufficient.",
-            "status_reference": "Note 4 - Inventories (pg 52)",
-            "material_departures": [],
-            "ias_1_para_19_24_implication": "Inadequate disclosure may affect fair presentation (Para 19) as users cannot fully assess inventory valuation risks."
-          },
-          {
-            "standard_code": "IAS 12",
-            "standard_name": "Income Taxes",
-            "applicability": "Yes",
-            "page_reference": "78-82",
-            "compliance_status": "Compliant",
-            "reason_of_the_status": "Current and deferred tax recognized. Clear reconciliation between accounting profit and tax expense. Deferred tax assets recognized only where future taxable profit is probable.",
-            "status_reference": "Note 12 - Income Taxes (pg 78)",
-            "material_departures": [],
-            "ias_1_para_19_24_implication": "Clear presentation of tax effects supports fair presentation."
-          },
-          {
-            "standard_code": "IFRS 9",
-            "standard_name": "Financial Instruments",
-            "applicability": "Yes",
-            "page_reference": "60-68",
-            "compliance_status": "Partially Compliant",
-            "reason_of_the_status": "Financial assets classified under amortized cost and FVTPL appropriately. Expected credit loss (ECL) model applied. However, sensitivity disclosures for credit risk and market risk are generic and lack entity-specific quantitative detail.",
-            "status_reference": "Note 8 - Financial Instruments (pg 60), Risk Management section",
-            "material_departures": [],
-            "ias_1_para_19_24_implication": "Lack of specific sensitivity analysis may impair users' ability to understand financial risk exposure, affecting fair presentation (Para 19)."
-          },
-          {
-            "standard_code": "IFRS 15",
-            "standard_name": "Revenue from Contracts with Customers",
-            "applicability": "Yes",
-            "page_reference": "55-59",
-            "compliance_status": "Compliant",
-            "reason_of_the_status": "The five-step model is clearly applied and disclosed. Performance obligations, transaction price (including variable consideration constraints), and timing of revenue recognition are well-explained. Contract assets and liabilities are separately presented.",
-            "status_reference": "Note 5 - Revenue (pg 55), Accounting Policies - Revenue Recognition",
-            "material_departures": [],
-            "ias_1_para_19_24_implication": "Transparent revenue disclosure enhances fair presentation."
-          },
-          {
-            "standard_code": "IFRS 16",
-            "standard_name": "Leases",
-            "applicability": "Yes",
-            "page_reference": "69-73",
-            "compliance_status": "Non-Compliant",
-            "reason_of_the_status": "Right-of-use assets and lease liabilities are recognized. However, the discount rate applied (incremental borrowing rate) is not disclosed. Lease term assumptions for options to extend are not explained, raising concerns about potential understatement of liabilities.",
-            "status_reference": "Note 9 - Leases (pg 69)",
-            "material_departures": ["Non-disclosure of discount rate", "Lack of clarity on lease term judgments"],
-            "ias_1_para_19_24_implication": "Omission of key measurement inputs prevents users from understanding the measurement of significant assets/liabilities, impairing fair presentation (Para 19)."
+            "ias_1_para_19_24_implication": ""
           }
         ],
         "tax_compliance_check": {
           "ias_12_income_taxes": {
-            "compliance": "Compliant",
-            "reason_of_the_status": "Deferred tax assets and liabilities are recognized on all temporary differences. Clear reconciliation from accounting profit to tax expense is provided. Unused tax losses are recognized as deferred tax assets with supporting evidence of future profitability.",
-            "status_reference": "Note 12 - Income Taxes (pg 78-82)",
+            "compliance": "",
+            "reason_of_the_status": "",
+            "status_reference": "",
             "issues": []
           },
           "ifric_23_uncertain_tax_positions": {
-            "compliance": "Partially Compliant",
-            "reason_of_the_status": "The entity acknowledges uncertain tax treatments but only discloses them as contingent liabilities. The note does not explicitly describe the process for determining the unit of account, estimating the most likely amount, or measuring the expected value as required by IFRIC 23.",
-            "status_reference": "Note 12 - Income Taxes (pg 81), Note 22 - Contingent Liabilities",
-            "issues": ["Lack of detailed methodology disclosure for uncertain tax positions"]
+            "compliance": "",
+            "reason_of_the_status": "",
+            "status_reference": "",
+            "issues": []
           },
           "bangladesh_income_tax_act_2023": {
-            "withholding_tax_compliance": "Compliant as per financial statements",
-            "advance_tax_status": "Paid as per quarterly statements",
-            "tax_holidays_or_incentives": ["Tax holiday under Section 46 for export-oriented industry until 2027"],
-            "overall_tax_compliance_assessment": "Partially Compliant",
-            "reason_of_the_status": "While current tax calculations appear compliant and incentives are disclosed, the financial statements do not provide reconciliation between the statutory tax rate (27.5%) and the effective tax rate shown. This omission makes it difficult to fully verify compliance with the local tax act's specific provisions.",
-            "status_reference": "Note 12 - Income Taxes (pg 78-82), Directors' Report section on Tax Compliance"
+            "withholding_tax_compliance": "",
+            "advance_tax_status": "",
+            "tax_holidays_or_incentives": [],
+            "overall_tax_compliance_assessment": "",
+            "reason_of_the_status": "",
+            "status_reference": ""
           }
         }
       }

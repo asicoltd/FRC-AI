@@ -1,95 +1,44 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "22",
   "frc_analysis_report": {
     "entity": {
       "phase_4_audit_governance_verification": {
         "corporate_governance_code_assessment": {
           "bsec_corporate_governance_code": {
-            "compliance_checklist": [
-              {
-                "requirement": "Board Composition & Independence (Code 8.3)",
-                "disclosed_in_report": "Board has 8 members: 4 Executive, 4 Non-Executive (2 Independent).",
-                "compliance_status": "Non-compliant",
-                "page_reference": "28",
-                "frca_assessment": "Only 25% independent directors (2/8). Falls short of the minimum one-third (33%) requirement.",
-                "recommendations": "Appoint at least one additional independent director immediately."
-              },
-              {
-                "requirement": "Separation of CEO & Chairman Roles (Code 8.7)",
-                "disclosed_in_report": "CEO and Chairman roles are combined and held by the founder.",
-                "compliance_status": "Non-compliant",
-                "page_reference": "28",
-                "frca_assessment": "Clear breach. Combined roles concentrate power and weaken board oversight.",
-                "recommendations": "Separate the roles; appoint an independent Non-Executive Chairman."
-              },
-              {
-                "requirement": "Audit Committee Composition & Independence (Code 16.2)",
-                "disclosed_in_report": "Committee of 4 Non-Executive Directors. Chair is a Non-Executive Director not classified as independent.",
-                "compliance_status": "Non-compliant",
-                "page_reference": "29",
-                "frca_assessment": "Chair must be independent. Current chair's prior business relationship disqualifies independence.",
-                "recommendations": "Reconstitute the committee with an independent chair."
-              },
-              {
-                "requirement": "Related Party Transaction Review (Code 21)",
-                "disclosed_in_report": "Transactions disclosed in notes. Stated that material RPTs were reviewed and approved by the Board.",
-                "compliance_status": "Partially Compliant",
-                "page_reference": "95-97, 30",
-                "frca_assessment": "Process exists but is flawed. Board approval occurred, but the Board lacks independence. Terms and arm's length justification are insufficiently disclosed.",
-                "recommendations": "Establish a formal, transparent RPT policy. Require independent director review/approval for material transactions. Enhance disclosure of pricing benchmarks."
-              },
-              {
-                "requirement": "Risk Management Committee (Code 18)",
-                "disclosed_in_report": "No separate Risk Management Committee formed.",
-                "compliance_status": "Non-compliant",
-                "page_reference": "30",
-                "frca_assessment": "Clear breach. Risk oversight is handled by the full board, which is inadequate for a listed entity.",
-                "recommendations": "Establish a Board Risk Management Committee with a majority of independent directors."
-              }
-            ],
-            "overall_compliance_score": "Poor (Significant Non-Compliance)",
-            "major_non_compliances": [
-              "Insufficient Independent Directors on Board",
-              "Combined CEO/Chairman Roles",
-              "Non-Independent Audit Committee Chair",
-              "Absence of a Risk Management Committee"
-            ],
-            "boilerplate_statements_identified": [
-              "The statement 'The Board is committed to the highest standards of corporate governance' is not substantiated by the actual structure.",
-              "Claims that 'related party transactions are conducted on an arm's length basis' are generic and unsupported by evidence."
-            ]
+            "compliance_checklist": [],
+            "overall_compliance_score": "",
+            "major_non_compliances": [],
+            "boilerplate_statements_identified": []
           },
           "board_committee_effectiveness": {
             "audit_committee": {
-              "composition": "4 Non-Executive Directors (Chair is not independent).",
-              "meetings_held": "4 meetings during the year.",
-              "activities_disclosed": "Reviewed financial statements, internal audit reports, and auditor's independence.",
-              "independence_assessment": "Ineffective. The lack of an independent chair and the broader board's lack of independence critically undermine its objectivity.",
-              "effectiveness_rating": "Weak"
+              "composition": "",
+              "meetings_held": "",
+              "activities_disclosed": "",
+              "independence_assessment": "",
+              "effectiveness_rating": ""
             },
             "risk_committee": {
-              "existence": "Does not exist.",
-              "activities": "N/A",
-              "risk_coverage": "Risk oversight is nominally with the full board, but no dedicated focus or expertise is disclosed.",
-              "effectiveness": "Non-Existent / Ineffective"
+              "existence": "",
+              "activities": "",
+              "risk_coverage": "",
+              "effectiveness": ""
             },
             "nomination_remuneration": {
-              "committee_structure": "No separate committee. Functions are performed by the full board.",
-              "disclosures_made": "Remuneration policy and director fees are disclosed in the Directors' Report.",
-              "transparency_level": "Low. No disclosure of the process for setting executive pay, performance targets, or director nomination.",
-              "compliance_issues": "Non-compliance with best practice and likely BSEC code requirements for structured committees."
+              "committee_structure": "",
+              "disclosures_made": "",
+              "transparency_level": "",
+              "compliance_issues": ""
             }
           },
           "internal_control_framework": {
-            "management_assessment_disclosed": "A generic statement is included in the Directors' Responsibility section: 'maintained adequate internal controls.'",
-            "auditor_opinion_on_icfr": "No separate opinion provided (not mandatory in Bangladesh).",
-            "deficiencies_reported": [
-              "No specific deficiencies are reported by management, which is implausible given the operational red flags (poor receivables/inventory control)."
-            ],
-            "remediation_plans": "No remediation plans disclosed.",
-            "overall_effectiveness": "Cannot be Relied Upon. Management's assessment is boilerplate and uninformative. The severe working capital inefficiencies and accounting issues are prima facie evidence of significant internal control deficiencies over financial reporting and operations."
+            "management_assessment_disclosed": "",
+            "auditor_opinion_on_icfr": "",
+            "deficiencies_reported": [],
+            "remediation_plans": [],
+            "overall_effectiveness": ""
           }
         }
       }

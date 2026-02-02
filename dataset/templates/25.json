@@ -1,74 +1,44 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "25",
   "frc_analysis_report": {
     "entity": {
       "phase_5_synthesis_and_findings": {
         "holistic_risk_factor_synthesis": {
           "financial_risks_from_analysis": {
-            "from_ratio_trends": ["Critical Liquidity Risk (Quick ratio: 0.65)", "Severe Working Capital Inefficiency (DSO: 123 days, DOI: 95 days)", "High & Rising Financial Leverage (D/E: 3.36 and rising)", "Declining Profitability Metrics (ROA, NPM)"],
-            "from_accruals_analysis": ["High & Spiking Accruals (Accruals/Net Income: 28.6%)", "Earnings Quality Deterioration"],
-            "from_cash_flow_patterns": ["Operating Cash Flow Consistently Below Net Income", "Sharp Decline in Cash Balance Despite Reported Profits"],
-            "from_earnings_quality": ["Aggressive Revenue Recognition", "Stable Gross Margin Amidst Volatility (potential smoothing)"],
-            "consolidated_financial_risk_level": "Critical"
+            "from_ratio_trends": [],
+            "from_accruals_analysis": [],
+            "from_cash_flow_patterns": [],
+            "from_earnings_quality": [],
+            "consolidated_financial_risk_level": ""
           },
           "operational_risks": {
-            "from_segment_analysis": ["Not explicitly segmented, but reliance on few large contracts implied by revenue nature."],
-            "from_related_party_transactions": ["High Dependence on Related Party for Sales & Purchases (BDT 1,170m)", "Risk of Artificial Revenue/Profit Inflation", "Risk of Fund Diversion"],
-            "from_post_reporting_events": ["Decline in raw material price - risk to inventory valuation."],
-            "from_going_concern_assessment": ["Severe Short-Term Liquidity Crunch Threatens Operations", "No Credible Plan to Fix Working Capital Issues"],
-            "consolidated_operational_risk_level": "High"
+            "from_segment_analysis": [],
+            "from_related_party_transactions": [],
+            "from_post_reporting_events": [],
+            "from_going_concern_assessment": [],
+            "consolidated_operational_risk_level": ""
           },
           "compliance_risks": {
-            "from_ifrs_departures": ["Material Departures in Revenue (IFRS 15), Leases (IFRS 16), Related Party (IAS 24)"],
-            "from_regulatory_breaches": ["Breach of BSEC Corporate Governance Code (Independence, Committees)", "Potential Breach of Companies Act (Directors' Duties)", "Potential Breach of FRA 2015 (True & Fair View)"],
-            "from_governance_weaknesses": ["Dominant CEO/Founder with Combined Chair Role", "Non-Independent Board & Audit Committee", "Absence of Key Board Committees (Risk, Nomination)"],
-            "from_audit_qualifications": ["Auditor issued Unmodified Opinion despite red flags, raising audit quality risk."],
-            "consolidated_compliance_risk_level": "Critical"
+            "from_ifrs_departures": [],
+            "from_regulatory_breaches": [],
+            "from_governance_weaknesses": [],
+            "from_audit_qualifications": [],
+            "consolidated_compliance_risk_level": ""
           },
           "key_audit_matters_synthesis": {
-            "kams_identified_by_auditor": ["Inventory NRV", "Revenue Recognition (Long-term Contracts)", "Goodwill Impairment"],
-            "frca_assessment_of_kams": [
-              "**Inventory NRV:** Auditor's procedures seem adequate, but disclosure remains poor. Risk partially addressed.",
-              "**Revenue Recognition:** CRITICAL GAP. Auditor tested the *calculation* but failed to fundamentally challenge the aggressive *timing* of recognition (shipment vs. acceptance). This is the core risk.",
-              "**Goodwill Impairment:** Adequately addressed in audit scope, but disclosure could be better."
-            ],
-            "additional_risks_identified": [
-              "**Related Party Transaction Risks** (not a KAM but material)",
-              "**Lease Accounting & Disclosure Risks** (not a KAM but material)",
-              "**Going Concern/Liquidity Risks** (not a KAM despite critical ratios)"
-            ],
-            "risk_mitigation_assessment": "Poor. The audit process and KAM selection failed to capture and mitigate the most critical risks facing the entity (governance, related parties, liquidity, lease disclosures)."
+            "kams_identified_by_auditor": [],
+            "frca_assessment_of_kams": [],
+            "additional_risks_identified": [],
+            "risk_mitigation_assessment": ""
           },
           "overall_integrated_risk_assessment": {
-            "highest_risk_areas": [
-              "Governance Failure & Management Override (Drives all other risks)",
-              "Aggressive Revenue Recognition (Threatens earnings sustainability)",
-              "Related Party Transaction Integrity (Risk of fraud and misrepresentation)",
-              "Critical Liquidity & Solvency Risk (Threat to ongoing operations)"
-            ],
-            "medium_risk_areas": [
-              "Inventory Valuation & Obsolescence",
-              "Lease Accounting Disclosures",
-              "Compliance with Specific IFRS Standards",
-              "Debt Covenant Breaches"
-            ],
-            "low_risk_areas": [
-              "Basic Tax Accounting Compliance",
-              "Presentation Format of Financial Statements"
-            ],
-            "risk_interconnections": [
-              "Governance Failure (CEO dominance, weak board) --> Allows Aggressive Accounting (Revenue, Leases) & Unchecked Related Party Transactions --> Leads to Inflated Earnings & Poor Disclosures --> Masks Underlying Liquidity Crisis --> Threatens Going Concern.",
-              "Liquidity Crisis (poor collections, high debt) --> Increases pressure on Management to meet targets --> Incentivizes further Aggressive Accounting and Related Party Activity to show performance.",
-              "Audit Failure to address core risks --> Provides false assurance --> Allows risks to persist and compound."
-            ],
-            "frca_priority_actions": [
-              "**Immediate Regulatory Intervention:** Issue a directive to the entity and its board to restate financial statements addressing revenue recognition and lease disclosures. Mandate governance restructuring (independent directors, separate Chair/CEO).",
-              "**Enhanced Scrutiny:** Refer the audit file to the ICAB for review of professional skepticism applied, particularly regarding revenue and going concern.",
-              "**Ongoing Monitoring:** Place the entity on a watchlist for enhanced review of its next interim and annual filings.",
-              "**Stakeholder Alert:** Publish a public summary of key findings to alert investors and the market to the material risks identified."
-            ]
+            "highest_risk_areas": [],
+            "medium_risk_areas": [],
+            "low_risk_areas": [],
+            "risk_interconnections": [],
+            "frca_priority_actions": []
           }
         }
       }

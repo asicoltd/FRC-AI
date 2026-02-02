@@ -1,6 +1,6 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "17",
   "frc_analysis_report": {
     "entity": {
@@ -8,47 +8,30 @@
         "detailed_earnings_quality_analysis": {
           "total_accruals_calculation": {
             "year_2024": {
-              "net_income": "1,850",
-              "cash_flow_from_operations": "1,320",
-              "total_accruals": "530",
-              "accruals_to_net_income_ratio": "28.6%",
-              "analysis_comment": "High proportion of earnings (29%) is from accruals, not cash. This is significantly above a typical healthy range of 10-20%, indicating potential earnings management or aggressive accounting."
+              "net_income": "",
+              "cash_flow_from_operations": "",
+              "total_accruals": "",
+              "accruals_to_net_income_ratio": "",
+              "analysis_comment": ""
             },
             "year_2023": {
-              "net_income": "1,650",
-              "cash_flow_from_operations": "1,410",
-              "total_accruals": "240",
-              "accruals_to_net_income_ratio": "14.5%",
-              "analysis_comment": "Ratio was within a more reasonable range in the prior year, making the spike in 2024 more concerning."
+              "net_income": "",
+              "cash_flow_from_operations": "",
+              "total_accruals": "",
+              "accruals_to_net_income_ratio": "",
+              "analysis_comment": ""
             },
-            "trend_assessment": "Deteriorating. The accruals ratio has nearly doubled year-on-year (from 14.5% to 28.6%). This sharp increase suggests a significant shift towards non-cash earnings components in the current period.",
-            "red_flags_identified": [
-              "Spike in Accruals Ratio: A large, sudden increase is a classic red flag for potential earnings inflation.",
-              "Consistent Negative Operating Cash Flow to Net Income Gap: CFO consistently lags behind Net Income over both years, indicating earnings are not converting to cash.",
-              "Link to Aggressive Revenue Recognition: The spike aligns with the identified aggressive revenue recognition policy (recognizing revenue at shipment before cash collection)."
-            ],
-            "areas_for_further_investigation": [
-              "Detailed analysis of changes in working capital accounts (especially Trade Receivables, Contract Assets, and Inventory) driving the accruals increase.",
-              "Scrutiny of any large, one-off accruals or provisions reversed in the period.",
-              "Comparison of revenue growth with growth in trade receivables to detect channel stuffing."
-            ]
+            "trend_assessment": "",
+            "red_flags_identified": [],
+            "areas_for_further_investigation": []
           },
           "revenue_quality_indicators": {
-            "revenue_growth_vs_cash_collection": "Divergence Detected. Revenue grew by 15% (from BDT 10,870m to BDT 12,500m), while cash collected from customers (approximated from change in receivables and revenue) grew by only 8%. This growing gap indicates sales are increasingly made on credit or revenue is recognized ahead of cash receipt.",
-            "accounting_policy_changes_impact": "No explicit policy change disclosed. However, the application of the existing 'shipment' policy appears aggressive for complex equipment, effectively acting as a de facto change.",
-            "significant_judgments_areas": [
-              {
-                "area": "Timing of Revenue Recognition (Control Transfer)",
-                "judgment": "Management judges control transfers at shipment, not customer acceptance.",
-                "risk": "High - Overstates current revenue and profits."
-              },
-              {
-                "area": "Estimation of Variable Consideration",
-                "judgment": "Management estimates discounts and rebates to determine transaction price.",
-                "risk": "Medium - Potential to overestimate revenue if constraints are not properly applied."
-              }
-            ],
-            "risk_assessment": "High. The combination of a high and spiking accruals ratio, divergence between revenue growth and cash collection, and aggressive judgments on revenue timing presents a high risk that reported revenue and earnings are of low quality and may not be sustainable or realizable."
+            "revenue_growth_vs_cash_collection": "",
+            "accounting_policy_changes_impact": "",
+            "significant_judgments_areas": [],
+            "risk_assessment": "",
+            "justification_of_assessment": "",
+            "source_of_the_information": ""
           }
         }
       }

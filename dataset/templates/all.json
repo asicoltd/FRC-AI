@@ -1,0 +1,1344 @@
+{
+  "1.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "1",
+    "frc_analysis_report": {
+      "metadata": {
+        "generation_date": "YYYY-MM-DD",
+        "analyst_framework_version": "X.X",
+        "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+        "prepared_for": "Financial Reporting Council, Bangladesh",
+        "source_documents": [
+          "Link of the PDF or other documents used for analysis"
+        ]
+      }
+    }
+  },
+  "2.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "2",
+    "frc_analysis_report": {
+      "entity": {
+        "entity_id": "C-XXXXXX",
+        "entity_profile": {
+          "legal_name": "",
+          "trade_name": ".",
+          "registration_number": "",
+          "industry_sector": "",
+          "frc_sector": "Bank / Cement / Ceramics Sector / Debenture / Engineering / Financial Institutions / Food & Allied / Fuel & Power / Insurance / IT Sector / Jute / Miscellaneous / Mutual Funds / Paper & Printing / Pharmaceuticals & Chemicals / Services & Real Estate / Tannery Industries / Telecommunication / Textile / Travel & Leisure",
+          "listing_status": "Listed to BSEC",
+          "stock_exchange_symbol": "",
+          "reporting_currency": "",
+          "financial_year_end": "",
+          "report_publication_date": ""
+        }
+      }
+    }
+  },
+  "3.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "3",
+    "frc_analysis_report": {
+      "entity": {
+        "materiality_framework": {
+          "quantitative_materiality": {
+            "benchmark_used": "",
+            "percentage_applied": "",
+            "overall_materiality_amount": "",
+            "performance_materiality_amount": "",
+            "clearly_trivial_threshold": "",
+            "reason_of_the_status": "",
+            "status_reference": ""
+          },
+          "qualitative_materiality_considerations": [],
+          "frc_materiality_conclusion": "",
+          "reason_of_the_status": "",
+          "status_reference": ""
+        }
+      }
+    }
+  },
+  "4.json": {
+    "section_id": "4",
+    "frc_analysis_report": {
+      "entity": {
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_profit_or_loss_and_other_comprehensive_income": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_cash_flows": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_changes_in_equity": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "5.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "5",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+            "notes_reference": "Note 1: Basis of Preparation, page 45",
+            "actual_standards_applied": [
+              "IAS 1",
+              "IAS 2",
+              "IAS 12",
+              "IFRS 9",
+              "IFRS 15",
+              "IFRS 16"
+            ],
+            "discrepancies_identified": [
+              "Asserted compliance with IFRS, but material departures identified in IFRS 15 (revenue), IFRS 16 (disclosures), and IAS 24 (disclosures)."
+            ],
+            "compliance_assessment": "Partially Compliant",
+            "reason_of_the_status": "The entity explicitly states compliance with IFRS. However, detailed analysis reveals material departures in the application and disclosure requirements of specific standards, meaning the financial statements do not fully comply with the stated framework.",
+            "status_reference": "Basis of Preparation (pg 45) for claim. Detailed IFRS compliance checks in Sections 7-11 for discrepancies."
+          },
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Partially Compliant",
+                "reason_for_non_compliance": "Non-compliance with BSEC Corporate Governance Code 2018: insufficient independent directors (Reg. 8.3), combined CEO/Chair roles (Reg. 8.7), non-independent audit committee chair (Reg. 16.2), and absence of a Risk Management Committee (Reg. 18).",
+                "notes_reference": "Corporate Governance Report, pages 26-31",
+                "specific_disclosures_found": [
+                  "Corporate Governance Compliance Statement"
+                ],
+                "reason_of_the_status": "The entity discloses its governance structure, which upon verification fails to meet several specific requirements of the BSEC Code for listed companies.",
+                "status_reference": "Corporate Governance Report (pg 26-31) and cross-reference to BSEC Code requirements."
+              },
+              {
+                "regulator_name": "Financial Reporting Council (FRC) Bangladesh",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Partially Compliant",
+                "reason_for_non_compliance": "Potential breach of Financial Reporting Act 2015, Section 9, as the financial statements may not give a 'true and fair view' due to material departures from IFRS.",
+                "notes_reference": "Auditor's Report (pg 120-125) asserts fair presentation, which is challenged by FRC analysis.",
+                "specific_disclosures_found": [
+                  "Auditor's opinion on true and fair view."
+                ],
+                "reason_of_the_status": "While the auditor provides an unmodified opinion, the FRC's independent analysis identifies material issues that undermine the true and fair view, indicating potential non-compliance with the FRA 2015.",
+                "status_reference": "Auditor's Report (pg 120) and consolidated findings in Section 24 of this report."
+              },
+              {
+                "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant (as per disclosure)",
+                "reason_for_non_compliance": "N/A",
+                "notes_reference": "Directors' Report, page 118",
+                "specific_disclosures_found": [
+                  "Statement that all statutory requirements have been complied with."
+                ],
+                "reason_of_the_status": "The Directors' Report includes a boilerplate statement of compliance with the Companies Act. No specific RJSC-related issues are identified in the financial statements.",
+                "status_reference": "Directors' Report (pg 118)"
+              },
+              {
+                "regulator_name": "National Board of Revenue (NBR)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant (as per financial statement disclosures)",
+                "reason_for_non_compliance": "N/A",
+                "notes_reference": "Note 12: Income Taxes, pages 78-82",
+                "specific_disclosures_found": [
+                  "Current and deferred tax calculations, tax expense reconciliation."
+                ],
+                "reason_of_the_status": "The income tax note appears comprehensive and calculated in accordance with the Bangladesh Income Tax Act 2023. No obvious discrepancies are noted from the face of the financial statements.",
+                "status_reference": "Note 12 - Income Taxes (pg 78-82)"
+              },
+              {
+                "regulator_name": "Bangladesh Bank",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Not Applicable",
+                "reason_for_non_compliance": "N/A - The entity is a manufacturing/trading company, not a financial institution.",
+                "notes_reference": "N/A",
+                "specific_disclosures_found": [],
+                "reason_of_the_status": "Bangladesh Bank regulations primarily apply to financial institutions.",
+                "status_reference": "N/A"
+              }
+            ],
+            "statutory_filings_status": {
+              "bsec_filed": true,
+              "bsec_filing_date": "March 30, 2025 (as per report authorization date)",
+              "income_tax_return_filed": true,
+              "income_tax_year": "Assessment Year 2024-2025",
+              "rjsc_compliance": true,
+              "bb_compliance_if_applicable": "N/A"
+            },
+            "overall_regulatory_assessment": "Partially Compliant with Significant Deficiencies. While the entity meets basic filing requirements, there are material deficiencies in compliance with the substantive rules of key regulators (BSEC Corporate Governance Code and the underlying principles of the FRA 2015)."
+          }
+        }
+      }
+    }
+  },
+  "6.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "6",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {},
+          "earnings_quality_analysis": {},
+          "vertical_and_horizontal_analysis": {},
+          "reason_of_the_status": "",
+          "status_reference": ""
+        }
+      }
+    }
+  },
+  "7.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "7",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "accounting_policies_review": {
+            "significant_policies_disclosed": [
+              "List specific policies from the notes, e.g., 'Revenue recognition for construction contracts (IFRS 15).'"
+            ],
+            "changes_in_accounting_policies": [
+              "List new standards adopted or policy changes. Write 'None' if not applicable."
+            ],
+            "ias_8_hierarchy_compliance": "Brief assessment of compliance with the accounting hierarchy, referencing the note where stated."
+          },
+          "management_judgment_and_estimation_uncertainty": {
+            "critical_judgments": [
+              {
+                "area": "e.g., Lease classification, control of an investee.",
+                "management_assumption": "The specific judgment management made.",
+                "alternative_view": "A reasonable alternative accounting treatment.",
+                "frc_skeptical_assessment": "Brief skeptical comment on the reasonableness of management's judgment.",
+                "impact_if_changed": "The financial impact of using the alternative."
+              }
+            ],
+            "key_estimation_uncertainties": [
+              {
+                "estimate": "e.g., Useful life of assets, warranty provision.",
+                "sensitivity_range": "The disclosed numerical sensitivity or 'Not disclosed'.",
+                "disclosure_adequacy": "Good / Adequate / Poor.",
+                "risk_level": "A number from 1 (Low Risk) to 10 (High Risk).",
+                "reason_of_the_status": "Brief justification for the risk score.",
+                "status_reference": "Note number or section where this is discussed."
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "8.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "8",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ias_1_presentation": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_2_inventories": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_7_statement_of_cash_flows": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_8_accounting_policies": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_10_events_after_reporting_period": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_12_income_taxes": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_16_property_plant_equipment": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_19_employee_benefits": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_20_government_grants": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_21_effects_of_changes_in_foreign_exchange_rates": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_23_borrowing_costs": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_24_related_party_disclosures": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_27_separate_financial_statements": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_28_investments_in_associates_and_joint_ventures": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_29_financial_reporting_in_hyperinflationary_economies": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_32_financial_instruments_presentation": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_33_earnings_per_share": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_34_interim_financial_reporting": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "9.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "9",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ias_36_impairment_of_assets": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_37_provisions_contingent_liabilities_assets": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_38_intangible_assets": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_40_investment_property": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ias_41_agriculture": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_1_first_time_adoption": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_2_share_based_payment": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_3_business_combinations": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_5_non_current_assets_held_for_sale": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_7_financial_instruments_disclosures": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_8_operating_segments": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_9_financial_instruments": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_10_consolidated_financial_statements": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_11_joint_arrangements": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_12_disclosure_of_interests_in_other_entities": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "10.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "10",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ifrs_13_fair_value_measurement": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_14_regulatory_deferral_accounts": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_15_revenue_from_contracts_with_customers": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_16_leases": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifrs_17_insurance_contracts": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_2_members_shares_in_cooperative_entities": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_7_applying_the_restatement_approach_under_ias_29": {
+              "applicable": false,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_10_interim_financial_reporting_and_impairment": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_12_service_concession_arrangements": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            },
+            "ifric_17_distributions_of_non_cash_assets_to_owners": {
+              "applicable": true,
+              "reason_of_the_status": "",
+              "status_reference": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "11.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "11",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+              "applicable": true,
+              "debt_equity_swaps": "Transaction occurred and accounted for per IFRIC 19/No such transaction",
+              "fair_value_measurement": "Equity instruments measured at fair value at derecognition date/Measurement incorrect",
+              "gain_loss_recognition": "Difference between carrying amount of liability and FV of equity recognized in P&L/Incorrectly recognized",
+              "disclosures_provided": "Adequate (nature, amounts)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for debt-to-equity swaps where equity instruments are issued to extinguish a financial liability.",
+              "status_reference": "Financial liabilities note, equity note, gain/loss on debt extinguishment in P&L"
+            },
+            "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+              "applicable": false,
+              "stripping_activity_costs": "N/A - Entity not in surface mining industry",
+              "recognition_criteria": "N/A",
+              "measurement_basis": "N/A",
+              "amortization_method": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Interpretation specific to surface mining operations for stripping costs during production phase.",
+              "status_reference": "N/A"
+            },
+            "ifric_21_levies": {
+              "applicable": true,
+              "government_levies": "Present (e.g., bank levies, environmental charges)/Not present",
+              "recognition_timing": "Recognized when obligating event occurs (e.g., operating in period)/Recognized incorrectly",
+              "measurement_basis": "Best estimate of outflow/Measurement questionable",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of timing for recognizing liabilities to pay government levies (recognized in the period the obligating event occurs).",
+              "status_reference": "Provisions note, other liabilities, operating expenses"
+            },
+            "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+              "applicable": true,
+              "advance_payments_foreign_currency": "Received or paid in foreign currency/No such transactions",
+              "exchange_rate_determination": "Rate at date of payment for non-monetary item/Rate used incorrectly",
+              "asset_liability_recognition": "Asset/expense measured using historical rate when payment is advance/Measured incorrectly",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of exchange rate used when advance consideration is paid/received for a non-monetary asset/expense.",
+              "status_reference": "Foreign currency transactions note, prepayments, PPE/intangible additions"
+            },
+            "ifric_23_uncertainty_over_income_tax_treatments": {
+              "applicable": true,
+              "uncertain_tax_positions": "Exist and accounted for per IFRIC 23/None identified",
+              "recognition_criteria": "Considered whether position is probable of being sustained/Not considered",
+              "measurement_basis": "Measured at most likely amount or expected value/Measurement not disclosed",
+              "disclosures_provided": "Adequate (nature of uncertainty)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of how uncertainty in income tax treatments is reflected in the measurement of tax assets/liabilities.",
+              "status_reference": "Income taxes note, contingent liabilities note, tax risk disclosures"
+            },
+            "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+              "applicable": true,
+              "tax_status_changes": "Occurred (e.g., change in tax residency)/No changes",
+              "deferred_tax_impacts": "Deferred tax assets/liabilities remeasured/Not remeasured",
+              "dividend_withholding_taxes": "Considered in distribution announcements/Not considered",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for changes in tax status (e.g., remeasurement of DTAs/DTLs) and withholding taxes on dividends.",
+              "status_reference": "Income taxes note, equity note (dividends), significant events note"
+            },
+            "sic_7_introduction_of_euro": {
+              "applicable": true,
+              "euro_transition_impacts": "Entity transacts in euros/Not applicable",
+              "exchange_rate_fixing": "Fixed conversion rates used for legacy currencies/Rates used correctly",
+              "rounding_conventions": "Applied consistently/Not an issue",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of consistent application of fixed conversion rates and rounding rules for euro transactions. Legacy issue but may still apply.",
+              "status_reference": "Foreign currency note, accounting policies, basis of preparation"
+            },
+            "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+              "applicable": true,
+              "government_assistance": "Received (e.g., grants not related to assets or income)/None",
+              "recognition_criteria": "Recognized as income when conditions met/Recognized incorrectly",
+              "measurement_basis": "Measured at fair value/Measurement not disclosed",
+              "disclosures_provided": "Adequate (nature, extent, conditions)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for government grants not related to specific assets or income (recognized as income over periods).",
+              "status_reference": "Government grants note, other income, commitments note"
+            },
+            "sic_15_operating_leases_incentives": {
+              "applicable": true,
+              "lease_incentives": "Received (e.g., cash incentives, rent-free periods)/None",
+              "recognition_timing": "Recognized as reduction of rental expense over lease term/Recognized upfront",
+              "allocation_over_lease_term": "Allocated on a straight-line basis/Allocation method not appropriate",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for incentives in operating leases (lessee recognizes benefit as reduction of lease expense over term).",
+              "status_reference": "Leases note, operating lease commitments note, accounting policies"
+            },
+            "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+              "applicable": true,
+              "tax_status_changes": "Occurred (e.g., change from partnership to corporation)/No changes",
+              "deferred_tax_effects": "Deferred tax recognized/impact disclosed/Not recognized",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for deferred tax implications of changes in the tax status of the entity or its shareholders.",
+              "status_reference": "Income taxes note, equity note, significant events note"
+            },
+            "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+              "applicable": true,
+              "substance_over_form": "Applied to assess lease transactions/Not considered",
+              "linked_transactions": "Series of linked transactions assessed as single arrangement/Assessed separately",
+              "lease_classification": "Classification based on substance/Classification based solely on legal form",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment of whether the substance of a series of transactions (e.g., sale and leaseback) results in a lease or another arrangement.",
+              "status_reference": "Leases note, related party transactions, commitments note"
+            },
+            "sic_29_service_concession_arrangements_disclosures": {
+              "applicable": true,
+              "service_concession_disclosures": "Entity is operator/grantor and provides disclosures/Not applicable",
+              "rights_obligations": "Nature and extent disclosed/Insufficient disclosure",
+              "revenue_expense_recognition": "Accounting policies disclosed/Policies not clear",
+              "disclosures_provided": "Adequate per SIC-29/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of disclosures about service concession arrangements to explain the arrangement's nature, risks, and accounting.",
+              "status_reference": "Service concession arrangements note, revenue recognition note, intangible assets note"
+            },
+            "sic_32_intangible_assets_website_costs": {
+              "applicable": true,
+              "website_development_costs": "Incurred and accounted for per SIC-32/Not material",
+              "recognition_criteria": "Development costs capitalized when criteria met/Expensed",
+              "amortization_policy": "Amortized over useful life/Policy reasonable",
+              "impairment_testing": "Tested for impairment/Not tested",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for website development costs (planning/design costs expensed, development/construction costs capitalized if criteria met).",
+              "status_reference": "Intangible assets note, IT/website costs in expenses, accounting policies"
+            }
+          }
+        }
+      }
+    }
+  },
+  "12.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "12",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "detailed_ifrs_compliance_matrix": [
+            {
+              "standard_code": "",
+              "standard_name": "",
+              "applicability": true,
+              "page_reference": "",
+              "compliance_status": "",
+              "reason_of_the_status": "",
+              "status_reference": "",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": ""
+            }
+          ],
+          "tax_compliance_check": {
+            "ias_12_income_taxes": {
+              "compliance": "",
+              "reason_of_the_status": "",
+              "status_reference": "",
+              "issues": []
+            },
+            "ifric_23_uncertain_tax_positions": {
+              "compliance": "",
+              "reason_of_the_status": "",
+              "status_reference": "",
+              "issues": []
+            },
+            "bangladesh_income_tax_act_2023": {
+              "withholding_tax_compliance": "",
+              "advance_tax_status": "",
+              "tax_holidays_or_incentives": [],
+              "overall_tax_compliance_assessment": "",
+              "reason_of_the_status": "",
+              "status_reference": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "13.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "13",
+    "frc_analysis_report": {
+      "entity": {
+        "fraud_and_management_override_assessment": {
+          "fraud_risk_factors_identified": [],
+          "revenue_manipulation_indicators": [],
+          "journal_entry_override_risk": "",
+          "override_of_internal_controls_risk": "",
+          "overall_fraud_risk_assessment": "",
+          "reason_of_the_status": "",
+          "status_reference": ""
+        }
+      }
+    }
+  },
+  "14.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "14",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "",
+              "firm_registration_number": "",
+              "audit_tenure_years": "",
+              "rotation_compliance": ""
+            },
+            "audit_opinion": {
+              "opinion_type": "",
+              "basis_for_opinion": "",
+              "modified_opinion_reasons": []
+            },
+            "key_audit_matters": [],
+            "going_concern_assessment": {
+              "auditor_conclusion": "",
+              "period_assessed": "",
+              "mitigating_factors": []
+            },
+            "isa_compliance_check": {
+              "compliance": "",
+              "issues": []
+            },
+            "reason_of_the_status": "",
+            "status_reference": ""
+          },
+          "corporate_governance_review": {
+            "board_structure": {
+              "independence": "",
+              "expertise": "",
+              "effectiveness": ""
+            },
+            "committee_effectiveness": {
+              "audit_committee": "",
+              "risk_committee": "",
+              "nomination_committee": ""
+            },
+            "internal_controls": {
+              "effectiveness": "",
+              "management_assessment": "",
+              "auditor_opinion": ""
+            },
+            "reason_of_the_status": "",
+            "status_reference": ""
+          }
+        }
+      }
+    }
+  },
+  "15.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "15",
+    "frc_analysis_report": {
+      "entity": {
+        "legal_and_enforcement_mapping": {
+          "financial_reporting_act_2015": {
+            "sections_triggered": [],
+            "nature_of_breach": "",
+            "severity_assessment": "",
+            "reason_of_the_status": "",
+            "status_reference": ""
+          },
+          "companies_act_1994": {
+            "sections_implicated": [],
+            "director_liability_assessed": false,
+            "liability_nature": "",
+            "reason_of_the_status": "",
+            "status_reference": ""
+          },
+          "bsec_rules_if_applicable": {
+            "rules_breached": [],
+            "market_impact": "",
+            "reason_of_the_status": "",
+            "status_reference": ""
+          }
+        }
+      }
+    }
+  },
+  "16.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "16",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "material_departures_summary": [],
+          "risk_factor_consolidation": {
+            "high_risk": [],
+            "medium_risk": [],
+            "low_risk": []
+          },
+          "going_concern_final_assessment": {
+            "frc_conclusion": "",
+            "supporting_factors": [],
+            "contradicting_factors": [],
+            "recommendation": ""
+          },
+          "overall_assessment": {
+            "true_and_fair_view_assessment": "",
+            "overall_ifrs_compliance_level": "",
+            "reliability_scoring_methodology": {
+              "components": {},
+              "final_score": "",
+              "interpretation": ""
+            },
+            "key_strengths": [],
+            "critical_issues": [],
+            "frc_recommendations": []
+          }
+        }
+      }
+    }
+  },
+  "17.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "17",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "detailed_earnings_quality_analysis": {
+            "total_accruals_calculation": {
+              "year_2024": {
+                "net_income": "",
+                "cash_flow_from_operations": "",
+                "total_accruals": "",
+                "accruals_to_net_income_ratio": "",
+                "analysis_comment": ""
+              },
+              "year_2023": {
+                "net_income": "",
+                "cash_flow_from_operations": "",
+                "total_accruals": "",
+                "accruals_to_net_income_ratio": "",
+                "analysis_comment": ""
+              },
+              "trend_assessment": "",
+              "red_flags_identified": [],
+              "areas_for_further_investigation": []
+            },
+            "revenue_quality_indicators": {
+              "revenue_growth_vs_cash_collection": "",
+              "accounting_policy_changes_impact": "",
+              "significant_judgments_areas": [],
+              "risk_assessment": "",
+              "justification_of_assessment": "",
+              "source_of_the_information": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "18.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "18",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "detailed_trend_analysis": {
+            "horizontal_analysis_yoy": {
+              "statement_of_financial_position": [],
+              "statement_of_profit_or_loss": []
+            },
+            "vertical_analysis_composition": {
+              "assets_composition_2024": {
+                "current_assets_percentage": "",
+                "non_current_assets_percentage": "",
+                "significant_changes": []
+              },
+              "liabilities_composition_2024": {
+                "current_liabilities_percentage": "",
+                "non_current_liabilities_percentage": "",
+                "equity_composition": "",
+                "risk_implications": ""
+              }
+            },
+            "two_to_three_year_trend": {
+              "revenue_trend": [],
+              "profit_trend": [],
+              "asset_growth_trend": [],
+              "debt_trend": [],
+              "trend_analysis_commentary": "",
+              "unusual_patterns_identified": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "19.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "19",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "enhanced_ratio_analysis": {
+            "liquidity_ratios": {
+              "current_ratio": {},
+              "quick_ratio_acid_test": {}
+            },
+            "efficiency_ratios": {
+              "days_of_inventory": {},
+              "days_sales_outstanding": {},
+              "asset_turnover": {}
+            },
+            "solvency_coverage_ratios": {
+              "debt_to_equity": {},
+              "interest_coverage_ratio": {}
+            },
+            "profitability_ratios": {
+              "return_on_assets_roa": {},
+              "return_on_equity_roe": {},
+              "net_profit_margin": {}
+            },
+            "overall_ratio_assessment_summary": ""
+          }
+        }
+      }
+    }
+  },
+  "20.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "20",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "standard_by_standard_verification": {
+            "ias_8_compliance_check": {
+              "accounting_policy_hierarchy": {
+                "hierarchy_applied": "",
+                "departures_from_ifrs": [],
+                "justification_for_departures": "",
+                "compliance_assessment": ""
+              },
+              "policy_changes_analysis": {
+                "changes_made": [],
+                "retrospective_application": "",
+                "impact_quantified": "",
+                "disclosure_adequacy": ""
+              }
+            },
+            "ias_24_scrutiny": {
+              "related_party_identification": {
+                "parties_identified": [],
+                "control_relationships": "",
+                "potential_omissions": [],
+                "completeness_assessment": ""
+              },
+              "transaction_analysis": {
+                "arm_length_assessment": "",
+                "material_transactions": [],
+                "unusual_terms": [],
+                "risk_assessment": ""
+              },
+              "disclosure_completeness": {
+                "nature_disclosed": "",
+                "amounts_disclosed": "",
+                "balances_outstanding": "",
+                "terms_conditions": "",
+                "adequacy_assessment": ""
+              }
+            },
+            "ias_10_events_check": {
+              "adjusting_events_identified": [],
+              "non_adjusting_events_disclosed": [],
+              "going_concern_updates": "",
+              "authorization_date_verification": "",
+              "compliance_assessment": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "21.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "21",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "enhanced_audit_report_analysis": {
+            "opinion_type_analysis": {
+              "opinion_category": "",
+              "basis_for_opinion_extract": "",
+              "modified_opinion_reasons_detailed": [],
+              "impact_on_fs_reliability": ""
+            },
+            "key_audit_matters_extraction": [],
+            "going_concern_analysis": {
+              "material_uncertainty_disclosed": false,
+              "period_assessed": "",
+              "mitigating_factors_listed": [],
+              "auditor_conclusion": "",
+              "frca_assessment": ""
+            },
+            "emphasis_other_matters": {
+              "emphasis_of_matter_paragraphs": [],
+              "other_matter_paragraphs": [],
+              "significance_assessment": ""
+            },
+            "isa_compliance_verification": {
+              "compliance_with_isa_700_705": "",
+              "standard_requirements_met": [],
+              "deficiencies_noted": [],
+              "overall_compliance": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "22.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "22",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "corporate_governance_code_assessment": {
+            "bsec_corporate_governance_code": {
+              "compliance_checklist": [],
+              "overall_compliance_score": "",
+              "major_non_compliances": [],
+              "boilerplate_statements_identified": []
+            },
+            "board_committee_effectiveness": {
+              "audit_committee": {
+                "composition": "",
+                "meetings_held": "",
+                "activities_disclosed": "",
+                "independence_assessment": "",
+                "effectiveness_rating": ""
+              },
+              "risk_committee": {
+                "existence": "",
+                "activities": "",
+                "risk_coverage": "",
+                "effectiveness": ""
+              },
+              "nomination_remuneration": {
+                "committee_structure": "",
+                "disclosures_made": "",
+                "transparency_level": "",
+                "compliance_issues": ""
+              }
+            },
+            "internal_control_framework": {
+              "management_assessment_disclosed": "",
+              "auditor_opinion_on_icfr": "",
+              "deficiencies_reported": [],
+              "remediation_plans": [],
+              "overall_effectiveness": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "23.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "23",
+    "frc_analysis_report": {
+      "entity": {
+        "professional_skepticism_application": {
+          "management_assertions_challenged": [
+            {
+              "assertion_area": "",
+              "management_claim": "",
+              "evidence_sought": "",
+              "evidence_found": "",
+              "corroboration_level": "",
+              "skeptical_conclusion": ""
+            }
+          ],
+          "accounting_policy_questioning": [
+            {
+              "policy_area": "",
+              "policy_applied": "",
+              "alternative_treatment": "",
+              "justification_provided": "",
+              "skeptical_assessment": "",
+              "recommendation": ""
+            }
+          ],
+          "disclosure_adequacy_assessment": [
+            {
+              "disclosure_area": "",
+              "information_provided": "",
+              "missing_information": "",
+              "transparency_level": "",
+              "materiality_assessment": "",
+              "improvement_suggested": ""
+            }
+          ],
+          "overall_skepticism_applied": {
+            "areas_of_high_concern": [],
+            "areas_of_moderate_concern": [],
+            "areas_of_low_concern": [],
+            "skepticism_conclusion": ""
+          }
+        }
+      }
+    }
+  },
+  "24.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "24",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "consolidated_material_departures": [
+            {
+              "departure_id": "",
+              "ifrs_standard": "",
+              "nature_of_departure": "",
+              "page_reference": "",
+              "extract_from_fs": "",
+              "financial_impact_estimate": "",
+              "materiality_assessment": "",
+              "ias_1_para_19_24_implication": "",
+              "corrective_action_required": "",
+              "regulatory_reporting_required": false,
+              "regulatory_body": ""
+            }
+          ],
+          "non_compliance_with_laws_regulations": [
+            {
+              "compliance_id": "",
+              "law_regulation": "",
+              "section_violated": "",
+              "nature_of_breach": "",
+              "evidence_location": "",
+              "severity_assessment": "",
+              "potential_penalties": "",
+              "remediation_required": ""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "25.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "25",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "holistic_risk_factor_synthesis": {
+            "financial_risks_from_analysis": {
+              "from_ratio_trends": [],
+              "from_accruals_analysis": [],
+              "from_cash_flow_patterns": [],
+              "from_earnings_quality": [],
+              "consolidated_financial_risk_level": ""
+            },
+            "operational_risks": {
+              "from_segment_analysis": [],
+              "from_related_party_transactions": [],
+              "from_post_reporting_events": [],
+              "from_going_concern_assessment": [],
+              "consolidated_operational_risk_level": ""
+            },
+            "compliance_risks": {
+              "from_ifrs_departures": [],
+              "from_regulatory_breaches": [],
+              "from_governance_weaknesses": [],
+              "from_audit_qualifications": [],
+              "consolidated_compliance_risk_level": ""
+            },
+            "key_audit_matters_synthesis": {
+              "kams_identified_by_auditor": [],
+              "frca_assessment_of_kams": [],
+              "additional_risks_identified": [],
+              "risk_mitigation_assessment": ""
+            },
+            "overall_integrated_risk_assessment": {
+              "highest_risk_areas": [],
+              "medium_risk_areas": [],
+              "low_risk_areas": [],
+              "risk_interconnections": [],
+              "frca_priority_actions": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "26.json": {
+    "pdf_token": "",
+    "report_id": "",
+    "section_id": "26",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "frca_executive_summary": {
+            "overall_fairness_assessment": {
+              "true_and_fair_view_conclusion": "",
+              "compliance_level_assessment": "",
+              "reliability_rating": "",
+              "basis_for_conclusion": ""
+            },
+            "critical_issues_summary": [],
+            "key_strengths_identified": [],
+            "material_weaknesses_identified": [],
+            "frca_final_recommendations": {
+              "immediate_actions_required": [],
+              "medium_term_improvements": [],
+              "long_term_enhancements": [],
+              "regulatory_reporting_requirements": [],
+              "follow_up_monitoring_needed": false,
+              "monitoring_period": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

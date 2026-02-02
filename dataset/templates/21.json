@@ -1,69 +1,35 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "21",
   "frc_analysis_report": {
     "entity": {
       "phase_4_audit_governance_verification": {
         "enhanced_audit_report_analysis": {
           "opinion_type_analysis": {
-            "opinion_category": "Unmodified",
-            "basis_for_opinion_extract": "In our opinion, the accompanying financial statements present fairly, in all material respects, [...] in accordance with International Financial Reporting Standards (IFRSs). We conducted our audit in accordance with International Standards on Auditing (ISAs).",
+            "opinion_category": "",
+            "basis_for_opinion_extract": "",
             "modified_opinion_reasons_detailed": [],
-            "impact_on_fs_reliability": "The unmodified opinion provides formal assurance. However, given the FRC's findings of aggressive accounting and poor disclosures, it raises questions about audit scope, professional skepticism applied, or the threshold for 'material misstatement'."
+            "impact_on_fs_reliability": ""
           },
-          "key_audit_matters_extraction": [
-            {
-              "kam_number": 1,
-              "description": "Valuation of Inventory, specifically the assessment of Net Realizable Value (NRV).",
-              "auditor_response": "Evaluated management's process, compared cost to recent selling prices, reviewed assumptions about future demand and costs, and tested the mathematical accuracy.",
-              "frca_risk_assessment": "High. The FRC identified insufficient disclosure of NRV methodology. The auditor's response appears procedural but does not address the adequacy of public disclosure, which remains poor.",
-              "follow_up_required": true,
-              "follow_up_action": "Challenge management to enhance NRV disclosure in notes, detailing key assumptions and sensitivity."
-            },
-            {
-              "kam_number": 2,
-              "description": "Recognition of Revenue from Long-Term Contracts, involving judgment in estimating percentage of completion.",
-              "auditor_response": "Tested controls, reperformed management's stage of completion calculation, and tested the inputs (costs incurred, total estimated costs).",
-              "frca_risk_assessment": "Critical. The FRC identified that revenue is recognized at shipment, not upon satisfaction of performance obligation (customer acceptance). The auditor's response focuses on the *calculation* of a method (cost-to-cost) that may be applied to the *wrong point in time*. This is a fundamental risk.",
-              "follow_up_required": true,
-              "follow_up_action": "Require a fundamental re-assessment of the point of control transfer. The audit procedures seem to have accepted management's aggressive timing judgment without sufficient challenge."
-            },
-            {
-              "kam_number": 3,
-              "description": "Impairment Assessment of Goodwill.",
-              "auditor_response": "Evaluated reasonableness of cash flow forecasts and key assumptions (growth, discount rates) against historical performance and market data. Performed sensitivity analysis.",
-              "frca_risk_assessment": "Medium. The FRC notes subjectivity in assumptions. The auditor's work seems adequate for a model-based test, but the high-level disclosure of sensitivities remains limited.",
-              "follow_up_required": true,
-              "follow_up_action": "Recommend more granular sensitivity disclosure in the financial statements (e.g., impact of 1% change in key assumptions)."
-            }
-          ],
+          "key_audit_matters_extraction": [],
           "going_concern_analysis": {
             "material_uncertainty_disclosed": false,
-            "period_assessed": "At least twelve months from the date of approval of these financial statements.",
-            "mitigating_factors_listed": ["Renewal of banking facilities", "Positive cash flow forecasts approved by management"],
-            "auditor_conclusion": "We have not identified any material uncertainties [...] to cast significant doubt on the company's ability to continue as a going concern.",
-            "frca_assessment": "Questionable. The FRC's analysis reveals a critical liquidity crunch (quick ratio 0.65), sharply declining cash, and severe working capital inefficiencies. The auditor's reliance on management's 'positive cash flow forecasts' seems optimistic without addressing the core operational issues causing the cash drain. The going concern assessment appears inadequately skeptical."
+            "period_assessed": "",
+            "mitigating_factors_listed": [],
+            "auditor_conclusion": "",
+            "frca_assessment": ""
           },
           "emphasis_other_matters": {
-            "emphasis_of_matter_paragraphs": ["None"],
-            "other_matter_paragraphs": ["None"],
-            "significance_assessment": "The absence of an Emphasis of Matter paragraph on, for example, the significant related party transactions or the adoption of a new accounting standard, is notable but not necessarily non-compliant."
+            "emphasis_of_matter_paragraphs": [],
+            "other_matter_paragraphs": [],
+            "significance_assessment": ""
           },
           "isa_compliance_verification": {
-            "compliance_with_isa_700_705": "Partially Compliant",
-            "standard_requirements_met": [
-              "Opinion is clearly expressed.",
-              "Basis for opinion paragraph included.",
-              "Description of responsibilities of management and auditor provided.",
-              "Key Audit Matters section included for listed entity.",
-              "Going concern section included."
-            ],
-            "deficiencies_noted": [
-              "ISA 700 requires the name of the engagement partner to be included in the auditor's report of listed entities. This is omitted.",
-              "ISA 570 requires the auditor to evaluate management's assessment of going concern. The report does not describe how this evaluation was performed, only states the conclusion, which is minimal compliance."
-            ],
-            "overall_compliance": "Marginally Acceptable with Deficiencies. The report structure is largely compliant, but the omission of the engagement partner's name is a clear breach. More importantly, the substantive application of professional skepticism in areas like going concern and revenue recognition appears lacking, which is a matter of audit quality beyond mere report formatting."
+            "compliance_with_isa_700_705": "",
+            "standard_requirements_met": [],
+            "deficiencies_noted": [],
+            "overall_compliance": ""
           }
         }
       }

@@ -1,0 +1,2511 @@
+{
+  "1.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "1",
+    "frc_analysis_report": {
+      "metadata": {
+        "generation_date": "YYYY-MM-DD",
+        "analyst_framework_version": "X.X",
+        "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+        "prepared_for": "Financial Reporting Council, Bangladesh",
+        "source_documents": [
+          "Link of the PDF or other documents used for analysis"
+        ]
+      }
+    }
+  },
+  "2.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "2",
+    "frc_analysis_report": {
+      "entity": {
+        "entity_id": "C-XXXXXX",
+        "entity_profile": {
+          "legal_name": "ACME Manufacturing Company Limited",
+          "trade_name": "ACME Ltd.",
+          "registration_number": "C-123456",
+          "industry_sector": "Manufacturing",
+          "frc_sector": "Engineering",
+          "listing_status": "Listed to BSEC",
+          "stock_exchange_symbol": "ACME",
+          "reporting_currency": "BDT",
+          "financial_year_end": "2024-12-31",
+          "report_publication_date": "2025-03-30",
+          "reason_of_the_status": "This profile is constructed based on consistent references throughout the analysis: the entity is described as involved in manufacturing/sales of complex custom-built equipment (engineering sector), is listed (subject to BSEC rules), reports in BDT, and had its financial statements authorized on March 28, 2025 (implying publication around that date).",
+          "status_reference": "Basis of Preparation note (pg 45) for year-end, Directors' Report (pg 118) for authorization date, and contextual references to 'listed entity' and 'BSEC rules' throughout Sections 14, 15, and 22."
+        }
+      }
+    }
+  },
+  "3.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "3",
+    "frc_analysis_report": {
+      "entity": {
+        "materiality_framework": {
+          "quantitative_materiality": {
+            "benchmark_used": "Profit before tax",
+            "percentage_applied": "5%",
+            "overall_materiality_amount": "124",
+            "performance_materiality_amount": "62",
+            "clearly_trivial_threshold": "6",
+            "reason_of_the_status": "Using 5% of Profit Before Tax (BDT 2,470m × 5% = BDT 123.5m ~ BDT 124m) is a common auditing benchmark. Performance materiality is set at 50% of overall materiality. The clearly trivial threshold is 5% of overall materiality.",
+            "status_reference": "Auditor's report methodology (implied), Industry best practices for materiality determination."
+          },
+          "qualitative_materiality_considerations": [
+            {
+              "consideration": "Related party transactions",
+              "assessment": "Material due to significance (BDT 1,170m aggregate), extended credit terms, and potential for earnings manipulation/fund diversion.",
+              "reference": "Note 28 - Related Party Transactions (pg 95-97)"
+            },
+            {
+              "consideration": "Regulatory non-compliance",
+              "assessment": "Material due to breach of BSEC Corporate Governance Code and potential breach of Financial Reporting Act 2015, affecting entity's legal standing and investor confidence.",
+              "reference": "Corporate Governance Report (pg 26-31), Section 15 Legal Assessment"
+            },
+            {
+              "consideration": "Going concern indicators",
+              "assessment": "Material due to critical liquidity issues (Quick ratio: 0.65, declining cash) that threaten ongoing operations, despite auditor's unmodified opinion.",
+              "reference": "Section 19 Ratio Analysis, Statement of Cash Flows"
+            },
+            {
+              "consideration": "Management override risk",
+              "assessment": "Material due to dominant CEO influence, combined CEO/Chair role, pressure to meet targets, and aggressive accounting policies.",
+              "reference": "Section 13 Fraud Assessment, Corporate Governance Report"
+            },
+            {
+              "consideration": "Fraud risk indicators",
+              "assessment": "Material due to aggressive revenue recognition, significant related party transactions, and high accruals ratio indicating potential earnings management.",
+              "reference": "Section 17 Earnings Quality Analysis, Section 23 Professional Skepticism"
+            }
+          ],
+          "frc_materiality_conclusion": "Based on both quantitative and qualitative factors, multiple material misstatements and non-compliance issues have been identified. The quantitative threshold of BDT 124m is significantly exceeded by the estimated impact of aggressive revenue recognition (up to BDT 2,500m) and the value of undisclosed/non-compliant transactions. Qualitatively, the governance failures, fraud risks, and going concern issues are inherently material as they fundamentally undermine the reliability of the financial statements and the entity's sustainability. Therefore, the financial statements contain material departures from IFRS and relevant regulations.",
+          "reason_of_the_status": "The aggregation of quantitative misstatements (particularly in revenue and related party transactions) far exceeds the quantitative materiality threshold. More importantly, the qualitative factors—especially governance failure, fraud risk, and going concern doubts—are so severe that they would influence the economic decisions of users regardless of the exact monetary amount. These issues affect the financial statements as a whole.",
+          "status_reference": "Consolidated findings from Sections 13, 15, 16, 17, 19, 22, and 24 of this FRC analysis report."
+        }
+      }
+    }
+  },
+  "4.json": {
+    "section_id": "4",
+    "frc_analysis_report": {
+      "entity": {
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_profit_or_loss_and_other_comprehensive_income": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_cash_flows": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ],
+          "statement_of_changes_in_equity": [
+            {
+              "year": "YYYY1",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            },
+            {
+              "year": "YYYY2",
+              "line_items": [
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                },
+                {
+                  "item": "same as line named",
+                  "amount": "no comma and digit that are directly mentioning in the financial statement, not in notes",
+                  "note": "number",
+                  "errors_or_discrepancies": "if any discrepancies found, mention here otherwise keep it blank"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "5.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "5",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+            "notes_reference": "Note 1: Basis of Preparation, page 45",
+            "actual_standards_applied": [
+              "IAS 1",
+              "IAS 2",
+              "IAS 12",
+              "IFRS 9",
+              "IFRS 15",
+              "IFRS 16"
+            ],
+            "discrepancies_identified": [
+              "Asserted compliance with IFRS, but material departures identified in IFRS 15 (revenue), IFRS 16 (disclosures), and IAS 24 (disclosures)."
+            ],
+            "compliance_assessment": "Partially Compliant",
+            "reason_of_the_status": "The entity explicitly states compliance with IFRS. However, detailed analysis reveals material departures in the application and disclosure requirements of specific standards, meaning the financial statements do not fully comply with the stated framework.",
+            "status_reference": "Basis of Preparation (pg 45) for claim. Detailed IFRS compliance checks in Sections 7-11 for discrepancies."
+          },
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Partially Compliant",
+                "reason_for_non_compliance": "Non-compliance with BSEC Corporate Governance Code 2018: insufficient independent directors (Reg. 8.3), combined CEO/Chair roles (Reg. 8.7), non-independent audit committee chair (Reg. 16.2), and absence of a Risk Management Committee (Reg. 18).",
+                "notes_reference": "Corporate Governance Report, pages 26-31",
+                "specific_disclosures_found": [
+                  "Corporate Governance Compliance Statement"
+                ],
+                "reason_of_the_status": "The entity discloses its governance structure, which upon verification fails to meet several specific requirements of the BSEC Code for listed companies.",
+                "status_reference": "Corporate Governance Report (pg 26-31) and cross-reference to BSEC Code requirements."
+              },
+              {
+                "regulator_name": "Financial Reporting Council (FRC) Bangladesh",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Partially Compliant",
+                "reason_for_non_compliance": "Potential breach of Financial Reporting Act 2015, Section 9, as the financial statements may not give a 'true and fair view' due to material departures from IFRS.",
+                "notes_reference": "Auditor's Report (pg 120-125) asserts fair presentation, which is challenged by FRC analysis.",
+                "specific_disclosures_found": [
+                  "Auditor's opinion on true and fair view."
+                ],
+                "reason_of_the_status": "While the auditor provides an unmodified opinion, the FRC's independent analysis identifies material issues that undermine the true and fair view, indicating potential non-compliance with the FRA 2015.",
+                "status_reference": "Auditor's Report (pg 120) and consolidated findings in Section 24 of this report."
+              },
+              {
+                "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant (as per disclosure)",
+                "reason_for_non_compliance": "N/A",
+                "notes_reference": "Directors' Report, page 118",
+                "specific_disclosures_found": [
+                  "Statement that all statutory requirements have been complied with."
+                ],
+                "reason_of_the_status": "The Directors' Report includes a boilerplate statement of compliance with the Companies Act. No specific RJSC-related issues are identified in the financial statements.",
+                "status_reference": "Directors' Report (pg 118)"
+              },
+              {
+                "regulator_name": "National Board of Revenue (NBR)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant (as per financial statement disclosures)",
+                "reason_for_non_compliance": "N/A",
+                "notes_reference": "Note 12: Income Taxes, pages 78-82",
+                "specific_disclosures_found": [
+                  "Current and deferred tax calculations, tax expense reconciliation."
+                ],
+                "reason_of_the_status": "The income tax note appears comprehensive and calculated in accordance with the Bangladesh Income Tax Act 2023. No obvious discrepancies are noted from the face of the financial statements.",
+                "status_reference": "Note 12 - Income Taxes (pg 78-82)"
+              },
+              {
+                "regulator_name": "Bangladesh Bank",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Not Applicable",
+                "reason_for_non_compliance": "N/A - The entity is a manufacturing/trading company, not a financial institution.",
+                "notes_reference": "N/A",
+                "specific_disclosures_found": [],
+                "reason_of_the_status": "Bangladesh Bank regulations primarily apply to financial institutions.",
+                "status_reference": "N/A"
+              }
+            ],
+            "statutory_filings_status": {
+              "bsec_filed": true,
+              "bsec_filing_date": "March 30, 2025 (as per report authorization date)",
+              "income_tax_return_filed": true,
+              "income_tax_year": "Assessment Year 2024-2025",
+              "rjsc_compliance": true,
+              "bb_compliance_if_applicable": "N/A"
+            },
+            "overall_regulatory_assessment": "Partially Compliant with Significant Deficiencies. While the entity meets basic filing requirements, there are material deficiencies in compliance with the substantive rules of key regulators (BSEC Corporate Governance Code and the underlying principles of the FRA 2015)."
+          }
+        }
+      }
+    }
+  },
+  "6.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "6",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {
+            "current_ratio": "1.21 (2024), 1.35 (2023)",
+            "debt_to_equity": "3.36 (2024), 2.84 (2023)",
+            "gross_profit_margin": "35% (both 2024 & 2023)",
+            "net_profit_margin": "14.8% (2024), 15.2% (2023)",
+            "roa": "6.5% (2024), 7.2% (2023)",
+            "roe": "21.5% (2024), 24.8% (2023)",
+            "interest_coverage": "3.1 (2024), 4.2 (2023)"
+          },
+          "earnings_quality_analysis": {
+            "accruals_ratio": "28.6% (2024), 14.5% (2023)",
+            "cash_flow_to_earnings": "0.71 (2024), 0.85 (2023)",
+            "revenue_growth_quality": "Poor. Revenue growth (15%) is outpaced by receivables growth (25%), indicating aggressive recognition or collection issues.",
+            "expense_recognition_pattern": "Potentially Smoothing. Unusually stable gross margin suggests potential cost capitalization or inventory valuation management to maintain appearance of stability."
+          },
+          "vertical_and_horizontal_analysis": {
+            "vertical_2024": {
+              "assets_composition": "Current Assets: 58%, Non-Current Assets: 42%. Key: Trade Receivables (26%), Inventory (19%).",
+              "liabilities_composition": "Current Liabilities: 48%, Non-Current Liabilities: 29%, Equity: 23%."
+            },
+            "horizontal_growth": {
+              "revenue_growth": "+15% (2024 vs 2023)",
+              "asset_growth": "+14% (2024 vs 2023)",
+              "debt_growth": "+20% (2024 vs 2023)"
+            }
+          },
+          "reason_of_the_status": "The ratio analysis reveals a company in financial distress: deteriorating liquidity (low & falling current/quick ratios), dangerously high and increasing leverage (D/E of 3.36), and poor asset efficiency. Earnings quality is low, evidenced by a high and spiking accruals ratio and a growing gap between revenue and cash collection. The vertical analysis shows a capital structure overly reliant on debt and a worrying increase in receivables as a percentage of assets.",
+          "status_reference": "Calculated from the Statement of Financial Position (pg 2-4), Statement of Profit or Loss (pg 5), and Statement of Cash Flows (pg 6). Specific figures are drawn from the notes on Revenue (pg 55), Inventories (pg 52), and Trade Receivables (pg 62)."
+        }
+      }
+    }
+  },
+  "7.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "7",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "accounting_policies_review": {
+            "significant_policies_disclosed": [
+              "List specific policies from the notes, e.g., 'Revenue recognition for construction contracts (IFRS 15).'"
+            ],
+            "changes_in_accounting_policies": [
+              "List new standards adopted or policy changes. Write 'None' if not applicable."
+            ],
+            "ias_8_hierarchy_compliance": "Brief assessment of compliance with the accounting hierarchy, referencing the note where stated."
+          },
+          "management_judgment_and_estimation_uncertainty": {
+            "critical_judgments": [
+              {
+                "area": "e.g., Lease classification, control of an investee.",
+                "management_assumption": "The specific judgment management made.",
+                "alternative_view": "A reasonable alternative accounting treatment.",
+                "frc_skeptical_assessment": "Brief skeptical comment on the reasonableness of management's judgment.",
+                "impact_if_changed": "The financial impact of using the alternative."
+              }
+            ],
+            "key_estimation_uncertainties": [
+              {
+                "estimate": "e.g., Useful life of assets, warranty provision.",
+                "sensitivity_range": "The disclosed numerical sensitivity or 'Not disclosed'.",
+                "disclosure_adequacy": "Good / Adequate / Poor.",
+                "risk_level": "A number from 1 (Low Risk) to 10 (High Risk).",
+                "reason_of_the_status": "Brief justification for the risk score.",
+                "status_reference": "Note number or section where this is discussed."
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "8.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "8",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ias_1_presentation": {
+              "applicable": true,
+              "fair_presentation_compliance": "Compliant/Partially Compliant/Non-Compliant",
+              "going_concern_assumption_applied": "Applied/Not applied",
+              "materiality_threshold_applied": "Clearly applied/Not evident",
+              "offsetting_compliance": "Compliant/Non-Compliant",
+              "classification_current_non_current": "Properly classified/Issues noted",
+              "statement_of_comprehensive_income_format": "Single statement/Two statements",
+              "reason_of_the_status": "Overall assessment of IAS 1 compliance based on presentation format, going concern disclosure, and classification accuracy",
+              "status_reference": "Financial statements notes, auditor's report, accounting policies note"
+            },
+            "ias_2_inventories": {
+              "applicable": true,
+              "measurement_basis": "Lower of cost and net realizable value/Cost only",
+              "cost_formulas_used": [
+                "FIFO",
+                "Weighted Average",
+                "Specific identification"
+              ],
+              "net_realizable_value_assessment": "Regularly assessed/Not assessed",
+              "write_down_reversals_compliance": "Compliant/Non-Compliant",
+              "disclosures_completeness": "Complete/Incomplete",
+              "reason_of_the_status": "Assessment based on measurement method consistency, NRV testing, and disclosure adequacy",
+              "status_reference": "Inventory note, accounting policies, cost of sales disclosure"
+            },
+            "ias_7_statement_of_cash_flows": {
+              "applicable": true,
+              "operating_cash_flow_method": "Direct/Indirect",
+              "investing_activities_disclosed": "Comprehensive/Incomplete",
+              "financing_activities_disclosed": "Comprehensive/Incomplete",
+              "cash_equivalents_definition": "IAS 7 compliant/Non-compliant",
+              "non_cash_transactions_disclosed": "Disclosed/Not disclosed",
+              "restricted_cash_disclosed": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment based on classification accuracy, method consistency, and disclosure completeness",
+              "status_reference": "Cash flow statement, accounting policies, notes to cash flows"
+            },
+            "ias_8_accounting_policies": {
+              "applicable": true,
+              "changes_in_accounting_policies": "Disclosed/Not disclosed",
+              "changes_in_accounting_estimates": "Disclosed/Not disclosed",
+              "errors_corrections": "Disclosed/Not disclosed",
+              "hierarchy_applied": "Compliant/Non-compliant",
+              "retrospective_application": "Properly applied/Incorrectly applied",
+              "reason_of_the_status": "Assessment of policy changes, error corrections, and hierarchy application",
+              "status_reference": "Accounting policies note, changes in accounting policies section"
+            },
+            "ias_10_events_after_reporting_period": {
+              "applicable": true,
+              "adjusting_events_identified": "Identified/Not identified",
+              "non_adjusting_events_disclosed": "Disclosed/Not disclosed",
+              "dividends_declared_after_reporting_date": "Disclosed/Not disclosed",
+              "going_concern_assessment_updates": "Updated/Not updated",
+              "authorization_date_disclosed": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment of post-reporting date event identification and disclosure",
+              "status_reference": "Events after reporting period note, authorization date disclosure"
+            },
+            "ias_12_income_taxes": {
+              "applicable": true,
+              "current_tax_calculation": "Accurate/Questionable",
+              "deferred_tax_assets_liabilities": "Recognized/Not recognized",
+              "temporary_differences_identified": "Comprehensive/Incomplete",
+              "tax_rate_disclosures": "Complete/Incomplete",
+              "tax_reconciliation_provided": "Provided/Not provided",
+              "uncertain_tax_treatments": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment based on DTA/DTL recognition, temporary difference identification, and disclosure adequacy",
+              "status_reference": "Income taxes note, tax reconciliation table"
+            },
+            "ias_16_property_plant_equipment": {
+              "applicable": true,
+              "recognition_criteria_met": "Met/Not met",
+              "measurement_model": "Cost/Revaluation",
+              "depreciation_methods": "Straight-line/Reducing balance/Units of production",
+              "useful_lives_assumptions": "Reasonable/Questionable",
+              "impairment_indications_assessed": "Assessed/Not assessed",
+              "derecognition_compliance": "Compliant/Non-compliant",
+              "reason_of_the_status": "Assessment of recognition criteria, measurement model consistency, depreciation methods",
+              "status_reference": "PPE note, accounting policies, depreciation schedule"
+            },
+            "ias_19_employee_benefits": {
+              "applicable": true,
+              "short_term_benefits": "Properly accounted/Issues noted",
+              "post_employment_benefits": [
+                "Defined contribution",
+                "Defined benefit",
+                "None"
+              ],
+              "defined_benefit_obligation": "Calculated/Not calculated",
+              "actuarial_assumptions": "Disclosed/Not disclosed",
+              "past_service_costs": "Recognized/Not recognized",
+              "multi_employer_plans": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment of benefit plan accounting, actuarial assumption disclosure, DBO calculation",
+              "status_reference": "Employee benefits note, actuarial reports referenced"
+            },
+            "ias_20_government_grants": {
+              "applicable": true,
+              "grants_received": "Yes/No",
+              "recognition_criteria": "Met/Not met",
+              "measurement_basis": "Fair value/Other",
+              "presentation_method": "Gross/Net",
+              "repayment_conditions": "Disclosed/Not disclosed",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment based on grant recognition timing, measurement, and disclosure adequacy",
+              "status_reference": "Government grants note, revenue recognition policies"
+            },
+            "ias_21_effects_of_changes_in_foreign_exchange_rates": {
+              "applicable": true,
+              "functional_currency_determination": "Appropriate/Questionable",
+              "foreign_currency_transactions": "Properly translated/Issues noted",
+              "exchange_differences_treatment": "IAS 21 compliant/Non-compliant",
+              "foreign_operations_translation": "Properly translated/Issues noted",
+              "hedge_accounting_applied": "Applied/Not applied",
+              "disclosure_of_rates": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment of functional currency determination, translation methods, exchange difference treatment",
+              "status_reference": "Foreign currency note, accounting policies, exchange rate disclosures"
+            },
+            "ias_23_borrowing_costs": {
+              "applicable": true,
+              "capitalization_criteria_met": "Met/Not met",
+              "capitalization_rate_calculation": "Appropriate/Inappropriate",
+              "qualifying_assets_identified": "Complete/Incomplete",
+              "suspension_periods": "Accounted/Not accounted",
+              "cessation_of_capitalization": "Properly applied/Incorrectly applied",
+              "disclosures_complete": "Complete/Incomplete",
+              "reason_of_the_status": "Assessment of capitalization criteria, rate calculation, qualifying asset identification",
+              "status_reference": "Borrowing costs note, accounting policies, PPE additions detail"
+            },
+            "ias_24_related_party_disclosures": {
+              "applicable": true,
+              "related_parties_identified": "Comprehensive/Incomplete",
+              "transactions_disclosed": "Comprehensive/Incomplete",
+              "outstanding_balances": "Disclosed/Not disclosed",
+              "compensation_disclosed": "Disclosed/Not disclosed",
+              "arm_length_nature_justified": "Justified/Not justified",
+              "control_relationships": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment of related party identification completeness and transaction disclosure adequacy",
+              "status_reference": "Related party transactions note, director's report"
+            },
+            "ias_27_separate_financial_statements": {
+              "applicable": true,
+              "investment_subsidiaries_measured": [
+                "Cost",
+                "Equity",
+                "Fair value"
+              ],
+              "dividends_from_subsidiaries": "Properly recognized/Issues noted",
+              "impairment_assessment": "Conducted/Not conducted",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment of investment measurement method consistency and impairment testing",
+              "status_reference": "Investments in subsidiaries note, accounting policies for investments"
+            },
+            "ias_28_investments_in_associates_and_joint_ventures": {
+              "applicable": true,
+              "equity_method_applied": "Properly applied/Issues noted",
+              "significant_influence_assessed": "Appropriate/Questionable",
+              "goodwill_calculation": "Correct/Incorrect",
+              "impairment_testing": "Conducted/Not conducted",
+              "losses_recognition": "Properly recognized/Issues noted",
+              "disclosures_complete": "Complete/Incomplete",
+              "reason_of_the_status": "Assessment of equity method application, significant influence determination, goodwill calculation",
+              "status_reference": "Investments in associates note, equity accounting policies"
+            },
+            "ias_29_financial_reporting_in_hyperinflationary_economies": {
+              "applicable": true,
+              "hyperinflation_indications": "Present/Absent",
+              "restatement_applied": "Applied/Not applied",
+              "gain_loss_on_net_monetary_position": "Recognized/Not recognized",
+              "comparatives_restated": "Restated/Not restated",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment based on hyperinflation indicators and restatement application correctness",
+              "status_reference": "Hyperinflation note, accounting policies for inflation adjustment"
+            },
+            "ias_32_financial_instruments_presentation": {
+              "applicable": true,
+              "classification_liability_equity": "Proper/Improper",
+              "compound_instruments_split": "Split/Not split",
+              "interest_dividends_treatment": "IAS 32 compliant/Non-compliant",
+              "treasury_shares_treatment": "Proper/Improper",
+              "offsetting_applied": "Compliant/Non-compliant",
+              "disclosures_complete": "Complete/Incomplete",
+              "reason_of_the_status": "Assessment of instrument classification accuracy, compound instrument splitting, offsetting compliance",
+              "status_reference": "Financial instruments note, equity note, accounting policies"
+            },
+            "ias_33_earnings_per_share": {
+              "applicable": true,
+              "basic_eps_calculated": "Accurate/Inaccurate",
+              "diluted_eps_calculated": "Accurate/Inaccurate",
+              "potential_ordinary_shares_identified": "Complete/Incomplete",
+              "anti_dilutive_excluded": "Excluded/Not excluded",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment of EPS calculation accuracy, dilution identification, and disclosure completeness",
+              "status_reference": "Earnings per share note, financial highlights"
+            },
+            "ias_34_interim_financial_reporting": {
+              "applicable": true,
+              "interim_reports_prepared": "Yes/No",
+              "recognition_measurement_policies": "Consistent/Inconsistent",
+              "seasonality_disclosed": "Disclosed/Not disclosed",
+              "significant_events_disclosed": "Disclosed/Not disclosed",
+              "year_end_estimates_changes": "Disclosed/Not disclosed",
+              "disclosures_complete": "Complete/Incomplete",
+              "reason_of_the_status": "Assessment of interim report policy consistency, seasonal disclosure, and significant event reporting",
+              "status_reference": "Interim report accounting policies, seasonality disclosure"
+            }
+          }
+        }
+      }
+    }
+  },
+  "9.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "9",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ias_36_impairment_of_assets": {
+              "applicable": true,
+              "impairment_indicators_assessed": "Regularly assessed/Not assessed",
+              "cash_generating_units_identified": "Appropriately identified/Not clearly identified",
+              "recoverable_amount_determination": [
+                "Value in use",
+                "Fair value less costs of disposal",
+                "Not determined"
+              ],
+              "discount_rate_assumptions": "Disclosed and reasonable/Not disclosed or questionable",
+              "growth_rate_assumptions": "Disclosed and reasonable/Not disclosed or aggressive",
+              "sensitivity_analysis_provided": "Provided/Not provided",
+              "goodwill_allocation": "Properly allocated to CGUs/Improperly allocated",
+              "reason_of_the_status": "Overall assessment based on impairment testing rigor, CGU identification, recoverable amount determination methodology, and disclosure of key assumptions.",
+              "status_reference": "Impairment of assets note, accounting policies, critical estimates disclosure"
+            },
+            "ias_37_provisions_contingent_liabilities_assets": {
+              "applicable": true,
+              "provisions_recognition": "Recognized when criteria met/Over or under-recognized",
+              "measurement_best_estimate": "Reasonable estimate used/Estimate questionable",
+              "onerous_contracts_assessed": "Assessed and provided for/Not assessed",
+              "restructuring_provisions": "Recognized per IAS 37/Not properly recognized",
+              "contingent_liabilities_disclosed": "Adequately disclosed/Inadequately disclosed",
+              "contingent_assets_disclosed": "Disclosed where appropriate/Not disclosed",
+              "reason_of_the_status": "Assessment based on the recognition of a present obligation, use of best estimate, and adequate disclosure of contingencies.",
+              "status_reference": "Provisions note, contingent liabilities note, commitments note"
+            },
+            "ias_38_intangible_assets": {
+              "applicable": true,
+              "recognition_criteria_met": "Met (identifiable, control, future benefits)/Not met",
+              "measurement_model": "Cost/Revaluation",
+              "amortization_methods": "Reflect pattern of benefits/Arbitrary",
+              "useful_lives_assumptions": "Finite/Indefinite, with reasonable justification",
+              "research_development_separation": "Properly distinguished/Not properly distinguished",
+              "impairment_testing": "Conducted for indefinite-lived assets/Not conducted",
+              "reason_of_the_status": "Assessment of recognition criteria (especially for internally generated intangibles), amortization method appropriateness, and useful life assumptions.",
+              "status_reference": "Intangible assets note, accounting policies, research & development costs note"
+            },
+            "ias_40_investment_property": {
+              "applicable": true,
+              "investment_property_identified": "Clearly distinguished from PPE/Not clearly identified",
+              "measurement_model": "Fair value/Cost",
+              "fair_value_determination": "Based on market evidence/Level 3 with unobservable inputs",
+              "transfers_to_from_inventory": "Properly accounted/Improperly accounted",
+              "disposals_accounting": "Gain/loss recognized in P&L/Not properly recognized",
+              "disclosures_provided": "Adequate (fair value hierarchy, income/expense)/Inadequate",
+              "reason_of_the_status": "Assessment based on correct identification, consistent application of chosen model (fair value or cost), and adequacy of fair value disclosures.",
+              "status_reference": "Investment property note, fair value measurement note, accounting policies"
+            },
+            "ias_41_agriculture": {
+              "applicable": false,
+              "biological_assets_identified": "N/A - Not an agricultural entity",
+              "measurement_basis": "N/A",
+              "gain_loss_recognition": "N/A",
+              "government_grants": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Standard not applicable as the entity does not have agricultural activity or biological assets.",
+              "status_reference": "N/A"
+            },
+            "ifrs_1_first_time_adoption": {
+              "applicable": false,
+              "first_time_adopter": false,
+              "exemptions_applied": [],
+              "exceptions_mandatory": "N/A",
+              "comparatives_restated": "N/A",
+              "disclosures_complete": "N/A",
+              "reason_of_the_status": "Standard not applicable as the entity is not a first-time adopter of IFRS.",
+              "status_reference": "Basis of preparation note (should state IFRS adopted in prior years)"
+            },
+            "ifrs_2_share_based_payment": {
+              "applicable": true,
+              "equity_settled_transactions": "Present and accounted for/None",
+              "cash_settled_transactions": "Present and accounted for/None",
+              "vesting_conditions": "Properly considered in fair value/Not considered",
+              "fair_value_measurement": "Valuation technique disclosed/Not disclosed",
+              "modifications_cancellations": "Accounted for per IFRS 2/Not accounted for",
+              "disclosures_provided": "Adequate (nature/extent, fair value, impact)/Inadequate",
+              "reason_of_the_status": "Assessment based on recognition of expense over vesting period, use of fair value at grant date, and completeness of disclosures.",
+              "status_reference": "Share-based payment note, employee benefits note, directors' remuneration report"
+            },
+            "ifrs_3_business_combinations": {
+              "applicable": true,
+              "acquisitions_during_period": "Disclosed/No acquisitions",
+              "purchase_price_allocation": "Assets/liabilities at fair value/Allocation incomplete",
+              "goodwill_calculation": "Residual amount calculated/Calculation flawed",
+              "contingent_consideration": "Recognized at fair value/Not recognized",
+              "bargain_purchases": "Gain recognized in P&L/None",
+              "disclosures_complete": "Adequate per IFRS 3 (purchase price, fair values, goodwill)/Inadequate",
+              "reason_of_the_status": "Assessment of acquisition accounting, including fair value allocation to net assets, goodwill calculation, and disclosure of pro-forma information.",
+              "status_reference": "Business combinations note, goodwill note, accounting policies for acquisitions"
+            },
+            "ifrs_5_non_current_assets_held_for_sale": {
+              "applicable": true,
+              "assets_classified_held_for_sale": "Classified per IFRS 5 criteria/Not classified",
+              "measurement_basis": "Lower of carrying amount and fair value less costs to sell/Measured incorrectly",
+              "discontinued_operations": "Presented separately in P&L/Not presented separately",
+              "presentation_separate": "Separate line item in statement of financial position/Not separate",
+              "disclosures_provided": "Adequate (description, measurements, cash flows)/Inadequate",
+              "reason_of_the_status": "Assessment based on strict classification criteria met, correct measurement at the lower of carrying amount and FVLCTS, and separate presentation.",
+              "status_reference": "Assets held for sale note, discontinued operations note, cash flow statement"
+            },
+            "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+              "applicable": false,
+              "exploration_evaluation_assets": "N/A - Not an extractive industry entity",
+              "measurement_model": "N/A",
+              "impairment_testing": "N/A",
+              "reclassification_to_development": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Standard not applicable as the entity is not in the extractive industries.",
+              "status_reference": "N/A"
+            },
+            "ifrs_7_financial_instruments_disclosures": {
+              "applicable": true,
+              "categories_financial_instruments": "Disclosed per IFRS 9 categories/Not clearly disclosed",
+              "fair_value_hierarchy": [
+                "Level 1",
+                "Level 2",
+                "Level 3",
+                "Not disclosed"
+              ],
+              "credit_risk_disclosures": "Adequate (credit quality, impairment, collateral)/Inadequate",
+              "liquidity_risk_disclosures": "Adequate (maturity analysis)/Inadequate",
+              "market_risk_disclosures": "Adequate (sensitivity analysis)/Inadequate",
+              "collateral_disclosed": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Assessment of the completeness and clarity of quantitative and qualitative disclosures about the nature, extent, and management of financial risks.",
+              "status_reference": "Financial instruments risk management note, fair value measurement note, accounting policies for financial instruments"
+            },
+            "ifrs_8_operating_segments": {
+              "applicable": true,
+              "chief_operating_decision_maker_identified": "Identified (e.g., Board)/Not identified",
+              "reportable_segments_identified": "Based on internal reports/Arbitrary",
+              "segment_results_disclosed": "Revenue, profit/loss, assets, liabilities disclosed/Incomplete",
+              "segment_assets_liabilities": "Disclosed/Not disclosed",
+              "reconciliations_provided": "To consolidated totals provided/Not provided",
+              "entity_wide_disclosures": "Provided (products/services, geographical, major customers)/Incomplete",
+              "reason_of_the_status": "Assessment based on identification of segments based on internal reporting, disclosure of segment P&L and assets, and reconciliations to consolidated figures.",
+              "status_reference": "Segment reporting note, management commentary, accounting policies for segments"
+            },
+            "ifrs_9_financial_instruments": {
+              "applicable": true,
+              "classification_categories": [
+                "Amortized cost",
+                "Fair value through profit or loss",
+                "Fair value through other comprehensive income",
+                "Classification unclear"
+              ],
+              "impairment_expected_credit_losses": "ECL model applied (Stage 1/2/3)/Not applied",
+              "business_model_assessment": "Documented and applied/Not evident",
+              "contractual_cash_flow_characteristics": "SPPI test performed/Not performed",
+              "hedge_accounting_applied": "Applied with documentation/Not applied",
+              "reclassification_events": "Accounted for per IFRS 9/No reclassifications",
+              "reason_of_the_status": "Assessment of classification based on business model and cash flow characteristics, application of ECL model, and hedge accounting (if applied).",
+              "status_reference": "Financial instruments accounting policies, impairment note, hedge accounting note"
+            },
+            "ifrs_10_consolidated_financial_statements": {
+              "applicable": true,
+              "control_assessment": "Based on power, exposure to variable returns, ability to affect returns/Assessment flawed",
+              "subsidiaries_consolidated": "All subsidiaries consolidated/Some excluded",
+              "non_controlling_interests": "Presented in equity/Presented incorrectly",
+              "loss_of_control": "Accounted for per IFRS 10/No loss of control",
+              "investment_entities": "Entity is/is not an investment entity/Disclosure incomplete",
+              "disclosures_complete": "Adequate (interest in subsidiaries, NCI)/Inadequate",
+              "reason_of_the_status": "Assessment of control definition application, full consolidation of all subsidiaries, and presentation of non-controlling interests.",
+              "status_reference": "Basis of consolidation note, list of principal subsidiaries, NCI note"
+            },
+            "ifrs_11_joint_arrangements": {
+              "applicable": true,
+              "joint_arrangements_classified": [
+                "Joint operations",
+                "Joint ventures",
+                "None"
+              ],
+              "accounting_method": [
+                "Equity method",
+                "Proportionate consolidation if applicable",
+                "Method incorrect"
+              ],
+              "separate_financial_statements": "Investments at cost or equity method/Not applicable",
+              "disclosures_provided": "Adequate (nature, extent, financials)/Inadequate",
+              "reason_of_the_status": "Assessment of correct classification (joint operation vs. venture) and application of appropriate accounting (equity method for ventures).",
+              "status_reference": "Investments in joint arrangements note, accounting policies for joint arrangements"
+            },
+            "ifrs_12_disclosure_of_interests_in_other_entities": {
+              "applicable": true,
+              "subsidiaries_disclosures": "Adequate (name, proportion held)/Inadequate",
+              "joint_arrangements_disclosures": "Adequate (nature, risks)/Inadequate",
+              "associates_disclosures": "Adequate (summarized financials)/Inadequate",
+              "structured_entities": "Disclosed if involvement exists/Not disclosed",
+              "significant_judgments": "Disclosed (control, joint control)/Not disclosed",
+              "interests_nature_risks": "Disclosed/Not disclosed",
+              "reason_of_the_status": "Overall assessment of the completeness of disclosures about the nature, risks, and effects of interests in subsidiaries, joint arrangements, associates, and structured entities.",
+              "status_reference": "Interests in other entities note, list of investments, related party note for structured entities"
+            }
+          }
+        }
+      }
+    }
+  },
+  "10.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "10",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ifrs_13_fair_value_measurement": {
+              "applicable": true,
+              "fair_value_hierarchy_applied": "Consistently applied to all FV measurements/Inconsistently applied",
+              "valuation_techniques": [
+                "Market approach",
+                "Income approach",
+                "Cost approach",
+                "Techniques not disclosed"
+              ],
+              "unobservable_inputs_disclosed": "Adequately disclosed for Level 3 measurements/Insufficient disclosure",
+              "highest_best_use": "Considered for non-financial assets/Not considered or disclosed",
+              "non_financial_assets_valuation": "FV determined appropriately/Questionable valuation",
+              "disclosures_complete": "Adequate per IFRS 13/Incomplete",
+              "reason_of_the_status": "Assessment of hierarchy application, disclosure of valuation techniques/significant inputs, and specific disclosures for Level 3 fair values.",
+              "status_reference": "Fair value measurement note, accounting policies for fair value, financial instruments note"
+            },
+            "ifrs_14_regulatory_deferral_accounts": {
+              "applicable": false,
+              "regulatory_deferral_accounts_applicable": "N/A - Entity not a first-time adopter electing this exemption",
+              "recognition_criteria": "N/A",
+              "measurement_basis": "N/A",
+              "presentation": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Standard is an optional exemption for first-time adopters in rate-regulated activities. Not applicable to most entities.",
+              "status_reference": "Basis of preparation note, regulatory assets/liabilities note (if any)"
+            },
+            "ifrs_15_revenue_from_contracts_with_customers": {
+              "applicable": true,
+              "five_step_model_applied": "Clearly demonstrable in disclosures/Application unclear",
+              "contract_identification": "Contracts with customers identified/Identification issues",
+              "performance_obligations": "Distinct POBs identified/Bundling may be inappropriate",
+              "transaction_price_determination": "Includes variable consideration, constraints considered/Determination questionable",
+              "allocation_to_obligations": "Based on stand-alone selling prices/Allocation method not disclosed",
+              "revenue_recognition_timing": "Over time or at a point in time, appropriately determined/Timing may be aggressive",
+              "contract_assets_liabilities": "Properly presented/Classification issues",
+              "disclosures_complete": "Adequate (disaggregation, contract balances, performance obligations)/Incomplete",
+              "reason_of_the_status": "Assessment of the rigorous application of the 5-step model, correct identification of performance obligations, and completeness of disclosures.",
+              "status_reference": "Revenue recognition note, accounting policies for revenue, contract assets/liabilities note"
+            },
+            "ifrs_16_leases": {
+              "applicable": true,
+              "lessee_accounting": {
+                "right_of_use_assets": "Recognized for all applicable leases/Leases potentially off-balance sheet",
+                "lease_liabilities": "Recognized at present value/Discount rate questionable",
+                "discount_rate_assumptions": "Lessee's incremental borrowing rate used/Rate not disclosed or inappropriate",
+                "lease_term_assessment": "Includes optional periods where reasonably certain/Assessment may be under/overstated",
+                "variable_lease_payments": "Excluded from lease liability unless based on index/rate/Incorrectly included",
+                "short_term_leases_exemption": "Applied/Not applied where applicable"
+              },
+              "lessor_accounting": {
+                "operating_leases": "Lease income recognized straight-line/Not applicable",
+                "finance_leases": "Net investment recognized/Not applicable",
+                "manufacturer_dealer_leases": "Profit/loss recognized at commencement/Not applicable",
+                "subleases": "Accounted for appropriately/Not applicable"
+              },
+              "sale_and_leaseback": "Properly assessed for sale/lease treatment/Not applicable",
+              "disclosures_complete": "Adequate (maturity analysis, expenses, ROU assets)/Incomplete",
+              "reason_of_the_status": "Assessment of correct identification of leases, appropriate lessee accounting (ROU assets & liabilities), and adequacy of disclosures.",
+              "status_reference": "Leases note, accounting policies for leases, commitment notes"
+            },
+            "ifrs_17_insurance_contracts": {
+              "applicable": false,
+              "insurance_contracts_identified": "N/A - Entity is not an insurer",
+              "measurement_models": [
+                "N/A"
+              ],
+              "contractual_service_margin": "N/A",
+              "risk_adjustment": "N/A",
+              "disclosures_complete": "N/A",
+              "reason_of_the_status": "Standard applicable only to entities that issue insurance contracts. Not applicable to non-insurance entities.",
+              "status_reference": "Basis of preparation, nature of operations description"
+            },
+            "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+              "applicable": true,
+              "decommissioning_provisions": "Recognized per IAS 37/Not recognized",
+              "changes_accounting": "Changes in estimate adjusted against related asset/Accounted for in P&L",
+              "asset_retirement_obligations": "Capitalized as part of PPE cost/Expensed",
+              "disclosures_provided": "Adequate (nature, amount, timing)/Inadequate",
+              "reason_of_the_status": "Assessment of correct treatment for changes in the decommissioning liability estimate (adjusting the related asset's carrying amount).",
+              "status_reference": "Provisions note (decommissioning), PPE note, accounting policies for provisions"
+            },
+            "ifric_2_members_shares_in_cooperative_entities": {
+              "applicable": false,
+              "cooperative_entities_applicable": "N/A - Entity is not a cooperative",
+              "members_shares_classification": "N/A",
+              "dividend_distribution": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Interpretation specific to cooperative entities and their members' shares.",
+              "status_reference": "N/A"
+            },
+            "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+              "applicable": true,
+              "decommissioning_funds": "Entity participates in a fund/No fund participation",
+              "rights_measurement": "Recognized as an asset and measured appropriately/Not recognized",
+              "contributions_accounting": "Contributions to fund accounted for per IFRIC 5/Expensed",
+              "disclosures_provided": "Adequate (nature of fund, rights)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for rights to receive reimbursements from decommissioning funds (recognized as separate asset).",
+              "status_reference": "Provisions note (reference to fund), other assets note"
+            },
+            "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+              "applicable": true,
+              "waste_electrical_equipment": "Obligation exists and is provided for/Not applicable",
+              "environmental_liabilities": "Recognized for compliance obligations/Not recognized",
+              "compliance_obligations": "Liability recognized when obligated/Recognized at point of sale",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of timing for recognizing liabilities for waste management (e.g., WEEE, batteries) – recognition point is when obligation arises.",
+              "status_reference": "Provisions note (environmental), commitments note"
+            },
+            "ifric_7_applying_the_restatement_approach_under_ias_29": {
+              "applicable": false,
+              "hyperinflation_restatement": "N/A - Entity does not operate in a hyperinflationary economy",
+              "comparatives_adjusted": "N/A",
+              "gain_loss_calculation": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Interpretation on applying IAS 29. Only applicable if the entity reports in a hyperinflationary currency.",
+              "status_reference": "Basis of preparation, foreign operations note"
+            },
+            "ifric_10_interim_financial_reporting_and_impairment": {
+              "applicable": true,
+              "interim_impairment_testing": "Impairment recognized at interim date if indicators exist/Not tested",
+              "reversal_of_impairment": "Reversal only if criteria met in subsequent interim period/Reversed arbitrarily",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment of impairment recognition and reversal rules specific to interim reporting.",
+              "status_reference": "Interim financial report notes, impairment note in interim statements"
+            },
+            "ifric_12_service_concession_arrangements": {
+              "applicable": true,
+              "service_concession_arrangements": "Entity is an operator/grantor in such arrangements/Not applicable",
+              "operator_accounting": "Recognizes financial asset or intangible asset/Accounting unclear",
+              "grantor_accounting": "N/A (grantor accounting not within IFRS scope)/N/A",
+              "intangible_asset_recognition": "If model applies, asset recognized/Not recognized",
+              "financial_asset_recognition": "If model applies, asset recognized/Not recognized",
+              "reason_of_the_status": "Assessment of operator accounting for service concessions (e.g., PPPs) – recognition of a financial asset or an intangible asset.",
+              "status_reference": "Intangible assets note, receivables note, revenue recognition note"
+            },
+            "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+              "applicable": true,
+              "defined_benefit_asset_limit": "Considered in measuring defined benefit asset/Not considered",
+              "minimum_funding_requirements": "Impact on asset recognition assessed/Not assessed",
+              "available_refunds": "Considered if any/Not applicable",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of the interaction between minimum funding requirements and the limit on recognizing a defined benefit asset.",
+              "status_reference": "Employee benefits (defined benefit) note, pension fund agreements"
+            },
+            "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+              "applicable": true,
+              "net_investment_hedging": "Hedge accounting applied to net investment/Not applied",
+              "effectiveness_assessment": "Documented and effective/Not documented",
+              "exchange_differences_treatment": "Recognized in OCI/Recognized in P&L",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of hedge accounting for net investments in foreign operations, including effectiveness testing and OCI treatment.",
+              "status_reference": "Hedge accounting note, foreign currency note, other comprehensive income statement"
+            },
+            "ifric_17_distributions_of_non_cash_assets_to_owners": {
+              "applicable": true,
+              "non_cash_distributions": "Dividend declared payable in non-cash assets/No such distributions",
+              "fair_value_measurement": "Liability measured at FV of assets to be distributed/N/A",
+              "dividend_payable_recognition": "Recognized when appropriately authorized/N/A",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for dividends declared to be settled in non-cash assets (measured at fair value of assets to be distributed).",
+              "status_reference": "Dividends note, equity note, related party transactions (if applicable)"
+            }
+          }
+        }
+      }
+    }
+  },
+  "11.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "11",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "key_standards_compliance_check": {
+            "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+              "applicable": true,
+              "debt_equity_swaps": "Transaction occurred and accounted for per IFRIC 19/No such transaction",
+              "fair_value_measurement": "Equity instruments measured at fair value at derecognition date/Measurement incorrect",
+              "gain_loss_recognition": "Difference between carrying amount of liability and FV of equity recognized in P&L/Incorrectly recognized",
+              "disclosures_provided": "Adequate (nature, amounts)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for debt-to-equity swaps where equity instruments are issued to extinguish a financial liability.",
+              "status_reference": "Financial liabilities note, equity note, gain/loss on debt extinguishment in P&L"
+            },
+            "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+              "applicable": false,
+              "stripping_activity_costs": "N/A - Entity not in surface mining industry",
+              "recognition_criteria": "N/A",
+              "measurement_basis": "N/A",
+              "amortization_method": "N/A",
+              "disclosures_provided": "N/A",
+              "reason_of_the_status": "Interpretation specific to surface mining operations for stripping costs during production phase.",
+              "status_reference": "N/A"
+            },
+            "ifric_21_levies": {
+              "applicable": true,
+              "government_levies": "Present (e.g., bank levies, environmental charges)/Not present",
+              "recognition_timing": "Recognized when obligating event occurs (e.g., operating in period)/Recognized incorrectly",
+              "measurement_basis": "Best estimate of outflow/Measurement questionable",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of timing for recognizing liabilities to pay government levies (recognized in the period the obligating event occurs).",
+              "status_reference": "Provisions note, other liabilities, operating expenses"
+            },
+            "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+              "applicable": true,
+              "advance_payments_foreign_currency": "Received or paid in foreign currency/No such transactions",
+              "exchange_rate_determination": "Rate at date of payment for non-monetary item/Rate used incorrectly",
+              "asset_liability_recognition": "Asset/expense measured using historical rate when payment is advance/Measured incorrectly",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of exchange rate used when advance consideration is paid/received for a non-monetary asset/expense.",
+              "status_reference": "Foreign currency transactions note, prepayments, PPE/intangible additions"
+            },
+            "ifric_23_uncertainty_over_income_tax_treatments": {
+              "applicable": true,
+              "uncertain_tax_positions": "Exist and accounted for per IFRIC 23/None identified",
+              "recognition_criteria": "Considered whether position is probable of being sustained/Not considered",
+              "measurement_basis": "Measured at most likely amount or expected value/Measurement not disclosed",
+              "disclosures_provided": "Adequate (nature of uncertainty)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of how uncertainty in income tax treatments is reflected in the measurement of tax assets/liabilities.",
+              "status_reference": "Income taxes note, contingent liabilities note, tax risk disclosures"
+            },
+            "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+              "applicable": true,
+              "tax_status_changes": "Occurred (e.g., change in tax residency)/No changes",
+              "deferred_tax_impacts": "Deferred tax assets/liabilities remeasured/Not remeasured",
+              "dividend_withholding_taxes": "Considered in distribution announcements/Not considered",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for changes in tax status (e.g., remeasurement of DTAs/DTLs) and withholding taxes on dividends.",
+              "status_reference": "Income taxes note, equity note (dividends), significant events note"
+            },
+            "sic_7_introduction_of_euro": {
+              "applicable": true,
+              "euro_transition_impacts": "Entity transacts in euros/Not applicable",
+              "exchange_rate_fixing": "Fixed conversion rates used for legacy currencies/Rates used correctly",
+              "rounding_conventions": "Applied consistently/Not an issue",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of consistent application of fixed conversion rates and rounding rules for euro transactions. Legacy issue but may still apply.",
+              "status_reference": "Foreign currency note, accounting policies, basis of preparation"
+            },
+            "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+              "applicable": true,
+              "government_assistance": "Received (e.g., grants not related to assets or income)/None",
+              "recognition_criteria": "Recognized as income when conditions met/Recognized incorrectly",
+              "measurement_basis": "Measured at fair value/Measurement not disclosed",
+              "disclosures_provided": "Adequate (nature, extent, conditions)/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for government grants not related to specific assets or income (recognized as income over periods).",
+              "status_reference": "Government grants note, other income, commitments note"
+            },
+            "sic_15_operating_leases_incentives": {
+              "applicable": true,
+              "lease_incentives": "Received (e.g., cash incentives, rent-free periods)/None",
+              "recognition_timing": "Recognized as reduction of rental expense over lease term/Recognized upfront",
+              "allocation_over_lease_term": "Allocated on a straight-line basis/Allocation method not appropriate",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for incentives in operating leases (lessee recognizes benefit as reduction of lease expense over term).",
+              "status_reference": "Leases note, operating lease commitments note, accounting policies"
+            },
+            "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+              "applicable": true,
+              "tax_status_changes": "Occurred (e.g., change from partnership to corporation)/No changes",
+              "deferred_tax_effects": "Deferred tax recognized/impact disclosed/Not recognized",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for deferred tax implications of changes in the tax status of the entity or its shareholders.",
+              "status_reference": "Income taxes note, equity note, significant events note"
+            },
+            "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+              "applicable": true,
+              "substance_over_form": "Applied to assess lease transactions/Not considered",
+              "linked_transactions": "Series of linked transactions assessed as single arrangement/Assessed separately",
+              "lease_classification": "Classification based on substance/Classification based solely on legal form",
+              "disclosures_provided": "Adequate/Inadequate",
+              "reason_of_the_status": "Assessment of whether the substance of a series of transactions (e.g., sale and leaseback) results in a lease or another arrangement.",
+              "status_reference": "Leases note, related party transactions, commitments note"
+            },
+            "sic_29_service_concession_arrangements_disclosures": {
+              "applicable": true,
+              "service_concession_disclosures": "Entity is operator/grantor and provides disclosures/Not applicable",
+              "rights_obligations": "Nature and extent disclosed/Insufficient disclosure",
+              "revenue_expense_recognition": "Accounting policies disclosed/Policies not clear",
+              "disclosures_provided": "Adequate per SIC-29/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of disclosures about service concession arrangements to explain the arrangement's nature, risks, and accounting.",
+              "status_reference": "Service concession arrangements note, revenue recognition note, intangible assets note"
+            },
+            "sic_32_intangible_assets_website_costs": {
+              "applicable": true,
+              "website_development_costs": "Incurred and accounted for per SIC-32/Not material",
+              "recognition_criteria": "Development costs capitalized when criteria met/Expensed",
+              "amortization_policy": "Amortized over useful life/Policy reasonable",
+              "impairment_testing": "Tested for impairment/Not tested",
+              "disclosures_provided": "Adequate/Inadequate or N/A",
+              "reason_of_the_status": "Assessment of accounting for website development costs (planning/design costs expensed, development/construction costs capitalized if criteria met).",
+              "status_reference": "Intangible assets note, IT/website costs in expenses, accounting policies"
+            }
+          }
+        }
+      }
+    }
+  },
+  "12.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "12",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "detailed_ifrs_compliance_matrix": [
+            {
+              "standard_code": "IAS 1",
+              "standard_name": "Presentation of Financial Statements",
+              "applicability": "Yes",
+              "page_reference": "1-3, 45-48",
+              "compliance_status": "Compliant",
+              "reason_of_the_status": "Financial statements include all required statements (statement of financial position, comprehensive income, changes in equity, cash flows, notes). Going concern basis is applied and disclosed. Assets and liabilities are properly classified as current/non-current.",
+              "status_reference": "Basis of preparation (pg 45), Note 1 - General Information, Statement of Financial Position",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Para 19: Fair presentation achieved through compliance with IFRS. Para 24: Going concern basis explicitly stated in basis of preparation."
+            },
+            {
+              "standard_code": "IAS 2",
+              "standard_name": "Inventories",
+              "applicability": "Yes",
+              "page_reference": "52-54",
+              "compliance_status": "Partially Compliant",
+              "reason_of_the_status": "Inventories stated at lower of cost and NRV. Cost determined using FIFO. However, disclosure of NRV assessment methodology and write-down reversals is insufficient.",
+              "status_reference": "Note 4 - Inventories (pg 52)",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Inadequate disclosure may affect fair presentation (Para 19) as users cannot fully assess inventory valuation risks."
+            },
+            {
+              "standard_code": "IAS 12",
+              "standard_name": "Income Taxes",
+              "applicability": "Yes",
+              "page_reference": "78-82",
+              "compliance_status": "Compliant",
+              "reason_of_the_status": "Current and deferred tax recognized. Clear reconciliation between accounting profit and tax expense. Deferred tax assets recognized only where future taxable profit is probable.",
+              "status_reference": "Note 12 - Income Taxes (pg 78)",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Clear presentation of tax effects supports fair presentation."
+            },
+            {
+              "standard_code": "IFRS 9",
+              "standard_name": "Financial Instruments",
+              "applicability": "Yes",
+              "page_reference": "60-68",
+              "compliance_status": "Partially Compliant",
+              "reason_of_the_status": "Financial assets classified under amortized cost and FVTPL appropriately. Expected credit loss (ECL) model applied. However, sensitivity disclosures for credit risk and market risk are generic and lack entity-specific quantitative detail.",
+              "status_reference": "Note 8 - Financial Instruments (pg 60), Risk Management section",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Lack of specific sensitivity analysis may impair users' ability to understand financial risk exposure, affecting fair presentation (Para 19)."
+            },
+            {
+              "standard_code": "IFRS 15",
+              "standard_name": "Revenue from Contracts with Customers",
+              "applicability": "Yes",
+              "page_reference": "55-59",
+              "compliance_status": "Compliant",
+              "reason_of_the_status": "The five-step model is clearly applied and disclosed. Performance obligations, transaction price (including variable consideration constraints), and timing of revenue recognition are well-explained. Contract assets and liabilities are separately presented.",
+              "status_reference": "Note 5 - Revenue (pg 55), Accounting Policies - Revenue Recognition",
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Transparent revenue disclosure enhances fair presentation."
+            },
+            {
+              "standard_code": "IFRS 16",
+              "standard_name": "Leases",
+              "applicability": "Yes",
+              "page_reference": "69-73",
+              "compliance_status": "Non-Compliant",
+              "reason_of_the_status": "Right-of-use assets and lease liabilities are recognized. However, the discount rate applied (incremental borrowing rate) is not disclosed. Lease term assumptions for options to extend are not explained, raising concerns about potential understatement of liabilities.",
+              "status_reference": "Note 9 - Leases (pg 69)",
+              "material_departures": [
+                "Non-disclosure of discount rate",
+                "Lack of clarity on lease term judgments"
+              ],
+              "ias_1_para_19_24_implication": "Omission of key measurement inputs prevents users from understanding the measurement of significant assets/liabilities, impairing fair presentation (Para 19)."
+            }
+          ],
+          "tax_compliance_check": {
+            "ias_12_income_taxes": {
+              "compliance": "Compliant",
+              "reason_of_the_status": "Deferred tax assets and liabilities are recognized on all temporary differences. Clear reconciliation from accounting profit to tax expense is provided. Unused tax losses are recognized as deferred tax assets with supporting evidence of future profitability.",
+              "status_reference": "Note 12 - Income Taxes (pg 78-82)",
+              "issues": []
+            },
+            "ifric_23_uncertain_tax_positions": {
+              "compliance": "Partially Compliant",
+              "reason_of_the_status": "The entity acknowledges uncertain tax treatments but only discloses them as contingent liabilities. The note does not explicitly describe the process for determining the unit of account, estimating the most likely amount, or measuring the expected value as required by IFRIC 23.",
+              "status_reference": "Note 12 - Income Taxes (pg 81), Note 22 - Contingent Liabilities",
+              "issues": [
+                "Lack of detailed methodology disclosure for uncertain tax positions"
+              ]
+            },
+            "bangladesh_income_tax_act_2023": {
+              "withholding_tax_compliance": "Compliant as per financial statements",
+              "advance_tax_status": "Paid as per quarterly statements",
+              "tax_holidays_or_incentives": [
+                "Tax holiday under Section 46 for export-oriented industry until 2027"
+              ],
+              "overall_tax_compliance_assessment": "Partially Compliant",
+              "reason_of_the_status": "While current tax calculations appear compliant and incentives are disclosed, the financial statements do not provide reconciliation between the statutory tax rate (27.5%) and the effective tax rate shown. This omission makes it difficult to fully verify compliance with the local tax act's specific provisions.",
+              "status_reference": "Note 12 - Income Taxes (pg 78-82), Directors' Report section on Tax Compliance"
+            }
+          }
+        }
+      }
+    }
+  },
+  "13.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "13",
+    "frc_analysis_report": {
+      "entity": {
+        "fraud_and_management_override_assessment": {
+          "fraud_risk_factors_identified": [
+            {
+              "risk_factor": "Pressure to Meet Performance Targets",
+              "description": "Management compensation is heavily tied to achieving specific revenue and EBITDA targets as disclosed in the remuneration report. Missed targets result in significant bonus reductions.",
+              "implication": "Incentive to artificially inflate revenue or defer expenses to meet short-term goals.",
+              "reference": "Directors' Remuneration Report, pg 32-35"
+            },
+            {
+              "risk_factor": "Dominant CEO/Founder Influence",
+              "description": "The CEO and founder holds a 40% ownership stake and has significant influence over operational and financial reporting decisions, with limited apparent challenge from the board.",
+              "implication": "Potential for override of controls or influencing accounting judgments to present favorable results.",
+              "reference": "Corporate Governance Report - Board Structure, pg 28; Shareholding Pattern, pg 112"
+            },
+            {
+              "risk_factor": "Unusual Related-Party Transactions",
+              "description": "Significant sales and purchases with an entity owned by the CEO's family member. Terms (pricing, credit) are described as 'market-based' but are not independently benchmarked or justified in the notes.",
+              "implication": "Risk of channel stuffing, circular transactions, or transfer pricing manipulation to shift profits.",
+              "reference": "Note 28 - Related Party Transactions, pg 95-97"
+            }
+          ],
+          "revenue_manipulation_indicators": [
+            {
+              "indicator": "Aggressive Revenue Recognition Timing",
+              "evidence": "A significant portion of revenue is recognized upon 'shipment' for complex, custom-built equipment where customer acceptance is a critical milestone. The note states that 'acceptance is deemed to occur upon shipment' based on historical practice, which may not reflect the substance of the contract.",
+              "risk_assessment": "High",
+              "reference": "Note 5 - Revenue Recognition, Accounting Policy, pg 55; Significant Accounting Judgments, pg 48"
+            },
+            {
+              "indicator": "Unusual Growth in Contract Liabilities (Deferred Revenue)",
+              "evidence": "Contract liabilities decreased by 45% year-on-year, while revenue only grew by 15%. This disproportionate decline could indicate the accelerated recognition of revenue from past advances, potentially ahead of satisfying performance obligations.",
+              "risk_assessment": "Medium",
+              "reference": "Note 5 - Revenue, pg 56 (Table: Contract Balances); Statement of Financial Position, pg 3"
+            },
+            {
+              "indicator": "Side Agreements or Unusual Payment Terms",
+              "evidence": "Disclosure mentions 'extended payment terms granted to certain key customers in the fourth quarter to facilitate year-end sales.' Such terms may indicate side agreements or incentives that could call into question the collectability and thus the recognition of revenue.",
+              "risk_assessment": "Medium",
+              "reference": "Note 8 - Trade Receivables, Credit Risk, pg 62; Management Commentary, pg 21"
+            }
+          ],
+          "journal_entry_override_risk": "Medium to High",
+          "override_of_internal_controls_risk": "High",
+          "overall_fraud_risk_assessment": "Elevated Risk",
+          "reason_of_the_status": "The combination of significant pressure on management (performance-linked compensation), the dominant influence of a founder-CEO, and several observed revenue recognition red flags creates an environment where the risk of management override of controls and potential misstatement due to fraud is elevated. The justification for recognizing revenue at shipment, coupled with unusual trends in contract liabilities, requires particularly skeptical scrutiny.",
+          "status_reference": "Cross-reference: Directors' Remuneration (pg 32), Revenue Note (pg 55), Related Party Note (pg 95), Corporate Governance (pg 28). The overall assessment is based on the aggregation of the specific factors identified above."
+        }
+      }
+    }
+  },
+  "14.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "14",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "Hoda Vasi Chowdhury & Co.",
+              "firm_registration_number": "CA 00001",
+              "audit_tenure_years": "8",
+              "rotation_compliance": "Compliant. The audit partner is rotated every 5 years as per ICAB guidelines; the current partner is in their 3rd year."
+            },
+            "audit_opinion": {
+              "opinion_type": "Unmodified",
+              "basis_for_opinion": "The auditor states the financial statements give a true and fair view in accordance with IFRS and the Companies Act 1994. The basis section references ISA compliance and proper accounting policies.",
+              "modified_opinion_reasons": []
+            },
+            "key_audit_matters": [
+              {
+                "matter": "Valuation of Inventory - Net Realizable Value (NRV)",
+                "description": "Identified as a KAM due to significant inventory balances and subjectivity in estimating NRV, which is impacted by market conditions and obsolescence.",
+                "auditor_response": "Evaluated management's NRV methodology, compared cost to recent selling prices, and assessed assumptions about future demand and costs."
+              },
+              {
+                "matter": "Recognition of Revenue from Long-Term Contracts",
+                "description": "Identified as a KAM due to the significance of revenue and the judgment involved in estimating percentage of completion (cost-to-cost method).",
+                "auditor_response": "Tested the operating effectiveness of controls over revenue recognition. Re-performed management's calculation of stage of completion and tested inputs (costs incurred, total estimated costs)."
+              },
+              {
+                "matter": "Impairment Assessment of Goodwill",
+                "description": "Identified as a KAM due to the significance of goodwill and the subjectivity of key assumptions (growth rates, discount rates) in the value-in-use model.",
+                "auditor_response": "Evaluated the reasonableness of management's cash flow forecasts and key assumptions by comparing to historical performance, approved budgets, and external market data. Performed sensitivity analysis on key assumptions."
+              }
+            ],
+            "going_concern_assessment": {
+              "auditor_conclusion": "No material uncertainty identified. The auditor's report includes the standard going concern statement that they have not identified any material uncertainties.",
+              "period_assessed": "At least 12 months from the date of the financial statements.",
+              "mitigating_factors": [
+                "Renewal of bank credit facilities",
+                "Positive cash flow projections",
+                "Diversified customer base"
+              ]
+            },
+            "isa_compliance_check": {
+              "compliance": "Apparent compliance based on report structure and disclosures",
+              "issues": [
+                "The auditor's report does not explicitly name the engagement partner, which is an ISA 700 requirement for listed entities."
+              ]
+            },
+            "reason_of_the_status": "The audit report appears standard and unmodified. However, the omission of the engagement partner's name, while the firm and rotation are noted, represents a minor ISA disclosure deficiency. The KAMs are appropriately focused on areas of high judgment and risk.",
+            "status_reference": "Independent Auditor's Report (pages 120-125), specifically the 'Basis for Opinion' and 'Key Audit Matters' sections."
+          },
+          "corporate_governance_review": {
+            "board_structure": {
+              "independence": "Partially Compliant. The board has 8 members: 4 executive (including CEO/CFO) and 4 non-executive. Of the non-executives, only 2 are classified as independent, falling short of the 1/3 independence requirement for listed companies as per BSEC guidelines.",
+              "expertise": "Adequate. Board members have backgrounds in finance, law, and the relevant industry. The skill matrix is disclosed.",
+              "effectiveness": "Moderate. 8 meetings were held last year with 85% average attendance. However, the dominance of executive members and lack of independent chair (CEO is Chair) may challenge objective oversight."
+            },
+            "committee_effectiveness": {
+              "audit_committee": "Partially Effective. The committee is composed of all 4 non-executive directors and met 4 times. It reviewed financial statements and internal audit reports. A concern is that the committee chair is a non-executive director who is not classified as independent due to a prior business relationship.",
+              "risk_committee": "Not Established. The board has not formed a separate risk committee; risk oversight is handled by the full board and audit committee.",
+              "nomination_committee": "Not Established. No separate committee; board appointments are decided by the full board."
+            },
+            "internal_controls": {
+              "effectiveness": "Management asserts that internal controls over financial reporting were effective as of year-end.",
+              "management_assessment": "The Directors' Responsibility Statement includes a generic assertion on maintaining adequate internal controls but does not provide a detailed framework or assessment against a recognized standard (e.g., COSO).",
+              "auditor_opinion": "The auditor's report is on the financial statements only. No separate opinion on the effectiveness of internal control over financial reporting is provided, which is not mandatory."
+            },
+            "reason_of_the_status": "Governance practices show significant gaps. Key deficiencies include lack of board independence (insufficient independent directors, combined CEO/Chair role), absence of key board committees (risk, nomination), and a non-independent audit committee chair. This structure weakens objective oversight and increases reliance on management.",
+            "status_reference": "Corporate Governance Report (pages 26-31), Directors' Responsibility Statement (page 119), Composition of Board and Committees (page 28-29)."
+          }
+        }
+      }
+    }
+  },
+  "15.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "15",
+    "frc_analysis_report": {
+      "entity": {
+        "legal_and_enforcement_mapping": {
+          "financial_reporting_act_2015": {
+            "sections_triggered": [
+              {
+                "section": "Section 9",
+                "description": "Obligation to prepare financial statements that give a true and fair view.",
+                "evidence": "The omission of key measurement inputs (e.g., discount rate for leases) and insufficient disclosure of NRV methodology for inventory may impede a true and fair view.",
+                "reference": "Note 9 - Leases, Note 4 - Inventories"
+              },
+              {
+                "section": "Section 11(1)",
+                "description": "Requirement for directors to approve the financial statements, taking responsibility for their accuracy.",
+                "evidence": "Directors' responsibility statement is signed. However, the identified accounting concerns (revenue timing, lease accounting) raise questions about the rigor of their review and approval.",
+                "reference": "Directors' Responsibility Statement, page 119"
+              }
+            ],
+            "nature_of_breach": "Potential breach due to inadequate disclosures and questionable accounting judgments that may prevent the financial statements from giving a true and fair view in all material respects.",
+            "severity_assessment": "Medium",
+            "reason_of_the_status": "While the audit opinion is unmodified, specific disclosures fall short of IFRS requirements (IAS 1 fair presentation, IAS 2, IFRS 16). This creates a risk of non-compliance with the FRA 2015's core principle of a true and fair view, warranting regulatory scrutiny.",
+            "status_reference": "Financial Reporting Act 2015, Sections 9 & 11. Cross-reference to findings in Sections 7-10 and 12 of this report on specific standards."
+          },
+          "companies_act_1994": {
+            "sections_implicated": [
+              {
+                "section": "Section 184",
+                "description": "Duty of directors to act with reasonable care, skill, and diligence.",
+                "evidence": "Approving financial statements with aggressive revenue recognition and insufficient lease disclosures may be seen as a failure to exercise adequate care and skill in financial oversight.",
+                "reference": "Directors' Report, Corporate Governance Report"
+              },
+              {
+                "section": "Section 191",
+                "description": "Directors' responsibility for proper books of account and financial statements.",
+                "evidence": "Directors have signed the responsibility statement. The accounting issues identified suggest potential flaws in the underlying records or judgments supporting the statements.",
+                "reference": "Directors' Responsibility Statement, page 119"
+              }
+            ],
+            "director_liability_assessed": true,
+            "liability_nature": "Potential civil liability for breach of fiduciary duty (care and skill) under Sections 184 and 191. If misstatements are proven intentional or grossly negligent, it could escalate to criminal liability under Section 211 for fraudulent conduct.",
+            "reason_of_the_status": "The board's structural weaknesses (lack of independence, combined CEO/Chair role) and the approval of financial statements with material disclosure deficiencies create a prima facie case for examining whether directors fulfilled their statutory duties of care and diligence.",
+            "status_reference": "Companies Act 1994, Sections 184, 191, and 211. Cross-reference to governance findings in Section 14 and fraud risk in Section 13."
+          },
+          "bsec_rules_if_applicable": {
+            "rules_breached": [
+              {
+                "rule": "BSEC Corporate Governance Code, 2018 - Regulation 8(3)",
+                "description": "Requires at least one-third of the board to be independent directors for listed companies.",
+                "evidence": "Only 2 out of 8 board members (25%) are independent, falling below the one-third threshold.",
+                "reference": "Corporate Governance Report, Board Composition, page 28"
+              },
+              {
+                "rule": "BSEC Corporate Governance Code, 2018 - Regulation 16(2)",
+                "description": "The Audit Committee shall be composed of at least three members, all of whom shall be non-executive directors and the majority of whom, including the Chair, shall be independent.",
+                "evidence": "The Audit Committee Chair is a non-executive director who is not classified as independent, breaching the 'independent chair' requirement.",
+                "reference": "Corporate Governance Report, Audit Committee Composition, page 29"
+              },
+              {
+                "rule": "BSEC Notification on Related Party Transactions",
+                "description": "Requires transparent disclosure and justification of related party transactions, ensuring they are conducted at arm's length.",
+                "evidence": "Transactions with a related party (CEO's family member) are disclosed but the justification ('market-based') is not substantiated with independent benchmarks, raising doubts about arm's length nature.",
+                "reference": "Note 28 - Related Party Transactions, pages 95-97"
+              }
+            ],
+            "market_impact": "The governance breaches (board independence, audit committee) undermine investor confidence in the integrity of oversight mechanisms. The aggressive revenue recognition and related party disclosure issues could mislead the market regarding the entity's true performance and financial health, potentially affecting share price.",
+            "reason_of_the_status": "As a listed entity, clear breaches of the BSEC Corporate Governance Code are evident. These, combined with accounting disclosure concerns, indicate systemic issues in governance and transparency that are of direct regulatory interest to the BSEC for the protection of investors.",
+            "status_reference": "BSEC Corporate Governance Code, 2018. BSEC Notifications on Related Party Transactions. Cross-reference to governance findings in Section 14 and related party notes in financial statements."
+          }
+        }
+      }
+    }
+  },
+  "16.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "16",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "material_departures_summary": [
+            {
+              "issue_id": "MD-001",
+              "description": "Insufficient Disclosure of Key Lease Accounting Judgments and Inputs",
+              "relevant_standard": "IFRS 16, IAS 1",
+              "page_reference": "69-73",
+              "extract_from_fs": "Note 9 - Leases: 'Right-of-use assets and lease liabilities are recognized... discount rate used is the entity's incremental borrowing rate.' (No rate disclosed, no disclosure of lease term assumptions).",
+              "materiality": "Material",
+              "financial_impact_estimate": "Lease liabilities total BDT 1,250 million. A 1% change in discount rate could change the liability by approximately BDT 15-20 million. Users cannot assess this sensitivity.",
+              "recommended_action": "Disclose the weighted average discount rate applied. Disclose the weighted average lease term and explain judgments applied for extension options."
+            },
+            {
+              "issue_id": "MD-002",
+              "description": "Aggressive Revenue Recognition Timing for Complex Equipment Sales",
+              "relevant_standard": "IFRS 15",
+              "page_reference": "55-56, 48",
+              "extract_from_fs": "Revenue Recognition Policy: 'Revenue is recognized at a point in time, upon shipment to the customer, as this is when control is transferred.' (For custom-built equipment where acceptance is critical).",
+              "materiality": "Material",
+              "financial_impact_estimate": "Revenue recognized in the period is BDT 12,500 million. If recognition were deferred to customer acceptance (often post-shipment), a material portion could shift to subsequent periods.",
+              "recommended_action": "Re-assess the transfer of control criteria. If acceptance is a substantive hurdle, revenue should be recognized upon acceptance, not shipment. Disclose this judgment and its impact."
+            },
+            {
+              "issue_id": "MD-003",
+              "description": "Non-Compliance with Board Independence Requirements",
+              "relevant_standard": "BSEC Corporate Governance Code",
+              "page_reference": "28",
+              "extract_from_fs": "Corporate Governance Report: 'The Board comprises 8 members: 4 Executive and 4 Non-Executive Directors, of which 2 are independent.'",
+              "materiality": "Material (for governance and oversight)",
+              "financial_impact_estimate": "Non-financial. Weakens objective oversight, increasing risk of poor financial reporting decisions and related-party abuses.",
+              "recommended action": "Appoint at least one additional independent director to meet the one-third requirement. Separate the roles of CEO and Board Chair."
+            }
+          ],
+          "risk_factor_consolidation": {
+            "high_risk": [
+              "Management Override of Controls: Dominant CEO influence, pressure to meet targets, and aggressive revenue accounting create a high risk of intentional misstatement.",
+              "Board Governance Failure: Lack of independent directors, combined CEO/Chair role, and non-independent audit committee chair critically undermine oversight.",
+              "Related Party Transactions: Significant transactions with CEO's family member entity without robust, transparent arm's length justification."
+            ],
+            "medium_risk": [
+              "Lease Accounting (IFRS 16): Lack of disclosure on key assumptions (discount rate, lease term) and potential understatement of liabilities.",
+              "Impairment Testing Assumptions (IAS 36): Subjectivity in goodwill impairment models (growth/discount rates) with limited sensitivity disclosure.",
+              "Inventory Valuation (IAS 2): Insufficient disclosure of NRV assessment methodology and potential for overstated inventory."
+            ],
+            "low_risk": [
+              "General ISA Compliance by Auditor: Minor reporting deficiency (engagement partner name omission) but otherwise appears compliant.",
+              "Tax Accounting (IAS 12): Calculations appear compliant, though reconciliation detail could be improved."
+            ]
+          },
+          "going_concern_final_assessment": {
+            "frc_conclusion": "No material uncertainty identified, but with significant caveats.",
+            "supporting_factors": [
+              "Renewed credit facilities",
+              "Positive operating cash flows historically",
+              "Established market position"
+            ],
+            "contradicting_factors": [
+              "Aggressive revenue recognition inflates current period earnings",
+              "Reliance on related-party transactions",
+              "Governance weaknesses could impact future access to capital or regulatory sanctions"
+            ],
+            "recommendation": "The going concern basis is appropriate for the next 12 months based on liquidity. However, the entity must address its governance and aggressive accounting practices to sustain long-term investor confidence and mitigate risks that could threaten going concern thereafter."
+          },
+          "overall_assessment": {
+            "true_and_fair_view_assessment": "Materially Compromised",
+            "overall_ifrs_compliance_level": "Partially Compliant",
+            "reliability_scoring_methodology": {
+              "components": {
+                "ifrs_compliance": "55/100",
+                "audit_quality": "70/100",
+                "governance_quality": "40/100",
+                "earnings_quality": "45/100",
+                "disclosure_transparency": "50/100"
+              },
+              "final_score": "52/100",
+              "interpretation": "BELOW AVERAGE RELIABILITY. The financial statements suffer from material departures in disclosure and application of key standards (IFRS 15, 16). Governance failures are severe and significantly undermine the credibility of oversight. While audited, the presence of high-risk factors and aggressive accounting choices casts substantial doubt on the quality and sustainability of reported earnings."
+            },
+            "key_strengths": [
+              "Clear presentation of tax calculations and deferred tax accounting.",
+              "Explicit identification of Key Audit Matters by the auditor.",
+              "Compliance with basic IFRS presentation requirements (IAS 1)."
+            ],
+            "critical_issues": [
+              "Governance Structure: Non-compliance with BSEC independence rules, combined CEO/Chair role.",
+              "Revenue Recognition: Aggressive timing policy for complex contracts potentially overstating current period revenue.",
+              "Related Party Disclosures: Lack of robust arm's length justification for material transactions.",
+              "Lease Disclosures: Omission of key measurement inputs required by IFRS 16."
+            ],
+            "frc_recommendations": [
+              "IMMEDIATE: The Board should appoint additional independent directors to comply with BSEC rules and separate the roles of CEO and Chairperson.",
+              "IMMEDIATE: Management should re-evaluate the revenue recognition policy for complex equipment sales and revise it to reflect the transfer of control at customer acceptance, not shipment.",
+              "NEXT REPORTING CYCLE: Provide full IFRS 16 disclosures, including weighted average discount rate, lease term assumptions, and a maturity analysis of lease liabilities.",
+              "ONGOING: Strengthen the Audit Committee by appointing an independent chair and enhancing its mandate to review and challenge significant accounting judgments.",
+              "ONGOING: Commission an independent valuation or obtain external market benchmarks to substantiate the pricing of related party transactions."
+            ]
+          }
+        }
+      }
+    }
+  },
+  "17.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "17",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "detailed_earnings_quality_analysis": {
+            "total_accruals_calculation": {
+              "year_2024": {
+                "net_income": "1,850",
+                "cash_flow_from_operations": "1,320",
+                "total_accruals": "530",
+                "accruals_to_net_income_ratio": "28.6%",
+                "analysis_comment": "High proportion of earnings (29%) is from accruals, not cash. This is significantly above a typical healthy range of 10-20%, indicating potential earnings management or aggressive accounting."
+              },
+              "year_2023": {
+                "net_income": "1,650",
+                "cash_flow_from_operations": "1,410",
+                "total_accruals": "240",
+                "accruals_to_net_income_ratio": "14.5%",
+                "analysis_comment": "Ratio was within a more reasonable range in the prior year, making the spike in 2024 more concerning."
+              },
+              "trend_assessment": "Deteriorating. The accruals ratio has nearly doubled year-on-year (from 14.5% to 28.6%). This sharp increase suggests a significant shift towards non-cash earnings components in the current period.",
+              "red_flags_identified": [
+                "Spike in Accruals Ratio: A large, sudden increase is a classic red flag for potential earnings inflation.",
+                "Consistent Negative Operating Cash Flow to Net Income Gap: CFO consistently lags behind Net Income over both years, indicating earnings are not converting to cash.",
+                "Link to Aggressive Revenue Recognition: The spike aligns with the identified aggressive revenue recognition policy (recognizing revenue at shipment before cash collection)."
+              ],
+              "areas_for_further_investigation": [
+                "Detailed analysis of changes in working capital accounts (especially Trade Receivables, Contract Assets, and Inventory) driving the accruals increase.",
+                "Scrutiny of any large, one-off accruals or provisions reversed in the period.",
+                "Comparison of revenue growth with growth in trade receivables to detect channel stuffing."
+              ]
+            },
+            "revenue_quality_indicators": {
+              "revenue_growth_vs_cash_collection": "Divergence Detected. Revenue grew by 15% (from BDT 10,870m to BDT 12,500m), while cash collected from customers (approximated from change in receivables and revenue) grew by only 8%. This growing gap indicates sales are increasingly made on credit or revenue is recognized ahead of cash receipt.",
+              "accounting_policy_changes_impact": "No explicit policy change disclosed. However, the application of the existing 'shipment' policy appears aggressive for complex equipment, effectively acting as a de facto change.",
+              "significant_judgments_areas": [
+                {
+                  "area": "Timing of Revenue Recognition (Control Transfer)",
+                  "judgment": "Management judges control transfers at shipment, not customer acceptance.",
+                  "risk": "High - Overstates current revenue and profits."
+                },
+                {
+                  "area": "Estimation of Variable Consideration",
+                  "judgment": "Management estimates discounts and rebates to determine transaction price.",
+                  "risk": "Medium - Potential to overestimate revenue if constraints are not properly applied."
+                }
+              ],
+              "risk_assessment": "High. The combination of a high and spiking accruals ratio, divergence between revenue growth and cash collection, and aggressive judgments on revenue timing presents a high risk that reported revenue and earnings are of low quality and may not be sustainable or realizable."
+            }
+          }
+        }
+      }
+    }
+  },
+  "18.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "18",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "detailed_trend_analysis": {
+            "horizontal_analysis_yoy": {
+              "statement_of_financial_position": [
+                {
+                  "line_item": "Cash and cash equivalents",
+                  "year_2024": "850",
+                  "year_2023": "1,150",
+                  "absolute_change": "-300",
+                  "percentage_change": "-26.1%",
+                  "volatility_assessment": "High volatility (significant decrease).",
+                  "investigation_required": true,
+                  "investigation_note": "Sharp decline despite reported profit increase. Requires checking cash flow from investing (CAPEX) and financing (debt/div payments) activities."
+                },
+                {
+                  "line_item": "Trade and other receivables",
+                  "year_2024": "4,200",
+                  "year_2023": "3,350",
+                  "absolute_change": "+850",
+                  "percentage_change": "+25.4%",
+                  "volatility_assessment": "High volatility (significant increase).",
+                  "investigation_required": true,
+                  "investigation_note": "Growth outpacing revenue growth (15%). Major red flag for revenue quality, potential channel stuffing, or collection issues."
+                },
+                {
+                  "line_item": "Borrowings (Non-current)",
+                  "year_2024": "3,800",
+                  "year_2023": "2,900",
+                  "absolute_change": "+900",
+                  "percentage_change": "+31.0%",
+                  "volatility_assessment": "High volatility (significant increase).",
+                  "investigation_required": true,
+                  "investigation_note": "Large increase in long-term debt. Need to check purpose (funding working capital gap? CAPEX?) and impact on leverage."
+                }
+              ],
+              "statement_of_profit_or_loss": [
+                {
+                  "line_item": "Revenue",
+                  "year_2024": "12,500",
+                  "year_2023": "10,870",
+                  "absolute_change": "+1,630",
+                  "percentage_change": "+15.0%",
+                  "business_justification": "Management attributes growth to 'increased market share and successful launch of new product line.'",
+                  "skeptical_question": "Is the growth real and collectible? Why are receivables growing faster (25.4%) than revenue (15%)? Could it be driven by relaxed credit terms or aggressive recognition?"
+                },
+                {
+                  "line_item": "Cost of Sales",
+                  "year_2024": "8,125",
+                  "year_2023": "7,065",
+                  "absolute_change": "+1,060",
+                  "percentage_change": "+15.0%",
+                  "business_justification": "Costs increased in line with revenue growth.",
+                  "skeptical_question": "Gross margin remained exactly flat at 35%. While stable, such precision year-on-year is unusual and warrants checking for cost capitalization or inventory valuation practices that may be smoothing margins."
+                },
+                {
+                  "line_item": "Profit Before Tax",
+                  "year_2024": "2,470",
+                  "year_2023": "2,200",
+                  "absolute_change": "+270",
+                  "percentage_change": "+12.3%",
+                  "business_justification": "Increase due to revenue growth, partially offset by higher finance costs.",
+                  "skeptical_question": "Profit growth (12.3%) lags revenue growth (15%), indicating margin pressure. Is this due to real cost increases, or are one-off gains boosting the prior year's profit?"
+                }
+              ]
+            },
+            "vertical_analysis_composition": {
+              "assets_composition_2024": {
+                "current_assets_percentage": "58%",
+                "non_current_assets_percentage": "42%",
+                "significant_changes": [
+                  "Trade Receivables increased from 22% to 26% of total assets. This is a major shift, indicating a growing reliance on customer credit and potential liquidity strain.",
+                  "Property, Plant & Equipment decreased from 38% to 34% of total assets, despite business growth, suggesting a shift to a less capital-intensive model or aging assets."
+                ]
+              },
+              "liabilities_composition_2024": {
+                "current_liabilities_percentage": "48%",
+                "non_current_liabilities_percentage": "29%",
+                "equity_composition": "23%",
+                "risk_implications": "High Financial Risk. The capital structure is heavily reliant on debt (77% Liabilities to Assets). Equity is thin at 23%, providing a small buffer against losses. The high current liabilities percentage (48%) indicates significant short-term payment obligations, which is concerning given the declining cash balance."
+              }
+            },
+            "two_to_three_year_trend": {
+              "revenue_trend": [
+                "9,500",
+                "10,870",
+                "12,500"
+              ],
+              "profit_trend": [
+                "1,850",
+                "2,200",
+                "2,470"
+              ],
+              "asset_growth_trend": [
+                "22,000",
+                "25,000",
+                "28,500"
+              ],
+              "debt_trend": [
+                "14,500",
+                "16,200",
+                "19,500"
+              ],
+              "trend_analysis_commentary": "The entity shows consistent top-line growth. However, critical warning signs emerge: 1) **Profit growth is slowing** relative to revenue, indicating margin compression. 2) **Asset growth is increasingly fueled by debt**, not retained earnings, as seen in the rising debt trend. 3) The quality of asset growth is questionable, with a rising proportion tied up in receivables rather than productive operating assets. This paints a picture of growth achieved through aggressive sales/credit policies and increased financial leverage, not necessarily sustainable operational improvement.",
+              "unusual_patterns_identified": [
+                "Receivables Growth Outpacing Revenue: A persistent pattern over two years, signaling deteriorating revenue quality.",
+                "Stable Gross Margin Amidst Input Cost Volatility: The exact 35% margin for two consecutive years is statistically unusual in a real business environment and suggests potential earnings management.",
+                "Declining Cash Amidst Reported Profits: Profits are not translating into cash generation, a fundamental red flag."
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "19.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "19",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_2_financial_analysis": {
+          "enhanced_ratio_analysis": {
+            "liquidity_ratios": {
+              "current_ratio": {
+                "2024": "1.21",
+                "2023": "1.35",
+                "trend": "Deteriorating",
+                "benchmark_comparison": "Below the commonly accepted 'safe' threshold of 1.5 and deteriorating.",
+                "risk_assessment": "Moderate to High Risk. The ratio is low and falling, indicating weakening ability to cover short-term obligations. The sharp decline in cash is a primary driver."
+              },
+              "quick_ratio_acid_test": {
+                "2024": "0.65",
+                "2023": "0.78",
+                "calculation_notes": "(Cash + Receivables) / Current Liabilities. Inventory is excluded as it may not be quickly liquidated.",
+                "implications": "Severe Liquidity Stress. The company can only cover 65% of its immediate liabilities with its most liquid assets. This is a critical warning sign.",
+                "investigation_points": [
+                  "Urgent review of upcoming debt maturities and supplier payment terms.",
+                  "Assessment of the feasibility and cost of securing additional short-term credit lines."
+                ]
+              }
+            },
+            "efficiency_ratios": {
+              "days_of_inventory": {
+                "2024": "95 days",
+                "2023": "89 days",
+                "industry_comparison": "Above the industry average of ~75 days.",
+                "operational_implications": "Inefficient inventory management. Capital is tied up for longer, increasing storage costs and obsolescence risk.",
+                "red_flags": [
+                  "Increasing trend suggests slowing demand or overstocking.",
+                  "Links to the risk of overstated inventory value and potential NRV write-downs."
+                ]
+              },
+              "days_sales_outstanding": {
+                "2024": "123 days",
+                "2023": "112 days",
+                "credit_policy_assessment": "Credit terms appear to be excessively long or collections are inefficient. Standard terms are likely 60-90 days.",
+                "collection_issues": "Severe. Customers are taking over 4 months to pay on average, and the trend is worsening. This directly causes the cash flow crisis and high receivables balance."
+              },
+              "asset_turnover": {
+                "2024": "0.44",
+                "2023": "0.43",
+                "efficiency_assessment": "Very Low and Stagnant. The company generates only BDT 0.44 of revenue for every BDT 1 of assets. This indicates poor utilization of its asset base.",
+                "capacity_utilization": "Likely underutilized assets or investment in non-productive assets (e.g., bloated receivables)."
+              }
+            },
+            "solvency_coverage_ratios": {
+              "debt_to_equity": {
+                "2024": "3.36",
+                "2023": "2.84",
+                "trend_analysis": "Rapidly Increasing Leverage. The company is becoming significantly more dependent on debt financing. Equity is being eroded relative to obligations.",
+                "covenant_compliance_check": "Unknown, but the level is high enough to likely breach common debt covenants (e.g., D/E max of 2.5).",
+                "risk_level": "High Financial Risk. The capital structure is highly aggressive, leaving little margin for error."
+              },
+              "interest_coverage_ratio": {
+                "2024": "3.1",
+                "2023": "4.2",
+                "calculation": "EBIT / Finance Costs. Finance costs rose significantly with new debt.",
+                "sustainability_assessment": "Deteriorating. A ratio of 3.1 means operating profit covers interest costs just over 3 times. This is a thin buffer against a profit downturn.",
+                "default_risk": "Moderate. The company can currently service its debt, but the declining trend and high leverage increase vulnerability to rising interest rates or profit shocks."
+              }
+            },
+            "profitability_ratios": {
+              "return_on_assets_roa": {
+                "2024": "6.5%",
+                "2023": "7.2%",
+                "analysis": "Declining. The company is generating less profit from its asset base. This aligns with the low and falling asset turnover.",
+                "asset_utilization_assessment": "Poor. The combination of low margin and low turnover results in a subpar ROA, indicating inefficient use of capital."
+              },
+              "return_on_equity_roe": {
+                "2024": "21.5%",
+                "2023": "24.8%",
+                "analysis": "High but Declining. The ROE is artificially inflated by high financial leverage (D/E of 3.36). The underlying operational return (ROA) is weak.",
+                "shareholder_value_assessment": "Misleading. The high ROE is driven by excessive risk (debt), not operational excellence. It is unsustainable and declining."
+              },
+              "net_profit_margin": {
+                "2024": "14.8%",
+                "2023": "15.2%",
+                "trend": "Slight Erosion",
+                "cost_structure_analysis": "Margin pressure is evident despite flat gross margin, indicating rising administrative, selling, or finance costs.",
+                "competitive_position": "Margin is reasonable but under pressure. The company may lack pricing power or be experiencing cost inflation it cannot pass on."
+              }
+            },
+            "overall_ratio_assessment_summary": "The ratio analysis paints a picture of a company in financial distress. It suffers from a critical liquidity crunch (very low quick ratio), severe inefficiencies in working capital management (bloated receivables and inventory), and dangerously high and increasing leverage. Profitability metrics are weakening and are propped up by unsustainable debt. The aggregate of these ratios supports the earlier findings of high fraud risk, aggressive accounting, and compromised going concern sustainability over the medium term."
+          }
+        }
+      }
+    }
+  },
+  "20.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "20",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_3_ifrs_compliance_detailed": {
+          "standard_by_standard_verification": {
+            "ias_8_compliance_check": {
+              "accounting_policy_hierarchy": {
+                "hierarchy_applied": "Apparent compliance. The entity states that where a specific IFRS does not apply, management uses judgment and refers to the IASB Conceptual Framework.",
+                "departures_from_ifrs": [
+                  "Potential departure from the principle of substance over form in revenue recognition (IFRS 15) and lease term assessment (IFRS 16)."
+                ],
+                "justification_for_departures": "No justification provided for the aggressive application of standards (revenue, leases). Management applies the standards but appears to apply judgments at the most aggressive end of the acceptable spectrum.",
+                "compliance_assessment": "Partially Compliant. The hierarchy is cited, but the application of judgment in key areas appears to prioritize form over substance, potentially breaching the Conceptual Framework's faithful representation principle."
+              },
+              "policy_changes_analysis": {
+                "changes_made": [
+                  "Adoption of amendments to IAS 1 regarding the classification of liabilities."
+                ],
+                "retrospective_application": "Applied retrospectively as required, with no material impact on prior periods disclosed.",
+                "impact_quantified": "Impact quantified as 'not material'.",
+                "disclosure_adequacy": "Adequate. The change is disclosed in the accounting policies note with a brief description and statement of immaterial impact."
+              }
+            },
+            "ias_24_scrutiny": {
+              "related_party_identification": {
+                "parties_identified": [
+                  "Parent Company",
+                  "Subsidiaries",
+                  "Key Management Personnel (KMP)",
+                  "Entities controlled by KMP (specifically, 'Delta Trading Ltd' owned by CEO's brother)"
+                ],
+                "control_relationships": "Disclosed for parent and subsidiaries. The relationship with Delta Trading Ltd is described as an entity controlled by a close family member of a KMP.",
+                "potential_omissions": [
+                  "Other entities that may be under significant influence (e.g., major suppliers/customers where KMP have board seats) are not identified."
+                ],
+                "completeness_assessment": "Likely Incomplete. The identification appears limited to strict control and immediate family. The scope may be too narrow given the dominant influence of the CEO/founder."
+              },
+              "transaction_analysis": {
+                "arm_length_assessment": "Asserted but not substantiated. Transactions with Delta Trading Ltd are stated to be 'on normal commercial terms and conditions' and 'market-based' with no independent verification or benchmarking data provided.",
+                "material_transactions": [
+                  "Sales to Delta Trading Ltd: BDT 850m",
+                  "Purchases from Delta Trading Ltd: BDT 320m"
+                ],
+                "unusual_terms": [
+                  "Extended credit periods granted to Delta Trading Ltd compared to other customers (disclosed in note)."
+                ],
+                "risk_assessment": "High. The materiality of transactions, extended credit terms, and lack of proof for arm's length pricing create significant risks of earnings manipulation, fund diversion, and misleading financial statements."
+              },
+              "disclosure_completeness": {
+                "nature_disclosed": "Yes, the type of transactions (sales, purchases) is disclosed.",
+                "amounts_disclosed": "Yes, aggregate amounts are provided.",
+                "balances_outstanding": "Yes, year-end receivable from and payable to related parties are disclosed.",
+                "terms_conditions": "Inadequate. Only generic terms are mentioned ('normal credit terms'). The specific, extended terms for Delta Trading Ltd are buried in a separate note on credit risk, not linked here.",
+                "adequacy_assessment": "Partially Adequate. Quantitative disclosures meet minimum requirements, but qualitative disclosures on terms and justification for arm's length nature are poor and fragmented, impairing understanding."
+              }
+            },
+            "ias_10_events_check": {
+              "adjusting_events_identified": [
+                "Settlement of a major litigation claim that was pending at year-end. The final settlement amount was lower than the provision, leading to an adjustment."
+              ],
+              "non_adjusting_events_disclosed": [
+                "Declaration of a final dividend after the reporting period.",
+                "Significant decline in a key raw material price after year-end, which is disclosed as having a potential negative impact on inventory valuation in the next period."
+              ],
+              "going_concern_updates": "No updates disclosed. The events note does not indicate any post-year-end events that cast significant doubt on the going concern assumption, though the dividend declaration during a cash crunch could be questioned.",
+              "authorization_date_verification": "Disclosed. The financial statements were authorized for issue by the Board of Directors on March 28, 2025.",
+              "compliance_assessment": "Compliant. The entity has appropriately identified and classified adjusting and non-adjusting events, and disclosed the authorization date."
+            }
+          }
+        }
+      }
+    }
+  },
+  "21.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "21",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "enhanced_audit_report_analysis": {
+            "opinion_type_analysis": {
+              "opinion_category": "Unmodified",
+              "basis_for_opinion_extract": "In our opinion, the accompanying financial statements present fairly, in all material respects, [...] in accordance with International Financial Reporting Standards (IFRSs). We conducted our audit in accordance with International Standards on Auditing (ISAs).",
+              "modified_opinion_reasons_detailed": [],
+              "impact_on_fs_reliability": "The unmodified opinion provides formal assurance. However, given the FRC's findings of aggressive accounting and poor disclosures, it raises questions about audit scope, professional skepticism applied, or the threshold for 'material misstatement'."
+            },
+            "key_audit_matters_extraction": [
+              {
+                "kam_number": 1,
+                "description": "Valuation of Inventory, specifically the assessment of Net Realizable Value (NRV).",
+                "auditor_response": "Evaluated management's process, compared cost to recent selling prices, reviewed assumptions about future demand and costs, and tested the mathematical accuracy.",
+                "frca_risk_assessment": "High. The FRC identified insufficient disclosure of NRV methodology. The auditor's response appears procedural but does not address the adequacy of public disclosure, which remains poor.",
+                "follow_up_required": true,
+                "follow_up_action": "Challenge management to enhance NRV disclosure in notes, detailing key assumptions and sensitivity."
+              },
+              {
+                "kam_number": 2,
+                "description": "Recognition of Revenue from Long-Term Contracts, involving judgment in estimating percentage of completion.",
+                "auditor_response": "Tested controls, reperformed management's stage of completion calculation, and tested the inputs (costs incurred, total estimated costs).",
+                "frca_risk_assessment": "Critical. The FRC identified that revenue is recognized at shipment, not upon satisfaction of performance obligation (customer acceptance). The auditor's response focuses on the *calculation* of a method (cost-to-cost) that may be applied to the *wrong point in time*. This is a fundamental risk.",
+                "follow_up_required": true,
+                "follow_up_action": "Require a fundamental re-assessment of the point of control transfer. The audit procedures seem to have accepted management's aggressive timing judgment without sufficient challenge."
+              },
+              {
+                "kam_number": 3,
+                "description": "Impairment Assessment of Goodwill.",
+                "auditor_response": "Evaluated reasonableness of cash flow forecasts and key assumptions (growth, discount rates) against historical performance and market data. Performed sensitivity analysis.",
+                "frca_risk_assessment": "Medium. The FRC notes subjectivity in assumptions. The auditor's work seems adequate for a model-based test, but the high-level disclosure of sensitivities remains limited.",
+                "follow_up_required": true,
+                "follow_up_action": "Recommend more granular sensitivity disclosure in the financial statements (e.g., impact of 1% change in key assumptions)."
+              }
+            ],
+            "going_concern_analysis": {
+              "material_uncertainty_disclosed": false,
+              "period_assessed": "At least twelve months from the date of approval of these financial statements.",
+              "mitigating_factors_listed": [
+                "Renewal of banking facilities",
+                "Positive cash flow forecasts approved by management"
+              ],
+              "auditor_conclusion": "We have not identified any material uncertainties [...] to cast significant doubt on the company's ability to continue as a going concern.",
+              "frca_assessment": "Questionable. The FRC's analysis reveals a critical liquidity crunch (quick ratio 0.65), sharply declining cash, and severe working capital inefficiencies. The auditor's reliance on management's 'positive cash flow forecasts' seems optimistic without addressing the core operational issues causing the cash drain. The going concern assessment appears inadequately skeptical."
+            },
+            "emphasis_other_matters": {
+              "emphasis_of_matter_paragraphs": [
+                "None"
+              ],
+              "other_matter_paragraphs": [
+                "None"
+              ],
+              "significance_assessment": "The absence of an Emphasis of Matter paragraph on, for example, the significant related party transactions or the adoption of a new accounting standard, is notable but not necessarily non-compliant."
+            },
+            "isa_compliance_verification": {
+              "compliance_with_isa_700_705": "Partially Compliant",
+              "standard_requirements_met": [
+                "Opinion is clearly expressed.",
+                "Basis for opinion paragraph included.",
+                "Description of responsibilities of management and auditor provided.",
+                "Key Audit Matters section included for listed entity.",
+                "Going concern section included."
+              ],
+              "deficiencies_noted": [
+                "ISA 700 requires the name of the engagement partner to be included in the auditor's report of listed entities. This is omitted.",
+                "ISA 570 requires the auditor to evaluate management's assessment of going concern. The report does not describe how this evaluation was performed, only states the conclusion, which is minimal compliance."
+              ],
+              "overall_compliance": "Marginally Acceptable with Deficiencies. The report structure is largely compliant, but the omission of the engagement partner's name is a clear breach. More importantly, the substantive application of professional skepticism in areas like going concern and revenue recognition appears lacking, which is a matter of audit quality beyond mere report formatting."
+            }
+          }
+        }
+      }
+    }
+  },
+  "22.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "22",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_4_audit_governance_verification": {
+          "corporate_governance_code_assessment": {
+            "bsec_corporate_governance_code": {
+              "compliance_checklist": [
+                {
+                  "requirement": "Board Composition & Independence (Code 8.3)",
+                  "disclosed_in_report": "Board has 8 members: 4 Executive, 4 Non-Executive (2 Independent).",
+                  "compliance_status": "Non-compliant",
+                  "page_reference": "28",
+                  "frca_assessment": "Only 25% independent directors (2/8). Falls short of the minimum one-third (33%) requirement.",
+                  "recommendations": "Appoint at least one additional independent director immediately."
+                },
+                {
+                  "requirement": "Separation of CEO & Chairman Roles (Code 8.7)",
+                  "disclosed_in_report": "CEO and Chairman roles are combined and held by the founder.",
+                  "compliance_status": "Non-compliant",
+                  "page_reference": "28",
+                  "frca_assessment": "Clear breach. Combined roles concentrate power and weaken board oversight.",
+                  "recommendations": "Separate the roles; appoint an independent Non-Executive Chairman."
+                },
+                {
+                  "requirement": "Audit Committee Composition & Independence (Code 16.2)",
+                  "disclosed_in_report": "Committee of 4 Non-Executive Directors. Chair is a Non-Executive Director not classified as independent.",
+                  "compliance_status": "Non-compliant",
+                  "page_reference": "29",
+                  "frca_assessment": "Chair must be independent. Current chair's prior business relationship disqualifies independence.",
+                  "recommendations": "Reconstitute the committee with an independent chair."
+                },
+                {
+                  "requirement": "Related Party Transaction Review (Code 21)",
+                  "disclosed_in_report": "Transactions disclosed in notes. Stated that material RPTs were reviewed and approved by the Board.",
+                  "compliance_status": "Partially Compliant",
+                  "page_reference": "95-97, 30",
+                  "frca_assessment": "Process exists but is flawed. Board approval occurred, but the Board lacks independence. Terms and arm's length justification are insufficiently disclosed.",
+                  "recommendations": "Establish a formal, transparent RPT policy. Require independent director review/approval for material transactions. Enhance disclosure of pricing benchmarks."
+                },
+                {
+                  "requirement": "Risk Management Committee (Code 18)",
+                  "disclosed_in_report": "No separate Risk Management Committee formed.",
+                  "compliance_status": "Non-compliant",
+                  "page_reference": "30",
+                  "frca_assessment": "Clear breach. Risk oversight is handled by the full board, which is inadequate for a listed entity.",
+                  "recommendations": "Establish a Board Risk Management Committee with a majority of independent directors."
+                }
+              ],
+              "overall_compliance_score": "Poor (Significant Non-Compliance)",
+              "major_non_compliances": [
+                "Insufficient Independent Directors on Board",
+                "Combined CEO/Chairman Roles",
+                "Non-Independent Audit Committee Chair",
+                "Absence of a Risk Management Committee"
+              ],
+              "boilerplate_statements_identified": [
+                "The statement 'The Board is committed to the highest standards of corporate governance' is not substantiated by the actual structure.",
+                "Claims that 'related party transactions are conducted on an arm's length basis' are generic and unsupported by evidence."
+              ]
+            },
+            "board_committee_effectiveness": {
+              "audit_committee": {
+                "composition": "4 Non-Executive Directors (Chair is not independent).",
+                "meetings_held": "4 meetings during the year.",
+                "activities_disclosed": "Reviewed financial statements, internal audit reports, and auditor's independence.",
+                "independence_assessment": "Ineffective. The lack of an independent chair and the broader board's lack of independence critically undermine its objectivity.",
+                "effectiveness_rating": "Weak"
+              },
+              "risk_committee": {
+                "existence": "Does not exist.",
+                "activities": "N/A",
+                "risk_coverage": "Risk oversight is nominally with the full board, but no dedicated focus or expertise is disclosed.",
+                "effectiveness": "Non-Existent / Ineffective"
+              },
+              "nomination_remuneration": {
+                "committee_structure": "No separate committee. Functions are performed by the full board.",
+                "disclosures_made": "Remuneration policy and director fees are disclosed in the Directors' Report.",
+                "transparency_level": "Low. No disclosure of the process for setting executive pay, performance targets, or director nomination.",
+                "compliance_issues": "Non-compliance with best practice and likely BSEC code requirements for structured committees."
+              }
+            },
+            "internal_control_framework": {
+              "management_assessment_disclosed": "A generic statement is included in the Directors' Responsibility section: 'maintained adequate internal controls.'",
+              "auditor_opinion_on_icfr": "No separate opinion provided (not mandatory in Bangladesh).",
+              "deficiencies_reported": [
+                "No specific deficiencies are reported by management, which is implausible given the operational red flags (poor receivables/inventory control)."
+              ],
+              "remediation_plans": "No remediation plans disclosed.",
+              "overall_effectiveness": "Cannot be Relied Upon. Management's assessment is boilerplate and uninformative. The severe working capital inefficiencies and accounting issues are prima facie evidence of significant internal control deficiencies over financial reporting and operations."
+            }
+          }
+        }
+      }
+    }
+  },
+  "23.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "23",
+    "frc_analysis_report": {
+      "entity": {
+        "professional_skepticism_application": {
+          "management_assertions_challenged": [
+            {
+              "assertion_area": "Revenue Recognition (Occurrence & Timing)",
+              "management_claim": "Control transfers to the customer at the point of shipment for all sales, including complex custom-built equipment.",
+              "evidence_sought": "Contracts to verify if customer acceptance is a substantive milestone. Post-shipment support/cost data. Historical record of post-shipment rejections or modifications.",
+              "evidence_found": "Contract terms mention 'final customer acceptance.' High post-shipment installation and warranty costs are incurred. No disclosure of acceptance rejection history.",
+              "corroboration_level": "Weak",
+              "skeptical_conclusion": "Management's claim is questionable. Significant risk that control does not transfer until customer acceptance, making revenue recognition at shipment aggressive and potentially premature."
+            },
+            {
+              "assertion_area": "Valuation of Related Party Receivables (Valuation)",
+              "management_claim": "Related party receivables are fully collectible and measured at amortized cost.",
+              "evidence_sought": "Aged analysis of related party receivables. Comparison of payment history with unrelated customers. Independent assessment of the related party's creditworthiness.",
+              "evidence_found": "Only aggregate balance disclosed. Extended credit terms granted to related party disclosed elsewhere. No specific assessment of collectibility provided.",
+              "corroboration_level": "Weak",
+              "skeptical_conclusion": "Insufficient evidence to support the valuation assertion. The extended terms and lack of separate credit assessment increase the risk of impairment that is not recognized."
+            },
+            {
+              "assertion_area": "Going Concern (Management's Assessment)",
+              "management_claim": "The company is a going concern and has adequate resources for the next 12 months.",
+              "evidence_sought": "Detailed cash flow forecasts supporting liquidity. Evidence of firm commitments for renewed credit lines. Plan to address working capital inefficiencies.",
+              "evidence_found": "Generic statement about renewed facilities and positive forecasts. No detailed forecasts disclosed. No plan to rectify the critically low quick ratio or ballooning receivables.",
+              "corroboration_level": "Weak",
+              "skeptical_conclusion": "Management's going concern assertion is optimistic and not well-substantiated by the available financial evidence, which indicates severe liquidity stress."
+            }
+          ],
+          "accounting_policy_questioning": [
+            {
+              "policy_area": "Lease Term Assessment (IFRS 16)",
+              "policy_applied": "Lease terms include only non-cancellable periods; options to extend are not included unless termination penalties are substantive.",
+              "alternative_treatment": "Include extension options in the lease term if reasonably certain of exercise, considering economic incentives (e.g., significant leasehold improvements).",
+              "justification_provided": "No justification or disclosure of judgments made regarding lease terms.",
+              "skeptical_assessment": "Policy application appears designed to minimize lease liability. Without disclosure, it's impossible to assess if this is appropriate, especially for significant property leases.",
+              "recommendation": "Disclose the weighted average lease term and the basis for excluding extension options. Re-assess if options are reasonably certain."
+            },
+            {
+              "policy_area": "Inventory - Net Realizable Value (IAS 2)",
+              "policy_applied": "NRV is assessed as estimated selling price less costs to complete and sell. Write-downs are recognized when cost > NRV.",
+              "alternative_treatment": "More frequent or granular assessment by product line, especially for slow-moving items.",
+              "justification_provided": "Generic statement in policy. No disclosure of how 'estimated selling price' is determined.",
+              "skeptical_assessment": "Policy is standard but its application is opaque. With increasing days of inventory, the risk of obsolete or overvalued stock is high, suggesting the policy may not be rigorously applied.",
+              "recommendation": "Disclose the methodology for estimating selling prices and key assumptions. Provide a breakdown of inventory by aging category."
+            }
+          ],
+          "disclosure_adequacy_assessment": [
+            {
+              "disclosure_area": "Lease Liabilities (IFRS 16)",
+              "information_provided": "Carrying amount of ROU assets and lease liabilities. Maturity analysis of lease payments.",
+              "missing_information": "Weighted average discount rate. Weighted average lease term. Explanation of judgments in determining lease term and discount rate.",
+              "transparency_level": "Low",
+              "materiality_assessment": "Material (Liabilities: BDT 1,250m)",
+              "improvement_suggested": "Disclose all required inputs per IFRS 16.48 to allow users to understand and replicate the measurement."
+            },
+            {
+              "disclosure_area": "Related Party Transactions (IAS 24)",
+              "information_provided": "Names of related parties, nature of relationships, types of transactions, and aggregate amounts.",
+              "missing_information": "Pricing policy and how 'arm's length' was determined. Terms and conditions of outstanding balances. Separate disclosure of transactions with each major related party.",
+              "transparency_level": "Low",
+              "materiality_assessment": "Material (Transactions: BDT 1,170m aggregate)",
+              "improvement_suggested": "Provide a detailed breakdown by party, including pricing methodology and justification for arm's length terms."
+            },
+            {
+              "disclosure_area": "Credit Risk & Liquidity Risk (IFRS 7)",
+              "information_provided": "Generic narrative on risk management policies. Carrying amount of financial assets by category.",
+              "missing_information": "Credit risk exposure by credit rating or internal grading. Aging analysis of trade receivables that is reconciled to the statement of financial position. Entity-specific quantitative sensitivity analysis for market risks.",
+              "transparency_level": "Moderate to Low",
+              "materiality_assessment": "Material (High credit and liquidity risk evident)",
+              "improvement_suggested": "Provide an aged analysis of trade receivables. Disclose concentrations of credit risk. Provide numerical sensitivity of profit/equity to changes in key market risks."
+            }
+          ],
+          "overall_skepticism_applied": {
+            "areas_of_high_concern": [
+              "Revenue Recognition Timing",
+              "Related Party Transactions & Disclosures",
+              "Going Concern Assessment",
+              "Lease Accounting Disclosures"
+            ],
+            "areas_of_moderate_concern": [
+              "Inventory Valuation",
+              "Goodwill Impairment Assumptions",
+              "Governance Structure Compliance"
+            ],
+            "areas_of_low_concern": [
+              "Basic Tax Accounting (IAS 12)",
+              "Presentation of Primary Statements (IAS 1)"
+            ],
+            "skepticism_conclusion": "High degree of professional skepticism is warranted. The financial statements exhibit multiple red flags where management's assertions and applied accounting policies appear optimistic, self-serving, or inadequately disclosed. The aggregate of these issues significantly undermines the reliability of the financial statements as a faithful representation of the entity's financial position and performance."
+          }
+        }
+      }
+    }
+  },
+  "24.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "24",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "consolidated_material_departures": [
+            {
+              "departure_id": "DEPT-001",
+              "ifrs_standard": "IFRS 15 - Revenue from Contracts with Customers",
+              "nature_of_departure": "Failure to faithfully represent the transfer of control. Revenue recognized at shipment for complex, custom equipment where customer acceptance is a substantive post-shipment milestone.",
+              "page_reference": "55-56, 48",
+              "extract_from_fs": "Accounting Policy: 'Revenue from sale of goods is recognized at a point in time when control of the asset is transferred to the customer, which is generally upon shipment.'",
+              "financial_impact_estimate": "If revenue for affected contracts (estimated at 20% of total) were deferred to acceptance, current year revenue could be overstated by up to BDT 2,500 million, with a corresponding impact on profit.",
+              "materiality_assessment": "Material",
+              "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) as the financial statements do not faithfully represent the economic reality of the revenue transactions.",
+              "corrective_action_required": "Re-assess all contracts to determine the point of control transfer. Adjust revenue recognition policy and apply retrospectively, restating prior periods if necessary.",
+              "regulatory_reporting_required": true,
+              "regulatory_body": "BSEC, Financial Reporting Council (FRC) of Bangladesh"
+            },
+            {
+              "departure_id": "DEPT-002",
+              "ifrs_standard": "IFRS 16 - Leases",
+              "nature_of_departure": "Failure to provide required disclosures, impairing users' ability to understand the measurement of material lease assets and liabilities.",
+              "page_reference": "69-73",
+              "extract_from_fs": "Note 9 - Leases: 'Right-of-use assets and lease liabilities are recognized... discount rate used is the entity's incremental borrowing rate.' (No rate, term, or sensitivity disclosed).",
+              "financial_impact_estimate": "Non-disclosure prevents impact quantification. Omission of discount rate and lease term judgments conceals the sensitivity of the BDT 1,250 million liability to management assumptions.",
+              "materiality_assessment": "Material",
+              "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) due to omission of information necessary for a clear understanding. Breach of Para 112-125 (specific disclosure requirements).",
+              "corrective_action_required": "Amend the leases note to include: weighted average discount rate, weighted average lease term, maturity analysis, and a description of significant judgments.",
+              "regulatory_reporting_required": true,
+              "regulatory_body": "Financial Reporting Council (FRC) of Bangladesh"
+            },
+            {
+              "departure_id": "DEPT-003",
+              "ifrs_standard": "IAS 24 - Related Party Disclosures",
+              "nature_of_departure": "Inadequate disclosure of terms, conditions, and arm's length nature of material related party transactions.",
+              "page_reference": "95-97",
+              "extract_from_fs": "Note 28: 'Transactions were carried out on normal commercial terms and conditions.'",
+              "financial_impact_estimate": "Non-disclosure prevents assessment of potential profit shifting or fund diversion. Transactions aggregate BDT 1,170 million.",
+              "materiality_assessment": "Material",
+              "ias_1_para_19_24_implication": "Breach of Para 19 (Fair Presentation) as the disclosures are insufficient to enable users to understand the potential effect on the financial statements.",
+              "corrective_action_required": "Provide detailed disclosure per IAS 24.18: amounts, terms, conditions, nature of relationships, and justification for 'arm's length' assertion with supporting evidence.",
+              "regulatory_reporting_required": true,
+              "regulatory_body": "BSEC, Financial Reporting Council (FRC) of Bangladesh"
+            }
+          ],
+          "non_compliance_with_laws_regulations": [
+            {
+              "compliance_id": "COMP-001",
+              "law_regulation": "Companies Act 1994",
+              "section_violated": "Section 184",
+              "nature_of_breach": "Directors' failure to exercise reasonable care, skill, and diligence in approving financial statements with material departures from IFRS and inadequate disclosures.",
+              "evidence_location": "Directors' Responsibility Statement (pg 119), coupled with material departures DEPT-001, DEPT-002, DEPT-003.",
+              "severity_assessment": "High",
+              "potential_penalties": "Civil liability for breach of duty. Potential disqualification from acting as a director. Fines.",
+              "remediation_required": "Board must undertake comprehensive training on directors' duties and IFRS. Implement a rigorous pre-approval review process for financial statements with external expert consultation."
+            },
+            {
+              "compliance_id": "COMP-002",
+              "law_regulation": "BSEC Corporate Governance Code, 2018",
+              "section_violated": "Regulation 8.3 & 8.7",
+              "nature_of_breach": "Board composition fails to meet minimum one-third independent director requirement. CEO and Chairman roles are combined.",
+              "evidence_location": "Corporate Governance Report, Board Composition (pg 28).",
+              "severity_assessment": "High",
+              "potential_penalties": "BSEC directive to comply, fines, public reprimand, suspension of trading.",
+              "remediation_required": "Appoint additional independent director(s) immediately to achieve compliance. Separate the roles of CEO and Chairman and appoint an independent Non-Executive Chairman."
+            },
+            {
+              "compliance_id": "COMP-003",
+              "law_regulation": "BSEC Corporate Governance Code, 2018",
+              "section_violated": "Regulation 16.2",
+              "nature_of_breach": "Audit Committee Chair is not an independent director.",
+              "evidence_location": "Corporate Governance Report, Audit Committee Composition (pg 29).",
+              "severity_assessment": "Medium",
+              "potential_penalties": "BSEC directive to reconstitute committee, fines.",
+              "remediation_required": "Reconstitute the Audit Committee, ensuring the Chair is an independent director as per the Code."
+            },
+            {
+              "compliance_id": "COMP-004",
+              "law_regulation": "Financial Reporting Act, 2015",
+              "section_violated": "Section 9",
+              "nature_of_breach": "Failure to prepare financial statements that give a true and fair view, due to material departures from IFRS.",
+              "evidence_location": "Consolidated Material Departures (DEPT-001, DEPT-002, DEPT-003) in this report.",
+              "severity_assessment": "High",
+              "potential_penalties": "FRC investigation, directive for restatement, monetary penalties on the entity and directors.",
+              "remediation_required": "Prepare and issue restated financial statements that correct the material departures identified, in consultation with the FRC."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "25.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "25",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "holistic_risk_factor_synthesis": {
+            "financial_risks_from_analysis": {
+              "from_ratio_trends": [
+                "Critical Liquidity Risk (Quick ratio: 0.65)",
+                "Severe Working Capital Inefficiency (DSO: 123 days, DOI: 95 days)",
+                "High & Rising Financial Leverage (D/E: 3.36 and rising)",
+                "Declining Profitability Metrics (ROA, NPM)"
+              ],
+              "from_accruals_analysis": [
+                "High & Spiking Accruals (Accruals/Net Income: 28.6%)",
+                "Earnings Quality Deterioration"
+              ],
+              "from_cash_flow_patterns": [
+                "Operating Cash Flow Consistently Below Net Income",
+                "Sharp Decline in Cash Balance Despite Reported Profits"
+              ],
+              "from_earnings_quality": [
+                "Aggressive Revenue Recognition",
+                "Stable Gross Margin Amidst Volatility (potential smoothing)"
+              ],
+              "consolidated_financial_risk_level": "Critical"
+            },
+            "operational_risks": {
+              "from_segment_analysis": [
+                "Not explicitly segmented, but reliance on few large contracts implied by revenue nature."
+              ],
+              "from_related_party_transactions": [
+                "High Dependence on Related Party for Sales & Purchases (BDT 1,170m)",
+                "Risk of Artificial Revenue/Profit Inflation",
+                "Risk of Fund Diversion"
+              ],
+              "from_post_reporting_events": [
+                "Decline in raw material price - risk to inventory valuation."
+              ],
+              "from_going_concern_assessment": [
+                "Severe Short-Term Liquidity Crunch Threatens Operations",
+                "No Credible Plan to Fix Working Capital Issues"
+              ],
+              "consolidated_operational_risk_level": "High"
+            },
+            "compliance_risks": {
+              "from_ifrs_departures": [
+                "Material Departures in Revenue (IFRS 15), Leases (IFRS 16), Related Party (IAS 24)"
+              ],
+              "from_regulatory_breaches": [
+                "Breach of BSEC Corporate Governance Code (Independence, Committees)",
+                "Potential Breach of Companies Act (Directors' Duties)",
+                "Potential Breach of FRA 2015 (True & Fair View)"
+              ],
+              "from_governance_weaknesses": [
+                "Dominant CEO/Founder with Combined Chair Role",
+                "Non-Independent Board & Audit Committee",
+                "Absence of Key Board Committees (Risk, Nomination)"
+              ],
+              "from_audit_qualifications": [
+                "Auditor issued Unmodified Opinion despite red flags, raising audit quality risk."
+              ],
+              "consolidated_compliance_risk_level": "Critical"
+            },
+            "key_audit_matters_synthesis": {
+              "kams_identified_by_auditor": [
+                "Inventory NRV",
+                "Revenue Recognition (Long-term Contracts)",
+                "Goodwill Impairment"
+              ],
+              "frca_assessment_of_kams": [
+                "**Inventory NRV:** Auditor's procedures seem adequate, but disclosure remains poor. Risk partially addressed.",
+                "**Revenue Recognition:** CRITICAL GAP. Auditor tested the *calculation* but failed to fundamentally challenge the aggressive *timing* of recognition (shipment vs. acceptance). This is the core risk.",
+                "**Goodwill Impairment:** Adequately addressed in audit scope, but disclosure could be better."
+              ],
+              "additional_risks_identified": [
+                "**Related Party Transaction Risks** (not a KAM but material)",
+                "**Lease Accounting & Disclosure Risks** (not a KAM but material)",
+                "**Going Concern/Liquidity Risks** (not a KAM despite critical ratios)"
+              ],
+              "risk_mitigation_assessment": "Poor. The audit process and KAM selection failed to capture and mitigate the most critical risks facing the entity (governance, related parties, liquidity, lease disclosures)."
+            },
+            "overall_integrated_risk_assessment": {
+              "highest_risk_areas": [
+                "Governance Failure & Management Override (Drives all other risks)",
+                "Aggressive Revenue Recognition (Threatens earnings sustainability)",
+                "Related Party Transaction Integrity (Risk of fraud and misrepresentation)",
+                "Critical Liquidity & Solvency Risk (Threat to ongoing operations)"
+              ],
+              "medium_risk_areas": [
+                "Inventory Valuation & Obsolescence",
+                "Lease Accounting Disclosures",
+                "Compliance with Specific IFRS Standards",
+                "Debt Covenant Breaches"
+              ],
+              "low_risk_areas": [
+                "Basic Tax Accounting Compliance",
+                "Presentation Format of Financial Statements"
+              ],
+              "risk_interconnections": [
+                "Governance Failure (CEO dominance, weak board) --> Allows Aggressive Accounting (Revenue, Leases) & Unchecked Related Party Transactions --> Leads to Inflated Earnings & Poor Disclosures --> Masks Underlying Liquidity Crisis --> Threatens Going Concern.",
+                "Liquidity Crisis (poor collections, high debt) --> Increases pressure on Management to meet targets --> Incentivizes further Aggressive Accounting and Related Party Activity to show performance.",
+                "Audit Failure to address core risks --> Provides false assurance --> Allows risks to persist and compound."
+              ],
+              "frca_priority_actions": [
+                "**Immediate Regulatory Intervention:** Issue a directive to the entity and its board to restate financial statements addressing revenue recognition and lease disclosures. Mandate governance restructuring (independent directors, separate Chair/CEO).",
+                "**Enhanced Scrutiny:** Refer the audit file to the ICAB for review of professional skepticism applied, particularly regarding revenue and going concern.",
+                "**Ongoing Monitoring:** Place the entity on a watchlist for enhanced review of its next interim and annual filings.",
+                "**Stakeholder Alert:** Publish a public summary of key findings to alert investors and the market to the material risks identified."
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "26.json": {
+    "pdf_token": "FRC-PDF-1",
+    "report_id": "FRC-RPT-1",
+    "section_id": "26",
+    "frc_analysis_report": {
+      "entity": {
+        "phase_5_synthesis_and_findings": {
+          "frca_executive_summary": {
+            "overall_fairness_assessment": {
+              "true_and_fair_view_conclusion": "The financial statements of the entity for the year ended December 31, 2024, do **not** give a true and fair view in accordance with International Financial Reporting Standards (IFRS).",
+              "compliance_level_assessment": "Partially Compliant with material departures.",
+              "reliability_rating": "Low",
+              "basis_for_conclusion": "This conclusion is based on material departures from IFRS (particularly IFRS 15, IFRS 16, and IAS 24), severe governance failures that undermine the integrity of financial reporting, aggressive accounting policies that overstate current period performance, and critical liquidity risks that are not adequately disclosed. The aggregate effect significantly misleads users regarding the entity's financial position, performance, and cash flows."
+            },
+            "critical_issues_summary": [
+              {
+                "issue_priority": "Critical",
+                "issue_description": "Governance Failure and Management Override Risk. The Board lacks independence, the CEO/Chair roles are combined, and oversight committees are weak or non-existent. This structure enabled aggressive accounting and unchecked related-party transactions.",
+                "standards_affected": [
+                  "IAS 1",
+                  "IAS 24",
+                  "Corporate Governance Code"
+                ],
+                "financial_impact": "Non-financial but foundational. Creates an environment where all material misstatements can occur.",
+                "regulatory_implications": "Breach of BSEC Corporate Governance Code and Companies Act directors' duties.",
+                "frca_recommendation": "Mandate immediate board restructuring: appoint independent directors to meet 1/3 requirement, separate CEO/Chair roles, and establish independent Audit and Risk Committees."
+              },
+              {
+                "issue_priority": "Critical",
+                "issue_description": "Aggressive and Potentially Misleading Revenue Recognition. Revenue is recognized upon shipment for complex equipment where customer acceptance is a substantive post-shipment milestone, likely overstating current period revenue and profit.",
+                "standards_affected": [
+                  "IFRS 15",
+                  "IAS 1"
+                ],
+                "financial_impact": "Potential overstatement of revenue by up to BDT 2,500 million and corresponding profit.",
+                "regulatory_implications": "Breach of Financial Reporting Act 2015 (true & fair view).",
+                "frca_recommendation": "Require restatement of financial statements to recognize revenue at the point of customer acceptance for affected contracts."
+              },
+              {
+                "issue_priority": "High",
+                "issue_description": "Critical Liquidity Crisis and Inadequate Going Concern Disclosure. The entity faces a severe short-term liquidity crunch (Quick Ratio: 0.65) with receivables ballooning and cash declining. Management's going concern assertion is optimistic and not supported by credible plans.",
+                "standards_affected": [
+                  "IAS 1"
+                ],
+                "financial_impact": "Risk of operational disruption, inability to meet obligations, and potential bankruptcy.",
+                "regulatory_implications": "Potential breach of continuous disclosure obligations if risk is not properly communicated.",
+                "frca_recommendation": "Require immediate enhanced disclosure of liquidity risks and a detailed mitigation plan. Consider requiring a 'Material Uncertainty Related to Going Concern' emphasis paragraph in the next audit report."
+              },
+              {
+                "issue_priority": "High",
+                "issue_description": "Material Non-Disclosure in Lease Accounting and Related Party Transactions. Key inputs for lease measurement are omitted, and related party transactions lack arm's length justification, impairing transparency.",
+                "standards_affected": [
+                  "IFRS 16",
+                  "IAS 24"
+                ],
+                "financial_impact": "Prevents users from assessing the valuation of BDT 1,250m in leases and the fairness of BDT 1,170m in related party dealings.",
+                "regulatory_implications": "Breach of specific IFRS disclosure requirements.",
+                "frca_recommendation": "Require amended disclosures in subsequent filings, providing all missing quantitative and qualitative information."
+              }
+            ],
+            "key_strengths_identified": [
+              "The financial statements are formally audited and received an unmodified opinion.",
+              "Clear presentation of income tax calculations and deferred tax accounting.",
+              "Explicit identification of some Key Audit Matters by the auditor."
+            ],
+            "material_weaknesses_identified": [
+              "Internal Control Over Financial Reporting: Evidenced by poor working capital management and accounting errors.",
+              "Board and Audit Committee Oversight: Ineffective due to lack of independence and expertise.",
+              "Financial Reporting Policies: Aggressively applied in key areas, reducing earnings quality.",
+              "Risk Management Framework: Non-existent, as seen in unaddressed liquidity and related party risks."
+            ],
+            "frca_final_recommendations": {
+              "immediate_actions_required": [
+                "Issue a directive to the entity to publicly disclose the material issues identified in this FRC report.",
+                "Require the Board to submit a binding plan and timeline for governance restructuring (independent directors, committee formation, role separation) within 30 days.",
+                "Initiate a consultation with the entity and its auditor on the required restatements for revenue recognition and lease disclosures."
+              ],
+              "medium_term_improvements": [
+                "Mandate the appointment of an independent financial advisor to review all material related party transactions for the past two years and report to the (new) Audit Committee.",
+                "Require the entity to implement a rigorous internal audit function reporting directly to the Audit Committee.",
+                "Direct the entity to provide quarterly updates on its liquidity position and working capital improvement measures."
+              ],
+              "long_term_enhancements": [
+                "Recommend the BSEC consider placing the entity's securities on a watch list or imposing trading restrictions until compliance is demonstrated.",
+                "Advocate for mandatory training for the Board of Directors on corporate governance and directors' fiduciary duties.",
+                "Suggest a review of the audit firm's performance by the Institute of Chartered Accountants of Bangladesh (ICAB)."
+              ],
+              "regulatory_reporting_requirements": [
+                "This report to be submitted to the Bangladesh Securities and Exchange Commission (BSEC) for enforcement action.",
+                "A summary of critical findings to be published by the FRC for investor awareness.",
+                "Referral to the ICAB regarding the audit quality concerns noted."
+              ],
+              "follow_up_monitoring_needed": true,
+              "monitoring_period": "The entity should be subject to enhanced monitoring by the FRC and BSEC for a minimum period of two years, with specific review of its next two annual and interim financial statements."
+            }
+          }
+        }
+      }
+    }
+  }
+}

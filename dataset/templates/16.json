@@ -1,96 +1,33 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "16",
   "frc_analysis_report": {
     "entity": {
       "phase_5_synthesis_and_findings": {
-        "material_departures_summary": [
-          {
-            "issue_id": "MD-001",
-            "description": "Insufficient Disclosure of Key Lease Accounting Judgments and Inputs",
-            "relevant_standard": "IFRS 16, IAS 1",
-            "page_reference": "69-73",
-            "extract_from_fs": "Note 9 - Leases: 'Right-of-use assets and lease liabilities are recognized... discount rate used is the entity's incremental borrowing rate.' (No rate disclosed, no disclosure of lease term assumptions).",
-            "materiality": "Material",
-            "financial_impact_estimate": "Lease liabilities total BDT 1,250 million. A 1% change in discount rate could change the liability by approximately BDT 15-20 million. Users cannot assess this sensitivity.",
-            "recommended_action": "Disclose the weighted average discount rate applied. Disclose the weighted average lease term and explain judgments applied for extension options."
-          },
-          {
-            "issue_id": "MD-002",
-            "description": "Aggressive Revenue Recognition Timing for Complex Equipment Sales",
-            "relevant_standard": "IFRS 15",
-            "page_reference": "55-56, 48",
-            "extract_from_fs": "Revenue Recognition Policy: 'Revenue is recognized at a point in time, upon shipment to the customer, as this is when control is transferred.' (For custom-built equipment where acceptance is critical).",
-            "materiality": "Material",
-            "financial_impact_estimate": "Revenue recognized in the period is BDT 12,500 million. If recognition were deferred to customer acceptance (often post-shipment), a material portion could shift to subsequent periods.",
-            "recommended_action": "Re-assess the transfer of control criteria. If acceptance is a substantive hurdle, revenue should be recognized upon acceptance, not shipment. Disclose this judgment and its impact."
-          },
-          {
-            "issue_id": "MD-003",
-            "description": "Non-Compliance with Board Independence Requirements",
-            "relevant_standard": "BSEC Corporate Governance Code",
-            "page_reference": "28",
-            "extract_from_fs": "Corporate Governance Report: 'The Board comprises 8 members: 4 Executive and 4 Non-Executive Directors, of which 2 are independent.'",
-            "materiality": "Material (for governance and oversight)",
-            "financial_impact_estimate": "Non-financial. Weakens objective oversight, increasing risk of poor financial reporting decisions and related-party abuses.",
-            "recommended action": "Appoint at least one additional independent director to meet the one-third requirement. Separate the roles of CEO and Board Chair."
-          }
-        ],
+        "material_departures_summary": [],
         "risk_factor_consolidation": {
-          "high_risk": [
-            "Management Override of Controls: Dominant CEO influence, pressure to meet targets, and aggressive revenue accounting create a high risk of intentional misstatement.",
-            "Board Governance Failure: Lack of independent directors, combined CEO/Chair role, and non-independent audit committee chair critically undermine oversight.",
-            "Related Party Transactions: Significant transactions with CEO's family member entity without robust, transparent arm's length justification."
-          ],
-          "medium_risk": [
-            "Lease Accounting (IFRS 16): Lack of disclosure on key assumptions (discount rate, lease term) and potential understatement of liabilities.",
-            "Impairment Testing Assumptions (IAS 36): Subjectivity in goodwill impairment models (growth/discount rates) with limited sensitivity disclosure.",
-            "Inventory Valuation (IAS 2): Insufficient disclosure of NRV assessment methodology and potential for overstated inventory."
-          ],
-          "low_risk": [
-            "General ISA Compliance by Auditor: Minor reporting deficiency (engagement partner name omission) but otherwise appears compliant.",
-            "Tax Accounting (IAS 12): Calculations appear compliant, though reconciliation detail could be improved."
-          ]
+          "high_risk": [],
+          "medium_risk": [],
+          "low_risk": []
         },
         "going_concern_final_assessment": {
-          "frc_conclusion": "No material uncertainty identified, but with significant caveats.",
-          "supporting_factors": ["Renewed credit facilities", "Positive operating cash flows historically", "Established market position"],
-          "contradicting_factors": ["Aggressive revenue recognition inflates current period earnings", "Reliance on related-party transactions", "Governance weaknesses could impact future access to capital or regulatory sanctions"],
-          "recommendation": "The going concern basis is appropriate for the next 12 months based on liquidity. However, the entity must address its governance and aggressive accounting practices to sustain long-term investor confidence and mitigate risks that could threaten going concern thereafter."
+          "frc_conclusion": "",
+          "supporting_factors": [],
+          "contradicting_factors": [],
+          "recommendation": ""
         },
         "overall_assessment": {
-          "true_and_fair_view_assessment": "Materially Compromised",
-          "overall_ifrs_compliance_level": "Partially Compliant",
+          "true_and_fair_view_assessment": "",
+          "overall_ifrs_compliance_level": "",
           "reliability_scoring_methodology": {
-            "components": {
-              "ifrs_compliance": "55/100",
-              "audit_quality": "70/100",
-              "governance_quality": "40/100",
-              "earnings_quality": "45/100",
-              "disclosure_transparency": "50/100"
-            },
-            "final_score": "52/100",
-            "interpretation": "BELOW AVERAGE RELIABILITY. The financial statements suffer from material departures in disclosure and application of key standards (IFRS 15, 16). Governance failures are severe and significantly undermine the credibility of oversight. While audited, the presence of high-risk factors and aggressive accounting choices casts substantial doubt on the quality and sustainability of reported earnings."
+            "components": {},
+            "final_score": "",
+            "interpretation": ""
           },
-          "key_strengths": [
-            "Clear presentation of tax calculations and deferred tax accounting.",
-            "Explicit identification of Key Audit Matters by the auditor.",
-            "Compliance with basic IFRS presentation requirements (IAS 1)."
-          ],
-          "critical_issues": [
-            "Governance Structure: Non-compliance with BSEC independence rules, combined CEO/Chair role.",
-            "Revenue Recognition: Aggressive timing policy for complex contracts potentially overstating current period revenue.",
-            "Related Party Disclosures: Lack of robust arm's length justification for material transactions.",
-            "Lease Disclosures: Omission of key measurement inputs required by IFRS 16."
-          ],
-          "frc_recommendations": [
-            "IMMEDIATE: The Board should appoint additional independent directors to comply with BSEC rules and separate the roles of CEO and Chairperson.",
-            "IMMEDIATE: Management should re-evaluate the revenue recognition policy for complex equipment sales and revise it to reflect the transfer of control at customer acceptance, not shipment.",
-            "NEXT REPORTING CYCLE: Provide full IFRS 16 disclosures, including weighted average discount rate, lease term assumptions, and a maturity analysis of lease liabilities.",
-            "ONGOING: Strengthen the Audit Committee by appointing an independent chair and enhancing its mandate to review and challenge significant accounting judgments.",
-            "ONGOING: Commission an independent valuation or obtain external market benchmarks to substantiate the pricing of related party transactions."
-          ]
+          "key_strengths": [],
+          "critical_issues": [],
+          "frc_recommendations": []
         }
       }
     }

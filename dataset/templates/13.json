@@ -1,55 +1,17 @@
 {
-  "pdf_token": "FRC-PDF-1",
-  "report_id": "FRC-RPT-1",
+  "pdf_token": "",
+  "report_id": "",
   "section_id": "13",
   "frc_analysis_report": {
     "entity": {
       "fraud_and_management_override_assessment": {
-        "fraud_risk_factors_identified": [
-          {
-            "risk_factor": "Pressure to Meet Performance Targets",
-            "description": "Management compensation is heavily tied to achieving specific revenue and EBITDA targets as disclosed in the remuneration report. Missed targets result in significant bonus reductions.",
-            "implication": "Incentive to artificially inflate revenue or defer expenses to meet short-term goals.",
-            "reference": "Directors' Remuneration Report, pg 32-35"
-          },
-          {
-            "risk_factor": "Dominant CEO/Founder Influence",
-            "description": "The CEO and founder holds a 40% ownership stake and has significant influence over operational and financial reporting decisions, with limited apparent challenge from the board.",
-            "implication": "Potential for override of controls or influencing accounting judgments to present favorable results.",
-            "reference": "Corporate Governance Report - Board Structure, pg 28; Shareholding Pattern, pg 112"
-          },
-          {
-            "risk_factor": "Unusual Related-Party Transactions",
-            "description": "Significant sales and purchases with an entity owned by the CEO's family member. Terms (pricing, credit) are described as 'market-based' but are not independently benchmarked or justified in the notes.",
-            "implication": "Risk of channel stuffing, circular transactions, or transfer pricing manipulation to shift profits.",
-            "reference": "Note 28 - Related Party Transactions, pg 95-97"
-          }
-        ],
-        "revenue_manipulation_indicators": [
-          {
-            "indicator": "Aggressive Revenue Recognition Timing",
-            "evidence": "A significant portion of revenue is recognized upon 'shipment' for complex, custom-built equipment where customer acceptance is a critical milestone. The note states that 'acceptance is deemed to occur upon shipment' based on historical practice, which may not reflect the substance of the contract.",
-            "risk_assessment": "High",
-            "reference": "Note 5 - Revenue Recognition, Accounting Policy, pg 55; Significant Accounting Judgments, pg 48"
-          },
-          {
-            "indicator": "Unusual Growth in Contract Liabilities (Deferred Revenue)",
-            "evidence": "Contract liabilities decreased by 45% year-on-year, while revenue only grew by 15%. This disproportionate decline could indicate the accelerated recognition of revenue from past advances, potentially ahead of satisfying performance obligations.",
-            "risk_assessment": "Medium",
-            "reference": "Note 5 - Revenue, pg 56 (Table: Contract Balances); Statement of Financial Position, pg 3"
-          },
-          {
-            "indicator": "Side Agreements or Unusual Payment Terms",
-            "evidence": "Disclosure mentions 'extended payment terms granted to certain key customers in the fourth quarter to facilitate year-end sales.' Such terms may indicate side agreements or incentives that could call into question the collectability and thus the recognition of revenue.",
-            "risk_assessment": "Medium",
-            "reference": "Note 8 - Trade Receivables, Credit Risk, pg 62; Management Commentary, pg 21"
-          }
-        ],
-        "journal_entry_override_risk": "Medium to High",
-        "override_of_internal_controls_risk": "High",
-        "overall_fraud_risk_assessment": "Elevated Risk",
-        "reason_of_the_status": "The combination of significant pressure on management (performance-linked compensation), the dominant influence of a founder-CEO, and several observed revenue recognition red flags creates an environment where the risk of management override of controls and potential misstatement due to fraud is elevated. The justification for recognizing revenue at shipment, coupled with unusual trends in contract liabilities, requires particularly skeptical scrutiny.",
-        "status_reference": "Cross-reference: Directors' Remuneration (pg 32), Revenue Note (pg 55), Related Party Note (pg 95), Corporate Governance (pg 28). The overall assessment is based on the aggregation of the specific factors identified above."
+        "fraud_risk_factors_identified": [],
+        "revenue_manipulation_indicators": [],
+        "journal_entry_override_risk": "",
+        "override_of_internal_controls_risk": "",
+        "overall_fraud_risk_assessment": "",
+        "reason_of_the_status": "",
+        "status_reference": ""
       }
     }
   }
