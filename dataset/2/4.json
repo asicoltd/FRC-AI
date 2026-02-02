@@ -8,6 +8,12 @@
             "year": "2024",
             "line_items": [
               {
+                "item": "Non-Current Assets",
+                "amount": "1231650746",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
                 "item": "Property, Plant and Equipment",
                 "amount": "1003519247",
                 "note": "4.00",
@@ -15,20 +21,26 @@
               },
               {
                 "item": "Capital Work in Progress",
-                "amount": "Not specified in text",
+                "amount": "62173616",
                 "note": "5.00",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Right-of-Use Assets",
-                "amount": "Not specified in text",
+                "amount": "1065700",
                 "note": "6.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Projects in Progress",
+                "item": "Projects in Progress (Non-Current Portion)",
                 "amount": "164892183",
-                "note": "7.00",
+                "note": "7.01",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Assets",
+                "amount": "722087912",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
@@ -39,37 +51,31 @@
               },
               {
                 "item": "Trade and Other Receivables",
-                "amount": "219737791",
+                "amount": "219931915",
                 "note": "9.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Advances, Deposits & Prepayments",
-                "amount": "Not specified in text",
+                "item": "Advances, Deposits and Prepayments",
+                "amount": "74372997",
                 "note": "10.00",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Cash and Cash Equivalents",
-                "amount": "Not fully specified",
+                "amount": "79164973",
                 "note": "11.00",
-                "errors_or_discrepancies": "IPO subscription money Tk. 197,630 untraceable but reflected in cash"
-              },
-              {
-                "item": "Total Non-Current Assets",
-                "amount": "Not calculated",
-                "note": "",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Current Assets",
-                "amount": "Not calculated",
-                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Total Assets",
-                "amount": "Not calculated",
+                "amount": "1953738658",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Shareholders' Equity",
+                "amount": "1757812537",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
@@ -86,38 +92,56 @@
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Total Equity",
-                "amount": "1757812537",
+                "item": "Non-Current Liabilities",
+                "amount": "78461075",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Long Term Loan (Non-current)",
-                "amount": "14127891",
+                "item": "Long Term Loan (Non-current Portion)",
+                "amount": "7948740",
                 "note": "14.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Lease Liability (Non-current)",
-                "amount": "796372",
+                "item": "Lease Liability (Non-Current Portion)",
+                "amount": "0",
                 "note": "15.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "IPO Subscription Money Payable",
-                "amount": "197630",
-                "note": "18.01",
-                "errors_or_discrepancies": "Untraceable funds"
+                "item": "Deferred Tax Liability",
+                "amount": "70512335",
+                "note": "16.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Liabilities",
+                "amount": "117465046",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Short Term Loan",
+                "amount": "60496673",
+                "note": "17.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Trade and Other Payables",
+                "amount": "5238447",
+                "note": "18.00",
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Liabilities for Expenses",
-                "amount": "Not specified",
+                "amount": "5832369",
                 "note": "19.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Unclaimed Dividend",
-                "amount": "Not specified",
+                "item": "Unclaimed Dividend Account",
+                "amount": "686838",
                 "note": "20.00",
                 "errors_or_discrepancies": ""
               },
@@ -134,39 +158,15 @@
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Long Term Loan (Current)",
+                "item": "Long Term Loan (Current Portion)",
                 "amount": "3740584",
                 "note": "23.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Lease Liability (Current)",
+                "item": "Lease Liability (Current Portion)",
                 "amount": "54963",
                 "note": "24.00",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Non-Current Liabilities",
-                "amount": "Not calculated",
-                "note": "",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Current Liabilities",
-                "amount": "Not calculated",
-                "note": "",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Liabilities",
-                "amount": "Not calculated",
-                "note": "",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Equity and Liabilities",
-                "amount": "Not calculated",
-                "note": "",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -175,9 +175,39 @@
             "year": "2023",
             "line_items": [
               {
+                "item": "Non-Current Assets",
+                "amount": "1203376906",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
                 "item": "Property, Plant and Equipment",
-                "amount": "Previous year amount",
+                "amount": "1029978755",
                 "note": "4.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Capital Work in Progress",
+                "amount": "0",
+                "note": "5.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Right-of-Use Assets",
+                "amount": "1179279",
+                "note": "6.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Projects in Progress (Non-Current Portion)",
+                "amount": "172218873",
+                "note": "7.01",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Assets",
+                "amount": "767355317",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
@@ -188,8 +218,32 @@
               },
               {
                 "item": "Trade and Other Receivables",
-                "amount": "154947185",
+                "amount": "157017183",
                 "note": "9.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Advances, Deposits and Prepayments",
+                "amount": "63420302",
+                "note": "10.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents",
+                "amount": "177842857",
+                "note": "11.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Assets",
+                "amount": "1970732223",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Shareholders' Equity",
+                "amount": "1758558616",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
@@ -205,6 +259,60 @@
                 "errors_or_discrepancies": ""
               },
               {
+                "item": "Non-Current Liabilities",
+                "amount": "83617838",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Long Term Loan (Non-current Portion)",
+                "amount": "7077103",
+                "note": "14.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Lease Liability (Non-Current Portion)",
+                "amount": "0",
+                "note": "15.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Deferred Tax Liability",
+                "amount": "76540736",
+                "note": "16.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Liabilities",
+                "amount": "128555769",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Short Term Loan",
+                "amount": "62550503",
+                "note": "17.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Trade and Other Payables",
+                "amount": "21274136",
+                "note": "18.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Liabilities for Expenses",
+                "amount": "3577906",
+                "note": "19.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Unclaimed Dividend Account",
+                "amount": "1391494",
+                "note": "20.00",
+                "errors_or_discrepancies": ""
+              },
+              {
                 "item": "Income Tax Payable",
                 "amount": "34129257",
                 "note": "21.00",
@@ -214,6 +322,18 @@
                 "item": "Liability for WPPF",
                 "amount": "1768822",
                 "note": "22.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Long Term Loan (Current Portion)",
+                "amount": "3330401",
+                "note": "23.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Lease Liability (Current Portion)",
+                "amount": "533250",
+                "note": "24.00",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -227,7 +347,7 @@
                 "item": "Revenue",
                 "amount": "187729653",
                 "note": "25.00",
-                "errors_or_discrepancies": "Significant decrease from previous year"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Cost of Sales",
@@ -238,61 +358,109 @@
               {
                 "item": "Gross Profit",
                 "amount": "30525882",
-                "note": "Calculated",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Operating Expenses",
+                "amount": "24242178",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Administrative Expenses",
-                "amount": "Not fully specified",
+                "amount": "21908636",
                 "note": "27.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Selling and Distribution Expenses",
-                "amount": "Not fully specified",
-                "note": "28-30",
+                "item": "Marketing & Selling Expenses",
+                "amount": "2333543",
+                "note": "28.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit from Operation",
+                "amount": "6283704",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Other Income",
-                "amount": "224500",
-                "note": "3.12",
+                "amount": "7807144",
+                "note": "29.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Finance Expenses",
+                "item": "Interest on lease",
+                "amount": "25712",
+                "note": "30.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Financial Expenses",
                 "amount": "9972729",
-                "note": "41.00",
+                "note": "31.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Profit Before Tax",
+                "item": "Profit Before Income Tax & WPPF",
+                "amount": "4092406",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Less: WPPF Expenses",
+                "amount": "194876",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit Before Income Tax",
                 "amount": "3897530",
-                "note": "32.01",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Income Tax Expense",
+                "item": "Income Tax Expenses",
                 "amount": "1062639",
-                "note": "32.01",
+                "note": "32.00",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Net Profit after Tax",
+                "item": "Current Tax",
+                "amount": "7091040",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Deferred Tax (Expenses)/Income",
+                "amount": "6028401",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit After Tax",
                 "amount": "2834891",
-                "note": "Statement of Changes in Equity",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Other Comprehensive Income",
-                "amount": "Not specified",
+                "amount": "0",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
                 "item": "Total Comprehensive Income",
                 "amount": "2834891",
-                "note": "Assumed",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Earnings Per Share (EPS)- Basic",
+                "amount": "0.03",
+                "note": "33.00",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -315,25 +483,109 @@
               {
                 "item": "Gross Profit",
                 "amount": "60019824",
-                "note": "Calculated",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Profit Before Tax",
+                "item": "Operating Expenses",
+                "amount": "25099515",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Administrative Expenses",
+                "amount": "21161661",
+                "note": "27.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Marketing & Selling Expenses",
+                "amount": "3937854",
+                "note": "28.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit from Operation",
+                "amount": "34920309",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Other Income",
+                "amount": "8208456",
+                "note": "29.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Interest on lease",
+                "amount": "71275",
+                "note": "30.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Financial Expenses",
+                "amount": "5912229",
+                "note": "31.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit Before Income Tax & WPPF",
+                "amount": "37145262",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Less: WPPF Expenses",
+                "amount": "1768822",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit Before Income Tax",
                 "amount": "35376440",
-                "note": "41.00",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Income Tax Expense",
+                "item": "Income Tax Expenses",
                 "amount": "30792158",
-                "note": "Calculated",
-                "errors_or_discrepabilities": ""
+                "note": "32.00",
+                "errors_or_discrepancies": ""
               },
               {
-                "item": "Net Profit after Tax",
+                "item": "Current Tax",
+                "amount": "25802328",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Deferred Tax (Expenses)/Income",
+                "amount": "4989830",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit After Tax",
                 "amount": "4584282",
-                "note": "Statement of Changes in Equity",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Other Comprehensive Income",
+                "amount": "0",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Comprehensive Income",
+                "amount": "4584282",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Earnings Per Share (EPS)- Basic",
+                "amount": "0.04",
+                "note": "33.00",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -344,39 +596,159 @@
             "year": "2024",
             "line_items": [
               {
-                "item": "Cash Flows from Operating Activities",
+                "item": "Received from Customers",
+                "amount": "122939047",
+                "note": "42.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid to Employees",
+                "amount": "20521124",
+                "note": "48.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid for Manufacturing & Operating Expenses",
+                "amount": "18960380",
+                "note": "45.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid to Supplier",
+                "amount": "44969701",
+                "note": "43.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Generated from Operation",
+                "amount": "38487842",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received from Others Income",
+                "amount": "9683017",
+                "note": "47.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment of Income Tax",
+                "amount": "7639915",
+                "note": "46.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Generated from Operating Activities",
                 "amount": "40530943",
-                "note": "41.00",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Cash Flows from Investing Activities",
-                "amount": "Not specified",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Cash Flows from Financing Activities",
-                "amount": "Not specified",
+                "item": "Acquisition of Property, Plant and Equipment",
+                "amount": "10985763",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Net Increase/(Decrease) in Cash",
-                "amount": "Not calculated",
+                "item": "Capital Work in Progress",
+                "amount": "62173616",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Cash at Beginning of Year",
-                "amount": "Not specified",
+                "item": "Paid for Projects in Progress (Non-Current Portion)",
+                "amount": "50531833",
+                "note": "44.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "123691212",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Cash at End of Year",
-                "amount": "Not specified",
-                "note": "11.00",
+                "item": "Payment for Financial Expenses",
+                "amount": "9972729",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received/(Payment) Long Term Loan",
+                "amount": "1281820",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "IPD Subscription money",
+                "amount": "16749",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Dividend Paid",
+                "amount": "3474339",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Transfer to Capital Market Stabilization Fund",
+                "amount": "796372",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Interest received on unclaimed dividend (Net off Interest Expenses)",
+                "amount": "18793",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Fractional refund-Dividend",
+                "amount": "3879",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment against Lease Liability",
+                "amount": "503999",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received/(Payment) Short Term Loan",
+                "amount": "2053830",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Financing Activities",
+                "amount": "15517615",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase/(Decrease) Cash and Cash Equivalents (A+B+C)",
+                "amount": "98677883",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents at the Beginning of the year",
+                "amount": "177842857",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents at the End of the year (D+E)",
+                "amount": "79164974",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Operating Cash Flows Per Share (NOCFPS)- Basic",
+                "amount": "0.40",
+                "note": "35.00",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -385,9 +757,141 @@
             "year": "2023",
             "line_items": [
               {
-                "item": "Cash Flows from Operating Activities",
+                "item": "Received from Customers",
+                "amount": "325954765",
+                "note": "42.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid to Employees",
+                "amount": "30619654",
+                "note": "48.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid for Manufacturing & Operating Expenses",
+                "amount": "33671921",
+                "note": "45.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid to Supplier",
+                "amount": "107194098",
+                "note": "43.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Generated from Operation",
+                "amount": "154469093",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received from Others Income",
+                "amount": "15316341",
+                "note": "47.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment of Income Tax",
+                "amount": "26015853",
+                "note": "46.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Generated from Operating Activities",
                 "amount": "143769580",
-                "note": "41.00",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Acquisition of Property, Plant and Equipment",
+                "amount": "13715000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Paid for Projects in Progress (Non-Current Portion)",
+                "amount": "76960972",
+                "note": "44.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "90675972",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment for Financial Expenses",
+                "amount": "5912229",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received/(Payment) Long Term Loan",
+                "amount": "25381842",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "IPD Subscription money",
+                "amount": "180881",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Dividend Paid",
+                "amount": "14127891",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Interest received on unclaimed dividend (Net off Interest Expenses)",
+                "amount": "3294",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment against Lease Liability",
+                "amount": "550320",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Received/(Payment) Short Term Loan",
+                "amount": "19542160",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Financing Activities",
+                "amount": "26252535",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase/(Decrease) Cash and Cash Equivalents (A+B+C)",
+                "amount": "26841073",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents at the Beginning of the year",
+                "amount": "151001784",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents at the End of the year (D+E)",
+                "amount": "177842857",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Operating Cash Flows Per Share (NOCFPS)- Basic",
+                "amount": "1.40",
+                "note": "35.00",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -398,51 +902,27 @@
             "year": "2024",
             "line_items": [
               {
-                "item": "Share Capital - Opening",
-                "amount": "1026000000",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Share Capital - Closing",
-                "amount": "1026000000",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Retained Earnings - Opening",
-                "amount": "732558616",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Cash Dividend",
-                "amount": "-3580970",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Net Profit after Tax",
-                "amount": "2834891",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Retained Earnings - Closing",
-                "amount": "731812537",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Total Equity - Opening",
+                "item": "Balance as at 1st July 2023",
                 "amount": "1758558616",
-                "note": "Calculated",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Total Equity - Closing",
+                "item": "Cash dividend (0.5%)",
+                "amount": "3580970",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit after tax for the year",
+                "amount": "2834891",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Balance as at 30 June 2024",
                 "amount": "1757812537",
-                "note": "Calculated",
+                "note": "",
                 "errors_or_discrepancies": ""
               }
             ]
@@ -451,169 +931,28 @@
             "year": "2023",
             "line_items": [
               {
-                "item": "Share Capital - Opening",
-                "amount": "1026000000",
-                "note": "Statement of Changes in Equity",
+                "item": "Balance as at 1st July 2022",
+                "amount": "1768298212",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Share Capital - Closing",
-                "amount": "1026000000",
-                "note": "Statement of Changes in Equity",
+                "item": "Cash dividend (2%)",
+                "amount": "14323878",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Retained Earnings - Opening",
-                "amount": "742298212",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Cash Dividend",
-                "amount": "-14323878",
-                "note": "Statement of Changes in Equity",
-                "errors_or_discrepancies": ""
-              },
-              {
-                "item": "Net Profit after Tax",
+                "item": "Net Profit after tax for the year",
                 "amount": "4584282",
-                "note": "Statement of Changes in Equity",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
-                "item": "Retained Earnings - Closing",
-                "amount": "732558616",
-                "note": "Statement of Changes in Equity",
+                "item": "Balance as at 30 June 2023",
+                "amount": "1758558616",
+                "note": "",
                 "errors_or_discrepancies": ""
-              }
-            ]
-          }
-        ],
-        "notes": [
-          {
-            "note_number": "1.00",
-            "note_title": "Reporting Entity",
-            "texts": "Dominage Steel Building Systems Ltd. is a private Limited Company Incorporated on 8 March 2007 Vide Registration No. C-66036 (3527)/07 under the Companies Act. 1994. Subsequently the Company converted into Public limited company dated on 20 August 2018.",
-            "line_items": []
-          },
-          {
-            "note_number": "2.00",
-            "note_title": "Basis of Preparation and Presentation of Financial Statements",
-            "texts": "The financial statements have been prepared and the disclosure of information made in accordance with the requirements of the Companies Act 1994 and International Accounting Standards (IASs) and International Financial Reporting Standards (IFRS) adopted by the Institute of Chartered Accountants of Bangladesh (ICAB).",
-            "line_items": []
-          },
-          {
-            "note_number": "2.04",
-            "note_title": "Applicable Accounting Standards",
-            "texts": "IASs: IAS 1, IAS 2, IAS 7, IAS 8, IAS 10, IAS 12, IAS 16, IAS 19, IAS 21, IAS 23, IAS 24, IAS 33, IAS 34, IAS 36, IAS 37, and IFRSs: IFRS 8, IFRS 9, IFRS 13, IFRS 15, IFRS 16",
-            "line_items": []
-          },
-          {
-            "note_number": "3.11",
-            "note_title": "Revenue Recognition",
-            "texts": "In compliance with the requirements of IFRS-15 Revenue from Contracts with Customers, an entity shall account for a contract with a customer only when all of the following criteria are met: a) the parties to the contract have approved the contract...",
-            "line_items": []
-          },
-          {
-            "note_number": "4.00",
-            "note_title": "Property, Plant and Equipment",
-            "texts": "A. Cost: Opening Balance Add: Addition during the year Total Assets Value at cost B. Accumulated Depreciation Opening Balance Add: Depreciation Charged for the year Total Depreciation Written Down Value (A-B) as at 30.06.2024",
-            "line_items": [
-              {
-                "item": "Written Down Value as at 30.06.2024",
-                "amount": "1003519247"
-              }
-            ]
-          },
-          {
-            "note_number": "7.00",
-            "note_title": "Projects in Progress",
-            "texts": "Opening Balance Add: Addition during the year Less: Transferred to Cost of Sales Closing Balance",
-            "line_items": [
-              {
-                "item": "Closing Balance",
-                "amount": "164892183"
-              }
-            ]
-          },
-          {
-            "note_number": "8.00",
-            "note_title": "Inventories",
-            "texts": "Projects in Progress (Current Portion)- Note- 7.01 Work- in- process (Note: 26.00) Finished Goods (Note: 26.00)",
-            "line_items": [
-              {
-                "item": "Total Inventories",
-                "amount": "348618026"
-              },
-              {
-                "item": "Previous Year",
-                "amount": "369074973"
-              }
-            ]
-          },
-          {
-            "note_number": "9.00",
-            "note_title": "Trade and Other Receivables",
-            "texts": "Trade Receivables Interest Receivable from FDR (Note: 9.01)",
-            "line_items": [
-              {
-                "item": "Trade Receivables",
-                "amount": "219737791"
-              },
-              {
-                "item": "Previous Year",
-                "amount": "154947185"
-              }
-            ]
-          },
-          {
-            "note_number": "25.00",
-            "note_title": "Revenue",
-            "texts": "Sales",
-            "line_items": [
-              {
-                "item": "2024 Revenue",
-                "amount": "187729653"
-              },
-              {
-                "item": "2023 Revenue",
-                "amount": "333443469"
-              }
-            ]
-          },
-          {
-            "note_number": "26.00",
-            "note_title": "Cost of Sales",
-            "texts": "Raw Material Consumed (Note # 7.00) 119,058,740 Manufacturing Expenses (Note # 26.01) 54,464,927 Total Manufacturing Cost 173,523,667 Add: Opening Work in process 93,364,171 266,887,838 Less: Closing Work in Process 123,043,648 Manufacturing Cost/ Cost of Goods Manufacture 143,844,190 Add: Opening Finished Goods 129,005,836 Cost of Goods available for sale 272,850,027 Less: Closing Finished Goods 115,646,256 Cost of Goods Sold 157,203,771",
-            "line_items": [
-              {
-                "item": "Cost of Goods Sold 2024",
-                "amount": "157203771"
-              },
-              {
-                "item": "Cost of Goods Sold 2023",
-                "amount": "273423645"
-              }
-            ]
-          },
-          {
-            "note_number": "35.01",
-            "note_title": "Significant Deviation",
-            "texts": "The company's revenue has decreased due to the ongoing global economic crisis, coupled with a slowdown in domestic industrialization and infrastructure development, which has led to a decline in demand for our products and services.",
-            "line_items": []
-          },
-          {
-            "note_number": "41.00",
-            "note_title": "Reconciliation of Net Income with Cash Flows",
-            "texts": "Net Profit before Tax 3,897,530 Adjustments... Cash Generated from Operating Activities 48,170,859 Advance Income Tax Paid (7,639,915) Net Cash Generated from Operating Activities 40,530,943",
-            "line_items": [
-              {
-                "item": "Net Cash from Operating Activities 2024",
-                "amount": "40530943"
-              },
-              {
-                "item": "Net Cash from Operating Activities 2023",
-                "amount": "143769580"
               }
             ]
           }
