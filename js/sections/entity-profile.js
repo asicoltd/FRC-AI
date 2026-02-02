@@ -40,6 +40,10 @@ class EntityProfile {
                                 <td id="listingStatus">[Loading...]</td>
                             </tr>
                             <tr>
+                                <th>Listing Status:</th>
+                                <td id="frc_sector">[Loading...]</td>
+                            </tr>
+                            <tr>
                                 <th>Reporting Currency:</th>
                                 <td id="reportingCurrency">[Loading...]</td>
                             </tr>
@@ -211,6 +215,8 @@ class EntityProfile {
                     profile.industry_sector || '[Not Available]';
                 document.getElementById('listingStatus').textContent =
                     profile.listing_status || '[Not Available]';
+                document.getElementById('frc_sector').textContent =
+                    profile.frc_sector || '[Not Available]';
                 document.getElementById('reportingCurrency').textContent =
                     profile.reporting_currency || 'BDT';
                 document.getElementById('financialYearEnd').textContent =
