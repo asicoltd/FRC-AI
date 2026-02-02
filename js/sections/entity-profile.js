@@ -40,7 +40,7 @@ class EntityProfile {
                                 <td id="listingStatus">[Loading...]</td>
                             </tr>
                             <tr>
-                                <th>Listing Status:</th>
+                                <th>FRC Listing Status:</th>
                                 <td id="frc_sector">[Loading...]</td>
                             </tr>
                             <tr>

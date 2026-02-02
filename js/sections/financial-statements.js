@@ -3,7 +3,7 @@ class FinancialStatements {
     static async load() {
         appState.currentSection = 'financial-statements';
         UIComponents.updateActiveSidebarItem('financial-statements');
-        
+
         const mainContent = UIComponents.getMainContent();
 
         mainContent.innerHTML = `
@@ -96,10 +96,10 @@ class FinancialStatements {
         if (!errorMessage || errorMessage.trim() === '') {
             return '';
         }
-        
+
         // Create a unique ID for the tooltip
         const tooltipId = 'warning-' + Math.random().toString(36).substr(2, 9);
-        
+
         return `
             <span class="warning-icon-wrapper ms-2" data-bs-toggle="tooltip" 
                   data-bs-placement="top" title="${this.escapeHtml(errorMessage)}"
@@ -198,14 +198,14 @@ class FinancialStatements {
 
                 if (itemData) {
                     const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
-                    const amountDisplay = itemData.amount === 'Not specified in text' || 
-                                          itemData.amount === 'Not fully specified' ||
-                                          itemData.amount === 'Not calculated' ||
-                                          itemData.amount === 'Previous year amount' ||
-                                          itemData.amount.includes('Not specified') 
-                                          ? `<span class="text-muted">${itemData.amount}</span>`
-                                          : Helpers.formatNumber(itemData.amount);
-                    
+                    const amountDisplay = itemData.amount === 'Not specified in text' ||
+                        itemData.amount === 'Not fully specified' ||
+                        itemData.amount === 'Not calculated' ||
+                        itemData.amount === 'Previous year amount' ||
+                        itemData.amount.includes('Not specified')
+                        ? `<span class="text-muted">${itemData.amount}</span>`
+                        : Helpers.formatNumber(itemData.amount);
+
                     html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
@@ -264,14 +264,14 @@ class FinancialStatements {
 
                 if (itemData) {
                     const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
-                    const amountDisplay = itemData.amount === 'Not specified in text' || 
-                                          itemData.amount === 'Not fully specified' ||
-                                          itemData.amount === 'Not calculated' ||
-                                          itemData.amount === 'Previous year amount' ||
-                                          itemData.amount.includes('Not specified') 
-                                          ? `<span class="text-muted">${itemData.amount}</span>`
-                                          : Helpers.formatNumber(itemData.amount);
-                    
+                    const amountDisplay = itemData.amount === 'Not specified in text' ||
+                        itemData.amount === 'Not fully specified' ||
+                        itemData.amount === 'Not calculated' ||
+                        itemData.amount === 'Previous year amount' ||
+                        itemData.amount.includes('Not specified')
+                        ? `<span class="text-muted">${itemData.amount}</span>`
+                        : Helpers.formatNumber(itemData.amount);
+
                     html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
@@ -330,14 +330,14 @@ class FinancialStatements {
 
                 if (itemData) {
                     const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
-                    const amountDisplay = itemData.amount === 'Not specified in text' || 
-                                          itemData.amount === 'Not fully specified' ||
-                                          itemData.amount === 'Not calculated' ||
-                                          itemData.amount === 'Previous year amount' ||
-                                          itemData.amount.includes('Not specified') 
-                                          ? `<span class="text-muted">${itemData.amount}</span>`
-                                          : Helpers.formatNumber(itemData.amount);
-                    
+                    const amountDisplay = itemData.amount === 'Not specified in text' ||
+                        itemData.amount === 'Not fully specified' ||
+                        itemData.amount === 'Not calculated' ||
+                        itemData.amount === 'Previous year amount' ||
+                        itemData.amount.includes('Not specified')
+                        ? `<span class="text-muted">${itemData.amount}</span>`
+                        : Helpers.formatNumber(itemData.amount);
+
                     html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
@@ -396,14 +396,14 @@ class FinancialStatements {
 
                 if (itemData) {
                     const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
-                    const amountDisplay = itemData.amount === 'Not specified in text' || 
-                                          itemData.amount === 'Not fully specified' ||
-                                          itemData.amount === 'Not calculated' ||
-                                          itemData.amount === 'Previous year amount' ||
-                                          itemData.amount.includes('Not specified') 
-                                          ? `<span class="text-muted">${itemData.amount}</span>`
-                                          : Helpers.formatNumber(itemData.amount);
-                    
+                    const amountDisplay = itemData.amount === 'Not specified in text' ||
+                        itemData.amount === 'Not fully specified' ||
+                        itemData.amount === 'Not calculated' ||
+                        itemData.amount === 'Previous year amount' ||
+                        itemData.amount.includes('Not specified')
+                        ? `<span class="text-muted">${itemData.amount}</span>`
+                        : Helpers.formatNumber(itemData.amount);
+
                     html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
                     html += `<td class="text-center">${itemData.note || '-'}</td>`;
                 } else {
