@@ -1,0 +1,47 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "23",
+  "frc_analysis_report": {
+    "entity": {
+      "professional_skepticism_application": {
+        "management_assertions_challenged": [
+          {
+            "assertion_area": "No impairment of assets",
+            "management_claim": "No indication of impairment has arisen",
+            "evidence_sought": "Cash flow projections, market conditions",
+            "evidence_found": "No detailed impairment testing disclosed",
+            "corroboration_level": "Low",
+            "skeptical_conclusion": "Requires more robust impairment analysis disclosure"
+          }
+        ],
+        "accounting_policy_questioning": [
+          {
+            "policy_area": "Revenue recognition",
+            "policy_applied": "At point of delivery from factory",
+            "alternative_treatment": "Could recognize at different point in supply chain",
+            "justification_provided": "IFRS 15 requirements met",
+            "skeptical_assessment": "Policy appears reasonable for business model",
+            "recommendation": "None"
+          }
+        ],
+        "disclosure_adequacy_assessment": [
+          {
+            "disclosure_area": "Related party transactions",
+            "information_provided": "Directors' fees amounts",
+            "missing_information": "Nature of services in detail, comparison to market rates",
+            "transparency_level": "Basic",
+            "materiality_assessment": "Low materiality",
+            "improvement_suggested": "Enhanced description of services"
+          }
+        ],
+        "overall_skepticism_applied": {
+          "areas_of_high_concern": ["Deferred tax estimation", "PPE useful lives"],
+          "areas_of_moderate_concern": ["Inventory valuation", "Revenue cut-off"],
+          "areas_of_low_concern": ["Cash balances", "Basic payables"],
+          "skepticism_conclusion": "Appropriate level of skepticism applied by auditor"
+        }
+      }
+    }
+  }
+}

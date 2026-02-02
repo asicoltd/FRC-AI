@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "20",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "standard_by_standard_verification": {
+          "ias_8_compliance_check": {
+            "accounting_policy_hierarchy": {
+              "hierarchy_applied": "IFRS followed",
+              "departures_from_ifrs": [],
+              "justification_for_departures": "N/A",
+              "compliance_assessment": "Compliant"
+            },
+            "policy_changes_analysis": {
+              "changes_made": ["Reclassification of expenses for presentation"],
+              "retrospective_application": "Applied",
+              "impact_quantified": "No impact on profit or equity",
+              "disclosure_adequacy": "Adequate"
+            }
+          },
+          "ias_24_scrutiny": {
+            "related_party_identification": {
+              "parties_identified": ["Directors receiving fees"],
+              "control_relationships": "Properly disclosed",
+              "potential_omissions": "None apparent",
+              "completeness_assessment": "Adequate"
+            },
+            "transaction_analysis": {
+              "arm_length_assessment": "Appears arm's length",
+              "material_transactions": ["Board meeting fees"],
+              "unusual_terms": "None",
+              "risk_assessment": "Low"
+            },
+            "disclosure_completeness": {
+              "nature_disclosed": "Yes",
+              "amounts_disclosed": "Yes",
+              "balances_outstanding": "None",
+              "terms_conditions": "Adequate",
+              "adequacy_assessment": "Satisfactory"
+            }
+          },
+          "ias_10_events_check": {
+            "adjusting_events_identified": ["None"],
+            "non_adjusting_events_disclosed": ["Recommended 10% cash dividend"],
+            "going_concern_updates": "No issues",
+            "authorization_date_verification": "27 October 2025",
+            "compliance_assessment": "Compliant"
+          }
+        }
+      }
+    }
+  }
+}

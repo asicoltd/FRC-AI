@@ -1,0 +1,42 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "7",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [
+            "Revenue recognition at point of delivery (IFRS 15)",
+            "Inventory valuation at lower of cost and NRV (IAS 2)",
+            "PPE at cost less depreciation (IAS 16)",
+            "Deferred tax recognition (IAS 12)"
+          ],
+          "changes_in_accounting_policies": ["None disclosed"],
+          "ias_8_hierarchy_compliance": "Compliant - policies reference IFRS requirements"
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [
+            {
+              "area": "Revenue recognition timing",
+              "management_assumption": "Revenue recognized at point of delivery from factory",
+              "alternative_view": "Could recognize at different point in supply chain",
+              "frc_skeptical_assessment": "Judgment appears reasonable given business model",
+              "impact_if_changed": "Could shift revenue between periods"
+            }
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "Deferred tax liability",
+              "sensitivity_range": "Not disclosed",
+              "disclosure_adequacy": "Adequate",
+              "risk_level": 6,
+              "reason_of_the_status": "Depends on forecasts of future profitability over multiple years",
+              "status_reference": "Note 2.22 and Auditor's Report page 6"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

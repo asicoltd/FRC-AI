@@ -1,0 +1,29 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "3",
+  "frc_analysis_report": {
+    "entity": {
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "Profit Before Tax",
+          "percentage_applied": "5%",
+          "overall_materiality_amount": "5542884.8",
+          "performance_materiality_amount": "2771442.4",
+          "clearly_trivial_threshold": "277144.24",
+          "reason_of_the_status": "Based on auditor's report and financial scale of entity",
+          "status_reference": "Profit Before Tax: 110,857,696 (Page 32)"
+        },
+        "qualitative_materiality_considerations": [
+          "Revenue recognition complexity",
+          "Inventory valuation risk",
+          "Related party transactions",
+          "Deferred tax estimation"
+        ],
+        "frc_materiality_conclusion": "Material",
+        "reason_of_the_status": "Several key audit matters identified involving significant judgment and estimation",
+        "status_reference": "Auditor's Report Pages 3-5"
+      }
+    }
+  }
+}

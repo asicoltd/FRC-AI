@@ -1,0 +1,29 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "6",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "current_ratio": 1.64,
+          "debt_to_equity": 0.92,
+          "return_on_equity": 4.61,
+          "net_profit_margin": 4.12
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio": 0.47,
+          "cash_flow_from_operations_to_net_income": 1.89,
+          "assessment": "Moderate quality - cash flow from operations significantly higher than net income"
+        },
+        "vertical_and_horizontal_analysis": {
+          "revenue_growth": 19.96,
+          "asset_growth": -1.90,
+          "profit_growth": 20.82
+        },
+        "reason_of_the_status": "Preliminary analysis based on extracted financial data",
+        "status_reference": "Financial statements pages 10-13"
+      }
+    }
+  }
+}

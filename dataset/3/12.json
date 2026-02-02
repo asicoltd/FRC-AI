@@ -1,0 +1,46 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "12",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "detailed_ifrs_compliance_matrix": [
+          {
+            "standard_code": "IAS 1",
+            "standard_name": "Presentation of Financial Statements",
+            "applicability": true,
+            "page_reference": "10-13, 14-22",
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Complete set of financial statements presented with required disclosures",
+            "status_reference": "Statement of compliance and presentation",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "Fair presentation achieved"
+          }
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "Current and deferred tax properly recognized and disclosed",
+            "status_reference": "Note 2.22, pages 20-21",
+            "issues": []
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "No uncertain tax positions identified",
+            "status_reference": "Tax note review",
+            "issues": []
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "Compliant",
+            "advance_tax_status": "Paid as per note 29.00",
+            "tax_holidays_or_incentives": ["100% export oriented may have benefits"],
+            "overall_tax_compliance_assessment": "Compliant",
+            "reason_of_the_status": "Tax calculations appear proper and disclosures adequate",
+            "status_reference": "Note 29.00, page 32"
+          }
+        }
+      }
+    }
+  }
+}

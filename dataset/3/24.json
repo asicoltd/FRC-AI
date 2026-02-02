@@ -1,0 +1,38 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "24",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "consolidated_material_departures": [
+          {
+            "departure_id": "DEP001",
+            "ifrs_standard": "IAS 1",
+            "nature_of_departure": "Insufficient governance disclosures",
+            "page_reference": "Various",
+            "extract_from_fs": "Limited board and committee composition details",
+            "financial_impact_estimate": "None quantitative",
+            "materiality_assessment": "Qualitatively material",
+            "ias_1_para_19_24_implication": "May affect fair presentation understanding",
+            "corrective_action_required": "Enhance governance disclosures",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "BSEC"
+          }
+        ],
+        "non_compliance_with_laws_regulations": [
+          {
+            "compliance_id": "COMP001",
+            "law_regulation": "BSEC Corporate Governance Code",
+            "section_violated": "Various disclosure requirements",
+            "nature_of_breach": "Insufficient governance structure disclosure",
+            "evidence_location": "Absence of detailed governance report",
+            "severity_assessment": "Moderate",
+            "potential_penalties": "Warning, fine, or directive",
+            "remediation_required": "Enhanced disclosures in next report"
+          }
+        ]
+      }
+    }
+  }
+}

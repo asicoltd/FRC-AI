@@ -1,0 +1,60 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "18",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_trend_analysis": {
+          "horizontal_analysis_yoy": {
+            "statement_of_financial_position": [
+              {
+                "item": "Total Assets",
+                "change_percentage": -1.90,
+                "comment": "Slight decrease in total assets"
+              },
+              {
+                "item": "Total Equity",
+                "change_percentage": 0.15,
+                "comment": "Marginal increase in equity"
+              }
+            ],
+            "statement_of_profit_or_loss": [
+              {
+                "item": "Revenue",
+                "change_percentage": 19.96,
+                "comment": "Strong revenue growth"
+              },
+              {
+                "item": "Net Profit",
+                "change_percentage": 20.82,
+                "comment": "Profit growth in line with revenue"
+              }
+            ]
+          },
+          "vertical_analysis_composition": {
+            "assets_composition_2024": {
+              "current_assets_percentage": "55.41%",
+              "non_current_assets_percentage": "44.59%",
+              "significant_changes": ["Inventory decreased from 10.04% to 8.18% of assets"]
+            },
+            "liabilities_composition_2024": {
+              "current_liabilities_percentage": "69.61%",
+              "non_current_liabilities_percentage": "3.33%",
+              "equity_composition": "27.06%",
+              "risk_implications": "High current liabilities relative to equity"
+            }
+          },
+          "two_to_three_year_trend": {
+            "revenue_trend": ["Upward trend"],
+            "profit_trend": ["Upward but volatile"],
+            "asset_growth_trend": ["Relatively stable"],
+            "debt_trend": ["Increasing short-term borrowing"],
+            "trend_analysis_commentary": "Growing revenue and profit but increasing reliance on short-term debt",
+            "unusual_patterns_identified": ["Large cash flow from operations in 2023 not sustained in 2024"]
+          }
+        }
+      }
+    }
+  }
+}

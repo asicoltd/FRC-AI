@@ -1,0 +1,51 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "25",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "holistic_risk_factor_synthesis": {
+          "financial_risks_from_analysis": {
+            "from_ratio_trends": ["Increasing leverage", "High receivables days"],
+            "from_accruals_analysis": ["Good cash quality but volatile"],
+            "from_cash_flow_patterns": ["Large year-to-year fluctuations"],
+            "from_earnings_quality": ["Stable but low margins"],
+            "consolidated_financial_risk_level": "Moderate"
+          },
+          "operational_risks": {
+            "from_segment_analysis": ["Single product concentration"],
+            "from_related_party_transactions": ["Low risk based on disclosed amounts"],
+            "from_post_reporting_events": ["Dividend declaration - normal course"],
+            "from_going_concern_assessment": ["No material concerns"],
+            "consolidated_operational_risk_level": "Low to Moderate"
+          },
+          "compliance_risks": {
+            "from_ifrs_departures": ["Minor disclosure issues"],
+            "from_regulatory_breaches": ["Governance disclosure gaps"],
+            "from_governance_weaknesses": ["Limited committee transparency"],
+            "from_audit_qualifications": ["None - unmodified opinion"],
+            "consolidated_compliance_risk_level": "Moderate"
+          },
+          "key_audit_matters_synthesis": {
+            "kams_identified_by_auditor": ["PPE valuation", "Revenue recognition", "Inventory valuation", "Deferred tax", "Bank loans"],
+            "frca_assessment_of_kams": ["Appropriately identified and addressed"],
+            "additional_risks_identified": ["Governance disclosure", "Related party transparency"],
+            "risk_mitigation_assessment": "Adequately addressed in audit"
+          },
+          "overall_integrated_risk_assessment": {
+            "highest_risk_areas": ["Deferred tax estimation uncertainty"],
+            "medium_risk_areas": ["Inventory valuation", "PPE useful lives", "Governance compliance"],
+            "low_risk_areas": ["Cash management", "Basic revenue recognition", "Tax compliance"],
+            "risk_interconnections": ["Estimation uncertainties affect multiple balances"],
+            "frca_priority_actions": [
+              "Enhance governance disclosures",
+              "Provide sensitivity analysis for key estimates",
+              "Strengthen internal control documentation"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

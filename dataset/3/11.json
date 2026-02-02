@@ -1,0 +1,131 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "11",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+            "applicable": false,
+            "debt_equity_swaps": "No such transaction",
+            "fair_value_measurement": "N/A",
+            "gain_loss_recognition": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No debt-to-equity swaps identified",
+            "status_reference": "Review of liabilities and equity notes"
+          },
+          "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+            "applicable": false,
+            "stripping_activity_costs": "N/A - Entity not in surface mining industry",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "amortization_method": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Interpretation specific to surface mining operations",
+            "status_reference": "N/A"
+          },
+          "ifric_21_levies": {
+            "applicable": true,
+            "government_levies": "Present (WPPF, VAT, other statutory charges)",
+            "recognition_timing": "Recognized when obligating event occurs",
+            "measurement_basis": "Best estimate of outflow",
+            "disclosures_provided": "Adequate",
+            "reason_of_the_status": "Various government levies properly accounted for",
+            "status_reference": "Note 2.16 (WPPF), various expense notes"
+          },
+          "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+            "applicable": true,
+            "advance_payments_foreign_currency": "Export sales in USD",
+            "exchange_rate_determination": "Rate at date of transaction",
+            "asset_liability_recognition": "Properly measured",
+            "disclosures_provided": "Adequate",
+            "reason_of_the_status": "Foreign currency transactions properly accounted for",
+            "status_reference": "Note 2.21, page 20"
+          },
+          "ifric_23_uncertainty_over_income_tax_treatments": {
+            "applicable": true,
+            "uncertain_tax_positions": "None specifically identified",
+            "recognition_criteria": "Tax positions appear certain",
+            "measurement_basis": "Measured based on tax laws",
+            "disclosures_provided": "Adequate",
+            "reason_of_the_status": "No significant tax uncertainties disclosed",
+            "status_reference": "Note 2.22, pages 20-21"
+          },
+          "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "applicable": false,
+            "tax_status_changes": "No changes",
+            "deferred_tax_impacts": "N/A",
+            "dividend_withholding_taxes": "Considered",
+            "disclosures_provided": "Adequate",
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "Tax note"
+          },
+          "sic_7_introduction_of_euro": {
+            "applicable": false,
+            "euro_transition_impacts": "Entity transacts in USD and BDT",
+            "exchange_rate_fixing": "Not applicable",
+            "rounding_conventions": "Not an issue",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "Not transacting in euros",
+            "status_reference": "Foreign currency note"
+          },
+          "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+            "applicable": false,
+            "government_assistance": "None",
+            "recognition_criteria": "N/A",
+            "measurement_basis": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No government assistance disclosed",
+            "status_reference": "Review of income and grants"
+          },
+          "sic_15_operating_leases_incentives": {
+            "applicable": false,
+            "lease_incentives": "None",
+            "recognition_timing": "N/A",
+            "allocation_over_lease_term": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No operating leases with incentives",
+            "status_reference": "Lease note states no leases"
+          },
+          "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "applicable": false,
+            "tax_status_changes": "No changes",
+            "deferred_tax_effects": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "Tax note"
+          },
+          "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+            "applicable": false,
+            "substance_over_form": "No complex lease arrangements",
+            "linked_transactions": "N/A",
+            "lease_classification": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No complex lease transactions",
+            "status_reference": "Lease note"
+          },
+          "sic_29_service_concession_arrangements_disclosures": {
+            "applicable": false,
+            "service_concession_disclosures": "Not applicable",
+            "rights_obligations": "N/A",
+            "revenue_expense_recognition": "N/A",
+            "disclosures_provided": "N/A",
+            "reason_of_the_status": "No service concession arrangements",
+            "status_reference": "N/A"
+          },
+          "sic_32_intangible_assets_website_costs": {
+            "applicable": true,
+            "website_development_costs": "May be included in software",
+            "recognition_criteria": "Development costs capitalized when criteria met",
+            "amortization_policy": "Amortized over useful life",
+            "impairment_testing": "Tested with other assets",
+            "disclosures_provided": "Adequate as part of intangible assets",
+            "reason_of_the_status": "Website costs likely included in software assets",
+            "status_reference": "Intangible assets policy"
+          }
+        }
+      }
+    }
+  }
+}

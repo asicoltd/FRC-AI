@@ -1,0 +1,497 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data": {
+        "statement_of_financial_position": [
+          {
+            "year": "2025",
+            "line_items": [
+              {
+                "item": "Non-Current Assets",
+                "amount": "1421380644",
+                "note": "3.00-4.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Property, Plant and Equipment",
+                "amount": "1167077409",
+                "note": "3.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Capital work in progress",
+                "amount": "26669960",
+                "note": "4.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Assets",
+                "amount": "1341394884",
+                "note": "5.00-11.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Accounts receivable",
+                "amount": "899442360",
+                "note": "5.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Advances, deposits & prepayments",
+                "amount": "106810217",
+                "note": "6.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inventories",
+                "amount": "209897778",
+                "note": "8.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Goods in transit",
+                "amount": "78212114",
+                "note": "9.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Investment in FDR",
+                "amount": "114115614",
+                "note": "10.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash & cash equivalents",
+                "amount": "12902562",
+                "note": "11.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Assets",
+                "amount": "2565124890",
+                "note": "",
+                "errors_or_discrepancies": "Should be 1421380644 + 1341394884 = 2762775528, not 2565124890"
+              },
+              {
+                "item": "Shareholders' Equity",
+                "amount": "1785076039",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Share capital",
+                "amount": "795953810",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Share premium",
+                "amount": "300000000",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Revaluation reserve",
+                "amount": "103668899",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained earnings",
+                "amount": "585453330",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Non-Current Liabilities",
+                "amount": "795953810",
+                "note": "13.00-15.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Long term loan net off current portion",
+                "amount": "53390570",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Deferred tax",
+                "amount": "59497418",
+                "note": "15.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current Liabilities",
+                "amount": "795953810",
+                "note": "16.00-22.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Accounts payable",
+                "amount": "7604217",
+                "note": "16.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Short term loan",
+                "amount": "544859668",
+                "note": "17.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Current portion of long term loan",
+                "amount": "71128331",
+                "note": "18.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Liabilities for expenses",
+                "amount": "26034526",
+                "note": "19.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Dividend payable",
+                "amount": "5670753",
+                "note": "20.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Unclaimed dividend account",
+                "amount": "0",
+                "note": "21.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Provision for income tax",
+                "amount": "61866491",
+                "note": "22.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Equity and Liabilities",
+                "amount": "2565124890",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Total Assets",
+                "amount": "2615128013",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Shareholders' Equity",
+                "amount": "1782376700",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Equity and Liabilities",
+                "amount": "2615128013",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_profit_or_loss_and_other_comprehensive_income": [
+          {
+            "year": "2025",
+            "line_items": [
+              {
+                "item": "Turnover",
+                "amount": "1997875808",
+                "note": "23.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cost of goods sold",
+                "amount": "1644312481",
+                "note": "24.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Administrative expenses",
+                "amount": "116879737",
+                "note": "25.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Selling & distribution expenses",
+                "amount": "53130770",
+                "note": "26.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Financial expenses",
+                "amount": "76269372",
+                "note": "27.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Other income",
+                "amount": "7960981",
+                "note": "28.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit Before Tax",
+                "amount": "110857696",
+                "note": "",
+                "errors_or_discrepancies": "1997875808 - 1644312481 - 116879737 - 53130770 - 76269372 + 7960981 = 118778429, not 110857696"
+              },
+              {
+                "item": "Current tax",
+                "amount": "25975906",
+                "note": "29.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Deferred tax",
+                "amount": "2587070",
+                "note": "30.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit After Tax",
+                "amount": "82294720",
+                "note": "34.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Turnover",
+                "amount": "1665507318",
+                "note": "23.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cost of goods sold",
+                "amount": "1375458047",
+                "note": "24.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Administrative expenses",
+                "amount": "101470627",
+                "note": "25.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Selling & distribution expenses",
+                "amount": "35578434",
+                "note": "26.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Financial expenses",
+                "amount": "68375474",
+                "note": "27.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Other income",
+                "amount": "3461598",
+                "note": "28.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit After Tax",
+                "amount": "68098400",
+                "note": "34.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "2025",
+            "line_items": [
+              {
+                "item": "Cash collection from turnover & others",
+                "amount": "1917920678",
+                "note": "31.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash paid to suppliers, employee & others",
+                "amount": "-1737285149",
+                "note": "32.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Income tax paid",
+                "amount": "-24920092",
+                "note": "33.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Flows from Operating Activities",
+                "amount": "155715436",
+                "note": "37.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Investment in FDR",
+                "amount": "114115614",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "114115614",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment of cash dividend",
+                "amount": "-79595381",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Payment of interest",
+                "amount": "-76269372",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Flows from Financing Activities",
+                "amount": "-155864753",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase/(Decrease) in Cash & Cash Equivalents",
+                "amount": "114000299",
+                "note": "13.00",
+                "errors_or_discrepancies": "155715436 - 114115614 - 155864753 = -114264931, not 114000299"
+              },
+              {
+                "item": "Cash & cash equivalents at the beginning of the year",
+                "amount": "86503267",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Foreign exchange gain/(loss)",
+                "amount": "-1156152",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Closing Cash & Cash Equivalents at the End of the Year",
+                "amount": "12902562",
+                "note": "11.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Net Cash Flows from Operating Activities",
+                "amount": "339535910",
+                "note": "37.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "86503267",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Flows from Financing Activities",
+                "amount": "-93596327",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase/(Decrease) in Cash & Cash Equivalents",
+                "amount": "359959256",
+                "note": "13.00",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2025",
+            "line_items": [
+              {
+                "item": "Balance as on 01.07.2024",
+                "amount": "1782376700",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash dividend",
+                "amount": "-79595381",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit/(loss) After Tax",
+                "amount": "82294720",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Balance as on 30.06.2025",
+                "amount": "1785076039",
+                "note": "12.00",
+                "errors_or_discrepancies": "1782376700 - 79595381 + 82294720 = 1785076039 ✓"
+              }
+            ]
+          },
+          {
+            "year": "2024",
+            "line_items": [
+              {
+                "item": "Balance as on 01.07.2023",
+                "amount": "1783796444",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash dividend",
+                "amount": "-69518143",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Profit/(loss) After Tax",
+                "amount": "68098400",
+                "note": "12.00",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Balance as on 30.06.2024",
+                "amount": "1782376700",
+                "note": "12.00",
+                "errors_or_discrepancies": "1783796444 - 69518143 + 68098400 = 1782376701 (rounding difference)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

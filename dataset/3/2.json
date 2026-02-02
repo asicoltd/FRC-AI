@@ -1,0 +1,22 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "2",
+  "frc_analysis_report": {
+    "entity": {
+      "entity_id": "C-67047(4539)/2007",
+      "entity_profile": {
+        "legal_name": "Simtex Industries PLC.",
+        "trade_name": "Simtex Industries PLC.",
+        "registration_number": "C-67047(4539)/2007",
+        "industry_sector": "Textile (Dyeing and conning/Winding of sewing thread)",
+        "frc_sector": "Textile",
+        "listing_status": "Listed to BSEC",
+        "stock_exchange_symbol": "DSE & CSE",
+        "reporting_currency": "BDT",
+        "financial_year_end": "30 June",
+        "report_publication_date": "28 October 2025"
+      }
+    }
+  }
+}

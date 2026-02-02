@@ -1,0 +1,40 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "17",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_earnings_quality_analysis": {
+          "total_accruals_calculation": {
+            "year_2024": {
+              "net_income": "82294720",
+              "cash_flow_from_operations": "155715436",
+              "total_accruals": "-73420716",
+              "accruals_to_net_income_ratio": "-0.89",
+              "analysis_comment": "Negative accruals indicate cash flow exceeds net income"
+            },
+            "year_2023": {
+              "net_income": "68098400",
+              "cash_flow_from_operations": "339535910",
+              "total_accruals": "-271437510",
+              "accruals_to_net_income_ratio": "-3.99",
+              "analysis_comment": "Strong cash generation relative to earnings"
+            },
+            "trend_assessment": "Improving - accruals less negative but still indicates good cash quality",
+            "red_flags_identified": [],
+            "areas_for_further_investigation": ["Reason for significant cash flow volatility year-to-year"]
+          },
+          "revenue_quality_indicators": {
+            "revenue_growth_vs_cash_collection": "Revenue growth 19.96%, cash collection tracks reasonably",
+            "accounting_policy_changes_impact": "No significant policy changes",
+            "significant_judgments_areas": ["Point of delivery recognition"],
+            "risk_assessment": "Low to Moderate",
+            "justification_of_assessment": "Straightforward recognition policy for export sales",
+            "source_of_the_information": "Note 2.11, page 17"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "13",
+  "frc_analysis_report": {
+    "entity": {
+      "fraud_and_management_override_assessment": {
+        "fraud_risk_factors_identified": [
+          "Revenue recognition complexity",
+          "Inventory valuation requires judgment",
+          "Related party transactions present"
+        ],
+        "revenue_manipulation_indicators": [
+          "Sales made on 100% confirmed L/C basis reduces risk",
+          "Point of delivery recognition appears straightforward"
+        ],
+        "journal_entry_override_risk": "Low to Moderate",
+        "override_of_internal_controls_risk": "Low",
+        "overall_fraud_risk_assessment": "Low to Moderate",
+        "reason_of_the_status": "Controls appear adequate, but revenue and inventory areas require judgment",
+        "status_reference": "Auditor's report pages 3-5 identifies key audit matters"
+      }
+    }
+  }
+}

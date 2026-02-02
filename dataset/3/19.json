@@ -1,0 +1,72 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "19",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "enhanced_ratio_analysis": {
+          "liquidity_ratios": {
+            "current_ratio": {
+              "2025": 1.64,
+              "2024": 1.43,
+              "assessment": "Adequate and improving"
+            },
+            "quick_ratio_acid_test": {
+              "2025": 1.25,
+              "2024": 1.08,
+              "assessment": "Acceptable liquidity position"
+            }
+          },
+          "efficiency_ratios": {
+            "days_of_inventory": {
+              "2025": 46.5,
+              "2024": 68.3,
+              "assessment": "Improving inventory management"
+            },
+            "days_sales_outstanding": {
+              "2025": 164.3,
+              "2024": 179.6,
+              "assessment": "High but improving collection period"
+            },
+            "asset_turnover": {
+              "2025": 0.78,
+              "2024": 0.65,
+              "assessment": "Improving asset utilization"
+            }
+          },
+          "solvency_coverage_ratios": {
+            "debt_to_equity": {
+              "2025": 0.92,
+              "2024": 0.84,
+              "assessment": "Increasing leverage"
+            },
+            "interest_coverage_ratio": {
+              "2025": 2.45,
+              "2024": 2.24,
+              "assessment": "Adequate interest coverage"
+            }
+          },
+          "profitability_ratios": {
+            "return_on_assets_roa": {
+              "2025": 3.21,
+              "2024": 2.65,
+              "assessment": "Improving but still low"
+            },
+            "return_on_equity_roe": {
+              "2025": 4.61,
+              "2024": 3.82,
+              "assessment": "Moderate but improving"
+            },
+            "net_profit_margin": {
+              "2025": 4.12,
+              "2024": 4.09,
+              "assessment": "Stable margin"
+            }
+          },
+          "overall_ratio_assessment_summary": "Company shows improving operational efficiency and profitability but increasing leverage. Liquidity adequate but working capital management could improve."
+        }
+      }
+    }
+  }
+}

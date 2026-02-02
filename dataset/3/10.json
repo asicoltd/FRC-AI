@@ -1,0 +1,88 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "10",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ifrs_13_fair_value_measurement": {
+            "applicable": true,
+            "reason_of_the_status": "Limited fair value measurements disclosed",
+            "status_reference": "Note 2.03, page 15"
+          },
+          "ifrs_14_regulatory_deferral_accounts": {
+            "applicable": false,
+            "reason_of_the_status": "Not a rate-regulated entity",
+            "status_reference": "Note 2.03, page 15"
+          },
+          "ifrs_15_revenue_from_contracts_with_customers": {
+            "applicable": true,
+            "reason_of_the_status": "Revenue recognized at point of delivery",
+            "status_reference": "Note 2.11, page 17"
+          },
+          "ifrs_16_leases": {
+            "applicable": false,
+            "reason_of_the_status": "No leases per entity's assessment",
+            "status_reference": "Note 2.13.1, page 19"
+          },
+          "ifrs_17_insurance_contracts": {
+            "applicable": false,
+            "reason_of_the_status": "Not an insurance entity",
+            "status_reference": "Note 2.03, page 15"
+          },
+          "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
+            "applicable": false,
+            "reason_of_the_status": "No decommissioning liabilities",
+            "status_reference": "N/A"
+          },
+          "ifric_2_members_shares_in_cooperative_entities": {
+            "applicable": false,
+            "reason_of_the_status": "Not a cooperative",
+            "status_reference": "N/A"
+          },
+          "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
+            "applicable": false,
+            "reason_of_the_status": "No decommissioning funds",
+            "status_reference": "N/A"
+          },
+          "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
+            "applicable": false,
+            "reason_of_the_status": "No such liabilities",
+            "status_reference": "N/A"
+          },
+          "ifric_7_applying_the_restatement_approach_under_ias_29": {
+            "applicable": false,
+            "reason_of_the_status": "Not in hyperinflationary economy",
+            "status_reference": "N/A"
+          },
+          "ifric_10_interim_financial_reporting_and_impairment": {
+            "applicable": true,
+            "reason_of_the_status": "Annual reporting, but principles apply",
+            "status_reference": "N/A"
+          },
+          "ifric_12_service_concession_arrangements": {
+            "applicable": false,
+            "reason_of_the_status": "No service concession arrangements",
+            "status_reference": "N/A"
+          },
+          "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
+            "applicable": false,
+            "reason_of_the_status": "No defined benefit plans",
+            "status_reference": "N/A"
+          },
+          "ifric_16_hedges_of_net_investment_in_foreign_operation": {
+            "applicable": false,
+            "reason_of_the_status": "No net investment hedging",
+            "status_reference": "N/A"
+          },
+          "ifric_17_distributions_of_non_cash_assets_to_owners": {
+            "applicable": false,
+            "reason_of_the_status": "No non-cash distributions",
+            "status_reference": "N/A"
+          }
+        }
+      }
+    }
+  }
+}

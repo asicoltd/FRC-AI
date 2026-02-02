@@ -1,0 +1,31 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "15",
+  "frc_analysis_report": {
+    "entity": {
+      "legal_and_enforcement_mapping": {
+        "financial_reporting_act_2015": {
+          "sections_triggered": ["Section 9 - True and fair view"],
+          "nature_of_breach": "None apparent",
+          "severity_assessment": "Low",
+          "reason_of_the_status": "Financial statements appear to give true and fair view",
+          "status_reference": "Auditor's opinion page 3"
+        },
+        "companies_act_1994": {
+          "sections_implicated": ["Schedule XI compliance for disclosures"],
+          "director_liability_assessed": false,
+          "liability_nature": "N/A",
+          "reason_of_the_status": "Appears compliant with Companies Act requirements",
+          "status_reference": "Various notes reference Companies Act compliance"
+        },
+        "bsec_rules_if_applicable": {
+          "rules_breached": [],
+          "market_impact": "None",
+          "reason_of_the_status": "Listed entity appears compliant with disclosure requirements",
+          "status_reference": "General compliance statements"
+        }
+      }
+    }
+  }
+}

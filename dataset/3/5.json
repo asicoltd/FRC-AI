@@ -1,0 +1,83 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "5",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_1_foundational_checks": {
+        "reporting_framework": {
+          "disclosed_framework": "International Financial Reporting Standards (IFRS)",
+          "notes_reference": "Note 2.01: Statement of Compliance, page 14",
+          "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 7", "IAS 8", "IAS 10", "IAS 12", "IAS 16", "IAS 19", "IAS 21", "IAS 23", "IAS 24", "IAS 32", "IAS 33", "IAS 34", "IAS 36", "IAS 37", "IAS 38", "IFRS 7", "IFRS 9", "IFRS 13", "IFRS 15"],
+          "discrepancies_identified": ["IFRS 16 stated as not applicable but may need verification", "IAS 24 related party disclosure adequacy needs review"],
+          "compliance_assessment": "Partially Compliant",
+          "reason_of_the_status": "The entity states compliance with IFRS. Detailed review may reveal disclosure inadequacies in specific standards.",
+          "status_reference": "Note 2.01 (pg 14) and detailed standards list on pages 14-15"
+        },
+        "regulatory_landscape": {
+          "applicable_regulators": [
+            {
+              "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant (as per disclosure)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Note 1.01: Company listed with DSE and CSE",
+              "specific_disclosures_found": ["Listing status disclosed", "Corporate governance compliance implied"],
+              "reason_of_the_status": "Entity is listed and discloses basic compliance. Full governance report not included in provided pages.",
+              "status_reference": "Note 1.01 (pg 14)"
+            },
+            {
+              "regulator_name": "Financial Reporting Council (FRC) Bangladesh",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "To be Assessed",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Auditor's Report asserts true and fair view",
+              "specific_disclosures_found": ["Auditor's opinion on true and fair view"],
+              "reason_of_the_status": "Auditor provides unmodified opinion. FRC's independent analysis pending.",
+              "status_reference": "Auditor's Report (pg 3)"
+            },
+            {
+              "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant (as per disclosure)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Note 1.01: Incorporation details provided",
+              "specific_disclosures_found": ["Certificate of incorporation number and date"],
+              "reason_of_the_status": "Basic incorporation details disclosed.",
+              "status_reference": "Note 1.01 (pg 14)"
+            },
+            {
+              "regulator_name": "National Board of Revenue (NBR)",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Compliant (as per financial statement disclosures)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Note 2.22: Taxation, pages 20-21",
+              "specific_disclosures_found": ["Current and deferred tax calculations", "Tax expense reconciliation"],
+              "reason_of_the_status": "Detailed tax note appears comprehensive.",
+              "status_reference": "Note 2.22 (pg 20-21)"
+            },
+            {
+              "regulator_name": "Bangladesh Bank",
+              "jurisdiction": "Bangladesh",
+              "compliance_status": "Not Applicable",
+              "reason_for_non_compliance": "N/A - The entity is a manufacturing company, not a financial institution.",
+              "notes_reference": "N/A",
+              "specific_disclosures_found": [],
+              "reason_of_the_status": "Bangladesh Bank regulations primarily apply to financial institutions.",
+              "status_reference": "N/A"
+            }
+          ],
+          "statutory_filings_status": {
+            "bsec_filed": true,
+            "bsec_filing_date": "Expected after 28 October 2025",
+            "income_tax_return_filed": true,
+            "income_tax_year": "Assessment Year 2024-2025",
+            "rjsc_compliance": true,
+            "bb_compliance_if_applicable": "N/A"
+          },
+          "overall_regulatory_assessment": "Appears Compliant based on disclosed information. Full assessment requires corporate governance report."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "14",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_4_audit_governance_verification": {
+        "audit_report_analysis": {
+          "auditor_information": {
+            "firm_name": "Habib Sarwar Bhuiyan & Co. Chartered Accountants",
+            "firm_registration_number": "CAF-001-010",
+            "audit_tenure_years": "Not disclosed",
+            "rotation_compliance": "Not disclosed"
+          },
+          "audit_opinion": {
+            "opinion_type": "Unmodified",
+            "basis_for_opinion": "Audit conducted per ISAs, auditor independent",
+            "modified_opinion_reasons": []
+          },
+          "key_audit_matters": [
+            "Property, Plant and Equipment valuation",
+            "Revenue recognition",
+            "Valuation of receivables",
+            "Valuation of inventories",
+            "Measurement of deferred tax liability",
+            "Bank loan compliance"
+          ],
+          "going_concern_assessment": {
+            "auditor_conclusion": "Going concern appropriate",
+            "period_assessed": "Foreseeable future",
+            "mitigating_factors": ["Adequate resources", "Sufficient credit facilities"]
+          },
+          "isa_compliance_check": {
+            "compliance": "Compliant per auditor's report",
+            "issues": []
+          },
+          "reason_of_the_status": "Auditor provides unmodified opinion with detailed KAMs",
+          "status_reference": "Auditor's Report pages 3-9"
+        },
+        "corporate_governance_review": {
+          "board_structure": {
+            "independence": "Not fully disclosed in provided pages",
+            "expertise": "Directors with relevant backgrounds",
+            "effectiveness": "Appears adequate based on disclosures"
+          },
+          "committee_effectiveness": {
+            "audit_committee": "Exists per note 38.00",
+            "risk_committee": "Not specifically disclosed",
+            "nomination_committee": "Not disclosed"
+          },
+          "internal_controls": {
+            "effectiveness": "Adequate per auditor's work",
+            "management_assessment": "Implied through financial reporting",
+            "auditor_opinion": "No material weaknesses reported"
+          },
+          "reason_of_the_status": "Limited governance disclosure in provided pages",
+          "status_reference": "Note 38.00 and general disclosures"
+        }
+      }
+    }
+  }
+}
