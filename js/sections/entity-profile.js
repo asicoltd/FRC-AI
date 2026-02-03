@@ -226,7 +226,8 @@ class EntityProfile {
                 document.getElementById('financialYearEnd').textContent =
                     profile.financial_year_end || '[Not Available]';
                 document.getElementById('annualReportLink').textContent =
-                    metadata.source_documents || '[Not Available]';
+                    profile.annual_report_link || '[Not Available]';
+                    console.log('Metadata source documents:', metadata.source_documents);
                 // Add entity ID if available
                 if (entity?.entity_id) {
                     let entityIdRow = document.querySelector('#entityIdRow');
