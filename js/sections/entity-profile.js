@@ -3,7 +3,7 @@ class EntityProfile {
     static load() {
         appState.currentSection = 'entity';
         UIComponents.updateActiveSidebarItem('entity');
-        
+
         const content = `
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">Entity Context & Framework</h3>
@@ -52,9 +52,13 @@ class EntityProfile {
                                 <td id="financialYearEnd">[Loading...]</td>
                             </tr>
                             <tr>
-                                <th>Annual Report Link:</th>
-                                <td id="annualReportLink">[Loading...]</td>
-                            </tr>
+                            <th>Annual Report Link:</th>
+                            <td>
+                                <a id="annualReportLink" href="#" target="_blank" rel="noopener">
+                                    [Loading...]
+                                </a>
+                            </td>
+                        </tr>
                         </table>
                     </div>
                     
@@ -227,7 +231,9 @@ class EntityProfile {
                     profile.financial_year_end || '[Not Available]';
                 document.getElementById('annualReportLink').textContent =
                     profile.annual_report_link || '[Not Available]';
-                    console.log('Metadata source documents:', metadata.source_documents);
+                document.getElementById('annualReportLink').href =
+                    profile.annual_report_link || '#';
+                console.log('Metadata source documents:', metadata.source_documents);
                 // Add entity ID if available
                 if (entity?.entity_id) {
                     let entityIdRow = document.querySelector('#entityIdRow');
@@ -298,16 +304,18 @@ class EntityProfile {
 
         // ==================== MATERIALITY FRAMEWORK (from 3.json) ====================
         if (materialityData) {
+            
             const materiality = materialityData.frc_analysis_report?.entity?.materiality_framework;
-
+            alert(materiality);
             console.log('Extracted materiality framework:', materiality);
 
             if (materiality) {
                 const quantitative = materiality.quantitative_materiality;
-
+                
                 if (quantitative) {
                     document.getElementById('materialityBenchmark').textContent =
                         quantitative.benchmark_used || '[Not Specified]';
+                        
                     document.getElementById('materialityPercentage').textContent =
                         quantitative.percentage_applied || '[Not Specified]';
                     document.getElementById('overallMateriality').textContent =
@@ -336,7 +344,10 @@ class EntityProfile {
                 if (materiality.frc_materiality_conclusion) {
                     const conclusionElement = document.getElementById('materialityConclusionText');
                     if (conclusionElement) {
-                        conclusionElement.textContent = materiality.frc_materiality_conclusion;
+                        const conclusion = materiality.frc_materiality_conclusion || '[Not Specified]';
+                        const reason = materiality.reason_of_the_status || '[Not Specified]';
+                        const statusReference = materiality.status_reference || '[Not Specified]';
+                        conclusionElement.textContent = `${conclusion} ** ${reason}, Source: ${statusReference}`;
                     }
                 }
 

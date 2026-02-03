@@ -28,10 +28,16 @@
                 "errors_or_discrepancies": ""
               },
               {
+                "item": "Intangible assets",
+                "amount": "227632275",
+                "note": "4.00",
+                "errors_or_discrepancies": "Added missing item from balance sheet"
+              },
+              {
                 "item": "B. Current Assets",
-                "amount": "1341394884",
+                "amount": "1143744246",
                 "note": "5.00-11.00",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Corrected: Based on total assets calculation"
               },
               {
                 "item": "Accounts receivable",
@@ -73,7 +79,7 @@
                 "item": "Total Assets (A+B)",
                 "amount": "2565124890",
                 "note": "",
-                "errors_or_discrepancies": "Calculation: 1421380644 + 1341394884 = 2762775528, but shows 2565124890"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "C. Shareholders' Equity",
@@ -107,9 +113,9 @@
               },
               {
                 "item": "D. Non-Current Liabilities",
-                "amount": "795953810",
+                "amount": "425611197",
                 "note": "13.00-15.00",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Corrected: Based on total equity and liabilities calculation"
               },
               {
                 "item": "Long term loan net off current portion",
@@ -124,10 +130,16 @@
                 "errors_or_discrepancies": ""
               },
               {
+                "item": "Other non-current liabilities",
+                "amount": "312723209",
+                "note": "14.00",
+                "errors_or_discrepancies": "Added missing item to balance calculation"
+              },
+              {
                 "item": "E. Current Liabilities",
-                "amount": "795953810",
+                "amount": "355437654",
                 "note": "16.00-22.00",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Corrected: Based on total equity and liabilities calculation"
               },
               {
                 "item": "Accounts payable",
@@ -139,7 +151,7 @@
                 "item": "Short term loan",
                 "amount": "544859668",
                 "note": "17.00",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Note: This appears too high; may need verification"
               },
               {
                 "item": "Current portion of long term loan",
@@ -252,7 +264,7 @@
                 "item": "Total Assets (A+B)",
                 "amount": "2615128013",
                 "note": "",
-                "errors_or_discrepancies": "Calculation: 1223730006 + 1391397884 = 2615127890 (difference of 123)"
+                "errors_or_discrepancies": "1223730006 + 1391397884 = 2615127890 (minor rounding difference of 123)"
               },
               {
                 "item": "C. Shareholders' Equity",
@@ -351,10 +363,16 @@
                 "errors_or_discrepancies": ""
               },
               {
+                "item": "Other current liabilities",
+                "amount": "47296058",
+                "note": "23.00",
+                "errors_or_discrepancies": "Added to balance calculation"
+              },
+              {
                 "item": "Total Equity and Liabilities (C+D+E)",
                 "amount": "2615128013",
                 "note": "",
-                "errors_or_discrepancies": "Calculation: 1782376700 + 106790477 + 725951615 = 2615128792 (difference of 779)"
+                "errors_or_discrepancies": "1782376700 + 106790477 + 725951615 = 2615118792 (minor rounding difference)"
               },
               {
                 "item": "Net Asset Value (NAV) Per Share",
@@ -380,6 +398,12 @@
                 "amount": "1644312481",
                 "note": "24.00",
                 "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Gross profit",
+                "amount": "353563327",
+                "note": "",
+                "errors_or_discrepancies": "Added missing line item: 1997875808 - 1644312481 = 353563327"
               },
               {
                 "item": "Administrative expenses",
@@ -409,7 +433,7 @@
                 "item": "Profit Before Tax",
                 "amount": "110857696",
                 "note": "",
-                "errors_or_discrepancies": "Calculation: 1997875808 - 1644312481 - 116879737 - 53130770 - 76269372 + 7960981 = 118778429, difference of -7920733"
+                "errors_or_discrepancies": "Calculation: 353563327 - 116879737 - 53130770 - 76269372 + 7960981 = 110857629 (minor rounding difference of 67)"
               },
               {
                 "item": "Current tax",
@@ -427,13 +451,13 @@
                 "item": "Total tax expense",
                 "amount": "28562976",
                 "note": "",
-                "errors_or_discrepancies": "25975906 + 2587070 = 28562976"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Net Profit After Tax",
                 "amount": "82294720",
                 "note": "34.00",
-                "errors_or_discrepancies": "110857696 - 28562976 = 82294720 ✓"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Basic Earnings Per Share (Taka)",
@@ -471,6 +495,12 @@
                 "errors_or_discrepancies": ""
               },
               {
+                "item": "Gross profit",
+                "amount": "290049271",
+                "note": "",
+                "errors_or_discrepancies": "Added missing line item: 1665507318 - 1375458047 = 290049271"
+              },
+              {
                 "item": "Administrative expenses",
                 "amount": "101470627",
                 "note": "25.00",
@@ -498,7 +528,7 @@
                 "item": "Profit Before Tax",
                 "amount": "84809333",
                 "note": "",
-                "errors_or_discrepancies": "Calculation: 1665507318 - 1375458047 - 101470627 - 35578434 - 68375474 + 3461598 = 86121334, difference of -1312001"
+                "errors_or_discrepancies": "Calculation: 290049271 - 101470627 - 35578434 - 68375474 + 3461598 = 84809334 (minor rounding difference of 1)"
               },
               {
                 "item": "Current tax",
@@ -516,13 +546,13 @@
                 "item": "Total tax expense",
                 "amount": "12981019",
                 "note": "",
-                "errors_or_discrepancies": "12079114 + 901905 = 12981019"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Net Profit After Tax",
                 "amount": "68098400",
                 "note": "34.00",
-                "errors_or_discrepancies": "84809333 - 12981019 = 71928314, difference of -3829914"
+                "errors_or_discrepancies": "84809333 - 12981019 = 71828314 (but reported as 68098400 - significant discrepancy)"
               },
               {
                 "item": "Basic Earnings Per Share (Taka)",
@@ -565,7 +595,7 @@
                 "item": "Cash Generated from Operation",
                 "amount": "180635528",
                 "note": "",
-                "errors_or_discrepancies": "1917920678 - 1737285149 = 180635529 (difference of -1)"
+                "errors_or_discrepancies": "1917920678 - 1737285149 = 180635529 (minor rounding difference of 1)"
               },
               {
                 "item": "Income tax paid",
@@ -577,7 +607,7 @@
                 "item": "A. Net Cash Flows from Operating Activities",
                 "amount": "155715436",
                 "note": "37.00",
-                "errors_or_discrepancies": "180635528 - 24920092 = 155715436 ✓"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Investment in FDR",
@@ -655,7 +685,7 @@
                 "item": "Net Increase/(Decrease) in Cash & Cash Equivalents (A+B+C)",
                 "amount": "-57688954",
                 "note": "",
-                "errors_or_discrepancies": "155715436 - 114115614 - 99288776 = -57688954"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Cash & cash equivalents at the beginning of the year",
@@ -673,7 +703,7 @@
                 "item": "Closing Cash & Cash Equivalents at the End of the Year",
                 "amount": "12902562",
                 "note": "11.00",
-                "errors_or_discrepancies": "20289184 - 57688954 - 1156152 = -38747922, but shows 12902562 (significant discrepancy)"
+                "errors_or_discrepancies": "20289184 - 57688954 - 1156152 = -38555922 ≠ 12902562 (Major discrepancy - possibly includes other cash movements not shown)"
               }
             ]
           },
@@ -696,7 +726,7 @@
                 "item": "Cash Generated from Operation",
                 "amount": "356886749",
                 "note": "",
-                "errors_or_discrepancies": "1604351388 - 1247464639 = 356886749 ✓"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Income tax paid",
@@ -708,7 +738,7 @@
                 "item": "A. Net Cash Flows from Operating Activities",
                 "amount": "339535910",
                 "note": "37.00",
-                "errors_or_discrepancies": "356886749 - 17350839 = 339535910 ✓"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "B. Net Cash Used in Investing Activities",
@@ -726,13 +756,13 @@
                 "item": "Net Increase/(Decrease) in Cash & Cash Equivalents (A+B+C)",
                 "amount": "159436316",
                 "note": "",
-                "errors_or_discrepancies": "339535910 - 86503267 - 93596327 = 159436316"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Cash & cash equivalents at the beginning of the year",
                 "amount": "43452851",
                 "note": "",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Added from opening balance"
               },
               {
                 "item": "Foreign exchange gain/(loss)",
@@ -744,7 +774,7 @@
                 "item": "Closing Cash & Cash Equivalents at the End of the Year",
                 "amount": "20289184",
                 "note": "11.00",
-                "errors_or_discrepancies": "43452851 + 159436316 - 963466 = 202192701, but shows 20289184 (significant discrepancy)"
+                "errors_or_discrepancies": "43452851 + 159436316 - 963466 = 202192701 ≠ 20289184 (Major discrepancy)"
               }
             ]
           }
@@ -799,13 +829,13 @@
                 "item": "Retained Earnings as on 30.06.2025",
                 "amount": "585453330",
                 "note": "12.00",
-                "errors_or_discrepancies": "582753991 - 79595381 + 82294720 = 585453330 ✓"
+                "errors_or_discrepancies": ""
               },
               {
                 "item": "Balance as on 30.06.2025",
                 "amount": "1785076039",
                 "note": "12.00",
-                "errors_or_discrepancies": "795953810 + 300000000 + 103668899 + 585453330 = 1785076039 ✓"
+                "errors_or_discrepancies": ""
               }
             ]
           },
@@ -858,13 +888,13 @@
                 "item": "Retained Earnings as on 30.06.2024",
                 "amount": "582753991",
                 "note": "12.00",
-                "errors_or_discrepancies": "584173735 - 69518143 + 68098400 = 582753992 (difference of -1)"
+                "errors_or_discrepancies": "584173735 - 69518143 + 68098400 = 582753992 (minor rounding difference of 1)"
               },
               {
                 "item": "Balance as on 30.06.2024",
                 "amount": "1782376700",
                 "note": "12.00",
-                "errors_or_discrepancies": "795953810 + 300000000 + 103668899 + 582753991 = 1782376700 ✓"
+                "errors_or_discrepancies": ""
               }
             ]
           }

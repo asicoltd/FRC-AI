@@ -12,6 +12,12 @@ class FinancialStatements {
                     <div class="col-12">
                         <h2 class="mt-4 mb-4">Financial Statements</h2>
                         
+                        <!-- Legend for warning indicators -->
+                        <div class="alert alert-warning d-flex align-items-center mb-3" style="padding: 8px 16px; font-size: 0.875rem;">
+                            <span class="yellow-dot-example me-2" style="display: inline-block; width: 12px; height: 12px; background-color: #ffc107; border-radius: 50%;"></span>
+                            <span>Yellow dot indicates items with discrepancies. Hover over to view details.</span>
+                        </div>
+                        
                         <!-- Tabs Navigation -->
                         <ul class="nav nav-tabs mb-4" id="financialStatementTabs" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -91,7 +97,44 @@ class FinancialStatements {
         await this.loadFinancialStatementData();
     }
 
-    // Helper method to create warning icon for items with errors
+    // FIXED: Helper method to create yellow dot indicator for line items with errors
+    static createYellowDotIndicator(errorMessage, itemName) {
+        if (!errorMessage || errorMessage.trim() === '') {
+            return '';
+        }
+
+        // Create a unique ID for the tooltip
+        const tooltipId = 'yellow-dot-' + Math.random().toString(36).substr(2, 9);
+
+        return `
+            <span class="yellow-dot-indicator ms-2" 
+                  data-bs-toggle="tooltip" 
+                  data-bs-placement="right"
+                  title="<strong>Discrepancies for ${this.escapeHtml(itemName)}:</strong><br><br>${this.formatErrorForTooltip(errorMessage)}"
+                  data-bs-html="true"
+                  data-bs-custom-class="yellow-dot-tooltip"
+                  id="${tooltipId}"
+                  style="cursor: help; display: inline-block; position: relative;">
+                <span class="yellow-dot" style="display: inline-block; width: 10px; height: 10px; background-color: #ffc107; border-radius: 50%; border: 1px solid #ff9800;"></span>
+            </span>
+        `;
+    }
+
+    // Helper method to format error message for tooltip
+    static formatErrorForTooltip(errorMessage) {
+        if (!errorMessage) return '';
+        
+        // Split by pipe and format each error
+        const errors = errorMessage.split(' | ');
+        if (errors.length === 1) {
+            return this.escapeHtml(errorMessage);
+        }
+        
+        // Format multiple errors with bullet points
+        return errors.map(error => `• ${this.escapeHtml(error)}`).join('<br>');
+    }
+
+    // MODIFIED: Updated warning icon for amounts
     static createWarningIcon(errorMessage) {
         if (!errorMessage || errorMessage.trim() === '') {
             return '';
@@ -101,10 +144,12 @@ class FinancialStatements {
         const tooltipId = 'warning-' + Math.random().toString(36).substr(2, 9);
 
         return `
-            <span class="warning-icon-wrapper ms-2" data-bs-toggle="tooltip" 
-                  data-bs-placement="top" title="${this.escapeHtml(errorMessage)}"
-                  data-bs-custom-class="warning-tooltip" id="${tooltipId}">
-                <i class="fas fa-exclamation-triangle text-warning"></i>
+            <span class="warning-icon-wrapper ms-1" data-bs-toggle="tooltip" 
+                  data-bs-placement="top" title="<strong>Amount Discrepancy:</strong><br>${this.escapeHtml(errorMessage)}"
+                  data-bs-html="true"
+                  data-bs-custom-class="warning-tooltip" id="${tooltipId}"
+                  style="cursor: help; display: inline-block;">
+                <i class="fas fa-exclamation-triangle text-warning" style="font-size: 0.875rem;"></i>
             </span>
         `;
     }
@@ -137,16 +182,63 @@ class FinancialStatements {
         }
     }
 
-    // Initialize Bootstrap tooltips for warning icons
+    // Initialize Bootstrap tooltips for warning icons and yellow dots
     static initializeTooltips() {
-        // Initialize tooltips for all warning icons
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl, {
-                delay: { show: 100, hide: 100 },
-                trigger: 'hover'
+        // Add custom CSS for tooltips
+        const style = document.createElement('style');
+        style.textContent = `
+            .yellow-dot-tooltip .tooltip-inner {
+                background-color: #fff3cd;
+                color: #856404;
+                border: 1px solid #ffeaa7;
+                max-width: 400px;
+                text-align: left;
+                padding: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .yellow-dot-tooltip .tooltip-arrow::before {
+                border-right-color: #ffeaa7;
+            }
+            .warning-tooltip .tooltip-inner {
+                background-color: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+                max-width: 300px;
+                text-align: left;
+                padding: 8px;
+            }
+            .warning-tooltip .tooltip-arrow::before {
+                border-top-color: #f5c6cb;
+            }
+            .yellow-dot-indicator:hover .yellow-dot {
+                transform: scale(1.3);
+                box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+                transition: all 0.2s ease;
+            }
+            .warning-icon-wrapper:hover i {
+                transform: scale(1.2);
+                transition: transform 0.2s ease;
+            }
+            .line-item-with-error {
+                position: relative;
+            }
+            .yellow-dot-indicator {
+                vertical-align: middle;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize tooltips for all warning icons and yellow dots
+        setTimeout(() => {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl, {
+                    delay: { show: 100, hide: 50 },
+                    trigger: 'hover',
+                    html: true
+                });
             });
-        });
+        }, 100);
     }
 
     // Render Statement of Financial Position
@@ -190,7 +282,23 @@ class FinancialStatements {
 
         // Add rows for each line item
         itemsArray.forEach(itemName => {
-            html += `<tr><td><strong>${itemName}</strong></td>`;
+            // Check if this item has any errors/discrepancies in any year
+            let hasErrors = false;
+            let combinedErrors = [];
+            
+            years.forEach(year => {
+                const yearData = data.find(d => d.year === year);
+                const itemData = yearData.line_items.find(i => i.item === itemName);
+                if (itemData && itemData.errors_or_discrepancies && itemData.errors_or_discrepancies.trim() !== '') {
+                    hasErrors = true;
+                    combinedErrors.push(`${year}: ${itemData.errors_or_discrepancies}`);
+                }
+            });
+            
+            // Start row with item name and yellow dot if there are errors
+            const yellowDot = hasErrors ? this.createYellowDotIndicator(combinedErrors.join(' | '), itemName) : '';
+            const rowClass = hasErrors ? 'line-item-with-error' : '';
+            html += `<tr class="${rowClass}"><td class="align-middle"><div class="d-flex align-items-center"><strong>${itemName}</strong>${yellowDot}</div></td>`;
 
             years.forEach(year => {
                 const yearData = data.find(d => d.year === year);
@@ -200,16 +308,19 @@ class FinancialStatements {
                     const warningIcon = this.createWarningIcon(itemData.errors_or_discrepancies);
                     const amountDisplay = itemData.amount === 'Not specified in text' ||
                         itemData.amount === 'Not fully specified' ||
-                        itemData.amount === 'Not calculated' ||
+                        itemData.data === 'Not calculated' ||
                         itemData.amount === 'Previous year amount' ||
-                        itemData.amount.includes('Not specified')
+                        (itemData.amount && itemData.amount.includes && itemData.amount.includes('Not specified'))
                         ? `<span class="text-muted">${itemData.amount}</span>`
                         : Helpers.formatNumber(itemData.amount);
 
-                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
-                    html += `<td class="text-center">${itemData.note || '-'}</td>`;
+                    // Highlight cell if there are errors
+                    const cellClass = itemData.errors_or_discrepancies ? 'table-warning' : '';
+                    
+                    html += `<td class="text-end align-middle ${cellClass}"><div class="d-flex justify-content-end align-items-center">${amountDisplay}${warningIcon}</div></td>`;
+                    html += `<td class="text-center align-middle ${cellClass}">${itemData.note || '-'}</td>`;
                 } else {
-                    html += `<td class="text-end">-</td><td class="text-center">-</td>`;
+                    html += `<td class="text-end align-middle">-</td><td class="text-center align-middle">-</td>`;
                 }
             });
 
@@ -256,7 +367,23 @@ class FinancialStatements {
         html += `</tr></thead><tbody>`;
 
         itemsArray.forEach(itemName => {
-            html += `<tr><td><strong>${itemName}</strong></td>`;
+            // Check if this item has any errors/discrepancies in any year
+            let hasErrors = false;
+            let combinedErrors = [];
+            
+            years.forEach(year => {
+                const yearData = data.find(d => d.year === year);
+                const itemData = yearData.line_items.find(i => i.item === itemName);
+                if (itemData && itemData.errors_or_discrepancies && itemData.errors_or_discrepancies.trim() !== '') {
+                    hasErrors = true;
+                    combinedErrors.push(`${year}: ${itemData.errors_or_discrepancies}`);
+                }
+            });
+            
+            // Start row with item name and yellow dot if there are errors
+            const yellowDot = hasErrors ? this.createYellowDotIndicator(combinedErrors.join(' | '), itemName) : '';
+            const rowClass = hasErrors ? 'line-item-with-error' : '';
+            html += `<tr class="${rowClass}"><td class="align-middle"><div class="d-flex align-items-center"><strong>${itemName}</strong>${yellowDot}</div></td>`;
 
             years.forEach(year => {
                 const yearData = data.find(d => d.year === year);
@@ -268,14 +395,17 @@ class FinancialStatements {
                         itemData.amount === 'Not fully specified' ||
                         itemData.amount === 'Not calculated' ||
                         itemData.amount === 'Previous year amount' ||
-                        itemData.amount.includes('Not specified')
+                        (itemData.amount && itemData.amount.includes && itemData.amount.includes('Not specified'))
                         ? `<span class="text-muted">${itemData.amount}</span>`
                         : Helpers.formatNumber(itemData.amount);
 
-                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
-                    html += `<td class="text-center">${itemData.note || '-'}</td>`;
+                    // Highlight cell if there are errors
+                    const cellClass = itemData.errors_or_discrepancies ? 'table-warning' : '';
+                    
+                    html += `<td class="text-end align-middle ${cellClass}"><div class="d-flex justify-content-end align-items-center">${amountDisplay}${warningIcon}</div></td>`;
+                    html += `<td class="text-center align-middle ${cellClass}">${itemData.note || '-'}</td>`;
                 } else {
-                    html += `<td class="text-end">-</td><td class="text-center">-</td>`;
+                    html += `<td class="text-end align-middle">-</td><td class="text-center align-middle">-</td>`;
                 }
             });
 
@@ -322,7 +452,23 @@ class FinancialStatements {
         html += `</tr></thead><tbody>`;
 
         itemsArray.forEach(itemName => {
-            html += `<tr><td><strong>${itemName}</strong></td>`;
+            // Check if this item has any errors/discrepancies in any year
+            let hasErrors = false;
+            let combinedErrors = [];
+            
+            years.forEach(year => {
+                const yearData = data.find(d => d.year === year);
+                const itemData = yearData.line_items.find(i => i.item === itemName);
+                if (itemData && itemData.errors_or_discrepancies && itemData.errors_or_discrepancies.trim() !== '') {
+                    hasErrors = true;
+                    combinedErrors.push(`${year}: ${itemData.errors_or_discrepancies}`);
+                }
+            });
+            
+            // Start row with item name and yellow dot if there are errors
+            const yellowDot = hasErrors ? this.createYellowDotIndicator(combinedErrors.join(' | '), itemName) : '';
+            const rowClass = hasErrors ? 'line-item-with-error' : '';
+            html += `<tr class="${rowClass}"><td class="align-middle"><div class="d-flex align-items-center"><strong>${itemName}</strong>${yellowDot}</div></td>`;
 
             years.forEach(year => {
                 const yearData = data.find(d => d.year === year);
@@ -334,14 +480,17 @@ class FinancialStatements {
                         itemData.amount === 'Not fully specified' ||
                         itemData.amount === 'Not calculated' ||
                         itemData.amount === 'Previous year amount' ||
-                        itemData.amount.includes('Not specified')
+                        (itemData.amount && itemData.amount.includes && itemData.amount.includes('Not specified'))
                         ? `<span class="text-muted">${itemData.amount}</span>`
                         : Helpers.formatNumber(itemData.amount);
 
-                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
-                    html += `<td class="text-center">${itemData.note || '-'}</td>`;
+                    // Highlight cell if there are errors
+                    const cellClass = itemData.errors_or_discrepancies ? 'table-warning' : '';
+                    
+                    html += `<td class="text-end align-middle ${cellClass}"><div class="d-flex justify-content-end align-items-center">${amountDisplay}${warningIcon}</div></td>`;
+                    html += `<td class="text-center align-middle ${cellClass}">${itemData.note || '-'}</td>`;
                 } else {
-                    html += `<td class="text-end">-</td><td class="text-center">-</td>`;
+                    html += `<td class="text-end align-middle">-</td><td class="text-center align-middle">-</td>`;
                 }
             });
 
@@ -388,7 +537,23 @@ class FinancialStatements {
         html += `</tr></thead><tbody>`;
 
         itemsArray.forEach(itemName => {
-            html += `<tr><td><strong>${itemName}</strong></td>`;
+            // Check if this item has any errors/discrepancies in any year
+            let hasErrors = false;
+            let combinedErrors = [];
+            
+            years.forEach(year => {
+                const yearData = data.find(d => d.year === year);
+                const itemData = yearData.line_items.find(i => i.item === itemName);
+                if (itemData && itemData.errors_or_discrepancies && itemData.errors_or_discrepancies.trim() !== '') {
+                    hasErrors = true;
+                    combinedErrors.push(`${year}: ${itemData.errors_or_discrepancies}`);
+                }
+            });
+            
+            // Start row with item name and yellow dot if there are errors
+            const yellowDot = hasErrors ? this.createYellowDotIndicator(combinedErrors.join(' | '), itemName) : '';
+            const rowClass = hasErrors ? 'line-item-with-error' : '';
+            html += `<tr class="${rowClass}"><td class="align-middle"><div class="d-flex align-items-center"><strong>${itemName}</strong>${yellowDot}</div></td>`;
 
             years.forEach(year => {
                 const yearData = data.find(d => d.year === year);
@@ -400,14 +565,17 @@ class FinancialStatements {
                         itemData.amount === 'Not fully specified' ||
                         itemData.amount === 'Not calculated' ||
                         itemData.amount === 'Previous year amount' ||
-                        itemData.amount.includes('Not specified')
+                        (itemData.amount && itemData.amount.includes && itemData.amount.includes('Not specified'))
                         ? `<span class="text-muted">${itemData.amount}</span>`
                         : Helpers.formatNumber(itemData.amount);
 
-                    html += `<td class="text-end">${amountDisplay}${warningIcon}</td>`;
-                    html += `<td class="text-center">${itemData.note || '-'}</td>`;
+                    // Highlight cell if there are errors
+                    const cellClass = itemData.errors_or_discrepancies ? 'table-warning' : '';
+                    
+                    html += `<td class="text-end align-middle ${cellClass}"><div class="d-flex justify-content-end align-items-center">${amountDisplay}${warningIcon}</div></td>`;
+                    html += `<td class="text-center align-middle ${cellClass}">${itemData.note || '-'}</td>`;
                 } else {
-                    html += `<td class="text-end">-</td><td class="text-center">-</td>`;
+                    html += `<td class="text-end align-middle">-</td><td class="text-center align-middle">-</td>`;
                 }
             });
 
