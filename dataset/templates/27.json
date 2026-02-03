@@ -1,0 +1,145 @@
+{
+  "section_id": "5",
+  "financial_notes_raw_data": {
+    "notes": [
+      {
+        "note_number": "1",
+        "note_title": "Basis of Preparation",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "The financial statements have been prepared in accordance with International Financial Reporting Standards (IFRS)."
+            },
+            {
+              "paragraph": "The statements are presented in US dollars and all values are rounded to the nearest thousand."
+            }
+          ],
+          "tables": [],
+          "subsections": [
+            {
+              "subsection_title": "Going Concern",
+              "content_blocks": [
+                {
+                  "type": "text",
+                  "content": "The directors have assessed the company's ability to continue as a going concern for at least 12 months from the reporting date."
+                }
+              ]
+            }
+          ],
+          "numeric_data": [
+            {
+              "description": "Functional currency",
+              "amount": "USD"
+            }
+          ]
+        },
+        "related_statements": ["All statements"],
+        "page_reference": "15"
+      },
+      {
+        "note_number": "2",
+        "note_title": "Property, Plant and Equipment",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "Property, plant and equipment are stated at cost less accumulated depreciation and impairment losses."
+            }
+          ],
+          "tables": [
+            {
+              "table_title": "Movement in Property, Plant and Equipment",
+              "headers": ["", "Land", "Buildings", "Machinery", "Total"],
+              "rows": [
+                {
+                  "row_label": "Cost at January 1, 2023",
+                  "values": ["5000", "15000", "8000", "28000"]
+                },
+                {
+                  "row_label": "Additions",
+                  "values": ["0", "2000", "1500", "3500"]
+                },
+                {
+                  "row_label": "Disposals",
+                  "values": ["0", "0", "-500", "-500"]
+                },
+                {
+                  "row_label": "Cost at December 31, 2023",
+                  "values": ["5000", "17000", "9000", "31000"]
+                }
+              ],
+              "footnotes": "All amounts in thousands of USD"
+            }
+          ],
+          "subsections": [
+            {
+              "subsection_title": "Depreciation",
+              "content_blocks": [
+                {
+                  "type": "text",
+                  "content": "Depreciation is calculated using the straight-line method over the estimated useful lives."
+                }
+              ]
+            }
+          ],
+          "numeric_data": [
+            {
+              "description": "Useful life - Buildings",
+              "amount": "20-40 years"
+            },
+            {
+              "description": "Useful life - Machinery",
+              "amount": "5-10 years"
+            }
+          ]
+        },
+        "related_statements": ["Statement of Financial Position"],
+        "page_reference": "16-17"
+      },
+      {
+        "note_number": "3",
+        "note_title": "Inventories",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "Inventories are valued at the lower of cost and net realizable value."
+            }
+          ],
+          "tables": [
+            {
+              "table_title": "Inventory Breakdown",
+              "headers": ["Category", "2023", "2022"],
+              "rows": [
+                {
+                  "row_label": "Raw materials",
+                  "values": ["4500", "4200"]
+                },
+                {
+                  "row_label": "Work in progress",
+                  "values": ["3200", "2800"]
+                },
+                {
+                  "row_label": "Finished goods",
+                  "values": ["5100", "4700"]
+                },
+                {
+                  "row_label": "Total",
+                  "values": ["12800", "11700"]
+                }
+              ],
+              "footnotes": "Amounts in thousands of USD"
+            }
+          ],
+          "subsections": [],
+          "numeric_data": [
+            {
+              "description": "Inventory write-down",
+              "amount": "200"
+            }
+          ]
+        },
+        "related_statements": ["Statement of Financial Position"],
+        "page_reference": "18"
+      }
+    ]
+  }
+}
