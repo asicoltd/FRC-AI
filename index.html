@@ -259,6 +259,15 @@
             font-family: 'Courier New', monospace;
             font-weight: bold;
         }
+
+        .year-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -384,6 +393,68 @@
                 </div>
 
                 <!-- Quick Stats -->
+                <div class="row mb-4" id="quickStats" style="display: none;">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card company-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-1">Total Assets</h6>
+                                        <h4 class="mb-0" id="totalAssets">-</h4>
+                                    </div>
+                                    <div class="avatar-sm rounded-circle bg-primary bg-opacity-10">
+                                        <i class="bi bi-building text-primary fs-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card company-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-1">Net Profit</h6>
+                                        <h4 class="mb-0" id="netProfit">-</h4>
+                                    </div>
+                                    <div class="avatar-sm rounded-circle bg-success bg-opacity-10">
+                                        <i class="bi bi-currency-dollar text-success fs-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card company-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-1">Current Ratio</h6>
+                                        <h4 class="mb-0" id="currentRatio">-</h4>
+                                    </div>
+                                    <div class="avatar-sm rounded-circle bg-info bg-opacity-10">
+                                        <i class="bi bi-arrow-left-right text-info fs-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card company-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="text-muted mb-1">Risk Level</h6>
+                                        <h4 class="mb-0" id="riskLevel">-</h4>
+                                    </div>
+                                    <div class="avatar-sm rounded-circle bg-warning bg-opacity-10">
+                                        <i class="bi bi-exclamation-triangle text-warning fs-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Main Tabs -->
                 <ul class="nav nav-tabs" id="mainTabs" role="tablist">
@@ -531,10 +602,7 @@
                                                             <tr>
                                                                 <th>Line Item</th>
                                                                 <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
-                                                                <th>Change (2023-2024)</th>
+                                                                <!-- Year columns will be dynamically added here -->
                                                             </tr>
                                                         </thead>
                                                         <tbody id="balanceSheetBody">
@@ -552,10 +620,7 @@
                                                             <tr>
                                                                 <th>Line Item</th>
                                                                 <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
-                                                                <th>Change (2023-2024)</th>
+                                                                <!-- Year columns will be dynamically added here -->
                                                             </tr>
                                                         </thead>
                                                         <tbody id="incomeStatementBody">
@@ -572,9 +637,7 @@
                                                             <tr>
                                                                 <th>Cash Flow Category</th>
                                                                 <th>Note</th>
-                                                                <th>2024</th>
-                                                                <th>2023</th>
-                                                                <th>2022</th>
+                                                                <!-- Year columns will be dynamically added here -->
                                                             </tr>
                                                         </thead>
                                                         <tbody id="cashFlowBody">
@@ -663,7 +726,6 @@
                                                         <th>Compliance Status</th>
                                                         <th>Requirements Checked</th>
                                                         <th>Issues Identified</th>
-                                                        <th>Risk Level(Demo)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="complianceBody">
@@ -822,7 +884,7 @@
 
         // Format number with commas (FULL NUMBER FORMAT)
         function formatNumber(num) {
-            if (num === null || num === undefined || num === '-') return '-';
+            if (num === null || num === undefined || num === '-' || num === '') return '-';
 
             // Remove any existing commas
             const numStr = num.toString().replace(/,/g, '');
@@ -843,7 +905,7 @@
 
         // Format currency (FULL NUMBERS ONLY - NO B/K/M)
         function formatCurrency(amount) {
-            if (amount === null || amount === undefined || amount === '-') return '-';
+            if (amount === null || amount === undefined || amount === '-' || amount === '') return '-';
 
             // Remove any existing commas
             const numStr = amount.toString().replace(/,/g, '');
@@ -914,6 +976,113 @@
                 default:
                     return 'status-ok';
             }
+        }
+
+        // Add this function to detect available years from data
+        function getAvailableYears(companyData) {
+            const years = new Set();
+            
+            // Check all statement types for available years
+            const statementTypes = [
+                'statement_of_financial_position',
+                'statement_of_profit_or_loss_and_oci',
+                'statement_of_cash_flows'
+            ];
+            
+            statementTypes.forEach(statementType => {
+                const statements = companyData?.financial_statements_raw_data?.[statementType];
+                if (statements && Array.isArray(statements)) {
+                    statements.forEach(item => {
+                        if (item) {
+                            // Check for each year field
+                            const yearFields = [
+                                'current_year_amount',
+                                'prior_year_1_amount',
+                                'prior_year_2_amount',
+                                'prior_year_3_amount'
+                            ];
+                            
+                            yearFields.forEach(field => {
+                                if (item[field] !== undefined && item[field] !== '' && item[field] !== null) {
+                                    // Extract year key from field name
+                                    const yearKey = field.replace('_amount', '');
+                                    years.add(yearKey);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+            
+            // Convert to array and sort by recency
+            const yearOrder = ['current_year', 'prior_year_1', 'prior_year_2', 'prior_year_3'];
+            const availableYears = Array.from(years)
+                .sort((a, b) => yearOrder.indexOf(a) - yearOrder.indexOf(b));
+            
+            return availableYears;
+        }
+
+        // Function to get year label from year key
+        function getYearLabel(yearKey, companyInfo) {
+            // Get current year
+            const currentYear = new Date().getFullYear();
+            
+            // Default mapping
+            const defaultMapping = {
+                'current_year': `${currentYear}`,
+                'prior_year_1': `${currentYear - 1}`,
+                'prior_year_2': `${currentYear - 2}`,
+                'prior_year_3': `${currentYear - 3}`
+            };
+            
+            // If we have financial year end info, use it
+            if (companyInfo && companyInfo.financial_year_end) {
+                const fye = companyInfo.financial_year_end.toLowerCase();
+                
+                // Try to extract year from reporting_years if available
+                if (companyInfo.reporting_years && companyInfo.reporting_years[yearKey]) {
+                    return companyInfo.reporting_years[yearKey];
+                }
+                
+                // Otherwise use financial year end to determine labels
+                if (fye.includes('june')) {
+                    // Financial year ending June
+                    const yearOffset = {
+                        'current_year': 0,
+                        'prior_year_1': -1,
+                        'prior_year_2': -2,
+                        'prior_year_3': -3
+                    }[yearKey] || 0;
+                    
+                    const endYear = currentYear + yearOffset;
+                    return `FY ${endYear-1}-${endYear}`;
+                } else if (fye.includes('december')) {
+                    // Calendar year
+                    const yearOffset = {
+                        'current_year': 0,
+                        'prior_year_1': -1,
+                        'prior_year_2': -2,
+                        'prior_year_3': -3
+                    }[yearKey] || 0;
+                    
+                    return `${currentYear + yearOffset}`;
+                }
+            }
+            
+            return defaultMapping[yearKey] || yearKey.replace('_', ' ').toUpperCase();
+        }
+
+        // Function to get year headers for tables
+        function getYearHeaders(availableYears, companyInfo) {
+            return availableYears.map(yearKey => {
+                const label = getYearLabel(yearKey, companyInfo);
+                return {
+                    key: yearKey,
+                    label: label,
+                    dataKey: `${yearKey}_amount`,
+                    fieldName: `${yearKey}_amount`
+                };
+            });
         }
 
         // Load JSON data
@@ -993,7 +1162,12 @@
                             legal_name: "Sample Company Ltd",
                             industry_sector: "Manufacturing",
                             reporting_currency: "BDT",
-                            financial_year_end: "December 31"
+                            financial_year_end: "December 31",
+                            reporting_years: {
+                                current_year: "2024",
+                                prior_year_1: "2023",
+                                prior_year_2: "2022"
+                            }
                         },
                         financial_statements_raw_data: {
                             statement_of_financial_position: [
@@ -1132,12 +1306,6 @@
                 }
             });
 
-            // Filter application
-            const applyFiltersBtn = document.getElementById('applyFilters');
-            const resetFiltersBtn = document.getElementById('resetFilters');
-            if (applyFiltersBtn) applyFiltersBtn.addEventListener('click', applyFilters);
-            if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetFilters);
-
             // Export button
             const exportBtn = document.getElementById('exportBtn');
             if (exportBtn) exportBtn.addEventListener('click', exportReport);
@@ -1157,6 +1325,10 @@
             }
 
             currentCompany = frcData.companies[companyId];
+            
+            // Determine available years for this company
+            currentCompany.availableYears = getAvailableYears(currentCompany);
+            currentCompany.yearHeaders = getYearHeaders(currentCompany.availableYears, currentCompany.company_info);
 
             updateCompanyHeader();
             updateQuickStats();
@@ -1189,7 +1361,10 @@
             if (companyDescription) {
                 const sector = currentCompany.company_info.industry_sector || 'N/A';
                 const fye = currentCompany.company_info.financial_year_end || 'N/A';
-                companyDescription.textContent = `${sector} - FYE: ${fye}`;
+                const years = currentCompany.availableYears.map(year => 
+                    getYearLabel(year, currentCompany.company_info)
+                ).join(', ');
+                companyDescription.textContent = `${sector} - FYE: ${fye} - Years: ${years}`;
             }
 
             // Update compliance status
@@ -1223,7 +1398,8 @@
             const fsData = currentCompany.financial_statements_raw_data;
 
             // Total Assets (get latest year)
-            if (totalAssetsEl && fsData && fsData.statement_of_financial_position) {
+            if (totalAssetsEl && fsData && fsData.statement_of_financial_position && currentCompany.availableYears.length > 0) {
+                const latestYear = currentCompany.availableYears[0];
                 const balanceSheet = fsData.statement_of_financial_position;
                 const totalAssetItem = balanceSheet.find(item =>
                     item && item.line_item && (
@@ -1232,12 +1408,13 @@
                     )
                 );
                 totalAssetsEl.textContent =
-                    totalAssetItem ? formatCurrency(totalAssetItem.current_year_amount) : '-';
+                    totalAssetItem ? formatCurrency(totalAssetItem[`${latestYear}_amount`]) : '-';
                 totalAssetsEl.className = 'full-number';
             }
 
             // Net Profit
-            if (netProfitEl && fsData && fsData.statement_of_profit_or_loss_and_oci) {
+            if (netProfitEl && fsData && fsData.statement_of_profit_or_loss_and_oci && currentCompany.availableYears.length > 0) {
+                const latestYear = currentCompany.availableYears[0];
                 const incomeStatement = fsData.statement_of_profit_or_loss_and_oci;
                 const netProfitItem = incomeStatement.find(item =>
                     item && item.line_item && (
@@ -1247,15 +1424,18 @@
                     )
                 );
                 netProfitEl.textContent =
-                    netProfitItem ? formatCurrency(netProfitItem.current_year_amount) : '-';
+                    netProfitItem ? formatCurrency(netProfitItem[`${latestYear}_amount`]) : '-';
                 netProfitEl.className = 'full-number';
             }
 
             // Current Ratio
             if (currentRatioEl && currentCompany.phase_2_financial_analysis) {
                 const ratioAnalysis = currentCompany.phase_2_financial_analysis.ratio_analysis;
-                const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio;
-                currentRatioEl.textContent = currentRatio || '-';
+                // Try to get ratio for latest year
+                const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio ||
+                                    ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year_amount?.ratio ||
+                                    'N/A';
+                currentRatioEl.textContent = currentRatio;
             }
 
             // Risk Level
@@ -1293,7 +1473,7 @@
             // Extract revenue and profit data
             const revenueData = [];
             const profitData = [];
-            const years = ['2022', '2023', '2024'];
+            const years = [];
 
             const revItem = incomeStatement.find(item =>
                 item && item.line_item && (
@@ -1309,15 +1489,14 @@
                 )
             );
 
-            // Map years to the correct field names
-            const yearKeys = ['prior_year_2_amount', 'prior_year_1_amount', 'current_year_amount'];
-
-            yearKeys.forEach(key => {
-                const revValue = revItem ? parseFloat(revItem[key] || 0) : 0;
-                const profitValue = profitItem ? parseFloat(profitItem[key] || 0) : 0;
+            currentCompany.yearHeaders.forEach(yearHeader => {
+                const yearKey = yearHeader.key;
+                const revValue = revItem ? parseFloat(revItem[`${yearKey}_amount`] || 0) : 0;
+                const profitValue = profitItem ? parseFloat(profitItem[`${yearKey}_amount`] || 0) : 0;
 
                 revenueData.push(revValue);
                 profitData.push(profitValue);
+                years.push(yearHeader.label);
             });
 
             performanceChart = new Chart(ctx.getContext('2d'), {
@@ -1417,12 +1596,18 @@
             const fsData = currentCompany.financial_statements_raw_data;
             if (!fsData) return;
 
-            let html = '';
-            const years = ['2022', '2023', '2024'];
-            const yearKeys = ['prior_year_2_amount', 'prior_year_1_amount', 'current_year_amount'];
+            // Clear and rebuild header if needed
+            const thead = document.querySelector('#financialSummaryTable thead');
+            if (thead && currentCompany.yearHeaders) {
+                let headerHTML = '<tr><th>Year</th><th>Revenue</th><th>Net Profit</th><th>Total Assets</th><th>Total Liabilities</th><th>Equity</th><th>Current Ratio</th><th>ROA</th></tr>';
+                thead.innerHTML = headerHTML;
+            }
 
-            years.forEach((year, index) => {
-                const yearKey = yearKeys[index];
+            let html = '';
+            
+            currentCompany.yearHeaders.forEach((yearHeader, index) => {
+                const yearKey = yearHeader.key;
+                const yearLabel = yearHeader.label;
 
                 // Get data for each metric
                 const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
@@ -1431,18 +1616,22 @@
                         item.line_item.toLowerCase().includes('interest income')
                     )
                 );
+                
                 const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
                     item && item.line_item && (
                         item.line_item.toLowerCase().includes('profit') ||
                         item.line_item.toLowerCase().includes('net income')
                     )
                 );
+                
                 const assetItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && item.line_item.toLowerCase().includes('total assets')
                 );
+                
                 const liabilityItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
                 );
+                
                 const equityItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && (
                         item.line_item.toLowerCase().includes('equity') ||
@@ -1452,17 +1641,19 @@
 
                 // Calculate ratios
                 const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[year.toLowerCase()]?.ratio || '-';
-                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[year.toLowerCase()]?.percentage || '-';
+                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio || 
+                                   ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
+                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage || 
+                           ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
 
                 html += `
                     <tr>
-                        <td>${year}</td>
-                        <td class="full-number">${revenueItem ? formatCurrency(revenueItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${profitItem ? formatCurrency(profitItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${assetItem ? formatCurrency(assetItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${liabilityItem ? formatCurrency(liabilityItem[yearKey]) : '-'}</td>
-                        <td class="full-number">${equityItem ? formatCurrency(equityItem[yearKey]) : '-'}</td>
+                        <td><span class="year-badge">${yearLabel}</span></td>
+                        <td class="full-number">${revenueItem ? formatCurrency(revenueItem[`${yearKey}_amount`]) : '-'}</td>
+                        <td class="full-number">${profitItem ? formatCurrency(profitItem[`${yearKey}_amount`]) : '-'}</td>
+                        <td class="full-number">${assetItem ? formatCurrency(assetItem[`${yearKey}_amount`]) : '-'}</td>
+                        <td class="full-number">${liabilityItem ? formatCurrency(liabilityItem[`${yearKey}_amount`]) : '-'}</td>
+                        <td class="full-number">${equityItem ? formatCurrency(equityItem[`${yearKey}_amount`]) : '-'}</td>
                         <td>${currentRatio}</td>
                         <td>${roa}</td>
                     </tr>
@@ -1481,7 +1672,7 @@
             updateNotes();
         }
 
-        // Update balance sheet table WITH NOTE NUMBERS
+        // Update balance sheet table WITH DYNAMIC YEARS
         function updateBalanceSheet() {
             const tbody = document.getElementById('balanceSheetBody');
             if (!tbody || !currentCompany) return;
@@ -1492,34 +1683,56 @@
                 return;
             }
 
+            // Update table header with dynamic years
+            const thead = document.querySelector('#balanceSheetTable thead');
+            if (thead && currentCompany.yearHeaders) {
+                let headerHTML = '<tr><th>Line Item</th><th>Note</th>';
+                currentCompany.yearHeaders.forEach(year => {
+                    headerHTML += `<th>${year.label}</th>`;
+                });
+                headerHTML += '<th>Change</th></tr>';
+                thead.innerHTML = headerHTML;
+            }
+
             let html = '';
             balanceSheet.forEach(item => {
                 if (!item) return;
 
-                const current = parseFloat(item.current_year_amount) || 0;
-                const prev = parseFloat(item.prior_year_1_amount) || 0;
-                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
-                const change = calculateChange(current, prev);
                 const noteRef = item.notes_reference;
-
-                html += `
+                let rowHTML = `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
                         <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(current)}</td>
-                        <td class="full-number">${formatCurrency(prev)}</td>
-                        <td class="full-number">${formatCurrency(prev2)}</td>
-                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
-                            ${change !== null ? change + '%' : '-'}
-                        </td>
-                    </tr>
                 `;
+
+                // Add data for each year
+                currentCompany.yearHeaders.forEach((yearHeader, index) => {
+                    const amount = item[`${yearHeader.key}_amount`] || '0';
+                    rowHTML += `<td class="full-number">${formatCurrency(amount)}</td>`;
+                });
+
+                // Calculate change between first two years if available
+                let change = '-';
+                if (currentCompany.yearHeaders.length > 1) {
+                    const currentAmount = parseFloat(item[`${currentCompany.yearHeaders[0].key}_amount`] || 0);
+                    const prevAmount = parseFloat(item[`${currentCompany.yearHeaders[1].key}_amount`] || 0);
+                    change = calculateChange(currentAmount, prevAmount);
+                }
+
+                rowHTML += `
+                    <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
+                        ${change !== null && change !== '-' ? change + '%' : '-'}
+                    </td>
+                `;
+
+                rowHTML += '</tr>';
+                html += rowHTML;
             });
 
             tbody.innerHTML = html;
         }
 
-        // Update income statement table WITH NOTE NUMBERS
+        // Update income statement table WITH DYNAMIC YEARS
         function updateIncomeStatement() {
             const tbody = document.getElementById('incomeStatementBody');
             if (!tbody || !currentCompany) return;
@@ -1530,34 +1743,56 @@
                 return;
             }
 
+            // Update table header with dynamic years
+            const thead = document.querySelector('#incomeStatementTable thead');
+            if (thead && currentCompany.yearHeaders) {
+                let headerHTML = '<tr><th>Line Item</th><th>Note</th>';
+                currentCompany.yearHeaders.forEach(year => {
+                    headerHTML += `<th>${year.label}</th>`;
+                });
+                headerHTML += '<th>Change</th></tr>';
+                thead.innerHTML = headerHTML;
+            }
+
             let html = '';
             incomeStatement.forEach(item => {
                 if (!item) return;
 
-                const current = parseFloat(item.current_year_amount) || 0;
-                const prev = parseFloat(item.prior_year_1_amount) || 0;
-                const prev2 = parseFloat(item.prior_year_2_amount) || 0;
-                const change = calculateChange(current, prev);
                 const noteRef = item.notes_reference;
-
-                html += `
+                let rowHTML = `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
                         <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(current)}</td>
-                        <td class="full-number">${formatCurrency(prev)}</td>
-                        <td class="full-number">${formatCurrency(prev2)}</td>
-                        <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
-                            ${change !== null ? change + '%' : '-'}
-                        </td>
-                    </tr>
                 `;
+
+                // Add data for each year
+                currentCompany.yearHeaders.forEach((yearHeader, index) => {
+                    const amount = item[`${yearHeader.key}_amount`] || '0';
+                    rowHTML += `<td class="full-number">${formatCurrency(amount)}</td>`;
+                });
+
+                // Calculate change between first two years if available
+                let change = '-';
+                if (currentCompany.yearHeaders.length > 1) {
+                    const currentAmount = parseFloat(item[`${currentCompany.yearHeaders[0].key}_amount`] || 0);
+                    const prevAmount = parseFloat(item[`${currentCompany.yearHeaders[1].key}_amount`] || 0);
+                    change = calculateChange(currentAmount, prevAmount);
+                }
+
+                rowHTML += `
+                    <td class="${change > 0 ? 'text-success' : change < 0 ? 'text-danger' : ''}">
+                        ${change !== null && change !== '-' ? change + '%' : '-'}
+                    </td>
+                `;
+
+                rowHTML += '</tr>';
+                html += rowHTML;
             });
 
             tbody.innerHTML = html;
         }
 
-        // Update cash flow table WITH NOTE NUMBERS
+        // Update cash flow table WITH DYNAMIC YEARS
         function updateCashFlow() {
             const tbody = document.getElementById('cashFlowBody');
             if (!tbody || !currentCompany) return;
@@ -1568,21 +1803,36 @@
                 return;
             }
 
+            // Update table header with dynamic years
+            const thead = document.querySelector('#cashFlowTable thead');
+            if (thead && currentCompany.yearHeaders) {
+                let headerHTML = '<tr><th>Cash Flow Category</th><th>Note</th>';
+                currentCompany.yearHeaders.forEach(year => {
+                    headerHTML += `<th>${year.label}</th>`;
+                });
+                headerHTML += '</tr>';
+                thead.innerHTML = headerHTML;
+            }
+
             let html = '';
             cashFlow.forEach(item => {
                 if (!item) return;
 
                 const noteRef = item.notes_reference;
-
-                html += `
+                let rowHTML = `
                     <tr>
                         <td>${item.line_item || 'Unknown'}</td>
                         <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
-                        <td class="full-number">${formatCurrency(item.current_year_amount)}</td>
-                        <td class="full-number">${formatCurrency(item.prior_year_1_amount)}</td>
-                        <td class="full-number">${formatCurrency(item.prior_year_2_amount)}</td>
-                    </tr>
                 `;
+
+                // Add data for each year
+                currentCompany.yearHeaders.forEach(yearHeader => {
+                    const amount = item[`${yearHeader.key}_amount`] || '0';
+                    rowHTML += `<td class="full-number">${formatCurrency(amount)}</td>`;
+                });
+
+                rowHTML += '</tr>';
+                html += rowHTML;
             });
 
             tbody.innerHTML = html;
@@ -1602,9 +1852,17 @@
 
                 let liquidityHtml = '';
                 if (currentRatio) {
+                    // Try to get ratio for current year
+                    let currentRatioValue = 'N/A';
+                    if (currentRatio.calculation?.current_year?.ratio) {
+                        currentRatioValue = currentRatio.calculation.current_year.ratio;
+                    } else if (currentRatio.calculation?.current_year_amount?.ratio) {
+                        currentRatioValue = currentRatio.calculation.current_year_amount.ratio;
+                    }
+                    
                     liquidityHtml += `
                         <div class="mb-2">
-                            <strong>Current Ratio:</strong> ${currentRatio.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Current Ratio:</strong> ${currentRatioValue}
                             <br><small class="text-muted">Benchmark: ${currentRatio.industry_benchmark || 'N/A'}</small>
                         </div>
                     `;
@@ -1612,7 +1870,7 @@
                 if (quickRatio) {
                     liquidityHtml += `
                         <div>
-                            <strong>Quick Ratio:</strong> ${quickRatio.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Quick Ratio:</strong> ${quickRatio.calculation?.current_year?.ratio || quickRatio.calculation?.current_year_amount?.ratio || 'N/A'}
                             <br><small class="text-muted">Benchmark: ${quickRatio.industry_benchmark || 'N/A'}</small>
                         </div>
                     `;
@@ -1631,7 +1889,7 @@
                 if (grossMargin) {
                     profitabilityHtml += `
                         <div class="mb-2">
-                            <strong>Gross Margin:</strong> ${grossMargin.calculation?.current_year?.percentage || 'N/A'}
+                            <strong>Gross Margin:</strong> ${grossMargin.calculation?.current_year?.percentage || grossMargin.calculation?.current_year_amount?.percentage || 'N/A'}
                             <br><small class="text-muted">Industry: ${grossMargin.industry_benchmark || 'N/A'}</small>
                         </div>
                     `;
@@ -1639,14 +1897,14 @@
                 if (roa) {
                     profitabilityHtml += `
                         <div class="mb-2">
-                            <strong>Return on Assets:</strong> ${roa.calculation?.current_year?.percentage || 'N/A'}
+                            <strong>Return on Assets:</strong> ${roa.calculation?.current_year?.percentage || roa.calculation?.current_year_amount?.percentage || 'N/A'}
                         </div>
                     `;
                 }
                 if (roe) {
                     profitabilityHtml += `
                         <div>
-                            <strong>Return on Equity:</strong> ${roe.calculation?.current_year?.percentage || 'N/A'}
+                            <strong>Return on Equity:</strong> ${roe.calculation?.current_year?.percentage || roe.calculation?.current_year_amount?.percentage || 'N/A'}
                         </div>
                     `;
                 }
@@ -1663,7 +1921,7 @@
                 if (debtToEquity) {
                     solvencyHtml += `
                         <div class="mb-2">
-                            <strong>Debt to Equity:</strong> ${debtToEquity.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Debt to Equity:</strong> ${debtToEquity.calculation?.current_year?.ratio || debtToEquity.calculation?.current_year_amount?.ratio || 'N/A'}
                             <br><small class="text-muted">Trend: ${debtToEquity.trend_analysis || 'N/A'}</small>
                         </div>
                     `;
@@ -1671,7 +1929,7 @@
                 if (interestCoverage) {
                     solvencyHtml += `
                         <div>
-                            <strong>Interest Coverage:</strong> ${interestCoverage.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Interest Coverage:</strong> ${interestCoverage.calculation?.current_year?.ratio || interestCoverage.calculation?.current_year_amount?.ratio || 'N/A'}
                             <br><small class="text-muted">Minimum Required: ${interestCoverage.minimum_requirement || 'N/A'}</small>
                         </div>
                     `;
@@ -1689,7 +1947,7 @@
                 if (inventoryTurnover) {
                     efficiencyHtml += `
                         <div class="mb-2">
-                            <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Inventory Turnover:</strong> ${inventoryTurnover.calculation?.current_year?.ratio || inventoryTurnover.calculation?.current_year_amount?.ratio || 'N/A'}
                             <br><small class="text-muted">Days: ${inventoryTurnover.calculation?.current_year?.days || 'N/A'}</small>
                         </div>
                     `;
@@ -1697,7 +1955,7 @@
                 if (assetTurnover) {
                     efficiencyHtml += `
                         <div>
-                            <strong>Asset Turnover:</strong> ${assetTurnover.calculation?.current_year?.ratio || 'N/A'}
+                            <strong>Asset Turnover:</strong> ${assetTurnover.calculation?.current_year?.ratio || assetTurnover.calculation?.current_year_amount?.ratio || 'N/A'}
                             <br><small class="text-muted">Trend: ${assetTurnover.trend_analysis || 'N/A'}</small>
                         </div>
                     `;
@@ -1832,11 +2090,6 @@
                         </td>
                         <td>
                             <small>${(item.material_departures || []).join(', ') || 'None'}</small>
-                        </td>
-                        <td>
-                            <span class="badge ${getRiskClass(item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low')}">
-                                ${item.specific_requirements_checked?.[0]?.concerns?.includes('Critical') ? 'High' : 'Low'}
-                            </span>
                         </td>
                     </tr>
                 `;
@@ -2168,24 +2421,6 @@
             container.innerHTML = html || '<p class="text-muted">No going concern assessment available.</p>';
         }
 
-        // Apply filters
-        function applyFilters() {
-            alert('Filter functionality would be implemented here.');
-        }
-
-        // Reset filters
-        function resetFilters() {
-            const yearFilter = document.getElementById('yearFilter');
-            const riskFilter = document.getElementById('riskFilter');
-            const complianceFilter = document.getElementById('complianceFilter');
-
-            if (yearFilter) yearFilter.value = 'all';
-            if (riskFilter) riskFilter.value = 'all';
-            if (complianceFilter) complianceFilter.value = 'all';
-
-            alert('Filters reset.');
-        }
-
         // Search companies
         function searchCompanies(query) {
             const companyLinks = document.querySelectorAll('[data-company-id]');
@@ -2315,50 +2550,62 @@
 
                     // Create table data
                     const tableData = [
-                        ['Metric', '2024', '2023', '2022', 'YoY Change']
+                        ['Year', 'Revenue', 'Net Profit', 'Total Assets', 'Total Liabilities', 'Equity', 'Current Ratio', 'ROA']
                     ];
 
-                    // Revenue
-                    const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                        item && item.line_item && (
-                            item.line_item.toLowerCase().includes('revenue') ||
-                            item.line_item.toLowerCase().includes('interest income')
-                        )
-                    );
-                    if (revenueItem) {
-                        const rev2024 = revenueItem.current_year_amount || '0';
-                        const rev2023 = revenueItem.prior_year_1_amount || '0';
-                        const rev2022 = revenueItem.prior_year_2_amount || '0';
-                        const change = calculateChange(rev2024, rev2023);
-                        tableData.push(['Revenue', formatNumber(rev2024), formatNumber(rev2023), formatNumber(rev2022), change ? change + '%' : 'N/A']);
-                    }
+                    // Add data for each year
+                    currentCompany.yearHeaders.forEach(yearHeader => {
+                        const yearKey = yearHeader.key;
+                        const yearLabel = yearHeader.label;
 
-                    // Net Profit
-                    const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
-                        item && item.line_item && (
-                            item.line_item.toLowerCase().includes('profit') ||
-                            item.line_item.toLowerCase().includes('net income')
-                        )
-                    );
-                    if (profitItem) {
-                        const profit2024 = profitItem.current_year_amount || '0';
-                        const profit2023 = profitItem.prior_year_1_amount || '0';
-                        const profit2022 = profitItem.prior_year_2_amount || '0';
-                        const change = calculateChange(profit2024, profit2023);
-                        tableData.push(['Net Profit', formatNumber(profit2024), formatNumber(profit2023), formatNumber(profit2022), change ? change + '%' : 'N/A']);
-                    }
+                        // Get data for each metric
+                        const revenueItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
+                            item && item.line_item && (
+                                item.line_item.toLowerCase().includes('revenue') ||
+                                item.line_item.toLowerCase().includes('interest income')
+                            )
+                        );
+                        
+                        const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
+                            item && item.line_item && (
+                                item.line_item.toLowerCase().includes('profit') ||
+                                item.line_item.toLowerCase().includes('net income')
+                            )
+                        );
+                        
+                        const assetItem = fsData.statement_of_financial_position?.find(item =>
+                            item && item.line_item && item.line_item.toLowerCase().includes('total assets')
+                        );
+                        
+                        const liabilityItem = fsData.statement_of_financial_position?.find(item =>
+                            item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
+                        );
+                        
+                        const equityItem = fsData.statement_of_financial_position?.find(item =>
+                            item && item.line_item && (
+                                item.line_item.toLowerCase().includes('equity') ||
+                                item.line_item.toLowerCase().includes('shareholders equity')
+                            )
+                        );
 
-                    // Total Assets
-                    const assetItem = fsData.statement_of_financial_position?.find(item =>
-                        item && item.line_item && item.line_item.toLowerCase().includes('total assets')
-                    );
-                    if (assetItem) {
-                        const asset2024 = assetItem.current_year_amount || '0';
-                        const asset2023 = assetItem.prior_year_1_amount || '0';
-                        const asset2022 = assetItem.prior_year_2_amount || '0';
-                        const change = calculateChange(asset2024, asset2023);
-                        tableData.push(['Total Assets', formatNumber(asset2024), formatNumber(asset2023), formatNumber(asset2022), change ? change + '%' : 'N/A']);
-                    }
+                        // Calculate ratios
+                        const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
+                        const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio || 
+                                           ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
+                        const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage || 
+                                   ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
+
+                        tableData.push([
+                            yearLabel,
+                            revenueItem ? formatNumber(revenueItem[`${yearKey}_amount`]) : '-',
+                            profitItem ? formatNumber(profitItem[`${yearKey}_amount`]) : '-',
+                            assetItem ? formatNumber(assetItem[`${yearKey}_amount`]) : '-',
+                            liabilityItem ? formatNumber(liabilityItem[`${yearKey}_amount`]) : '-',
+                            equityItem ? formatNumber(equityItem[`${yearKey}_amount`]) : '-',
+                            currentRatio,
+                            roa
+                        ]);
+                    });
 
                     // Add table to PDF
                     doc.autoTable({

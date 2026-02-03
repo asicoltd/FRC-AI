@@ -5964,6 +5964,913 @@
             ]
           }
         }
+      },
+      "envoy-design-limited": {
+        "company_info": {
+          "legal_name": "Envoy Design Limited",
+          "trade_name": "Envoy Design Limited",
+          "registration_number": "Incorporated under Companies Act 1994 (Private company limited by shares, incorporated on November 03, 2004)",
+          "industry_sector": "100% Export-Oriented Readymade Garments Manufacturer",
+          "stock_exchange_symbol": "Not Disclosed (Likely a private company)",
+          "reporting_currency": "Bangladeshi Taka (BDT)",
+          "financial_year_end": "June 30",
+          "report_publication_date": "03-01-2024",
+          "analysis_summary": "Envoy Design Limited is a private, 100% export-oriented garments manufacturer in Bangladesh. The company shows profitable operations with a clean, unqualified audit opinion for FY 2022-23. There is a significant intercompany balance structure."
+        },
+        "financial_statements_raw_data": {
+          "statement_of_financial_position": [
+            {
+              "line_item": "Property, Plant and Equipment",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "8160338",
+              "prior_year_1_amount": "Not explicitly stated in provided pages",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "Anx-2",
+              "custom_additional_info": {
+                "cost_less_accumulated_depreciation": true
+              }
+            },
+            {
+              "line_item": "Investment in Shares",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "526750",
+              "prior_year_1_amount": "526750",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "06",
+              "custom_additional_info": {
+                "investment_in": "Envoy Garments Ltd. (52,675 shares)"
+              }
+            },
+            {
+              "line_item": "Total Non-current Assets",
+              "classification": "Asset",
+              "sub_classification": "Non-Current",
+              "current_year_amount": "8687088",
+              "prior_year_1_amount": "Not explicitly stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Advance, Deposit & Prepayments",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "34645272",
+              "prior_year_1_amount": "40528644",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "09",
+              "custom_additional_info": {
+                "composition": "Includes advances (e.g., salary, transport, bank guarantee) and substantial advance tax/VAT (TDS on export proceeds/incentive)"
+              }
+            },
+            {
+              "line_item": "Stock of Fabrics & Accessories",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "388179875",
+              "prior_year_1_amount": "490668958",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "07",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Stock of Work in process",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "49895850",
+              "prior_year_1_amount": "60010450",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Bills Receivable",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "92404625",
+              "prior_year_1_amount": "167442112",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "10",
+              "custom_additional_info": {
+                "major_debtors": "Haggar Clothing Company, AEO Management Co., American Eagle entities"
+              }
+            },
+            {
+              "line_item": "Inter Company Account (Debit)",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "352777638",
+              "prior_year_1_amount": "270123638",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "14",
+              "custom_additional_info": {
+                "related_parties": "Includes Armour Garments Ltd., Envoy Garments Ltd., Fontina Fashions Ltd., etc."
+              }
+            },
+            {
+              "line_item": "Cash and Cash Equivalents",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "102846451",
+              "prior_year_1_amount": "38916672",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "08",
+              "custom_additional_info": {
+                "composition": "Cash in hand and balances with multiple banks (National Bank, Agrani Bank, Premier Bank, Prime Bank, Dutch-Bangla Bank, etc.)"
+              }
+            },
+            {
+              "line_item": "Total Current Assets",
+              "classification": "Asset",
+              "sub_classification": "Current",
+              "current_year_amount": "1020749712",
+              "prior_year_1_amount": "Not explicitly stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Assets",
+              "classification": "Asset",
+              "sub_classification": "Total",
+              "current_year_amount": "1029436800",
+              "prior_year_1_amount": "Not explicitly stated in balance sheet",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Share Capital",
+              "classification": "Equity",
+              "sub_classification": "Capital",
+              "current_year_amount": "500000",
+              "prior_year_1_amount": "500000",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "05",
+              "custom_additional_info": {
+                "authorized_capital": "10,000,000 ordinary shares of Tk. 10 each",
+                "paid_up_capital": "50,000 ordinary shares of Tk. 10 each fully paid",
+                "major_shareholders": "Sharmin Holdings Ltd. (50%), Mr. Abdus Salam Murshedy (20%), Family members"
+              }
+            },
+            {
+              "line_item": "Retained Profit/(Loss)",
+              "classification": "Equity",
+              "sub_classification": "Reserve",
+              "current_year_amount": "-428213126",
+              "prior_year_1_amount": "-378462533",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {
+                "note": "Negative balance indicates accumulated losses exceeding share capital"
+              }
+            },
+            {
+              "line_item": "Total Equity",
+              "classification": "Equity",
+              "sub_classification": "Total",
+              "current_year_amount": "428713126",
+              "prior_year_1_amount": "378962533",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Trade & Other Payable",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "30484853",
+              "prior_year_1_amount": "48976322",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "12",
+              "custom_additional_info": {
+                "breakdown": "Trade Payables (21,110,345), Liabilities for Expenses (9,265,508), Liabilities for Other Finance (109,000)"
+              }
+            },
+            {
+              "line_item": "Inter Company Account (Credit)",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "293130847",
+              "prior_year_1_amount": "303816001",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "13",
+              "custom_additional_info": {
+                "related_parties": "Envoy Fashions Ltd., Epoch Garments Ltd., Sharmin Holding Ltd., etc."
+              }
+            },
+            {
+              "line_item": "Short-Term Borrowings",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "233595363",
+              "prior_year_1_amount": "295643040",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "11",
+              "custom_additional_info": {
+                "lenders": "Agrani Bank Ltd. (CC, PC), Prime Bank Ltd. (PC, STL, TL)"
+              }
+            },
+            {
+              "line_item": "Loan from Director",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "10000000",
+              "prior_year_1_amount": "Not stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Provision for Income Tax",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "33512611",
+              "prior_year_1_amount": "Not stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "19",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Current Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Current",
+              "current_year_amount": "600723674",
+              "prior_year_1_amount": "Not explicitly stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Liabilities",
+              "classification": "Liability",
+              "sub_classification": "Total",
+              "current_year_amount": "600723674",
+              "prior_year_1_amount": "Not explicitly stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Total Equity and Liabilities",
+              "classification": "Equity",
+              "sub_classification": "Total",
+              "current_year_amount": "1029436800",
+              "prior_year_1_amount": "Not explicitly stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_profit_or_loss_and_oci": [
+            {
+              "line_item": "Revenue (Export Sales)",
+              "classification": "Revenue",
+              "current_year_amount": "1840165807",
+              "prior_year_1_amount": "1328584168",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "A",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Cost of Goods Sold",
+              "classification": "Expense",
+              "current_year_amount": "1655944850",
+              "prior_year_1_amount": "1176543982",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "B, Anx-1",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Gross Profit",
+              "classification": "Profit/Loss",
+              "current_year_amount": "184220957",
+              "prior_year_1_amount": "152040186",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "C",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Operating Expenses (Administrative & General)",
+              "classification": "Expense",
+              "current_year_amount": "84377867",
+              "prior_year_1_amount": "79609558",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "D, 15",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Profit from Operation",
+              "classification": "Profit/Loss",
+              "current_year_amount": "99843090",
+              "prior_year_1_amount": "72430629",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "E",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Finance Cost",
+              "classification": "Expense",
+              "current_year_amount": "40429392",
+              "prior_year_1_amount": "21335684",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "F, 16",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Profit after Financial Expenses",
+              "classification": "Profit/Loss",
+              "current_year_amount": "59413698",
+              "prior_year_1_amount": "51094945",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Add: Interest Income",
+              "classification": "Revenue",
+              "current_year_amount": "58219",
+              "prior_year_1_amount": "152327",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Add: Export Incentive",
+              "classification": "Revenue",
+              "current_year_amount": "10311000",
+              "prior_year_1_amount": "5472000",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Profit before tax",
+              "classification": "Profit/Loss",
+              "current_year_amount": "69782917",
+              "prior_year_1_amount": "56719272",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Less: Provision for Income Tax",
+              "classification": "Expense",
+              "current_year_amount": "20032324",
+              "prior_year_1_amount": "6728023",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "19",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Net profit",
+              "classification": "Profit/Loss",
+              "current_year_amount": "49750593",
+              "prior_year_1_amount": "49991249",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "",
+              "custom_additional_info": {}
+            }
+          ],
+          "statement_of_cash_flows": [],
+          "statement_of_cost_of_goods_manufactured": [
+            {
+              "line_item": "Direct Materials Consumption (Fabrics & Accessories)",
+              "classification": "Expense",
+              "current_year_amount": "1271143558",
+              "prior_year_1_amount": "990333917",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "A",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Direct Labor",
+              "classification": "Expense",
+              "current_year_amount": "340212840",
+              "prior_year_1_amount": "Not stated for 2022",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "B, 17",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Prime Cost",
+              "classification": "Expense",
+              "current_year_amount": "1611356398",
+              "prior_year_1_amount": "Not stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "C",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Factory Overhead",
+              "classification": "Expense",
+              "current_year_amount": "34473852",
+              "prior_year_1_amount": "Not stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "D, 18",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Manufacturing Cost",
+              "classification": "Expense",
+              "current_year_amount": "1645830250",
+              "prior_year_1_amount": "Not stated",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "E",
+              "custom_additional_info": {}
+            },
+            {
+              "line_item": "Cost of Goods Manufactured/Sold",
+              "classification": "Expense",
+              "current_year_amount": "1655944850",
+              "prior_year_1_amount": "1176543982",
+              "prior_year_2_amount": "",
+              "prior_year_3_amount": "",
+              "notes_reference": "F",
+              "custom_additional_info": {}
+            }
+          ]
+        },
+        "phase_1_foundational_checks": {
+          "reporting_framework": {
+            "disclosed_framework": "International Financial Reporting Standards (IFRSs)",
+            "disclosed_in_notes": "Notes 03 (Basis of Preparation) and Independent Auditors' Report",
+            "actual_standards_applied": [
+              "IAS 1",
+              "IAS 2",
+              "IAS 16",
+              "IAS 18",
+              "IAS 21",
+              "IFRSs as adopted by ICAB"
+            ],
+            "discrepancies_identified": [
+              "None - Clean audit opinion issued"
+            ],
+            "compliance_assessment": "Fully Compliant with IFRS (as stated in audit opinion)"
+          },
+          "regulatory_landscape": {
+            "applicable_regulators": [
+              {
+                "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant",
+                "specific_disclosures_found": [
+                  "Incorporation details disclosed",
+                  "Share capital structure disclosed"
+                ]
+              },
+              {
+                "regulator_name": "National Board of Revenue (NBR)",
+                "jurisdiction": "Bangladesh",
+                "compliance_status": "Compliant",
+                "specific_disclosures_found": [
+                  "Provision for income tax disclosed (Note 19)",
+                  "Advance tax and TDS details disclosed (Note 09)"
+                ]
+              }
+            ],
+            "regulatory_filings_status": {
+              "sec_filed": "Not Applicable (likely private company)",
+              "sec_filing_date": "N/A",
+              "tax_return_filed": "Implied from tax provision and advances",
+              "tax_return_date": "Not specified",
+              "rjsccompliance": true,
+              "bb_compliance": "Not Applicable (Non-banking company)"
+            },
+            "overall_regulatory_assessment": "Good Compliance - No regulatory non-compliances identified in the report"
+          }
+        },
+        "phase_2_financial_analysis": {
+          "ratio_analysis": {
+            "profitability_ratios": {
+              "return_on_assets": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "49750593",
+                    "average_total_assets": "1029436800",
+                    "percentage": "4.83%"
+                  }
+                },
+                "trend_analysis": "Positive return on assets",
+                "risk_assessment": "Low"
+              },
+              "return_on_equity": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "49750593",
+                    "average_equity": "403837829.5",
+                    "percentage": "12.32%"
+                  }
+                },
+                "trend_analysis": "Strong return on equity despite accumulated losses",
+                "risk_assessment": "Low"
+              },
+              "gross_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "gross_profit": "184220957",
+                    "revenue": "1840165807",
+                    "percentage": "10.01%"
+                  },
+                  "prior_year_1": {
+                    "gross_profit": "152040186",
+                    "revenue": "1328584168",
+                    "percentage": "11.44%"
+                  }
+                },
+                "trend_analysis": "Slight decline in gross margin, but remains healthy",
+                "risk_assessment": "Low"
+              },
+              "net_profit_margin": {
+                "calculation": {
+                  "current_year": {
+                    "net_profit": "49750593",
+                    "revenue": "1840165807",
+                    "percentage": "2.70%"
+                  },
+                  "prior_year_1": {
+                    "net_profit": "49991249",
+                    "revenue": "1328584168",
+                    "percentage": "3.76%"
+                  }
+                },
+                "trend_analysis": "Decline in net profit margin despite revenue growth",
+                "risk_assessment": "Moderate"
+              }
+            },
+            "liquidity_ratios": {
+              "current_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "current_assets": "1020749712",
+                    "current_liabilities": "600723674",
+                    "ratio": "1.70"
+                  }
+                },
+                "trend_analysis": "Strong current ratio (>1.5)",
+                "risk_assessment": "Low - Excellent short-term liquidity"
+              },
+              "quick_ratio": {
+                "calculation": {
+                  "current_year": {
+                    "current_assets_excluding_inventory": "1020749712 - (388179875 + 49895850) = 582675987",
+                    "current_liabilities": "600723674",
+                    "ratio": "0.97"
+                  }
+                },
+                "trend_analysis": "Quick ratio near 1.0",
+                "risk_assessment": "Moderate - Reliant on inventory conversion for full liquidity"
+              }
+            },
+            "solvency_ratios": {
+              "debt_to_equity": {
+                "calculation": {
+                  "current_year": {
+                    "total_liabilities": "600723674",
+                    "total_equity": "428713126",
+                    "ratio": "1.40"
+                  }
+                },
+                "trend_analysis": "Moderate leverage",
+                "risk_assessment": "Moderate"
+              },
+              "debt_to_assets": {
+                "calculation": {
+                  "current_year": {
+                    "total_liabilities": "600723674",
+                    "total_assets": "1029436800",
+                    "percentage": "58.35%"
+                  }
+                },
+                "trend_analysis": "More than half of assets financed by debt",
+                "risk_assessment": "Moderate"
+              }
+            },
+            "efficiency_ratios": {
+              "inventory_turnover": {
+                "calculation": {
+                  "current_year": {
+                    "cogs": "1655944850",
+                    "average_inventory": "(388179875 + 49895850 + 490668958) / 2? Not fully comparable due to WIP inclusion. Approx using Fabrics stock only: (388179875 + 490668958)/2 = 439424416.5",
+                    "ratio": "3.77"
+                  }
+                },
+                "trend_analysis": "Inventory turnover appears reasonable for manufacturing",
+                "risk_assessment": "Low"
+              }
+            }
+          }
+        },
+        "phase_3_ifrs_compliance_detailed": {
+          "detailed_ifrs_compliance_matrix": [
+            {
+              "standard_code": "IAS 1",
+              "standard_name": "Presentation of Financial Statements",
+              "applicability": "Yes",
+              "page_reference": "Throughout, Note 03 & 04",
+              "compliance_status": "Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Fair presentation and compliance with IFRS",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Auditor's Unqualified Opinion",
+                  "concerns": "Financial statements give a true and fair view per IFRS"
+                },
+                {
+                  "requirement": "Going concern basis",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Auditor's Report & Note 03",
+                  "concerns": "Prepared on a going concern basis, no material uncertainty noted by auditor"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Financial statements properly presented"
+            },
+            {
+              "standard_code": "IAS 2",
+              "standard_name": "Inventories",
+              "applicability": "Yes",
+              "page_reference": "Note 04(d)",
+              "compliance_status": "Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Measurement and disclosure",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 04(d), Balance Sheet, Note 07",
+                  "concerns": "Inventories (Fabrics, Accessories, WIP) disclosed and valued at weighted average cost"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Inventory accounting policy disclosed and applied"
+            },
+            {
+              "standard_code": "IAS 16",
+              "standard_name": "Property, Plant and Equipment",
+              "applicability": "Yes",
+              "page_reference": "Note 04(b),(c)",
+              "compliance_status": "Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Measurement at cost less depreciation",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 04(b), Schedule Anx-2",
+                  "concerns": "Fixed assets stated at historical cost less accumulated depreciation"
+                },
+                {
+                  "requirement": "Depreciation method and rates disclosed",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 04(c)",
+                  "concerns": "Reducing balance method used with disclosed rates for each asset class"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "PPE accounting policy compliant"
+            },
+            {
+              "standard_code": "IAS 18",
+              "standard_name": "Revenue",
+              "applicability": "Yes",
+              "page_reference": "Note 04(f)",
+              "compliance_status": "Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Revenue recognition policy",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 04(f)",
+                  "concerns": "Revenue recognized on delivery of goods to customer (Export Sales)"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Revenue recognition policy appropriate for business"
+            },
+            {
+              "standard_code": "IAS 21",
+              "standard_name": "The Effects of Changes in Foreign Exchange Rates",
+              "applicability": "Yes",
+              "page_reference": "Note 04(g)",
+              "compliance_status": "Compliant",
+              "specific_requirements_checked": [
+                {
+                  "requirement": "Foreign currency transaction translation",
+                  "compliance_status": "Compliant",
+                  "evidence_location": "Note 04(g)",
+                  "concerns": "Transactions at transaction date rate, monetary items at balance sheet date rate"
+                }
+              ],
+              "material_departures": [],
+              "ias_1_para_19_24_implication": "Policy for foreign currency transactions disclosed"
+            }
+          ],
+          "overall_assessment": {
+            "compliance_rating": "Fully Compliant",
+            "key_strengths": [
+              "Clean, unqualified audit opinion",
+              "Clear disclosure of significant accounting policies",
+              "Preparation in accordance with IFRSs as confirmed by auditor"
+            ],
+            "areas_for_enhancement": [
+              "More detailed notes on certain estimates and judgments (e.g., inventory NRV, provision for taxation)",
+              "Consolidated financial statements might be relevant given significant intercompany dealings, but not required if not a group"
+            ],
+            "material_non_compliance": [],
+            "audit_verification_level": "Audit conducted in accordance with International Standards on Auditing (ISAs)"
+          },
+          "regulatory_alignment": {
+            "bangladesh_bank_guidelines": "Not Applicable (Non-banking company)",
+            "basel_iii_requirements": "Not Applicable",
+            "bsec_requirements": "Likely Not Applicable (Private Company)",
+            "conflicts_resolution": "IFRS adopted by ICAB (Bangladesh Accounting Standards) applied"
+          }
+        },
+        "phase_4_audit_governance_verification": {
+          "audit_report_analysis": {
+            "auditor_information": {
+              "firm_name": "Azad Abul Kalam & Co. Chartered Accountants",
+              "firm_registration_number": "FRC Enlistment Number: CAF-001-016",
+              "audit_tenure_years": "Not specified",
+              "rotation_compliance": "Not specified",
+              "independence_declaration": "Confirmed in audit report ('We are independent of the company...')",
+              "professional_certification": "FCA (Abul Kalam Azad, Managing Partner), Enrolment Number: 184",
+              "quality_control": "Audit conducted in accordance with International Standards on Auditing (ISAs)"
+            },
+            "audit_opinion": {
+              "opinion_type": "Unqualified Opinion",
+              "opinion_year": 2023,
+              "basis_for_opinion": [
+                "Audit conducted in accordance with ISAs",
+                "Sufficient appropriate audit evidence obtained",
+                "Auditors are independent and fulfilled ethical responsibilities"
+              ],
+              "modified_opinion_reasons": [],
+              "emphasis_of_matter_paragraphs": [],
+              "material_uncertainty_paragraphs": [],
+              "going_concern_assessment": "No material uncertainty regarding going concern identified"
+            },
+            "key_audit_matters": []
+          },
+          "audit_scope_and_methodology": {
+            "audit_approach": "Risk-based audit as per ISAs",
+            "materiality_level": "Not explicitly quantified in provided pages",
+            "sample_selection_methodology": "Not specified",
+            "coverage_extent": "Standard audit of financial statements",
+            "audit_hours": {
+              "2023": "Not specified"
+            },
+            "use_of_experts": "Not specified",
+            "analytical_procedures": "Implied as part of ISA compliance",
+            "substantive_testing": "Implied as part of ISA compliance"
+          },
+          "governance_assessment": {
+            "board_oversight": {
+              "audit_committee": {
+                "existence": "Not disclosed",
+                "effectiveness": "Not applicable",
+                "meeting_frequency": "Not applicable",
+                "independence": "Not applicable"
+              },
+              "risk_committee": {
+                "existence": "Not disclosed",
+                "effectiveness": "Not applicable",
+                "risk_coverage": "Not applicable"
+              }
+            },
+            "internal_audit_function": {
+              "existence": "Not disclosed",
+              "coordination_with_external_audit": "Not disclosed",
+              "coverage": "Not disclosed"
+            },
+            "internal_controls": {
+              "control_environment": "Management responsible for internal control per auditor's report; no weaknesses reported",
+              "risk_assessment_process": "Not disclosed in detail",
+              "control_activities": "Implied effective as financial statements are free from material misstatement",
+              "information_and_communication": "Adequate for financial reporting",
+              "monitoring_activities": "Not disclosed in detail"
+            }
+          },
+          "regulatory_compliance": {
+            "bangladesh_standards_on_auditing": "ISA applied as per report",
+            "international_standards_on_auditing": "Applied as stated in audit report",
+            "bangladesh_bank_requirements": "Not Applicable",
+            "ifac_code_of_ethics": "Complied with as stated in audit report",
+            "quality_control_standards": "Implied through ISA compliance and firm's FRC enlistment"
+          },
+          "fraud_consideration": {
+            "fraud_risk_assessment": "Implied as part of ISA audit; risk of fraud higher than error noted in report",
+            "management_override_testing": "Implied as part of audit procedures",
+            "fraud_identified": "None reported",
+            "whistleblower_procedures": "Not disclosed"
+          },
+          "going_concern_assessment": {
+            "auditor_assessment": "No material uncertainty exists (implied from unqualified opinion without going concern emphasis)",
+            "management_assessment": "Going concern basis used in preparation (Note 03)",
+            "key_factors_considered": [
+              "Profitable operations",
+              "Positive equity despite accumulated losses",
+              "Clean audit opinion"
+            ],
+            "period_assessed": "At least 12 months from reporting date (implied)"
+          },
+          "frc_assessment_conclusion": {
+            "overall_audit_quality": "Satisfactory - Unqualified opinion appropriately issued by a FRC-enlisted firm",
+            "key_strengths": [
+              "Clear audit report structure",
+              "Compliance with ISAs declared",
+              "Independence confirmed"
+            ],
+            "areas_for_monitoring": [],
+            "regulatory_follow_up_required": "No",
+            "recommendations": [],
+            "final_assessment": "Satisfactory - Audit conducted and reported appropriately, providing unqualified opinion on financial statements"
+          }
+        },
+        "phase_5_synthesis_and_findings": {
+          "overall_assessment": {
+            "fairness_of_view": "True and Fair Presentation (per Auditor's Opinion)",
+            "compliance_level": "High",
+            "reliability_score": "High",
+            "transparency_rating": "Medium-High",
+            "key_strengths": [
+              "Clean, unqualified audit opinion",
+              "Profitable operations with growing revenue",
+              "Strong current ratio indicating good liquidity",
+              "Clear disclosure of significant accounting policies",
+              "Preparation and audit in line with international standards (IFRS & ISA)"
+            ],
+            "critical_issues": [
+              {
+                "issue": "Significant Accumulated Losses retained in equity (-428 million Tk)",
+                "priority": "Medium",
+                "regulatory_implication": "No direct breach, but indicates historical losses exceeding capital. Requires sustainable profitability.",
+                "deadline_for_action": "Ongoing"
+              },
+              {
+                "issue": "High Level of Intercompany Balances (Both Receivable 353m and Payable 293m)",
+                "priority": "Medium",
+                "regulatory_implication": "Related party transactions are disclosed. Risk lies in recoverability/payability and arm's length nature. Requires robust internal group policies.",
+                "deadline_for_action": "Ongoing monitoring and settlement"
+              },
+              {
+                "issue": "Substantial Short-Term Borrowings (234m Tk) and Finance Cost increase (from 21m to 40m Tk)",
+                "priority": "Medium",
+                "regulatory_implication": "Increased interest burden affecting net profit margin. Requires prudent debt management.",
+                "deadline_for_action": "Ongoing"
+              },
+              {
+                "issue": "Large Advances for Tax (TDS etc.) of ~34m Tk, indicating complex tax compliance and potential cash tied up",
+                "priority": "Low",
+                "regulatory_implication": "Normal for export business, but efficiency in tax credit realization can be monitored.",
+                "deadline_for_action": "Regular reconciliation with tax authorities"
+              },
+              {
+                "issue": "Concentration in Export Sales (single revenue stream)",
+                "priority": "Low-Medium",
+                "regulatory_implication": "Business model risk, not regulatory. Subject to global demand and trade policies.",
+                "deadline_for_action": "Ongoing market diversification assessment"
+              }
+            ]
+          }
+        }
       }
     }
   }
