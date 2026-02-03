@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "23",
+  "frc_analysis_report": {
+    "entity": {
+      "professional_skepticism_application": {
+        "management_assertions_challenged": [
+          {
+            "assertion_area": "IFRS Compliance",
+            "management_claim": "Financial statements prepared in accordance with IFRS",
+            "evidence_sought": "Accounting policy references to current IFRS standards",
+            "evidence_found": "References to outdated IAS 18, no IFRS 15, 9, 16 adoption",
+            "corroboration_level": "Low",
+            "skeptical_conclusion": "Claim questionable - not fully IFRS compliant"
+          },
+          {
+            "assertion_area": "Related Party Transactions",
+            "management_claim": "Disclosed per requirements",
+            "evidence_sought": "Complete IAS 24 disclosures including terms, conditions, business rationale",
+            "evidence_found": "Amounts only, no substantive disclosures",
+            "corroboration_level": "Low",
+            "skeptical_conclusion": "Disclosures inadequate, transactions not fully transparent"
+          }
+        ],
+        "accounting_policy_questioning": [
+          {
+            "policy_area": "Revenue Recognition",
+            "policy_applied": "IAS 18 - recognition on delivery",
+            "alternative_treatment": "IFRS 15 five-step model",
+            "justification_provided": "None for using outdated standard",
+            "skeptical_assessment": "Unjustified - should adopt current IFRS",
+            "recommendation": "Immediate adoption of IFRS 15"
+          }
+        ],
+        "disclosure_adequacy_assessment": [
+          {
+            "disclosure_area": "Related Party Transactions",
+            "information_provided": "Amounts only",
+            "missing_information": "Nature of relationships, terms, conditions, business rationale",
+            "transparency_level": "Low",
+            "materiality_assessment": "High - 63% of assets",
+            "improvement_suggested": "Complete IAS 24 disclosures"
+          }
+        ],
+        "overall_skepticism_applied": {
+          "areas_of_high_concern": ["IFRS compliance", "Related party disclosures", "Tax positions"],
+          "areas_of_moderate_concern": ["Revenue recognition", "Inventory valuation", "Going concern assessment"],
+          "areas_of_low_concern": ["Basic numerical accuracy", "Fixed asset accounting", "Bank reconciliation"],
+          "skepticism_conclusion": "High degree of skepticism warranted due to significant compliance gaps and incomplete disclosures"
+        }
+      }
+    }
+  }
+}

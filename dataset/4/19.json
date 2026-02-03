@@ -1,0 +1,82 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "19",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "enhanced_ratio_analysis": {
+          "liquidity_ratios": {
+            "current_ratio": {
+              "2023": 1.70,
+              "2022": 1.30,
+              "industry_benchmark": 1.50,
+              "assessment": "Adequate, improving"
+            },
+            "quick_ratio_acid_test": {
+              "2023": 0.95,
+              "2022": 0.72,
+              "industry_benchmark": 1.00,
+              "assessment": "Below benchmark but improving"
+            }
+          },
+          "efficiency_ratios": {
+            "days_of_inventory": {
+              "2023": 85.6,
+              "2022": 152.2,
+              "industry_benchmark": 90,
+              "assessment": "Improved significantly, now reasonable"
+            },
+            "days_sales_outstanding": {
+              "2023": 18.3,
+              "2022": 46.0,
+              "industry_benchmark": 45,
+              "assessment": "Excellent improvement, well managed"
+            },
+            "asset_turnover": {
+              "2023": 1.79,
+              "2022": 1.36,
+              "industry_benchmark": 1.50,
+              "assessment": "Good, above benchmark"
+            }
+          },
+          "solvency_coverage_ratios": {
+            "debt_to_equity": {
+              "2023": 1.40,
+              "2022": 1.58,
+              "industry_benchmark": 1.00,
+              "assessment": "High but improving"
+            },
+            "interest_coverage_ratio": {
+              "2023": 2.47,
+              "2022": 3.40,
+              "industry_benchmark": 3.00,
+              "assessment": "Deteriorated, below benchmark"
+            }
+          },
+          "profitability_ratios": {
+            "return_on_assets_roa": {
+              "2023": 4.83,
+              "2022": 5.89,
+              "industry_benchmark": 6.00,
+              "assessment": "Below benchmark, declining"
+            },
+            "return_on_equity_roe": {
+              "2023": 11.61,
+              "2022": 13.18,
+              "industry_benchmark": 15.00,
+              "assessment": "Below benchmark, declining"
+            },
+            "net_profit_margin": {
+              "2023": 2.70,
+              "2022": 3.76,
+              "industry_benchmark": 5.00,
+              "assessment": "Poor, deteriorating"
+            }
+          },
+          "overall_ratio_assessment_summary": "Mixed performance - improving liquidity and efficiency but deteriorating profitability and interest coverage. High leverage remains a concern."
+        }
+      }
+    }
+  }
+}

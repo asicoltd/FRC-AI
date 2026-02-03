@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "20",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "standard_by_standard_verification": {
+          "ias_8_compliance_check": {
+            "accounting_policy_hierarchy": {
+              "hierarchy_applied": "Partially",
+              "departures_from_ifrs": ["IAS 18 instead of IFRS 15", "Implicit IAS 39 instead of IFRS 9", "No IFRS 16 adoption"],
+              "justification_for_departures": "None provided",
+              "compliance_assessment": "Non-Compliant"
+            },
+            "policy_changes_analysis": {
+              "changes_made": ["None disclosed"],
+              "retrospective_application": "N/A",
+              "impact_quantified": "N/A",
+              "disclosure_adequacy": "Adequate for no changes"
+            }
+          },
+          "ias_24_scrutiny": {
+            "related_party_identification": {
+              "parties_identified": ["Envoy Fashions Ltd.", "Epoch Garments Ltd.", "Sharmin Holding Ltd.", "Armour Garments Ltd.", "Envoy Garments Ltd.", "9 others"],
+              "control_relationships": "Not disclosed",
+              "potential_omissions": ["Nature of relationships", "Control details", "Key management personnel compensation"],
+              "completeness_assessment": "Incomplete"
+            },
+            "transaction_analysis": {
+              "arm_length_assessment": "Cannot assess - no terms disclosed",
+              "material_transactions": ["Tk. 293M payable to related parties", "Tk. 353M receivable from related parties"],
+              "unusual_terms": "Not disclosed",
+              "risk_assessment": "High - 63% of total assets in related party balances"
+            },
+            "disclosure_completeness": {
+              "nature_disclosed": "No",
+              "amounts_disclosed": "Yes",
+              "balances_outstanding": "Yes",
+              "terms_conditions": "No",
+              "adequacy_assessment": "Inadequate"
+            }
+          },
+          "ias_10_events_check": {
+            "adjusting_events_identified": [],
+            "non_adjusting_events_disclosed": [],
+            "going_concern_updates": "None",
+            "authorization_date_verification": "Report dated January 3, 2024 for June 30, 2023 year-end",
+            "compliance_assessment": "Minimally compliant - no events disclosed which may be appropriate"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "16",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "material_departures_summary": [
+          "IFRS 15 not adopted - using IAS 18",
+          "IFRS 9 not adopted - financial instruments",
+          "IFRS 16 not adopted - leases",
+          "IAS 24 incomplete - related party disclosures",
+          "IAS 2 incomplete - no NRV assessment",
+          "IAS 12 incomplete - no deferred tax"
+        ],
+        "risk_factor_consolidation": {
+          "high_risk": ["Related party transaction disclosures", "IFRS framework compliance", "Tax compliance"],
+          "medium_risk": ["Revenue recognition", "Financial instrument accounting", "Lease accounting"],
+          "low_risk": ["Basic financial statement presentation", "Fixed asset accounting", "Inventory costing"]
+        },
+        "going_concern_final_assessment": {
+          "frc_conclusion": "Going concern appropriate",
+          "supporting_factors": ["Positive equity", "Profitable operations", "Bank facilities available"],
+          "contradicting_factors": ["High related party balances", "Declining profit margins"],
+          "recommendation": "Monitor related party exposures and liquidity"
+        },
+        "overall_assessment": {
+          "true_and_fair_view_assessment": "Qualified - with reservations",
+          "overall_ifrs_compliance_level": "60%",
+          "reliability_scoring_methodology": {
+            "components": {
+              "framework_compliance": 50,
+              "disclosure_completeness": 60,
+              "numerical_accuracy": 85,
+              "governance": 45
+            },
+            "final_score": "60/100",
+            "interpretation": "Moderate reliability with significant compliance gaps"
+          },
+          "key_strengths": [
+            "Clean audit opinion",
+            "Complete numerical extraction",
+            "Consistent policies year-on-year",
+            "Detailed note breakdowns"
+          ],
+          "critical_issues": [
+            "Outdated IFRS standards used",
+            "Incomplete related party disclosures",
+            "Missing cash flow statement",
+            "No impairment/NRV assessments"
+          ],
+          "frc_recommendations": [
+            "Immediate adoption of IFRS 15, 9, 16",
+            "Complete IAS 24 disclosures",
+            "Prepare proper cash flow statement",
+            "Perform impairment/NRV assessments"
+          ]
+        }
+      }
+    }
+  }
+}

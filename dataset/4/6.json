@@ -1,0 +1,49 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "6",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "ratio_analysis": {
+          "liquidity_ratios": {
+            "current_ratio_2023": 1.70,
+            "current_ratio_2022": 1.30,
+            "quick_ratio_2023": 0.95,
+            "quick_ratio_2022": 0.72
+          },
+          "profitability_ratios": {
+            "gross_margin_2023": 10.01,
+            "gross_margin_2022": 11.44,
+            "net_margin_2023": 2.70,
+            "net_margin_2022": 3.76,
+            "roa_2023": 4.83,
+            "roa_2022": 5.89,
+            "roe_2023": 11.61,
+            "roe_2022": 13.18
+          },
+          "leverage_ratios": {
+            "debt_to_equity_2023": 1.40,
+            "debt_to_equity_2022": 1.58,
+            "interest_coverage_2023": 2.47,
+            "interest_coverage_2022": 3.40
+          }
+        },
+        "earnings_quality_analysis": {
+          "accruals_ratio_2023": -0.15,
+          "accruals_ratio_2022": -0.08,
+          "cash_flow_quality": "Moderate",
+          "revenue_quality": "Questionable due to outdated revenue recognition"
+        },
+        "vertical_and_horizontal_analysis": {
+          "revenue_growth_yoy": 38.49,
+          "asset_growth_yoy": 5.21,
+          "liability_growth_yoy": -0.10,
+          "equity_growth_yoy": 13.12
+        },
+        "reason_of_the_status": "Improving liquidity but declining profitability margins. High reliance on related party transactions (63% of assets).",
+        "status_reference": "Financial statements pages 6-8, Notes 13-14"
+      }
+    }
+  }
+}

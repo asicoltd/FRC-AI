@@ -1,0 +1,14 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "1",
+  "frc_analysis_report": {
+    "metadata": {
+      "generation_date": "2024-01-03",
+      "analyst_framework_version": "1.0",
+      "analysis_scope": "Individual Entity – Comprehensive IFRS, ISA & Regulatory Compliance Review",
+      "prepared_for": "Financial Reporting Council, Bangladesh",
+      "source_documents": ["Envoy Design Limited FS 2023.pdf"]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "3",
+  "frc_analysis_report": {
+    "entity": {
+      "materiality_framework": {
+        "quantitative_materiality": {
+          "benchmark_used": "",
+          "percentage_applied": "",
+          "overall_materiality_amount": "",
+          "performance_materiality_amount": "",
+          "clearly_trivial_threshold": "",
+          "reason_of_the_status": "",
+          "status_reference": ""
+        },
+        "qualitative_materiality_considerations": [],
+        "frc_materiality_conclusion": "",
+        "reason_of_the_status": "",
+        "status_reference": ""
+      }
+    }
+  }
+}

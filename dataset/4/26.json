@@ -1,0 +1,64 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "26",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "frca_executive_summary": {
+          "overall_fairness_assessment": {
+            "true_and_fair_view_conclusion": "Qualified - Significant deficiencies in IFRS compliance",
+            "compliance_level_assessment": "60%",
+            "reliability_rating": "Moderate Risk",
+            "basis_for_conclusion": "Material departures from IFRS, inadequate disclosures, but core numbers appear reasonably stated"
+          },
+          "critical_issues_summary": [
+            "Use of outdated IAS 18 instead of IFRS 15",
+            "Incomplete related party disclosures (Tk. 646 million)",
+            "No NRV assessment for inventory (Tk. 388 million)",
+            "Large accumulated tax balances (Tk. 33.5 million)"
+          ],
+          "key_strengths_identified": [
+            "Clean audit opinion from reputable firm",
+            "Complete numerical extraction in financial statements",
+            "Detailed note breakdowns for major balances",
+            "Consistent accounting policies year-on-year"
+          ],
+          "material_weaknesses_identified": [
+            "IFRS framework compliance gaps",
+            "Governance disclosure deficiencies",
+            "Tax compliance concerns",
+            "Estimation uncertainty disclosures lacking"
+          ],
+          "frca_final_recommendations": {
+            "immediate_actions_required": [
+              "Adopt IFRS 15 for revenue recognition",
+              "Complete IAS 24 related party disclosures",
+              "Perform NRV assessment for inventory",
+              "Clarify tax position on advance balances"
+            ],
+            "medium_term_improvements": [
+              "Update all accounting policies to current IFRS",
+              "Enhance governance disclosures",
+              "Implement sensitivity disclosures for estimates",
+              "Improve cash flow statement completeness"
+            ],
+            "long_term_enhancements": [
+              "Consider IFRS 9 adoption for financial instruments",
+              "Enhance management commentary",
+              "Implement more robust internal controls",
+              "Regular IFRS update training for finance team"
+            ],
+            "regulatory_reporting_requirements": [
+              "Report to FRC on IFRS compliance gaps",
+              "Engage with NBR on tax position",
+              "Monitor related party transaction compliance"
+            ],
+            "follow_up_monitoring_needed": true,
+            "monitoring_period": "12 months"
+          }
+        }
+      }
+    }
+  }
+}

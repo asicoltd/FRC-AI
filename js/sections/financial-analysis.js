@@ -144,25 +144,6 @@ class FinancialAnalysis {
                 </div>
                 
                 <div class="tab-pane fade" id="trends">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="dashboard-card">
-                                <h5>Year-on-Year Trend Analysis</h5>
-                                <div class="trend-chart-container">
-                                    <canvas id="trendChart" height="200"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="dashboard-card">
-                                <h5>Key Trend Indicators</h5>
-                                <div id="trendIndicators" class="trend-indicators">
-                                    ${this.renderTrendIndicators(trendData, currentYear, previousYear)}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="dashboard-card">
@@ -213,10 +194,7 @@ class FinancialAnalysis {
                                     <h6><i class="fas fa-search me-2"></i>Areas for Further Investigation</h6>
                                     ${this.renderInvestigationAreas(earningsData)}
                                 </div>
-                                <div class="dashboard-card mt-3">
-                                    <h6>Accruals Trend</h6>
-                                    <canvas id="accrualsTrendChart" height="150"></canvas>
-                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -54,6 +54,7 @@ class Dashboard {
                                                 <div class="card-footer bg-transparent">
                                                     <button class="btn btn-sm ${id === appState.currentCompanyId ? 'btn-primary' : 'btn-outline-primary'} w-100"
                                                             onclick="dataManager.switchCompany(${id})">
+                                                            
                                                         ${id === appState.currentCompanyId ?
                                                         '<i class="fas fa-check me-1"></i> Selected' :
                                                         '<i class="fas fa-eye me-1"></i> View'}

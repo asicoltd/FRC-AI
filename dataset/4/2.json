@@ -1,0 +1,22 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "2",
+  "frc_analysis_report": {
+    "entity": {
+      "entity_id": "C-XXXXXX",
+      "entity_profile": {
+        "legal_name": "Envoy Design Limited",
+        "trade_name": "Envoy Design Limited",
+        "registration_number": "",
+        "industry_sector": "Garments Manufacturing",
+        "frc_sector": "Textile",
+        "listing_status": "Not Listed (Private Limited)",
+        "stock_exchange_symbol": "",
+        "reporting_currency": "BDT",
+        "financial_year_end": "June 30",
+        "report_publication_date": "2024-01-03"
+      }
+    }
+  }
+}

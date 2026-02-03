@@ -1,0 +1,121 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "8",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ias_1_presentation": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Basic presentation requirements met but missing some disclosures (e.g., OCI presentation, accounting policy hierarchy)",
+            "status_reference": "Financial statements pages 6-8, Note 3"
+          },
+          "ias_2_inventories": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Weighted average cost method applied but no NRV assessment disclosed for Tk. 388M inventory",
+            "status_reference": "Note 4(d), Note 7"
+          },
+          "ias_7_statement_of_cash_flows": {
+            "applicable": true,
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Cash flow statement not provided in the PDF (only title page shown)",
+            "status_reference": "Page 9 (statement title only)"
+          },
+          "ias_8_accounting_policies": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Policy changes disclosed as none, but using outdated IAS 18 violates hierarchy",
+            "status_reference": "Note 4"
+          },
+          "ias_10_events_after_reporting_period": {
+            "applicable": true,
+            "compliance_status": "Not Disclosed",
+            "reason_of_the_status": "No events after reporting period disclosed",
+            "status_reference": "No disclosure found"
+          },
+          "ias_12_income_taxes": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Current tax provided but no deferred tax disclosure",
+            "status_reference": "Note 19"
+          },
+          "ias_16_property_plant_equipment": {
+            "applicable": true,
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Historical cost less depreciation applied consistently",
+            "status_reference": "Note 4(b)(c), Annex-2"
+          },
+          "ias_19_employee_benefits": {
+            "applicable": true,
+            "compliance_status": "Minimally Compliant",
+            "reason_of_the_status": "Only short-term benefits disclosed, no defined benefit plans mentioned",
+            "status_reference": "Note 15, 17"
+          },
+          "ias_20_government_grants": {
+            "applicable": true,
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Export incentive properly recognized as income",
+            "status_reference": "Statement of P&L"
+          },
+          "ias_21_effects_of_changes_in_foreign_exchange_rates": {
+            "applicable": true,
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Foreign currency transactions translated at transaction date rates",
+            "status_reference": "Note 4(g)"
+          },
+          "ias_23_borrowing_costs": {
+            "applicable": true,
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Borrowing costs expensed as incurred",
+            "status_reference": "Note 4(i)"
+          },
+          "ias_24_related_party_disclosures": {
+            "applicable": true,
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Incomplete disclosures - amounts only, no terms, conditions, or business rationale",
+            "status_reference": "Notes 13-14"
+          },
+          "ias_27_separate_financial_statements": {
+            "applicable": true,
+            "compliance_status": "Compliant",
+            "reason_of_the_status": "Entity presents separate financial statements, investment in subsidiary at cost",
+            "status_reference": "Note 6"
+          },
+          "ias_28_investments_in_associates_and_joint_ventures": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No investments in associates or joint ventures",
+            "status_reference": "Note 6 shows only investment in subsidiary"
+          },
+          "ias_29_financial_reporting_in_hyperinflationary_economies": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Bangladesh not classified as hyperinflationary",
+            "status_reference": "N/A"
+          },
+          "ias_32_financial_instruments_presentation": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Basic classification OK but missing detailed disclosures",
+            "status_reference": "Notes 10-11"
+          },
+          "ias_33_earnings_per_share": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Private company, no EPS disclosure required",
+            "status_reference": "N/A"
+          },
+          "ias_34_interim_financial_reporting": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Annual financial statements only",
+            "status_reference": "N/A"
+          }
+        }
+      }
+    }
+  }
+}

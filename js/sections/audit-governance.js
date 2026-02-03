@@ -151,11 +151,8 @@ class AuditGovernance {
                                 <div class="alert alert-info">
                                     <h6><i class="fas fa-clipboard-list me-2"></i>Key Audit Matters</h6>
                                     <p class="mb-0 small">
-                                        ${keyAuditMatters.length > 0 ? 
-                                            keyAuditMatters.slice(0, 2).map(kam => kam.matter || kam.topic || 'N/A').join(', ') : 
-                                            auditMatters.slice(0, 2).join(', ')
-                                        }
-                                        ${(keyAuditMatters.length > 2 || auditMatters.length > 2) ? '...' : ''}
+                                        ${auditMatters.slice(0, keyAuditMatters.length).join(', ')}
+                                        
                                     </p>
                                     <small class="text-muted">Total: ${Math.max(keyAuditMatters.length, auditMatters.length)} matters identified</small>
                                 </div>

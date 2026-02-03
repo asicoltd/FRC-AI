@@ -1,0 +1,109 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "9",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "key_standards_compliance_check": {
+          "ias_36_impairment_of_assets": {
+            "applicable": true,
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "No impairment testing disclosed for any assets",
+            "status_reference": "No disclosure found"
+          },
+          "ias_37_provisions_contingent_liabilities_assets": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Provision for income tax made but no other provisions disclosed",
+            "status_reference": "Note 19"
+          },
+          "ias_38_intangible_assets": {
+            "applicable": true,
+            "compliance_status": "Not Disclosed",
+            "reason_of_the_status": "No intangible assets recognized or disclosed",
+            "status_reference": "No disclosure found"
+          },
+          "ias_40_investment_property": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No investment property held",
+            "status_reference": "N/A"
+          },
+          "ias_41_agriculture": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Not in agricultural business",
+            "status_reference": "N/A"
+          },
+          "ifrs_1_first_time_adoption": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Not first-time adopter",
+            "status_reference": "N/A"
+          },
+          "ifrs_2_share_based_payment": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No share-based payments",
+            "status_reference": "N/A"
+          },
+          "ifrs_3_business_combinations": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No business combinations during period",
+            "status_reference": "N/A"
+          },
+          "ifrs_5_non_current_assets_held_for_sale": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No assets held for sale",
+            "status_reference": "N/A"
+          },
+          "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Not in mining/extractive industry",
+            "status_reference": "N/A"
+          },
+          "ifrs_7_financial_instruments_disclosures": {
+            "applicable": true,
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "No IFRS 7 disclosures provided (risk exposures, fair values, etc.)",
+            "status_reference": "No disclosure found"
+          },
+          "ifrs_8_operating_segments": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Private company exemption or single segment",
+            "status_reference": "N/A"
+          },
+          "ifrs_9_financial_instruments": {
+            "applicable": true,
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Not adopted - using outdated IAS 39 approach implicitly",
+            "status_reference": "No disclosure of IFRS 9 adoption"
+          },
+          "ifrs_10_consolidated_financial_statements": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "Presenting separate financial statements",
+            "status_reference": "Note 6"
+          },
+          "ifrs_11_joint_arrangements": {
+            "applicable": false,
+            "compliance_status": "Not Applicable",
+            "reason_of_the_status": "No joint arrangements",
+            "status_reference": "N/A"
+          },
+          "ifrs_12_disclosure_of_interests_in_other_entities": {
+            "applicable": true,
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Basic investment disclosure but missing required IFRS 12 details",
+            "status_reference": "Note 6"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "7",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "accounting_policies_review": {
+          "significant_policies_disclosed": [
+            "Fixed assets at historical cost less depreciation (IAS 16)",
+            "Depreciation on reducing balance method",
+            "Inventory valued on weighted average basis (IAS 2)",
+            "Revenue recognition on delivery (IAS 18 - outdated)",
+            "Foreign currency transactions at transaction date rate (IAS 21)",
+            "Borrowing costs expensed as incurred (IAS 23)"
+          ],
+          "changes_in_accounting_policies": [
+            "None disclosed"
+          ],
+          "ias_8_hierarchy_compliance": "Partial compliance - entity uses outdated IAS 18 instead of IFRS 15, indicating non-compliance with current IFRS hierarchy."
+        },
+        "management_judgment_and_estimation_uncertainty": {
+          "critical_judgments": [
+            {
+              "area": "Revenue Recognition",
+              "management_assumption": "Revenue recognized on delivery of goods to customer",
+              "alternative_view": "Should apply IFRS 15 five-step model with performance obligations",
+              "frc_skeptical_assessment": "Outdated standard used; may not capture contract modifications or variable consideration",
+              "impact_if_changed": "Potential timing differences in revenue recognition"
+            },
+            {
+              "area": "Inventory Valuation",
+              "management_assumption": "Valued at weighted average cost",
+              "alternative_view": "NRV assessment required per IAS 2",
+              "frc_skeptical_assessment": "No disclosure of NRV assessment for Tk. 388 million inventory",
+              "impact_if_changed": "Potential inventory write-down if NRV lower than cost"
+            }
+          ],
+          "key_estimation_uncertainties": [
+            {
+              "estimate": "Useful life of fixed assets",
+              "sensitivity_range": "Not disclosed",
+              "disclosure_adequacy": "Poor",
+              "risk_level": "4",
+              "reason_of_the_status": "Standard rates used, but no sensitivity analysis provided",
+              "status_reference": "Note 4(c)"
+            },
+            {
+              "estimate": "Income tax provisions",
+              "sensitivity_range": "Not disclosed",
+              "disclosure_adequacy": "Poor",
+              "risk_level": "7",
+              "reason_of_the_status": "Large TDS/advance tax balances indicate uncertain tax positions",
+              "status_reference": "Note 9 and 19"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

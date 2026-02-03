@@ -1,0 +1,51 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "24",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "consolidated_material_departures": [
+          {
+            "departure_id": "DEP-001",
+            "ifrs_standard": "IFRS 15",
+            "nature_of_departure": "Use of superseded IAS 18 instead of IFRS 15 for revenue recognition",
+            "page_reference": "Note 4(f), page 12",
+            "extract_from_fs": "\"In compliance with the requirements of IAS-18 'Revenue' revenue has been recognized on the basis of delivery of goods to the customer.\"",
+            "financial_impact_estimate": "Qualitative impact - potential timing differences",
+            "materiality_assessment": "Material - affects core revenue recognition principle",
+            "ias_1_para_19_24_implication": "Failure to disclose departure from IFRS as required",
+            "corrective_action_required": "Adopt IFRS 15 and restate revenue recognition policy",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "FRC Bangladesh"
+          },
+          {
+            "departure_id": "DEP-002",
+            "ifrs_standard": "IAS 24",
+            "nature_of_departure": "Incomplete related party transaction disclosures",
+            "page_reference": "Notes 13-14, pages 16-17",
+            "extract_from_fs": "Lists amounts only, no terms, conditions, or business rationale",
+            "financial_impact_estimate": "Tk. 645.9 million in intercompany balances",
+            "materiality_assessment": "Highly material - 63% of total assets",
+            "ias_1_para_19_24_implication": "Inadequate disclosure of material related party relationships",
+            "corrective_action_required": "Complete IAS 24 disclosures including terms, conditions, and business rationale",
+            "regulatory_reporting_required": true,
+            "regulatory_body": "FRC Bangladesh"
+          }
+        ],
+        "non_compliance_with_laws_regulations": [
+          {
+            "compliance_id": "NCR-001",
+            "law_regulation": "Financial Reporting Act 2015",
+            "section_violated": "Section 9",
+            "nature_of_breach": "Financial statements may not give true and fair view due to IFRS departures",
+            "evidence_location": "Notes 3-4, Auditor's Report",
+            "severity_assessment": "High",
+            "potential_penalties": "Monetary penalties, directive to restate",
+            "remediation_required": "Correct IFRS compliance issues and potentially restate"
+          }
+        ]
+      }
+    }
+  }
+}

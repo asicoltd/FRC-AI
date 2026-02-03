@@ -1,0 +1,90 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "12",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "detailed_ifrs_compliance_matrix": [
+          {
+            "standard_code": "IFRS 15",
+            "standard_name": "Revenue from Contracts with Customers",
+            "applicability": true,
+            "page_reference": "Note 4(f), page 12",
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Using superseded IAS 18, not adopted IFRS 15",
+            "status_reference": "Revenue recognition policy",
+            "material_departures": ["Five-step model not applied", "No contract asset/liability recognition", "No disclosure of performance obligations"],
+            "ias_1_para_19_24_implication": "Material departure not disclosed as required"
+          },
+          {
+            "standard_code": "IAS 24",
+            "standard_name": "Related Party Disclosures",
+            "applicability": true,
+            "page_reference": "Notes 13-14, pages 16-17",
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Incomplete disclosures - amounts only, missing terms and business rationale",
+            "status_reference": "Related party transactions",
+            "material_departures": ["No disclosure of relationship nature", "No terms and conditions", "No business rationale", "No outstanding balances reconciliation"],
+            "ias_1_para_19_24_implication": "Inadequate disclosure of material transactions"
+          },
+          {
+            "standard_code": "IAS 2",
+            "standard_name": "Inventories",
+            "applicability": true,
+            "page_reference": "Note 4(d), Note 7",
+            "compliance_status": "Partially Compliant",
+            "reason_of_the_status": "Weighted average cost applied but no NRV assessment disclosed",
+            "status_reference": "Inventory valuation",
+            "material_departures": ["No NRV disclosure for Tk. 388M inventory"],
+            "ias_1_para_19_24_implication": "Potential impairment not assessed or disclosed"
+          },
+          {
+            "standard_code": "IFRS 9",
+            "standard_name": "Financial Instruments",
+            "applicability": true,
+            "page_reference": "Notes 10-11",
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Not adopted, using implicit IAS 39 approach",
+            "status_reference": "Financial instrument disclosures",
+            "material_departures": ["No expected credit loss model", "No classification under IFRS 9 categories"],
+            "ias_1_para_19_24_implication": "Using superseded standard without disclosure"
+          },
+          {
+            "standard_code": "IFRS 16",
+            "standard_name": "Leases",
+            "applicability": true,
+            "page_reference": "No disclosure found",
+            "compliance_status": "Non-Compliant",
+            "reason_of_the_status": "Not adopted, no lease disclosure provided",
+            "status_reference": "Operating lease commitments",
+            "material_departures": ["No right-of-use assets", "No lease liabilities", "No lease commitment disclosures"],
+            "ias_1_para_19_24_implication": "Material off-balance sheet arrangements not disclosed"
+          }
+        ],
+        "tax_compliance_check": {
+          "ias_12_income_taxes": {
+            "compliance": "Partially Compliant",
+            "reason_of_the_status": "Current tax provided but no deferred tax recognition or disclosures",
+            "status_reference": "Note 19",
+            "issues": ["No deferred tax assets/liabilities", "No temporary differences analysis", "No tax rate reconciliation"]
+          },
+          "ifric_23_uncertain_tax_positions": {
+            "compliance": "Non-Compliant",
+            "reason_of_the_status": "No disclosure of uncertain tax positions despite large advance tax balances",
+            "status_reference": "Note 9",
+            "issues": ["Tk. 33.5M advance tax/TDS balances not explained", "No disclosure of tax uncertainties"]
+          },
+          "bangladesh_income_tax_act_2023": {
+            "withholding_tax_compliance": "Questionable",
+            "advance_tax_status": "Significant accumulated balances",
+            "tax_holidays_or_incentives": ["Export oriented industry benefits"],
+            "overall_tax_compliance_assessment": "High Risk",
+            "reason_of_the_status": "Large long-standing advance tax balances (2017-2023) indicate potential disputes or non-compliance",
+            "status_reference": "Note 9 (Tk. 33.5M advance tax/TDS)"
+          }
+        }
+      }
+    }
+  }
+}
