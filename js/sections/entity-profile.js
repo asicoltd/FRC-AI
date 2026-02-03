@@ -51,6 +51,10 @@ class EntityProfile {
                                 <th>Financial Year End:</th>
                                 <td id="financialYearEnd">[Loading...]</td>
                             </tr>
+                            <tr>
+                                <th>Annual Report Link:</th>
+                                <td id="annualReportLink">[Loading...]</td>
+                            </tr>
                         </table>
                     </div>
                     
@@ -221,7 +225,8 @@ class EntityProfile {
                     profile.reporting_currency || 'BDT';
                 document.getElementById('financialYearEnd').textContent =
                     profile.financial_year_end || '[Not Available]';
-
+                document.getElementById('annualReportLink').textContent =
+                    metadata.source_documents || '[Not Available]';
                 // Add entity ID if available
                 if (entity?.entity_id) {
                     let entityIdRow = document.querySelector('#entityIdRow');
