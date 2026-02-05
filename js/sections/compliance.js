@@ -23,9 +23,6 @@ class Compliance {
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">IFRS Compliance Status</h3>
                 <div>
-                    <button class="btn btn-outline-primary me-2" onclick="Compliance.refreshData()">
-                        <i class="fas fa-sync me-2"></i> Refresh
-                    </button>
                     <button class="btn btn-primary" onclick="Compliance.exportData()">
                         <i class="fas fa-download me-2"></i> Export
                     </button>
@@ -187,6 +184,8 @@ class Compliance {
                 const applicable = complianceStatus !== 'Not Applicable' && complianceStatus !== 'Not Assessed';
                 const reason = this.getReason(standard);
                 const reference = standard.status_reference || standard.page_reference || '';
+                // ADD THIS LINE - Extract page number from the standard
+                const pageNo = standard.page_no_on_report || '';
 
                 return {
                     id: key,
@@ -197,6 +196,7 @@ class Compliance {
                     status: complianceStatus,
                     reason: reason,
                     reference: reference,
+                    pageNo: pageNo, // Add page number to the object
                     rawData: standard
                 };
             }).filter(item => item !== null); // Filter out null items
@@ -218,6 +218,8 @@ class Compliance {
             window.itemsPerPage = 20;
 
             console.log('Processed standards:', standardsArray.length);
+            // Debug: check first few items for page numbers
+            console.log('Sample processed standards with page numbers:', standardsArray.slice(0, 3).map(s => ({ code: s.code, pageNo: s.pageNo })));
 
             // Render table and update counts
             this.renderTable();
@@ -227,14 +229,14 @@ class Compliance {
         } catch (error) {
             console.error('Error loading compliance data:', error);
             document.getElementById('complianceTableBody').innerHTML = `
-            <tr>
-                <td colspan="6" class="text-center text-danger py-4">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    Error loading compliance data. Please check console for details.
-                    <div class="small mt-2">${error.message}</div>
-                </td>
-            </tr>
-        `;
+        <tr>
+            <td colspan="6" class="text-center text-danger py-4">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Error loading compliance data. Please check console for details.
+                <div class="small mt-2">${error.message}</div>
+            </td>
+        </tr>
+    `;
         }
     }
 
@@ -243,13 +245,13 @@ class Compliance {
         if (standard.compliance !== undefined && standard.compliance !== '') {
             // Handle different case formats
             const complianceValue = standard.compliance.toString().trim();
-            
+
             // Normalize the compliance value
             if (complianceValue.toLowerCase() === 'compliant') return 'Compliant';
             if (complianceValue.toLowerCase() === 'non-compliant' || complianceValue.toLowerCase() === 'non compliant') return 'Non-Compliant';
             if (complianceValue.toLowerCase() === 'partially compliant' || complianceValue.toLowerCase() === 'partially') return 'Partially Compliant';
             if (complianceValue.toLowerCase() === 'not applicable' || complianceValue.toLowerCase() === 'n/a') return 'Not Applicable';
-            
+
             // Return as is if it's already in correct format
             return complianceValue;
         }
@@ -284,7 +286,6 @@ class Compliance {
         if (standard.reason_of_the_status) return standard.reason_of_the_status;
         return '';
     }
-
     static renderTable() {
         // Use filteredStandards if available, otherwise use all standards
         const standards = window.filteredStandards || window.complianceStandards || [];
@@ -300,12 +301,12 @@ class Compliance {
 
         if (!standards.length) {
             tbody.innerHTML = `
-                <tr>
-                    <td colspan="6" class="text-center text-muted py-4">
-                        No compliance data available.
-                    </td>
-                </tr>
-            `;
+            <tr>
+                <td colspan="7" class="text-center text-muted py-4">
+                    No compliance data available.
+                </td>
+            </tr>
+        `;
             return;
         }
 
@@ -322,33 +323,33 @@ class Compliance {
                 '<span class="badge bg-secondary">No</span>';
 
             rowsHTML += `
-                <tr onclick="Compliance.showDetails('${standard.id}')" style="cursor: pointer;">
-                    <td>
-                        <div class="fw-bold">${standard.code}</div>
-                        <small class="text-muted">${standard.name}</small>
-                    </td>
-                    <td><span class="badge bg-light text-dark">${standard.category}</span></td>
-                    <td>${applicableBadge}</td>
-                    <td>${statusBadge}</td>
-                    <td>
-                        <div class="standard-reason" style="max-height: 60px; overflow: hidden;">
-                            ${standard.reason || '<span class="text-muted">No assessment provided</span>'}
-                        </div>
-                    </td>
-                    <td>
-                        ${standard.reference ?
+            <tr onclick="Compliance.showDetails('${standard.id}')" style="cursor: pointer;">
+                <td>
+                    <div class="fw-bold">${standard.code}</div>
+                    <small class="text-muted">${standard.name}</small>
+                </td>
+                <td><span class="badge bg-light text-dark">${standard.category}</span></td>
+                <td>${applicableBadge}</td>
+                <td>${statusBadge}</td>
+                <td>
+                    <div class="standard-reason" style="max-height: 60px; overflow: hidden;">
+                        ${standard.reason || '<span class="text-muted">No assessment provided</span>'}
+                    </div>
+                </td>
+                <td>
+                    ${standard.reference ?
                     `<small class="text-muted">${standard.reference}</small>` :
                     '<span class="text-muted">-</span>'
                 }
-                    </td>
-                    <td>
-                        ${standard.page_no_on_report ?
-                    `<small class="text-muted">${standard.page_no_on_report}</small>` :
+                </td>
+                <td>
+                    ${standard.pageNo ?
+                    `<small class="text-muted">${standard.pageNo}</small>` :
                     '<span class="text-muted">-</span>'
                 }
-                    </td>
-                </tr>
-            `;
+                </td>
+            </tr>
+        `;
         });
 
         tbody.innerHTML = rowsHTML;
@@ -433,7 +434,7 @@ class Compliance {
 
     static getStatusBadge(status) {
         const normalizedStatus = status ? status.toString().trim() : '';
-        
+
         switch (normalizedStatus.toLowerCase()) {
             case 'compliant':
                 return '<span class="badge bg-success">Compliant</span>';
@@ -453,19 +454,19 @@ class Compliance {
 
     static updateCounts(standards) {
         const total = standards.length;
-        const compliant = standards.filter(s => 
+        const compliant = standards.filter(s =>
             s.status.toLowerCase() === 'compliant'
         ).length;
-        const partial = standards.filter(s => 
-            s.status.toLowerCase() === 'partially compliant' || 
+        const partial = standards.filter(s =>
+            s.status.toLowerCase() === 'partially compliant' ||
             s.status.toLowerCase() === 'partial'
         ).length;
-        const nonCompliant = standards.filter(s => 
-            s.status.toLowerCase() === 'non-compliant' || 
+        const nonCompliant = standards.filter(s =>
+            s.status.toLowerCase() === 'non-compliant' ||
             s.status.toLowerCase() === 'non compliant'
         ).length;
-        const notApplicable = standards.filter(s => 
-            s.status.toLowerCase() === 'not applicable' || 
+        const notApplicable = standards.filter(s =>
+            s.status.toLowerCase() === 'not applicable' ||
             s.status.toLowerCase() === 'n/a'
         ).length;
 
@@ -502,53 +503,57 @@ class Compliance {
 
         // Create modal content
         const modalContent = `
-            <div class="modal-header">
-                <h5 class="modal-title">${standard.code} - ${standard.name}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <table class="table table-sm">
-                    <tr>
-                        <th width="30%">Standard Code:</th>
-                        <td>${standard.code}</td>
-                    </tr>
-                    <tr>
-                        <th>Standard Name:</th>
-                        <td>${standard.name}</td>
-                    </tr>
-                    <tr>
-                        <th>Category:</th>
-                        <td><span class="badge bg-light text-dark">${standard.category}</span></td>
-                    </tr>
-                    <tr>
-                        <th>Applicable:</th>
-                        <td>${standard.applicable ? 'Yes' : 'No'}</td>
-                    </tr>
-                    <tr>
-                        <th>Compliance Status:</th>
-                        <td>${this.getStatusBadge(standard.status)}</td>
-                    </tr>
-                    <tr>
-                        <th>Reference:</th>
-                        <td>${standard.reference || 'Not specified'}</td>
-                    </tr>
-                </table>
-                
-                <div class="mt-3">
-                    <h6>Assessment Details:</h6>
-                    <div class="alert alert-${standard.status.toLowerCase() === 'non-compliant' || standard.status.toLowerCase() === 'non compliant' ? 'danger' :
+        <div class="modal-header">
+            <h5 class="modal-title">${standard.code} - ${standard.name}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-sm">
+                <tr>
+                    <th width="30%">Standard Code:</th>
+                    <td>${standard.code}</td>
+                </tr>
+                <tr>
+                    <th>Standard Name:</th>
+                    <td>${standard.name}</td>
+                </tr>
+                <tr>
+                    <th>Category:</th>
+                    <td><span class="badge bg-light text-dark">${standard.category}</span></td>
+                </tr>
+                <tr>
+                    <th>Applicable:</th>
+                    <td>${standard.applicable ? 'Yes' : 'No'}</td>
+                </tr>
+                <tr>
+                    <th>Compliance Status:</th>
+                    <td>${this.getStatusBadge(standard.status)}</td>
+                </tr>
+                <tr>
+                    <th>Reference:</th>
+                    <td>${standard.reference || 'Not specified'}</td>
+                </tr>
+                <tr>
+                    <th>Page Number:</th>
+                    <td>${standard.pageNo || 'Not specified'}</td>
+                </tr>
+            </table>
+            
+            <div class="mt-3">
+                <h6>Assessment Details:</h6>
+                <div class="alert alert-${standard.status.toLowerCase() === 'non-compliant' || standard.status.toLowerCase() === 'non compliant' ? 'danger' :
                 standard.status.toLowerCase() === 'partially compliant' || standard.status.toLowerCase() === 'partial' ? 'warning' :
                     'info'}">
-                        ${standard.reason || 'No detailed assessment provided.'}
-                    </div>
+                    ${standard.reason || 'No detailed assessment provided.'}
                 </div>
-                
-                ${this.getAdditionalDetails(standard.rawData)}
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
+            
+            ${this.getAdditionalDetails(standard.rawData)}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    `;
 
         // Use Bootstrap modal if available, otherwise create a simple one
         if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
@@ -564,7 +569,7 @@ class Compliance {
             document.body.appendChild(modalDiv);
             const modal = new bootstrap.Modal(modalDiv);
             modal.show();
-            
+
             // Clean up after modal is hidden
             modalDiv.addEventListener('hidden.bs.modal', () => {
                 document.body.removeChild(modalDiv);
@@ -636,7 +641,7 @@ class Compliance {
             if (section5?.frc_analysis_report?.entity?.phase_1_foundational_checks?.regulatory_landscape?.applicable_regulators) {
                 regulators = section5.frc_analysis_report.entity.phase_1_foundational_checks.regulatory_landscape.applicable_regulators;
             }
-            
+
             if (section5?.frc_analysis_report?.entity?.phase_1_foundational_checks?.reporting_framework) {
                 framework = section5.frc_analysis_report.entity.phase_1_foundational_checks.reporting_framework;
             }
@@ -717,15 +722,6 @@ class Compliance {
                     </div>
                 `;
             }
-        }
-    }
-
-    static refreshData() {
-        this.loadComplianceData();
-        if (window.Notifications && typeof window.Notifications.show === 'function') {
-            window.Notifications.show('Compliance data refreshed', 'info');
-        } else {
-            console.log('Compliance data refreshed');
         }
     }
 

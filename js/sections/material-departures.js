@@ -109,14 +109,6 @@ class MaterialDepartures {
         const content = `
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">Material Departures & Non-Compliance</h3>
-                <div>
-                    <button class="btn btn-outline-danger me-2" onclick="MaterialDepartures.addNewDeparture()">
-                        <i class="fas fa-plus me-2"></i> Add Departure
-                    </button>
-                    <button class="btn btn-primary" onclick="MaterialDepartures.generateComplianceReport()">
-                        <i class="fas fa-file-pdf me-2"></i> Generate Report
-                    </button>
-                </div>
             </div>
             
             <div class="row">
@@ -583,18 +575,6 @@ class MaterialDepartures {
         }
     }
 
-    static addNewDeparture() {
-        // Implementation for adding new departure
-        Notifications.show('Add new departure functionality would open here.', 'info');
-    }
-
-    static generateComplianceReport() {
-        // Implementation for generating report
-        Notifications.show('Generating comprehensive compliance report...', 'info');
-        setTimeout(() => {
-            Notifications.show('Report generated successfully!', 'success');
-        }, 1500);
-    }
 }
 
 window.MaterialDepartures = MaterialDepartures;

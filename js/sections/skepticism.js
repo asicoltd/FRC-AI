@@ -7,9 +7,6 @@ class Skepticism {
         const content = `
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">Professional Skepticism Application</h3>
-                <button class="btn btn-primary" onclick="Skepticism.addSkepticalQuestion()">
-                    <i class="fas fa-question-circle me-2"></i> Add Question
-                </button>
             </div>
             
             <div class="dashboard-card">
@@ -159,9 +156,6 @@ class Skepticism {
         UIComponents.getMainContent().innerHTML = content;
     }
 
-    static addSkepticalQuestion() {
-        Notifications.show('Form for adding skeptical questions would open.', 'info');
-    }
 }
 
 window.Skepticism = Skepticism;

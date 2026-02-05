@@ -79,9 +79,6 @@ class RiskAssessment {
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">Integrated Risk Assessment</h3>
                 <div>
-                    <button class="btn btn-outline-primary me-2" onclick="RiskAssessment.updateRiskAssessment()">
-                        <i class="fas fa-redo me-2"></i> Reassess
-                    </button>
                     <button class="btn btn-primary" onclick="RiskAssessment.exportRiskMatrix()">
                         <i class="fas fa-download me-2"></i> Export Matrix
                     </button>
@@ -468,9 +465,6 @@ class RiskAssessment {
         }
     }
 
-    static updateRiskAssessment() {
-        Notifications.show('Risk assessment recalculation would begin.', 'info');
-    }
 
     static exportRiskMatrix() {
         Notifications.show('Risk matrix exported successfully!', 'success');

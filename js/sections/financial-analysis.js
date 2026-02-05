@@ -21,10 +21,7 @@ class FinancialAnalysis {
         const content = `
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="section-title">Financial Ratio & Trend Analysis</h3>
-                <div>
-                    <button class="btn btn-outline-primary me-2" onclick="FinancialAnalysis.calculateRatios()">
-                        <i class="fas fa-calculator me-2"></i> Calculate Ratios
-                    </button>
+                <div>z
                     <button class="btn btn-primary" onclick="FinancialAnalysis.loadTrendAnalysis()">
                         <i class="fas fa-chart-line me-2"></i> View Trends
                     </button>
@@ -1539,9 +1536,6 @@ class FinancialAnalysis {
         });
     }
 
-    static calculateRatios() {
-        Notifications.show('Ratio calculation would be performed based on financial data.', 'info');
-    }
 
     static loadTrendAnalysis() {
         // Switch to trends tab
