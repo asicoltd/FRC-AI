@@ -100,6 +100,7 @@ class Compliance {
                                 <th width="15%">Status</th>
                                 <th>Assessment / Reason</th>
                                 <th width="10%">Reference</th>
+                                <th width="10%">Page No</th>
                             </tr>
                         </thead>
                         <tbody id="complianceTableBody">
@@ -337,6 +338,12 @@ class Compliance {
                     <td>
                         ${standard.reference ?
                     `<small class="text-muted">${standard.reference}</small>` :
+                    '<span class="text-muted">-</span>'
+                }
+                    </td>
+                    <td>
+                        ${standard.page_no_on_report ?
+                    `<small class="text-muted">${standard.page_no_on_report}</small>` :
                     '<span class="text-muted">-</span>'
                 }
                     </td>

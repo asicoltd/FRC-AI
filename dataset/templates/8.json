@@ -9,92 +9,92 @@
           "ias_1_presentation": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_2_inventories": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_7_statement_of_cash_flows": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_8_accounting_policies": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_10_events_after_reporting_period": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_12_income_taxes": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_16_property_plant_equipment": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_19_employee_benefits": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_20_government_grants": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_23_borrowing_costs": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_24_related_party_disclosures": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_27_separate_financial_statements": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_32_financial_instruments_presentation": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_33_earnings_per_share": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           },
           "ias_34_interim_financial_reporting": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "explain the reason for the compliance status broadly",
-            "status_reference": ""
+            "status_reference": "","page_no_on_report":""
           }
         }
       }
