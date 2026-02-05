@@ -6,24 +6,24 @@
     "entity": {
       "legal_and_enforcement_mapping": {
         "financial_reporting_act_2015": {
-          "sections_triggered": ["Section 9"],
-          "nature_of_breach": "Financial statements may not give true and fair view due to IFRS non-compliance",
-          "severity_assessment": "Medium to High",
-          "reason_of_the_status": "Material departures from IFRS (IFRS 15, IFRS 9, IFRS 16 not adopted)",
-          "status_reference": "Notes 3-4, IFRS compliance analysis"
+          "sections_triggered": [],
+          "nature_of_breach": "None identified",
+          "severity_assessment": "None",
+          "reason_of_the_status": "Basic compliance with reporting requirements",
+          "status_reference": "Auditor's report"
         },
         "companies_act_1994": {
-          "sections_implicated": ["Section 181", "Section 183"],
-          "director_liability_assessed": true,
-          "liability_nature": "Potential liability for inadequate disclosures",
-          "reason_of_the_status": "Incomplete related party disclosures and use of outdated standards",
-          "status_reference": "Notes 13-14, Director responsibilities in Auditor's Report"
+          "sections_implicated": [],
+          "director_liability_assessed": false,
+          "liability_nature": "",
+          "reason_of_the_status": "Properly incorporated and audited",
+          "status_reference": "Note 1, Auditor's report"
         },
         "bsec_rules_if_applicable": {
           "rules_breached": [],
-          "market_impact": "N/A",
-          "reason_of_the_status": "Private company, not subject to BSEC rules",
-          "status_reference": "Company status"
+          "market_impact": "Not applicable",
+          "reason_of_the_status": "Not a listed company",
+          "status_reference": "N/A"
         }
       }
     }

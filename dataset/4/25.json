@@ -7,42 +7,42 @@
       "phase_5_synthesis_and_findings": {
         "holistic_risk_factor_synthesis": {
           "financial_risks_from_analysis": {
-            "from_ratio_trends": ["Declining profitability margins", "High leverage (1.4 D/E)", "Poor interest coverage (2.47x)", "High short-term focus"],
-            "from_accruals_analysis": ["Cannot assess - cash flow missing"],
-            "from_cash_flow_patterns": ["Cannot assess - cash flow missing"],
-            "from_earnings_quality": ["Questionable due to outdated revenue recognition"],
-            "consolidated_financial_risk_level": "Medium-High"
+            "from_ratio_trends": ["Decreasing profit margins", "High short-term debt"],
+            "from_accruals_analysis": ["Conservative accounting - low risk"],
+            "from_cash_flow_patterns": ["Strong operating cash flows - low risk"],
+            "from_earnings_quality": ["Good earnings quality - low risk"],
+            "consolidated_financial_risk_level": "Low to Medium"
           },
           "operational_risks": {
-            "from_segment_analysis": ["Single product/segment - RMG", "Export dependence - 100% export oriented"],
-            "from_related_party_transactions": ["High concentration risk (63% of assets)", "Lack of transparency in transactions"],
-            "from_post_reporting_events": ["None disclosed"],
-            "from_going_concern_assessment": ["Positive but monitoring needed"],
+            "from_segment_analysis": ["Single industry concentration"],
+            "from_related_party_transactions": ["High dependency risk"],
+            "from_post_reporting_events": ["None identified"],
+            "from_going_concern_assessment": ["Low risk"],
             "consolidated_operational_risk_level": "Medium"
           },
           "compliance_risks": {
-            "from_ifrs_departures": ["Multiple material departures", "Outdated standards used", "Incomplete disclosures"],
-            "from_regulatory_breaches": ["Potential FRA 2015 breach", "Tax compliance concerns"],
-            "from_governance_weaknesses": ["Minimal governance disclosures", "High related party influence"],
-            "from_audit_qualifications": ["Clean opinion but questionable given findings"],
-            "consolidated_compliance_risk_level": "High"
+            "from_ifrs_departures": ["High - outdated standards"],
+            "from_regulatory_breaches": ["Medium - disclosure deficiencies"],
+            "from_governance_weaknesses": ["High - limited disclosures"],
+            "from_audit_qualifications": ["Low - unmodified opinion"],
+            "consolidated_compliance_risk_level": "Medium to High"
           },
           "key_audit_matters_synthesis": {
-            "kams_identified_by_auditor": ["None - auditor did not identify KAMs"],
-            "frca_assessment_of_kams": ["Should have included: Related party transactions, Revenue recognition, Tax positions"],
-            "additional_risks_identified": ["IFRS framework compliance", "Cash flow reporting", "Inventory valuation"],
-            "risk_mitigation_assessment": "Poor - risks not adequately addressed in financial statements"
+            "kams_identified_by_auditor": ["None - private company"],
+            "frca_assessment_of_kams": ["N/A"],
+            "additional_risks_identified": ["Revenue recognition standard", "Related party disclosures", "Impairment testing"],
+            "risk_mitigation_assessment": "Inadequate"
           },
           "overall_integrated_risk_assessment": {
-            "highest_risk_areas": ["IFRS Compliance", "Related Party Disclosures", "Tax Compliance"],
-            "medium_risk_areas": ["Profitability Trends", "Leverage", "Governance"],
-            "low_risk_areas": ["Basic Financial Accuracy", "Fixed Asset Accounting", "Bank Reconciliation"],
-            "risk_interconnections": ["Related party risks affect both operational and compliance areas", "IFRS non-compliance affects all financial reporting", "Tax issues could trigger regulatory actions"],
+            "highest_risk_areas": ["Accounting standard compliance", "Related party transparency"],
+            "medium_risk_areas": ["Financial disclosure completeness", "Governance"],
+            "low_risk_areas": ["Going concern", "Profitability", "Cash flows"],
+            "risk_interconnections": ["Compliance risks may affect financing and operations"],
             "frca_priority_actions": [
-              "Immediate IFRS standards adoption",
-              "Complete related party disclosures",
-              "Resolve tax compliance issues",
-              "Enhance governance disclosures"
+              "Adopt current IFRS standards",
+              "Enhance related party disclosures",
+              "Implement impairment testing",
+              "Improve governance disclosures"
             ]
           }
         }

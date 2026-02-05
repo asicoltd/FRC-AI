@@ -7,81 +7,70 @@
       "phase_3_ifrs_compliance_detailed": {
         "detailed_ifrs_compliance_matrix": [
           {
-            "standard_code": "IFRS 15",
-            "standard_name": "Revenue from Contracts with Customers",
+            "standard_code": "IAS 1",
+            "standard_name": "Presentation of Financial Statements",
             "applicability": true,
-            "page_reference": "Note 4(f), page 12",
-            "compliance_status": "Non-Compliant",
-            "reason_of_the_status": "Using superseded IAS 18, not adopted IFRS 15",
-            "status_reference": "Revenue recognition policy",
-            "material_departures": ["Five-step model not applied", "No contract asset/liability recognition", "No disclosure of performance obligations"],
-            "ias_1_para_19_24_implication": "Material departure not disclosed as required"
-          },
-          {
-            "standard_code": "IAS 24",
-            "standard_name": "Related Party Disclosures",
-            "applicability": true,
-            "page_reference": "Notes 13-14, pages 16-17",
-            "compliance_status": "Non-Compliant",
-            "reason_of_the_status": "Incomplete disclosures - amounts only, missing terms and business rationale",
-            "status_reference": "Related party transactions",
-            "material_departures": ["No disclosure of relationship nature", "No terms and conditions", "No business rationale", "No outstanding balances reconciliation"],
-            "ias_1_para_19_24_implication": "Inadequate disclosure of material transactions"
+            "page_reference": "4-16",
+            "compliance_status": "compliant",
+            "reason_of_the_status": "All required statements presented",
+            "status_reference": "Financial statements",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "No material departures"
           },
           {
             "standard_code": "IAS 2",
             "standard_name": "Inventories",
             "applicability": true,
-            "page_reference": "Note 4(d), Note 7",
-            "compliance_status": "Partially Compliant",
-            "reason_of_the_status": "Weighted average cost applied but no NRV assessment disclosed",
-            "status_reference": "Inventory valuation",
-            "material_departures": ["No NRV disclosure for Tk. 388M inventory"],
-            "ias_1_para_19_24_implication": "Potential impairment not assessed or disclosed"
+            "page_reference": "18",
+            "compliance_status": "compliant",
+            "reason_of_the_status": "Valued at lower of cost and NRV",
+            "status_reference": "Note 4(d), 7",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "No material departures"
           },
           {
-            "standard_code": "IFRS 9",
-            "standard_name": "Financial Instruments",
+            "standard_code": "IAS 16",
+            "standard_name": "Property, Plant and Equipment",
             "applicability": true,
-            "page_reference": "Notes 10-11",
-            "compliance_status": "Non-Compliant",
-            "reason_of_the_status": "Not adopted, using implicit IAS 39 approach",
-            "status_reference": "Financial instrument disclosures",
-            "material_departures": ["No expected credit loss model", "No classification under IFRS 9 categories"],
-            "ias_1_para_19_24_implication": "Using superseded standard without disclosure"
+            "page_reference": "9",
+            "compliance_status": "compliant",
+            "reason_of_the_status": "Cost model with depreciation",
+            "status_reference": "Note 4(b)(c), Annexure-2",
+            "material_departures": [],
+            "ias_1_para_19_24_implication": "No material departures"
           },
           {
-            "standard_code": "IFRS 16",
-            "standard_name": "Leases",
+            "standard_code": "IFRS 15",
+            "standard_name": "Revenue from Contracts with Customers",
             "applicability": true,
-            "page_reference": "No disclosure found",
-            "compliance_status": "Non-Compliant",
-            "reason_of_the_status": "Not adopted, no lease disclosure provided",
-            "status_reference": "Operating lease commitments",
-            "material_departures": ["No right-of-use assets", "No lease liabilities", "No lease commitment disclosures"],
-            "ias_1_para_19_24_implication": "Material off-balance sheet arrangements not disclosed"
+            "page_reference": "5",
+            "compliance_status": "non-compliant",
+            "reason_of_the_status": "Uses IAS 18 instead",
+            "status_reference": "Note 4(f)",
+            "material_departures": ["Uses outdated IAS 18"],
+            "ias_1_para_19_24_implication": "Material departure requiring disclosure"
           }
         ],
         "tax_compliance_check": {
           "ias_12_income_taxes": {
-            "compliance": "Partially Compliant",
-            "reason_of_the_status": "Current tax provided but no deferred tax recognition or disclosures",
+            "compliance": "compliant",
+            "reason_of_the_status": "Comprehensive tax disclosures",
             "status_reference": "Note 19",
-            "issues": ["No deferred tax assets/liabilities", "No temporary differences analysis", "No tax rate reconciliation"]
+            "issues": []
           },
           "ifric_23_uncertain_tax_positions": {
-            "compliance": "Non-Compliant",
-            "reason_of_the_status": "No disclosure of uncertain tax positions despite large advance tax balances",
-            "status_reference": "Note 9",
-            "issues": ["Tk. 33.5M advance tax/TDS balances not explained", "No disclosure of tax uncertainties"]
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No uncertainty disclosed",
+            "status_reference": "None",
+            "issues": ["No disclosure of tax uncertainties"]
           },
           "bangladesh_income_tax_act_2023": {
-            "withholding_tax_compliance": "Questionable",
-            "advance_tax_status": "Significant accumulated balances",
-            "tax_holidays_or_incentives": ["Export oriented industry benefits"],
-            "overall_tax_compliance_assessment": "High Risk",
-            "reason_of_the_status": "Large long-standing advance tax balances (2017-2023) indicate potential disputes or non-compliance",
-            "status_reference": "Note 9 (Tk. 33.5M advance tax/TDS)"
+            "withholding_tax_compliance": "compliant",
+            "advance_tax_status": "paid",
+            "tax_holidies_or_incentives": ["Export incentive"],
+            "overall_tax_compliance_assessment": "compliant",
+            "reason_of_the_status": "Detailed TDS and tax provision disclosures",
+            "status_reference": "Note 19"
           }
         }
       }

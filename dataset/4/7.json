@@ -7,68 +7,47 @@
       "phase_3_ifrs_compliance_detailed": {
         "accounting_policies_review": {
           "significant_policies_disclosed": [
-            "Basis of preparation – historical cost, going concern, accrual basis (Note 03)",
-            "Fixed assets – cost less depreciation (Note 04(b))",
-            "Depreciation – reducing balance method (Note 04(c))",
-            "Inventories – weighted average basis (Note 04(d))",
-            "Revenue recognition – on delivery of goods (Note 04(f))",
-            "Foreign currency translation – at transaction/balance sheet rate (Note 04(g))",
-            "Cash and cash equivalents – unrestricted cash/bank balances (Note 04(h))",
-            "Borrowing costs – expensed as incurred (Note 04(i))"
+            "Fixed assets at historical cost less depreciation (IAS 16)",
+            "Revenue recognition on delivery of goods (IAS 18)",
+            "Inventory valuation on weighted average basis",
+            "Foreign currency translation at transaction date rates (IAS 21)",
+            "Depreciation on reducing balance method"
           ],
-          "changes_in_accounting_policies": [
-            "None"
-          ],
-          "ias_8_hierarchy_compliance": "Compliant. Financial statements prepared in accordance with IFRSs as stated in the auditor's opinion and Note 03. Specific references to IAS/IFRS standards are made in the accounting policies (e.g., IAS 16, IAS 18, BAS 21)."
+          "changes_in_accounting_policies": ["None"],
+          "ias_8_hierarchy_compliance": "Compliant - No changes in accounting policies disclosed"
         },
         "management_judgment_and_estimation_uncertainty": {
           "critical_judgments": [
             {
-              "area": "Going concern assessment",
-              "management_assumption": "Company is a going concern; no intention to liquidate or cease operations.",
-              "alternative_view": "Could cease operations if significant uncertainty exists.",
-              "frc_skeptical_assessment": "Auditor confirmed no material uncertainty; company profitable with positive equity.",
-              "impact_if_changed": "If not a going concern, assets/liabilities may need reclassification/remeasurement."
+              "area": "Inventory valuation",
+              "management_assumption": "Lower of cost and net realizable value",
+              "alternative_view": "Different valuation methods",
+              "frc_skeptical_assessment": "Reasonable given industry practice",
+              "impact_if_changed": "Material impact on current assets"
             },
             {
-              "area": "Revenue recognition timing",
-              "management_assumption": "Revenue recognized on delivery of goods (IAS 18).",
-              "alternative_view": "Could recognize at different milestones (e.g., production completion).",
-              "frc_skeptical_assessment": "Policy consistent with industry; no evidence of improper timing.",
-              "impact_if_changed": "Could shift revenue between periods, affecting profit trends."
+              "area": "Useful lives of fixed assets",
+              "management_assumption": "10-20% depreciation rates",
+              "alternative_view": "Longer useful lives",
+              "frc_skeptical_assessment": "Consistent with industry norms",
+              "impact_if_changed": "Impact on depreciation expense"
             }
           ],
           "key_estimation_uncertainties": [
             {
-              "estimate": "Useful life and depreciation of property, plant & equipment",
-              "sensitivity_range": "Not disclosed",
-              "disclosure_adequacy": "Adequate",
-              "risk_level": 4,
-              "reason_of_the_status": "Fixed assets are relatively small; rates seem standard; no indication of impairment.",
-              "status_reference": "Note 04(c), Annexure-2"
-            },
-            {
-              "estimate": "Inventory valuation (weighted average)",
-              "sensitivity_range": "Not disclosed",
-              "disclosure_adequacy": "Adequate",
-              "risk_level": 5,
-              "reason_of_the_status": "Large inventory balance (Tk 490.7M); method disclosed but no sensitivity to obsolescence/market value.",
-              "status_reference": "Note 04(d), Note 07"
-            },
-            {
               "estimate": "Provision for income tax",
               "sensitivity_range": "Not disclosed",
               "disclosure_adequacy": "Adequate",
-              "risk_level": 3,
-              "reason_of_the_status": "Provision based on TDS; appears straightforward; no uncertain tax positions disclosed.",
+              "risk_level": "3",
+              "reason_of_the_status": "Detailed tax note with TDS breakdown",
               "status_reference": "Note 19"
             },
             {
-              "estimate": "Allowance for doubtful debts (Bills Receivable)",
+              "estimate": "Allowance for doubtful debts",
               "sensitivity_range": "Not disclosed",
               "disclosure_adequacy": "Poor",
-              "risk_level": 6,
-              "reason_of_the_status": "No allowance or impairment disclosed for Tk 167.4M bills receivable; credit risk not discussed.",
+              "risk_level": "5",
+              "reason_of_the_status": "No allowance disclosed for bills receivable",
               "status_reference": "Note 10"
             }
           ]

@@ -6,21 +6,19 @@
     "entity": {
       "fraud_and_management_override_assessment": {
         "fraud_risk_factors_identified": [
-          "High volume of related party transactions (63% of assets)",
-          "Significant intercompany balances without proper disclosures",
-          "Large advance tax balances potentially indicating disputed positions",
-          "Use of outdated accounting standards suggesting lack of update"
+          "High related party transactions",
+          "Significant intercompany balances",
+          "Concentration of ownership"
         ],
         "revenue_manipulation_indicators": [
-          "Revenue growth of 38.5% with stable profits",
-          "Outdated revenue recognition standard (IAS 18)",
-          "No detailed contract disclosures"
+          "Revenue recognition on delivery only",
+          "No complex revenue arrangements"
         ],
-        "journal_entry_override_risk": "Moderate",
-        "override_of_internal_controls_risk": "Moderate to High due to related party dominance",
-        "overall_fraud_risk_assessment": "Moderate",
-        "reason_of_the_status": "Significant related party transactions and incomplete disclosures create opportunities for manipulation, but clean audit opinion provides some assurance.",
-        "status_reference": "Notes 13-14, Auditor's Report"
+        "journal_entry_override_risk": "Low",
+        "override_of_internal_controls_risk": "Medium",
+        "overall_fraud_risk_assessment": "Medium",
+        "reason_of_the_status": "Significant related party transactions but simple revenue recognition",
+        "status_reference": "Notes 13, 14, 4(f)"
       }
     }
   }

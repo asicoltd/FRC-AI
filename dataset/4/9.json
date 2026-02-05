@@ -7,84 +7,84 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_36_impairment_of_assets": {
-            "compliance": "non-compliant",
-            "reason_of_the_status": "No disclosure of impairment testing for non-current assets (PP&E, investment in shares) despite potential indicators.",
-            "status_reference": "Notes 06, Annexure-2"
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No impairment testing disclosed",
+            "status_reference": "None"
           },
           "ias_37_provisions_contingent_liabilities_assets": {
-            "compliance": "partially compliant",
-            "reason_of_the_status": "No provisions or contingent liabilities disclosed. No mention of whether any exist. Basic compliance but disclosure is lacking.",
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No provisions or contingencies disclosed",
             "status_reference": "None"
           },
           "ias_38_intangible_assets": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No intangible assets recognized or disclosed.",
+            "reason_of_the_status": "No intangible assets reported",
             "status_reference": "None"
           },
           "ias_40_investment_property": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No investment property held.",
+            "reason_of_the_status": "No investment property reported",
             "status_reference": "None"
           },
           "ias_41_agriculture": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not an agricultural entity.",
+            "reason_of_the_status": "Not an agricultural entity",
             "status_reference": "None"
           },
           "ifrs_1_first_time_adoption": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not a first-time adopter of IFRS.",
+            "reason_of_the_status": "Not first-time adopter",
             "status_reference": "None"
           },
           "ifrs_2_share_based_payment": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No share-based payment arrangements.",
+            "reason_of_the_status": "No share-based payments",
             "status_reference": "None"
           },
           "ifrs_3_business_combinations": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No business combinations during the period.",
+            "reason_of_the_status": "No business combinations",
             "status_reference": "None"
           },
           "ifrs_5_non_current_assets_held_for_sale": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No non-current assets classified as held for sale.",
+            "reason_of_the_status": "No assets held for sale",
             "status_reference": "None"
           },
           "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not in extractive industries.",
+            "reason_of_the_status": "Not in extractive industry",
             "status_reference": "None"
           },
           "ifrs_7_financial_instruments_disclosures": {
-            "compliance": "non-compliant",
-            "reason_of_the_status": "No disclosures on credit risk, liquidity risk, market risk for financial instruments.",
-            "status_reference": "Notes 10-14"
+            "compliance": "partially compliant",
+            "reason_of_the_status": "Limited financial instrument disclosures",
+            "status_reference": "Notes 8, 10, 11"
           },
           "ifrs_8_operating_segments": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Single operating segment (garment manufacturing for export).",
-            "status_reference": "Note 02"
+            "reason_of_the_status": "Single operating segment",
+            "status_reference": "None"
           },
           "ifrs_9_financial_instruments": {
             "compliance": "partially compliant",
-            "reason_of_the_status": "Basic classification of financial assets/liabilities apparent but no ECL impairment for receivables, no hedge accounting, no detailed categorization.",
-            "status_reference": "Notes 10-14"
+            "reason_of_the_status": "Basic recognition and measurement",
+            "status_reference": "Various notes"
           },
           "ifrs_10_consolidated_financial_statements": {
             "compliance": "not applicable",
-            "reason_of_the_status": "These are separate financial statements, not consolidated.",
-            "status_reference": "Note 06"
+            "reason_of_the_status": "Separate financial statements",
+            "status_reference": "None"
           },
           "ifrs_11_joint_arrangements": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No joint arrangements.",
+            "reason_of_the_status": "No joint arrangements",
             "status_reference": "None"
           },
           "ifrs_12_disclosure_of_interests_in_other_entities": {
-            "compliance": "non-compliant",
-            "reason_of_the_status": "No disclosures about subsidiaries, joint ventures, associates, or unconsolidated structured entities beyond investment in shares note.",
-            "status_reference": "Note 06"
+            "compliance": "not applicable",
+            "reason_of_the_status": "Limited interests in other entities",
+            "status_reference": "Note 6"
           }
         }
       }

@@ -8,33 +8,33 @@
         "standard_by_standard_verification": {
           "ias_8_compliance_check": {
             "accounting_policy_hierarchy": {
-              "hierarchy_applied": "Partially",
-              "departures_from_ifrs": ["IAS 18 instead of IFRS 15", "Implicit IAS 39 instead of IFRS 9", "No IFRS 16 adoption"],
-              "justification_for_departures": "None provided",
-              "compliance_assessment": "Non-Compliant"
+              "hierarchy_applied": "IAS/IFRS as adopted by ICAB",
+              "departures_from_ifrs": ["Use of IAS 18 instead of IFRS 15"],
+              "justification_for_departures": "Not provided",
+              "compliance_assessment": "Partially compliant"
             },
             "policy_changes_analysis": {
-              "changes_made": ["None disclosed"],
+              "changes_made": ["None"],
               "retrospective_application": "N/A",
               "impact_quantified": "N/A",
-              "disclosure_adequacy": "Adequate for no changes"
+              "disclosure_adequacy": "Adequate"
             }
           },
           "ias_24_scrutiny": {
             "related_party_identification": {
-              "parties_identified": ["Envoy Fashions Ltd.", "Epoch Garments Ltd.", "Sharmin Holding Ltd.", "Armour Garments Ltd.", "Envoy Garments Ltd.", "9 others"],
-              "control_relationships": "Not disclosed",
-              "potential_omissions": ["Nature of relationships", "Control details", "Key management personnel compensation"],
+              "parties_identified": ["Intercompany entities", "Shareholders"],
+              "control_relationships": "Not fully disclosed",
+              "potential_omissions": ["Key management personnel compensation details"],
               "completeness_assessment": "Incomplete"
             },
             "transaction_analysis": {
-              "arm_length_assessment": "Cannot assess - no terms disclosed",
-              "material_transactions": ["Tk. 293M payable to related parties", "Tk. 353M receivable from related parties"],
+              "arm_length_assessment": "Not assessed",
+              "material_transactions": ["Intercompany balances Tk 645.9 million"],
               "unusual_terms": "Not disclosed",
-              "risk_assessment": "High - 63% of total assets in related party balances"
+              "risk_assessment": "Medium"
             },
             "disclosure_completeness": {
-              "nature_disclosed": "No",
+              "nature_disclosed": "Limited",
               "amounts_disclosed": "Yes",
               "balances_outstanding": "Yes",
               "terms_conditions": "No",
@@ -42,11 +42,11 @@
             }
           },
           "ias_10_events_check": {
-            "adjusting_events_identified": [],
-            "non_adjusting_events_disclosed": [],
-            "going_concern_updates": "None",
-            "authorization_date_verification": "Report dated January 3, 2024 for June 30, 2023 year-end",
-            "compliance_assessment": "Minimally compliant - no events disclosed which may be appropriate"
+            "adjusting_events_identified": ["None disclosed"],
+            "non_adjusting_events_disclosed": ["None disclosed"],
+            "going_concern_updates": "Not applicable",
+            "authorization_date_verification": "January 3, 2024",
+            "compliance_assessment": "Non-compliant - no events disclosed"
           }
         }
       }

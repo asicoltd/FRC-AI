@@ -6,18 +6,22 @@
     "entity": {
       "materiality_framework": {
         "quantitative_materiality": {
-          "benchmark_used": "",
-          "percentage_applied": "",
-          "overall_materiality_amount": "",
-          "performance_materiality_amount": "",
-          "clearly_trivial_threshold": "",
-          "reason_of_the_status": "",
-          "status_reference": ""
+          "benchmark_used": "Profit before tax",
+          "percentage_applied": "5%",
+          "overall_materiality_amount": "3,489,146",
+          "performance_materiality_amount": "2,091,487",
+          "clearly_trivial_threshold": "174,457",
+          "reason_of_the_status": "Standard audit materiality thresholds applied based on profit before tax of Tk 69,782,917",
+          "status_reference": "Audit planning materiality calculation"
         },
-        "qualitative_materiality_considerations": [],
-        "frc_materiality_conclusion": "",
-        "reason_of_the_status": "",
-        "status_reference": ""
+        "qualitative_materiality_considerations": [
+          "Related party transactions",
+          "Going concern assessment",
+          "Regulatory compliance"
+        ],
+        "frc_materiality_conclusion": "Materiality thresholds appropriately set for audit purposes",
+        "reason_of_the_status": "Quantitative benchmarks align with ISA requirements",
+        "status_reference": "ISA 320 Materiality in Planning and Performing an Audit"
       }
     }
   }

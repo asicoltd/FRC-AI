@@ -7,12 +7,12 @@
       "phase_1_foundational_checks": {
         "reporting_framework": {
           "disclosed_framework": "International Financial Reporting Standards (IFRS)",
-          "notes_reference": "Note 3: Basis of Preparation, page 12",
-          "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 16", "IAS 18", "IAS 21", "IAS 23"],
-          "discrepancies_identified": ["Entity references outdated IAS 18 instead of IFRS 15 for revenue recognition", "No reference to IFRS 9 for financial instruments", "BAS terminology used instead of IFRS"],
+          "notes_reference": "Note 3: Basis of Preparation and Presentation of Financial statements",
+          "actual_standards_applied": ["IAS 1", "IAS 2", "IAS 16", "IAS 18", "IAS 21", "IAS 38"],
+          "discrepancies_identified": ["Entity refers to 'International Accounting Standards (IAS) as adopted by ICAB' rather than IFRS. IAS 18 used instead of IFRS 15 for revenue recognition."],
           "compliance_assessment": "Partially Compliant",
-          "reason_of_the_status": "The entity states compliance with IFRS but uses outdated standards (IAS 18) and mixes BAS terminology with IFRS claims.",
-          "status_reference": "Note 3 and 4 for framework claim. Revenue recognition policy references IAS 18 (superseded by IFRS 15)."
+          "reason_of_the_status": "The entity states compliance with IFRS but uses outdated IAS standards and references ICAB adoption rather than full IFRS.",
+          "status_reference": "Note 3, Basis of Preparation"
         },
         "regulatory_landscape": {
           "applicable_regulators": [
@@ -20,51 +20,51 @@
               "regulator_name": "Bangladesh Securities and Exchange Commission (BSEC)",
               "jurisdiction": "Bangladesh",
               "compliance_status": "Not Applicable",
-              "reason_for_non_compliance": "Entity is a private limited company, not listed on stock exchange.",
-              "notes_reference": "",
+              "reason_for_non_compliance": "Entity is not listed on stock exchange",
+              "notes_reference": "N/A",
               "specific_disclosures_found": [],
-              "reason_of_the_status": "No BSEC compliance requirements as entity is not publicly listed.",
-              "status_reference": "Company status confirmation in Note 1"
+              "reason_of_the_status": "BSEC regulations apply to listed companies only",
+              "status_reference": "N/A"
             },
             {
               "regulator_name": "Financial Reporting Council (FRC) Bangladesh",
               "jurisdiction": "Bangladesh",
               "compliance_status": "Partially Compliant",
-              "reason_for_non_compliance": "Potential breach of Financial Reporting Act 2015 due to use of outdated standards and incomplete disclosures.",
-              "notes_reference": "Auditor's Report (pg 3-5) asserts true and fair view per IFRS",
-              "specific_disclosures_found": ["Auditor's unmodified opinion"],
-              "reason_of_the_status": "Auditor provided unmodified opinion but FRC analysis identifies framework discrepancies.",
-              "status_reference": "Auditor's Report and Note 3-4"
+              "reason_for_non_compliance": "Uses outdated IAS standards instead of current IFRS",
+              "notes_reference": "Note 3",
+              "specific_disclosures_found": ["Statement of IFRS compliance in audit report"],
+              "reason_of_the_status": "Auditor asserts IFRS compliance but entity uses IAS standards",
+              "status_reference": "Auditor's Report and Note 3"
             },
             {
               "regulator_name": "Registrar of Joint Stock Companies and Firms (RJSC)",
               "jurisdiction": "Bangladesh",
               "compliance_status": "Compliant (as per disclosure)",
               "reason_for_non_compliance": "N/A",
-              "notes_reference": "Incorporation details in Note 1",
-              "specific_disclosures_found": ["Company registration details", "Directors' report included"],
-              "reason_of_the_status": "Basic statutory requirements appear met based on disclosures.",
-              "status_reference": "Note 1 and Directors' Report"
+              "notes_reference": "Note 1: Structure of The Company",
+              "specific_disclosures_found": ["Incorporation details under Companies Act 1994"],
+              "reason_of_the_status": "Properly registered as private company limited by shares",
+              "status_reference": "Note 1"
             },
             {
               "regulator_name": "National Board of Revenue (NBR)",
               "jurisdiction": "Bangladesh",
-              "compliance_status": "Partially Compliant",
-              "reason_for_non_compliance": "Significant accumulated advance tax and TDS balances (Tk. 33.5 million) indicating potential non-recovery or compliance issues.",
-              "notes_reference": "Note 9: Advance, Deposits & Prepayments",
-              "specific_disclosures_found": ["TDS on Export Proceeds from 2017-2023", "Advance tax balances"],
-              "reason_of_the_status": "Large long-standing advance tax balances may indicate disputed claims or non-compliance with tax regulations.",
-              "status_reference": "Note 9 and Note 19"
+              "compliance_status": "Compliant (as per financial statement disclosures)",
+              "reason_for_non_compliance": "N/A",
+              "notes_reference": "Note 19: Provision for Income Tax",
+              "specific_disclosures_found": ["Tax provision calculation, TDS details"],
+              "reason_of_the_status": "Comprehensive tax disclosures with TDS details",
+              "status_reference": "Note 19"
             },
             {
               "regulator_name": "Bangladesh Bank",
               "jurisdiction": "Bangladesh",
               "compliance_status": "Compliant (as per disclosure)",
               "reason_for_non_compliance": "N/A",
-              "notes_reference": "Note 11: Short Term Borrowings",
-              "specific_disclosures_found": ["Bank loan disclosures", "Foreign currency accounts"],
-              "reason_of_the_status": "Bank borrowing disclosures appear complete with bank names and amounts.",
-              "status_reference": "Note 11 and Note 8"
+              "notes_reference": "Notes 8, 11",
+              "specific_disclosures_found": ["Bank balances, loan disclosures"],
+              "reason_of_the_status": "Proper disclosure of banking relationships and borrowings",
+              "status_reference": "Notes 8, 11"
             }
           ],
           "statutory_filings_status": {
@@ -73,9 +73,9 @@
             "income_tax_return_filed": true,
             "income_tax_year": "Assessment Year 2023-2024",
             "rjsc_compliance": true,
-            "bb_compliance_if_applicable": "Compliant per disclosures"
+            "bb_compliance_if_applicable": "Compliant"
           },
-          "overall_regulatory_assessment": "Partially Compliant with Framework Deficiencies. Key issues: outdated IFRS references and significant tax compliance concerns."
+          "overall_regulatory_assessment": "Partially Compliant. While meeting basic statutory requirements, the entity uses outdated accounting standards inconsistent with full IFRS compliance as claimed."
         }
       }
     }

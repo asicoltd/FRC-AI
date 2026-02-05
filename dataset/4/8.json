@@ -8,92 +8,92 @@
         "key_standards_compliance_check": {
           "ias_1_presentation": {
             "compliance": "compliant",
-            "reason_of_the_status": "Financial statements include all required statements (financial position, profit or loss, changes in equity, cash flows, notes). Fair presentation and compliance with IFRS stated.",
-            "status_reference": "Auditor's opinion, Note 03, All primary statements"
+            "reason_of_the_status": "Financial statements presented with required statements and notes",
+            "status_reference": "Pages 4-16"
           },
           "ias_2_inventories": {
             "compliance": "compliant",
-            "reason_of_the_status": "Inventories (fabrics, accessories, work-in-process) measured at weighted average cost. Disclosed by categories.",
-            "status_reference": "Note 04(d), Note 07, Statement of Financial Position"
+            "reason_of_the_status": "Inventories valued at lower of cost and NRV, weighted average method",
+            "status_reference": "Note 4(d) and 7"
           },
           "ias_7_statement_of_cash_flows": {
-            "compliance": "partially compliant",
-            "reason_of_the_status": "Cash flow statement provided with operating, investing, financing activities but format is simplified and lacks detailed line items (e.g., tax paid, interest paid).",
-            "status_reference": "Statement of Cash Flows page"
+            "compliance": "compliant",
+            "reason_of_the_status": "Cash flow statement presented with operating, investing, financing activities",
+            "status_reference": "Page 7"
           },
           "ias_8_accounting_policies": {
             "compliance": "compliant",
-            "reason_of_the_status": "Accounting policies disclosed in Note 04. No changes in accounting policies reported.",
-            "status_reference": "Note 04"
+            "reason_of_the_status": "No changes in accounting policies disclosed",
+            "status_reference": "Note 4"
           },
           "ias_10_events_after_reporting_period": {
-            "compliance": "not applicable",
-            "reason_of_the_status": "No events after reporting period disclosed in the financial statements.",
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No disclosure of events after reporting period",
             "status_reference": "None"
           },
           "ias_12_income_taxes": {
             "compliance": "compliant",
-            "reason_of_the_status": "Provision for income tax recognized based on TDS. Current tax liability disclosed. No deferred tax assets/liabilities mentioned.",
-            "status_reference": "Note 19, Statement of Financial Position"
+            "reason_of_the_status": "Comprehensive tax disclosures with provision calculation",
+            "status_reference": "Note 19"
           },
           "ias_16_property_plant_equipment": {
             "compliance": "compliant",
-            "reason_of_the_status": "PP&E at cost less depreciation, with detailed schedule. Depreciation method and rates disclosed.",
-            "status_reference": "Note 04(b)(c), Annexure-2"
+            "reason_of_the_status": "PPE at cost less depreciation, detailed schedule provided",
+            "status_reference": "Note 4(b)(c) and Annexure-2"
           },
           "ias_19_employee_benefits": {
             "compliance": "partially compliant",
-            "reason_of_the_status": "Short-term employee benefits (wages, bonuses) recognized. No defined benefit plans disclosed. Earn leave and resignation benefits recognized as incurred, but no actuarial valuations disclosed.",
-            "status_reference": "Note 17 (Direct Labor), Statement of Profit or Loss"
+            "reason_of_the_status": "Basic disclosures but no defined benefit obligations",
+            "status_reference": "Notes 15, 17"
           },
           "ias_20_government_grants": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No government grants reported.",
+            "reason_of_the_status": "No government grants received",
             "status_reference": "None"
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
             "compliance": "compliant",
-            "reason_of_the_status": "Foreign currency transactions translated at transaction/balance sheet rates as per disclosed policy.",
-            "status_reference": "Note 04(g)"
+            "reason_of_the_status": "Foreign currency transactions at transaction date rates",
+            "status_reference": "Note 4(g)"
           },
           "ias_23_borrowing_costs": {
             "compliance": "compliant",
-            "reason_of_the_status": "Borrowing costs (interest) expensed as incurred as per disclosed policy.",
-            "status_reference": "Note 04(i), Note 16"
+            "reason_of_the_status": "Borrowing costs expensed as incurred",
+            "status_reference": "Note 4(i) and 16"
           },
           "ias_24_related_party_disclosures": {
             "compliance": "partially compliant",
-            "reason_of_the_status": "Intercompany transactions and balances disclosed (Notes 13,14). Shareholdings disclosed (Note 05). However, no comprehensive related party disclosure note covering all relationships, transactions, and terms.",
-            "status_reference": "Notes 05, 13, 14"
+            "reason_of_the_status": "Limited disclosures of related parties",
+            "status_reference": "Notes 13, 14"
           },
           "ias_27_separate_financial_statements": {
             "compliance": "compliant",
-            "reason_of_the_status": "Investment in Envoy Garments Ltd. (subsidiary) accounted for at cost in separate financial statements.",
-            "status_reference": "Note 06"
+            "reason_of_the_status": "Separate financial statements presented",
+            "status_reference": "All statements"
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No investments in associates or joint ventures.",
+            "reason_of_the_status": "No investments in associates or joint ventures",
             "status_reference": "None"
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Bangladesh is not a hyperinflationary economy.",
+            "reason_of_the_status": "Bangladesh not hyperinflationary economy",
             "status_reference": "None"
           },
           "ias_32_financial_instruments_presentation": {
-            "compliance": "partially compliant",
-            "reason_of_the_status": "Financial instruments presented (loans, receivables, payables) but no detailed classification, no disclosure of compound instruments or equity vs liability analysis.",
-            "status_reference": "Statement of Financial Position, Notes 10-14"
+            "compliance": "compliant",
+            "reason_of_the_status": "Basic presentation of financial instruments",
+            "status_reference": "Various notes"
           },
           "ias_33_earnings_per_share": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not a publicly listed entity; EPS disclosure not required.",
+            "reason_of_the_status": "Private company, no EPS disclosure required",
             "status_reference": "None"
           },
           "ias_34_interim_financial_reporting": {
             "compliance": "not applicable",
-            "reason_of_the_status": "These are annual, not interim, financial statements.",
+            "reason_of_the_status": "Annual financial statements only",
             "status_reference": "None"
           }
         }

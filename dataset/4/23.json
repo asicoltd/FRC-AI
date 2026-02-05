@@ -7,47 +7,63 @@
       "professional_skepticism_application": {
         "management_assertions_challenged": [
           {
-            "assertion_area": "IFRS Compliance",
-            "management_claim": "Financial statements prepared in accordance with IFRS",
-            "evidence_sought": "Accounting policy references to current IFRS standards",
-            "evidence_found": "References to outdated IAS 18, no IFRS 15, 9, 16 adoption",
-            "corroboration_level": "Low",
-            "skeptical_conclusion": "Claim questionable - not fully IFRS compliant"
+            "assertion_area": "Revenue recognition",
+            "management_claim": "Revenue recognized on delivery",
+            "evidence_sought": "Sales contracts, delivery documentation",
+            "evidence_found": "Implied but not explicitly evidenced",
+            "corroboration_level": "Moderate",
+            "skeptical_conclusion": "Policy appears reasonable but lacks detailed evidence"
           },
           {
-            "assertion_area": "Related Party Transactions",
-            "management_claim": "Disclosed per requirements",
-            "evidence_sought": "Complete IAS 24 disclosures including terms, conditions, business rationale",
-            "evidence_found": "Amounts only, no substantive disclosures",
+            "assertion_area": "Related party transactions",
+            "management_claim": "Normal business transactions",
+            "evidence_sought": "Arm's length terms, approvals",
+            "evidence_found": "Limited disclosures only",
             "corroboration_level": "Low",
-            "skeptical_conclusion": "Disclosures inadequate, transactions not fully transparent"
+            "skeptical_conclusion": "Insufficient evidence of arm's length terms"
           }
         ],
         "accounting_policy_questioning": [
           {
-            "policy_area": "Revenue Recognition",
-            "policy_applied": "IAS 18 - recognition on delivery",
-            "alternative_treatment": "IFRS 15 five-step model",
-            "justification_provided": "None for using outdated standard",
-            "skeptical_assessment": "Unjustified - should adopt current IFRS",
-            "recommendation": "Immediate adoption of IFRS 15"
+            "policy_area": "Revenue recognition",
+            "policy_applied": "IAS 18",
+            "alternative_treatment": "IFRS 15",
+            "justification_provided": "Not provided",
+            "skeptical_assessment": "Outdated standard, potential impact unknown",
+            "recommendation": "Adopt IFRS 15"
+          },
+          {
+            "policy_area": "Inventory valuation",
+            "policy_applied": "Weighted average cost",
+            "alternative_treatment": "FIFO or specific identification",
+            "justification_provided": "Not provided",
+            "skeptical_assessment": "Reasonable for industry",
+            "recommendation": "Maintain current policy"
           }
         ],
         "disclosure_adequacy_assessment": [
           {
-            "disclosure_area": "Related Party Transactions",
-            "information_provided": "Amounts only",
-            "missing_information": "Nature of relationships, terms, conditions, business rationale",
+            "disclosure_area": "Related parties",
+            "information_provided": "Names and amounts only",
+            "missing_information": "Terms, nature, controls, approvals",
             "transparency_level": "Low",
-            "materiality_assessment": "High - 63% of assets",
-            "improvement_suggested": "Complete IAS 24 disclosures"
+            "materiality_assessment": "High",
+            "improvement_suggested": "Comprehensive related party note"
+          },
+          {
+            "disclosure_area": "Events after reporting period",
+            "information_provided": "None",
+            "missing_information": "All required disclosures",
+            "transparency_level": "None",
+            "materiality_assessment": "Medium",
+            "improvement_suggested": "Include events note"
           }
         ],
         "overall_skepticism_applied": {
-          "areas_of_high_concern": ["IFRS compliance", "Related party disclosures", "Tax positions"],
-          "areas_of_moderate_concern": ["Revenue recognition", "Inventory valuation", "Going concern assessment"],
-          "areas_of_low_concern": ["Basic numerical accuracy", "Fixed asset accounting", "Bank reconciliation"],
-          "skepticism_conclusion": "High degree of skepticism warranted due to significant compliance gaps and incomplete disclosures"
+          "areas_of_high_concern": ["Related party transactions", "Revenue recognition standard"],
+          "areas_of_moderate_concern": ["Impairment testing", "Events disclosures"],
+          "areas_of_low_concern": ["Basic financial statement presentation"],
+          "skepticism_conclusion": "Moderate skepticism warranted due to disclosure gaps and outdated standards"
         }
       }
     }

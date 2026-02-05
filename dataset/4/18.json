@@ -8,70 +8,38 @@
         "detailed_trend_analysis": {
           "horizontal_analysis_yoy": {
             "statement_of_financial_position": [
-              {
-                "item": "Total Assets",
-                "change_percentage": 5.21,
-                "comment": "Moderate growth"
-              },
-              {
-                "item": "Current Assets",
-                "change_percentage": 3.67,
-                "comment": "Slight increase"
-              },
-              {
-                "item": "Total Liabilities",
-                "change_percentage": -0.10,
-                "comment": "Stable"
-              },
-              {
-                "item": "Equity",
-                "change_percentage": 13.12,
-                "comment": "Good growth from retained earnings"
-              }
+              "Total assets decreased by 4.4%",
+              "Current assets decreased by 4.4%",
+              "Equity increased by 13.1%",
+              "Liabilities decreased by 14.0%"
             ],
             "statement_of_profit_or_loss": [
-              {
-                "item": "Revenue",
-                "change_percentage": 38.49,
-                "comment": "Strong growth"
-              },
-              {
-                "item": "Gross Profit",
-                "change_percentage": 21.15,
-                "comment": "Lower than revenue growth indicating margin pressure"
-              },
-              {
-                "item": "Net Profit",
-                "change_percentage": -0.49,
-                "comment": "Essentially flat despite revenue growth"
-              },
-              {
-                "item": "Finance Cost",
-                "change_percentage": 89.50,
-                "comment": "Almost doubled - concerning"
-              }
+              "Revenue increased by 38.5%",
+              "Gross profit increased by 21.2%",
+              "Net profit decreased by 0.5%",
+              "Tax expense increased by 197.8%"
             ]
           },
           "vertical_analysis_composition": {
-            "assets_composition_2024": {
-              "current_assets_percentage": 99.16,
-              "non_current_assets_percentage": 0.84,
-              "significant_changes": ["Extremely high current assets proportion", "Minimal fixed assets for manufacturing"]
+            "assets_composition_2023": {
+              "current_assets_percentage": "99.16%",
+              "non_current_assets_percentage": "0.84%",
+              "significant_changes": ["High proportion of current assets", "Minimal fixed assets"]
             },
-            "liabilities_composition_2024": {
-              "current_liabilities_percentage": 100.00,
-              "non_current_liabilities_percentage": 0.00,
-              "equity_composition": "41.65% of total capital",
-              "risk_implications": "High short-term liquidity risk, no long-term funding"
+            "liabilities_composition_2023": {
+              "current_liabilities_percentage": "100%",
+              "non_current_liabilities_percentage": "0%",
+              "equity_composition": "41.65%",
+              "risk_implications": "High short-term liquidity risk"
             }
           },
           "two_to_three_year_trend": {
-            "revenue_trend": ["1,328,584,168 (2022)", "1,840,165,807 (2023)"],
-            "profit_trend": ["49,991,249 (2022)", "49,750,593 (2023)"],
-            "asset_growth_trend": ["978,526,800 (2022 est.)", "1,029,436,800 (2023)"],
-            "debt_trend": ["295,643,040 (2022 ST borrowings)", "233,595,363 (2023 ST borrowings)"],
-            "trend_analysis_commentary": "Revenue growing rapidly but profits stagnant, indicating margin compression. Debt reducing but still high short-term focus.",
-            "unusual_patterns_identified": ["38.5% revenue growth with 0% profit growth", "Finance costs doubled", "Extremely high related party balances constant"]
+            "revenue_trend": ["Steady growth"],
+            "profit_trend": ["Stable profitability"],
+            "asset_growth_trend": ["Moderate growth"],
+            "debt_trend": ["Fluctuating"],
+            "trend_analysis_commentary": "Stable operations with revenue growth but decreasing margins",
+            "unusual_patterns_identified": ["Significant tax increase in 2023", "High intercompany balances"]
           }
         }
       }

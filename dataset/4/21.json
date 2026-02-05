@@ -8,28 +8,28 @@
         "enhanced_audit_report_analysis": {
           "opinion_type_analysis": {
             "opinion_category": "Unmodified",
-            "basis_for_opinion_extract": "We conducted our audit in accordance with International Standards on Auditing (ISAs)... In our opinion, the accompanying financial statements give a true and fair view...",
+            "basis_for_opinion_extract": "Audit conducted in accordance with ISAs, sufficient appropriate evidence obtained",
             "modified_opinion_reasons_detailed": [],
-            "impact_on_fs_reliability": "Positive but questionable given IFRS compliance issues"
+            "impact_on_fs_reliability": "Positive"
           },
           "key_audit_matters_extraction": [],
           "going_concern_analysis": {
             "material_uncertainty_disclosed": false,
-            "period_assessed": "Not specified",
-            "mitigating_factors_listed": [],
-            "auditor_conclusion": "No material uncertainty identified",
-            "frca_assessment": "Reasonable but could be more detailed given high related party exposures"
+            "period_assessed": "12 months",
+            "mitigating_factors_listed": ["Profitable operations", "Positive cash flows"],
+            "auditor_conclusion": "No material uncertainty",
+            "frca_assessment": "Agree with auditor assessment"
           },
           "emphasis_other_matters": {
             "emphasis_of_matter_paragraphs": [],
             "other_matter_paragraphs": [],
-            "significance_assessment": "None - clean report"
+            "significance_assessment": "None"
           },
           "isa_compliance_verification": {
-            "compliance_with_isa_700_705": "Formally compliant",
-            "standard_requirements_met": ["Opinion expressed", "Basis for opinion", "Responsibilities sections"],
-            "deficiencies_noted": ["No KAMs despite material related party transactions", "Minimal going concern discussion", "No other information section"],
-            "overall_compliance": "Bare minimum compliance"
+            "compliance_with_isa_700_705": "Compliant",
+            "standard_requirements_met": ["Opinion", "Basis for opinion", "Responsibilities"],
+            "deficiencies_noted": ["No key audit matters for private company"],
+            "overall_compliance": "Compliant"
           }
         }
       }
