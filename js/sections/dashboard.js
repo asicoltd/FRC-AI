@@ -1,8 +1,11 @@
 // Dashboard section
 class Dashboard {
-    static load() {
+    static async load() {
         appState.currentSection = 'dashboard';
         UIComponents.updateActiveSidebarItem('dashboard');
+        
+        // Fetch company names for all available companies
+        const companiesWithNames = await this.fetchCompanyNames();
         
         const content = `
             <div class="container-fluid">
@@ -35,29 +38,40 @@ class Dashboard {
                                     <input type="text" 
                                            class="form-control" 
                                            id="companySearch" 
-                                           placeholder="Search companies by name..."
+                                           placeholder="Search companies by name or ID..."
                                            onkeyup="Dashboard.filterCompanies()">
                                 </div>
                                 
                                 <!-- Companies Grid -->
                                 <div class="row" id="companiesGrid">
-                                    ${appState.availableCompanies.map(id => `
-                                        <div class="col-md-3 col-sm-6 mb-3 company-card" data-company-id="${id}">
-                                            <div class="card h-100 company-select-card ${id === appState.currentCompanyId ? 'border-primary' : ''}">
+                                    ${companiesWithNames.map(company => `
+                                        <div class="col-md-3 col-sm-6 mb-3 company-card" data-company-id="${company.id}" data-company-name="${company.name}">
+                                            <div class="card h-100 company-select-card ${company.id === appState.currentCompanyId ? 'border-primary' : ''}">
                                                 <div class="card-body text-center">
                                                     <div class="mb-3">
                                                         <i class="fas fa-building fa-3x text-primary"></i>
                                                     </div>
-                                                    <h5 class="card-title">Company ${id}</h5>
-                                                    <p class="card-text text-muted small">Click to analyze</p>
+                                                    <h5 class="card-title">${company.name}</h5>
+                                                    <p class="card-text text-muted small">Company ID: ${company.id}</p>
+                                                    ${company.filesAvailable ? 
+                                                        `<p class="card-text text-success small">
+                                                            <i class="fas fa-check-circle me-1"></i>${company.filesAvailable} files available
+                                                        </p>` : 
+                                                        `<p class="card-text text-muted small">
+                                                            <i class="fas fa-exclamation-circle me-1"></i>No data files found
+                                                        </p>`
+                                                    }
                                                 </div>
                                                 <div class="card-footer bg-transparent">
-                                                    <button class="btn btn-sm ${id === appState.currentCompanyId ? 'btn-primary' : 'btn-outline-primary'} w-100"
-                                                            onclick="dataManager.switchCompany(${id})">
+                                                    <button class="btn btn-sm ${company.id === appState.currentCompanyId ? 'btn-primary' : 'btn-outline-primary'} w-100"
+                                                            onclick="dataManager.switchCompany(${company.id})"
+                                                            ${!company.hasData ? 'disabled' : ''}>
                                                             
-                                                        ${id === appState.currentCompanyId ?
+                                                        ${company.id === appState.currentCompanyId ?
                                                         '<i class="fas fa-check me-1"></i> Selected' :
-                                                        '<i class="fas fa-eye me-1"></i> View'}
+                                                        company.hasData ? 
+                                                        '<i class="fas fa-eye me-1"></i> View' : 
+                                                        '<i class="fas fa-times me-1"></i> No Data'}
                                                     </button>
                                                 </div>
                                             </div>
@@ -84,7 +98,7 @@ class Dashboard {
                             <div class="card-header bg-primary text-white">
                                 <h5 class="mb-0">
                                     <i class="fas fa-chart-line me-2"></i>
-                                    Currently Selected: Company ${appState.currentCompanyId}
+                                    Currently Selected: ${this.getSelectedCompanyName(appState.currentCompanyId, companiesWithNames)}
                                 </h5>
                             </div>
                             <div class="card-body">
@@ -155,6 +169,73 @@ class Dashboard {
         UIComponents.getMainContent().innerHTML = content;
     }
 
+    static async fetchCompanyNames() {
+        const companiesWithNames = [];
+        
+        for (const companyId of appState.availableCompanies) {
+            try {
+                // Try to fetch company data from dataset/{companyId}/2.json
+                const response = await fetch(`dataset/${companyId}/2.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const companyName = data?.frc_analysis_report?.entity?.entity_profile?.legal_name || `Company ${companyId}`;
+                    
+                    // Check how many files are available for this company
+                    const filesAvailable = await this.checkAvailableFiles(companyId);
+                    
+                    companiesWithNames.push({
+                        id: companyId,
+                        name: companyName,
+                        hasData: true,
+                        filesAvailable: filesAvailable
+                    });
+                } else {
+                    // If file doesn't exist or error, use default name
+                    companiesWithNames.push({
+                        id: companyId,
+                        name: `Company ${companyId}`,
+                        hasData: false,
+                        filesAvailable: 0
+                    });
+                }
+            } catch (error) {
+                console.error(`Error fetching company ${companyId} data:`, error);
+                companiesWithNames.push({
+                    id: companyId,
+                    name: `Company ${companyId} (Error)`,
+                    hasData: false,
+                    filesAvailable: 0
+                });
+            }
+        }
+        
+        return companiesWithNames;
+    }
+
+    static async checkAvailableFiles(companyId) {
+        const filesToCheck = [];
+        for (let i = 1; i <= 26; i++) {
+            filesToCheck.push(i);
+        }
+        
+        const fileChecks = filesToCheck.map(async (fileNum) => {
+            try {
+                const response = await fetch(`dataset/${companyId}/${fileNum}.json`);
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        });
+        
+        const results = await Promise.all(fileChecks);
+        return results.filter(Boolean).length;
+    }
+
+    static getSelectedCompanyName(companyId, companiesWithNames) {
+        const company = companiesWithNames.find(c => c.id === companyId);
+        return company ? company.name : `Company ${companyId}`;
+    }
+
     static filterCompanies() {
         const searchTerm = document.getElementById('companySearch')?.value.toLowerCase() || '';
         const companyCards = document.querySelectorAll('.company-card');
@@ -164,9 +245,10 @@ class Dashboard {
 
         companyCards.forEach(card => {
             const companyId = card.getAttribute('data-company-id');
-            const cardText = `Company ${companyId}`.toLowerCase();
+            const companyName = card.getAttribute('data-company-name') || '';
+            const searchableText = `company ${companyId} ${companyName}`.toLowerCase();
 
-            if (cardText.includes(searchTerm)) {
+            if (searchableText.includes(searchTerm)) {
                 card.style.display = 'block';
                 visibleCount++;
             } else {
@@ -179,7 +261,7 @@ class Dashboard {
         }
     }
 
-    static addNewCompany() {
+    static async addNewCompany() {
         const newIdInput = document.getElementById('newCompanyId');
         if (!newIdInput) return;
 
@@ -195,14 +277,29 @@ class Dashboard {
             return;
         }
 
+        // Check if company data exists
+        let companyName = `Company ${companyId}`;
+        let hasData = false;
+        try {
+            const response = await fetch(`dataset/${companyId}/2.json`);
+            if (response.ok) {
+                const data = await response.json();
+                companyName = data?.frc_analysis_report?.entity?.entity_profile?.legal_name || companyName;
+                hasData = true;
+            }
+        } catch (error) {
+            console.error(`Error checking company ${companyId}:`, error);
+        }
+
         appState.availableCompanies.push(companyId);
         appState.availableCompanies.sort((a, b) => a - b);
-        this.load();
+        await this.load();
 
         const modal = bootstrap.Modal.getInstance(document.getElementById('addCompanyModal'));
         if (modal) modal.hide();
 
-        Notifications.show(`Company ${companyId} added successfully`, 'success');
+        Notifications.show(`${companyName} (ID: ${companyId}) added ${hasData ? 'with data' : 'without available data'}`, 
+                          hasData ? 'success' : 'warning');
     }
 
     static addNewCompanyDialog() {

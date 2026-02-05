@@ -57,9 +57,10 @@ class AuditGovernance {
         const finalOpinionType = getValue(enhancedOpinion.opinion_category, opinionType);
         
         // Going Concern
-        const goingConcern = enhancedAudit.going_concern_analysis || {};
-        const hasMaterialUncertainty = goingConcern.material_uncertainty_disclosed || false;
-        const auditorConclusion = getValue(goingConcern.auditor_conclusion, 'Going concern appropriate');
+        const goingConcern = auditReportAnalysis.going_concern_assessment || {};
+        const enhancedGoingConcern = enhancedAudit.going_concern_analysis || {};
+        const hasMaterialUncertainty = enhancedGoingConcern.material_uncertainty_disclosed || false;
+        const auditorConclusion = getValue(enhancedGoingConcern.auditor_conclusion, getValue(goingConcern.auditor_conclusion, 'Going concern appropriate'));
         
         // Key Audit Matters
         const keyAuditMatters = enhancedAudit.key_audit_matters_extraction || [];
@@ -72,7 +73,7 @@ class AuditGovernance {
         
         // BSEC Compliance
         const bsecCompliance = bsecAssessment.bsec_corporate_governance_code || {};
-        const complianceScore = getValue(bsecCompliance.overall_compliance_score, '70%');
+        const complianceScore = getValue(bsecCompliance.overall_compliance_score, 'N/A');
         const majorNonCompliances = bsecCompliance.major_non_compliances || [];
         
         // Board Committees
@@ -81,16 +82,38 @@ class AuditGovernance {
         const riskCommittee = boardCommittees.risk_committee || {};
         const nominationCommittee = boardCommittees.nomination_remuneration || {};
         
+        // Internal Control Framework
+        const internalControlFramework = bsecAssessment.internal_control_framework || {};
+        
         // ISA Compliance
         const isaCompliance = enhancedAudit.isa_compliance_verification || {};
-        const isaComplianceStatus = getValue(isaCompliance.overall_compliance, 'Fully Compliant');
+        const isaComplianceStatus = getValue(isaCompliance.overall_compliance, 'Bare minimum compliance');
 
         // Format compliance score
         let displayScore = complianceScore;
-        let scoreValue = 70; // Default from data
+        let scoreValue = 0;
         if (complianceScore && typeof complianceScore === 'string' && complianceScore.includes('%')) {
             scoreValue = parseInt(complianceScore);
             displayScore = complianceScore;
+        } else if (complianceScore === 'N/A') {
+            scoreValue = 0;
+            displayScore = 'N/A';
+        }
+
+        // Get status references
+        const statusReference = getValue(auditReportAnalysis.status_reference, 'Auditor\'s Report pages 3-5');
+        const governanceStatusReference = getValue(governanceReview.status_reference, 'Notes 13-14 for related party transactions');
+
+        // Build key audit matters display
+        let keyAuditMattersDisplay = 'None disclosed';
+        let totalMatters = 0;
+        
+        if (auditMatters.length > 0) {
+            keyAuditMattersDisplay = auditMatters.join(', ');
+            totalMatters = auditMatters.length;
+        } else if (keyAuditMatters.length > 0) {
+            keyAuditMattersDisplay = keyAuditMatters.map(kam => typeof kam === 'object' ? kam.matter || 'N/A' : kam).join(', ');
+            totalMatters = keyAuditMatters.length;
         }
 
         const content = `
@@ -116,7 +139,7 @@ class AuditGovernance {
                                     </tr>
                                     <tr>
                                         <th>Registration No:</th>
-                                        <td>${getValue(auditorInfo.firm_registration_number, 'CAF-001-010')}</td>
+                                        <td>${getValue(auditorInfo.firm_registration_number, 'CAF-001-016')}</td>
                                     </tr>
                                     <tr>
                                         <th>Audit Tenure:</th>
@@ -131,7 +154,15 @@ class AuditGovernance {
                                     <tr>
                                         <th>Opinion Type:</th>
                                         <td>
-                                            <span class="badge bg-success">${finalOpinionType}</span>
+                                            <span class="badge ${finalOpinionType === 'Unmodified' ? 'bg-success' : 'bg-warning'}">${finalOpinionType}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>ISA Compliance:</th>
+                                        <td>
+                                            <span class="badge ${isaComplianceStatus.includes('Fully') ? 'bg-success' : isaComplianceStatus.includes('Bare minimum') ? 'bg-warning' : 'bg-secondary'}">
+                                                ${isaComplianceStatus}
+                                            </span>
                                         </td>
                                     </tr>
                                 </table>
@@ -148,13 +179,17 @@ class AuditGovernance {
                                     <p class="mb-0">${auditorConclusion}</p>
                                 </div>
                                 `}
-                                <div class="alert alert-info">
+                                <div class="alert ${totalMatters > 0 ? 'alert-info' : 'alert-secondary'}">
                                     <h6><i class="fas fa-clipboard-list me-2"></i>Key Audit Matters</h6>
                                     <p class="mb-0 small">
-                                        ${auditMatters.slice(0, keyAuditMatters.length).join(', ')}
-                                        
+                                        ${keyAuditMattersDisplay}
                                     </p>
-                                    <small class="text-muted">Total: ${Math.max(keyAuditMatters.length, auditMatters.length)} matters identified</small>
+                                    <small class="text-muted">Total: ${totalMatters} matters identified</small>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="small text-muted mb-0">
+                                        <strong>Status Reference:</strong> ${statusReference}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -167,36 +202,42 @@ class AuditGovernance {
                             <div class="col-md-4">
                                 <h6>Board Structure</h6>
                                 <div class="mb-2">
-                                    <span class="badge bg-warning me-1">
-                                        Independence: ${getValue(boardStructure.independence, 'Not fully disclosed')}
+                                    <span class="badge ${boardStructure.independence === 'Not disclosed' ? 'bg-secondary' : 'bg-warning'} me-1 mb-1">
+                                        Independence: ${getValue(boardStructure.independence, 'Not disclosed')}
                                     </span>
-                                    <span class="badge bg-info me-1 mt-1">
-                                        Expertise: ${getValue(boardStructure.expertise, 'Relevant backgrounds')}
+                                    <span class="badge ${boardStructure.expertise === 'Not disclosed' ? 'bg-secondary' : 'bg-info'} me-1 mb-1">
+                                        Expertise: ${getValue(boardStructure.expertise, 'Not disclosed')}
                                     </span>
                                 </div>
-                                <p class="small">${getValue(boardStructure.effectiveness, 'Appears adequate based on disclosures')}</p>
+                                <p class="small">${getValue(boardStructure.effectiveness, 'Not assessed')}</p>
                             </div>
                             <div class="col-md-4">
                                 <h6>Committee Effectiveness</h6>
                                 <div class="mb-2">
-                                    <span class="badge ${auditCommittee.effectiveness_rating === 'Moderate' ? 'bg-warning' : 'bg-secondary'} me-1">
-                                        Audit: ${getValue(auditCommittee.effectiveness_rating, committeeEffectiveness.audit_committee)}
+                                    <span class="badge ${committeeEffectiveness.audit_committee === 'Not disclosed (private company)' ? 'bg-secondary' : 'bg-warning'} me-1 mb-1">
+                                        Audit: ${getValue(committeeEffectiveness.audit_committee, 'Not disclosed')}
                                     </span>
-                                    <span class="badge ${riskCommittee.effectiveness === 'Basic' ? 'bg-info' : 'bg-secondary'} me-1 mt-1">
-                                        Risk: ${getValue(riskCommittee.effectiveness, committeeEffectiveness.risk_committee)}
+                                    <span class="badge ${committeeEffectiveness.risk_committee === 'Not disclosed' ? 'bg-secondary' : 'bg-info'} me-1 mb-1">
+                                        Risk: ${getValue(committeeEffectiveness.risk_committee, 'Not disclosed')}
+                                    </span>
+                                    <span class="badge ${committeeEffectiveness.nomination_committee === 'Not disclosed' ? 'bg-secondary' : 'bg-primary'} me-1 mb-1">
+                                        Nomination: ${getValue(committeeEffectiveness.nomination_committee, 'Not disclosed')}
                                     </span>
                                 </div>
-                                <p class="small">${getValue(nominationCommittee.transparency_level, 'Limited disclosures')}</p>
+                                <p class="small text-muted">Private company - minimal disclosures expected</p>
                             </div>
                             <div class="col-md-4">
                                 <h6>Internal Controls</h6>
                                 <div class="mb-2">
-                                    <span class="badge ${internalControls.effectiveness === 'Adequate' ? 'bg-success' : 'bg-warning'} me-1">
-                                        Effectiveness: ${getValue(internalControls.effectiveness, 'Adequate')}
+                                    <span class="badge ${internalControls.effectiveness === 'Not assessed' ? 'bg-secondary' : 'bg-warning'} me-1 mb-1">
+                                        Effectiveness: ${getValue(internalControls.effectiveness, 'Not assessed')}
+                                    </span>
+                                    <span class="badge bg-light text-dark border me-1 mb-1">
+                                        Management: ${getValue(internalControls.management_assessment, 'Not disclosed')}
                                     </span>
                                 </div>
-                                <p class="small">${getValue(internalControls.management_assessment, 'Implied through financial reporting')}</p>
-                                <p class="small text-muted">Auditor: ${getValue(internalControls.auditor_opinion, 'No material weaknesses reported')}</p>
+                                <p class="small">${getValue(internalControls.auditor_opinion, 'Not provided')}</p>
+                                <p class="small text-muted">${governanceStatusReference}</p>
                             </div>
                         </div>
                     </div>
@@ -212,11 +253,13 @@ class AuditGovernance {
                                 <span>Overall Compliance Score</span>
                                 <span class="fw-bold">${displayScore}</span>
                             </div>
+                            ${scoreValue > 0 ? `
                             <div class="progress" style="height: 10px;">
                                 <div class="progress-bar ${scoreValue > 80 ? 'bg-success' : scoreValue > 60 ? 'bg-warning' : 'bg-danger'}" 
                                      style="width: ${scoreValue}%"></div>
                             </div>
-                            <small class="text-muted">Based on disclosed information in provided pages</small>
+                            ` : ''}
+                            <small class="text-muted">${bsecRegulator.compliance_status === 'Not Applicable' ? 'Not applicable - private company' : 'Based on disclosed information'}</small>
                         </div>
                         
                         <div class="accordion" id="governanceAccordion">
@@ -231,7 +274,7 @@ class AuditGovernance {
                                         <ul class="mb-0 small">
                                             ${majorNonCompliances.length > 0 ? 
                                                 majorNonCompliances.map(item => `<li>${item}</li>`).join('') : 
-                                                '<li class="text-muted">No major non-compliances reported</li>'
+                                                '<li class="text-muted">N/A - private company</li>'
                                             }
                                         </ul>
                                     </div>
@@ -249,7 +292,7 @@ class AuditGovernance {
                                         <ul class="mb-0 small">
                                             ${bsecCompliance.compliance_checklist && bsecCompliance.compliance_checklist.length > 0 ? 
                                                 bsecCompliance.compliance_checklist.map(item => `<li>${item}</li>`).join('') : 
-                                                '<li class="text-muted">No checklist items available</li>'
+                                                '<li class="text-muted">Not applicable - private company</li>'
                                             }
                                         </ul>
                                     </div>
@@ -264,9 +307,9 @@ class AuditGovernance {
                                 </h2>
                                 <div id="governance3" class="accordion-collapse collapse">
                                     <div class="accordion-body">
-                                        ${bsecAssessment.internal_control_framework?.deficiencies_reported && bsecAssessment.internal_control_framework.deficiencies_reported.length > 0 ? 
+                                        ${internalControlFramework.deficiencies_reported && internalControlFramework.deficiencies_reported.length > 0 ? 
                                             `<ul class="mb-0 small">
-                                                ${bsecAssessment.internal_control_framework.deficiencies_reported.map(item => `<li>${item}</li>`).join('')}
+                                                ${internalControlFramework.deficiencies_reported.map(item => `<li>${item}</li>`).join('')}
                                             </ul>` :
                                             '<p class="small text-muted mb-0">No specific control deficiencies reported</p>'
                                         }
@@ -280,9 +323,11 @@ class AuditGovernance {
                     <div class="dashboard-card">
                         <h5><i class="fas fa-shield-alt me-2 text-primary"></i>ISA Compliance Check</h5>
                         <div class="mb-3">
-                            <span class="badge bg-success">${isaComplianceStatus}</span>
+                            <span class="badge ${isaComplianceStatus.includes('Fully') ? 'bg-success' : isaComplianceStatus.includes('Bare minimum') ? 'bg-warning' : 'bg-secondary'}">
+                                ${isaComplianceStatus}
+                            </span>
                         </div>
-                        <p class="small"><strong>Compliance with ISA 700/705:</strong> ${getValue(isaCompliance.compliance_with_isa_700_705, 'Compliant')}</p>
+                        <p class="small"><strong>Compliance with ISA 700/705:</strong> ${getValue(isaCompliance.compliance_with_isa_700_705, 'Formally compliant')}</p>
                         
                         ${isaCompliance.standard_requirements_met && isaCompliance.standard_requirements_met.length > 0 ? `
                         <div class="mb-2">
@@ -298,7 +343,9 @@ class AuditGovernance {
                         ${isaCompliance.deficiencies_noted && isaCompliance.deficiencies_noted.length > 0 ? `
                         <div class="mt-2">
                             <strong class="small text-danger">Deficiencies:</strong>
-                            <p class="small text-danger mb-0">${isaCompliance.deficiencies_noted.join(', ')}</p>
+                            <ul class="small text-danger mb-0">
+                                ${isaCompliance.deficiencies_noted.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
                         </div>
                         ` : `
                         <div class="mt-2">
@@ -306,12 +353,6 @@ class AuditGovernance {
                             <p class="small text-success mb-0">None reported</p>
                         </div>
                         `}
-                        
-                        <div class="mt-3">
-                            <p class="small text-muted mb-0">
-                                <strong>Status Reference:</strong> ${getValue(auditReportAnalysis.status_reference, 'Auditor\'s Report pages 3-9')}
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -323,14 +364,16 @@ class AuditGovernance {
                         <h6><i class="fas fa-info-circle me-2 text-primary"></i>Additional Information</h6>
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="small mb-1"><strong>Audit Committee Meetings:</strong> ${getValue(auditCommittee.meetings_held, '4 meetings during year')}</p>
-                                <p class="small mb-1"><strong>Audit Committee Activities:</strong> ${getValue(auditCommittee.activities_disclosed, 'Limited details')}</p>
-                                <p class="small mb-1"><strong>Risk Management:</strong> ${getValue(riskCommittee.risk_coverage, 'Board oversees risk management')}</p>
+                                <p class="small mb-1"><strong>Audit Committee Meetings:</strong> ${getValue(auditCommittee.meetings_held, 'Not disclosed')}</p>
+                                <p class="small mb-1"><strong>Audit Committee Activities:</strong> ${getValue(auditCommittee.activities_disclosed, 'Not disclosed')}</p>
+                                <p class="small mb-1"><strong>Risk Management:</strong> ${getValue(riskCommittee.risk_coverage, 'Not disclosed')}</p>
+                                <p class="small mb-1"><strong>Audit Committee Composition:</strong> ${getValue(auditCommittee.composition, 'Not disclosed')}</p>
                             </div>
                             <div class="col-md-6">
-                                <p class="small mb-1"><strong>Internal Control Assessment:</strong> ${getValue(bsecAssessment.internal_control_framework?.overall_effectiveness, 'Adequate with room for improvement')}</p>
-                                <p class="small mb-1"><strong>BSEC Filing Status:</strong> ${getValue(regulatoryLandscape.statutory_filings_status?.bsec_filed, true) ? 'Filed' : 'Pending'}</p>
-                                <p class="small mb-1"><strong>Overall Regulatory Assessment:</strong> ${getValue(regulatoryLandscape.overall_regulatory_assessment, 'Appears Compliant')}</p>
+                                <p class="small mb-1"><strong>Internal Control Assessment:</strong> ${getValue(internalControlFramework.overall_effectiveness, 'Cannot assess')}</p>
+                                <p class="small mb-1"><strong>BSEC Compliance:</strong> ${getValue(bsecRegulator.compliance_status, 'Not Applicable')}</p>
+                                <p class="small mb-1"><strong>Overall Regulatory Assessment:</strong> ${getValue(regulatoryLandscape.overall_regulatory_assessment, 'Partially Compliant with Framework Deficiencies')}</p>
+                                <p class="small mb-1"><strong>Nomination Committee:</strong> ${getValue(nominationCommittee.transparency_level, 'Low')}</p>
                             </div>
                         </div>
                     </div>
@@ -357,6 +400,10 @@ class AuditGovernance {
         }
 
         const enhancedAudit = section21.frc_analysis_report?.entity?.phase_4_audit_governance_verification?.enhanced_audit_report_analysis || {};
+        const opinionAnalysis = enhancedAudit.opinion_type_analysis || {};
+        const goingConcern = enhancedAudit.going_concern_analysis || {};
+        const emphasisMatters = enhancedAudit.emphasis_other_matters || {};
+        const isaCompliance = enhancedAudit.isa_compliance_verification || {};
         
         const detailedContent = `
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -375,16 +422,16 @@ class AuditGovernance {
                                 <table class="table table-sm">
                                     <tr>
                                         <th width="40%">Opinion Category:</th>
-                                        <td><span class="badge bg-success">${enhancedAudit.opinion_type_analysis?.opinion_category || 'Unmodified Opinion'}</span></td>
+                                        <td><span class="badge bg-success">${getValue(opinionAnalysis.opinion_category, 'Unmodified')}</span></td>
                                     </tr>
                                     <tr>
                                         <th>Impact on Reliability:</th>
-                                        <td>${enhancedAudit.opinion_type_analysis?.impact_on_fs_reliability || 'Positive - enhances reliability'}</td>
+                                        <td>${getValue(opinionAnalysis.impact_on_fs_reliability, 'Positive but questionable given IFRS compliance issues')}</td>
                                     </tr>
                                     <tr>
                                         <th>Modified Opinion Reasons:</th>
-                                        <td>${enhancedAudit.opinion_type_analysis?.modified_opinion_reasons_detailed?.length > 0 ? 
-                                            enhancedAudit.opinion_type_analysis.modified_opinion_reasons_detailed.join(', ') : 
+                                        <td>${opinionAnalysis.modified_opinion_reasons_detailed && opinionAnalysis.modified_opinion_reasons_detailed.length > 0 ? 
+                                            opinionAnalysis.modified_opinion_reasons_detailed.join(', ') : 
                                             'None'
                                         }</td>
                                     </tr>
@@ -393,7 +440,7 @@ class AuditGovernance {
                             <div class="col-md-6">
                                 <div class="bg-light p-3 rounded">
                                     <h6 class="mb-2">Basis for Opinion Extract</h6>
-                                    <p class="small mb-0">${enhancedAudit.opinion_type_analysis?.basis_for_opinion_extract || 'We conducted our audit in accordance with International Standards on Auditing (ISAs)...'}</p>
+                                    <p class="small mb-0">${getValue(opinionAnalysis.basis_for_opinion_extract, 'We conducted our audit in accordance with International Standards on Auditing (ISAs)... In our opinion, the accompanying financial statements give a true and fair view...')}</p>
                                 </div>
                             </div>
                         </div>
@@ -413,8 +460,8 @@ class AuditGovernance {
                                 <tbody>
                                     ${enhancedAudit.key_audit_matters_extraction.map((kam, index) => `
                                     <tr>
-                                        <td><strong>${kam.matter || 'N/A'}</strong></td>
-                                        <td>${kam.reason || 'N/A'}</td>
+                                        <td><strong>${typeof kam === 'object' ? kam.matter || 'N/A' : kam}</strong></td>
+                                        <td>${typeof kam === 'object' ? kam.reason || 'N/A' : 'Not specified'}</td>
                                     </tr>
                                     `).join('')}
                                 </tbody>
@@ -423,7 +470,7 @@ class AuditGovernance {
                         ` : `
                         <div class="alert alert-info">
                             <i class="fas fa-info-circle me-2"></i>
-                            No detailed key audit matters available in enhanced analysis.
+                            No Key Audit Matters disclosed despite material related party transactions.
                         </div>
                         `}
                     </div>
@@ -435,49 +482,77 @@ class AuditGovernance {
                         <table class="table table-sm">
                             <tr>
                                 <th width="50%">Material Uncertainty:</th>
-                                <td><span class="badge ${enhancedAudit.going_concern_analysis?.material_uncertainty_disclosed ? 'bg-warning' : 'bg-success'}">
-                                    ${enhancedAudit.going_concern_analysis?.material_uncertainty_disclosed ? 'Yes' : 'No'}
+                                <td><span class="badge ${goingConcern.material_uncertainty_disclosed ? 'bg-warning' : 'bg-success'}">
+                                    ${goingConcern.material_uncertainty_disclosed ? 'Yes' : 'No'}
                                 </span></td>
                             </tr>
                             <tr>
                                 <th>Period Assessed:</th>
-                                <td>${enhancedAudit.going_concern_analysis?.period_assessed || 'Foreseeable future'}</td>
+                                <td>${getValue(goingConcern.period_assessed, 'Not specified')}</td>
                             </tr>
                             <tr>
                                 <th>Auditor Conclusion:</th>
-                                <td>${enhancedAudit.going_concern_analysis?.auditor_conclusion || 'Going concern appropriate'}</td>
+                                <td>${getValue(goingConcern.auditor_conclusion, 'No material uncertainty identified')}</td>
                             </tr>
                             <tr>
                                 <th>FRC Assessment:</th>
-                                <td>${enhancedAudit.going_concern_analysis?.frca_assessment || 'Agree with auditor\'s assessment'}</td>
+                                <td>${getValue(goingConcern.frca_assessment, 'Reasonable but could be more detailed given high related party exposures')}</td>
                             </tr>
                         </table>
                         
-                        ${enhancedAudit.going_concern_analysis?.mitigating_factors_listed && enhancedAudit.going_concern_analysis.mitigating_factors_listed.length > 0 ? `
+                        ${goingConcern.mitigating_factors_listed && goingConcern.mitigating_factors_listed.length > 0 ? `
                         <div class="mt-3">
                             <h6>Mitigating Factors:</h6>
                             <ul class="small mb-0">
-                                ${enhancedAudit.going_concern_analysis.mitigating_factors_listed.map(factor => `<li>${factor}</li>`).join('')}
+                                ${goingConcern.mitigating_factors_listed.map(factor => `<li>${factor}</li>`).join('')}
                             </ul>
                         </div>
-                        ` : ''}
+                        ` : `
+                        <div class="mt-3">
+                            <p class="small text-muted mb-0">No mitigating factors listed</p>
+                        </div>
+                        `}
+                    </div>
+
+                    <div class="dashboard-card mb-4">
+                        <h5><i class="fas fa-exclamation-circle me-2 text-primary"></i>Emphasis & Other Matters</h5>
+                        <div class="mb-2">
+                            <strong>Emphasis of Matter Paragraphs:</strong>
+                            <p class="small">${emphasisMatters.emphasis_of_matter_paragraphs && emphasisMatters.emphasis_of_matter_paragraphs.length > 0 ? 
+                                emphasisMatters.emphasis_of_matter_paragraphs.join(', ') : 
+                                'None'
+                            }</p>
+                        </div>
+                        <div class="mb-2">
+                            <strong>Other Matter Paragraphs:</strong>
+                            <p class="small">${emphasisMatters.other_matter_paragraphs && emphasisMatters.other_matter_paragraphs.length > 0 ? 
+                                emphasisMatters.other_matter_paragraphs.join(', ') : 
+                                'None'
+                            }</p>
+                        </div>
+                        <div>
+                            <strong>Significance Assessment:</strong>
+                            <p class="small">${getValue(emphasisMatters.significance_assessment, 'None - clean report')}</p>
+                        </div>
                     </div>
 
                     <div class="dashboard-card">
                         <h5><i class="fas fa-check-double me-2 text-primary"></i>ISA Compliance Verification</h5>
                         <div class="mb-3">
-                            <span class="badge bg-success">${enhancedAudit.isa_compliance_verification?.overall_compliance || 'Fully Compliant'}</span>
+                            <span class="badge ${isaCompliance.overall_compliance === 'Fully Compliant' ? 'bg-success' : 'bg-warning'}">
+                                ${getValue(isaCompliance.overall_compliance, 'Bare minimum compliance')}
+                            </span>
                         </div>
                         
                         <p class="small"><strong>Compliance with ISA 700/705:</strong><br>
-                        ${enhancedAudit.isa_compliance_verification?.compliance_with_isa_700_705 || 'Compliant'}
+                        ${getValue(isaCompliance.compliance_with_isa_700_705, 'Formally compliant')}
                         </p>
                         
                         <div class="mb-3">
                             <strong class="small">Standard Requirements Met:</strong>
                             <div class="mt-2">
-                                ${enhancedAudit.isa_compliance_verification?.standard_requirements_met && enhancedAudit.isa_compliance_verification.standard_requirements_met.length > 0 ? 
-                                    enhancedAudit.isa_compliance_verification.standard_requirements_met.map(item => 
+                                ${isaCompliance.standard_requirements_met && isaCompliance.standard_requirements_met.length > 0 ? 
+                                    isaCompliance.standard_requirements_met.map(item => 
                                         `<span class="badge bg-success me-1 mb-1">${item}</span>`
                                     ).join('') : 
                                     '<span class="text-muted small">Not specified</span>'
@@ -488,8 +563,8 @@ class AuditGovernance {
                         <div class="mt-3">
                             <strong class="small">Deficiencies Noted:</strong>
                             <div class="mt-2">
-                                ${enhancedAudit.isa_compliance_verification?.deficiencies_noted && enhancedAudit.isa_compliance_verification.deficiencies_noted.length > 0 ? 
-                                    enhancedAudit.isa_compliance_verification.deficiencies_noted.map(item => 
+                                ${isaCompliance.deficiencies_noted && isaCompliance.deficiencies_noted.length > 0 ? 
+                                    isaCompliance.deficiencies_noted.map(item => 
                                         `<span class="badge bg-danger me-1 mb-1">${item}</span>`
                                     ).join('') : 
                                     '<span class="badge bg-success">None</span>'
