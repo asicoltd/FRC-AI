@@ -7,122 +7,69 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
-            "applicable": true,
-            "debt_equity_swaps": "Transaction occurred and accounted for per IFRIC 19/No such transaction",
-            "fair_value_measurement": "Equity instruments measured at fair value at derecognition date/Measurement incorrect",
-            "gain_loss_recognition": "Difference between carrying amount of liability and FV of equity recognized in P&L/Incorrectly recognized",
-            "disclosures_provided": "Adequate (nature, amounts)/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for debt-to-equity swaps where equity instruments are issued to extinguish a financial liability.",
-            "status_reference": "Financial liabilities note, equity note, gain/loss on debt extinguishment in P&L"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
-            "applicable": false,
-            "stripping_activity_costs": "N/A - Entity not in surface mining industry",
-            "recognition_criteria": "N/A",
-            "measurement_basis": "N/A",
-            "amortization_method": "N/A",
-            "disclosures_provided": "N/A",
-            "reason_of_the_status": "Interpretation specific to surface mining operations for stripping costs during production phase.",
-            "status_reference": "N/A"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "ifric_21_levies": {
-            "applicable": true,
-            "government_levies": "Present (e.g., bank levies, environmental charges)/Not present",
-            "recognition_timing": "Recognized when obligating event occurs (e.g., operating in period)/Recognized incorrectly",
-            "measurement_basis": "Best estimate of outflow/Measurement questionable",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of timing for recognizing liabilities to pay government levies (recognized in the period the obligating event occurs).",
-            "status_reference": "Provisions note, other liabilities, operating expenses"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "ifric_22_foreign_currency_transactions_and_advance_consideration": {
-            "applicable": true,
-            "advance_payments_foreign_currency": "Received or paid in foreign currency/No such transactions",
-            "exchange_rate_determination": "Rate at date of payment for non-monetary item/Rate used incorrectly",
-            "asset_liability_recognition": "Asset/expense measured using historical rate when payment is advance/Measured incorrectly",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of exchange rate used when advance consideration is paid/received for a non-monetary asset/expense.",
-            "status_reference": "Foreign currency transactions note, prepayments, PPE/intangible additions"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "ifric_23_uncertainty_over_income_tax_treatments": {
-            "applicable": true,
-            "uncertain_tax_positions": "Exist and accounted for per IFRIC 23/None identified",
-            "recognition_criteria": "Considered whether position is probable of being sustained/Not considered",
-            "measurement_basis": "Measured at most likely amount or expected value/Measurement not disclosed",
-            "disclosures_provided": "Adequate (nature of uncertainty)/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of how uncertainty in income tax treatments is reflected in the measurement of tax assets/liabilities.",
-            "status_reference": "Income taxes note, contingent liabilities note, tax risk disclosures"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
-            "applicable": true,
-            "tax_status_changes": "Occurred (e.g., change in tax residency)/No changes",
-            "deferred_tax_impacts": "Deferred tax assets/liabilities remeasured/Not remeasured",
-            "dividend_withholding_taxes": "Considered in distribution announcements/Not considered",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for changes in tax status (e.g., remeasurement of DTAs/DTLs) and withholding taxes on dividends.",
-            "status_reference": "Income taxes note, equity note (dividends), significant events note"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_7_introduction_of_euro": {
-            "applicable": true,
-            "euro_transition_impacts": "Entity transacts in euros/Not applicable",
-            "exchange_rate_fixing": "Fixed conversion rates used for legacy currencies/Rates used correctly",
-            "rounding_conventions": "Applied consistently/Not an issue",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of consistent application of fixed conversion rates and rounding rules for euro transactions. Legacy issue but may still apply.",
-            "status_reference": "Foreign currency note, accounting policies, basis of preparation"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
-            "applicable": true,
-            "government_assistance": "Received (e.g., grants not related to assets or income)/None",
-            "recognition_criteria": "Recognized as income when conditions met/Recognized incorrectly",
-            "measurement_basis": "Measured at fair value/Measurement not disclosed",
-            "disclosures_provided": "Adequate (nature, extent, conditions)/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for government grants not related to specific assets or income (recognized as income over periods).",
-            "status_reference": "Government grants note, other income, commitments note"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_15_operating_leases_incentives": {
-            "applicable": true,
-            "lease_incentives": "Received (e.g., cash incentives, rent-free periods)/None",
-            "recognition_timing": "Recognized as reduction of rental expense over lease term/Recognized upfront",
-            "allocation_over_lease_term": "Allocated on a straight-line basis/Allocation method not appropriate",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for incentives in operating leases (lessee recognizes benefit as reduction of lease expense over term).",
-            "status_reference": "Leases note, operating lease commitments note, accounting policies"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
-            "applicable": true,
-            "tax_status_changes": "Occurred (e.g., change from partnership to corporation)/No changes",
-            "deferred_tax_effects": "Deferred tax recognized/impact disclosed/Not recognized",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for deferred tax implications of changes in the tax status of the entity or its shareholders.",
-            "status_reference": "Income taxes note, equity note, significant events note"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
-            "applicable": true,
-            "substance_over_form": "Applied to assess lease transactions/Not considered",
-            "linked_transactions": "Series of linked transactions assessed as single arrangement/Assessed separately",
-            "lease_classification": "Classification based on substance/Classification based solely on legal form",
-            "disclosures_provided": "Adequate/Inadequate",
-            "reason_of_the_status": "Assessment of whether the substance of a series of transactions (e.g., sale and leaseback) results in a lease or another arrangement.",
-            "status_reference": "Leases note, related party transactions, commitments note"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_29_service_concession_arrangements_disclosures": {
-            "applicable": true,
-            "service_concession_disclosures": "Entity is operator/grantor and provides disclosures/Not applicable",
-            "rights_obligations": "Nature and extent disclosed/Insufficient disclosure",
-            "revenue_expense_recognition": "Accounting policies disclosed/Policies not clear",
-            "disclosures_provided": "Adequate per SIC-29/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of disclosures about service concession arrangements to explain the arrangement's nature, risks, and accounting.",
-            "status_reference": "Service concession arrangements note, revenue recognition note, intangible assets note"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           },
           "sic_32_intangible_assets_website_costs": {
-            "applicable": true,
-            "website_development_costs": "Incurred and accounted for per SIC-32/Not material",
-            "recognition_criteria": "Development costs capitalized when criteria met/Expensed",
-            "amortization_policy": "Amortized over useful life/Policy reasonable",
-            "impairment_testing": "Tested for impairment/Not tested",
-            "disclosures_provided": "Adequate/Inadequate or N/A",
-            "reason_of_the_status": "Assessment of accounting for website development costs (planning/design costs expensed, development/construction costs capitalized if criteria met).",
-            "status_reference": "Intangible assets note, IT/website costs in expenses, accounting policies"
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
+            "reason_of_the_status": "",
+            "status_reference": ""
           }
         }
       }

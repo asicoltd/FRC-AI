@@ -7,82 +7,82 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_36_impairment_of_assets": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "No impairment indicated per management",
             "status_reference": "Note 2.12, page 17"
           },
           "ias_37_provisions_contingent_liabilities_assets": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "No material provisions or contingencies disclosed",
             "status_reference": "Review of liabilities notes"
           },
           "ias_38_intangible_assets": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Software capitalized and amortized",
             "status_reference": "Depreciation schedule, page 16"
           },
           "ias_40_investment_property": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No investment property held",
             "status_reference": "Note 2.03, page 15"
           },
           "ias_41_agriculture": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "Not an agricultural entity",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_1_first_time_adoption": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "Not a first-time adopter",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_2_share_based_payment": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No share-based payments",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_3_business_combinations": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No business combinations during period",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_5_non_current_assets_held_for_sale": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No assets held for sale",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "Not in exploration business",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_7_financial_instruments_disclosures": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Financial risk disclosures provided",
             "status_reference": "Note 2.13, pages 18-19"
           },
           "ifrs_8_operating_segments": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "Single operating segment",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_9_financial_instruments": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Financial instruments recognized and measured per IFRS 9",
             "status_reference": "Note 2.13, pages 18-19"
           },
           "ifrs_10_consolidated_financial_statements": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No subsidiaries to consolidate",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_11_joint_arrangements": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No joint arrangements",
             "status_reference": "Note 2.03, page 15"
           },
           "ifrs_12_disclosure_of_interests_in_other_entities": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No interests in other entities",
             "status_reference": "Note 2.03, page 15"
           }

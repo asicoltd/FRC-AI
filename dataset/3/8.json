@@ -7,92 +7,92 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_1_presentation": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Full set of financial statements presented",
             "status_reference": "Pages 10-13"
           },
           "ias_2_inventories": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Valued at lower of cost and NRV using weighted average method",
             "status_reference": "Note 8.00, page 24"
           },
           "ias_7_statement_of_cash_flows": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Cash flow statement presented using direct method",
             "status_reference": "Page 13"
           },
           "ias_8_accounting_policies": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Accounting policies disclosed and consistently applied",
             "status_reference": "Note 2.00, pages 14-22"
           },
           "ias_10_events_after_reporting_period": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "10% cash dividend recommended after reporting date disclosed",
             "status_reference": "Note 2.20, page 20"
           },
           "ias_12_income_taxes": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Current and deferred tax recognized per IAS 12",
             "status_reference": "Note 2.22, pages 20-21"
           },
           "ias_16_property_plant_equipment": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "PPE stated at historical cost less depreciation",
             "status_reference": "Note 2.08, page 16"
           },
           "ias_19_employee_benefits": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Provident fund and company insurance disclosed",
             "status_reference": "Note 2.16, page 19"
           },
           "ias_20_government_grants": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No government grants disclosed",
             "status_reference": "N/A"
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Foreign currency transactions converted at spot rate",
             "status_reference": "Note 2.21, page 20"
           },
           "ias_23_borrowing_costs": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Borrowing costs capitalized for qualifying assets",
             "status_reference": "Note 2.23, page 21"
           },
           "ias_24_related_party_disclosures": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Related party transactions disclosed",
             "status_reference": "Note 38.00, page 34"
           },
           "ias_27_separate_financial_statements": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Entity presents separate financial statements",
             "status_reference": "Basis of preparation"
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No investments in associates or joint ventures",
             "status_reference": "Note 2.03, page 15"
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
-            "applicable": false,
+            "compliance": "Not Applicable",
             "reason_of_the_status": "Not applicable to Bangladesh",
             "status_reference": "Note 2.03, page 15"
           },
           "ias_32_financial_instruments_presentation": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Financial instruments properly classified",
             "status_reference": "Note 2.13, pages 18-19"
           },
           "ias_33_earnings_per_share": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "EPS calculated using weighted average method",
             "status_reference": "Note 2.24, page 21"
           },
           "ias_34_interim_financial_reporting": {
-            "applicable": true,
+            "compliance": "Compliant",
             "reason_of_the_status": "Annual financial statements presented",
             "status_reference": "Full set of statements"
           }

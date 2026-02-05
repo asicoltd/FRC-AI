@@ -7,92 +7,92 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_1_presentation": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_2_inventories": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_7_statement_of_cash_flows": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_8_accounting_policies": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_10_events_after_reporting_period": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_12_income_taxes": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_16_property_plant_equipment": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_19_employee_benefits": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_20_government_grants": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_23_borrowing_costs": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_24_related_party_disclosures": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_27_separate_financial_statements": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_32_financial_instruments_presentation": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_33_earnings_per_share": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_34_interim_financial_reporting": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           }

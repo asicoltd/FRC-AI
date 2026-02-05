@@ -1,85 +1,75 @@
 {
   "pdf_token": "FRC-PDF-1",
   "report_id": "FRC-RPT-1",
-  "section_id": "10",
+  "section_id": "11",
   "frc_analysis_report": {
     "entity": {
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
-          "ifrs_13_fair_value_measurement": {
-            "applicable": true,
-            "reason_of_the_status": "Limited fair value measurements disclosed",
-            "status_reference": "Note 2.03, page 15"
+          "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "No debt-to-equity swaps identified",
+            "status_reference": "Review of liabilities and equity notes"
           },
-          "ifrs_14_regulatory_deferral_accounts": {
-            "applicable": false,
-            "reason_of_the_status": "Not a rate-regulated entity",
-            "status_reference": "Note 2.03, page 15"
-          },
-          "ifrs_15_revenue_from_contracts_with_customers": {
-            "applicable": true,
-            "reason_of_the_status": "Revenue recognized at point of delivery",
-            "status_reference": "Note 2.11, page 17"
-          },
-          "ifrs_16_leases": {
-            "applicable": false,
-            "reason_of_the_status": "No leases per entity's assessment",
-            "status_reference": "Note 2.13.1, page 19"
-          },
-          "ifrs_17_insurance_contracts": {
-            "applicable": false,
-            "reason_of_the_status": "Not an insurance entity",
-            "status_reference": "Note 2.03, page 15"
-          },
-          "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
-            "applicable": false,
-            "reason_of_the_status": "No decommissioning liabilities",
+          "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "Interpretation specific to surface mining operations",
             "status_reference": "N/A"
           },
-          "ifric_2_members_shares_in_cooperative_entities": {
-            "applicable": false,
-            "reason_of_the_status": "Not a cooperative",
-            "status_reference": "N/A"
+          "ifric_21_levies": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "Various government levies properly accounted for",
+            "status_reference": "Note 2.16 (WPPF), various expense notes"
           },
-          "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
-            "applicable": false,
-            "reason_of_the_status": "No decommissioning funds",
-            "status_reference": "N/A"
+          "ifric_22_foreign_currency_transactions_and_advance_consideration": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "Foreign currency transactions properly accounted for",
+            "status_reference": "Note 2.21, page 20"
           },
-          "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
-            "applicable": false,
-            "reason_of_the_status": "No such liabilities",
-            "status_reference": "N/A"
+          "ifric_23_uncertainty_over_income_tax_treatments": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "No significant tax uncertainties disclosed",
+            "status_reference": "Note 2.22, pages 20-21"
           },
-          "ifric_7_applying_the_restatement_approach_under_ias_29": {
-            "applicable": false,
-            "reason_of_the_status": "Not in hyperinflationary economy",
-            "status_reference": "N/A"
+          "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "Tax note"
           },
-          "ifric_10_interim_financial_reporting_and_impairment": {
-            "applicable": true,
-            "reason_of_the_status": "Annual reporting, but principles apply",
-            "status_reference": "N/A"
+          "sic_7_introduction_of_euro": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "Not transacting in euros",
+            "status_reference": "Foreign currency note"
           },
-          "ifric_12_service_concession_arrangements": {
-            "applicable": false,
+          "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "No government assistance disclosed",
+            "status_reference": "Review of income and grants"
+          },
+          "sic_15_operating_leases_incentives": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "No operating leases with incentives",
+            "status_reference": "Lease note states no leases"
+          },
+          "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "Tax note"
+          },
+          "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
+            "compliance": "Not Applicable",
+            "reason_of_the_status": "No complex lease transactions",
+            "status_reference": "Lease note"
+          },
+          "sic_29_service_concession_arrangements_disclosures": {
+            "compliance": "Not Applicable",
             "reason_of_the_status": "No service concession arrangements",
             "status_reference": "N/A"
           },
-          "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
-            "applicable": false,
-            "reason_of_the_status": "No defined benefit plans",
-            "status_reference": "N/A"
-          },
-          "ifric_16_hedges_of_net_investment_in_foreign_operation": {
-            "applicable": false,
-            "reason_of_the_status": "No net investment hedging",
-            "status_reference": "N/A"
-          },
-          "ifric_17_distributions_of_non_cash_assets_to_owners": {
-            "applicable": false,
-            "reason_of_the_status": "No non-cash distributions",
-            "status_reference": "N/A"
+          "sic_32_intangible_assets_website_costs": {
+            "compliance": "Compliant",
+            "reason_of_the_status": "Website costs likely included in software assets",
+            "status_reference": "Intangible assets policy"
           }
         }
       }

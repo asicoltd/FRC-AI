@@ -7,77 +7,77 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ifrs_13_fair_value_measurement": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_14_regulatory_deferral_accounts": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_15_revenue_from_contracts_with_customers": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_16_leases": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_17_insurance_contracts": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_2_members_shares_in_cooperative_entities": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_7_applying_the_restatement_approach_under_ias_29": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_10_interim_financial_reporting_and_impairment": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_12_service_concession_arrangements": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_16_hedges_of_net_investment_in_foreign_operation": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifric_17_distributions_of_non_cash_assets_to_owners": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           }

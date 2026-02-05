@@ -7,82 +7,82 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ias_36_impairment_of_assets": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_37_provisions_contingent_liabilities_assets": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_38_intangible_assets": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_40_investment_property": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ias_41_agriculture": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_1_first_time_adoption": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_2_share_based_payment": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_3_business_combinations": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_5_non_current_assets_held_for_sale": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
-            "applicable": false,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_7_financial_instruments_disclosures": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_8_operating_segments": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_9_financial_instruments": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_10_consolidated_financial_statements": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_11_joint_arrangements": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           },
           "ifrs_12_disclosure_of_interests_in_other_entities": {
-            "applicable": true,
+            "compliance": "compliant/non-compliant/partially compliant/not applicable",
             "reason_of_the_status": "",
             "status_reference": ""
           }
