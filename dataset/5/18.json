@@ -1,0 +1,48 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "18",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "detailed_trend_analysis": {
+          "horizontal_analysis_yoy": {
+            "statement_of_financial_position": [
+              "Total assets decreased by 4.4%",
+              "Current assets decreased by 4.4%",
+              "Equity increased by 13.1%",
+              "Liabilities decreased by 14.0%"
+            ],
+            "statement_of_profit_or_loss": [
+              "Revenue increased by 38.5%",
+              "Gross profit increased by 21.2%",
+              "Net profit decreased by 0.5%",
+              "Tax expense increased by 197.8%"
+            ]
+          },
+          "vertical_analysis_composition": {
+            "assets_composition_2023": {
+              "current_assets_percentage": "99.16%",
+              "non_current_assets_percentage": "0.84%",
+              "significant_changes": ["High proportion of current assets", "Minimal fixed assets"]
+            },
+            "liabilities_composition_2023": {
+              "current_liabilities_percentage": "100%",
+              "non_current_liabilities_percentage": "0%",
+              "equity_composition": "41.65%",
+              "risk_implications": "High short-term liquidity risk"
+            }
+          },
+          "two_to_three_year_trend": {
+            "revenue_trend": ["Steady growth"],
+            "profit_trend": ["Stable profitability"],
+            "asset_growth_trend": ["Moderate growth"],
+            "debt_trend": ["Fluctuating"],
+            "trend_analysis_commentary": "Stable operations with revenue growth but decreasing margins",
+            "unusual_patterns_identified": ["Significant tax increase in 2023", "High intercompany balances"]
+          }
+        }
+      }
+    }
+  }
+}

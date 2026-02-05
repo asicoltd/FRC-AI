@@ -218,6 +218,9 @@ class ReportGenerator {
                     <small class="text-muted">This may take a few minutes. Please do not close this window.</small>
                 </div>
             </div>
+            
+            <!-- Hidden HTML for PDF Generation -->
+            <div id="pdfTemplate" style="display: none; position: absolute; left: -9999px;"></div>
         `;
 
         UIComponents.getMainContent().innerHTML = content;
@@ -306,98 +309,237 @@ class ReportGenerator {
         const allData = {};
         
         // Entity Profile Data (from 2.json)
-        const entityData = appState.allJSONData[2];
+        const entityData = appState.allJSONData['2'];
         if (entityData) {
             const entity = entityData.frc_analysis_report?.entity;
             allData.entityProfile = {
-                legalName: entity?.entity_profile?.legal_name,
-                tradeName: entity?.entity_profile?.trade_name,
-                registrationNumber: entity?.entity_profile?.registration_number,
-                industrySector: entity?.entity_profile?.industry_sector,
-                listingStatus: entity?.entity_profile?.listing_status
+                legalName: entity?.entity_profile?.legal_name || 'Not available',
+                tradeName: entity?.entity_profile?.trade_name || 'Not available',
+                registrationNumber: entity?.entity_profile?.registration_number || 'Not available',
+                industrySector: entity?.entity_profile?.industry_sector || 'Not available',
+                frcSector: entity?.entity_profile?.frc_sector || 'Not available',
+                listingStatus: entity?.entity_profile?.listing_status || 'Not available',
+                reportingCurrency: entity?.entity_profile?.reporting_currency || 'Not available'
             };
         }
         
-        // Financial Analysis Data (from 4.json, 19.json, etc.)
-        const financialData = appState.allJSONData[4];
-        const ratioData = appState.allJSONData[19];
-        const earningsData = appState.allJSONData[17];
+        // Materiality Framework (from 3.json)
+        const materialityData = appState.allJSONData['3'];
+        if (materialityData) {
+            const materiality = materialityData.frc_analysis_report?.entity?.materiality_framework;
+            allData.materiality = {
+                quantitative: materiality?.quantitative_materiality || {},
+                qualitative: materiality?.qualitative_materiality_considerations || [],
+                conclusion: materiality?.frc_materiality_conclusion || ''
+            };
+        }
         
+        // Financial Statements Data (from 4.json)
+        const financialData = appState.allJSONData['4'];
         if (financialData) {
             allData.financialStatements = financialData.frc_analysis_report?.entity?.financial_statements_raw_data;
         }
         
-        if (ratioData) {
-            allData.ratioAnalysis = ratioData.frc_analysis_report?.entity?.phase_2_financial_analysis?.enhanced_ratio_analysis;
+        // Phase 1 Foundational Checks (from 5.json)
+        const phase1Data = appState.allJSONData['5'];
+        if (phase1Data) {
+            const checks = phase1Data.frc_analysis_report?.entity?.phase_1_foundational_checks;
+            allData.foundationalChecks = {
+                reportingFramework: checks?.reporting_framework || {},
+                regulatoryLandscape: checks?.regulatory_landscape || {}
+            };
         }
         
-        // Compliance Data (from 7-11.json)
-        allData.compliance = {};
-        for (let i = 7; i <= 11; i++) {
-            const data = appState.allJSONData[i];
+        // Phase 2 Financial Analysis (from 6.json, 17.json, 18.json, 19.json)
+        const phase2Data = appState.allJSONData['6'];
+        const earningsData = appState.allJSONData['17'];
+        const trendData = appState.allJSONData['18'];
+        const ratioData = appState.allJSONData['19'];
+        
+        allData.financialAnalysis = {};
+        if (phase2Data) {
+            allData.financialAnalysis.basic = phase2Data.frc_analysis_report?.entity?.phase_2_financial_analysis;
+        }
+        if (earningsData) {
+            allData.financialAnalysis.earnings = earningsData.frc_analysis_report?.entity?.phase_2_financial_analysis?.detailed_earnings_quality_analysis;
+        }
+        if (trendData) {
+            allData.financialAnalysis.trends = trendData.frc_analysis_report?.entity?.phase_2_financial_analysis?.detailed_trend_analysis;
+        }
+        if (ratioData) {
+            allData.financialAnalysis.ratios = ratioData.frc_analysis_report?.entity?.phase_2_financial_analysis?.enhanced_ratio_analysis;
+        }
+        
+        // Phase 3 IFRS Compliance (from 7.json to 12.json)
+        allData.ifrsCompliance = {};
+        
+        // Accounting Policies (7.json)
+        const policiesData = appState.allJSONData['7'];
+        if (policiesData) {
+            const compliance = policiesData.frc_analysis_report?.entity?.phase_3_ifrs_compliance_detailed;
+            allData.ifrsCompliance.accountingPolicies = compliance?.accounting_policies_review;
+            allData.ifrsCompliance.managementJudgment = compliance?.management_judgment_and_estimation_uncertainty;
+        }
+        
+        // Key Standards Compliance (8.json to 11.json)
+        allData.ifrsCompliance.keyStandards = {};
+        for (let i = 8; i <= 11; i++) {
+            const data = appState.allJSONData[i.toString()];
             if (data && data.frc_analysis_report) {
-                const compliance = data.frc_analysis_report.entity?.phase_3_ifrs_compliance_detailed?.key_standards_compliance_check;
-                if (compliance) {
-                    Object.assign(allData.compliance, compliance);
+                const standards = data.frc_analysis_report.entity?.phase_3_ifrs_compliance_detailed?.key_standards_compliance_check;
+                if (standards) {
+                    Object.assign(allData.ifrsCompliance.keyStandards, standards);
                 }
             }
         }
         
-        // Audit & Governance Data (from 14.json, 21.json, 22.json)
-        const auditData = appState.allJSONData[14];
-        const enhancedAudit = appState.allJSONData[21];
-        const governanceData = appState.allJSONData[22];
+        // Detailed IFRS Matrix (12.json)
+        const matrixData = appState.allJSONData['12'];
+        if (matrixData) {
+            const compliance = matrixData.frc_analysis_report?.entity?.phase_3_ifrs_compliance_detailed;
+            allData.ifrsCompliance.detailedMatrix = compliance?.detailed_ifrs_compliance_matrix;
+            allData.ifrsCompliance.taxCompliance = compliance?.tax_compliance_check;
+        }
         
+        // Fraud Assessment (13.json)
+        const fraudData = appState.allJSONData['13'];
+        if (fraudData) {
+            allData.fraudAssessment = fraudData.frc_analysis_report?.entity?.fraud_and_management_override_assessment;
+        }
+        
+        // Phase 4 Audit Governance (14.json, 21.json, 22.json)
+        const auditData = appState.allJSONData['14'];
+        const enhancedAuditData = appState.allJSONData['21'];
+        const governanceData = appState.allJSONData['22'];
+        
+        allData.auditGovernance = {};
         if (auditData) {
-            allData.audit = auditData.frc_analysis_report?.entity?.phase_4_audit_governance_verification;
+            allData.auditGovernance.basic = auditData.frc_analysis_report?.entity?.phase_4_audit_governance_verification;
         }
-        
+        if (enhancedAuditData) {
+            allData.auditGovernance.enhanced = enhancedAuditData.frc_analysis_report?.entity?.phase_4_audit_governance_verification?.enhanced_audit_report_analysis;
+        }
         if (governanceData) {
-            allData.governance = governanceData.frc_analysis_report?.entity?.phase_4_audit_governance_verification;
+            allData.auditGovernance.governance = governanceData.frc_analysis_report?.entity?.phase_4_audit_governance_verification?.corporate_governance_code_assessment;
         }
         
-        // Material Departures (from 24.json)
-        const departuresData = appState.allJSONData[24];
+        // Legal Enforcement (15.json)
+        const legalData = appState.allJSONData['15'];
+        if (legalData) {
+            allData.legalEnforcement = legalData.frc_analysis_report?.entity?.legal_and_enforcement_mapping;
+        }
+        
+        // Phase 5 Synthesis (16.json, 24.json, 25.json, 26.json)
+        const synthesisData = appState.allJSONData['16'];
+        const departuresData = appState.allJSONData['24'];
+        const riskData = appState.allJSONData['25'];
+        const execSummaryData = appState.allJSONData['26'];
+        
+        allData.synthesis = {};
+        if (synthesisData) {
+            allData.synthesis.basic = synthesisData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings;
+        }
         if (departuresData) {
-            allData.materialDepartures = departuresData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings;
+            allData.synthesis.materialDepartures = departuresData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings;
         }
-        
-        // Risk Assessment (from 25.json)
-        const riskData = appState.allJSONData[25];
         if (riskData) {
-            allData.riskAssessment = riskData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings?.holistic_risk_factor_synthesis;
+            allData.synthesis.riskAssessment = riskData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings;
+        }
+        if (execSummaryData) {
+            allData.synthesis.executiveSummary = execSummaryData.frc_analysis_report?.entity?.phase_5_synthesis_and_findings;
         }
         
-        // Regulatory Compliance (from 5.json)
-        const regulatoryData = appState.allJSONData[5];
-        if (regulatoryData) {
-            allData.regulatory = regulatoryData.frc_analysis_report?.entity?.phase_1_foundational_checks;
+        // Financial Notes (27.json)
+        const notesData = appState.allJSONData['27'];
+        if (notesData) {
+            allData.financialNotes = notesData.financial_notes_raw_data?.notes || [];
+        }
+        
+        // Metadata (1.json)
+        const metadata = appState.allJSONData['1'];
+        if (metadata) {
+            allData.metadata = metadata.frc_analysis_report?.metadata || {};
         }
         
         return allData;
     }
 
     static generateExecutiveSummaryData(reportData) {
+        const entityProfile = reportData.entityProfile || {};
+        const foundationalChecks = reportData.foundationalChecks || {};
+        const synthesis = reportData.synthesis || {};
+        
+        // Get compliance status from foundational checks
+        let complianceStatus = 'Not Assessed';
+        if (foundationalChecks.reportingFramework) {
+            complianceStatus = foundationalChecks.reportingFramework.compliance_assessment || 'Not Assessed';
+        }
+        
+        // Get material departures count
+        let materialDeparturesCount = 0;
+        if (synthesis.materialDepartures?.consolidated_material_departures) {
+            materialDeparturesCount = synthesis.materialDepartures.consolidated_material_departures.length;
+        } else if (Array.isArray(synthesis.materialDepartures)) {
+            materialDeparturesCount = synthesis.materialDepartures.length;
+        }
+        
+        // Get regulatory assessment
+        let regulatoryAssessment = 'Not Assessed';
+        if (foundationalChecks.regulatoryLandscape) {
+            regulatoryAssessment = foundationalChecks.regulatoryLandscape.overall_regulatory_assessment || 'Not Assessed';
+        }
+        
+        // Get risk level from synthesis
+        let riskLevel = 'Not Assessed';
+        if (synthesis.riskAssessment?.holistic_risk_factor_synthesis) {
+            const riskAssessment = synthesis.riskAssessment.holistic_risk_factor_synthesis;
+            const overallRisk = riskAssessment.overall_integrated_risk_assessment;
+            
+            if (overallRisk?.highest_risk_areas && overallRisk.highest_risk_areas.length > 0) {
+                riskLevel = 'High';
+            } else if (overallRisk?.medium_risk_areas && overallRisk.medium_risk_areas.length > 0) {
+                riskLevel = 'Medium';
+            } else if (overallRisk?.low_risk_areas && overallRisk.low_risk_areas.length > 0) {
+                riskLevel = 'Low';
+            }
+        }
+        
+        // Generate summary paragraph
+        const summaryParagraph = this.generateSummaryParagraph({
+            entityProfile,
+            complianceStatus,
+            materialDeparturesCount,
+            regulatoryAssessment,
+            riskLevel
+        });
+        
         return {
             overview: {
-                entityName: reportData.entityProfile?.legalName || 'Not available',
-                assessmentPeriod: document.getElementById('reportPeriod').value,
-                reportDate: new Date().toLocaleDateString(),
-                confidentiality: document.getElementById('confidentiality').value
+                entityName: entityProfile.legalName || 'Not available',
+                tradeName: entityProfile.tradeName || 'Not available',
+                registrationNumber: entityProfile.registrationNumber || 'Not available',
+                industrySector: entityProfile.industrySector || 'Not available',
+                frcSector: entityProfile.frcSector || 'Not available',
+                listingStatus: entityProfile.listingStatus || 'Not available',
+                assessmentPeriod: document.getElementById('reportPeriod')?.value || 'Not specified',
+                reportDate: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+                confidentiality: document.getElementById('confidentiality')?.value || 'Strictly Confidential'
             },
             keyFindings: {
-                complianceStatus: this.assessOverallCompliance(reportData.compliance),
-                financialHealth: this.assessFinancialHealth(reportData.ratioAnalysis),
-                auditQuality: this.assessAuditQuality(reportData.audit),
-                riskLevel: this.assessOverallRisk(reportData.riskAssessment),
-                materialDepartures: reportData.materialDepartures?.consolidated_material_departures?.length || 0
+                complianceStatus: complianceStatus,
+                regulatoryAssessment: regulatoryAssessment,
+                financialHealth: this.assessFinancialHealth(reportData.financialAnalysis?.ratios),
+                auditQuality: this.assessAuditQuality(reportData.auditGovernance),
+                riskLevel: riskLevel,
+                materialDepartures: materialDeparturesCount
             },
-            summaryParagraph: this.generateSummaryParagraph(reportData)
+            summaryParagraph: summaryParagraph
         };
     }
 
     static generateFinancialAnalysisData(reportData) {
-        const ratioData = reportData.ratioAnalysis || {};
+        const ratioData = reportData.financialAnalysis?.ratios || {};
+        const trendData = reportData.financialAnalysis?.trends || {};
         
         return {
             liquidityRatios: ratioData.liquidity_ratios || {},
@@ -405,132 +547,271 @@ class ReportGenerator {
             solvencyRatios: ratioData.solvency_coverage_ratios || {},
             efficiencyRatios: ratioData.efficiency_ratios || {},
             trends: this.extractTrendData(reportData),
-            financialStatements: reportData.financialStatements || {}
+            financialStatements: reportData.financialStatements || {},
+            horizontalAnalysis: trendData.horizontal_analysis_yoy || {},
+            verticalAnalysis: trendData.vertical_analysis_composition || {}
         };
     }
 
     static generateComplianceData(reportData) {
-        const compliance = reportData.compliance || {};
+        const compliance = reportData.ifrsCompliance?.keyStandards || {};
         const standards = Object.keys(compliance);
+        
+        // Count compliance status
+        let compliantCount = 0;
+        let partiallyCompliantCount = 0;
+        let nonCompliantCount = 0;
+        let notApplicableCount = 0;
+        
+        standards.forEach(standard => {
+            const status = compliance[standard]?.compliance;
+            if (status === 'compliant') compliantCount++;
+            else if (status === 'partially compliant') partiallyCompliantCount++;
+            else if (status === 'non-compliant') nonCompliantCount++;
+            else if (status === 'not applicable') notApplicableCount++;
+        });
+        
+        // Determine overall compliance status
+        let complianceStatus = 'Not Assessed';
+        const totalAssessed = compliantCount + partiallyCompliantCount + nonCompliantCount;
+        if (totalAssessed > 0) {
+            const compliancePercentage = (compliantCount / totalAssessed) * 100;
+            if (compliancePercentage >= 90) complianceStatus = 'Excellent';
+            else if (compliancePercentage >= 75) complianceStatus = 'Good';
+            else if (compliancePercentage >= 60) complianceStatus = 'Satisfactory';
+            else if (compliancePercentage >= 40) complianceStatus = 'Needs Improvement';
+            else complianceStatus = 'Poor';
+        }
         
         return {
             totalStandards: standards.length,
-            compliantCount: standards.filter(s => compliance[s]?.compliance_status === 'Compliant').length,
-            partiallyCompliantCount: standards.filter(s => compliance[s]?.compliance_status === 'Partially Compliant').length,
-            nonCompliantCount: standards.filter(s => compliance[s]?.compliance_status === 'Non-Compliant').length,
+            compliantCount: compliantCount,
+            partiallyCompliantCount: partiallyCompliantCount,
+            nonCompliantCount: nonCompliantCount,
+            notApplicableCount: notApplicableCount,
             standards: compliance,
-            majorIssues: this.extractMajorComplianceIssues(compliance)
+            complianceStatus: complianceStatus,
+            majorIssues: this.extractMajorComplianceIssues(compliance),
+            accountingPolicies: reportData.ifrsCompliance?.accountingPolicies || {},
+            managementJudgment: reportData.ifrsCompliance?.managementJudgment || {}
         };
     }
 
     static generateAuditData(reportData) {
-        const audit = reportData.audit || {};
-        const governance = reportData.governance || {};
+        const audit = reportData.auditGovernance?.basic || {};
+        const enhanced = reportData.auditGovernance?.enhanced || {};
+        const governance = reportData.auditGovernance?.governance || {};
         
         return {
             auditReport: audit.audit_report_analysis || {},
             governanceReview: audit.corporate_governance_review || {},
-            bsecCompliance: governance.corporate_governance_code_assessment || {},
-            keyAuditMatters: audit.audit_report_analysis?.key_audit_matters || [],
-            goingConcern: audit.audit_report_analysis?.audit_opinion?.going_concern || {}
+            enhancedAudit: enhanced,
+            bsecCompliance: governance.bsec_corporate_governance_code || {},
+            keyAuditMatters: enhanced.key_audit_matters_extraction || audit.audit_report_analysis?.key_audit_matters || [],
+            goingConcern: enhanced.going_concern_analysis || audit.audit_report_analysis?.audit_opinion?.going_concern_assessment || {},
+            opinionType: enhanced.opinion_type_analysis?.opinion_category || audit.audit_report_analysis?.audit_opinion?.opinion_type || 'Not Available'
         };
     }
 
     static generateFindingsData(reportData) {
-        const departures = reportData.materialDepartures || {};
-        const risk = reportData.riskAssessment || {};
-        const regulatory = reportData.regulatory || {};
+        const departures = reportData.synthesis?.materialDepartures || {};
+        const risk = reportData.synthesis?.riskAssessment || {};
+        const regulatory = reportData.foundationalChecks?.regulatoryLandscape || {};
         
         return {
             materialDepartures: departures.consolidated_material_departures || [],
-            riskAssessment: risk,
-            regulatoryFindings: regulatory.regulatory_landscape || {},
-            priorityActions: risk.overall_integrated_risk_assessment?.frca_priority_actions || [],
-            recommendations: this.generateRecommendations(reportData)
+            riskAssessment: risk.holistic_risk_factor_synthesis || {},
+            regulatoryFindings: regulatory,
+            priorityActions: risk.holistic_risk_factor_synthesis?.overall_integrated_risk_assessment?.frca_priority_actions || [],
+            recommendations: this.generateRecommendations(reportData),
+            fraudAssessment: reportData.fraudAssessment || {},
+            legalEnforcement: reportData.legalEnforcement || {}
         };
     }
 
-    static assessOverallCompliance(complianceData) {
-        const standards = Object.values(complianceData || {});
-        if (standards.length === 0) return 'Not Assessed';
+    static generateSummaryParagraph(data) {
+        const entityName = data.entityProfile?.legalName || 'the entity';
+        const compliance = data.complianceStatus || 'Not Assessed';
+        const financialHealth = this.assessFinancialHealth(data.ratioAnalysis) || 'Not Assessed';
+        const riskLevel = data.riskLevel || 'Not Assessed';
+        const departures = data.materialDeparturesCount || 0;
+        const regulatory = data.regulatoryAssessment || 'Not Assessed';
         
-        const compliant = standards.filter(s => s.compliance_status === 'Compliant').length;
-        const percentage = (compliant / standards.length) * 100;
-        
-        if (percentage >= 85) return 'Highly Compliant';
-        if (percentage >= 70) return 'Mostly Compliant';
-        if (percentage >= 50) return 'Partially Compliant';
-        return 'Non-Compliant';
+        return `The Financial Reporting Council (FRC) analysis of ${entityName} reveals a compliance status of "${compliance}" with International Financial Reporting Standards (IFRS). ` +
+               `The regulatory compliance assessment indicates: "${regulatory}". ` +
+               `Financial health is assessed as "${financialHealth}" based on ratio analysis and trend assessment. ` +
+               `A total of ${departures} material departure(s) from IFRS requirements have been identified. ` +
+               `The overall risk level is assessed as "${riskLevel}". ` +
+               `Detailed findings, specific non-compliances, and actionable recommendations are provided in the subsequent sections of this comprehensive report.`;
     }
 
     static assessFinancialHealth(ratioData) {
-        // Simplified assessment based on key ratios
-        const currentRatio = ratioData.liquidity_ratios?.current_ratio;
-        const debtEquity = ratioData.solvency_coverage_ratios?.debt_to_equity;
-        const roe = ratioData.profitability_ratios?.return_on_equity_roe;
+        if (!ratioData) return 'Not Assessed';
+        
+        // Extract ratio values safely
+        const currentRatio = this.extractRatioValue(ratioData.liquidity_ratios?.current_ratio);
+        const debtEquity = this.extractRatioValue(ratioData.solvency_coverage_ratios?.debt_to_equity);
+        const roe = this.extractRatioValue(ratioData.profitability_ratios?.return_on_equity_roe);
+        
+        // If no data available
+        if (currentRatio === null && debtEquity === null && roe === null) {
+            return 'Insufficient Data';
+        }
         
         let score = 0;
-        if (currentRatio >= 1.5) score += 2;
-        else if (currentRatio >= 1) score += 1;
         
-        if (debtEquity <= 1) score += 2;
-        else if (debtEquity <= 2) score += 1;
+        // Score liquidity
+        if (currentRatio !== null) {
+            if (currentRatio >= 1.5) score += 2;
+            else if (currentRatio >= 1.0) score += 1;
+        }
         
-        if (roe >= 15) score += 2;
-        else if (roe >= 8) score += 1;
+        // Score solvency
+        if (debtEquity !== null) {
+            if (debtEquity <= 1.0) score += 2;
+            else if (debtEquity <= 2.0) score += 1;
+        }
         
-        if (score >= 5) return 'Strong';
-        if (score >= 3) return 'Adequate';
-        return 'Weak';
+        // Score profitability
+        if (roe !== null) {
+            if (roe >= 15) score += 2;
+            else if (roe >= 8) score += 1;
+        }
+        
+        // Determine health based on score
+        const maxPossible = 6; // 2 points each for 3 categories
+        const percentage = (score / maxPossible) * 100;
+        
+        if (percentage >= 75) return 'Strong';
+        if (percentage >= 50) return 'Adequate';
+        if (percentage >= 25) return 'Weak';
+        return 'Poor';
     }
 
-    static assessAuditQuality(auditData) {
-        const opinion = auditData?.audit_report_analysis?.audit_opinion?.opinion_type;
-        const goingConcern = auditData?.audit_report_analysis?.audit_opinion?.going_concern;
+    static extractRatioValue(ratioObj) {
+        if (!ratioObj) return null;
         
-        if (opinion === 'Unmodified' && !goingConcern?.material_uncertainty) return 'Good';
-        if (opinion === 'Modified' || goingConcern?.material_uncertainty) return 'Requires Attention';
+        // If it's a number or string that can be parsed
+        if (typeof ratioObj === 'number') return ratioObj;
+        if (typeof ratioObj === 'string') {
+            const num = parseFloat(ratioObj);
+            return isNaN(num) ? null : num;
+        }
+        
+        // If it's an object with year values, try to get the most recent
+        if (typeof ratioObj === 'object') {
+            const years = Object.keys(ratioObj).sort().reverse();
+            if (years.length > 0) {
+                const latest = ratioObj[years[0]];
+                if (latest) {
+                    const num = parseFloat(latest);
+                    return isNaN(num) ? null : num;
+                }
+            }
+        }
+        
+        return null;
+    }
+
+    static assessAuditQuality(auditGovernanceData) {
+        if (!auditGovernanceData) return 'Not Assessed';
+        
+        const basicAudit = auditGovernanceData.basic?.audit_report_analysis;
+        const enhancedAudit = auditGovernanceData.enhanced;
+        
+        // Check opinion type
+        let opinionType = basicAudit?.audit_opinion?.opinion_type || 
+                         enhancedAudit?.opinion_type_analysis?.opinion_category;
+        
+        // Check going concern
+        let goingConcern = basicAudit?.audit_opinion?.going_concern_assessment?.auditor_conclusion ||
+                          enhancedAudit?.going_concern_analysis?.auditor_conclusion;
+        
+        // Check if there are any modifications
+        const modifications = basicAudit?.audit_opinion?.modified_opinion_reasons ||
+                             enhancedAudit?.opinion_type_analysis?.modified_opinion_reasons_detailed;
+        
+        // Determine audit quality
+        if (opinionType === 'Unqualified' || opinionType === 'Unmodified') {
+            if (!goingConcern || goingConcern.toLowerCase().includes('no material uncertainty')) {
+                return 'Good';
+            } else {
+                return 'Requires Attention - Going Concern Issues';
+            }
+        } else if (opinionType === 'Qualified' || opinionType === 'Modified') {
+            if (modifications && modifications.length > 0) {
+                return 'Requires Attention - Modified Opinion';
+            }
+            return 'Needs Improvement';
+        } else if (opinionType === 'Adverse' || opinionType === 'Disclaimer') {
+            return 'Poor - Significant Issues';
+        }
+        
         return 'Needs Assessment';
     }
 
-    static assessOverallRisk(riskData) {
-        const riskLevels = [
-            riskData.financial_risks_from_analysis?.consolidated_financial_risk_level,
-            riskData.operational_risks?.consolidated_operational_risk_level,
-            riskData.compliance_risks?.consolidated_compliance_risk_level
-        ];
+    static assessOverallRisk(reportData) {
+        const synthesis = reportData.synthesis || {};
+        const riskData = synthesis.riskAssessment?.holistic_risk_factor_synthesis;
         
-        const highCount = riskLevels.filter(r => r?.toLowerCase().includes('high')).length;
-        const moderateCount = riskLevels.filter(r => r?.toLowerCase().includes('moderate')).length;
+        if (!riskData) {
+            // Try to assess from other data if available
+            const materialDepartures = synthesis.materialDepartures?.consolidated_material_departures || [];
+            const complianceIssues = this.extractMajorComplianceIssues(reportData.ifrsCompliance?.keyStandards || {});
+            
+            if (materialDepartures.length > 5 || complianceIssues.length > 10) {
+                return 'High';
+            } else if (materialDepartures.length > 2 || complianceIssues.length > 5) {
+                return 'Moderate to High';
+            } else if (materialDepartures.length > 0 || complianceIssues.length > 0) {
+                return 'Moderate';
+            }
+            return 'Low';
+        }
+        
+        const overallRisk = riskData.overall_integrated_risk_assessment;
+        
+        if (overallRisk?.highest_risk_areas && overallRisk.highest_risk_areas.length > 0) {
+            return 'High';
+        }
+        
+        if (overallRisk?.medium_risk_areas && overallRisk.medium_risk_areas.length > 0) {
+            return 'Moderate';
+        }
+        
+        if (overallRisk?.low_risk_areas && overallRisk.low_risk_areas.length > 0) {
+            return 'Low';
+        }
+        
+        // Fallback to financial risk assessment
+        const financialRisk = riskData.financial_risks_from_analysis?.consolidated_financial_risk_level;
+        const complianceRisk = riskData.compliance_risks?.consolidated_compliance_risk_level;
+        const operationalRisk = riskData.operational_risks?.consolidated_operational_risk_level;
+        
+        const risks = [financialRisk, complianceRisk, operationalRisk];
+        const highCount = risks.filter(r => r && r.toLowerCase().includes('high')).length;
+        const moderateCount = risks.filter(r => r && r.toLowerCase().includes('moderate')).length;
         
         if (highCount >= 2) return 'High';
         if (highCount >= 1 || moderateCount >= 2) return 'Moderate to High';
         if (moderateCount >= 1) return 'Moderate';
-        return 'Low';
-    }
-
-    static generateSummaryParagraph(reportData) {
-        const entityName = reportData.entityProfile?.legalName || 'the entity';
-        const compliance = this.assessOverallCompliance(reportData.compliance);
-        const financialHealth = this.assessFinancialHealth(reportData.ratioAnalysis);
-        const riskLevel = this.assessOverallRisk(reportData.riskAssessment);
-        const departures = reportData.materialDepartures?.consolidated_material_departures?.length || 0;
         
-        return `The Financial Reporting Council analysis of ${entityName} reveals ${compliance.toLowerCase()} with IFRS standards. ` +
-               `Financial health is assessed as ${financialHealth.toLowerCase()}, with ${departures} material departures identified. ` +
-               `Overall risk assessment indicates ${riskLevel.toLowerCase()} risk levels requiring attention. ` +
-               `Detailed findings and recommendations are provided in subsequent sections of this report.`;
+        return 'Low';
     }
 
     static extractTrendData(reportData) {
         // Extract trend information from financial data
         const financials = reportData.financialStatements;
-        if (!financials) return {};
+        const trendData = reportData.financialAnalysis?.trends?.two_to_three_year_trend || {};
+        
+        if (!financials && !trendData) return {};
         
         return {
-            revenueTrend: this.calculateTrend(financials.statement_of_profit_or_loss_and_other_comprehensive_income, 'Revenue'),
-            profitTrend: this.calculateTrend(financials.statement_of_profit_or_loss_and_other_comprehensive_income, 'Profit'),
-            assetTrend: this.calculateTrend(financials.statement_of_financial_position, 'Total assets')
+            revenueTrend: trendData.revenue_trend || this.calculateTrend(financials?.statement_of_profit_or_loss_and_other_comprehensive_income, 'Revenue'),
+            profitTrend: trendData.profit_trend || this.calculateTrend(financials?.statement_of_profit_or_loss_and_other_comprehensive_income, 'Profit'),
+            assetTrend: trendData.asset_growth_trend || this.calculateTrend(financials?.statement_of_financial_position, 'Total assets'),
+            debtTrend: trendData.debt_trend || this.calculateTrend(financials?.statement_of_financial_position, 'Total liabilities'),
+            trendCommentary: trendData.trend_analysis_commentary || 'No trend analysis available'
         };
     }
 
@@ -540,14 +821,22 @@ class ReportGenerator {
         const sorted = statementData.sort((a, b) => b.year.localeCompare(a.year));
         if (sorted.length < 2) return 'Insufficient data';
         
-        const current = sorted[0].line_items?.find(item => item.item.includes(itemName))?.amount;
-        const previous = sorted[1].line_items?.find(item => item.item.includes(itemName))?.amount;
+        // Try to find the item by name
+        const findItem = (items) => {
+            if (!items) return null;
+            return items.find(item => 
+                item.item && item.item.toLowerCase().includes(itemName.toLowerCase())
+            );
+        };
         
-        if (!current || !previous) return 'Data not available';
+        const currentItem = findItem(sorted[0].line_items);
+        const previousItem = findItem(sorted[1].line_items);
+        
+        if (!currentItem || !previousItem || !currentItem.amount || !previousItem.amount) return 'Data not available';
         
         try {
-            const currentNum = parseFloat(current.replace(/[^0-9.-]+/g, ''));
-            const previousNum = parseFloat(previous.replace(/[^0-9.-]+/g, ''));
+            const currentNum = parseFloat(currentItem.amount.replace(/[^0-9.-]+/g, ''));
+            const previousNum = parseFloat(previousItem.amount.replace(/[^0-9.-]+/g, ''));
             
             if (isNaN(currentNum) || isNaN(previousNum) || previousNum === 0) return 'Cannot calculate';
             
@@ -561,10 +850,10 @@ class ReportGenerator {
     static extractMajorComplianceIssues(complianceData) {
         const issues = [];
         Object.entries(complianceData || {}).forEach(([standard, data]) => {
-            if (data.compliance_status === 'Non-Compliant' || data.compliance_status === 'Partially Compliant') {
+            if (data.compliance === 'non-compliant' || data.compliance === 'partially compliant') {
                 issues.push({
                     standard: standard,
-                    status: data.compliance_status,
+                    status: data.compliance,
                     reason: data.reason_of_the_status || 'No reason provided',
                     reference: data.status_reference || 'No reference'
                 });
@@ -575,8 +864,10 @@ class ReportGenerator {
 
     static generateRecommendations(reportData) {
         const recommendations = [];
-        const departures = reportData.materialDepartures?.consolidated_material_departures || [];
-        const complianceIssues = this.extractMajorComplianceIssues(reportData.compliance);
+        const departures = reportData.synthesis?.materialDepartures?.consolidated_material_departures || [];
+        const complianceIssues = this.extractMajorComplianceIssues(reportData.ifrsCompliance?.keyStandards);
+        const auditQuality = this.assessAuditQuality(reportData.auditGovernance);
+        const riskLevel = this.assessOverallRisk(reportData);
         
         // Compliance recommendations
         if (complianceIssues.length > 0) {
@@ -600,9 +891,20 @@ class ReportGenerator {
             });
         }
         
+        // Audit quality recommendations
+        if (auditQuality.includes('Requires Attention') || auditQuality.includes('Needs Improvement')) {
+            recommendations.push({
+                priority: 'Medium',
+                area: 'Audit Quality',
+                recommendation: 'Improve audit quality and address audit report qualifications',
+                timeline: '45 days',
+                responsible: 'Audit Committee & External Auditor'
+            });
+        }
+        
         // Governance recommendations
-        const governance = reportData.governance;
-        const bsecScore = governance?.corporate_governance_code_assessment?.bsec_corporate_governance_code?.overall_compliance_score;
+        const governance = reportData.auditGovernance?.governance;
+        const bsecScore = governance?.bsec_corporate_governance_code?.overall_compliance_score;
         if (bsecScore && parseInt(bsecScore) < 70) {
             recommendations.push({
                 priority: 'Medium',
@@ -614,7 +916,6 @@ class ReportGenerator {
         }
         
         // Risk management recommendations
-        const riskLevel = this.assessOverallRisk(reportData.riskAssessment);
         if (riskLevel.includes('High') || riskLevel.includes('Moderate to High')) {
             recommendations.push({
                 priority: 'High',
@@ -625,83 +926,632 @@ class ReportGenerator {
             });
         }
         
+        // Financial health recommendations
+        const financialHealth = this.assessFinancialHealth(reportData.financialAnalysis?.ratios);
+        if (financialHealth === 'Weak' || financialHealth === 'Poor') {
+            recommendations.push({
+                priority: 'High',
+                area: 'Financial Health',
+                recommendation: 'Address financial weaknesses identified in ratio analysis',
+                timeline: '60 days',
+                responsible: 'CFO & Financial Controller'
+            });
+        }
+        
+        // If no specific issues but we still need recommendations
+        if (recommendations.length === 0) {
+            recommendations.push({
+                priority: 'Low',
+                area: 'Continuous Improvement',
+                recommendation: 'Maintain current standards and implement best practices for continuous improvement',
+                timeline: 'Ongoing',
+                responsible: 'Management Team'
+            });
+        }
+        
         return recommendations;
     }
 
     static async generatePDF(reportConfig) {
         try {
-            // In a real implementation, this would use a PDF generation library
-            // For now, simulate the process and create a download
-            Notifications.show('Preparing PDF report...', 'info');
+            Notifications.show('Preparing FRC Analysis Report...', 'info');
             
-            // Create a blob with report data (simulated PDF)
-            const reportContent = `
-                FRC ANALYSIS REPORT
-                ===================
-                
-                Report Title: ${reportConfig.reportTitle}
-                Generated: ${new Date().toLocaleDateString()}
-                Confidentiality: ${reportConfig.confidentiality}
-                
-                EXECUTIVE SUMMARY
-                ----------------
-                ${reportConfig.data.executiveSummary.summaryParagraph}
-                
-                KEY FINDINGS:
-                - Compliance Status: ${reportConfig.data.executiveSummary.keyFindings.complianceStatus}
-                - Financial Health: ${reportConfig.data.executiveSummary.keyFindings.financialHealth}
-                - Risk Level: ${reportConfig.data.executiveSummary.keyFindings.riskLevel}
-                - Material Departures: ${reportConfig.data.executiveSummary.keyFindings.materialDepartures}
-                
-                [Full report would contain detailed sections, charts, and tables]
-                
-                This is a simulated PDF. In production, this would be a fully formatted
-                PDF document with professional layout, FRC branding, and all analysis data.
+            // Create HTML content for the report
+            const entityName = reportConfig.data.executiveSummary.overview.entityName;
+            const reportDate = reportConfig.data.executiveSummary.overview.reportDate;
+            const complianceStatus = reportConfig.data.executiveSummary.keyFindings.complianceStatus;
+            const materialDepartures = reportConfig.data.executiveSummary.keyFindings.materialDepartures;
+            
+            // Create HTML content
+            const htmlContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>${reportConfig.reportTitle}</title>
+                    <style>
+                        @page {
+                            size: A4;
+                            margin: 2cm;
+                        }
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            color: #333;
+                        }
+                        .header {
+                            text-align: center;
+                            border-bottom: 3px solid #2c3e50;
+                            padding-bottom: 20px;
+                            margin-bottom: 30px;
+                        }
+                        .header h1 {
+                            color: #2c3e50;
+                            margin-bottom: 5px;
+                        }
+                        .header .subtitle {
+                            color: #7f8c8d;
+                            font-size: 16px;
+                        }
+                        .section {
+                            margin-bottom: 30px;
+                            page-break-inside: avoid;
+                        }
+                        .section-title {
+                            background-color: #2c3e50;
+                            color: white;
+                            padding: 10px 15px;
+                            margin: 20px 0 10px 0;
+                            border-radius: 4px;
+                        }
+                        .table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 15px 0;
+                        }
+                        .table th, .table td {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                            text-align: left;
+                        }
+                        .table th {
+                            background-color: #f2f2f2;
+                            font-weight: bold;
+                        }
+                        .key-finding {
+                            background-color: #f8f9fa;
+                            border-left: 4px solid #007bff;
+                            padding: 15px;
+                            margin: 15px 0;
+                        }
+                        .recommendation {
+                            background-color: #fff3cd;
+                            border: 1px solid #ffeaa7;
+                            padding: 10px;
+                            margin: 10px 0;
+                            border-radius: 4px;
+                        }
+                        .footer {
+                            margin-top: 50px;
+                            padding-top: 20px;
+                            border-top: 1px solid #ddd;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #7f8c8d;
+                        }
+                        .confidential {
+                            background-color: #ffebee;
+                            color: #c62828;
+                            padding: 10px;
+                            border: 1px solid #ffcdd2;
+                            margin: 10px 0;
+                            text-align: center;
+                            font-weight: bold;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>FINANCIAL REPORTING COUNCIL (FRC) BANGLADESH</h1>
+                        <div class="subtitle">OFFICIAL ANALYSIS REPORT</div>
+                        <div class="confidential">
+                            ${reportConfig.confidentiality.toUpperCase().replace('-', ' ')}
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Report Information</h2>
+                        <table class="table">
+                            <tr>
+                                <th>Report Title</th>
+                                <td>${reportConfig.reportTitle}</td>
+                            </tr>
+                            <tr>
+                                <th>Entity</th>
+                                <td>${entityName}</td>
+                            </tr>
+                            <tr>
+                                <th>Registration No</th>
+                                <td>${reportConfig.data.executiveSummary.overview.registrationNumber}</td>
+                            </tr>
+                            <tr>
+                                <th>Report Period</th>
+                                <td>${reportConfig.data.executiveSummary.overview.assessmentPeriod}</td>
+                            </tr>
+                            <tr>
+                                <th>Report Generated</th>
+                                <td>${reportDate}</td>
+                            </tr>
+                            <tr>
+                                <th>Report ID</th>
+                                <td>FRC-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">EXECUTIVE SUMMARY</h2>
+                        <p>${reportConfig.data.executiveSummary.summaryParagraph}</p>
+                        
+                        <div class="key-finding">
+                            <h3>Key Findings</h3>
+                            <table class="table">
+                                <tr>
+                                    <th>Assessment Area</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <td>Compliance Status</td>
+                                    <td>${complianceStatus}</td>
+                                </tr>
+                                <tr>
+                                    <td>Regulatory Assessment</td>
+                                    <td>${reportConfig.data.executiveSummary.keyFindings.regulatoryAssessment}</td>
+                                </tr>
+                                <tr>
+                                    <td>Financial Health</td>
+                                    <td>${reportConfig.data.executiveSummary.keyFindings.financialHealth}</td>
+                                </tr>
+                                <tr>
+                                    <td>Audit Quality</td>
+                                    <td>${reportConfig.data.executiveSummary.keyFindings.auditQuality}</td>
+                                </tr>
+                                <tr>
+                                    <td>Risk Level</td>
+                                    <td>${reportConfig.data.executiveSummary.keyFindings.riskLevel}</td>
+                                </tr>
+                                <tr>
+                                    <td>Material Departures</td>
+                                    <td>${materialDepartures}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">ENTITY PROFILE</h2>
+                        <table class="table">
+                            <tr>
+                                <th>Legal Name</th>
+                                <td>${reportConfig.data.executiveSummary.overview.entityName}</td>
+                            </tr>
+                            <tr>
+                                <th>Trade Name</th>
+                                <td>${reportConfig.data.executiveSummary.overview.tradeName}</td>
+                            </tr>
+                            <tr>
+                                <th>Industry Sector</th>
+                                <td>${reportConfig.data.executiveSummary.overview.industrySector}</td>
+                            </tr>
+                            <tr>
+                                <th>FRC Sector</th>
+                                <td>${reportConfig.data.executiveSummary.overview.frcSector}</td>
+                            </tr>
+                            <tr>
+                                <th>Listing Status</th>
+                                <td>${reportConfig.data.executiveSummary.overview.listingStatus}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">COMPLIANCE ASSESSMENT</h2>
+                        <table class="table">
+                            <tr>
+                                <th>Assessment Area</th>
+                                <th>Count</th>
+                            </tr>
+                            <tr>
+                                <td>Total Standards Assessed</td>
+                                <td>${reportConfig.data.complianceAssessment.totalStandards || 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Compliant Standards</td>
+                                <td>${reportConfig.data.complianceAssessment.compliantCount || 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Partially Compliant Standards</td>
+                                <td>${reportConfig.data.complianceAssessment.partiallyCompliantCount || 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Non-Compliant Standards</td>
+                                <td>${reportConfig.data.complianceAssessment.nonCompliantCount || 0}</td>
+                            </tr>
+                            <tr>
+                                <td>Overall Compliance Status</td>
+                                <td>${reportConfig.data.complianceAssessment.complianceStatus || 'Not Assessed'}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">RECOMMENDATIONS</h2>
+                        ${(reportConfig.data.findings.recommendations || []).map((rec, index) => `
+                            <div class="recommendation">
+                                <strong>${index + 1}. [${rec.priority} PRIORITY] ${rec.area}</strong><br>
+                                ${rec.recommendation}<br>
+                                <small>Timeline: ${rec.timeline} | Responsible: ${rec.responsible}</small>
+                            </div>
+                        `).join('')}
+                        
+                        ${reportConfig.data.findings.recommendations?.length === 0 ? 
+                            '<p>No specific recommendations generated based on the analysis.</p>' : ''}
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">FRC CONCLUSION</h2>
+                        <p>Based on comprehensive analysis of the financial statements, accounting policies, 
+                        audit quality, and regulatory compliance, this report provides an independent 
+                        assessment of ${entityName}'s financial reporting quality.</p>
+                        
+                        <p>The FRC recommends that the entity address the ${materialDepartures} 
+                        material departures identified and implement the recommendations outlined 
+                        in this report to improve financial reporting quality and ensure compliance 
+                        with IFRS and regulatory requirements.</p>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>Generated by: Financial Reporting Council (FRC) Bangladesh</p>
+                        <p>Date: ${reportDate}</p>
+                        <p>This report is generated electronically and does not require a handwritten signature.</p>
+                        <p>Page 1 of 1 (Summary Version) - Full report available upon request</p>
+                    </div>
+                </body>
+                </html>
             `;
             
-            const blob = new Blob([reportContent], { type: 'application/pdf' });
+            // Create a Blob with the HTML content
+            const blob = new Blob([htmlContent], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
             
+            // Create a download link
+            const a = document.createElement('a');
             a.href = url;
-            a.download = `FRC_Report_${new Date().toISOString().split('T')[0]}.pdf`;
+            
+            // Clean entity name for filename
+            const cleanEntityName = entityName.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50) || 'FRC_Report';
+            
+            // Use .html extension instead of .pdf since we're generating HTML
+            a.download = `FRC_Report_${cleanEntityName}_${new Date().toISOString().split('T')[0]}.html`;
+            
+            // Trigger download
             document.body.appendChild(a);
             a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
             
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+            
+            // Also offer option to print
+            const printWindow = window.open(url, '_blank');
+            if (printWindow) {
+                printWindow.onload = function() {
+                    printWindow.print();
+                };
+            }
+            
+            Notifications.show('FRC Report generated successfully! You can print it as PDF.', 'success');
             return true;
             
         } catch (error) {
-            console.error('PDF generation error:', error);
-            Notifications.show('Error creating PDF: ' + error.message, 'error');
+            console.error('Report generation error:', error);
+            Notifications.show('Error creating report: ' + error.message, 'error');
             return false;
         }
     }
 
     static previewReport() {
-        Notifications.show('Report preview would show a formatted HTML version of the full report.', 'info');
-        // In production, this would open a modal with the report preview
+        Notifications.show('Generating report preview...', 'info');
+        
+        // Create a simple preview modal
+        const previewModal = `
+            <div class="modal fade" id="reportPreviewModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">FRC Report Preview</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="border rounded p-3 mb-3 bg-light">
+                                <h6>Report Preview Content:</h6>
+                                <p>This is a preview of the report that would be generated. The actual report would contain:</p>
+                                <ul>
+                                    <li>Professional FRC header and branding</li>
+                                    <li>Executive summary with key findings</li>
+                                    <li>Detailed compliance matrix</li>
+                                    <li>Financial ratio analysis charts</li>
+                                    <li>Audit quality assessment</li>
+                                    <li>Risk heat maps</li>
+                                    <li>Actionable recommendations</li>
+                                </ul>
+                                <p class="mb-0"><strong>Note:</strong> This preview shows the structure. Click "Generate Full Report" to create the complete report.</p>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary" onclick="ReportGenerator.generateFullReport()">
+                                    <i class="fas fa-file-pdf me-2"></i> Generate Full Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add modal to DOM if not already there
+        if (!document.getElementById('reportPreviewModal')) {
+            document.body.insertAdjacentHTML('beforeend', previewModal);
+        }
+        
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('reportPreviewModal'));
+        modal.show();
     }
 
     static generateExecutiveSummary() {
-        Notifications.show('Generating Executive Summary PDF...', 'info');
-        // Similar to generateFullReport but only executive summary
+        Notifications.show('Generating Executive Summary...', 'info');
+        
+        // Get entity name from data or use default
+        const entityData = appState.allJSONData['2'];
+        const entityName = entityData?.frc_analysis_report?.entity?.entity_profile?.legal_name || 'Entity';
+        
+        const executiveSummaryContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>FRC Executive Summary</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 40px; }
+                    .header { text-align: center; border-bottom: 2px solid #2c3e50; padding-bottom: 20px; }
+                    .header h1 { color: #2c3e50; }
+                    .section { margin: 30px 0; }
+                    .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #7f8c8d; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <h1>FRC EXECUTIVE SUMMARY REPORT</h1>
+                    <p>Generated: ${new Date().toLocaleDateString()}</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Entity: ${entityName}</h2>
+                    <p>This executive summary provides a high-level overview of the FRC analysis.</p>
+                    <p>The full report contains comprehensive details on all findings including:</p>
+                    <ul>
+                        <li>Complete IFRS compliance assessment</li>
+                        <li>Detailed financial ratio analysis</li>
+                        <li>Audit quality evaluation</li>
+                        <li>Risk assessment matrix</li>
+                        <li>Detailed recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="footer">
+                    <p>Financial Reporting Council (FRC) Bangladesh</p>
+                    <p>For the complete analysis, please generate the full FRC Report.</p>
+                </div>
+            </body>
+            </html>
+        `;
+        
+        // Create and download HTML file
+        const blob = new Blob([executiveSummaryContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `FRC_Executive_Summary_${new Date().toISOString().split('T')[0]}.html`;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 100);
     }
 
     static generateComplianceCertificate() {
-        Notifications.show('Generating Compliance Certificate PDF...', 'info');
-        // Generate a formal compliance certificate
+        Notifications.show('Generating Compliance Certificate...', 'info');
+        
+        const entityData = appState.allJSONData['2'];
+        const entityName = entityData?.frc_analysis_report?.entity?.entity_profile?.legal_name || 'Entity';
+        
+        const complianceCertificate = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>FRC Compliance Certificate</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 40px; }
+                    .header { text-align: center; border-bottom: 2px solid #2c3e50; padding-bottom: 20px; }
+                    .certificate { border: 3px double #000; padding: 40px; margin: 30px 0; text-align: center; }
+                    .signature { margin-top: 60px; border-top: 1px solid #000; width: 300px; text-align: center; margin-left: auto; margin-right: auto; padding-top: 10px; }
+                    .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #7f8c8d; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <h1>FINANCIAL REPORTING COUNCIL (FRC) BANGLADESH</h1>
+                    <h2>COMPLIANCE CERTIFICATE</h2>
+                </div>
+                
+                <div class="certificate">
+                    <p>This certificate confirms that</p>
+                    <h3>${entityName}</h3>
+                    <p>has undergone IFRS compliance assessment by the Financial Reporting Council.</p>
+                    
+                    <p><strong>Assessment Period:</strong> ${document.getElementById('reportPeriod')?.value || 'Not specified'}</p>
+                    <p><strong>Assessment Date:</strong> ${new Date().toLocaleDateString()}</p>
+                    
+                    <div class="signature">
+                        <p>Authorized Signatory</p>
+                        <p><strong>Director, FRC Bangladesh</strong></p>
+                    </div>
+                    
+                    <p style="margin-top: 40px;">
+                        <strong>Certificate ID:</strong> FRC-CC-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}
+                    </p>
+                </div>
+                
+                <div class="footer">
+                    <p>Note: This certificate is based on the analysis conducted. Refer to the full report for detailed findings.</p>
+                </div>
+            </body>
+            </html>
+        `;
+        
+        const blob = new Blob([complianceCertificate], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `FRC_Compliance_Certificate_${new Date().toISOString().split('T')[0]}.html`;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 100);
     }
 
     static generateFindingsReport() {
-        Notifications.show('Generating Findings Report PDF...', 'info');
-        // Generate a report focused on findings and recommendations
+        Notifications.show('Generating Findings Report...', 'info');
+        
+        const findingsReport = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>FRC Findings Report</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 40px; }
+                    .header { text-align: center; border-bottom: 2px solid #c62828; padding-bottom: 20px; }
+                    .finding { background-color: #ffebee; border-left: 4px solid #c62828; padding: 15px; margin: 15px 0; }
+                    .recommendation { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; }
+                    .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #7f8c8d; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <h1 style="color: #c62828;">FRC FINDINGS REPORT</h1>
+                    <p>Generated: ${new Date().toLocaleDateString()}</p>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <h2>KEY FINDINGS SUMMARY</h2>
+                    <p>This report summarizes the key findings from the FRC analysis.</p>
+                    
+                    <div class="finding">
+                        <h3>MAJOR FINDINGS:</h3>
+                        <p>1. Compliance issues identified in IFRS application</p>
+                        <p>2. Material departures from accounting standards</p>
+                        <p>3. Governance and internal control weaknesses</p>
+                        <p>4. Risk management deficiencies</p>
+                    </div>
+                    
+                    <div class="recommendation">
+                        <h3>RECOMMENDATIONS:</h3>
+                        <p>1. Address all identified IFRS non-compliances</p>
+                        <p>2. Strengthen internal controls and governance</p>
+                        <p>3. Implement comprehensive risk management</p>
+                        <p>4. Improve financial reporting processes</p>
+                    </div>
+                    
+                    <div style="background-color: #e3f2fd; padding: 15px; margin: 20px 0;">
+                        <h3>PRIORITY ACTIONS:</h3>
+                        <ul>
+                            <li>Immediate review of material departures</li>
+                            <li>Enhanced audit committee oversight</li>
+                            <li>Staff training on IFRS requirements</li>
+                            <li>Regular compliance monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    <p>Note: This is a findings summary. The full report contains detailed analysis and supporting evidence.</p>
+                    <p>Financial Reporting Council (FRC) Bangladesh</p>
+                </div>
+            </body>
+            </html>
+        `;
+        
+        const blob = new Blob([findingsReport], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `FRC_Findings_Report_${new Date().toISOString().split('T')[0]}.html`;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 100);
     }
 
     static showReportHistory() {
-        Notifications.show('Displaying previously generated reports...', 'info');
-        // Show modal with report history
+        Notifications.show('Report history would show previously generated reports.', 'info');
+        
+        // Create a simple history modal
+        const historyModal = `
+            <div class="modal fade" id="reportHistoryModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">FRC Report History</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Report history tracking would be implemented in a production environment.
+                            </div>
+                            <p>In a full implementation, this section would display:</p>
+                            <ul>
+                                <li>Previously generated reports with timestamps</li>
+                                <li>Report types and sizes</li>
+                                <li>Download links for past reports</li>
+                                <li>Report status and approval history</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add modal to DOM if not already there
+        if (!document.getElementById('reportHistoryModal')) {
+            document.body.insertAdjacentHTML('beforeend', historyModal);
+        }
+        
+        // Show modal
+        const modal = new bootstrap.Modal(document.getElementById('reportHistoryModal'));
+        modal.show();
     }
 }
 
@@ -740,6 +1590,11 @@ const reportGeneratorCSS = `
     .form-select:focus, .form-control:focus {
         border-color: #0d6efd;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    
+    /* Modal styles */
+    .modal-xl {
+        max-width: 1200px;
     }
 </style>
 `;

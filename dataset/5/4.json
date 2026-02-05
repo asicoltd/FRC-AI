@@ -1,0 +1,459 @@
+{
+  "section_id": "4",
+  "frc_analysis_report": {
+    "entity": {
+      "financial_statements_raw_data": {
+        "statement_of_financial_position": [
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Property, Plant and Equipment",
+                "amount": "8160338",
+                "note": "Anx-2",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Investment in Shares",
+                "amount": "526750",
+                "note": "06",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Advance, Deposit & Prepayments",
+                "amount": "34645272",
+                "note": "09",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Stock of Fabrics & Accessories",
+                "amount": "388179875",
+                "note": "07",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Stock of Work in process",
+                "amount": "49895850",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Bills Receivable",
+                "amount": "92404625",
+                "note": "10",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inter Company Account",
+                "amount": "352777638",
+                "note": "14",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents",
+                "amount": "102846451",
+                "note": "08",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Assets",
+                "amount": "1029436800",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2022",
+            "line_items": [
+              {
+                "item": "Property, Plant and Equipment",
+                "amount": "8961316",
+                "note": "Anx-2",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Investment in Shares",
+                "amount": "526750",
+                "note": "06",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Advance, Deposit & Prepayments",
+                "amount": "40528644",
+                "note": "09",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Stock of Fabrics & Accessories",
+                "amount": "490668958",
+                "note": "07",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Stock of Work in process",
+                "amount": "60010450",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Bills Receivable",
+                "amount": "167442112",
+                "note": "10",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inter Company Account",
+                "amount": "270123638",
+                "note": "14",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash and Cash Equivalents",
+                "amount": "38916672",
+                "note": "08",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Assets",
+                "amount": "1077178540",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_profit_or_loss_and_other_comprehensive_income": [
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Export Sales",
+                "amount": "1840165807",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cost of Goods Sold",
+                "amount": "1655944850",
+                "note": "Anx-1",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Gross Profit",
+                "amount": "184220957",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Operating Expenses",
+                "amount": "84377867",
+                "note": "15",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit from Operation",
+                "amount": "99843090",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Finance Cost",
+                "amount": "40429392",
+                "note": "16",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Interest Income",
+                "amount": "58219",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Export Incentive",
+                "amount": "10311000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit before tax",
+                "amount": "69782917",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Provision for Income Tax",
+                "amount": "20032324",
+                "note": "19",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net profit",
+                "amount": "49750593",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2022",
+            "line_items": [
+              {
+                "item": "Export Sales",
+                "amount": "1328584168",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cost of Goods Sold",
+                "amount": "1176543982",
+                "note": "Anx-1",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Gross Profit",
+                "amount": "152040186",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Operating Expenses",
+                "amount": "79609558",
+                "note": "15",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit from Operation",
+                "amount": "72430629",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Finance Cost",
+                "amount": "21335684",
+                "note": "16",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Interest Income",
+                "amount": "152327",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Export Incentive",
+                "amount": "5472000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Profit before tax",
+                "amount": "56719272",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Provision for Income Tax",
+                "amount": "6728023",
+                "note": "19",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net profit",
+                "amount": "49991249",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_cash_flows": [
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Cash Receipts from Sales",
+                "amount": "1925572513",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Paid to Suppliers",
+                "amount": "1706147903",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Paid for Operating Expenses",
+                "amount": "1514770859",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Provided by Operating activities",
+                "amount": "219424610",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Acquisition of Fixed Assets",
+                "amount": "108000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "93447154",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Provided by Financing Activities",
+                "amount": "62047677",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase in Cash",
+                "amount": "63929779",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Closing Cash & Bank balance",
+                "amount": "102846451",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2022",
+            "line_items": [
+              {
+                "item": "Cash Receipts from Sales",
+                "amount": "1234973609",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Receipts from Others",
+                "amount": "152327",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Paid to Suppliers",
+                "amount": "1187145944",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Cash Paid for Operating Expenses",
+                "amount": "1161589470",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Provided by Operating activities",
+                "amount": "519001958",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Inter Company",
+                "amount": "93339154",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Used in Investing Activities",
+                "amount": "204120",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Bank Loan",
+                "amount": "295554731",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Loan from Director",
+                "amount": "10000000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Cash Provided by Financing Activities",
+                "amount": "239207951",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Net Increase in Cash",
+                "amount": "23363311",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Closing Cash & Bank balance",
+                "amount": "38916672",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ],
+        "statement_of_changes_in_equity": [
+          {
+            "year": "2023",
+            "line_items": [
+              {
+                "item": "Share Capital",
+                "amount": "500000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained Earnings/(Loss)",
+                "amount": "428213126",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Equity",
+                "amount": "428713126",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          },
+          {
+            "year": "2022",
+            "line_items": [
+              {
+                "item": "Share Capital",
+                "amount": "500000",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Retained Earnings/(Loss)",
+                "amount": "378462533",
+                "note": "",
+                "errors_or_discrepancies": ""
+              },
+              {
+                "item": "Total Equity",
+                "amount": "378962533",
+                "note": "",
+                "errors_or_discrepancies": ""
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

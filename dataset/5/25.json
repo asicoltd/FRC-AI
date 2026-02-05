@@ -1,0 +1,52 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "25",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "holistic_risk_factor_synthesis": {
+          "financial_risks_from_analysis": {
+            "from_ratio_trends": ["Decreasing profit margins", "High short-term debt"],
+            "from_accruals_analysis": ["Conservative accounting - low risk"],
+            "from_cash_flow_patterns": ["Strong operating cash flows - low risk"],
+            "from_earnings_quality": ["Good earnings quality - low risk"],
+            "consolidated_financial_risk_level": "Low to Medium"
+          },
+          "operational_risks": {
+            "from_segment_analysis": ["Single industry concentration"],
+            "from_related_party_transactions": ["High dependency risk"],
+            "from_post_reporting_events": ["None identified"],
+            "from_going_concern_assessment": ["Low risk"],
+            "consolidated_operational_risk_level": "Medium"
+          },
+          "compliance_risks": {
+            "from_ifrs_departures": ["High - outdated standards"],
+            "from_regulatory_breaches": ["Medium - disclosure deficiencies"],
+            "from_governance_weaknesses": ["High - limited disclosures"],
+            "from_audit_qualifications": ["Low - unmodified opinion"],
+            "consolidated_compliance_risk_level": "Medium to High"
+          },
+          "key_audit_matters_synthesis": {
+            "kams_identified_by_auditor": ["None - private company"],
+            "frca_assessment_of_kams": ["N/A"],
+            "additional_risks_identified": ["Revenue recognition standard", "Related party disclosures", "Impairment testing"],
+            "risk_mitigation_assessment": "Inadequate"
+          },
+          "overall_integrated_risk_assessment": {
+            "highest_risk_areas": ["Accounting standard compliance", "Related party transparency"],
+            "medium_risk_areas": ["Financial disclosure completeness", "Governance"],
+            "low_risk_areas": ["Going concern", "Profitability", "Cash flows"],
+            "risk_interconnections": ["Compliance risks may affect financing and operations"],
+            "frca_priority_actions": [
+              "Adopt current IFRS standards",
+              "Enhance related party disclosures",
+              "Implement impairment testing",
+              "Improve governance disclosures"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

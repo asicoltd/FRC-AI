@@ -1,0 +1,61 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "26",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_5_synthesis_and_findings": {
+        "frca_executive_summary": {
+          "overall_fairness_assessment": {
+            "true_and_fair_view_conclusion": "Partially true and fair",
+            "compliance_level_assessment": "Partially compliant",
+            "reliability_rating": "62%",
+            "basis_for_conclusion": "Outdated accounting standards and inadequate disclosures affect reliability"
+          },
+          "critical_issues_summary": [
+            "Use of IAS 18 instead of IFRS 15",
+            "Inadequate related party disclosures",
+            "No impairment testing",
+            "Limited governance disclosures"
+          ],
+          "key_strengths_identified": [
+            "Profitable operations",
+            "Strong cash flow generation",
+            "Good tax compliance",
+            "Improving efficiency ratios"
+          ],
+          "material_weaknesses_identified": [
+            "Accounting standard compliance",
+            "Financial disclosure completeness",
+            "Governance transparency",
+            "Related party transaction oversight"
+          ],
+          "frca_final_recommendations": {
+            "immediate_actions_required": [
+              "Disclose material departures from IFRS",
+              "Provide comprehensive related party disclosures",
+              "Conduct impairment testing"
+            ],
+            "medium_term_improvements": [
+              "Adopt IFRS 15 for revenue recognition",
+              "Enhance governance disclosures",
+              "Implement comprehensive internal controls framework"
+            ],
+            "long_term_enhancements": [
+              "Full IFRS compliance",
+              "Enhanced risk management framework",
+              "Improved board oversight mechanisms"
+            ],
+            "regulatory_reporting_requirements": [
+              "Report material departures to FRC",
+              "Submit corrective action plan",
+              "Provide progress updates"
+            ],
+            "follow_up_monitoring_needed": true,
+            "monitoring_period": "12 months"
+          }
+        }
+      }
+    }
+  }
+}

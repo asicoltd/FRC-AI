@@ -1,0 +1,72 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "19",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_2_financial_analysis": {
+        "enhanced_ratio_analysis": {
+          "liquidity_ratios": {
+            "current_ratio": {
+              "2023": "1.70",
+              "2022": "1.53",
+              "analysis": "Adequate short-term liquidity"
+            },
+            "quick_ratio_acid_test": {
+              "2023": "0.89",
+              "2022": "0.69",
+              "analysis": "Improving but still moderate quick liquidity"
+            }
+          },
+          "efficiency_ratios": {
+            "days_of_inventory": {
+              "2023": "85 days",
+              "2022": "152 days",
+              "analysis": "Improved inventory management"
+            },
+            "days_sales_outstanding": {
+              "2023": "18 days",
+              "2022": "46 days",
+              "analysis": "Significantly improved collections"
+            },
+            "asset_turnover": {
+              "2023": "1.79",
+              "2022": "1.23",
+              "analysis": "Improved asset utilization"
+            }
+          },
+          "solvency_coverage_ratios": {
+            "debt_to_equity": {
+              "2023": "1.40",
+              "2022": "1.84",
+              "analysis": "Moderate leverage, improving"
+            },
+            "interest_coverage_ratio": {
+              "2023": "2.47",
+              "2022": "3.40",
+              "analysis": "Adequate interest coverage"
+            }
+          },
+          "profitability_ratios": {
+            "return_on_assets_roa": {
+              "2023": "4.8%",
+              "2022": "4.6%",
+              "analysis": "Stable asset returns"
+            },
+            "return_on_equity_roe": {
+              "2023": "11.6%",
+              "2022": "13.2%",
+              "analysis": "Adequate equity returns"
+            },
+            "net_profit_margin": {
+              "2023": "2.7%",
+              "2022": "3.8%",
+              "analysis": "Decreasing margins"
+            }
+          },
+          "overall_ratio_assessment_summary": "Stable financial position with improving efficiency but decreasing profitability margins"
+        }
+      }
+    }
+  }
+}

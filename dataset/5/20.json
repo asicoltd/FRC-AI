@@ -1,0 +1,55 @@
+{
+  "pdf_token": "FRC-PDF-1",
+  "report_id": "FRC-RPT-1",
+  "section_id": "20",
+  "frc_analysis_report": {
+    "entity": {
+      "phase_3_ifrs_compliance_detailed": {
+        "standard_by_standard_verification": {
+          "ias_8_compliance_check": {
+            "accounting_policy_hierarchy": {
+              "hierarchy_applied": "IAS/IFRS as adopted by ICAB",
+              "departures_from_ifrs": ["Use of IAS 18 instead of IFRS 15"],
+              "justification_for_departures": "Not provided",
+              "compliance_assessment": "Partially compliant"
+            },
+            "policy_changes_analysis": {
+              "changes_made": ["None"],
+              "retrospective_application": "N/A",
+              "impact_quantified": "N/A",
+              "disclosure_adequacy": "Adequate"
+            }
+          },
+          "ias_24_scrutiny": {
+            "related_party_identification": {
+              "parties_identified": ["Intercompany entities", "Shareholders"],
+              "control_relationships": "Not fully disclosed",
+              "potential_omissions": ["Key management personnel compensation details"],
+              "completeness_assessment": "Incomplete"
+            },
+            "transaction_analysis": {
+              "arm_length_assessment": "Not assessed",
+              "material_transactions": ["Intercompany balances Tk 645.9 million"],
+              "unusual_terms": "Not disclosed",
+              "risk_assessment": "Medium"
+            },
+            "disclosure_completeness": {
+              "nature_disclosed": "Limited",
+              "amounts_disclosed": "Yes",
+              "balances_outstanding": "Yes",
+              "terms_conditions": "No",
+              "adequacy_assessment": "Inadequate"
+            }
+          },
+          "ias_10_events_check": {
+            "adjusting_events_identified": ["None disclosed"],
+            "non_adjusting_events_disclosed": ["None disclosed"],
+            "going_concern_updates": "Not applicable",
+            "authorization_date_verification": "January 3, 2024",
+            "compliance_assessment": "Non-compliant - no events disclosed"
+          }
+        }
+      }
+    }
+  }
+}

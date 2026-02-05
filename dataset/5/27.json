@@ -1,0 +1,105 @@
+{
+  "section_id": "5",
+  "financial_notes_raw_data": {
+    "notes": [
+      {
+        "note_number": "1",
+        "note_title": "Structure of The Company",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "Envoy Design Limited was incorporated on November 03, 2004 as a 'Private' company limited by Shares registered under the companies Act, 1994."
+            },
+            {
+              "paragraph": "Corporate head office of the company is located at Envoy Tower, 18/E Lake Circus, Kalabagan, West Panthapath, Dhaka-1205."
+            }
+          ],
+          "tables": [],
+          "subsections": [],
+          "numeric_data": []
+        },
+        "related_statements": ["All statements"],
+        "page_reference": "10"
+      },
+      {
+        "note_number": "3",
+        "note_title": "Basis of Preparation and Presentation of Financial statements",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "The elements of financial statements have been measured on 'Historical Cost' convention in a going concern concept and on accrual basis in accordance with Generally Accepted Accounting Principle (GAAP) and practice in a Bangladesh in compliance with companies Act 1994 and International Accounting Standards (IAS) as adopted by the Institute of Chartered Accountants of Bangladesh (ICAB), as Bangladesh Accounting Standard."
+            }
+          ],
+          "tables": [],
+          "subsections": [],
+          "numeric_data": []
+        },
+        "related_statements": ["All statements"],
+        "page_reference": "10"
+      },
+      {
+        "note_number": "4",
+        "note_title": "Summary of significant Accounting Policies",
+        "content": {
+          "text_blocks": [
+            {
+              "paragraph": "Specific accounting policies were selected and applied by the company's management for significant transaction and events that have a material effect within the framework of IAS-1 'Presentation of Financial statement' in preparation and presentation of Financial Statements."
+            },
+            {
+              "paragraph": "Compared to previous year, there were no significant changes in the accounting and valuation principles affecting the financial position and performance of the company."
+            }
+          ],
+          "tables": [
+            {
+              "table_title": "Depreciation Rates",
+              "headers": ["Asset", "Rate"],
+              "rows": [
+                {
+                  "row_label": "Machinery & Equipments",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Electrical Installation",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Electrical Equipment",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Boiler",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Office Equipment",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Furniture & Fixtures",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Fire Fighting Equipments",
+                  "values": ["10%"]
+                },
+                {
+                  "row_label": "Motor Vehicle",
+                  "values": ["20%"]
+                },
+                {
+                  "row_label": "Office Premises- Corporate Office",
+                  "values": ["10%"]
+                }
+              ],
+              "footnotes": ""
+            }
+          ],
+          "subsections": [],
+          "numeric_data": []
+        },
+        "related_statements": ["All statements"],
+        "page_reference": "10-11"
+      }
+    ]
+  }
+}
