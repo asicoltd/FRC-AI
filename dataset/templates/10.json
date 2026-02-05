@@ -8,77 +8,77 @@
         "key_standards_compliance_check": {
           "ifrs_13_fair_value_measurement": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_14_regulatory_deferral_accounts": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_15_revenue_from_contracts_with_customers": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_16_leases": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_17_insurance_contracts": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_2_members_shares_in_cooperative_entities": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_7_applying_the_restatement_approach_under_ias_29": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_10_interim_financial_reporting_and_impairment": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_12_service_concession_arrangements": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_16_hedges_of_net_investment_in_foreign_operation": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifric_17_distributions_of_non_cash_assets_to_owners": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           }
         }

@@ -8,82 +8,82 @@
         "key_standards_compliance_check": {
           "ias_36_impairment_of_assets": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ias_37_provisions_contingent_liabilities_assets": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ias_38_intangible_assets": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ias_40_investment_property": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ias_41_agriculture": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_1_first_time_adoption": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_2_share_based_payment": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_3_business_combinations": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_5_non_current_assets_held_for_sale": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_6_exploration_for_and_evaluation_of_mineral_resources": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_7_financial_instruments_disclosures": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_8_operating_segments": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_9_financial_instruments": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_10_consolidated_financial_statements": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_11_joint_arrangements": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           },
           "ifrs_12_disclosure_of_interests_in_other_entities": {
             "compliance": "compliant/non-compliant/partially compliant/not applicable",
-            "reason_of_the_status": "",
+            "reason_of_the_status": "explain the reason for the compliance status broadly",
             "status_reference": ""
           }
         }
