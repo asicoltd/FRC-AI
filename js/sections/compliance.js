@@ -116,10 +116,10 @@ class Compliance {
                     <div class="text-muted small" id="tableInfo">0 standards shown</div>
                     <div class="btn-group btn-group-sm">
                         <button class="btn btn-outline-secondary" onclick="Compliance.prevPage()">
-                            <i class="fas fa-chevron-left"></i>
+                            <i class="fas fa-chevron-left">Previous Page</i>
                         </button>
                         <button class="btn btn-outline-secondary" onclick="Compliance.nextPage()">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-chevron-right">Next Page</i>
                         </button>
                     </div>
                 </div>
