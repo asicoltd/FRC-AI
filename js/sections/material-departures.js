@@ -627,8 +627,8 @@ style.textContent = `
     }
     
     .table thead th {
-        border-bottom: 2px solid #dee2e6;
-        background-color: #f8f9fa;
+        // border-bottom: 2px solid #dee2e6;
+        // background-color: #f8f9fa;
         position: sticky;
         top: 0;
         z-index: 10;

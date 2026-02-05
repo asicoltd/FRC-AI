@@ -306,7 +306,6 @@ class EntityProfile {
         if (materialityData) {
             
             const materiality = materialityData.frc_analysis_report?.entity?.materiality_framework;
-            alert(materiality);
             console.log('Extracted materiality framework:', materiality);
 
             if (materiality) {
