@@ -8,81 +8,68 @@
         "key_standards_compliance_check": {
           "ifric_19_extinguishing_financial_liabilities_with_equity_instruments": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No extinguishment of financial liabilities with equity instruments.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No debt extinguishment with equity",
+            "status_reference": "None"
           },
           "ifric_20_stripping_costs_in_production_phase_of_surface_mine": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not in mining industry.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "Not in mining industry",
+            "status_reference": "None"
           },
           "ifric_21_levies": {
-            "compliance": "compliant",
-            "reason_of_the_status": "Levies (taxes, duties) recognized as incurred. Compliance with various tax laws disclosed.",
-            "status_reference": "Note 2.01.1, Page 14",
-            "page_no_on_report": "14"
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No specific levy disclosures",
+            "status_reference": "None"
           },
           "ifric_22_foreign_currency_transactions_and_advance_consideration": {
-            "compliance": "compliant",
-            "reason_of_the_status": "Foreign currency transactions translated at spot rate. No significant advance consideration issues.",
-            "status_reference": "Note 2.21, Page 20",
-            "page_no_on_report": "20"
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No specific disclosures",
+            "status_reference": "None"
           },
           "ifric_23_uncertainty_over_income_tax_treatments": {
-            "compliance": "compliant",
-            "reason_of_the_status": "Tax treatments based on enacted laws; no significant uncertainties disclosed.",
-            "status_reference": "Note 2.22, 29.00, Pages 20, 32",
-            "page_no_on_report": "20, 32"
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No uncertainty over tax treatments disclosed",
+            "status_reference": "None"
           },
           "ifric_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No changes in tax status of entity or shareholders.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "None"
           },
           "sic_7_introduction_of_euro": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not applicable in Bangladesh.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "Not in euro zone",
+            "status_reference": "None"
           },
           "sic_10_government_assistance_no_specific_relation_to_operating_activities": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No government assistance reported.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No government assistance",
+            "status_reference": "None"
           },
           "sic_15_operating_leases_incentives": {
-            "compliance": "not applicable",
-            "reason_of_the_status": "No operating lease incentives.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No lease incentive disclosures",
+            "status_reference": "None"
           },
           "sic_25_income_taxes_changes_in_the_tax_status_of_entity_or_shareholders": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No changes in tax status.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No changes in tax status",
+            "status_reference": "None"
           },
           "sic_27_evaluating_the_substance_of_transactions_in_the_legal_form_of_lease": {
-            "compliance": "not applicable",
-            "reason_of_the_status": "No lease transactions to evaluate.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "compliance": "not disclosed",
+            "reason_of_the_status": "No lease substance evaluations",
+            "status_reference": "None"
           },
           "sic_29_service_concession_arrangements_disclosures": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No service concession arrangements.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No service concession arrangements",
+            "status_reference": "None"
           },
           "sic_32_intangible_assets_website_costs": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No website costs capitalized as intangible assets.",
-            "status_reference": "",
-            "page_no_on_report": ""
+            "reason_of_the_status": "No website costs capitalized",
+            "status_reference": "None"
           }
         }
       }

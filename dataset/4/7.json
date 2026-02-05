@@ -7,76 +7,48 @@
       "phase_3_ifrs_compliance_detailed": {
         "accounting_policies_review": {
           "significant_policies_disclosed": [
-            "Property, plant and equipment at cost less depreciation (IAS 16)",
-            "Revenue recognition at point of delivery under IFRS 15",
-            "Inventories valued at lower of cost and net realizable value using weighted average method (IAS 2)",
-            "Deferred tax accounted for temporary differences (IAS 12)",
-            "Cash flow statement prepared under direct method (IAS 7)",
-            "Foreign currency transactions converted at spot rate (IAS 21)",
-            "Borrowing costs capitalized for qualifying assets (IAS 23)",
-            "Financial instruments measured at amortized cost (IFRS 9)"
+            "Fixed assets at historical cost less depreciation (IAS 16)",
+            "Revenue recognition on delivery of goods (IAS 18)",
+            "Inventory valuation on weighted average basis",
+            "Foreign currency translation at transaction date rates (IAS 21)",
+            "Depreciation on reducing balance method"
           ],
-          "changes_in_accounting_policies": [
-            "None"
-          ],
-          "ias_8_hierarchy_compliance": "Compliant as per note 2.01 and 2.03; financial statements prepared in accordance with IFRSs and IAS 8 hierarchy. Changes in accounting policies disclosed as per note 2.06."
+          "changes_in_accounting_policies": ["None"],
+          "ias_8_hierarchy_compliance": "Compliant - No changes in accounting policies disclosed"
         },
         "management_judgment_and_estimation_uncertainty": {
           "critical_judgments": [
             {
-              "area": "Revenue recognition timing",
-              "management_assumption": "Revenue recognized at point of delivery from factory when control transfers to customer.",
-              "alternative_view": "Revenue could be recognized earlier (e.g., upon shipment) or later (e.g., upon customer acceptance).",
-              "frc_skeptical_assessment": "Judgment appears reasonable given sales are on 100% confirmed L/C and delivery basis, as disclosed in note 2.11 and 5.00.",
-              "impact_if_changed": "Could shift revenue between accounting periods, affecting profit, receivables, and tax liabilities."
+              "area": "Inventory valuation",
+              "management_assumption": "Lower of cost and net realizable value",
+              "alternative_view": "Different valuation methods",
+              "frc_skeptical_assessment": "Reasonable given industry practice",
+              "impact_if_changed": "Material impact on current assets"
             },
             {
-              "area": "Impairment assessment of non-current assets",
-              "management_assumption": "No indication of impairment exists; assets reviewed for impairment under IAS 36.",
-              "alternative_view": "Potential impairment due to economic factors, technological obsolescence, or underutilization.",
-              "frc_skeptical_assessment": "Given capacity utilization of 70.24% (note 2.18.1) and going concern basis, management's judgment appears appropriate.",
-              "impact_if_changed": "Could lead to impairment losses reducing carrying value of PPE and profit."
-            },
-            {
-              "area": "Provision for doubtful debts",
-              "management_assumption": "All accounts receivable considered good and fully secured by confirmed L/C; no provision required.",
-              "alternative_view": "Some receivables could be aged or uncollectible despite L/C security.",
-              "frc_skeptical_assessment": "Given 100% L/C security and aging analysis (note 5.00), judgment is reasonable but relies on bank creditworthiness.",
-              "impact_if_changed": "Provision would reduce receivables and profit."
+              "area": "Useful lives of fixed assets",
+              "management_assumption": "10-20% depreciation rates",
+              "alternative_view": "Longer useful lives",
+              "frc_skeptical_assessment": "Consistent with industry norms",
+              "impact_if_changed": "Impact on depreciation expense"
             }
           ],
           "key_estimation_uncertainties": [
             {
-              "estimate": "Useful lives and residual values of Property, Plant and Equipment",
+              "estimate": "Provision for income tax",
               "sensitivity_range": "Not disclosed",
               "disclosure_adequacy": "Adequate",
-              "risk_level": 4,
-              "reason_of_the_status": "Depreciation rates are disclosed (note 2.08), but sensitivity of changes in useful lives or residual values is not quantified. Management uses historical experience and market practice.",
-              "status_reference": "Note 2.08, Page 16; Key Audit Matter for PPE (Page 3-4)"
+              "risk_level": "3",
+              "reason_of_the_status": "Detailed tax note with TDS breakdown",
+              "status_reference": "Note 19"
             },
             {
-              "estimate": "Deferred tax liability (dependent on future profitability forecasts)",
+              "estimate": "Allowance for doubtful debts",
               "sensitivity_range": "Not disclosed",
-              "disclosure_adequacy": "Adequate",
-              "risk_level": 6,
-              "reason_of_the_status": "Significant judgment involved in forecasting future taxable income over multiple years. Deferred tax calculation disclosed but sensitivity not provided.",
-              "status_reference": "Note 15.00, Page 26; Key Audit Matter (Page 6)"
-            },
-            {
-              "estimate": "Inventory valuation (lower of cost and net realizable value)",
-              "sensitivity_range": "Not disclosed",
-              "disclosure_adequacy": "Good",
-              "risk_level": 5,
-              "reason_of_the_status": "Weighted average method used; NRV assessed but sensitivity to price changes not disclosed. Physical count and valuation procedures documented.",
-              "status_reference": "Note 2.14, 8.00, Pages 19, 24; Key Audit Matter (Page 5)"
-            },
-            {
-              "estimate": "Provision for Workers Profit Participation Fund (WPPF)",
-              "sensitivity_range": "Not disclosed",
-              "disclosure_adequacy": "Adequate",
-              "risk_level": 3,
-              "reason_of_the_status": "Provision calculated at 5% of net profit before tax as per labor law; estimation uncertainty relates to profit volatility.",
-              "status_reference": "Note 2.16, 19.00, Pages 19, 27"
+              "disclosure_adequacy": "Poor",
+              "risk_level": "5",
+              "reason_of_the_status": "No allowance disclosed for bills receivable",
+              "status_reference": "Note 10"
             }
           ]
         }
