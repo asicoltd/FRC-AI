@@ -7,79 +7,94 @@
       "phase_3_ifrs_compliance_detailed": {
         "key_standards_compliance_check": {
           "ifrs_13_fair_value_measurement": {
-            "compliance": "not disclosed",
-            "reason_of_the_status": "No fair value measurements disclosed",
-            "status_reference": "None"
+            "compliance": "compliant",
+            "reason_of_the_status": "Land revalued by independent valuer (M/S Ata Khan & Co.). Other PPE at historical cost. No recurring fair value measurements.",
+            "status_reference": "Note 2.09, Page 17",
+            "page_no_on_report": "17"
           },
           "ifrs_14_regulatory_deferral_accounts": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not a rate-regulated entity",
-            "status_reference": "None"
+            "reason_of_the_status": "Not a rate-regulated entity.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifrs_15_revenue_from_contracts_with_customers": {
-            "compliance": "non-compliant",
-            "reason_of_the_status": "Uses IAS 18 instead of IFRS 15",
-            "status_reference": "Note 4(f)"
+            "compliance": "compliant",
+            "reason_of_the_status": "Revenue recognized at point of delivery when control transfers. Five-step model implied. Disclosures on revenue categories and timing provided.",
+            "status_reference": "Note 2.11, 23.00, Pages 17, 28",
+            "page_no_on_report": "17, 28"
           },
           "ifrs_16_leases": {
-            "compliance": "not disclosed",
-            "reason_of_the_status": "No lease disclosures",
-            "status_reference": "None"
+            "compliance": "not applicable",
+            "reason_of_the_status": "No leases reported; company states it has no lease arrangements.",
+            "status_reference": "Note 2.13.1, Page 19",
+            "page_no_on_report": "19"
           },
           "ifrs_17_insurance_contracts": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not an insurance company",
-            "status_reference": "None"
+            "reason_of_the_status": "Not an insurer.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_1_changes_in_existing_decommissioning_restoration_liabilities": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No decommissioning liabilities",
-            "status_reference": "None"
+            "reason_of_the_status": "No decommissioning or restoration liabilities.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_2_members_shares_in_cooperative_entities": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not a cooperative",
-            "status_reference": "None"
+            "reason_of_the_status": "Not a cooperative entity.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_5_rights_to_interests_arising_from_decommissioning_restoration_rehabilitation_funds": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No decommissioning funds",
-            "status_reference": "None"
+            "reason_of_the_status": "No such funds or rights.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_6_liabilities_arising_from_participating_in_specific_markets": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not applicable to RMG industry",
-            "status_reference": "None"
+            "reason_of_the_status": "No liabilities from participating in specific markets.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_7_applying_the_restatement_approach_under_ias_29": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Not in hyperinflationary economy",
-            "status_reference": "None"
+            "reason_of_the_status": "Not operating in a hyperinflationary economy.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_10_interim_financial_reporting_and_impairment": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Annual financial statements only",
-            "status_reference": "None"
+            "reason_of_the_status": "Annual financial statements, not interim.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_12_service_concession_arrangements": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No service concession arrangements",
-            "status_reference": "None"
+            "reason_of_the_status": "No service concession arrangements.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_14_ias_19_limit_on_defined_benefit_asset_minimum_funding_requirements": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No defined benefit plans",
-            "status_reference": "None"
+            "reason_of_the_status": "No defined benefit plans.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_16_hedges_of_net_investment_in_foreign_operation": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No hedging activities",
-            "status_reference": "None"
+            "reason_of_the_status": "No hedges of net investments in foreign operations.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ifric_17_distributions_of_non_cash_assets_to_owners": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No non-cash distributions",
-            "status_reference": "None"
+            "reason_of_the_status": "No distributions of non-cash assets to owners.",
+            "status_reference": "",
+            "page_no_on_report": ""
           }
         }
       }

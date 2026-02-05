@@ -8,93 +8,111 @@
         "key_standards_compliance_check": {
           "ias_1_presentation": {
             "compliance": "compliant",
-            "reason_of_the_status": "Financial statements presented with required statements and notes",
-            "status_reference": "Pages 4-16"
+            "reason_of_the_status": "Complete set of financial statements presented (statement of financial position, profit or loss and other comprehensive income, changes in equity, cash flows, notes). Comparative information provided. Fair presentation stated.",
+            "status_reference": "Note 2.01, 2.27, 2.28, Pages 14, 21-22",
+            "page_no_on_report": "14, 21-22"
           },
           "ias_2_inventories": {
             "compliance": "compliant",
-            "reason_of_the_status": "Inventories valued at lower of cost and NRV, weighted average method",
-            "status_reference": "Note 4(d) and 7"
+            "reason_of_the_status": "Inventories valued at lower of cost and net realizable value using weighted average method. Disclosure of categories (raw materials, WIP, finished goods), costing method, and NRV assessment provided.",
+            "status_reference": "Note 2.14, 8.00, Pages 19, 24",
+            "page_no_on_report": "19, 24"
           },
           "ias_7_statement_of_cash_flows": {
             "compliance": "compliant",
-            "reason_of_the_status": "Cash flow statement presented with operating, investing, financing activities",
-            "status_reference": "Page 7"
+            "reason_of_the_status": "Cash flow statement prepared using direct method as encouraged by IAS 7. Reconciliation of net profit to cash flows from operating activities disclosed (note 37.00).",
+            "status_reference": "Note 2.07, 37.00, Pages 16, 34",
+            "page_no_on_report": "16, 34"
           },
           "ias_8_accounting_policies": {
             "compliance": "compliant",
-            "reason_of_the_status": "No changes in accounting policies disclosed",
-            "status_reference": "Note 4"
+            "reason_of_the_status": "Accounting policies disclosed in note 2. Changes in estimates noted (note 2.06). No changes in accounting policies reported.",
+            "status_reference": "Note 2.00-2.29, Pages 14-22",
+            "page_no_on_report": "14-22"
           },
           "ias_10_events_after_reporting_period": {
-            "compliance": "not disclosed",
-            "reason_of_the_status": "No disclosure of events after reporting period",
-            "status_reference": "None"
+            "compliance": "compliant",
+            "reason_of_the_status": "10% cash dividend recommended by Board after reporting date (27 Oct 2025) disclosed as non-adjusting event.",
+            "status_reference": "Note 2.20, Page 20",
+            "page_no_on_report": "20"
           },
           "ias_12_income_taxes": {
             "compliance": "compliant",
-            "reason_of_the_status": "Comprehensive tax disclosures with provision calculation",
-            "status_reference": "Note 19"
+            "reason_of_the_status": "Current tax provided at higher of regular or minimum tax. Deferred tax calculated on temporary differences between carrying amounts and tax bases. Disclosures on tax rates, reconciliation, and deferred tax movement provided.",
+            "status_reference": "Note 2.22, 15.00, 29.00, 30.00, Pages 20, 26, 32-33",
+            "page_no_on_report": "20, 26, 32-33"
           },
           "ias_16_property_plant_equipment": {
             "compliance": "compliant",
-            "reason_of_the_status": "PPE at cost less depreciation, detailed schedule provided",
-            "status_reference": "Note 4(b)(c) and Annexure-2"
+            "reason_of_the_status": "PPE stated at cost less accumulated depreciation. Depreciation charged using reducing balance method. Revaluation of land disclosed. Disposal gains/losses recognized in P&L.",
+            "status_reference": "Note 2.08, 2.09, 3.00, Pages 16-17, 23",
+            "page_no_on_report": "16-17, 23"
           },
           "ias_19_employee_benefits": {
-            "compliance": "partially compliant",
-            "reason_of_the_status": "Basic disclosures but no defined benefit obligations",
-            "status_reference": "Notes 15, 17"
+            "compliance": "compliant",
+            "reason_of_the_status": "Contributory provident fund, company insurance, and Workers Profit Participation Fund disclosed. No defined benefit plans.",
+            "status_reference": "Note 2.16, Page 19",
+            "page_no_on_report": "19"
           },
           "ias_20_government_grants": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No government grants received",
-            "status_reference": "None"
+            "reason_of_the_status": "No government grants reported in financial statements.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ias_21_effects_of_changes_in_foreign_exchange_rates": {
             "compliance": "compliant",
-            "reason_of_the_status": "Foreign currency transactions at transaction date rates",
-            "status_reference": "Note 4(g)"
+            "reason_of_the_status": "Foreign currency transactions converted at spot rate on transaction date. Gains/losses recognized in profit or loss. Functional currency is Bangladeshi Taka.",
+            "status_reference": "Note 2.21, Page 20",
+            "page_no_on_report": "20"
           },
           "ias_23_borrowing_costs": {
             "compliance": "compliant",
-            "reason_of_the_status": "Borrowing costs expensed as incurred",
-            "status_reference": "Note 4(i) and 16"
+            "reason_of_the_status": "Borrowing costs directly attributable to qualifying assets capitalized. Others expensed. Effective interest method used.",
+            "status_reference": "Note 2.23, Page 21",
+            "page_no_on_report": "21"
           },
           "ias_24_related_party_disclosures": {
-            "compliance": "partially compliant",
-            "reason_of_the_status": "Limited disclosures of related parties",
-            "status_reference": "Notes 13, 14"
+            "compliance": "compliant",
+            "reason_of_the_status": "Transactions with key management personnel (directors) disclosed with amounts and nature (board meeting fees, remuneration).",
+            "status_reference": "Note 38.00, Page 34",
+            "page_no_on_report": "34"
           },
           "ias_27_separate_financial_statements": {
-            "compliance": "compliant",
-            "reason_of_the_status": "Separate financial statements presented",
-            "status_reference": "All statements"
+            "compliance": "not applicable",
+            "reason_of_the_status": "Company presents separate financial statements; no subsidiaries, associates, or joint ventures mentioned.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ias_28_investments_in_associates_and_joint_ventures": {
             "compliance": "not applicable",
-            "reason_of_the_status": "No investments in associates or joint ventures",
-            "status_reference": "None"
+            "reason_of_the_status": "No investments in associates or joint ventures reported.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ias_29_financial_reporting_in_hyperinflationary_economies": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Bangladesh not hyperinflationary economy",
-            "status_reference": "None"
+            "reason_of_the_status": "Bangladesh is not considered a hyperinflationary economy.",
+            "status_reference": "",
+            "page_no_on_report": ""
           },
           "ias_32_financial_instruments_presentation": {
             "compliance": "compliant",
-            "reason_of_the_status": "Basic presentation of financial instruments",
-            "status_reference": "Various notes"
+            "reason_of_the_status": "Financial instruments classified appropriately. Equity and liabilities distinguished. Disclosures on terms and conditions of financial liabilities provided.",
+            "status_reference": "Note 2.13, Pages 18-19",
+            "page_no_on_report": "18-19"
           },
           "ias_33_earnings_per_share": {
-            "compliance": "not applicable",
-            "reason_of_the_status": "Private company, no EPS disclosure required",
-            "status_reference": "None"
+            "compliance": "compliant",
+            "reason_of_the_status": "Basic EPS calculated and disclosed (Tk. 1.03). Weighted average number of shares used. No dilutive potential ordinary shares.",
+            "status_reference": "Note 2.24, 34.00, Pages 21, 33",
+            "page_no_on_report": "21, 33"
           },
           "ias_34_interim_financial_reporting": {
             "compliance": "not applicable",
-            "reason_of_the_status": "Annual financial statements only",
-            "status_reference": "None"
+            "reason_of_the_status": "These are annual financial statements for year ended 30 June 2025.",
+            "status_reference": "",
+            "page_no_on_report": ""
           }
         }
       }
