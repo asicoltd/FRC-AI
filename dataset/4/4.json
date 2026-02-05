@@ -21,7 +21,7 @@
               },
               {
                 "item": "Total Non-current Assets",
-                "amount": "8687088",
+                "amount": "28687088",
                 "note": "",
                 "errors_or_discrepancies": ""
               },
@@ -71,7 +71,7 @@
                 "item": "Total Assets",
                 "amount": "1029436800",
                 "note": "",
-                "errors_or_discrepancies": ""
+                "errors_or_discrepancies": "Total assets should be 1,029,436,800 (Total Non-current Assets + Total Current Assets), but 28,687,088 + 1,020,749,712 = 1,049,436,800"
               },
               {
                 "item": "Share Capital",
@@ -165,7 +165,7 @@
               {
                 "item": "Cost of Goods Sold",
                 "amount": "1655944850",
-                "note": "Anx",
+                "note": "Anx-1",
                 "errors_or_discrepancies": ""
               },
               {
@@ -201,7 +201,7 @@
               {
                 "item": "Interest Income",
                 "amount": "58219",
-                "note": "5",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
@@ -248,7 +248,7 @@
               {
                 "item": "Cost of Goods Sold",
                 "amount": "1176543982",
-                "note": "Anx",
+                "note": "Anx-1",
                 "errors_or_discrepancies": ""
               },
               {
@@ -284,7 +284,7 @@
               {
                 "item": "Interest Income",
                 "amount": "152327",
-                "note": "5",
+                "note": "",
                 "errors_or_discrepancies": ""
               },
               {
