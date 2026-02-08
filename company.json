@@ -6341,6 +6341,69 @@
               "notes_reference": "",
               "custom_additional_info": {}
             }
+          ],
+          "statement_of_changes_in_equity": [
+            {
+              "year": "2023",
+              "component": "Share Capital",
+              "opening_balance": "500000",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "No Transaction",
+                  "amount": "0",
+                  "description": "No addition to share capital during the year"
+                }
+              ],
+              "closing_balance": "500000",
+              "notes_reference": "Page 8"
+            },
+            {
+              "year": "2023",
+              "component": "Retained Earnings/(Loss)",
+              "opening_balance": "378462533",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "Net Profit",
+                  "amount": "49750593",
+                  "description": "Net profit/(Loss) for the year"
+                }
+              ],
+              "closing_balance": "428213126",
+              "notes_reference": "Page 8"
+            },
+            {
+              "year": "2022",
+              "component": "Share Capital",
+              "opening_balance": "500000",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "No Transaction",
+                  "amount": "0",
+                  "description": "No addition to share capital during the year"
+                }
+              ],
+              "closing_balance": "500000",
+              "notes_reference": "Page 8"
+            },
+            {
+              "year": "2022",
+              "component": "Retained Earnings/(Loss)",
+              "opening_balance": "328565369",
+              "transactions_during_year": [
+                {
+                  "transaction_type": "Tax Payment",
+                  "amount": "-94085",
+                  "description": "Income tax Liabilities paid against AY 2020-21"
+                },
+                {
+                  "transaction_type": "Net Profit",
+                  "amount": "49991249",
+                  "description": "Net profit/(Loss) for the year"
+                }
+              ],
+              "closing_balance": "378462533",
+              "notes_reference": "Page 8"
+            }
           ]
         },
         "phase_1_foundational_checks": {

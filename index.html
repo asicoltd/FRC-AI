@@ -986,7 +986,8 @@
             const statementTypes = [
                 'statement_of_financial_position',
                 'statement_of_profit_or_loss_and_oci',
-                'statement_of_cash_flows'
+                'statement_of_cash_flows',
+                'statement_of_changes_in_equity'
             ];
             
             statementTypes.forEach(statementType => {
@@ -1837,6 +1838,51 @@
 
             tbody.innerHTML = html;
         }
+        // Update equity flow table WITH DYNAMIC YEARS
+            function updateEquityFlow() {
+            const tbody = document.getElementById('equityFlowBody');
+            if (!tbody || !currentCompany) return;
+
+            const equityFlow = currentCompany.financial_statements_raw_data?.statement_of_changes_in_equity;
+            if (!equityFlow || equityFlow.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center">No equity flow data available</td></tr>';
+                return;
+            }
+
+            // Update table header with dynamic years
+            const thead = document.querySelector('#equityFlowTable thead');
+            if (thead && currentCompany.yearHeaders) {
+                let headerHTML = '<tr><th>Equity Flow Category</th><th>Note</th>';
+                currentCompany.yearHeaders.forEach(year => {
+                    headerHTML += `<th>${year.label}</th>`;
+                });
+                headerHTML += '</tr>';
+                thead.innerHTML = headerHTML;
+            }
+
+            let html = '';
+            cashFlow.forEach(item => {
+                if (!item) return;
+
+                const noteRef = item.notes_reference;
+                let rowHTML = `
+                    <tr>
+                        <td>${item.line_item || 'Unknown'}</td>
+                        <td>${noteRef ? formatNoteReference(noteRef) : ''}</td>
+                `;
+
+                // Add data for each year
+                currentCompany.yearHeaders.forEach(yearHeader => {
+                    const amount = item[`${yearHeader.key}_amount`] || '0';
+                    rowHTML += `<td class="full-number">${formatCurrency(amount)}</td>`;
+                });
+
+                rowHTML += '</tr>';
+                html += rowHTML;
+            });
+
+            tbody.innerHTML = html;
+        }
 
         // Update ratios display
         function updateRatios() {
@@ -2007,6 +2053,20 @@
                 // Check cash flow
                 if (fsData.statement_of_cash_flows) {
                     fsData.statement_of_cash_flows.forEach(item => {
+                        if (item.notes_reference) {
+                            if (typeof item.notes_reference === 'string') {
+                                noteSet.add(item.notes_reference);
+                            } else if (typeof item.notes_reference === 'object') {
+                                Object.values(item.notes_reference).forEach(note => {
+                                    if (note) noteSet.add(note);
+                                });
+                            }
+                        }
+                    });
+                }
+                // Check equity flow
+                if (fsData.statement_of_changes_in_equity) {
+                    fsData.statement_of_changes_in_equity.forEach(item => {
                         if (item.notes_reference) {
                             if (typeof item.notes_reference === 'string') {
                                 noteSet.add(item.notes_reference);
