@@ -341,7 +341,17 @@
                             target="_blank" rel="noopener">SIBL 2024</a>
                         <a class="btn btn-sm btn-outline-secondary"
                             href="https://drive.google.com/file/d/1KWvqfm7hPX_q23Zj-hF1tOzw4xFzklRe/view?usp=sharing"
-                            target="_blank" rel="noopener">APEX SPINNING & KNITTING MILLS LIMITED Annual Report 2024-2025</a>
+                            target="_blank" rel="noopener">APEX SPINNING & KNITTING MILLS LIMITED Annual Report
+                            2024-2025</a>
+                        <a class="btn btn-sm btn-outline-secondary"
+                            href="https://drive.google.com/file/d/1AFSGXG0NIcJEX6VrVRUx-qb59GSsCqms/view?usp=sharing"
+                            target="_blank" rel="noopener">envoy Design Limited fs 2023</a>
+                        <a class="btn btn-sm btn-outline-secondary"
+                            href="https://drive.google.com/file/d/1z-vCo3G5J0ZDLG9j7fv81iSsRbbxRLfB/view?usp=sharing"
+                            target="_blank" rel="noopener">Envoy Design Ltd Fs 2022</a>
+                        <a class="btn btn-sm btn-outline-secondary"
+                            href="https://drive.google.com/file/d/1SqCXjMb4VJYR4B5fyyva_wlxte8FNGI4/view?usp=sharing"
+                            target="_blank" rel="noopener">Envoy Fashions Limited FS 2023</a>
                     </div>
 
 
@@ -646,7 +656,22 @@
                                                     </table>
                                                 </div>
                                             </div>
-
+                                            <div class="tab-pane fade" id="equity">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover financial-table" id="equityFlowBody">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Equity Category</th>
+                                                                <th>Note</th>
+                                                                <!-- Year columns will be dynamically added here -->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="equityBody">
+                                                            <!-- Data will be populated here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                             <div class="tab-pane fade" id="ratios">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -981,7 +1006,7 @@
         // Add this function to detect available years from data
         function getAvailableYears(companyData) {
             const years = new Set();
-            
+
             // Check all statement types for available years
             const statementTypes = [
                 'statement_of_financial_position',
@@ -989,7 +1014,7 @@
                 'statement_of_cash_flows',
                 'statement_of_changes_in_equity'
             ];
-            
+
             statementTypes.forEach(statementType => {
                 const statements = companyData?.financial_statements_raw_data?.[statementType];
                 if (statements && Array.isArray(statements)) {
@@ -1002,7 +1027,7 @@
                                 'prior_year_2_amount',
                                 'prior_year_3_amount'
                             ];
-                            
+
                             yearFields.forEach(field => {
                                 if (item[field] !== undefined && item[field] !== '' && item[field] !== null) {
                                     // Extract year key from field name
@@ -1014,12 +1039,12 @@
                     });
                 }
             });
-            
+
             // Convert to array and sort by recency
             const yearOrder = ['current_year', 'prior_year_1', 'prior_year_2', 'prior_year_3'];
             const availableYears = Array.from(years)
                 .sort((a, b) => yearOrder.indexOf(a) - yearOrder.indexOf(b));
-            
+
             return availableYears;
         }
 
@@ -1027,7 +1052,7 @@
         function getYearLabel(yearKey, companyInfo) {
             // Get current year
             const currentYear = 2023;
-            
+
             // Default mapping
             const defaultMapping = {
                 'current_year': `${currentYear}`,
@@ -1035,16 +1060,16 @@
                 'prior_year_2': `${currentYear - 2}`,
                 'prior_year_3': `${currentYear - 3}`
             };
-            
+
             // If we have financial year end info, use it
             if (companyInfo && companyInfo.financial_year_end) {
                 const fye = companyInfo.financial_year_end.toLowerCase();
-                
+
                 // Try to extract year from reporting_years if available
                 if (companyInfo.reporting_years && companyInfo.reporting_years[yearKey]) {
                     return companyInfo.reporting_years[yearKey];
                 }
-                
+
                 // Otherwise use financial year end to determine labels
                 if (fye.includes('june')) {
                     // Financial year ending June
@@ -1054,7 +1079,7 @@
                         'prior_year_2': -2,
                         'prior_year_3': -3
                     }[yearKey] || 0;
-                    
+
                     const endYear = currentYear + yearOffset;
                     return `FY ${endYear}`;
                 } else if (fye.includes('december')) {
@@ -1065,11 +1090,11 @@
                         'prior_year_2': -2,
                         'prior_year_3': -3
                     }[yearKey] || 0;
-                    
+
                     return `${currentYear + yearOffset}`;
                 }
             }
-            
+
             return defaultMapping[yearKey] || yearKey.replace('_', ' ').toUpperCase();
         }
 
@@ -1215,6 +1240,14 @@
                                     prior_year_1_amount: "2734299740",
                                     prior_year_2_amount: "1561791655"
                                 }
+                            ],
+                            statement_of_changes_in_equity: [
+                                {
+                                    line_item: "Total Equity",
+                                    current_year_amount: "500000000",
+                                    prior_year_1_amount: "450000000",
+                                    prior_year_2_amount: "400000000"
+                                }
                             ]
                         },
                         phase_5_synthesis_and_findings: {
@@ -1326,7 +1359,7 @@
             }
 
             currentCompany = frcData.companies[companyId];
-            
+
             // Determine available years for this company
             currentCompany.availableYears = getAvailableYears(currentCompany);
             currentCompany.yearHeaders = getYearHeaders(currentCompany.availableYears, currentCompany.company_info);
@@ -1362,7 +1395,7 @@
             if (companyDescription) {
                 const sector = currentCompany.company_info.industry_sector || 'N/A';
                 const fye = currentCompany.company_info.financial_year_end || 'N/A';
-                const years = currentCompany.availableYears.map(year => 
+                const years = currentCompany.availableYears.map(year =>
                     getYearLabel(year, currentCompany.company_info)
                 ).join(', ');
                 companyDescription.textContent = `${sector} - FYE: ${fye} - Years: ${years}`;
@@ -1434,8 +1467,8 @@
                 const ratioAnalysis = currentCompany.phase_2_financial_analysis.ratio_analysis;
                 // Try to get ratio for latest year
                 const currentRatio = ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year?.ratio ||
-                                    ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year_amount?.ratio ||
-                                    'N/A';
+                    ratioAnalysis?.liquidity_ratios?.current_ratio?.calculation?.current_year_amount?.ratio ||
+                    'N/A';
                 currentRatioEl.textContent = currentRatio;
             }
 
@@ -1605,7 +1638,7 @@
             }
 
             let html = '';
-            
+
             currentCompany.yearHeaders.forEach((yearHeader, index) => {
                 const yearKey = yearHeader.key;
                 const yearLabel = yearHeader.label;
@@ -1617,22 +1650,22 @@
                         item.line_item.toLowerCase().includes('interest income')
                     )
                 );
-                
+
                 const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
                     item && item.line_item && (
                         item.line_item.toLowerCase().includes('profit') ||
                         item.line_item.toLowerCase().includes('net income')
                     )
                 );
-                
+
                 const assetItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && item.line_item.toLowerCase().includes('total assets')
                 );
-                
+
                 const liabilityItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
                 );
-                
+
                 const equityItem = fsData.statement_of_financial_position?.find(item =>
                     item && item.line_item && (
                         item.line_item.toLowerCase().includes('equity') ||
@@ -1642,10 +1675,10 @@
 
                 // Calculate ratios
                 const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio || 
-                                   ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
-                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage || 
-                           ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
+                const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio ||
+                    ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
+                const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage ||
+                    ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
 
                 html += `
                     <tr>
@@ -1839,7 +1872,7 @@
             tbody.innerHTML = html;
         }
         // Update equity flow table WITH DYNAMIC YEARS
-            function updateEquityFlow() {
+        function updateEquityFlow() {
             const tbody = document.getElementById('equityFlowBody');
             if (!tbody || !currentCompany) return;
 
@@ -1905,7 +1938,7 @@
                     } else if (currentRatio.calculation?.current_year_amount?.ratio) {
                         currentRatioValue = currentRatio.calculation.current_year_amount.ratio;
                     }
-                    
+
                     liquidityHtml += `
                         <div class="mb-2">
                             <strong>Current Ratio:</strong> ${currentRatioValue}
@@ -2625,22 +2658,22 @@
                                 item.line_item.toLowerCase().includes('interest income')
                             )
                         );
-                        
+
                         const profitItem = fsData.statement_of_profit_or_loss_and_oci?.find(item =>
                             item && item.line_item && (
                                 item.line_item.toLowerCase().includes('profit') ||
                                 item.line_item.toLowerCase().includes('net income')
                             )
                         );
-                        
+
                         const assetItem = fsData.statement_of_financial_position?.find(item =>
                             item && item.line_item && item.line_item.toLowerCase().includes('total assets')
                         );
-                        
+
                         const liabilityItem = fsData.statement_of_financial_position?.find(item =>
                             item && item.line_item && item.line_item.toLowerCase().includes('total liabilities')
                         );
-                        
+
                         const equityItem = fsData.statement_of_financial_position?.find(item =>
                             item && item.line_item && (
                                 item.line_item.toLowerCase().includes('equity') ||
@@ -2650,10 +2683,10 @@
 
                         // Calculate ratios
                         const ratioData = currentCompany.phase_2_financial_analysis?.ratio_analysis;
-                        const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio || 
-                                           ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
-                        const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage || 
-                                   ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
+                        const currentRatio = ratioData?.liquidity_ratios?.current_ratio?.calculation?.[yearKey]?.ratio ||
+                            ratioData?.liquidity_ratios?.current_ratio?.calculation?.[`${yearKey}_amount`]?.ratio || '-';
+                        const roa = ratioData?.profitability_ratios?.return_on_assets?.calculation?.[yearKey]?.percentage ||
+                            ratioData?.profitability_ratios?.return_on_assets?.calculation?.[`${yearKey}_amount`]?.percentage || '-';
 
                         tableData.push([
                             yearLabel,
