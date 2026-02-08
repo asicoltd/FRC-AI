@@ -1025,7 +1025,7 @@
         // Function to get year label from year key
         function getYearLabel(yearKey, companyInfo) {
             // Get current year
-            const currentYear = new Date().getFullYear();
+            const currentYear = 2023;
             
             // Default mapping
             const defaultMapping = {
@@ -1055,7 +1055,7 @@
                     }[yearKey] || 0;
                     
                     const endYear = currentYear + yearOffset;
-                    return `FY ${endYear-1}-${endYear}`;
+                    return `FY ${endYear}`;
                 } else if (fye.includes('december')) {
                     // Calendar year
                     const yearOffset = {
